@@ -45,7 +45,7 @@
 			</a>
 		</MegaMenu>
 		<NavLi href="/services">Services</NavLi>
-		<NavLi href="/services">Products</NavLi>
-		<NavLi href="/services">Contact</NavLi>
+		<NavLi href="/products">Products</NavLi>
+		<NavLi href="/contact">Contact</NavLi>
 	</NavUl>
 </Navbar>
