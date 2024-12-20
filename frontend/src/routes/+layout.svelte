@@ -2,14 +2,22 @@
 	import SiteHeader from '$lib/layout/site-header.svelte';
 	import '../app.css';
 	let { children } = $props();
+	import SiteFooter from '$lib/layout/site-footer.svelte';
 </script>
+
+
+<!-- root layout  -->
 
 <div class="relative flex min-h-screen flex-col items-center">
 	<SiteHeader />
+	
 	<main class="flex-1 sm:container">
 		{@render children()}
 	</main>
+	<SiteFooter />
 </div>
+
+
 
 <svelte:head>
 	<!-- <title></title>
@@ -25,3 +33,10 @@
 	<meta property="og:locale" content="DE_DE" />
 	<link rel="shortcut icon" href="" /> -->
 </svelte:head>
+
+
+<style>
+	div{
+		background-color: lightgrey;
+	}
+</style>

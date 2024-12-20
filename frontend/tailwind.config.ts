@@ -1,21 +1,25 @@
 import typography from '@tailwindcss/typography';
-import flowbite from 'flowbite/plugin';
 import flowbiteTypography from 'flowbite-typography';
 import type { Config } from 'tailwindcss';
 
 export default {
 	content: [
-		'./src/**/*.{html,js,svelte,ts}',
-		'./node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}',
-		'./node_modules/flowbite-svelte-blocks/**/*.{html,js,svelte,ts}'
-	],
+		'./src/**/*.{html,js,svelte,ts}', 
+		'./node_modules/svelte-5-ui-lib/**/*.{html,js,svelte,ts}', 
+		'./node_modules/flowbite-svelte-icons/**/*.{html,js,svelte,ts}',
+		'./node_modules/svelte-animated-icons/**/*.{html,js,svelte,ts}'
+	  ],
 
-	plugins: [flowbite, flowbiteTypography, typography],
+	plugins: [flowbiteTypography, typography],
 
 	darkMode: 'class',
 
 	theme: {
 		extend: {
+
+			
+			
+			//TODO: implement all colors for the page
 			colors: {
 				// flowbite-svelte
 				primary: {
@@ -24,13 +28,88 @@ export default {
 					200: '#FFE4DE',
 					300: '#FFD5CC',
 					400: '#FFBCAD',
-					500: '#FE795D',
-					600: '#EF562F',
-					700: '#EB4F27',
+					500: '#f6a312',
+					600: '#33312E',
+					700: '#F6EDDE',
 					800: '#CC4522',
 					900: '#A5371B'
 				}
-			}
+			},
+
+			//screen sizes
+			screens: {
+				sm: '480px',
+				md: '768px',
+				lg: '976px',
+				xl: '1440px',
+			},
+
+			//spacing in all increments
+
+			spacing: {
+				px: '1px',
+				0: '0',
+				0.5: '0.125rem',
+				1: '0.25rem',
+				1.5: '0.375rem',
+				2: '0.5rem',
+				2.5: '0.625rem',
+				3: '0.75rem',
+				3.5: '0.875rem',
+				4: '1rem',
+				5: '1.25rem',
+				6: '1.5rem',
+				7: '1.75rem',
+				8: '2rem',
+				9: '2.25rem',
+				10: '2.5rem',
+				11: '2.75rem',
+				12: '3rem',
+				14: '3.5rem',
+				16: '4rem',
+				20: '5rem',
+				24: '6rem',
+				28: '7rem',
+				32: '8rem',
+				36: '9rem',
+				40: '10rem',
+				44: '11rem',
+				48: '12rem',
+				52: '13rem',
+				56: '14rem',
+				60: '15rem',
+				64: '16rem',
+				72: '18rem',
+				80: '20rem',
+				96: '24rem',
+			  },
+
+			  // Radius für formen
+			  borderRadius: {
+				'none': '0',
+				'sm': '.125rem',
+				DEFAULT: '.25rem',
+				'lg': '.5rem',
+				'full': '9999px',
+			  },
+
+			  // alle default opacity values ersetzt
+			  opacity: {
+				'0': '0',
+				'20': '0.2',
+				'40': '0.4',
+				'60': '0.6',
+				'80': '0.8',
+				'100': '1',
+			  },
+
+			  //TODO: import font .otf
+			  fontFamily: {
+
+			  }
+
+
+			
 		}
 	}
 } satisfies Config;

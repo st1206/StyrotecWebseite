@@ -1,5 +1,5 @@
 {
-  "name": "cms",
+  "name": "my-try",
   "version": "0.1.0",
   "private": true,
   "description": "A Strapi application",
@@ -34,6 +34,6 @@
     "npm": ">=6.0.0"
   },
   "strapi": {
-    "uuid": "55fa527f-1bfe-4b4d-b553-0f69498f4c53"
+    "uuid": "a6fd7715-e538-4194-9702-90cb4301e504"
   }
 }
