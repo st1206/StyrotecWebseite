@@ -537,6 +537,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
 export interface ApiMaschineMaschine extends Struct.CollectionTypeSchema {
   collectionName: 'maschines';
   info: {
+    description: '';
     displayName: 'Maschine';
     pluralName: 'maschines';
     singularName: 'maschine';
@@ -551,12 +552,7 @@ export interface ApiMaschineMaschine extends Struct.CollectionTypeSchema {
   };
   attributes: {
     Baujahr: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Beschreibung: Schema.Attribute.Text &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -574,7 +570,17 @@ export interface ApiMaschineMaschine extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    fuenfAchsDaten: Schema.Attribute.Component<
+      'tabelle.fuenf-achs-daten',
+      false
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     Hersteller: Schema.Attribute.String &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -586,18 +592,66 @@ export interface ApiMaschineMaschine extends Struct.CollectionTypeSchema {
       'api::maschine.maschine'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    TechnischeDaten: Schema.Attribute.Text &
+    standardDaten: Schema.Attribute.Component<
+      'tabelle.technische-daten',
+      false
+    > &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
     Typ: Schema.Attribute.String &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Zustand: Schema.Attribute.Enumeration<
+      ['gebraucht', '\u00FCberholt', 'neu']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+  };
+}
+
+export interface ApiPicturePicture extends Struct.CollectionTypeSchema {
+  collectionName: 'pictures';
+  info: {
+    description: '';
+    displayName: 'pictures';
+    pluralName: 'pictures';
+    singularName: 'picture';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Bannertext: Schema.Attribute.String;
+    Beschreibung: Schema.Attribute.Text;
+    Bilder: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::picture.picture'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1119,6 +1173,7 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::maschine.maschine': ApiMaschineMaschine;
+      'api::picture.picture': ApiPicturePicture;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

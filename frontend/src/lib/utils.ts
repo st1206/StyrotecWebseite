@@ -1,9 +1,11 @@
-import { DateFormatter } from '@internationalized/date';
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 
-export const dateFormatter = new DateFormatter('de-DE', {
-	dateStyle: 'short'
-});
+export function cn(...inputs: ClassValue[]) {
+	return twMerge(clsx(inputs));
+}
 
-export const longDateFormatter = new DateFormatter('de-DE', {
-	dateStyle: 'long'
-});
+export function dateFormatter(date: Date | string) {
+	// vielleicht später
+	return 'muschi'
+}

@@ -1,0 +1,74 @@
+{
+  "collectionName": "components_tabelle_technische_datens",
+  "info": {
+    "displayName": "Technische Daten",
+    "icon": "apps",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "xAchse": {
+      "type": "string"
+    },
+    "yAchse": {
+      "type": "string"
+    },
+    "zAchse": {
+      "type": "string"
+    },
+    "Steuerung": {
+      "type": "string"
+    },
+    "Aufspannflaeche": {
+      "type": "string"
+    },
+    "Spindelleistung": {
+      "type": "string"
+    },
+    "Spindeldrehzahl": {
+      "type": "string"
+    },
+    "Drehmoment": {
+      "type": "string"
+    },
+    "Werkzeugaufnahme": {
+      "type": "string"
+    },
+    "Werkzeugabspannung": {
+      "type": "string"
+    },
+    "Kuehlmittelzufuhr": {
+      "type": "string"
+    },
+    "Blasluft": {
+      "type": "string"
+    },
+    "VorschubgeschwindigkeitX": {
+      "type": "string"
+    },
+    "VorschubgeschwindigkeitZ": {
+      "type": "string"
+    },
+    "AchsbeschleunigungXYZ": {
+      "type": "string"
+    },
+    "Anschlussleistung": {
+      "type": "string"
+    },
+    "Vorsicherung": {
+      "type": "string"
+    },
+    "Platzbedarf": {
+      "type": "string"
+    },
+    "Gewicht": {
+      "type": "string"
+    },
+    "Zusatzausstattung": {
+      "type": "text"
+    },
+    "Optionen": {
+      "type": "string"
+    }
+  }
+}

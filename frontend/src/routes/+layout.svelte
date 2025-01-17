@@ -3,6 +3,8 @@
 	import '../app.css';
 	let { children } = $props();
 	import SiteFooter from '$lib/layout/site-footer.svelte';
+	import SiteContact from '$lib/layout/site-contact.svelte';
+
 </script>
 
 
@@ -11,9 +13,10 @@
 <div class="relative flex min-h-screen flex-col items-center">
 	<SiteHeader />
 	
-	<main class="flex-1 sm:container">
+	<main class="flex-1 mt-20">
 		{@render children()}
 	</main>
+	<SiteContact />
 	<SiteFooter />
 </div>
 
@@ -37,6 +40,6 @@
 
 <style>
 	div{
-		background-color: lightgrey;
+		background-color: #F6EDDE;
 	}
 </style>

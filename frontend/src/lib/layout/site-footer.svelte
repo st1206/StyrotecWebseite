@@ -1,64 +1,97 @@
 <script lang="ts">
-    import { Footer, FooterBrand, FooterLi, FooterUl, FooterCopyright, FooterIcon } from 'svelte-5-ui-lib';
+    import { Footer, FooterLi, FooterUl, FooterCopyright, FooterIcon } from 'svelte-5-ui-lib';
     import { LinkedinSolid, YoutubeSolid, InstagramSolid } from "flowbite-svelte-icons";
-  </script>
+    import  imgLogo  from '$lib/images/Logo_weiseSchrift_orange.png';
+</script>
   
-  <Footer class="bg-primary-600 size-full" footerType="socialmedia" >
-    <div class="md:flex md:justify-between">
-      <div class="mb-6 md:mb-0">
-        <FooterBrand href="https://flowbite.com" src="" alt="Flowbite Logo" name="Styrotec" />
-      </div>
-      <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-2">
-        <div>
-          <h2 class="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-white">Resources</h2>
-          <FooterUl>
-            <FooterLi liClass="mb-4 text-primary-700" href="/">Flowbite</FooterLi>
-            <FooterLi liClass="mb-4 text-primary-700" href="/">Tailwind CSS</FooterLi>
-          </FooterUl>
-        </div>
-        <div>
-          <h2 class="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-white">Follow us</h2>
-          <FooterUl>
-            <FooterLi liClass="mb-4 text-primary-700" href="/">GitHub</FooterLi>
-            <FooterLi liClass="mb-4 text-primary-700" href="/">Discord</FooterLi>
-          </FooterUl>
-        </div>
-        <div>
-          <h2 class="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-white">Legal</h2>
-          <FooterUl>
-            <FooterLi liClass="mb-4 text-primary-700" href="/">Privacy Policy</FooterLi>
-            <FooterLi liClass="mb-4 text-primary-700" href="/">Terms & Conditions</FooterLi>
-          </FooterUl>
-        </div>
-      </div>
-    </div>
-    <hr class="my-6 border-gray-200 sm:mx-auto lg:my-8 dark:border-gray-700" />
-    <div class="sm:flex sm:items-center sm:justify-between">
-      <FooterCopyright href="/" by="Styrotec GmbH & Co KG" />
-      
-      <!-- Noch links zu social media einfügen-->
 
-      <div class="mt-8 mb-4 flex space-x-10 sm:mt-0 sm:justify-center rtl:space-x-reverse">
-        <FooterIcon href="/">
-          <LinkedinSolid class="h-10 w-10 text-gray-500 hover:text-primary-700 dark:text-gray-500 dark:hover:text-white" />
-        </FooterIcon>
-        <FooterIcon href="/">
-          <YoutubeSolid class="h-10 w-10 text-gray-500 hover:text-primary-700 dark:text-gray-500 dark:hover:text-white" />
-        </FooterIcon>
-        <FooterIcon href="/">
-          <InstagramSolid class="h-10 w-10 text-gray-500 hover:text-primary-700 dark:text-gray-500 dark:hover:text-white" />
-        </FooterIcon>
+
+  <Footer class="bg-primary-foreground size-full" footerType="socialmedia" >
+
+    <div></div>
+    <div class="md:flex md:justify-between move">
+      <div class="mb-6 md:mb-0">
+        <a href="/"><img src={imgLogo} alt="Logo"></a>
+        
+      </div>
+      <div class="kontaktbox">
+        <h2 class ="pl-8 text-lg">Kontakt</h2>
+        <hr class="my-6 bg-primary-foreground border-gray-200 sm:mx-auto lg:my-1 dark:border-gray-700" />
+        <div class ="container">
+          <div class="column-left">
+            Styrotec GmbH + Co KG <br>
+            Kartonstr. 2<br>
+            88255 Baienfurt <br>
+            Deutschland<br>
+
+          </div>
+          <div class="column-right">
+            tel.: +49 751 5605020 <br>
+            fax : +49 751 5605029 
+          </div>
+      </div>
+      </div>
+      
+
+      <div class="sm:flex sm:items-top sm:justify-between">
+        <div>
+          <h2 class="mb-2 text-sm font-semibold uppercase text-primary">Legal</h2>
+          <hr class="my-6 border-gray-200 sm:mx-auto lg:my-1 dark:border-gray-700" />
+          <FooterUl>
+            <FooterLi liClass="mb-2 text-white" href="/rechtliches/datenschutz">Privacy Policy</FooterLi>
+            <FooterLi liClass="mb-2 text-white" href="/rechtliches/impressum">Impressum</FooterLi>
+          </FooterUl>
+        </div>
       </div>
     </div>
+
+
+    <hr class="my-6 border-gray-200 sm:mx-auto lg:my-8 dark:border-gray-700" /> <!-- trennlinie-->
+      <div class="mt-8 mb-4 flex space-x-10 sm:mt-0 sm:justify-center rtl:space-x-reverse">
+        <FooterIcon href="https://www.linkedin.com/company/styrotec-gmbh-co-kg/posts/?feedView=all">
+          <LinkedinSolid class="h-10 w-10  hover:text-background dark:text-gray-500 dark:hover:text-white" />
+        </FooterIcon>
+        <FooterIcon href="https://www.youtube.com/@styrotec">
+          <YoutubeSolid class="h-10 w-10  hover:text-background dark:text-gray-500 dark:hover:text-white" />
+        </FooterIcon>
+        <FooterIcon href="https://www.instagram.com/styrotec.de/?hl=de">
+          <InstagramSolid class="h-10 w-10 hover:text-background dark:text-gray-500 dark:hover:text-white" />
+        </FooterIcon>
+      </div>
+      
+    
+    <FooterCopyright href="/" by="Styrotec GmbH & Co KG" />
   </Footer>
 
 <style>
+    img{
+      width: 200px;
+      
+    }
     div{
         background-color: #33312E;
         color:#F6EDDE;
     }
-    h2{
-        color:#f6a312
+    .kontaktbox{
+      background-color: #33312E;
+      width: 600px;
+      height: 130px;
     }
+    .container{
+      display: flex;
+    }
+    .column-left{
+      width: 50%;
+      text-align: left;
+    }
+    .column-right{
+      width:50%;
+      text-align: right;
+    }
+    div.move{
+      margin-left: 100px;
+      margin-right: 100px;
+    }
+    
     
 </style>

@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pictures",
+  "info": {
+    "singularName": "picture",
+    "pluralName": "pictures",
+    "displayName": "pictures",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Bilder": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Beschreibung": {
+      "type": "text"
+    },
+    "Bannertext": {
+      "type": "string"
+    }
+  }
+}

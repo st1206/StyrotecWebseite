@@ -62,6 +62,60 @@ export interface SharedSlider extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedTabelle extends Struct.ComponentSchema {
+  collectionName: 'components_shared_tabelles';
+  info: {
+    displayName: 'Tabelle';
+  };
+  attributes: {
+    xy: Schema.Attribute.String;
+    xyachse: Schema.Attribute.String;
+  };
+}
+
+export interface TabelleFuenfAchsDaten extends Struct.ComponentSchema {
+  collectionName: 'components_tabelle_fuenf_achs_datens';
+  info: {
+    displayName: 'f\u00FCnfAchsDaten';
+  };
+  attributes: {
+    aAchse: Schema.Attribute.String;
+    cAchse: Schema.Attribute.String;
+  };
+}
+
+export interface TabelleTechnischeDaten extends Struct.ComponentSchema {
+  collectionName: 'components_tabelle_technische_datens';
+  info: {
+    description: '';
+    displayName: 'Technische Daten';
+    icon: 'apps';
+  };
+  attributes: {
+    AchsbeschleunigungXYZ: Schema.Attribute.String;
+    Anschlussleistung: Schema.Attribute.String;
+    Aufspannflaeche: Schema.Attribute.String;
+    Blasluft: Schema.Attribute.String;
+    Drehmoment: Schema.Attribute.String;
+    Gewicht: Schema.Attribute.String;
+    Kuehlmittelzufuhr: Schema.Attribute.String;
+    Optionen: Schema.Attribute.String;
+    Platzbedarf: Schema.Attribute.String;
+    Spindeldrehzahl: Schema.Attribute.String;
+    Spindelleistung: Schema.Attribute.String;
+    Steuerung: Schema.Attribute.String;
+    VorschubgeschwindigkeitX: Schema.Attribute.String;
+    VorschubgeschwindigkeitZ: Schema.Attribute.String;
+    Vorsicherung: Schema.Attribute.String;
+    Werkzeugabspannung: Schema.Attribute.String;
+    Werkzeugaufnahme: Schema.Attribute.String;
+    xAchse: Schema.Attribute.String;
+    yAchse: Schema.Attribute.String;
+    zAchse: Schema.Attribute.String;
+    Zusatzausstattung: Schema.Attribute.Text;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -70,6 +124,9 @@ declare module '@strapi/strapi' {
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
+      'shared.tabelle': SharedTabelle;
+      'tabelle.fuenf-achs-daten': TabelleFuenfAchsDaten;
+      'tabelle.technische-daten': TabelleTechnischeDaten;
     }
   }
 }

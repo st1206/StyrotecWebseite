@@ -1,226 +1,181 @@
-<div class="navbar h-16 w-full">
-	<!-- TODO: Logo einfügen !-->
-	<div class="dropdown">
-		
-		
-		<button  class="dropbtn"> Produkte<i class="fa fa-caret-down"></i> <!-- on:click={} function für knopf zum öffnen des Menüs anstatt hover-->
+<script lang="ts">
+	import { Search, Button } from 'svelte-5-ui-lib';
+	import { onMount } from 'svelte';
+	import { SearchOutline } from 'flowbite-svelte-icons';
+	import { linear, sineIn } from 'svelte/easing';
+	import { uiHelpers } from 'svelte-5-ui-lib';
+	import { menu, type MenuRoute } from '$lib/config/routes';
+	import imgLogo from '$lib/images/Logo_weiseSchrift_orange.png';
+	import { Dropdown, DropdownUl, DropdownLi } from 'svelte-5-ui-lib';
+	import { page } from '$app/stores';
+	import { SvelteMap } from 'svelte/reactivity';
+
+	let activeUrl = $state($page.url.pathname);
+	$effect(() => {
+		activeUrl = $page.url.pathname;
+	});
+	let dropdownA = uiHelpers();
+	let dropdownAStatus = $state(false);
+	let closeDropdownA = dropdownA.close;
+	$effect(() => {
+		dropdownAStatus = dropdownA.isOpen;
+	});
+
+	
+	let isOpenMap = $state(new SvelteMap());
+
+	onMount(() => {
+		menu.forEach((item: MenuRoute) => {
+			isOpenMap.set(item.id, false);
+		});
+	});
+</script>
+
+<nav class="z-50 fixed w-full sm:mx-auto">
+	<a class="ml-3 mr-8" href="/"><img src={imgLogo} alt="Logo" /></a>
+	<form class="flex gap-0.5">
+		<Search />
+		<button class="bg-primary p-2.5">
+			<SearchOutline class="h-5 w-5" />
 		</button>
-		<div class="dropdown-content">
-			
-			<!-- <div> class="header" falls doch was -->
-			
-			<div class="row">
-			  <div class="column">
-				<h3>Portalfräsmaschinen</h3>
-				<a href="/">FS 10</a>
-				<a href="/">FS 15</a>
-				<a href="/">FS 20</a>
-				<a href="/">Hybrid - 3D</a>
-				<a href="/">Vorratsmaschinen</a>
-			</div>
-			  <div class="column">
-				<h3>Spänepressen</h3>
-				<a href="/">Metalle</a>
-				<a href="/">Kunststoffe</a>
-				<a href="/">Styropor</a>
-			  </div>
-			  <div class="column">
-				<h3>Styroporbearbeitung</h3>
-				<a href="/">Fräswerkzeuge</a>
-				<a href="/">Hohlfrässpindeln</a>
-				<a href="/">Zerkleinerer</a>
-				<a href="/">Pressen</a>
-				<a href="/">Absaugungen</a>
-				<a href="/">Rohmaterial</a>
-				<a href="/">Kleber</a>
-			  </div>
-			  <div class="column">
-				<h3>Gebrauchtmaschinen</h3>
-				<a href="/">CNC-Maschinen</a>
-				<a href="/">CNC-Zubehör</a>
-				<a href="/">Modellbaumaschinen</a>
-				<a href="/">Holzbearbeitungsmaschinen</a>
-			  </div>
-			</div>
-		  </div>
-	</div>
+	</form>
+	<div class="move"></div>
 
-	<div class="dropdown">
-	  <button class="dropbtn">Dienstleistungen
-		<i class="fa fa-caret-down"></i>
-	  </button>
-	  <div class="dropdown-content">
-		
-		<!-- <div> class="header" falls doch was -->
-
-		<div class="row">
-		  <div class="column">
-			<h3>Maschinenerhaltung</h3>
-			<a href="/">Spindelservice</a>
-			<a href="/">Wartungen</a>
-			<a href="/">Reparaturen</a>
-			<a href="/">Maschinenumzüge</a>
-		  </div>
-		  <div class="column">
-			<h3>Maschinenvermarktung</h3>
-			<a href="/">Bewertung</a>
-			<a href="/">Vermittlung</a>
-			<a href="/">Ankauf</a>
-		  </div>
-		  <div class="column">
-			<h3>Maschinenmodernisierung</h3>
-			<a href="/">Retrofit</a>
-			<a href="/">Überholung</a>
-		  </div>
-		</div>
-	  </div>
-	</div>
-
-
-	<div class="dropdown">
-		<button class="dropbtn">Branchen
-		  <i class="fa fa-caret-down"></i>
+	{#each menu as item}
+		<button class="px-3" onclick={() => (isOpenMap.forEach((value,key)=> {isOpenMap.set( key,false)}), isOpenMap.set(item.id,true ) )}>
+			{item.label}
 		</button>
-		<div class="dropdown-content">
-		  
-		  <!-- <div> class="header" falls doch was -->
-  
-		  <div class="row">
-			<div class="column">
-			  <h3>Maschinenerhaltung</h3>
-			  <a href="/">Spindelservice</a>
-			  <a href="/">Wartungen</a>
-			  <a href="/">Reparaturen</a>
-			  <a href="/">Maschinenumzüge</a>
-			</div>
-			<div class="column">
-			  <h3>Maschinenvermarktung</h3>
-			  <a href="/">Bewertung</a>
-			  <a href="/">Vermittlung</a>
-			  <a href="/">Ankauf</a>
-			</div>
-			<div class="column">
-			  <h3>Maschinenmodernisierung</h3>
-			  <a href="/">Retrofit</a>
-			  <a href="/">Überholung</a>
-			</div>
-		  </div>
+
+		<div class="menu-item mt-2">
+			{#if isOpenMap.get(item.id)}
+				{#if item.megaMenu}
+					<div class="mega-menu">
+						<button class="fixed right-3 px-2" onclick={() => (isOpenMap.set(item.id, false))}>
+							X
+						</button>
+						{#each item.megaMenu as column}
+							<div class="mega-menu-column">
+								<h4>{column.title}</h4>
+								<ul>
+									{#each column.items as subitem}
+										<li><a onclick={() => (isOpenMap.forEach((value,key)=> {isOpenMap.set( key,false)}))} href={subitem.link}>{subitem.label}</a></li>
+									{/each}
+								</ul>
+							</div>
+						{/each}
+					</div>
+				{/if}
+			{/if}
 		</div>
-	  </div>
-  </div>
+	{/each}
 
-
+	<div>
+		<button class="text-primary-600 h-10 w-32" onclick={dropdownA.toggle}>Einstellungen </button>
+		<div class="relative">
+			<Dropdown
+				{activeUrl}
+				dropdownStatus={dropdownAStatus}
+				closeDropdown={closeDropdownA}
+				class="absolute -left-[150px] top-[40px]"
+			>
+				<DropdownUl>
+					<DropdownLi href="/">Englisch</DropdownLi>
+					<DropdownLi href="/components/dropdown">Deutsch</DropdownLi>
+				</DropdownUl>
+			</Dropdown>
+		</div>
+	</div>
+</nav>
 
 <style>
-	/* Navbar container */
-	.navbar {
-	overflow: hidden;
-	background-color: #33312e;
-	font-family: Arial;
+	img {
+		width: 100px;
 	}
 
-	/* Links inside the navbar */
-	.navbar a {
-	float: left;
-	font-size: 16px;
-	color: #f6edde;
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
+	div.move {
+		margin-right: auto;
+		padding-left: 50px;
 	}
 
-	/* The dropdown container */
-	.dropdown {
-	background-color: #33312E;
-	color:#f6edde;
-	float: left;
-	overflow: hidden;
+	button {
+		border-radius: 0;
+	}
+	nav {
+		background-color: #33312e;
+		padding: 0.75rem;
+		display: flex;
+		justify-content: center;
+		gap: 15px;
 	}
 
-	/* Dropdown button */
-	.dropdown .dropbtn {
-	font-size: 16px;
-	border: none;
-	outline: none;
-	color: #f6edde;
-	padding: 14px 16px;
-	background-color: inherit;
-	font: inherit; /* Important for vertical align on mobile phones */
-	margin: 0; /* Important for vertical align on mobile phones */
+	.menu-item {
+		position: relative; /* Damit das Mega-Menu relativ zur Menü-Item-Position angezeigt wird */
+		color: #f6a312;
+		margin-right: 30px;
 	}
 
-	/* Add a red background color to navbar links on hover */
-	.navbar a:hover, .dropdown:hover .dropbtn {
-	background-color: #f6edde;
-	color: #33312E;
+	a {
+		color: #f6edde;
+		text-decoration: none;
+		font-size: 1.2rem;
+	}
+
+	a:hover {
+		text-decoration: underline;
+	}
+
+	/* Mega-Menu standardmäßig ausblenden */
+	.mega-menu {
+		display: flex; /* Wichtig: standardmäßig versteckt */
+		position: fixed;
+		justify-content: space-around;
 	
+		top: 60px; /* Positioniert es direkt unter dem Hauptmenüpunkt */
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background-color: rgba(51, 49, 46, 0.9);
+		padding: 2rem;
+		gap: 2rem; /* Abstand zwischen den Spalten */
+		box-shadow: 0 4px 6px rgba(51, 49, 46, 0.1);
 	}
 
-	/* Dropdown content (hidden by default) */
-	.dropdown-content {
-	display: none;
-	position: absolute;
-	opacity: 80%;
-	background-color: #f9f9f9;
-	padding-left: 2%;
-	padding-right: 2%;
-	width: 100%;
-	height: 100%;
-	left: 0;
-	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-	z-index: 1;
+	/* Mega-Menu bei Hover sichtbar machen */
+
+	.mega-menu-column {
+		min-width: 150px;
+		padding-left: 3%;
 	}
 
-	/* Mega Menu header, if needed */
-	.dropdown-content .header {
-	background: #f6a312;
-	padding: 16px;
-	color: #f6edde;
+	.mega-menu-column h4 {
+		color: #f6edde;
+		font-size: 2rem;
+		margin-bottom: 0.5rem;
 	}
 
-	h3 {
-		font-size: large;
-		font-style: italic;
-		color:#F6edde;
-		padding-bottom: 5%;
+	.mega-menu-column ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
 	}
 
-	/* Show the dropdown menu on hover */
-	.dropdown:hover .dropdown-content {
-	display: block;
+	.mega-menu-column ul li {
+		margin-bottom: 0.5rem;
 	}
 
-	/* Create three equal columns that floats next to each other */
-	.column {
-	float: left;
-	width: 25%;
-	padding: 10px;
-	background-color: #33312E;
-	color:#f6edde;
-	height: full;
+	.mega-menu-column ul li a {
+		color: #f6edde;
+		text-decoration: none;
 	}
 
-	/* Style links inside the columns */
-	.column a {
-	float: none;
-	color: #F6edde;
-	padding: 16px;
-	text-decoration: none;
-	display: block;
-	text-align: left;
+	.mega-menu-column ul li a:hover {
+		color: #f6edde;
 	}
-
-	/* Add a background color on hover */
-	.column a:hover {
-	background-color: #f6edde;
-	color:#33312E;
-	
+	button {
+		border-radius: 8px;
+		background-color: #f6edde;
 	}
-
-	/* Clear floats after the columns */
-	.row:after {
-	content: "";
-	display: table;
-	clear: both;
+	button:hover {
+		background-color: #f6a312;
 	}
 </style>
