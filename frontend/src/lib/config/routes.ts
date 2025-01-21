@@ -10,7 +10,7 @@ export const menu = [
         {
           title: "Portalfräsmaschinen",
           items: [
-            { label: "FS 10", link: "/produkte/portalfräsmaschinen/fs10" },
+            { label: "FS 10", link: "/produkte/portalfräsmaschinen" },
             { label: "FS 15", link: "/products/2" },
             { label: "FS 20", link: "/products/3" },
             { label: "Hybrid - 3D", link: "/products/3" },

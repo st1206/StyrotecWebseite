@@ -1,24 +1,29 @@
 <script lang="ts">
-	import type { ApiPicturePicture } from '$lib/cmsTypes/contentTypes';
-    import type { APIResponseCollection } from '$lib/cmsTypes/types';
+	import type { ApiBilderBilder } from '$lib/cmsTypes/contentTypes';
+	import type { APIResponseCollection } from '$lib/cmsTypes/types';
     import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '$lib/components/ui/carousel';
 
-    let { pictures }: { pictures: APIResponseCollection<ApiPicturePicture>} = $props();
+    let { bilders }: { bilders: APIResponseCollection<ApiBilderBilder> }= $props();
+    import { PUBLIC_BACKEND_URL } from '$env/static/public';
+    
 </script>
 
-{#await pictures}
- <div>loading pictures...</div>
-{:then pictures}
-    {#each pictures.data as picture}
+
+
+
+ {#each bilders.data as bild}
+  
     <Carousel>
         <CarouselContent>
-            <div>{pictures.data}</div>
-        <CarouselItem>{picture.Bilder}</CarouselItem>
-        <CarouselItem>...</CarouselItem>
-        <CarouselItem>...</CarouselItem>
+           
+            {#each bild.Bilder as einzelbild}
+                <CarouselItem class="object-cover"><img src={`${PUBLIC_BACKEND_URL}${einzelbild.url}`} alt="bildergallerie"></CarouselItem>                
+            {/each}
+         
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious class="left-10"/>
+        <CarouselNext class="right-10"/>
     </Carousel>
-    {/each}
- {/await}
+
+{/each}
+

@@ -1,0 +1,162 @@
+{
+  "kind": "collectionType",
+  "collectionName": "maschines",
+  "info": {
+    "singularName": "maschine",
+    "pluralName": "maschines",
+    "displayName": "Maschine",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titel": {
+      "type": "string",
+      "required": true
+    },
+    "Bilder": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Interne_Id": {
+      "type": "string",
+      "required": true
+    },
+    "Bezeichnung": {
+      "type": "string",
+      "required": true
+    },
+    "Hersteller": {
+      "type": "string",
+      "required": true
+    },
+    "Typ": {
+      "type": "string",
+      "required": true
+    },
+    "Baujahr": {
+      "type": "string",
+      "required": true
+    },
+    "Zustand": {
+      "type": "enumeration",
+      "enum": [
+        "gebraucht",
+        "gebraucht, gut",
+        "gebraucht, sehr gut",
+        "überholt",
+        "neu"
+      ],
+      "required": true
+    },
+    "Standort": {
+      "type": "string",
+      "required": true
+    },
+    "xAchse": {
+      "type": "string",
+      "required": true
+    },
+    "yAchse": {
+      "type": "string",
+      "required": true
+    },
+    "zAchse": {
+      "type": "string",
+      "required": true
+    },
+    "extraAchsen": {
+      "displayName": "extraAchsen",
+      "type": "component",
+      "repeatable": false,
+      "component": "extra-achsen.extra-achsen",
+      "required": false
+    },
+    "Steuerung": {
+      "type": "string",
+      "required": true
+    },
+    "Aufspannflaeche": {
+      "type": "string",
+      "required": true
+    },
+    "Fraeskopf": {
+      "type": "string",
+      "required": true
+    },
+    "Spindelleistung": {
+      "type": "string",
+      "required": false
+    },
+    "Spindeldrehzahl": {
+      "type": "string",
+      "required": true
+    },
+    "Drehmoment": {
+      "type": "string",
+      "required": true
+    },
+    "Werkzeugaufnahme": {
+      "type": "string",
+      "required": true
+    },
+    "Werkzeugabspannung": {
+      "type": "string",
+      "required": true
+    },
+    "Kuehlmittelzufuhr": {
+      "type": "string",
+      "required": true
+    },
+    "Blasluft": {
+      "type": "string",
+      "required": true
+    },
+    "VorschubgeschwindigkeitXY": {
+      "type": "string",
+      "required": true
+    },
+    "VorschubgeschwindigkeitZ": {
+      "type": "string",
+      "required": true
+    },
+    "AchsbeschleunigungXYZ": {
+      "type": "string",
+      "required": true
+    },
+    "Anschlussleistung": {
+      "type": "string",
+      "required": true
+    },
+    "Vorsicherung": {
+      "type": "string",
+      "required": true
+    },
+    "Platzbedarf": {
+      "type": "string",
+      "required": true
+    },
+    "Gewicht": {
+      "type": "string",
+      "required": true
+    },
+    "Zusatzausstattung": {
+      "type": "text"
+    },
+    "Optionen": {
+      "type": "text"
+    },
+    "extraBeschreibung": {
+      "type": "text"
+    }
+  }
+}

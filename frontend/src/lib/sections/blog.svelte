@@ -1,10 +1,10 @@
 <script lang="ts">
 	import type { ApiArticleArticle } from '$lib/cmsTypes/contentTypes';
 	import type { APIResponseCollection } from '$lib/cmsTypes/types';
-	import { dateFormatter } from '$lib/utils';
 	import { Card } from 'svelte-5-ui-lib';
 
 	let { articles }: { articles: APIResponseCollection<ApiArticleArticle> } = $props();
+	console.log(articles)
 </script>
 
 <div class="flex flex-col gap-8">
@@ -25,7 +25,7 @@
 				<p class="font-normal leading-tight text-gray-700 dark:text-gray-400">
 					{article.description}
 				</p>
-				<span class="font-medium dark:text-white"> {article.author} </span>
+				<span class="font-medium dark:text-white"> {article.author.name} </span>
 
 				<a
 					href={`/blogs/${article.slug}`}

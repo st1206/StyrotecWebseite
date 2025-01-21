@@ -470,6 +470,39 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBilderBilder extends Struct.CollectionTypeSchema {
+  collectionName: 'bilders';
+  info: {
+    displayName: 'Bilder';
+    pluralName: 'bilders';
+    singularName: 'bilder';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Bilder: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    > &
+      Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bilder.bilder'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Titel: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
@@ -531,6 +564,82 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMaschineMaschine extends Struct.CollectionTypeSchema {
+  collectionName: 'maschines';
+  info: {
+    description: '';
+    displayName: 'Maschine';
+    pluralName: 'maschines';
+    singularName: 'maschine';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    AchsbeschleunigungXYZ: Schema.Attribute.String & Schema.Attribute.Required;
+    Anschlussleistung: Schema.Attribute.String & Schema.Attribute.Required;
+    Aufspannflaeche: Schema.Attribute.String & Schema.Attribute.Required;
+    Baujahr: Schema.Attribute.String & Schema.Attribute.Required;
+    Bezeichnung: Schema.Attribute.String & Schema.Attribute.Required;
+    Bilder: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    > &
+      Schema.Attribute.Required;
+    Blasluft: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Drehmoment: Schema.Attribute.String & Schema.Attribute.Required;
+    extraAchsen: Schema.Attribute.Component<'extra-achsen.extra-achsen', false>;
+    extraBeschreibung: Schema.Attribute.Text;
+    Fraeskopf: Schema.Attribute.String & Schema.Attribute.Required;
+    Gewicht: Schema.Attribute.String & Schema.Attribute.Required;
+    Hersteller: Schema.Attribute.String & Schema.Attribute.Required;
+    Interne_Id: Schema.Attribute.String & Schema.Attribute.Required;
+    Kuehlmittelzufuhr: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::maschine.maschine'
+    > &
+      Schema.Attribute.Private;
+    Optionen: Schema.Attribute.Text;
+    Platzbedarf: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    Spindeldrehzahl: Schema.Attribute.String & Schema.Attribute.Required;
+    Spindelleistung: Schema.Attribute.String;
+    Standort: Schema.Attribute.String & Schema.Attribute.Required;
+    Steuerung: Schema.Attribute.String & Schema.Attribute.Required;
+    Titel: Schema.Attribute.String & Schema.Attribute.Required;
+    Typ: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    VorschubgeschwindigkeitXY: Schema.Attribute.String &
+      Schema.Attribute.Required;
+    VorschubgeschwindigkeitZ: Schema.Attribute.String &
+      Schema.Attribute.Required;
+    Vorsicherung: Schema.Attribute.String & Schema.Attribute.Required;
+    Werkzeugabspannung: Schema.Attribute.String & Schema.Attribute.Required;
+    Werkzeugaufnahme: Schema.Attribute.String & Schema.Attribute.Required;
+    xAchse: Schema.Attribute.String & Schema.Attribute.Required;
+    yAchse: Schema.Attribute.String & Schema.Attribute.Required;
+    zAchse: Schema.Attribute.String & Schema.Attribute.Required;
+    Zusatzausstattung: Schema.Attribute.Text;
+    Zustand: Schema.Attribute.Enumeration<
+      [
+        'gebraucht',
+        'gebraucht, gut',
+        'gebraucht, sehr gut',
+        '\u00FCberholt',
+        'neu',
+      ]
+    > &
+      Schema.Attribute.Required;
   };
 }
 
@@ -1046,8 +1155,10 @@ declare module '@strapi/strapi' {
       'api::about.about': ApiAboutAbout;
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
+      'api::bilder.bilder': ApiBilderBilder;
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
+      'api::maschine.maschine': ApiMaschineMaschine;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

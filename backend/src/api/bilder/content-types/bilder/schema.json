@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bilders",
+  "info": {
+    "singularName": "bilder",
+    "pluralName": "bilders",
+    "displayName": "Bilder"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titel": {
+      "type": "string",
+      "required": true
+    },
+    "Bilder": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    }
+  }
+}

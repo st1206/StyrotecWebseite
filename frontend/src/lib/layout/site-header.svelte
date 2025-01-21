@@ -2,7 +2,6 @@
 	import { Search, Button } from 'svelte-5-ui-lib';
 	import { onMount } from 'svelte';
 	import { SearchOutline } from 'flowbite-svelte-icons';
-	import { linear, sineIn } from 'svelte/easing';
 	import { uiHelpers } from 'svelte-5-ui-lib';
 	import { menu, type MenuRoute } from '$lib/config/routes';
 	import imgLogo from '$lib/images/Logo_weiseSchrift_orange.png';
