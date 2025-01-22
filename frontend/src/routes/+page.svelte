@@ -13,7 +13,7 @@
 
 <div class="flex justify-between pt-16 px-10">
 	
-	<div class="size-1/2 px-5">
+	<div class="size-full px-5">
 		{#await data.bilders}
 		<div> skeleton build </div>
 			
@@ -23,7 +23,7 @@
 			SERVER ERROR...
 		{/await}
 	</div>
-	<div class="size-1/2 px-5">
+	<div class="size-full px-5">
 		{#await data.articles}
 			<div>Loading...</div>
 		{:then articles}

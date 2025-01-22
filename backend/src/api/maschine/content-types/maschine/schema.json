@@ -157,6 +157,20 @@
     },
     "extraBeschreibung": {
       "type": "text"
+    },
+    "Ansprechpartner": {
+      "type": "enumeration",
+      "enum": [
+        "Martin Schütze",
+        "Tobias Schuster",
+        "Rolf Röhm",
+        "Norbert Schuster"
+      ],
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "required": true
     }
   }
 }

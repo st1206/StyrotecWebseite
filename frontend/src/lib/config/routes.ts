@@ -40,7 +40,7 @@ export const menu = [
         {
           title: "Gebrauchtmaschinen",
           items: [
-            { label: "CNC - Maschinen", link: "/products/x" },
+            { label: "CNC - Maschinen", link: "/produkte/gebrauchtmaschinen/cnc-maschinen" },
             { label: "CNC - Zubehör", link: "/products/y" },
             { label: "Modellbaumaschinen", link: "/products/3" },
             { label: "Holzbearbeitungsmaschinen", link: "/products/3" },
@@ -86,7 +86,7 @@ export const menu = [
       link: "/branchen",
       megaMenu: [
         {
-          title: "",
+          title: "Branchen",
           items: [
             { label: "Automobil", link: "/products/1" },
             { label: "Schiffsbau", link: "/products/2" },

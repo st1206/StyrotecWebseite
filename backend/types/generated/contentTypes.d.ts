@@ -581,6 +581,15 @@ export interface ApiMaschineMaschine extends Struct.CollectionTypeSchema {
   attributes: {
     AchsbeschleunigungXYZ: Schema.Attribute.String & Schema.Attribute.Required;
     Anschlussleistung: Schema.Attribute.String & Schema.Attribute.Required;
+    Ansprechpartner: Schema.Attribute.Enumeration<
+      [
+        'Martin Sch\u00FCtze',
+        'Tobias Schuster',
+        'Rolf R\u00F6hm',
+        'Norbert Schuster',
+      ]
+    > &
+      Schema.Attribute.Required;
     Aufspannflaeche: Schema.Attribute.String & Schema.Attribute.Required;
     Baujahr: Schema.Attribute.String & Schema.Attribute.Required;
     Bezeichnung: Schema.Attribute.String & Schema.Attribute.Required;
@@ -610,6 +619,7 @@ export interface ApiMaschineMaschine extends Struct.CollectionTypeSchema {
     Optionen: Schema.Attribute.Text;
     Platzbedarf: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID & Schema.Attribute.Required;
     Spindeldrehzahl: Schema.Attribute.String & Schema.Attribute.Required;
     Spindelleistung: Schema.Attribute.String;
     Standort: Schema.Attribute.String & Schema.Attribute.Required;
