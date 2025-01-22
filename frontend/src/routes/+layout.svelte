@@ -13,7 +13,7 @@
 <div class="relative flex min-h-screen flex-col items-center">
 	<SiteHeader />
 	
-	<main class="flex-1">
+	<main class="flex w-full px-32">
 		{@render children()}
 	</main>
 	<SiteContact />

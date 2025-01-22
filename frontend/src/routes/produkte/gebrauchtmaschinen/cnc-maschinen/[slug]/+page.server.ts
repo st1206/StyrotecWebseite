@@ -5,12 +5,11 @@ import { PUBLIC_BACKEND_URL } from '$env/static/public';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ fetch, params }) => {
-    console.log({params});
-	const loadMaschines = async (): Promise<APIResponseCollection<ApiMaschineMaschine>> => {
-        console.log({params});
-		const res = await fetch(`${PUBLIC_BACKEND_URL}/api/maschines/${params.slug}?populate=*`);
+    
+	const loadMaschine = async (): Promise<APIResponseCollection<ApiMaschineMaschine>> => {
+        const res = await fetch(`${PUBLIC_BACKEND_URL}/api/maschines/?filters[slug][$eq]=${params.slug}`);
 		const data = await res.json();
-
+        
 		if (res.ok) {
 			return data;
 		} else {
@@ -20,6 +19,6 @@ export const load: PageServerLoad = async ({ fetch, params }) => {
 	};
 
 	return {
-		maschine: loadMaschines()
+		gefilterteMaschine: loadMaschine()
 	};
 };
