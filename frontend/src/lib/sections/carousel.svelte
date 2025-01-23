@@ -17,7 +17,7 @@
         <CarouselContent>
            
             {#each bild.Bilder as einzelbild}
-                <CarouselItem class="object-cover"><img src={`${PUBLIC_BACKEND_URL}${einzelbild.url}`} alt="bildergallerie"></CarouselItem>                
+                <CarouselItem class="object-cover object-[60%_100%]"><img src={`${PUBLIC_BACKEND_URL}${einzelbild.url}`} alt="bildergallerie"></CarouselItem>                
             {/each}
          
         </CarouselContent>

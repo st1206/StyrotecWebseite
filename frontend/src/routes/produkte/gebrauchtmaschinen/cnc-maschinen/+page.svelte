@@ -2,7 +2,7 @@
 	
 	import MaschinenCard from '$lib/sections/maschinenCard.svelte';
     let { data }= $props();
-    console.log(data);
+    
 </script>
 
 <svelte:head>
@@ -10,7 +10,8 @@
 	<meta name="Styrotec Homepage" content="" />
 </svelte:head>
 
-<div class="pt-20">
+<div class="p-20">
+
     {#await data.maschines}
 		<div> skeleton build </div>
 			

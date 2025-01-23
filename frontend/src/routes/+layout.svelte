@@ -10,11 +10,11 @@
 
 <!-- root layout  -->
 
-<div class="relative flex min-h-screen flex-col items-center">
+<div class="flex-col items-center">
 	<SiteHeader />
 	
-	<main class="flex w-full px-32">
-		{@render children()}
+	<main class="relative flex w-full pt-[66px] bg-gradient-to-b from-background via-secondary to-secondary-foreground ">
+		{@render children()}		
 	</main>
 	<SiteContact />
 	<SiteFooter />

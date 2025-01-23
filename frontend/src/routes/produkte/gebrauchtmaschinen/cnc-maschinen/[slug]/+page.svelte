@@ -4,7 +4,7 @@
 	import Carousel from '$lib/sections/carousel.svelte';
 
 	let { data } = $props();
-	console.log('slug', data);
+	
 </script>
 
 
@@ -34,6 +34,7 @@
             {maschine.AchsbeschleunigungXYZ}
             {maschine.Anschlussleistung}
         </div>
+        <div class="h-[1000px]">hi</div>
     {:catch}
         SERVER ERROR...
     {/await}

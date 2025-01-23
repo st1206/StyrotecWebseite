@@ -4,7 +4,7 @@
 	import { Card } from 'svelte-5-ui-lib';
 
 	let { articles }: { articles: APIResponseCollection<ApiArticleArticle> } = $props();
-	console.log(articles)
+	
 </script>
 
 <div class="flex flex-col gap-8">
@@ -17,7 +17,7 @@
 
 	<div class="flex flex-wrap gap-4">
 		{#each articles.data as article}
-			<Card class="max-w-[250px]">
+			<Card class="max-w-[250px] shadow-[10px_10px_20px_rgba(0,0,0,0.25)]  hover:scale-105">
 				<!-- <span class="text-sm">{dateFormatter.format(new Date(article.publishedAt))}</span> -->
 				<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
 					{article.title}

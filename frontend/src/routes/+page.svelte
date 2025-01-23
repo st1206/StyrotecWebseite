@@ -11,9 +11,9 @@
 	<meta name="Styrotec Homepage" content="" />
 </svelte:head>
 
-<div class="flex justify-between pt-16 px-10">
+<div class="flex flex-col justify-between">
 	
-	<div class="size-full px-5">
+	<div class="h-[730px] object-cover w-full  overflow-hidden ">
 		{#await data.bilders}
 		<div> skeleton build </div>
 			
@@ -23,7 +23,7 @@
 			SERVER ERROR...
 		{/await}
 	</div>
-	<div class="size-full px-5">
+	<div class="px-5">
 		{#await data.articles}
 			<div>Loading...</div>
 		{:then articles}
@@ -32,5 +32,9 @@
 			SERVER ERROR...
 		{/await}
 	</div>
+	<div class="h-[1000px]">hi</div>
+	<div class="h-[1000px]">hi</div>
+	<div class="h-[1000px]">hi</div>
+	<div class="h-[1000px]">hi</div>
 </div>
 

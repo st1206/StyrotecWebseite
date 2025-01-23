@@ -18,7 +18,7 @@ export const menu = [
           ],
         },
         {
-          title: "Spänepressen",
+          title: "Spänepressen", link:"/",
           items: [
             { label: "Metalle", link: "/products/a" },
             { label: "Kunststoffe", link: "/products/b" },

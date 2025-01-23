@@ -6,7 +6,7 @@
   
 
 
-  <Footer class="bg-primary-foreground size-full" footerType="socialmedia" >
+  <Footer class="bg-primary-foreground size-full bottom-0" footerType="socialmedia" >
 
     <div></div>
     <div class="md:flex md:justify-between move">
@@ -48,13 +48,13 @@
 
     <hr class="my-6 border-gray-200 sm:mx-auto lg:my-8 dark:border-gray-700" /> <!-- trennlinie-->
       <div class="mt-8 mb-4 flex space-x-10 sm:mt-0 sm:justify-center rtl:space-x-reverse">
-        <FooterIcon href="https://www.linkedin.com/company/styrotec-gmbh-co-kg/posts/?feedView=all">
+        <FooterIcon href="https://www.linkedin.com/company/styrotec-gmbh-co-kg/posts/?feedView=all" target="_blank">
           <LinkedinSolid class="h-10 w-10  hover:text-background dark:text-gray-500 dark:hover:text-white" />
         </FooterIcon>
-        <FooterIcon href="https://www.youtube.com/@styrotec">
+        <FooterIcon href="https://www.youtube.com/@styrotec" target="_blank">
           <YoutubeSolid class="h-10 w-10  hover:text-background dark:text-gray-500 dark:hover:text-white" />
         </FooterIcon>
-        <FooterIcon href="https://www.instagram.com/styrotec.de/?hl=de">
+        <FooterIcon href="https://www.instagram.com/styrotec.de/?hl=de" target="_blank">
           <InstagramSolid class="h-10 w-10 hover:text-background dark:text-gray-500 dark:hover:text-white" />
         </FooterIcon>
       </div>

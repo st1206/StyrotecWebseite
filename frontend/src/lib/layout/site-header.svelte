@@ -30,7 +30,7 @@
 	});
 </script>
 
-<nav class="z-50 fixed w-full sm:mx-auto">
+<nav class="z-50 fixed w-full ">
 	<a class="ml-3 mr-8" href="/"><img src={imgLogo} alt="Logo" /></a>
 	<form class="flex gap-0.5">
 		<Search />
@@ -41,16 +41,16 @@
 	<div class="move"></div>
 
 	{#each menu as item}
-		<button class="px-3" onclick={() => (isOpenMap.forEach((value,key)=> {isOpenMap.set( key,false)}), isOpenMap.set(item.id,true ) )}>
+		<button class="px-3 w-[150px]" onclick={() => (isOpenMap.forEach((value,key)=> {isOpenMap.set( key,false)}), isOpenMap.set(item.id,true ) )}>
 			{item.label}
 		</button>
 
 		<div class="menu-item mt-2">
 			{#if isOpenMap.get(item.id)}
 				{#if item.megaMenu}
-					<div class="mega-menu">
-						<button class="fixed right-3 px-2" onclick={() => (isOpenMap.set(item.id, false))}>
-							X
+					<div class="mega-menu backdrop-blur-sm">
+						<button class="fixed right-6 px-2" onclick={() => (isOpenMap.set(item.id, false))}>
+							✕
 						</button>
 						{#each item.megaMenu as column}
 							<div class="mega-menu-column">
@@ -95,22 +95,19 @@
 		margin-right: auto;
 		padding-left: 50px;
 	}
-
-	button {
-		border-radius: 0;
-	}
+	
 	nav {
 		background-color: #33312e;
 		padding: 0.75rem;
 		display: flex;
 		justify-content: center;
-		gap: 15px;
+		gap: 5px;
 	}
 
 	.menu-item {
 		position: relative; /* Damit das Mega-Menu relativ zur Menü-Item-Position angezeigt wird */
 		color: #f6a312;
-		margin-right: 30px;
+		margin-right: 3px;
 	}
 
 	a {
