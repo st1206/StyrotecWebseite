@@ -30,7 +30,7 @@
 	});
 </script>
 
-<nav class="z-50 fixed w-full ">
+<nav class="z-50 fixed w-full shadow-[10px_10px_20px_rgba(0,0,0,0.25)]">
 	<a class="ml-3 mr-8" href="/"><img src={imgLogo} alt="Logo" /></a>
 	<form class="flex gap-0.5">
 		<Search />
@@ -54,10 +54,10 @@
 						</button>
 						{#each item.megaMenu as column}
 							<div class="mega-menu-column">
-								<h4>{column.title}</h4>
+								<h4><a class="font-bold text-2xl text-primary" href={column.link}>{column.title}</a></h4>
 								<ul>
 									{#each column.items as subitem}
-										<li><a onclick={() => (isOpenMap.forEach((value,key)=> {isOpenMap.set( key,false)}))} href={subitem.link}>{subitem.label}</a></li>
+										<li><a class="text-secondary hover:underline" onclick={() => (isOpenMap.forEach((value,key)=> {isOpenMap.set( key,false)}))} href={subitem.link}>{subitem.label}</a></li>
 									{/each}
 								</ul>
 							</div>
@@ -111,7 +111,6 @@
 	}
 
 	a {
-		color: #f6edde;
 		text-decoration: none;
 		font-size: 1.2rem;
 	}
@@ -161,7 +160,7 @@
 
 	.mega-menu-column ul li a {
 		color: #f6edde;
-		text-decoration: none;
+		
 	}
 
 	.mega-menu-column ul li a:hover {

@@ -13,8 +13,9 @@
 <div class="flex-col items-center">
 	<SiteHeader />
 	
-	<main class="relative flex w-full pt-[66px] bg-gradient-to-b from-background via-secondary to-secondary-foreground ">
-		{@render children()}		
+	<main class="relative flex w-full pt-[66px] bg-gradient-to-b from-background from-10% via-secondary to-secondary-foreground">
+		{@render children()}	
+		<div class="h-[300px]"></div>	
 	</main>
 	<SiteContact />
 	<SiteFooter />

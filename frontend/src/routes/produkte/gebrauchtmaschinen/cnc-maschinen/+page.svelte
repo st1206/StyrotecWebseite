@@ -10,7 +10,7 @@
 	<meta name="Styrotec Homepage" content="" />
 </svelte:head>
 
-<div class="p-20">
+<div class="p-20 px-[20%] pb-80">
 
     {#await data.maschines}
 		<div> skeleton build </div>

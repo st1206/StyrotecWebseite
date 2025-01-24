@@ -13,7 +13,7 @@
 
 <div class="flex flex-col justify-between">
 	
-	<div class="h-[730px] object-cover w-full  overflow-hidden ">
+	<div class="h-[730px] object-cover w-full  overflow-hidden">
 		{#await data.bilders}
 		<div> skeleton build </div>
 			

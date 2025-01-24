@@ -8,7 +8,7 @@ export const menu = [
       link: "/produkte",
       megaMenu: [
         {
-          title: "Portalfräsmaschinen",
+          title: "Portalfräsmaschinen", link:"/portalfräsmaschinen",
           items: [
             { label: "FS 10", link: "/produkte/portalfräsmaschinen" },
             { label: "FS 15", link: "/products/2" },
@@ -18,7 +18,7 @@ export const menu = [
           ],
         },
         {
-          title: "Spänepressen", link:"/",
+          title: "Spänepressen", link:"/spänepressen",
           items: [
             { label: "Metalle", link: "/products/a" },
             { label: "Kunststoffe", link: "/products/b" },
@@ -26,7 +26,7 @@ export const menu = [
           ],
         },
         {
-          title: "Styroporbearbeitung",
+          title: "Styroporbearbeitung", link:"/styroporbearbeitung",
           items: [
             { label: "Fräswerkzeuge", link: "/products/x" },
             { label: "Hohfrässpindeln", link: "/products/y" },
@@ -38,7 +38,7 @@ export const menu = [
           ],
         },
         {
-          title: "Gebrauchtmaschinen",
+          title: "Gebrauchtmaschinen", link:"/gebrauchtmaschinen",
           items: [
             { label: "CNC - Maschinen", link: "/produkte/gebrauchtmaschinen/cnc-maschinen" },
             { label: "CNC - Zubehör", link: "/products/y" },
@@ -54,7 +54,7 @@ export const menu = [
       link: "/about",
       megaMenu: [
         {
-          title: "Maschinenerhaltung",
+          title: "Maschinenerhaltung",link:"/",
           items: [
             { label: "Spindelservice", link: "/dienstleistungen/spindelservice" },
             { label: "Wartungen", link: "/products/2" },
@@ -63,7 +63,7 @@ export const menu = [
           ],
         },
         {
-          title: "Maschinenvermarktung",
+          title: "Maschinenvermarktung",link:"/",
           items: [
             { label: "Bewertung", link: "/products/a" },
             { label: "Vermittlung", link: "/products/b" },
@@ -71,7 +71,7 @@ export const menu = [
           ],
         },
         {
-          title: "Maschinenmodernisierung",
+          title: "Maschinenmodernisierung",link:"/",
           items: [
             { label: "Retrofit", link: "/products/x" },
             { label: "Überholung", link: "/products/y" },
@@ -86,7 +86,7 @@ export const menu = [
       link: "/branchen",
       megaMenu: [
         {
-          title: "Branchen",
+          title: "Branchen",link:"/",
           items: [
             { label: "Automobil", link: "/products/1" },
             { label: "Schiffsbau", link: "/products/2" },
@@ -106,7 +106,7 @@ export const menu = [
       link: "/unternehmen",
       megaMenu: [
         {
-          title: "Über Uns",
+          title: "Über Uns",link:"/",
           items: [
             { label: "Werte", link: "/products/1" },
             { label: "Visionen", link: "/products/2" },
@@ -116,20 +116,20 @@ export const menu = [
           ],
         },
         {
-          title: "Karriere",
+          title: "Karriere",link:"/",
           items: [
             { label: "Stellenausschreibung", link: "/products/a" },
           ],
         },
         {
-          title: "News",
+          title: "News",link:"/",
           items: [
             { label: "Anwenderstories", link: "/products/x" },
             { label: "Referenzen", link: "/products/y" },
           ],
         },
         {
-          title: "Team",
+          title: "Team",link:"/",
           items: [
             { label: "Berichte", link: "/products/x" },
             { label: "Messen", link: "/products/y" },
