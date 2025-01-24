@@ -5,23 +5,12 @@
 	import SiteFooter from '$lib/layout/site-footer.svelte';
 	import SiteContact from '$lib/layout/site-contact.svelte';
 
+	/**
+	 *
+	 * Globale seo daten aus strapi 'global' laden und in head einfügen
+	 *
+	 */
 </script>
-
-
-<!-- root layout  -->
-
-<div class="flex-col items-center">
-	<SiteHeader />
-	
-	<main class="relative flex w-full pt-[66px] bg-gradient-to-b from-background from-10% via-secondary to-secondary-foreground">
-		{@render children()}	
-		<div class="h-[300px]"></div>	
-	</main>
-	<SiteContact />
-	<SiteFooter />
-</div>
-
-
 
 <svelte:head>
 	<!-- <title></title>
@@ -38,9 +27,18 @@
 	<link rel="shortcut icon" href="" /> -->
 </svelte:head>
 
+<!-- root layout  -->
 
-<style>
-	div{
-		background-color: #F6EDDE;
-	}
-</style>
+<div
+	class="from-background via-secondary to-secondary-foreground flex min-h-screen flex-col bg-gradient-to-b from-10%"
+>
+	<SiteHeader />
+	<main
+		class="relative mt-[66px] flex-1 py-4 sm:container sm:py-7"
+		style="margin-right: 0; margin-left: 0"
+	>
+		{@render children()}
+	</main>
+	<SiteContact />
+	<SiteFooter />
+</div>

@@ -62,7 +62,7 @@ type DynamicZoneValue<TAttribute extends Attribute.Attribute> =
 			>
 		: never;
 
-type MediaValue<TAttribute extends Attribute.Attribute> =
+export type MediaValue<TAttribute extends Attribute.Attribute> =
 	TAttribute extends Attribute.Media<infer _TKind, infer TMultiple>
 		? Utils.Expression.If<
 				TMultiple,
@@ -102,7 +102,7 @@ export type GetValue<TAttribute extends Attribute.Attribute> = Utils.Expression.
 >;
 
 // Extract only the types of attributes from ApiArticleArticle
-type ExtractAttributes<T> = T extends { attributes: infer A } ? A : never;
+export type AttributesOf<T> = T extends { attributes: infer A } ? A : never;
 
 export interface APIResponseCollectionMetadata {
 	pagination: {
@@ -114,10 +114,10 @@ export interface APIResponseCollectionMetadata {
 }
 
 export interface APIResponse<TContentTypeUID extends Common.UID.ContentType> {
-	data: ExtractAttributes<TContentTypeUID>;
+	data: AttributesOf<TContentTypeUID>;
 }
 
 export interface APIResponseCollection<TContentTypeUID extends Common.UID.ContentType> {
-	data: ExtractAttributes<TContentTypeUID>[];
+	data: AttributesOf<TContentTypeUID>[];
 	meta: APIResponseCollectionMetadata;
 }

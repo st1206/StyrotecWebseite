@@ -1,10 +1,6 @@
-<p class="mt-52">Seite nicht gefunden. 404</p>
-
-<style>
-    p{
-        text-align: center;
-        font-size:large;
-        padding: 20%;
-        text-decoration-color: #f6a312;
-    }
-</style>
+<div
+	class="mt-[200px] flex h-full w-full flex-col items-center justify-center gap-4 px-4 text-center"
+>
+	<h1 class="text-7xl font-semibold">404</h1>
+	<p class="text-lg font-medium">Seite nicht gefunden</p>
+</div>

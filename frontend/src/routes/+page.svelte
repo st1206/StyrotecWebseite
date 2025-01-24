@@ -1,9 +1,7 @@
 <script lang="ts">
-	import Blog from '$lib/sections/blog.svelte';
-	import Carousel from '$lib/sections/carousel.svelte';
+	import Carousel from '$lib/components/carousel.svelte';
+
 	let { data } = $props();
-	console.log(data.articles);
-	
 </script>
 
 <svelte:head>
@@ -11,30 +9,14 @@
 	<meta name="Styrotec Homepage" content="" />
 </svelte:head>
 
-<div class="flex flex-col justify-between">
-	
-	<div class="h-[730px] object-cover w-full  overflow-hidden">
-		{#await data.bilders}
-		<div> skeleton build </div>
-			
-		{:then bilders} 
-			<Carousel {bilders} />
-		{:catch}
-			SERVER ERROR...
-		{/await}
-	</div>
-	<div class="px-5">
-		{#await data.articles}
-			<div>Loading...</div>
-		{:then articles}
-			<Blog {articles} />
-		{:catch}
-			SERVER ERROR...
-		{/await}
-	</div>
-	<div class="h-[1000px]">hi</div>
-	<div class="h-[1000px]">hi</div>
-	<div class="h-[1000px]">hi</div>
-	<div class="h-[1000px]">hi</div>
+<div class="h-full">
+	{#await data.homepageData}
+		<div>skeleton build</div>
+	{:then homepageData}
+		<div class="absolute left-0 top-0 w-screen">
+			<Carousel height={600} autoPlay={true} pictures={homepageData.carousel} />
+		</div>
+	{:catch}
+		SERVER ERROR...
+	{/await}
 </div>
-

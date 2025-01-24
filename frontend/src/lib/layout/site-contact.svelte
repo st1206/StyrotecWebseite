@@ -1,25 +1,43 @@
-<script>
+<script lang="ts">
 	import { Modal, uiHelpers } from 'svelte-5-ui-lib';
-	import { blur, fly, slide, scale } from 'svelte/transition';
-	import { linear, sineIn } from 'svelte/easing';
+	import { slide } from 'svelte/transition';
+	import { linear } from 'svelte/easing';
 	import { Button } from 'svelte-5-ui-lib';
-	import imgMartin from '$lib/images/Martin Schreibtisch 05.jpg';
-	import imgTobias from '$lib/images/Tobias Schreibtisch 15.jpg';
-	import imgRolf from '$lib/images/Rolf Schreibtisch_überarbeitet 01.jpg';
-	import imgNorbert from '$lib/images/Norbert Schreibtisch 05.jpg';
+	import imgMartin from '$lib/images/martin_schreibtisch.jpg';
+	import imgTobias from '$lib/images/tobias_schreibtisch.jpg';
+	import imgRolf from '$lib/images/rolf_schreibtisch.jpg';
+	import imgNorbert from '$lib/images/norbert_schreibtisch.jpg';
 
-	let showRolf = false;
-	let showTobias = true;
-	let showNorbert = false;
-	let showMartin = false;
-
-	/* TODO: implement abfrage nach zuständigkeit -> änder showName zu true */
+	/**
+	 *
+	 * IMAGES am besten aus dem Backend laden. Also je nach condition (zuständigkeit)
+	 * das passende Profil mit Bild, Namen, rolle laden
+	 * IMAGES MÜSSEN UNBEDINGT IN KLEINERER AUFLÖSUNG EXPORTIERT UND KOMPRIMIERT WERDEN
+	 * DERZEIT 6000x4000px
+	 *
+	 */
 
 	const modalExample = uiHelpers();
-	let modalStatus = $state(false);
-	const closeModal = modalExample.close;
-	$effect(() => {
-		modalStatus = modalExample.isOpen;
+	let modalStatus = $derived(modalExample.isOpen);
+
+	let contactPerson: {
+		name: string;
+		role: string;
+		imgSource: string;
+	} = $derived.by(() => {
+		const condition: string = 'tobias'; // TODO implement abfrage nach zuständigkeit
+		switch (condition) {
+			case 'rolf':
+				return { name: 'Rolf', role: 'Vertrieb', imgSource: imgRolf };
+			case 'tobias':
+				return { name: 'Tobias', role: 'Vertrieb', imgSource: imgTobias };
+			case 'norbert':
+				return { name: 'Norbert', role: 'Vertrieb', imgSource: imgNorbert };
+			case 'martin':
+				return { name: 'Martin Schütze', role: 'Vertrieb', imgSource: imgMartin };
+			default:
+				return { name: 'Tobias', role: 'Vertrieb', imgSource: imgTobias };
+		}
 	});
 </script>
 
@@ -29,7 +47,7 @@
 <Modal
 	title="Kontakte"
 	{modalStatus}
-	{closeModal}
+	closeModal={modalExample.close}
 	size="md"
 	position="center-right"
 	transition={slide}
@@ -44,52 +62,16 @@
 		</div>
 	</div>
 
-
-	{#if showMartin}
-		<hr class="my-6 border-gray-200 sm:mx-auto lg:my-8 dark:border-gray-700" />
-		<div class="modal-box">
-			<div class="column-left">Martin Schütze <br> Vertrieb</div>
-			<div class="column-right">
-				<img src={imgMartin} alt="Martin Schütze Profil">
-			</div>
+	<hr class="my-6 border-gray-200 sm:mx-auto lg:my-8 dark:border-gray-700" />
+	<div class="modal-box">
+		<div class="column-left">
+			<span>{contactPerson.name}</span> <br />
+			<span>{contactPerson.role}</span>
 		</div>
-	{/if}
-
-	
-
-	{#if showRolf}
-		<hr class="my-6 border-gray-200 sm:mx-auto lg:my-8 dark:border-gray-700" />
-		<div class="modal-box">
-			<div class="column-left">Rolf Röhm <br> Marketing </div>
-			<div class="column-right">
-				<img src={imgRolf} alt="Rolf Röhm Profil">
-			</div>
-			
+		<div class="column-right">
+			<img src={contactPerson.imgSource} alt={`${contactPerson.name} Profil`} />
 		</div>
-	{/if}
-
-	{#if showTobias}
-		<hr class="my-6 border-gray-200 sm:mx-auto lg:my-8 dark:border-gray-700" />
-		<div class="modal-box">
-			<div class="column-left">Tobias Schuster <br> Projetk Manager</div>
-			<div class="column-right">
-				<img src={imgTobias} alt="Rolf Röhm Profil">
-			</div>
-			
-		</div>
-	{/if}
-
-	{#if showNorbert}
-		<hr class="my-6 border-gray-200 sm:mx-auto lg:my-8 dark:border-gray-700" />
-		<div class="modal-box">
-			<div class="column-left">Norbert Schuster <br> Geschäftsführer</div>
-			<div class="column-right">
-				<img src={imgNorbert} alt="Rolf Röhm Profil">
-			</div>
-			
-		</div>
-	{/if}
-	
+	</div>
 </Modal>
 
 <style>
