@@ -33,7 +33,7 @@
     --primary: 38 93% 52%; /* orange */
     --primary-foreground: 36 5% 19%; /* dunkelgrau */
     /* secondary wird auch von komponenten öfter benutzt. ist meistens einfach ne "softere" version von primary */
-    --secondary: 38 86% 73%; /* beige */ 
+    --secondary: 38 57% 92%; /* beige   38 86% 73%*/ 
     --secondary-foreground: 36 5% 19%; /*dunkelgrau*/
     /* wenn du sehr spezielle farben hast würde ich neue variablen anlegen, damit die komponenten nicht zu wild in farben werden */
     --tertiary: 210 40% 96.1%;

@@ -20,6 +20,17 @@ export interface ExtraAchsenExtraAchsen extends Struct.ComponentSchema {
   };
 }
 
+export interface ListeOptionen extends Struct.ComponentSchema {
+  collectionName: 'components_liste_optionens';
+  info: {
+    displayName: 'Optionen';
+    icon: 'stack';
+  };
+  attributes: {
+    Option: Schema.Attribute.String;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -75,6 +86,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'a-achse.extra-achsen': AAchseExtraAchsen;
       'extra-achsen.extra-achsen': ExtraAchsenExtraAchsen;
+      'liste.optionen': ListeOptionen;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

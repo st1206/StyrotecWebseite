@@ -2,6 +2,7 @@
 	import Carousel from '$lib/components/carousel.svelte';
 
 	let { data } = $props();
+	let carouselHeight = 600;
 </script>
 
 <svelte:head>
@@ -14,8 +15,9 @@
 		<div>skeleton build</div>
 	{:then homepageData}
 		<div class="absolute left-0 top-0 w-screen">
-			<Carousel height={600} autoPlay={true} pictures={homepageData.carousel} />
+			<Carousel height={carouselHeight} autoPlay={true} pictures={homepageData.carousel} />
 		</div>
+		<div class="h-[{carouselHeight}px]">  </div>
 	{:catch}
 		SERVER ERROR...
 	{/await}

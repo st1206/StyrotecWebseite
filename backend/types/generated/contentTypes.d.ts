@@ -509,7 +509,6 @@ export interface ApiMaschineMaschine extends Struct.CollectionTypeSchema {
       'api::maschine.maschine'
     > &
       Schema.Attribute.Private;
-    Optionen: Schema.Attribute.Text;
     Platzbedarf: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID & Schema.Attribute.Required;
@@ -533,6 +532,7 @@ export interface ApiMaschineMaschine extends Struct.CollectionTypeSchema {
     yAchse: Schema.Attribute.String & Schema.Attribute.Required;
     zAchse: Schema.Attribute.String & Schema.Attribute.Required;
     Zusatzausstattung: Schema.Attribute.Text;
+    Zusatzoptionen: Schema.Attribute.Component<'liste.optionen', true>;
     Zustand: Schema.Attribute.Enumeration<
       [
         'gebraucht',

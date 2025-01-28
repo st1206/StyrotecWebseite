@@ -29,12 +29,10 @@
 
 <!-- root layout  -->
 
-<div
-	class="from-background via-secondary to-secondary-foreground flex min-h-screen flex-col bg-gradient-to-b from-10%"
->
+<div class="from-background via-secondary to-secondary-foreground flex min-h-screen flex-col bg-gradient-to-b from-10%">
 	<SiteHeader />
 	<main
-		class="relative mt-[66px] flex-1 py-4 sm:container sm:py-7"
+		class="relative mt-[66px] flex-1 py-4  sm:py-7 w-screen"
 		style="margin-right: 0; margin-left: 0"
 	>
 		{@render children()}

@@ -38,7 +38,7 @@ export const menu = [
           ],
         },
         {
-          title: "Gebrauchtmaschinen", link:"/gebrauchtmaschinen",
+          title: "Gebrauchtmaschinen", link:"/produkte/gebrauchtmaschinen",
           items: [
             { label: "CNC - Maschinen", link: "/produkte/gebrauchtmaschinen/cnc-maschinen" },
             { label: "CNC - Zubehör", link: "/products/y" },

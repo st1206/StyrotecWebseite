@@ -152,9 +152,6 @@
     "Zusatzausstattung": {
       "type": "text"
     },
-    "Optionen": {
-      "type": "text"
-    },
     "extraBeschreibung": {
       "type": "text"
     },
@@ -171,6 +168,12 @@
     "slug": {
       "type": "uid",
       "required": true
+    },
+    "Zusatzoptionen": {
+      "displayName": "Optionen",
+      "type": "component",
+      "repeatable": true,
+      "component": "liste.optionen"
     }
   }
 }

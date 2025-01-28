@@ -8,6 +8,7 @@ export const load: PageServerLoad = async ({ fetch }) => {
 	const loadMaschines = async (): Promise<AttributesOf<ApiMaschineMaschine>[]> => {
 		const res = await fetch(`${PUBLIC_BACKEND_URL}/api/maschines?populate=*`);
 		const data = await res.json();
+		console.log(data)
 
 		if (res.ok) {
 			return data.data;
