@@ -14,7 +14,7 @@
 	<Carousel.Content style={`max-height: ${height}px`}>
 		{#each pictures as picture}
 			<Carousel.Item class="pl-0">
-				<img class="h-full w-full object-cover" src={picture.url} alt="nonnoooo" />
+				<img class="h-full w-full object-cover" src={picture.url} alt="nonnoooonono" />
 			</Carousel.Item>
 		{/each}
 	</Carousel.Content>
