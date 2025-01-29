@@ -22,11 +22,18 @@
 			{maschine.Titel}
 		</h3>
 
+		
+
 		<div
 			class="mx-8 mt-10 flex flex-row flex-wrap gap-8 pl-32"
 			style="margin-top: {carouselHeight + 100}px"
 		>
-			
+			{#if maschine.extraBeschreibung}
+				<div class="w-screen">
+					<span class="font-medium">Beschreibung: </span>
+								<span>{maschine.extraBeschreibung}</span>
+				</div>
+			{/if}
 			<div
 				class="w-[30%] overflow-x-hidden border-2 border-solid shadow-[10px_10px_20px_rgba(0,0,0,0.75)]"
 			>
@@ -171,12 +178,7 @@
 				{/if}
 			</Accordion.Root>
 				
-			{#if maschine.extraBeschreibung}
-				<div>
-					<span class="font-medium">Zusätzliche Beschreibung: </span>
-								<span>{maschine.extraBeschreibung}</span>
-				</div>
-			{/if}
+			
 			
 		</div>
 

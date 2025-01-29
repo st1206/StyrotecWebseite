@@ -14,9 +14,9 @@
 	<p class="font-normal leading-tight text-gray-700 dark:text-gray-400">
 		{maschine.Bezeichnung}
 	</p>
-	
-	<img src={`${PUBLIC_BACKEND_URL}${maschine.Bilder[0].url}`} alt="bild" />
-	
+
+	<img src={maschine.Bilder[0].formats.small.url} alt="bild" />
+
 	<span class="font-medium dark:text-white">Baujahr: {maschine.Baujahr}</span>
 	<p>
 		<a

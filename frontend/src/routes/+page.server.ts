@@ -20,7 +20,7 @@ export const load: PageServerLoad = async ({ fetch }) => {
 			error(500, 'An error occured while feching bilder');
 		}
 	};
-	return {
+	return { 
 		homepageData: loadHomepageData()
 	};
 };

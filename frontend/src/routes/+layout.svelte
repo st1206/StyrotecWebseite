@@ -32,7 +32,7 @@
 <div class="from-background via-secondary to-secondary-foreground flex min-h-screen flex-col bg-gradient-to-b from-10%">
 	<SiteHeader />
 	<main
-		class="relative mt-[66px] flex-1 py-4  sm:py-7 w-screen"
+		class="relative mt-[66px] flex-1 py-4 sm:py-7"
 		style="margin-right: 0; margin-left: 0"
 	>
 		{@render children()}
