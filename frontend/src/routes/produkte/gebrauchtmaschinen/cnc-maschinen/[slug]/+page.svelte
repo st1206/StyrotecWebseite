@@ -40,6 +40,10 @@
 				<MaschinenCarousel height={carouselHeight} pictures={maschine.Bilder} />
 			</div>
 		
+
+			<!-- https://next.shadcn-svelte.com/docs/components/table -->
+
+			
 			<Accordion.Root type="single" class="w-[55%] sm:max-w-[70%]">
 				<Accordion.Item value="item-1">
 					<Accordion.Trigger>Hauptdaten:</Accordion.Trigger>

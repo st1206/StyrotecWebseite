@@ -15,9 +15,10 @@
 		<div>skeleton build</div>
 	{:then homepageData}
 		<div class="absolute left-0 top-0 w-screen">
+			{console.log(homepageData)}
 			<Carousel height={carouselHeight} autoPlay={true} pictures={homepageData.carousel} />
 		</div>
-		<div class="h-[{carouselHeight}px]">  </div>
+		<div class="h-[{carouselHeight}px]"></div>
 	{:catch}
 		SERVER ERROR...
 	{/await}
