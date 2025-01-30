@@ -13,7 +13,7 @@
 	</Sheet.Trigger>
 	<Sheet.Content side="top" class="h-screen bg-white">
 		<Sheet.Header class="bg-primary-foreground absolute left-0 top-0 w-full px-4 py-4">
-			<a class="ml-2 w-24" href="/"><img src={imgLogo} alt="Logo" /></a>
+			<a class="ml-2 w-24" href="/"><img src={imgLogo} alt="Logo Styrotec"/></a>
 		</Sheet.Header>
 		<div class="mt-[73px] flex h-full w-full flex-col gap-8 overflow-y-auto">
 			{#each menu as item}
