@@ -5,7 +5,9 @@
 </script>
 
 <div class="p-[5%] flex flex-col gap-32">
+    
     <div class=" border-2 border-solid shadow-[10px_20px_60px_rgba(0,0,0,0.95)] bg-white bg-opacity-15">
+        
         <h3 class="font-medium text-xl p-3">CNC Maschinen</h3>
         <div class="flex flex-row">
             <div class="w-[50%] p-3"> 

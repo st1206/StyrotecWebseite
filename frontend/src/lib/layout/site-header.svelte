@@ -35,14 +35,14 @@
 	<a class="fixed left-2 w-24" href="/"><img src={imgLogo} alt="Logo" /></a>
 	<form class="flex gap-0.5">
 		<Search />
-		<button class="bg-primary p-2.5 ">
+		<button class="bg-primary p-2.5">
 			<SearchOutline class="h-5 w-5" />
 		</button>
 	</form>
 
 	{#each menu as item}
 		<button
-			class="w-[150px] px-3 hover:bg-primary bg-secondary"
+			class="hover:bg-primary bg-secondary w-[150px] px-3"
 			onclick={() => (
 				isOpenMap.forEach((value, key) => {
 					isOpenMap.set(key, false);
@@ -57,9 +57,12 @@
 			{#if isOpenMap.get(item.id)}
 				{#if item.megaMenu}
 					<div
-						class="bg-primary-foreground bg-opacity-90 w-full h-full fixed left-0 top-[60px] flex justify-around gap-8 p-2 backdrop-blur-sm"
+						class="bg-primary-foreground fixed left-0 top-[60px] flex h-full w-full justify-around gap-8 bg-opacity-90 p-2 backdrop-blur-sm"
 					>
-						<button class="fixed right-6 px-2 hover:bg-primary bg-secondary" onclick={() => isOpenMap.set(item.id, false)}>
+						<button
+							class="hover:bg-primary bg-secondary fixed right-6 px-2"
+							onclick={() => isOpenMap.set(item.id, false)}
+						>
 							✕
 						</button>
 						{#each item.megaMenu as column}
@@ -78,7 +81,7 @@
 									{#each column.items as subitem}
 										<li>
 											<a
-												class="font-2xl text-secondary hover:underline hover:text-secondary"
+												class="font-2xl text-secondary hover:text-secondary hover:underline"
 												onclick={() =>
 													isOpenMap.forEach((value, key) => {
 														isOpenMap.set(key, false);
@@ -97,7 +100,11 @@
 	{/each}
 
 	<div>
-		<button class="text-primary-600 h-10 w-32 hover:bg-primary bg-secondary" onclick={dropdownA.toggle}>Einstellungen </button>
+		<button
+			class="text-primary-600 hover:bg-primary bg-secondary h-10 w-32"
+			onclick={dropdownA.toggle}
+			>Einstellungen
+		</button>
 		<div class="relative">
 			<Dropdown
 				{activeUrl}
@@ -115,8 +122,6 @@
 </nav>
 
 <style>
-	
-
 	.mega-menu-column {
 		min-width: 150px;
 		padding-left: 3%;
@@ -137,10 +142,4 @@
 	.mega-menu-column ul li {
 		margin-bottom: 0.5rem;
 	}
-
-	
-
-	
-	
-	
 </style>

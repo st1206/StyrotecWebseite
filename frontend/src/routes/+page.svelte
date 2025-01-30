@@ -10,7 +10,7 @@
 	<meta name="Styrotec Homepage" content="" />
 </svelte:head>
 
-<div class=" h-full">
+<div class="h-full">
 	{#await data.homepageData}
 		<div>skeleton build</div>
 	{:then homepageData}
