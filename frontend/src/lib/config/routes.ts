@@ -29,7 +29,7 @@ export const menu = [
           title: "Styroporbearbeitung", link:"/styroporbearbeitung",
           items: [
             { label: "Fräswerkzeuge", link: "/products/x" },
-            { label: "Hohfrässpindeln", link: "/products/y" },
+            { label: "Hohlfrässpindeln", link: "/products/y" },
             { label: "Absaugungen", link: "/products/3" },
             { label: "Zerkleinerer", link: "/products/3" },
             { label: "Pressen", link: "/products/3" },

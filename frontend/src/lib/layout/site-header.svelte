@@ -20,7 +20,6 @@
 		dropdownAStatus = dropdownA.isOpen;
 	});
 
-	
 	let isOpenMap = $state(new SvelteMap());
 
 	onMount(() => {
@@ -30,34 +29,63 @@
 	});
 </script>
 
-<nav class="z-50 fixed w-full shadow-[10px_10px_15px_rgba(0,0,0,0.45)]">
-	<a class="ml-3 mr-8" href="/"><img src={imgLogo} alt="Logo" /></a>
+<nav
+	class="bg-primary-foreground fixed z-50 flex w-full justify-center gap-[5px] p-3 shadow-[10px_10px_15px_rgba(0,0,0,0.45)]"
+>
+	<a class="fixed left-2 w-24" href="/"><img src={imgLogo} alt="Logo" /></a>
 	<form class="flex gap-0.5">
 		<Search />
-		<button class="bg-primary p-2.5">
+		<button class="bg-primary p-2.5 ">
 			<SearchOutline class="h-5 w-5" />
 		</button>
 	</form>
-	<div class="move"></div>
 
 	{#each menu as item}
-		<button class="px-3 w-[150px]" onclick={() => (isOpenMap.forEach((value,key)=> {isOpenMap.set( key,false)}), isOpenMap.set(item.id,true ) )}>
+		<button
+			class="w-[150px] px-3 hover:bg-primary bg-secondary"
+			onclick={() => (
+				isOpenMap.forEach((value, key) => {
+					isOpenMap.set(key, false);
+				}),
+				isOpenMap.set(item.id, true)
+			)}
+		>
 			{item.label}
 		</button>
 
-		<div class="menu-item mt-2">
+		<div class="text-primary relative mr-[3px] mt-2 text-xl">
 			{#if isOpenMap.get(item.id)}
 				{#if item.megaMenu}
-					<div class="mega-menu backdrop-blur-sm">
-						<button class="fixed right-6 px-2" onclick={() => (isOpenMap.set(item.id, false))}>
+					<div
+						class="bg-primary-foreground bg-opacity-90 w-full h-full fixed left-0 top-[60px] flex justify-around gap-8 p-2 backdrop-blur-sm"
+					>
+						<button class="fixed right-6 px-2 hover:bg-primary bg-secondary" onclick={() => isOpenMap.set(item.id, false)}>
 							✕
 						</button>
 						{#each item.megaMenu as column}
 							<div class="mega-menu-column">
-								<h4><a class="font-bold text-2xl text-primary" onclick={() => (isOpenMap.forEach((value,key)=> {isOpenMap.set( key,false)}))} href={column.link}>{column.title}</a></h4>
+								<h4>
+									<a
+										class="text-primary text-2xl font-bold hover:underline"
+										onclick={() =>
+											isOpenMap.forEach((value, key) => {
+												isOpenMap.set(key, false);
+											})}
+										href={column.link}>{column.title}</a
+									>
+								</h4>
 								<ul>
 									{#each column.items as subitem}
-										<li><a class="text-secondary hover:underline" onclick={() => (isOpenMap.forEach((value,key)=> {isOpenMap.set( key,false)}))} href={subitem.link}>{subitem.label}</a></li>
+										<li>
+											<a
+												class="font-2xl text-secondary hover:underline hover:text-secondary"
+												onclick={() =>
+													isOpenMap.forEach((value, key) => {
+														isOpenMap.set(key, false);
+													})}
+												href={subitem.link}>{subitem.label}</a
+											>
+										</li>
 									{/each}
 								</ul>
 							</div>
@@ -69,7 +97,7 @@
 	{/each}
 
 	<div>
-		<button class="text-primary-600 h-10 w-32" onclick={dropdownA.toggle}>Einstellungen </button>
+		<button class="text-primary-600 h-10 w-32 hover:bg-primary bg-secondary" onclick={dropdownA.toggle}>Einstellungen </button>
 		<div class="relative">
 			<Dropdown
 				{activeUrl}
@@ -87,55 +115,7 @@
 </nav>
 
 <style>
-	img {
-		width: 100px;
-	}
-
-	div.move {
-		margin-right: auto;
-		padding-left: 50px;
-	}
 	
-	nav {
-		background-color: #33312e;
-		padding: 0.75rem;
-		display: flex;
-		justify-content: center;
-		gap: 5px;
-	}
-
-	.menu-item {
-		position: relative; /* Damit das Mega-Menu relativ zur Menü-Item-Position angezeigt wird */
-		color: #f6a312;
-		margin-right: 3px;
-	}
-
-	a {
-		text-decoration: none;
-		font-size: 1.2rem;
-	}
-
-	a:hover {
-		text-decoration: underline;
-	}
-
-	/* Mega-Menu standardmäßig ausblenden */
-	.mega-menu {
-		display: flex; /* Wichtig: standardmäßig versteckt */
-		position: fixed;
-		justify-content: space-around;
-	
-		top: 60px; /* Positioniert es direkt unter dem Hauptmenüpunkt */
-		left: 0;
-		width: 100vw;
-		height: 100vh;
-		background-color: rgba(51, 49, 46, 0.9);
-		padding: 2rem;
-		gap: 2rem; /* Abstand zwischen den Spalten */
-		box-shadow: 0 4px 6px rgba(51, 49, 46, 0.1);
-	}
-
-	/* Mega-Menu bei Hover sichtbar machen */
 
 	.mega-menu-column {
 		min-width: 150px;
@@ -158,19 +138,9 @@
 		margin-bottom: 0.5rem;
 	}
 
-	.mega-menu-column ul li a {
-		color: #f6edde;
-		
-	}
+	
 
-	.mega-menu-column ul li a:hover {
-		color: #f6edde;
-	}
-	button {
-		border-radius: 8px;
-		background-color: #f6edde;
-	}
-	button:hover {
-		background-color: #f6a312;
-	}
+	
+	
+	
 </style>
