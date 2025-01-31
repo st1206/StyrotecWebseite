@@ -29,10 +29,10 @@
 
 <!-- root layout  -->
 
-<div class="from-background via-secondary to-secondary-foreground flex min-h-screen flex-col bg-gradient-to-b from-10%">
+<div class="bg-secondary flex  flex-col">
 	<SiteHeader />
 	<main
-		class="relative mt-[66px] flex-1 py-4 sm:py-7"
+		class="relative  flex-1 "
 		style="margin-right: 0; margin-left: 0"
 	>
 		{@render children()}

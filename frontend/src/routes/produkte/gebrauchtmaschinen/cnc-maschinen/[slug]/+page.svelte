@@ -11,7 +11,7 @@
 	<div>skeleton build</div>
 {:then maschine}
 	{#if maschine}
-		<div class="absolute left-0 top-0 z-10 w-screen overflow-x-hidden">
+		<div class="absolute left-0 top-0 w-[100%]">
 			<Carousel height={carouselHeight} pictures={maschine.Bilder} />
 		</div>
 
@@ -22,8 +22,6 @@
 			{maschine.Titel}
 		</h3>
 
-		
-
 		<div
 			class="mx-8 mt-10 flex flex-row flex-wrap gap-8 pl-32"
 			style="margin-top: {carouselHeight + 100}px"
@@ -31,68 +29,68 @@
 			{#if maschine.extraBeschreibung}
 				<div class="w-screen">
 					<span class="font-medium">Beschreibung: </span>
-								<span>{maschine.extraBeschreibung}</span>
+					<span>{maschine.extraBeschreibung}</span>
 				</div>
 			{/if}
 			<div
-				class="w-[30%] overflow-x-hidden border-2 border-solid shadow-[10px_10px_20px_rgba(0,0,0,0.75)]"
+				class="h-fit w-[30%] overflow-x-hidden border-2 border-solid shadow-[10px_10px_20px_rgba(0,0,0,0.75)]"
 			>
 				<MaschinenCarousel height={carouselHeight} pictures={maschine.Bilder} />
 			</div>
-		
 
 			<!-- https://next.shadcn-svelte.com/docs/components/table -->
 
-			
 			<Accordion.Root type="single" class="w-[55%] sm:max-w-[70%]">
 				<Accordion.Item value="item-1">
 					<Accordion.Trigger>Hauptdaten:</Accordion.Trigger>
 					<Accordion.Content>
-					<div class="flex justify-between bg-primary-foreground bg-opacity-10">
-						<span class="font-medium">Bezeichnung: </span> <span>{maschine.Bezeichnung}</span>
-					</div>
-					<div class="flex justify-between">
-						<span class="font-medium">Hersteller: </span> <span>{maschine.Hersteller}</span>
-					</div>
-					<div class="flex justify-between bg-primary-foreground bg-opacity-10">
-						<span class="font-medium">Typ: </span> <span>{maschine.Typ}</span>
-					</div>
-					<div class="flex justify-between">
-						<span class="font-medium">Baujahr: </span> <span>{maschine.Baujahr}</span>
-					</div>
-					<div class="flex justify-between bg-primary-foreground bg-opacity-10">
-						<span class="font-medium">Standort: </span> <span>{maschine.Standort}</span>
-					</div>
-					<div class="flex justify-between">
-						<span class="font-medium">Zustand: </span> <span>{maschine.Zustand}</span>
-					</div>
-				</Accordion.Content>
+						<div class="bg-primary-foreground flex justify-between bg-opacity-10">
+							<span class="font-medium">Bezeichnung: </span> <span>{maschine.Bezeichnung}</span>
+						</div>
+						<div class="flex justify-between">
+							<span class="font-medium">Hersteller: </span> <span>{maschine.Hersteller}</span>
+						</div>
+						<div class="bg-primary-foreground flex justify-between bg-opacity-10">
+							<span class="font-medium">Typ: </span> <span>{maschine.Typ}</span>
+						</div>
+						<div class="flex justify-between">
+							<span class="font-medium">Baujahr: </span> <span>{maschine.Baujahr}</span>
+						</div>
+						<div class="bg-primary-foreground flex justify-between bg-opacity-10">
+							<span class="font-medium">Standort: </span> <span>{maschine.Standort}</span>
+						</div>
+						<div class="flex justify-between">
+							<span class="font-medium">Zustand: </span> <span>{maschine.Zustand}</span>
+						</div>
+					</Accordion.Content>
 				</Accordion.Item>
 				<Accordion.Item value="item-2">
 					<Accordion.Trigger>Achs-Daten:</Accordion.Trigger>
 					<Accordion.Content>
-						<div class="flex justify-between bg-primary-foreground bg-opacity-10">
+						<div class="bg-primary-foreground flex justify-between bg-opacity-10">
 							<span class="font-medium">x-Achse: </span> <span>{maschine.xAchse}</span>
 						</div>
 						<div class="flex justify-between">
 							<span class="font-medium">y-Achse </span> <span>{maschine.yAchse}</span>
 						</div>
-						<div class="flex justify-between bg-primary-foreground bg-opacity-10">
+						<div class="bg-primary-foreground flex justify-between bg-opacity-10">
 							<span class="font-medium">z-Achse: </span> <span>{maschine.zAchse}</span>
 						</div>
 						{#if maschine.extraAchsen}
 							<div class="flex justify-between">
-								<span class="font-medium">a-Achse: </span> <span>{maschine.extraAchsen.aAchse}</span>
+								<span class="font-medium">a-Achse: </span>
+								<span>{maschine.extraAchsen.aAchse}</span>
 							</div>
-							<div class="flex justify-between bg-primary-foreground bg-opacity-10">
-								<span class="font-medium">c-Achse: </span> <span>{maschine.extraAchsen.cAchse}</span>
+							<div class="bg-primary-foreground flex justify-between bg-opacity-10">
+								<span class="font-medium">c-Achse: </span>
+								<span>{maschine.extraAchsen.cAchse}</span>
 							</div>
 						{/if}
 						<div class="flex justify-between">
 							<span class="font-medium">Vorschubgeschwindigkeit X-Y-Achse: </span>
 							<span>{maschine.VorschubgeschwindigkeitXY}</span>
 						</div>
-						<div class="flex justify-between bg-primary-foreground bg-opacity-10">
+						<div class="bg-primary-foreground flex justify-between bg-opacity-10">
 							<span class="font-medium">Vorschubgeschwindigkeit Z-Achse: </span>
 							<span>{maschine.VorschubgeschwindigkeitZ}</span>
 						</div>
@@ -105,13 +103,14 @@
 				<Accordion.Item value="item-3">
 					<Accordion.Trigger>Eckdaten:</Accordion.Trigger>
 					<Accordion.Content>
-						<div class="flex justify-between bg-primary-foreground bg-opacity-10">
-							<span class="font-medium">Aufspannfläche: </span> <span>{maschine.Aufspannflaeche}</span>
+						<div class="bg-primary-foreground flex justify-between bg-opacity-10">
+							<span class="font-medium">Aufspannfläche: </span>
+							<span>{maschine.Aufspannflaeche}</span>
 						</div>
 						<div class="flex justify-between">
 							<span class="font-medium">Platzbedarf: </span> <span>{maschine.Platzbedarf}</span>
 						</div>
-						<div class="flex justify-between bg-primary-foreground bg-opacity-10">
+						<div class="bg-primary-foreground flex justify-between bg-opacity-10">
 							<span class="font-medium">Gewicht: </span> <span>{maschine.Gewicht}</span>
 						</div>
 					</Accordion.Content>
@@ -119,26 +118,28 @@
 				<Accordion.Item value="item-4">
 					<Accordion.Trigger>Technische Daten:</Accordion.Trigger>
 					<Accordion.Content>
-						<div class="flex justify-between bg-primary-foreground bg-opacity-10">
+						<div class="bg-primary-foreground flex justify-between bg-opacity-10">
 							<span class="font-medium">Steuerung: </span> <span>{maschine.Steuerung}</span>
 						</div>
 						<div class="flex justify-between">
 							<span class="font-medium">Fräskopf: </span> <span>{maschine.Fraeskopf}</span>
 						</div>
-						<div class="flex justify-between bg-primary-foreground bg-opacity-10">
-							<span class="font-medium">Spindelleistung: </span> <span>{maschine.Spindelleistung}</span>
+						<div class="bg-primary-foreground flex justify-between bg-opacity-10">
+							<span class="font-medium">Spindelleistung: </span>
+							<span>{maschine.Spindelleistung}</span>
 						</div>
 						<div class="flex justify-between">
-							<span class="font-medium">Spindeldrehzahl: </span> <span>{maschine.Spindeldrehzahl}</span>
+							<span class="font-medium">Spindeldrehzahl: </span>
+							<span>{maschine.Spindeldrehzahl}</span>
 						</div>
-						<div class="flex justify-between bg-primary-foreground bg-opacity-10">
+						<div class="bg-primary-foreground flex justify-between bg-opacity-10">
 							<span class="font-medium">Drehmoment: </span> <span>{maschine.Drehmoment}</span>
 						</div>
 						<div class="flex justify-between">
 							<span class="font-medium">Werkzeugaufnahme: </span>
 							<span>{maschine.Werkzeugaufnahme}</span>
 						</div>
-						<div class="flex justify-between bg-primary-foreground bg-opacity-10">
+						<div class="bg-primary-foreground flex justify-between bg-opacity-10">
 							<span class="font-medium">Werkzeugabspannung: </span>
 							<span>{maschine.Werkzeugabspannung}</span>
 						</div>
@@ -146,20 +147,20 @@
 							<span class="font-medium">Kühlmittelzufuhr: </span>
 							<span>{maschine.Kuehlmittelzufuhr}</span>
 						</div>
-						<div class="flex justify-between bg-primary-foreground bg-opacity-10">
+						<div class="bg-primary-foreground flex justify-between bg-opacity-10">
 							<span class="font-medium">Blasluft: </span> <span>{maschine.Blasluft}</span>
 						</div>
 						<div class="flex justify-between">
 							<span class="font-medium">Anschlussleistung: </span>
 							<span>{maschine.Anschlussleistung}</span>
 						</div>
-						<div class="flex justify-between bg-primary-foreground bg-opacity-10">
+						<div class="bg-primary-foreground flex justify-between bg-opacity-10">
 							<span class="font-medium">Vorsicherung: </span> <span>{maschine.Vorsicherung}</span>
 						</div>
 						<div class="flex justify-between">
-							<span class="font-medium">Spindelleistung: </span> <span>{maschine.Spindelleistung}</span>
+							<span class="font-medium">Spindelleistung: </span>
+							<span>{maschine.Spindelleistung}</span>
 						</div>
-					
 					</Accordion.Content>
 				</Accordion.Item>
 
@@ -167,26 +168,16 @@
 					<Accordion.Item value="item-5">
 						<Accordion.Trigger>Optionen:</Accordion.Trigger>
 						<Accordion.Content>
-
-						{#each maschine.Zusatzoptionen as option}
-									
-							<div class="flex justify-between">
-								 <span>- {option.Option}</span>
-							</div>
-						{/each}
-						
-				
-						
+							{#each maschine.Zusatzoptionen as option}
+								<div class="flex justify-between">
+									<span>- {option.Option}</span>
+								</div>
+							{/each}
 						</Accordion.Content>
 					</Accordion.Item>
 				{/if}
 			</Accordion.Root>
-				
-			
-			
 		</div>
-
-		
 	{:else}
 		Keine Maschine gefunden
 	{/if}

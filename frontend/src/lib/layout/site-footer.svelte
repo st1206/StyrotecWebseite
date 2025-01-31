@@ -6,31 +6,31 @@
 
 <Footer class="bg-primary-foreground bottom-0 size-full" footerType="socialmedia">
 	<div></div>
-	<div class="move md:flex md:justify-between">
-		<div class="mb-6 md:mb-0">
+	<div class="flex flex-col xl:flex-row xl:justify-between">
+		<div class="mb-6 w-[140px] md:mb-0 xl:w-[200px]">
 			<a href="/"><img src={imgLogo} alt="Logo" /></a>
 		</div>
 
-		<div class="kontaktbox">
-			<h2 class="pl-8 text-lg">Kontakt</h2>
+		<div class="bg-secondary-foreground text-secondary w-[80%] xl:w-[40%]">
+			<h2 class="text-primary pl-8 text-lg">Kontakt</h2>
 			<hr
 				class="bg-primary-foreground my-6 border-gray-200 sm:mx-auto lg:my-1 dark:border-gray-700"
 			/>
-			<div class="container">
-				<div class="column-left">
+			<div class="flex flex-col xl:flex-row xl:justify-between">
+				<div>
 					Styrotec GmbH + Co KG <br />
 					Kartonstr. 2<br />
 					88255 Baienfurt <br />
 					Deutschland<br />
 				</div>
-				<div class="column-right">
+				<div>
 					tel.: +49 751 5605020 <br />
 					fax : +49 751 5605029
 				</div>
 			</div>
 		</div>
 
-		<div class="sm:items-top sm:flex sm:justify-between">
+		<div class=" mt-10 sm:flex sm:justify-between xl:mt-0">
 			<div>
 				<h2 class="text-primary mb-2 text-sm font-semibold uppercase">Legal</h2>
 				<hr class="my-6 border-gray-200 sm:mx-auto lg:my-1 dark:border-gray-700" />
@@ -46,7 +46,7 @@
 
 	<hr class="my-6 border-gray-200 sm:mx-auto lg:my-8 dark:border-gray-700" />
 	<!-- trennlinie-->
-	<div class="mb-4 mt-8 flex space-x-10 sm:mt-0 sm:justify-center rtl:space-x-reverse">
+	<div class="mb-4 flex flex-row justify-around bg-center sm:mt-0 xl:px-[40%]">
 		<FooterIcon
 			href="https://www.linkedin.com/company/styrotec-gmbh-co-kg/posts/?feedView=all"
 			target="_blank"
@@ -69,33 +69,3 @@
 
 	<FooterCopyright href="/" by="Styrotec GmbH & Co KG" />
 </Footer>
-
-<style>
-	img {
-		width: 200px;
-	}
-	div {
-		background-color: #33312e;
-		color: #f6edde;
-	}
-	.kontaktbox {
-		background-color: #33312e;
-		width: 600px;
-		height: 130px;
-	}
-	.container {
-		display: flex;
-	}
-	.column-left {
-		width: 50%;
-		text-align: left;
-	}
-	.column-right {
-		width: 50%;
-		text-align: right;
-	}
-	div.move {
-		margin-left: 100px;
-		margin-right: 100px;
-	}
-</style>

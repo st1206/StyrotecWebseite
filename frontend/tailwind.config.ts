@@ -159,4 +159,5 @@ export default {
 			}
 		}
 	}
+	
 } satisfies Config;

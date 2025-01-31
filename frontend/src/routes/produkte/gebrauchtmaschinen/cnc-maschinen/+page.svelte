@@ -13,7 +13,7 @@
 	<div>skeleton build</div>
 {:then maschines}
 
-	<div class="absolute left-0 top-0 z-10 w-screen overflow-x-hidden">
+	<div class="absolute left-0 top-0 z-10 w-[100%] overflow-x-hidden">
 		<Carousel height={600} pictures={maschines[0].Bilder} />
 	</div>
 	<h3
@@ -23,7 +23,7 @@
 			CNC Maschinen
 		</h3>
 
-	<div class=" w-[80%] mx-[10%] flex flex-wrap gap-8 mt-[700px] my-[100px]">
+	<div class="flex-col xl:flex-row  w-[80%] mx-[10%] flex flex-wrap gap-8 mt-[700px] my-[100px]">
 		{#each maschines as maschine}
 			<MaschinenCard {maschine} />
 		{:else}

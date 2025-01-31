@@ -107,7 +107,7 @@
 
 			<div class="h-full">
 				<button
-					class="text-primary-600 hover:bg-primary bg-secondary h-full w-32 w-[150px]"
+					class="text-primary-600 hover:bg-primary bg-secondary h-full w-[150px]"
 					onclick={dropdownA.toggle}
 					>Einstellungen
 				</button>
