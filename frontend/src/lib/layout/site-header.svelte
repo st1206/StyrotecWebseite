@@ -109,18 +109,18 @@
 				<button
 					class="text-primary-600 hover:bg-primary bg-secondary h-full w-[150px]"
 					onclick={dropdownA.toggle}
-					>Einstellungen
+					>Sprache
 				</button>
 				<div class="relative">
 					<Dropdown
 						{activeUrl}
 						dropdownStatus={dropdownAStatus}
 						closeDropdown={closeDropdownA}
-						class="absolute -left-[150px] top-[40px]"
+						class="absolute "
 					>
 						<DropdownUl>
-							<DropdownLi href="/">Englisch</DropdownLi>
-							<DropdownLi href="/components/dropdown">Deutsch</DropdownLi>
+							<DropdownLi href="/[de]">Englisch</DropdownLi>
+							<DropdownLi href="/[en]">Deutsch</DropdownLi>
 						</DropdownUl>
 					</Dropdown>
 				</div>

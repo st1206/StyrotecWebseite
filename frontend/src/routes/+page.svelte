@@ -57,7 +57,7 @@
 		</div>
 
 		<div
-			class="from-background via-primary to-secondary-foreground relative h-[600px] w-full bg-gradient-to-bl"
+			class="z-0 from-background via-primary to-secondary-foreground relative h-[600px] w-full bg-gradient-to-bl"
 		>
 			<div
 				class="bg-primary-foreground absolute mt-[160px] h-[300px] w-full shadow-[10px_10px_30px_rgba(0,0,0,0.75)]"

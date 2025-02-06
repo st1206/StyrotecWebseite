@@ -42,7 +42,7 @@
 </script>
 
 <div class="modal flex justify-center">
-	<Button class="bg-primary-500" onclick={modalExample.toggle}>Kontakt</Button>
+	<Button class="bg-primary-500 border-2 border-primary-foreground xl:rounded-none" onclick={modalExample.toggle}>Kontakt</Button>
 </div>
 <Modal
 	title="Kontakte"

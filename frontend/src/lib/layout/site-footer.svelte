@@ -4,7 +4,7 @@
 	import imgLogo from '$lib/images/Logo_weiseSchrift_orange.png';
 </script>
 
-<Footer class="bg-primary-foreground bottom-0 size-full" footerType="socialmedia">
+<Footer class="z-10 bg-primary-foreground bottom-0 size-full shadow-[0px_-10px_25px_rgba(0,0,0,0.35)]" footerType="socialmedia">
 	<div></div>
 	<div class="flex flex-col xl:flex-row xl:justify-between">
 		<div class="mb-6 w-[140px] md:mb-0 xl:w-[200px]">

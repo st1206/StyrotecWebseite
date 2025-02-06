@@ -471,9 +471,26 @@ export interface ApiMaschineMaschine extends Struct.CollectionTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    AchsbeschleunigungXYZ: Schema.Attribute.String & Schema.Attribute.Required;
-    Anschlussleistung: Schema.Attribute.String & Schema.Attribute.Required;
+    AchsbeschleunigungXYZ: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Anschlussleistung: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     Ansprechpartner: Schema.Attribute.Enumeration<
       [
         'Martin Sch\u00FCtze',
@@ -482,57 +499,236 @@ export interface ApiMaschineMaschine extends Struct.CollectionTypeSchema {
         'Norbert Schuster',
       ]
     > &
-      Schema.Attribute.Required;
-    Aufspannflaeche: Schema.Attribute.String & Schema.Attribute.Required;
-    Baujahr: Schema.Attribute.String & Schema.Attribute.Required;
-    Bezeichnung: Schema.Attribute.String & Schema.Attribute.Required;
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Aufspannflaeche: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Baujahr: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Bezeichnung: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     Bilder: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     > &
-      Schema.Attribute.Required;
-    Blasluft: Schema.Attribute.String & Schema.Attribute.Required;
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Blasluft: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Drehmoment: Schema.Attribute.String & Schema.Attribute.Required;
-    extraAchsen: Schema.Attribute.Component<'extra-achsen.extra-achsen', false>;
-    extraBeschreibung: Schema.Attribute.Text;
-    Fraeskopf: Schema.Attribute.String & Schema.Attribute.Required;
-    Gewicht: Schema.Attribute.String & Schema.Attribute.Required;
-    Hersteller: Schema.Attribute.String & Schema.Attribute.Required;
-    Interne_Id: Schema.Attribute.String & Schema.Attribute.Required;
-    Kuehlmittelzufuhr: Schema.Attribute.String & Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    Drehmoment: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    extraAchsen: Schema.Attribute.Component<
+      'extra-achsen.extra-achsen',
+      false
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    extraBeschreibung: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Fraeskopf: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Gewicht: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Hersteller: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Interne_Id: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Kuehlmittelzufuhr: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::maschine.maschine'
-    > &
-      Schema.Attribute.Private;
-    Platzbedarf: Schema.Attribute.String & Schema.Attribute.Required;
+    >;
+    Platzbedarf: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID & Schema.Attribute.Required;
-    Spindeldrehzahl: Schema.Attribute.String & Schema.Attribute.Required;
-    Spindelleistung: Schema.Attribute.String;
-    Standort: Schema.Attribute.String & Schema.Attribute.Required;
-    Steuerung: Schema.Attribute.String & Schema.Attribute.Required;
-    Titel: Schema.Attribute.String & Schema.Attribute.Required;
-    Typ: Schema.Attribute.String & Schema.Attribute.Required;
+    Spindeldrehzahl: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Spindelleistung: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Standort: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Steuerung: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Titel: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Typ: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     VorschubgeschwindigkeitXY: Schema.Attribute.String &
-      Schema.Attribute.Required;
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     VorschubgeschwindigkeitZ: Schema.Attribute.String &
-      Schema.Attribute.Required;
-    Vorsicherung: Schema.Attribute.String & Schema.Attribute.Required;
-    Werkzeugabspannung: Schema.Attribute.String & Schema.Attribute.Required;
-    Werkzeugaufnahme: Schema.Attribute.String & Schema.Attribute.Required;
-    xAchse: Schema.Attribute.String & Schema.Attribute.Required;
-    yAchse: Schema.Attribute.String & Schema.Attribute.Required;
-    zAchse: Schema.Attribute.String & Schema.Attribute.Required;
-    Zusatzausstattung: Schema.Attribute.Text;
-    Zusatzoptionen: Schema.Attribute.Component<'liste.optionen', true>;
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Vorsicherung: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Werkzeugabspannung: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Werkzeugaufnahme: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    xAchse: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    yAchse: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    zAchse: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Zusatzausstattung: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Zusatzoptionen: Schema.Attribute.Component<'liste.optionen', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     Zustand: Schema.Attribute.Enumeration<
       [
         'gebraucht',
@@ -542,7 +738,12 @@ export interface ApiMaschineMaschine extends Struct.CollectionTypeSchema {
         'neu',
       ]
     > &
-      Schema.Attribute.Required;
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
   };
 }
 

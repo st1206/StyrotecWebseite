@@ -4,6 +4,14 @@
 	let { children } = $props();
 	import SiteFooter from '$lib/layout/site-footer.svelte';
 	import SiteContact from '$lib/layout/site-contact.svelte';
+	import type { Load } from '@sveltejs/kit';
+
+	export const load: Load = async ({ url }) => {
+		// Lese die Sprache aus der URL (z. B. /de oder /en)
+		const lang = url.pathname.split('/')[1] || 'de'; // Standard: Deutsch
+
+		return { lang };
+	};
 
 	/**
 	 *
