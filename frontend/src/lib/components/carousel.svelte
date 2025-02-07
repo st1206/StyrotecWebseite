@@ -2,7 +2,6 @@
 	import Autoplay from 'embla-carousel-autoplay';
 	import * as Carousel from '$lib/components/ui/carousel';
 	import { PUBLIC_BACKEND_URL } from '$env/static/public';
-	const dev = import.meta.env.DEV;
 
 	let {
 		pictures,
@@ -19,7 +18,9 @@
 			<Carousel.Item class="pl-0">
 				<img
 					class="h-full w-full object-cover"
-					src={dev ? `${PUBLIC_BACKEND_URL}${picture.url}` : picture.url}
+					src={!PUBLIC_BACKEND_URL.includes('https')
+						? `${PUBLIC_BACKEND_URL}${picture.url}`
+						: picture.url}
 					alt="Bilder"
 				/>
 			</Carousel.Item>

@@ -4,25 +4,6 @@
 	let { children } = $props();
 	import SiteFooter from '$lib/layout/site-footer.svelte';
 	import SiteContact from '$lib/layout/site-contact.svelte';
-	import type { Load } from '@sveltejs/kit';
-	import { waitLocale } from 'svelte-i18n';
-
-	export async function preload() {
-		return waitLocale();
-	}
-
-	export const load: Load = async ({ url }) => {
-		// Lese die Sprache aus der URL (z. B. /de oder /en)
-		const lang = url.pathname.split('/')[1] || 'de'; // Standard: Deutsch
-
-		return { lang };
-	};
-
-	/**
-	 *
-	 * Globale seo daten aus strapi 'global' laden und in head einfügen
-	 *
-	 */
 </script>
 
 <svelte:head>
@@ -42,12 +23,9 @@
 
 <!-- root layout  -->
 
-<div class="bg-secondary flex  flex-col">
+<div class="bg-secondary flex flex-col">
 	<SiteHeader />
-	<main
-		class="relative  flex-1 "
-		style="margin-right: 0; margin-left: 0"
-	>
+	<main class="relative flex-1" style="margin-right: 0; margin-left: 0">
 		{@render children()}
 	</main>
 	<SiteContact />

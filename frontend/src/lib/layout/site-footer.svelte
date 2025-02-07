@@ -1,14 +1,17 @@
 <script lang="ts">
 	import { Footer, FooterLi, FooterUl, FooterCopyright, FooterIcon } from 'svelte-5-ui-lib';
 	import { LinkedinSolid, YoutubeSolid, InstagramSolid } from 'flowbite-svelte-icons';
-	import imgLogo from '$lib/images/Logo_weiseSchrift_orange.png';
+	import { Icons } from '$lib/assets/icons';
 </script>
 
-<Footer class="z-10 bg-primary-foreground bottom-0 size-full shadow-[0px_-10px_25px_rgba(0,0,0,0.35)]" footerType="socialmedia">
+<Footer
+	class="bg-primary-foreground bottom-0 z-10 size-full shadow-[0px_-10px_25px_rgba(0,0,0,0.35)]"
+	footerType="socialmedia"
+>
 	<div></div>
 	<div class="flex flex-col xl:flex-row xl:justify-between">
 		<div class="mb-6 w-[140px] md:mb-0 xl:w-[200px]">
-			<a href="/"><img src={imgLogo} alt="Logo" /></a>
+			<a href="/"><img src={Icons.logo} alt="Logo" /></a>
 		</div>
 
 		<div class="bg-secondary-foreground text-secondary w-[80%] xl:w-[40%]">

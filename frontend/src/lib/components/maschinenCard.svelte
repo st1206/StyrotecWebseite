@@ -3,7 +3,6 @@
 	import type { AttributesOf } from '$lib/cmsTypes/types';
 	import { Card } from 'svelte-5-ui-lib';
 	import { PUBLIC_BACKEND_URL } from '$env/static/public';
-	const dev = import.meta.env.DEV;
 	let { maschine }: { maschine: AttributesOf<ApiMaschineMaschine> } = $props();
 </script>
 
@@ -13,7 +12,7 @@
 	<a href={`/produkte/gebrauchtmaschinen/cnc-maschinen/${maschine.slug}`}>
 		<img
 			class="relative left-0 top-0 w-[240px] bg-center xl:w-[380px]"
-			src={dev
+			src={!PUBLIC_BACKEND_URL.includes('https')
 				? `${PUBLIC_BACKEND_URL}${maschine.Bilder[0].url}`
 				: maschine.Bilder[0].formats.small.url}
 			alt="bild"

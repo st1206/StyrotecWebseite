@@ -3,15 +3,20 @@ import type { PageServerLoad } from './$types';
 import type { AttributesOf } from '$lib/cmsTypes/types';
 import { PUBLIC_BACKEND_URL } from '$env/static/public';
 import type { ApiHomeHome } from '$lib/cmsTypes/contentTypes';
+import { getRequestHeader } from '$lib/server/utils';
+import { LANG_KEY } from '$lib/i18n';
 
-export const load: PageServerLoad = async ({ fetch }) => {
-
-	// TODO ADD GENERIC CREDENTIALS TO FETCH WITH STRAPI API KEY
-	
+export const load: PageServerLoad = async ({ fetch, cookies }) => {
 	const loadHomepageData = async (): Promise<AttributesOf<ApiHomeHome>> => {
-		const res = await fetch(`${PUBLIC_BACKEND_URL}/api/home?populate=*`);
+		const res = await fetch(
+			`${PUBLIC_BACKEND_URL}/api/home?populate=*&locale=${cookies.get(LANG_KEY)}`,
+			{
+				method: 'GET',
+				headers: getRequestHeader()
+			}
+		);
+
 		const data = await res.json();
-		console.log(data)
 
 		if (res.ok) {
 			return data.data;
@@ -20,7 +25,7 @@ export const load: PageServerLoad = async ({ fetch }) => {
 			error(500, 'An error occured while feching bilder');
 		}
 	};
-	return { 
+	return {
 		homepageData: loadHomepageData()
 	};
 };

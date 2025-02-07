@@ -3,10 +3,11 @@
 	import { slide } from 'svelte/transition';
 	import { linear } from 'svelte/easing';
 	import { Button } from 'svelte-5-ui-lib';
-	import imgMartin from '$lib/images/martin_schreibtisch.jpg';
-	import imgTobias from '$lib/images/tobias_schreibtisch.jpg';
-	import imgRolf from '$lib/images/rolf_schreibtisch.jpg';
-	import imgNorbert from '$lib/images/norbert_schreibtisch.jpg';
+	import imgMartin from '$lib/assets/images/martin_schreibtisch.jpg';
+	import imgTobias from '$lib/assets/images/tobias_schreibtisch.jpg';
+	import imgRolf from '$lib/assets/images/rolf_schreibtisch.jpg';
+	import imgNorbert from '$lib/assets/images/norbert_schreibtisch.jpg';
+	import { _ } from 'svelte-i18n';
 
 	/**
 	 *
@@ -42,7 +43,12 @@
 </script>
 
 <div class="modal flex justify-center">
-	<Button class="bg-primary-500 border-2 border-primary-foreground xl:rounded-none" onclick={modalExample.toggle}>Kontakt</Button>
+	<Button
+		class="bg-primary-500 border-primary-foreground border-2 xl:rounded-none"
+		onclick={modalExample.toggle}
+	>
+		{$_('contact.title')}
+	</Button>
 </div>
 <Modal
 	title="Kontakte"

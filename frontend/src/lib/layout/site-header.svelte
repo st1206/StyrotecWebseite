@@ -1,18 +1,18 @@
 <script lang="ts">
-	import { Search, Button } from 'svelte-5-ui-lib';
-	import { onMount } from 'svelte';
+	import { Search } from 'svelte-5-ui-lib';
 	import { SearchOutline } from 'flowbite-svelte-icons';
 	import { uiHelpers } from 'svelte-5-ui-lib';
 	import { menu } from '$lib/config/routes';
-	import imgLogo from '$lib/images/Logo_weiseSchrift_orange.png';
 	import { Dropdown, DropdownUl, DropdownLi } from 'svelte-5-ui-lib';
-	import { page } from '$app/stores';
 	import { SvelteMap } from 'svelte/reactivity';
 	import MobileNav from './mobile-nav.svelte';
+	import { page } from '$app/state';
+	import { Icons } from '$lib/assets/icons';
+	import LanguageToggle from '$lib/components/language-toggle.svelte';
 
-	let activeUrl = $state($page.url.pathname);
+	let activeUrl = $state(page.url.pathname);
 	$effect(() => {
-		activeUrl = $page.url.pathname;
+		activeUrl = page.url.pathname;
 	});
 	let dropdownA = uiHelpers();
 	let dropdownAStatus = $state(false);
@@ -22,21 +22,13 @@
 	});
 
 	let isOpenMap = $state(new SvelteMap());
-	let menuToUse = menu.en;
-	onMount(() => {
-		menuToUse.forEach((item) => {
-			isOpenMap.set(item.id, false);
-		});
-	});
-
-
 </script>
 
 <nav
 	class="bg-primary-foreground fixed z-50 flex w-full justify-between gap-2 p-3 shadow-[10px_10px_15px_rgba(0,0,0,0.45)]"
 >
 	<!-- logo -->
-	<a class="ml-2 w-24" href="/"><img src={imgLogo} alt="Logo" /></a>
+	<a class="ml-2 w-24" href="/"><img src={Icons.logo} alt="Logo" /></a>
 
 	<div class="flex gap-2">
 		<!-- searchbar -->
@@ -51,7 +43,7 @@
 
 		<!-- menu -->
 		<div class="hidden gap-2 xl:flex">
-			{#each menuToUse as item}
+			{#each menu as item}
 				<button
 					class="hover:bg-primary bg-secondary w-[150px] px-3"
 					onclick={() => {
@@ -106,33 +98,17 @@
 					{/if}
 				{/if}
 			{/each}
-
-			<div class="h-full">
-				<button
-					class="text-primary-600 hover:bg-primary bg-secondary h-full w-[150px]"
-					onclick={dropdownA.toggle}
-					>Sprache
-				</button>
-				<div class="relative">
-					<Dropdown
-						{activeUrl}
-						dropdownStatus={dropdownAStatus}
-						closeDropdown={closeDropdownA}
-						class="absolute "
-					>
-						<DropdownUl>
-							<DropdownLi href="/[de]">Englisch</DropdownLi>
-							<DropdownLi href="/[en]">Deutsch</DropdownLi>
-						</DropdownUl>
-					</Dropdown>
-				</div>
-			</div>
 		</div>
 	</div>
 
-	<!-- mobile menu -->
-	<div class="xl:hidden">
-		<MobileNav />
+	<div class="flex gap-4">
+		<!-- language toggle -->
+		<LanguageToggle />
+
+		<!-- mobile menu -->
+		<div class="xl:hidden">
+			<MobileNav />
+		</div>
 	</div>
 
 	<div class="hidden xl:block"></div>
