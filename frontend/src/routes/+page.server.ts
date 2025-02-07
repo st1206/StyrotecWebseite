@@ -3,7 +3,7 @@ import type { PageServerLoad } from './$types';
 import type { AttributesOf } from '$lib/cmsTypes/types';
 import { PUBLIC_BACKEND_URL } from '$env/static/public';
 import type { ApiHomeHome } from '$lib/cmsTypes/contentTypes';
-import { getRequestHeader } from '$lib/server/utils';
+import { getRequestHeaders } from '$lib/server/utils';
 import { LANG_KEY } from '$lib/i18n';
 
 export const load: PageServerLoad = async ({ fetch, cookies }) => {
@@ -12,7 +12,7 @@ export const load: PageServerLoad = async ({ fetch, cookies }) => {
 			`${PUBLIC_BACKEND_URL}/api/home?populate=*&locale=${cookies.get(LANG_KEY)}`,
 			{
 				method: 'GET',
-				headers: getRequestHeader()
+				headers: getRequestHeaders()
 			}
 		);
 

@@ -3,10 +3,18 @@ import type { PageServerLoad } from './$types';
 import type { ApiMaschineMaschine } from '$lib/cmsTypes/contentTypes';
 import type { AttributesOf } from '$lib/cmsTypes/types';
 import { PUBLIC_BACKEND_URL } from '$env/static/public';
+import { getRequestHeaders } from '$lib/server/utils';
+import { LANG_KEY } from '$lib/i18n';
 
-export const load: PageServerLoad = async ({ fetch }) => {
+export const load: PageServerLoad = async ({ fetch, cookies }) => {
 	const loadMaschines = async (): Promise<AttributesOf<ApiMaschineMaschine>[]> => {
-		const res = await fetch(`${PUBLIC_BACKEND_URL}/api/maschines?populate=*`);
+		const res = await fetch(
+			`${PUBLIC_BACKEND_URL}/api/maschines?populate=*&locale=${cookies.get(LANG_KEY)}`,
+			{
+				method: 'GET',
+				headers: getRequestHeaders()
+			}
+		);
 		const data = await res.json();
 
 		if (res.ok) {
