@@ -5,6 +5,8 @@
 	import * as Accordion from '$lib/components/ui/accordion';
 	import { menu } from '$lib/config/routes';
 	import { Label } from '$lib/components/ui/label';
+
+	let menu2use = menu.de;
 </script>
 
 
@@ -17,7 +19,7 @@
 			<a class="ml-2 w-24" href="/"><img src={imgLogo} alt="Logo Styrotec" /></a>
 		</Sheet.Header>
 		<div class="mt-[73px] flex h-full w-full flex-col gap-8 overflow-y-auto">
-			{#each menu as item}
+			{#each menu2use as item}
 				<div>
 					<Label class="text-primary text-xl font-medium">{item.label}</Label>
 					{#each item.megaMenu as child}

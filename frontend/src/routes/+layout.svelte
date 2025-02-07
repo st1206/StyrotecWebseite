@@ -5,6 +5,11 @@
 	import SiteFooter from '$lib/layout/site-footer.svelte';
 	import SiteContact from '$lib/layout/site-contact.svelte';
 	import type { Load } from '@sveltejs/kit';
+	import { waitLocale } from 'svelte-i18n';
+
+	export async function preload() {
+		return waitLocale();
+	}
 
 	export const load: Load = async ({ url }) => {
 		// Lese die Sprache aus der URL (z. B. /de oder /en)

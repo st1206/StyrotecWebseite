@@ -3,7 +3,7 @@
 	import MaschinenCarousel from '$lib/components/maschinenCarousel.svelte';
 	import * as Accordion from '$lib/components/ui/accordion';
 	let { data } = $props();
-
+	
 	const carouselHeight = 600;
 </script>
 
@@ -16,15 +16,20 @@
 		</div>
 
 		<h3
-			class="text-secondary bg-secondary-foreground absolute z-20 ml-[35%] w-[30%] border-2 border-solid py-8 text-center text-5xl font-medium shadow-[10px_20px_60px_rgba(0,0,0,0.95)]"
+			class="hidden xl:block text-secondary bg-secondary-foreground absolute z-20 ml-[35%] w-[30%] border-2 border-solid py-8 text-center text-5xl font-medium shadow-[10px_20px_60px_rgba(0,0,0,0.95)]"
 			style="margin-top: {carouselHeight - 90}px"
 		>
+			{maschine.Titel}
+		</h3>
+		<h3 
+			class="block xl:hidden text-secondary text-center bg-secondary-foreground border-2 z-50 border-solid text-5xl shadow-[10px_20px_60px_rgba(0,0,0,0.95)]"
+			style="margin-top: {300}px">
 			{maschine.Titel}
 		</h3>
 
 		<div
 			class="mx-8 mt-10 flex flex-row flex-wrap gap-8 pl-32"
-			style="margin-top: {carouselHeight + 100}px"
+			style="xl:margin-top: {carouselHeight + 100}px"
 		>
 			{#if maschine.extraBeschreibung}
 				<div class="w-screen">

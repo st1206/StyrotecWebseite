@@ -22,12 +22,14 @@
 	});
 
 	let isOpenMap = $state(new SvelteMap());
-
+	let menuToUse = menu.en;
 	onMount(() => {
-		menu.forEach((item) => {
+		menuToUse.forEach((item) => {
 			isOpenMap.set(item.id, false);
 		});
 	});
+
+
 </script>
 
 <nav
@@ -49,7 +51,7 @@
 
 		<!-- menu -->
 		<div class="hidden gap-2 xl:flex">
-			{#each menu as item}
+			{#each menuToUse as item}
 				<button
 					class="hover:bg-primary bg-secondary w-[150px] px-3"
 					onclick={() => {

@@ -45,6 +45,7 @@
 		"@internationalized/date": "^3.6.0",
 		"@tailwindcss/typography": "^0.5.15",
 		"embla-carousel": "^8.5.2",
-		"embla-carousel-autoplay": "^8.5.2"
+		"embla-carousel-autoplay": "^8.5.2",
+		"svelte-i18n": "^4.0.1"
 	}
 }
