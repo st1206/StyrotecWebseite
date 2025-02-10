@@ -1,6 +1,6 @@
 <script>
 	import Button from '$lib/components/ui/button/button.svelte';
-	import imgNorbert from '$lib/images/norbert_schreibtisch.jpg';
+	import imgNorbert from '$lib/assetes/images/norbert_schreibtisch.jpg';
 </script>
 
 <div class="flex flex-col gap-16 xl:gap-32 p-[5%] mt-32">
