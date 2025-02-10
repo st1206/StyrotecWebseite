@@ -10,5 +10,14 @@
 	"contact": {
 		"title": "Kontakt",
 		"description": "Kontaktieren Sie uns"
+	},
+	"nav": {
+		"produkte": "Produkte",
+		"portalfräsmaschinen": "Portalfräsmaschinen",
+		"fs10": "FS 10",
+		"fs15": "FS 15",
+		"fs20": "FS 20",
+		"hybrid3D": "Hybrid - 3D",
+		"vorratsmaschinen": "Vorratsmaschinen"
 	}
 }

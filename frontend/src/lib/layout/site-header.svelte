@@ -9,6 +9,7 @@
 	import { page } from '$app/state';
 	import { Icons } from '$lib/assets/icons';
 	import LanguageToggle from '$lib/components/language-toggle.svelte';
+	import { _ } from 'svelte-i18n';
 
 	let activeUrl = $state(page.url.pathname);
 	$effect(() => {
@@ -52,7 +53,7 @@
 						isOpenMap.set(item.id, !isCurrentlyOpen);
 					}}
 				>
-					{item.label}
+					{$_(`nav.${item.key}`)}
 				</button>
 
 				{#if isOpenMap.get(item.id)}
@@ -75,8 +76,10 @@
 												isOpenMap.forEach((value, key) => {
 													isOpenMap.set(key, false);
 												})}
-											href={column.link}>{column.title}</a
+											href={column.link}
 										>
+											{$_(`nav.${column.key}`) ?? column.key}
+										</a>
 									</h4>
 									<ul>
 										{#each column.items as subitem}
@@ -87,8 +90,10 @@
 														isOpenMap.forEach((value, key) => {
 															isOpenMap.set(key, false);
 														})}
-													href={subitem.link}>{subitem.label}</a
+													href={subitem.link}
 												>
+													{$_(`nav.${subitem.key}`) ?? subitem.key}
+												</a>
 											</li>
 										{/each}
 									</ul>

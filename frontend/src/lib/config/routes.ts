@@ -4,147 +4,147 @@ export type MenuRoute = typeof menu;
 export const menu = [
 	{
 		id: 1,
-		label: 'Produkte',
+		key: 'produkte',
 		link: '/produkte',
 		megaMenu: [
 			{
-				title: 'Portalfräsmaschinen',
+				key: 'portalfräsmaschinen',
 				link: '/produkte/portalfräsmaschinen',
 				items: [
-					{ label: 'FS 10', link: '/produkte/portalfräsmaschinen/fs10' },
-					{ label: 'FS 15', link: '/produkte/portalfräsmaschinen/f15' },
-					{ label: 'FS 20', link: '/produkte/portalfräsmaschinen/fs20' },
-					{ label: 'Hybrid - 3D', link: '/produkte/portalfräsmaschinen/hybrid-3d' },
-					{ label: 'Vorratsmaschinen', link: '/produkte/portalfräsmaschinen/vorratsmaschinen' }
-				]
-			},
-			{
-				title: 'Spänepressen',
-				link: '/produkte/spänepressen',
-				items: [
-					{ label: 'Metalle', link: '/produkte/spänepressen/metalle' },
-					{ label: 'Kunststoffe', link: '/produkte/spänepressen/kunststoffe' },
-					{ label: 'Styropor', link: '/produkte/spänepressen/styropor' }
-				]
-			},
-			{
-				title: 'Styroporbearbeitung',
-				link: '/produkte/styroporbearbeitung',
-				items: [
-					{ label: 'Fräswerkzeuge', link: '/produkte/styroporbearbeitung/fräswerkzeug' },
-					{ label: 'Hohlfrässpindeln', link: '/produkte/styroporbearbeitung/hohlfrässpindeln' },
-					{ label: 'Absaugungen', link: '/produkte/styroporbearbeitung/absaugungen' },
-					{ label: 'Zerkleinerer', link: '/produkte/styroporbearbeitung/zerkleinerer' },
-					{ label: 'Pressen', link: '/produkte/styroporbearbeitung/pressen' },
-					{ label: 'Rohmaterial', link: '/produkte/styroporbearbeitung/rohmaterial' },
-					{ label: 'Kleber', link: '/produkte/styroporbearbeitung/kleber' }
-				]
-			},
-			{
-				title: 'Gebrauchtmaschinen',
-				link: '/produkte/gebrauchtmaschinen',
-				items: [
-					{ label: 'CNC - Maschinen', link: '/produkte/gebrauchtmaschinen/cnc-maschinen' },
-					{ label: 'CNC - Zubehör', link: '/produkte/gebrauchtmaschinen/zubehör' },
-					{ label: 'Modellbaumaschinen', link: '/produkte/gebrauchtmaschinen/modellbaumaschinen' },
-					{ label: 'Holzbearbeitungsmaschinen', link: '/produkte/gebrauchtmaschinen/holzbearbeitungsmaschinen' }
+					{ key: 'fs10', link: '/produkte/portalfräsmaschinen/fs10' },
+					{ key: 'fs15', link: '/produkte/portalfräsmaschinen/f15' },
+					{ key: 'fs20', link: '/produkte/portalfräsmaschinen/fs20' },
+					{ key: 'hybrid3D', link: '/produkte/portalfräsmaschinen/hybrid-3d' },
+					{ key: 'vorratsmaschinen', link: '/produkte/portalfräsmaschinen/vorratsmaschinen' }
 				]
 			}
-		]
-	},
-	{
-		id: 2,
-		label: 'Dienstleistungen',
-		link: '/about',
-		megaMenu: [
-			{
-				title: 'Maschinenerhaltung',
-				link: '/dienstleistungen/maschinenerhaltung',
-				items: [
-					{ label: 'Spindelservice', link: '/dienstleistungen/maschinenerhaltung/spindelservice' },
-					{ label: 'Wartungen', link: '/dienstleistungen/maschinenerhaltung/wartungen' },
-					{ label: 'Reparaturen', link: '/dienstleistungen/maschinenerhaltung/reparaturen' },
-					{ label: 'Maschinenumzüge', link: '/dienstleistungen/maschinenerhaltung/maschinenumzüge' }
-				]
-			},
-			{
-				title: 'Maschinenvermarktung',
-				link: '/dienstleistungen/maschinenvermarktung',
-				items: [
-					{ label: 'Bewertung', link: '/dienstleistungen/maschinenvermarktung/bewertung' },
-					{ label: 'Vermittlung', link: '/dienstleistungen/maschinenvermarktung/vermittlung' },
-					{ label: 'Ankauf', link: '/dienstleistungen/maschinenvermarktung/ankauf' }
-				]
-			},
-			{
-				title: 'Maschinenmodernisierung',
-				link: '/dienstleistungen/maschinenmodernisierung',
-				items: [
-					{ label: 'Retrofit', link: '/dienstleistungen/maschinenmodernisierung/retrofit' },
-					{ label: 'Überholung', link: '/dienstleistungen/maschinenmodernisierung/überholung' }
-				]
-			}
-		]
-	},
+			// 		{
+			// 			title: 'Spänepressen',
+			// 			link: '/produkte/spänepressen',
+			// 			items: [
+			// 				{ label: 'Metalle', link: '/produkte/spänepressen/metalle' },
+			// 				{ label: 'Kunststoffe', link: '/produkte/spänepressen/kunststoffe' },
+			// 				{ label: 'Styropor', link: '/produkte/spänepressen/styropor' }
+			// 			]
+			// 		},
+			// 		{
+			// 			title: 'Styroporbearbeitung',
+			// 			link: '/produkte/styroporbearbeitung',
+			// 			items: [
+			// 				{ label: 'Fräswerkzeuge', link: '/produkte/styroporbearbeitung/fräswerkzeug' },
+			// 				{ label: 'Hohlfrässpindeln', link: '/produkte/styroporbearbeitung/hohlfrässpindeln' },
+			// 				{ label: 'Absaugungen', link: '/produkte/styroporbearbeitung/absaugungen' },
+			// 				{ label: 'Zerkleinerer', link: '/produkte/styroporbearbeitung/zerkleinerer' },
+			// 				{ label: 'Pressen', link: '/produkte/styroporbearbeitung/pressen' },
+			// 				{ label: 'Rohmaterial', link: '/produkte/styroporbearbeitung/rohmaterial' },
+			// 				{ label: 'Kleber', link: '/produkte/styroporbearbeitung/kleber' }
+			// 			]
+			// 		},
+			// 		{
+			// 			title: 'Gebrauchtmaschinen',
+			// 			link: '/produkte/gebrauchtmaschinen',
+			// 			items: [
+			// 				{ label: 'CNC - Maschinen', link: '/produkte/gebrauchtmaschinen/cnc-maschinen' },
+			// 				{ label: 'CNC - Zubehör', link: '/produkte/gebrauchtmaschinen/zubehör' },
+			// 				{ label: 'Modellbaumaschinen', link: '/produkte/gebrauchtmaschinen/modellbaumaschinen' },
+			// 				{ label: 'Holzbearbeitungsmaschinen', link: '/produkte/gebrauchtmaschinen/holzbearbeitungsmaschinen' }
+			// 			]
+			// 		}
+			// 	]
+			// },
+			// {
+			// 	id: 2,
+			// 	label: 'Dienstleistungen',
+			// 	link: '/about',
+			// 	megaMenu: [
+			// 		{
+			// 			title: 'Maschinenerhaltung',
+			// 			link: '/dienstleistungen/maschinenerhaltung',
+			// 			items: [
+			// 				{ label: 'Spindelservice', link: '/dienstleistungen/maschinenerhaltung/spindelservice' },
+			// 				{ label: 'Wartungen', link: '/dienstleistungen/maschinenerhaltung/wartungen' },
+			// 				{ label: 'Reparaturen', link: '/dienstleistungen/maschinenerhaltung/reparaturen' },
+			// 				{ label: 'Maschinenumzüge', link: '/dienstleistungen/maschinenerhaltung/maschinenumzüge' }
+			// 			]
+			// 		},
+			// 		{
+			// 			title: 'Maschinenvermarktung',
+			// 			link: '/dienstleistungen/maschinenvermarktung',
+			// 			items: [
+			// 				{ label: 'Bewertung', link: '/dienstleistungen/maschinenvermarktung/bewertung' },
+			// 				{ label: 'Vermittlung', link: '/dienstleistungen/maschinenvermarktung/vermittlung' },
+			// 				{ label: 'Ankauf', link: '/dienstleistungen/maschinenvermarktung/ankauf' }
+			// 			]
+			// 		},
+			// 		{
+			// 			title: 'Maschinenmodernisierung',
+			// 			link: '/dienstleistungen/maschinenmodernisierung',
+			// 			items: [
+			// 				{ label: 'Retrofit', link: '/dienstleistungen/maschinenmodernisierung/retrofit' },
+			// 				{ label: 'Überholung', link: '/dienstleistungen/maschinenmodernisierung/überholung' }
+			// 			]
+			// 		}
+			// 	]
+			// },
 
-	{
-		id: 3,
-		label: 'Branchen',
-		link: '/branchen',
-		megaMenu: [
-			{
-				title: 'Branchen',
-				link: '/branchen/branchen',
-				items: [
-					{ label: 'Automobil', link: '/branchen/branchen/automobil' },
-					{ label: 'Schiffsbau', link: '/branchen/branchen/schiffsbau' },
-					{ label: 'Modellbau', link: '/branchen/branchen/modellbau' },
-					{ label: 'Kunststoffindustrie', link: '/branchen/branchen/kunststoffindustrie' },
-					{ label: 'Betonindustrie', link: '/branchen/branchen/betonindustrie' },
-					{ label: 'Werbetechnik', link: '/branchen/branchen/werbetechnik' },
-					{ label: 'aerospace', link: '/branchen/branchen/aerospace' },
-					{ label: 'Kunst', link: '/branchen/branchen/kunst' }
-				]
-			}
-		]
-	},
-	{
-		id: 4,
-		label: 'Unternehmen',
-		link: '/unternehmen',
-		megaMenu: [
-			{
-				title: 'Über Uns',
-				link: '/unternehmen/über-uns',
-				items: [
-					{ label: 'Werte', link: '/unternehmen/über-uns/werte' },
-					{ label: 'Visionen', link: '/unternehmen/über-uns/vision' },
-					{ label: 'Mission', link: '/unternehmen/über-uns/mission' },
-					{ label: 'Nachhaltigkeit', link: '/unternehmen/über-uns/nachhaltigkeit' },
-					{ label: 'Geschichte', link: '/unternehmen/über-uns/geschichte' }
-				]
-			},
-			{
-				title: 'Karriere',
-				link: '/unternehmen/karriere',
-				items: [{ label: 'Stellenausschreibung', link: '/unternehmen/karriere/stellenausschreibung' }]
-			},
-			{
-				title: 'News',
-				link: '/unternehmen/news',
-				items: [
-					{ label: 'Anwenderstories', link: '/unternehmen/news/anwenderstories' },
-					{ label: 'Referenzen', link: '/unternehmen/news/referenzen' }
-				]
-			},
-			{
-				title: 'Team',
-				link: '/unternehmen/team',
-				items: [
-					{ label: 'Berichte', link: '/unternehmen/team/berichte' },
-					{ label: 'Messen', link: '/unternehmen/team/messen' }
-				]
-			}
+			// {
+			// 	id: 3,
+			// 	label: 'Branchen',
+			// 	link: '/branchen',
+			// 	megaMenu: [
+			// 		{
+			// 			title: 'Branchen',
+			// 			link: '/branchen/branchen',
+			// 			items: [
+			// 				{ label: 'Automobil', link: '/branchen/branchen/automobil' },
+			// 				{ label: 'Schiffsbau', link: '/branchen/branchen/schiffsbau' },
+			// 				{ label: 'Modellbau', link: '/branchen/branchen/modellbau' },
+			// 				{ label: 'Kunststoffindustrie', link: '/branchen/branchen/kunststoffindustrie' },
+			// 				{ label: 'Betonindustrie', link: '/branchen/branchen/betonindustrie' },
+			// 				{ label: 'Werbetechnik', link: '/branchen/branchen/werbetechnik' },
+			// 				{ label: 'aerospace', link: '/branchen/branchen/aerospace' },
+			// 				{ label: 'Kunst', link: '/branchen/branchen/kunst' }
+			// 			]
+			// 		}
+			// 	]
+			// },
+			// {
+			// 	id: 4,
+			// 	label: 'Unternehmen',
+			// 	link: '/unternehmen',
+			// 	megaMenu: [
+			// 		{
+			// 			title: 'Über Uns',
+			// 			link: '/unternehmen/über-uns',
+			// 			items: [
+			// 				{ label: 'Werte', link: '/unternehmen/über-uns/werte' },
+			// 				{ label: 'Visionen', link: '/unternehmen/über-uns/vision' },
+			// 				{ label: 'Mission', link: '/unternehmen/über-uns/mission' },
+			// 				{ label: 'Nachhaltigkeit', link: '/unternehmen/über-uns/nachhaltigkeit' },
+			// 				{ label: 'Geschichte', link: '/unternehmen/über-uns/geschichte' }
+			// 			]
+			// 		},
+			// 		{
+			// 			title: 'Karriere',
+			// 			link: '/unternehmen/karriere',
+			// 			items: [{ label: 'Stellenausschreibung', link: '/unternehmen/karriere/stellenausschreibung' }]
+			// 		},
+			// 		{
+			// 			title: 'News',
+			// 			link: '/unternehmen/news',
+			// 			items: [
+			// 				{ label: 'Anwenderstories', link: '/unternehmen/news/anwenderstories' },
+			// 				{ label: 'Referenzen', link: '/unternehmen/news/referenzen' }
+			// 			]
+			// 		},
+			// 		{
+			// 			title: 'Team',
+			// 			link: '/unternehmen/team',
+			// 			items: [
+			// 				{ label: 'Berichte', link: '/unternehmen/team/berichte' },
+			// 				{ label: 'Messen', link: '/unternehmen/team/messen' }
+			// 			]
+			// 		}
 		]
 	}
 ] as const;
