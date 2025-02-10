@@ -31,7 +31,7 @@
 			case 'rolf':
 				return { name: 'Rolf', role: 'Vertrieb', imgSource: imgRolf };
 			case 'tobias':
-				return { name: 'Tobias', role: 'Vertrieb', imgSource: imgTobias };
+				return { name: 'Tobias', role: 'Projektmanager', imgSource: imgTobias };
 			case 'norbert':
 				return { name: 'Norbert', role: 'Vertrieb', imgSource: imgNorbert };
 			case 'martin':
