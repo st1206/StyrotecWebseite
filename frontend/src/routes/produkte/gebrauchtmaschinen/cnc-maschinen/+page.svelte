@@ -16,18 +16,31 @@
 		<Carousel height={600} pictures={maschines[0].Bilder} />
 	</div>
 	<h3
-		class="hidden xl:block text-secondary bg-secondary-foreground absolute z-20 ml-[35%] w-[30%] border-2 border-solid py-8 text-center text-5xl font-medium shadow-[10px_20px_60px_rgba(0,0,0,0.95)]"
+		class="text-secondary bg-secondary-foreground absolute z-20 ml-[35%] hidden w-[30%] border-2 border-solid py-8 text-center text-5xl font-medium shadow-[10px_20px_60px_rgba(0,0,0,0.95)] xl:block"
 		style="margin-top: {600 - 90}px"
 	>
 		CNC Maschinen
 	</h3>
-	<h3 
-		class="block xl:hidden text-secondary text-center bg-secondary-foreground border-2 z-50 border-solid text-5xl shadow-[10px_20px_60px_rgba(0,0,0,0.95)]"
-		style="margin-top: {300}px">
+	<h3
+		class="text-secondary bg-secondary-foreground z-50 block border-2 border-solid text-center text-5xl shadow-[10px_20px_60px_rgba(0,0,0,0.95)] xl:hidden"
+		style="margin-top: {300}px"
+	>
 		CNC Maschinen
 	</h3>
 
-	<div class="mx-[10%] xl:my-[100px] my-[100px] xl:mt-[700px] flex w-[80%] flex-col flex-wrap gap-8 xl:flex-row">
+	<div class="text-primary-foreground mt-8 p-6">
+		In unserem Lager finden Sie eine große Auswahl an gebrauchten CNC-Fräsmaschinen führender
+		Hersteller. Jede Maschine wird von unseren Experten sorgfältig geprüft und gewartet, um eine
+		einwandfreie Funktionalität und Präzision zu gewährleisten. Der Kauf einer gebrauchten
+		CNC-Maschine bietet zahlreiche Vorteile: Sie sparen Kosten, profitieren von sofortiger
+		Verfügbarkeit und tragen gleichzeitig zur Nachhaltigkeit bei. Unsere Maschinen sind nicht nur
+		leistungsfähig, sondern auch eine ressourcenschonende Alternative zu Neugeräten. Ob für
+		Industrie, Handwerk oder Kleinbetriebe - wir haben die passende Lösung für Ihre Anforderungen.
+	</div>
+
+	<div
+		class="mx-[10%] my-[100px] flex w-[80%] flex-col flex-wrap gap-8 xl:my-[100px] xl:mt-[700px] xl:flex-row"
+	>
 		{#each maschines as maschine}
 			<MaschinenCard {maschine} />
 		{:else}
