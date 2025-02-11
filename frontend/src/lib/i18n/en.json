@@ -6,18 +6,157 @@
 	"about": {
 		"title": "About us",
 		"description": "Learn more about us"
+	}, 
+	"contact": { 
+		"title": "Contact", 
+		"description": "Contact us",
+		"land": "Germany",
+		"info": "Info/Extension",
+		"Projektmanager": "Project Manager",
+		"Vertrieb": "Distribution"
 	},
-	"contact": {
-		"title": "Contact",
-		"description": "Contact us"
+	"legal": {
+		"privacy": "Privacy Policy",
+		"rechtliches": "Legal"
 	},
 	"nav": {
 		"produkte": "Products",
-		"portalfräsmaschinen": "EN_Portalfräsmaschinen",
-		"fs10": "EN_FS 10",
-		"fs15": "EN_FS 15",
-		"fs20": "EN_FS 20",
-		"hybrid3D": "EN_Hybrid - 3D",
-		"vorratsmaschinen": "EN_Vorratsmaschinen"
+
+			"portalfräsmaschinen": "Portal Milling Machines",
+		
+				"fs10": "FS 10",
+				"fs15": "FS 15",
+				"fs20": "FS 20",
+				"hybrid3D": "Hybrid - 3D",
+				"vorratsmaschinen": "In-Stock Machines",
+
+			"spänepressen": "Briquettpress",
+			
+				"metalle": "Metalls",
+				"kunststoffe": "Plastics",
+				"styropor": "Styrofoam",
+
+			"styroporbearbeitung": "Styrofoam Machining",
+
+				"fräswerkzeuge": "Milling Tools",
+				"hohlfrässpindeln": "Hollow Milling Spindle",
+				"absaugungen": "Suction Systems",
+				"zerkleinerer": "Shredder",
+				"pressen": "Presses",
+				"rohmaterial": "Raw Material",
+				"kleber": "Adhesive",
+
+			"gebrauchtmaschinen": "Used Machines",
+
+				"cnc-maschinen": "CNC Machines",
+				"cnc-zubehör": "CNC Accessories",
+				"modellbaumaschinen": "Model Building Machines",
+				"holzbearbeitungsmaschinen": "Woodworking Machines",
+
+		"dienstleistungen": "Services",
+
+			"maschinenerhaltung": "Machine Maintenance",
+				
+				"spindelservice": "Spindle Service",
+				"wartungen": "Maintenance", 
+				"reparaturen": "Repairs",
+				"maschinenumzüge": "Moving Machines",
+
+			"maschinenvermarktung": "Machine Marketing",
+
+				"bewertung": "Evaluation",
+				"vermittlung": "Mediation",
+				"ankauf": "Purchase",
+
+			"maschinenmodernisierung": "Machine Modernization",
+
+				"retrofit": "Retrofit",
+				"überholung": "Overhaul",
+
+		"Branchen": "Industries",
+
+			"branchen": "Industries",
+
+				"automobil": "Automotive",
+				"schiffsbau": "Shipbuilding",
+				"modellbau": "Modell Making",
+				"kunststoffindustrie": "Plastic Industrie",
+				"betonindustrie": "Concrete Industrie",
+				"werbetechnik": "Advertising Technology",
+				"aerospace": "Aerospace",
+				"kunst": "Art",
+		
+		"unternehmen": "Company",
+
+			"überUns": "About Us",
+			
+				"werte": "Values",
+				"visionen": "Vision",
+				"mission": "Mission",
+				"nachhaltigkeit": "Sustainability",
+				"geschichte": "History",
+			
+			"karriere": "Career",
+
+				"stellenausschreibung": "Job Openings",
+
+			"news": "News",
+
+				"anwenderstories": "Customer Stories",
+				"referenzen": "References",
+
+			"team": "Team",
+
+				"berichte": "Berichte",
+				"messen": "Messen"
+	},
+	"gebrauMa": {
+		"titel": "Overview of our used machines",
+		"cta": "Learn more",
+		"cnc-maschinen": "CNC Maschines",
+		"cnc-maschinen-text": "Discover our wide selection of used CNC milling machines from renowned manufacturers. Each machine is carefully inspected to ensure top quality and full functionality. Benefit from flexibility and resource efficiency while making a valuable contribution to the circular economy.",
+		"cnc-zubehör": "CNC Accessories",
+		"cnc-zubehör-text": "Maximize the performance of your CNC machine with our high-quality accessories. Whether you need clamping tools, tool holders, or spare parts, we have everything to make your production more efficient and precise. Our tested accessories ensure durability and maximum compatibility.",
+		"holz": "Woodworking Machines",
+		"holz-text": "Whether for carpentry, furniture manufacturing, or industrial use – our used woodworking machines offer maximum precision and efficiency. All machines are fully functional, tested, and ready for their next use. Save costs and choose sustainable machine solutions.",
+		"modell": "Modell Building Machines",
+		"modell-text": "For the finest detail work and highest precision, our used model-making machines are ideal for model building, prototyping, and fine machining. We offer a selection of high-quality machines to take your creative projects to the next level."
+
+	},
+	"cnc-Masch-Seite": {
+		"beschreibung": "Description",
+		"hauptdaten": "Main Data",
+		"bezeichnung": "Designation",
+		"hersteller": "Producer",
+		"typ": "Type",
+		"baujahr": "Year",
+		"standort": "Location",
+		"zustand": "Condition",
+		"achsdaten": "Axis-Data",
+		"xachse": "x-Axis",
+		"yachse": "y-Axis",
+		"zachse": "z-Axis",
+		"aachse": "a-Axis",
+		"cachse": "c-Axis",
+		"vorschub-xy": "Feed Rate X-Y-Axis",
+		"vorschub-z": "Feed Rate Z-Axis",
+		"achsbeschleunigung-xyz": "Axis Acceleration X-Y-Z-Axis",
+		"eckdaten": "Key Data",
+		"aufspannfläche": "Clamping Area",
+		"platzbedarf": "Required Space",
+		"gewicht": "Weight",
+		"technischeDaten": "Technical Data",
+		"steuerung": "Control",
+		"fräskopf": "Milling Head",
+		"spindelleistung": "Spindle Power",
+		"spindeldrehzahl": "Spindle Speed",
+		"drehmoment": "Torque",
+		"werkzeugaufnahme": "Tool Holder",
+		"werkzeugabspannung": "Tool Clamping",
+		"kühlmittelzufuhr": "Coolant Supply",
+		"blasluft": "Blowing Air",
+		"anschlussleistung": "Connection Power",
+		"vorsicherung": "Fuse",
+		"optionen": "Options"
 	}
 }

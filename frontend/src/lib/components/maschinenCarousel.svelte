@@ -11,12 +11,12 @@
 			<Carousel.Item class="pl-0">
 				<img
 					class="h-full w-full object-cover"
-					src={dev ? `${PUBLIC_BACKEND_URL}${picture.url}` : picture.url}
+					src={dev ? `${picture.url}` : picture.url}
 					alt="bildergallerie"
 				/>
 			</Carousel.Item>
 		{/each}
 	</Carousel.Content>
-	<Carousel.Previous class="left-10" />
-	<Carousel.Next class="right-10" />
+	<Carousel.Previous class="left-10 top-80 bg-opacity-70 border-black border-2" />
+	<Carousel.Next class="right-10 top-80 bg-opacity-70 border-black border-2" />
 </Carousel.Root>

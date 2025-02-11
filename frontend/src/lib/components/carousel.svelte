@@ -2,6 +2,8 @@
 	import Autoplay from 'embla-carousel-autoplay';
 	import * as Carousel from '$lib/components/ui/carousel';
 	import { PUBLIC_BACKEND_URL } from '$env/static/public';
+	import { writable } from "svelte/store";
+	import { onMount, tick } from "svelte";
 
 	let {
 		pictures,
@@ -10,6 +12,45 @@
 	}: { pictures: any; height: number; autoPlay?: boolean } = $props();
 	const plugin = Autoplay({ delay: 5000, stopOnInteraction: false, playOnInit: autoPlay });
 	console.log(pictures);
+
+	// Store für aktiven Slide-Index
+	let selectedIndex = writable(0);
+  	let carouselApi: any; // Speichert die Embla-Instanz
+
+	function scrollToind(index: number) {
+    	if (carouselApi) {
+      		carouselApi.scrollTo(index,true);
+			console.log("hi");
+      		selectedIndex.set(index); // Setzt den aktiven Index für die Dots
+    	}
+  	}
+
+	  onMount(async () => {
+    await tick(); // Warten, bis das DOM vollständig gerendert wurde
+
+    // Überprüfen, ob carouselApi korrekt zugewiesen wurde
+    if (carouselApi) {
+      console.log("Embla API erfolgreich initialisiert:", carouselApi);
+      carouselApi.on("select", () => {
+        const selectedIndexValue = carouselApi.selectedScrollSnap();
+        selectedIndex.set(selectedIndexValue); // Aktualisiert den aktiven Index
+      });
+    } else {
+      // Wenn carouselApi noch nicht zugewiesen ist, setzen wir es verzögert
+      setTimeout(() => {
+        if (carouselApi) {
+          console.log("Embla API nach Verzögerung erfolgreich initialisiert:", carouselApi);
+          carouselApi.on("select", () => {
+            const selectedIndexValue = carouselApi.selectedScrollSnap();
+            selectedIndex.set(selectedIndexValue); // Aktualisiert den aktiven Index
+          });
+        } else {
+          console.error("carouselApi konnte nicht initialisiert werden");
+        }
+      }, 100); // Verzögerung von 100ms
+    }
+  });
+
 </script>
 
 <Carousel.Root plugins={[plugin]}>
@@ -26,6 +67,15 @@
 			</Carousel.Item>
 		{/each}
 	</Carousel.Content>
-	<!-- <Carousel.Previous class="left-10" />
-		<Carousel.Next class="right-10" /> -->
+	
+	<div class="relative bottom-10 left-10 flex -mt-3 gap-2">
+		{#each pictures as _, index}
+		  <button
+			onclick={() => scrollToind(index)}
+			class="w-3 h-3 rounded-full transition duration-300 bg-primary-foreground hover:bg-gray-500"
+			class:selected={$selectedIndex === index} 
+		  ></button>
+		{/each}
+	  </div>
+
 </Carousel.Root>

@@ -2,6 +2,7 @@
 	import { Footer, FooterLi, FooterUl, FooterCopyright, FooterIcon } from 'svelte-5-ui-lib';
 	import { LinkedinSolid, YoutubeSolid, InstagramSolid } from 'flowbite-svelte-icons';
 	import { Icons } from '$lib/assets/icons';
+	import { _ } from 'svelte-i18n';
 </script>
 
 <Footer
@@ -15,7 +16,7 @@
 		</div>
 
 		<div class="bg-secondary-foreground text-secondary w-[80%] xl:w-[40%]">
-			<h2 class="text-primary pl-8 text-lg">Kontakt</h2>
+			<h2 class="text-primary pl-8 text-lg">{$_(`contact.title`)}</h2>
 			<hr
 				class="bg-primary-foreground my-6 border-gray-200 sm:mx-auto lg:my-1 dark:border-gray-700"
 			/>
@@ -24,22 +25,22 @@
 					Styrotec GmbH + Co KG <br />
 					Kartonstr. 2<br />
 					88255 Baienfurt <br />
-					Deutschland<br />
+					{$_(`contact.land`)} <br />
 				</div>
 				<div>
 					tel.: +49 751 5605020 <br />
-					fax : +49 751 5605029
+					fax.: +49 751 5605029
 				</div>
 			</div>
 		</div>
 
 		<div class=" mt-10 sm:flex sm:justify-between xl:mt-0">
 			<div>
-				<h2 class="text-primary mb-2 text-sm font-semibold uppercase">Legal</h2>
+				<h2 class="text-primary mb-2 text-sm font-semibold uppercase">{$_(`legal.rechtliches`)}</h2>
 				<hr class="my-6 border-gray-200 sm:mx-auto lg:my-1 dark:border-gray-700" />
 				<FooterUl>
 					<FooterLi liClass="mb-2 text-white" href="/rechtliches/datenschutz"
-						>Privacy Policy</FooterLi
+						>{$_(`legal.privacy`)}</FooterLi
 					>
 					<FooterLi liClass="mb-2 text-white" href="/rechtliches/impressum">Impressum</FooterLi>
 				</FooterUl>

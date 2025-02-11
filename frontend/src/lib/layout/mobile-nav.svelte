@@ -7,6 +7,7 @@
 	import { ScrollArea } from '$lib/components/ui/scroll-area';
 	import { innerHeight } from 'svelte/reactivity/window';
 	import { Icons } from '$lib/assets/icons';
+	import { _ } from 'svelte-i18n';
 
 	let open = $state<boolean>(false);
 </script>
@@ -26,16 +27,17 @@
 			<div class="flex h-full w-full flex-col gap-8">
 				{#each menu as item}
 					<div>
-						<Label class="text-primary text-xl font-medium">{item.label}</Label>
+						
+						<Label class="text-primary text-xl font-medium">{$_(`nav.${item.key}`) ?? item.key}</Label>
 						{#each item.megaMenu as child}
 							<Accordion.Root type="single">
-								<Accordion.Item value={child.title}>
-									<Accordion.Trigger>{child.title}</Accordion.Trigger>
+								<Accordion.Item value={$_(`nav.${item.key}`) ?? item.key}>
+									<Accordion.Trigger>{$_(`nav.${child.key}`) ?? child.key}</Accordion.Trigger>
 									<Accordion.Content>
 										<div class="flex flex-col gap-2">
 											{#each child.items as childItem}
 												<a onclick={() => (open = false)} class="text-md" href={childItem.link}>
-													{childItem.label}
+													{$_(`nav.${childItem.key}`) ?? childItem.key}
 												</a>
 											{/each}
 										</div>

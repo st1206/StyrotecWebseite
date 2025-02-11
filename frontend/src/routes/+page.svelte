@@ -23,7 +23,7 @@
 				<div
 					class="bg-primary-foreground relative left-0 top-10 mr-10 bg-opacity-80 shadow-[10px_10px_20px_rgba(0,0,0,0.25)]"
 				>
-					<h2 class="text-secondary ml-10 uppercase">Hier gibts info</h2>
+					<h2 class="text-secondary ml-10 uppercase  ">Hier gibts info</h2>
 				</div>
 				<div class="relative top-20 mx-5">
 					<p>inforamationstext zu xyz lorem ipsum sit dolor cum anis</p>

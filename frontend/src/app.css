@@ -43,11 +43,27 @@
 }
 
 @layer base {
+	@font-face{
+		font-family: 'bookFont';
+		src: local('bookFont'), url('/fonts/bookFont/OfficinaSansStd-Book.otf');
+		font-weight: normal;
+	}
+	@font-face {
+		font-family: 'boldFont';
+		src: local('boldFont'), url('/fonts/boldFont/OfficinaSansStd-Bold.otf');
+		font-weight: bold;
+	}
+	@font-face {
+		font-family: 'boldItalicFont';
+		src: local('boldItalicFont'), url('/fonts/boldItalicFont/OfficinaSansStd-BoldItalic.otf');
+		font-weight: italic;
+	}
 	* {
 		@apply border-border;
 	}
 	body {
 		@apply bg-background text-foreground;
+		@apply font-bookFont;
 	}
 
 	/* === Scrollbars === */

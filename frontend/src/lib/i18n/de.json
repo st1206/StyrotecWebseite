@@ -9,15 +9,154 @@
 	},
 	"contact": {
 		"title": "Kontakt",
-		"description": "Kontaktieren Sie uns"
+		"description": "Kontaktieren Sie uns",
+		"land": "Deutschland",
+		"info": "Info/Durchwahl",
+		"Projektmanager": "Projekt Manager",
+		"Vertrieb": "Vertrieb"
+	},
+	"legal": {
+		"privacy": "Datenschutz",
+		"rechtliches": "Rechtliches"
 	},
 	"nav": {
 		"produkte": "Produkte",
-		"portalfräsmaschinen": "Portalfräsmaschinen",
-		"fs10": "FS 10",
-		"fs15": "FS 15",
-		"fs20": "FS 20",
-		"hybrid3D": "Hybrid - 3D",
-		"vorratsmaschinen": "Vorratsmaschinen"
+
+			"portalfräsmaschinen": "Portalfräsmaschinen",
+
+				"fs10": "FS 10",
+				"fs15": "FS 15",
+				"fs20": "FS 20",
+				"hybrid3D": "Hybrid - 3D",
+				"vorratsmaschinen": "Vorratsmaschinen",
+		
+			"spänepressen": "Spänepressen",
+				
+				"metalle": "Metalle",
+				"kunststoffe": "Kunststoffe",
+				"styropor": "Styropor",
+
+			"styroporbearbeitung": "Styroporbearbeitung",
+
+				"fräswerkzeuge": "Fräswerkzeuge",
+				"hohlfrässpindeln": "Hohlfrässpindeln",
+				"absaugungen": "Absaugungen",
+				"zerkleinerer": "Zerkleinerer",
+				"pressen": "Pressen",
+				"rohmaterial": "Rohmaterial",
+				"kleber": "Kleber",
+
+			"gebrauchtmaschinen": "Gebrauchtmaschinen",
+
+				"cnc-maschinen": "CNC Maschinen",
+				"cnc-zubehör": "CNC Zubehör",
+				"modellbaumaschinen": "Modellbaumaschinen",
+				"holzbearbeitungsmaschinen": "Holzbearbeitungsmaschinen",
+
+		"dienstleistungen": "Dienstleistungen",
+
+			"maschinenerhaltung": "Maschinenerhaltung",
+				
+				"spindelservice": "Spindelservice",
+				"wartungen": "Wartungen", 
+				"reparaturen": "Reparaturen",
+				"maschinenumzüge": "Maschinenumzüge",
+
+			"maschinenvermarktung": "Maschinenvermarktung",
+
+				"bewertung": "Bewertung",
+				"vermittlung": "Vermittlung",
+				"ankauf": "Ankauf",
+
+			"maschinenmodernisierung": "Maschinenmodernisierung",
+
+				"retrofit": "Retrofit",
+				"überholung": "Überholung",
+
+		"Branchen": "Branchen",
+
+			"branchen": "Branchen",
+
+				"automobil": "Automobil",
+				"schiffsbau": "Schiffsbau",
+				"modellbau": "Modellbau",
+				"kunststoffindustrie": "Kunststoffindustrie",
+				"betonindustrie": "Betonindustrie",
+				"werbetechnik": "Werbetechnik",
+				"aerospace": "Aerospace",
+				"kunst": "Kunst",
+
+		"unternehmen": "Unternehmen",
+
+			"überUns": "Über Uns",
+			
+				"werte": "Werte",
+				"visionen": "Visionen",
+				"mission": "Mission",
+				"nachhaltigkeit": "Nachhaltigkeit",
+				"geschichte": "Geschichte",
+
+			"karriere": "Karriere",
+
+				"stellenausschreibung": "Stellenausschreibung",
+
+			"news": "News",
+
+				"anwenderstories": "Anwenderstories",
+				"referenzen": "Referenzen",
+			
+			"team": "Team",
+
+				"berichte": "Berichte",
+				"messen": "Messen"
+	},
+	"gebrauMa": {
+		"titel": "Übersicht über Unsere Gebrauchtmaschinen", 
+		"cta": "Mehr erfahren",
+		"cnc-maschinen": "CNC Maschinen",
+		"cnc-maschinen-text": "Entdecken Sie unsere große Auswahl an gebrauchten CNC-Fräsmaschinen namhafter Hersteller. Jede Maschine wird sorgfältig geprüft, um höchste Qualität und volle Funktionalität zu gewährleisten. Profitieren Sie von Flexibilität, Ressourcenschonung und leisten Sie einen wertvollen Beitrag zur Kreislaufwirtschaft.",
+		"cnc-zubehör": "CNC Zubehör",
+		"cnc-zubehör-text":"Maximieren Sie die Leistung Ihrer CNC-Maschine mit unserem hochwertigen Zubehör. Ob Spannmittel, Werkzeughalter oder Ersatzteile bei uns finden Sie alles, um Ihre Produktion effizienter und präziser zu gestalten. Unsere geprüften Zubehörteile garantieren Langlebigkeit und höchste Kompatibilität.",
+		"holz": "Holzbearbeitungsmaschinen",
+		"holz-text": "Ob für Tischlerei, Möbelbau oder Industrie - unsere gebrauchten Holzbearbeitungsmaschinen bieten höchste Präzision und Effizienz. Alle Maschinen sind voll funktionsfähig, geprüft und bereit für den nächsten Einsatz. Sparen Sie Kosten und setzen Sie auf nachhaltige Maschinenlösungen.",
+		"modell": "Modellbaumaschinen",
+		"modell-text": "Für feinste Detailarbeiten und höchste Präzision: Unsere gebrauchten Modellbaumaschinen sind ideal für Modellbau, Prototyping und Feinarbeiten. Wir bieten eine Auswahl an hochwertigen Maschinen, die Ihre kreativen Projekte auf das nächste Level heben."
+	},
+	"cnc-Masch-Seite": {
+		"beschreibung": "Beschreibung",
+		"hauptdaten": "Hauptdaten",
+		"bezeichnung": "Bezeichnung",
+		"hersteller": "Hersteller",
+		"typ": "Typ",
+		"baujahr": "Bauhjahr",
+		"standort": "Standort",
+		"zustand": "Zustand",
+		"achsdaten": "Achs-Daten",
+		"xachse": "x-Achse",
+		"yachse": "y-Achse",
+		"zachse": "z-Achse",
+		"aachse": "a-Achse",
+		"cachse": "c-Achse",
+		"vorschub-xy": "Vorschubgeschwindigkeit X-Y-Achse",
+		"vorschub-z": "Vorschubgeschwindigkeit Z-Achse",
+		"achsbeschleunigung-xyz": "Achsbeschleunigung X-Y-Z-Achse",
+		"eckdaten": "Eckdaten",
+		"aufspannfläche": "Aufspannfläche",
+		"platzbedarf": "Platzbedarf",
+		"gewicht": "Gewicht",
+		"technischeDaten": "Technische Daten",
+		"steuerung": "Steuerung",
+		"fräskopf": "Fräskopf",
+		"spindelleistung": "Spindelleistung",
+		"spindeldrehzahl": "Spindeldrehzahl",
+		"drehmoment": "Drehmoment",
+		"werkzeugaufnahme": "Werkzeugaufnahme",
+		"werkzeugabspannung": "Werkzeugabspannung",
+		"kühlmittelzufuhr": "Kühlmittelzufuhr",
+		"blasluft": "Blasluft",
+		"anschlussleistung": "Anschlussleistung",
+		"vorsicherung": "Vorsicherung",
+		"optionen": "Optionen"
+
 	}
 }

@@ -61,7 +61,7 @@
 >
 	<div class="modal-box">
 		<!-- evtl variabel machen je nach maschine und welche seite man sich befindet (forEach kontakt hinterlegt do unten)-->
-		<div class="column-left">Info / Durchwahl</div>
+		<div class="column-left">{$_('contact.info')}</div>
 		<div class="column-right">
 			+49 751 5605020 <br />
 			info@styrotec.de
@@ -72,7 +72,7 @@
 	<div class="modal-box">
 		<div class="column-left">
 			<span>{contactPerson.name}</span> <br />
-			<span>{contactPerson.role}</span>
+			<span>{$_(`contact.${contactPerson.role}`)}</span>
 		</div>
 		<div class="column-right">
 			<img src={contactPerson.imgSource} alt={`${contactPerson.name} Profil`} />

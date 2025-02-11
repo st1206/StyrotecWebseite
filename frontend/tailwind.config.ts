@@ -4,6 +4,8 @@ import type { Config } from 'tailwindcss';
 import { fontFamily } from 'tailwindcss/defaultTheme';
 import tailwindcssAnimate from 'tailwindcss-animate';
 
+
+
 export default {
 	content: [
 		'./src/**/*.{html,js,svelte,ts}',
@@ -77,8 +79,9 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			fontFamily: {
-				// import custom file TODO
-				sans: [...fontFamily.sans]
+				boldFont: ['boldFont'],
+				bookFont: ['bookFont'],
+				boldItalicFont: ['boldItalicFont']
 			},
 			keyframes: {
 				'accordion-down': {

@@ -16,7 +16,7 @@
 		<Carousel height={600} pictures={maschines[0].Bilder} />
 	</div>
 	<h3
-		class="text-secondary bg-secondary-foreground absolute z-20 ml-[35%] hidden w-[30%] border-2 border-solid py-8 text-center text-5xl font-medium shadow-[10px_20px_60px_rgba(0,0,0,0.95)] xl:block"
+		class="text-secondary font-boldFont bg-secondary-foreground absolute z-20 ml-[35%] hidden w-[30%] border-2 border-solid py-8 text-center text-5xl font-medium shadow-[10px_20px_60px_rgba(0,0,0,0.95)] xl:block"
 		style="margin-top: {600 - 90}px"
 	>
 		CNC Maschinen

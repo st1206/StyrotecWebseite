@@ -460,6 +460,56 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiKategorieBilderKategorieBilder
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'kategorie_bilders';
+  info: {
+    displayName: 'Kategorie_Bilder';
+    pluralName: 'kategorie-bilders';
+    singularName: 'kategorie-bilder';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Bilder: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Kategorie: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kategorie-bilder.kategorie-bilder'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiKonventionelleKonventionelle
   extends Struct.CollectionTypeSchema {
   collectionName: 'konventionelles';
@@ -1309,6 +1359,7 @@ declare module '@strapi/strapi' {
       'api::about.about': ApiAboutAbout;
       'api::global.global': ApiGlobalGlobal;
       'api::home.home': ApiHomeHome;
+      'api::kategorie-bilder.kategorie-bilder': ApiKategorieBilderKategorieBilder;
       'api::konventionelle.konventionelle': ApiKonventionelleKonventionelle;
       'api::maschine.maschine': ApiMaschineMaschine;
       'plugin::content-releases.release': PluginContentReleasesRelease;
