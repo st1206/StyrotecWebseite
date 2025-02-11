@@ -74,7 +74,7 @@
 			onclick={() => scrollToind(index)}
 			class="w-3 h-3 rounded-full transition duration-300 bg-primary-foreground hover:bg-gray-500"
 			class:selected={$selectedIndex === index} 
-		  ></button>
+		  >hi</button>
 		{/each}
 	  </div>
 
