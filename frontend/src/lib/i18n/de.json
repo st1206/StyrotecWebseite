@@ -157,6 +157,11 @@
 		"anschlussleistung": "Anschlussleistung",
 		"vorsicherung": "Vorsicherung",
 		"optionen": "Optionen"
+	},
 
+	"kontaktformular": {
+		"email": "Ihre E-Mail:",
+		"nachricht": "Ihre Nachricht an uns:"
 	}
+	
 }

@@ -158,5 +158,11 @@
 		"anschlussleistung": "Connection Power",
 		"vorsicherung": "Fuse",
 		"optionen": "Options"
+	},
+
+	"kontaktformular": {
+		"email": "Your E-Mail:",
+		"nachricht": "Your message to us:"
 	}
+	
 }

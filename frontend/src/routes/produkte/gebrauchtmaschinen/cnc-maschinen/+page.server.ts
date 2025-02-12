@@ -21,7 +21,7 @@ export const load: PageServerLoad = async ({ fetch, cookies }) => {
 			return data.data;
 		} else {
 			console.error(data.error);
-			error(500, 'An error occured while feching maschinen');
+			error(500, 'An error occured while feching maschinen 3');
 		}
 	};
 

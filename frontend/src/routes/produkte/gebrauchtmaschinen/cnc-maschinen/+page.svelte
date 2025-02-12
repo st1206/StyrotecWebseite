@@ -27,9 +27,10 @@
 	>
 		CNC Maschinen
 	</h3>
+	<div class=" absolute top-[560px] w-full h-[100px] bg-primary [clip-path:polygon(0%_0%,100%_0%,81%_100%,0%_100%)]"></div>
 
-	<div class="text-primary-foreground mt-8 p-6">
-		In unserem Lager finden Sie eine große Auswahl an gebrauchten CNC-Fräsmaschinen führender
+	<div class="text-xl m-20 p-16 xl:mt-[700px] bg-primary-foreground text-secondary  shadow-[10px_20px_60px_rgba(0,0,0,0.65)]">
+		In unserem Lager finden Sie eine große Auswahl an <span class="text-primary">gebrauchten CNC-Fräsmaschinen</span> führender
 		Hersteller. Jede Maschine wird von unseren Experten sorgfältig geprüft und gewartet, um eine
 		einwandfreie Funktionalität und Präzision zu gewährleisten. Der Kauf einer gebrauchten
 		CNC-Maschine bietet zahlreiche Vorteile: Sie sparen Kosten, profitieren von sofortiger
@@ -39,7 +40,7 @@
 	</div>
 
 	<div
-		class="mx-[10%] my-[100px] flex w-[80%] flex-col flex-wrap gap-8 xl:my-[100px] xl:mt-[700px] xl:flex-row"
+		class="mx-[10%] my-[100px] flex w-[80%] flex-col flex-wrap gap-8 xl:my-[100px]  xl:flex-row"
 	>
 		{#each maschines as maschine}
 			<MaschinenCard {maschine} />

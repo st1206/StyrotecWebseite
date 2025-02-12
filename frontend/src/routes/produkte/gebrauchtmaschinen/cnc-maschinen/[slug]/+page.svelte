@@ -28,7 +28,7 @@
 		</h3>
 
 		<div
-			class="mx-8 mt-32 mb-32 flex flex-row flex-wrap gap-8 pl-32 "
+			class="mx-8 mt-32 mb-32 flex flex-col xl:flex-row xl:flex-wrap gap-8 pl-32 "
 			
 		>
 			{#if maschine.extraBeschreibung}
@@ -38,7 +38,7 @@
 				</div>
 			{/if}
 			<div
-				class="h-fit w-[30%] overflow-x-hidden border-2 border-solid shadow-[10px_10px_20px_rgba(0,0,0,0.75)]"
+				class="h-fit w-[300px] xl:w-[30%] overflow-x-hidden border-2 border-solid shadow-[10px_10px_20px_rgba(0,0,0,0.75)]"
 			>
 				<MaschinenCarousel height={carouselHeight} pictures={maschine.Bilder} />
 			</div>

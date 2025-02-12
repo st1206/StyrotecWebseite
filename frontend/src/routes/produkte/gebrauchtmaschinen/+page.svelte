@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Button from '$lib/components/ui/button/button.svelte';
 	import imgNorbert from '$lib/assets/images/norbert_schreibtisch.jpg';
 	import { _ } from 'svelte-i18n';
@@ -6,15 +6,15 @@
 	let { data } = $props();
 </script>
 
-<!--  add pictures to carousel for headercarousel 
-{#await data.maschine}
+
+{#await data.kategorieBilder}
 	<div>skeleton build</div>
-{:then maschine}
+{:then kategorie}
 	<div class="relative left-0 top-0 w-[100%]">
-		<Carousel height={600} pictures={maschine.Bilder} />
+		<Carousel height={600} pictures={kategorie[0].Bilder} />
 	</div>
 {/await}
--->
+
 
 
 <div class="mt-32 flex flex-col gap-16 p-[5%] xl:gap-32">

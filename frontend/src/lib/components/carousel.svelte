@@ -68,16 +68,16 @@
 		{/each}
 	</Carousel.Content>
 	
-	<!-- 
+	
 	<div class="relative bottom-10 left-10 flex -mt-3 gap-2">
 		{#each pictures as _, index}
 		  <button
-			onclick={() => scrollToind(index)}
+			
 			class="w-3 h-3 rounded-full transition duration-300 bg-primary-foreground hover:bg-gray-500"
-			class:selected={$selectedIndex === index} 
+			
 		  ></button>
 		{/each}
 	  </div>
-	  -->
-
+	  <!-- onclick={() => scrollToind(index)}
+	  class:selected={$selectedIndex === index} -->
 </Carousel.Root>

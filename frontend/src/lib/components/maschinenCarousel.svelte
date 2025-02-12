@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { PUBLIC_BACKEND_URL } from '$env/static/public';
 	import * as Carousel from '$lib/components/ui/carousel';
 	const dev = import.meta.env.DEV;
 	let { pictures, height }: { pictures: any; height: number; autoPlay?: boolean } = $props();
