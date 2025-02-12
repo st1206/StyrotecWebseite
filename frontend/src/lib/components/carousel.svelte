@@ -14,7 +14,7 @@
 	console.log(pictures);
 
 	// Store für aktiven Slide-Index
-	let selectedIndex = writable(0);
+	/* let selectedIndex = writable(0);
   	let carouselApi: any; // Speichert die Embla-Instanz
 
 	function scrollToind(index: number) {
@@ -49,7 +49,7 @@
         }
       }, 100); // Verzögerung von 100ms
     }
-  });
+  });*/
 
 </script>
 
@@ -68,14 +68,16 @@
 		{/each}
 	</Carousel.Content>
 	
+	<!-- 
 	<div class="relative bottom-10 left-10 flex -mt-3 gap-2">
 		{#each pictures as _, index}
 		  <button
 			onclick={() => scrollToind(index)}
 			class="w-3 h-3 rounded-full transition duration-300 bg-primary-foreground hover:bg-gray-500"
 			class:selected={$selectedIndex === index} 
-		  >hi</button>
+		  ></button>
 		{/each}
 	  </div>
+	  -->
 
 </Carousel.Root>
