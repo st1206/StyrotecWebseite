@@ -26,7 +26,7 @@
 					<h2 class="text-secondary ml-10 uppercase  ">Hier gibts info</h2>
 				</div>
 				<div class="relative top-20 mx-5">
-					<p>inforamationstext zu xyz lorem ipsum sit dolor cum anis</p>
+					<p>inforamationstext hello zu xyz lorem ipsum sit dolor cum anis</p>
 				</div>
 			</div>
 		</div>
