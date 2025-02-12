@@ -30,7 +30,7 @@
 
     // Überprüfen, ob carouselApi korrekt zugewiesen wurde
     if (carouselApi) {
-      console.log("Embla API erfolgreich initialisiert:", carouselApi);
+      console.log("Embla API erfolgreich initialisiert :", carouselApi);
       carouselApi.on("select", () => {
         const selectedIndexValue = carouselApi.selectedScrollSnap();
         selectedIndex.set(selectedIndexValue); // Aktualisiert den aktiven Index
