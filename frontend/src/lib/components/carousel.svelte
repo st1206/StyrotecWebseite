@@ -69,11 +69,11 @@
 	</Carousel.Content>
 	
 	
-	<div class="relative bottom-10 left-10 flex -mt-3 gap-2">
+	<div class="hidden xl:flex relative bottom-10 left-10  -mt-3 gap-2 w-[30%]">
 		{#each pictures as _, index}
 		  <button
-			
-			class="w-3 h-3 rounded-full transition duration-300 bg-primary-foreground hover:bg-gray-500"
+			aria-label="hello"
+			class="absolute w-3 h-3 rounded-full transition duration-300 bg-primary-foreground hover:bg-gray-500"
 			
 		  ></button>
 		{/each}

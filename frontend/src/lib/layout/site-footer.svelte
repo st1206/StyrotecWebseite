@@ -11,12 +11,12 @@
 >
 	<div></div>
 	<div class="flex flex-col xl:flex-row xl:justify-between">
-		<div class="mb-6 w-[140px] md:mb-0 xl:w-[200px]">
+		<div class="mb-6 w-[140px] md:mb-0 xl:ml-16 xl:w-[200px]">
 			<a href="/"><img src={Icons.logo} alt="Logo" /></a>
 		</div>
 
 		<div class="bg-secondary-foreground text-secondary w-[80%] xl:w-[40%]">
-			<h2 class="text-primary pl-8 text-lg">{$_(`contact.title`)}</h2>
+			
 			<hr
 				class="bg-primary-foreground my-6 border-gray-200 sm:mx-auto lg:my-1 dark:border-gray-700"
 			/>
@@ -29,12 +29,12 @@
 				</div>
 				<div>
 					tel.: +49 751 5605020 <br />
-					fax.: +49 751 5605029
+					mail: info@styrotec.com
 				</div>
 			</div>
 		</div>
 
-		<div class=" mt-10 sm:flex sm:justify-between xl:mt-0">
+		<div class=" mt-10 sm:flex sm:justify-between xl:mr-16 xl:mt-0">
 			<div>
 				<h2 class="text-primary mb-2 text-sm font-semibold uppercase">{$_(`legal.rechtliches`)}</h2>
 				<hr class="my-6 border-gray-200 sm:mx-auto lg:my-1 dark:border-gray-700" />

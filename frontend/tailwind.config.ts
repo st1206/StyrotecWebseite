@@ -3,6 +3,7 @@ import flowbiteTypography from 'flowbite-typography';
 import type { Config } from 'tailwindcss';
 import { fontFamily } from 'tailwindcss/defaultTheme';
 import tailwindcssAnimate from 'tailwindcss-animate';
+import animate from 'tailwindcss-animate';
 
 
 
@@ -14,7 +15,7 @@ export default {
 		'./node_modules/svelte-animated-icons/**/*.{html,js,svelte,ts}'
 	],
 
-	plugins: [flowbiteTypography, typography, tailwindcssAnimate],
+	plugins: [flowbiteTypography, typography, tailwindcssAnimate, animate],
 
 	darkMode: 'class',
 
@@ -27,6 +28,7 @@ export default {
 			}
 		},
 		extend: {
+
 			colors: {
 				border: 'hsl(var(--border) / <alpha-value>)',
 				input: 'hsl(var(--input) / <alpha-value>)',
@@ -84,6 +86,14 @@ export default {
 				boldItalicFont: ['boldItalicFont']
 			},
 			keyframes: {
+				'marquee-left': {
+                  	from: { transform: 'translateX(0)' },
+                  	to: { transform: 'translateX(calc(-100% - var(--gap)))' }
+             	 },
+              	'marquee-up': {
+                  	from: { transform: 'translateY(0)' },
+                  	to: { transform: 'translateY(calc(-100% - var(--gap)))' }
+             	 },
 				'accordion-down': {
 					from: { height: '0' },
 					to: { height: 'var(--bits-accordion-content-height)' }
@@ -100,7 +110,9 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'caret-blink': 'caret-blink 1.25s ease-out infinite'
+				'caret-blink': 'caret-blink 1.25s ease-out infinite',
+				'marquee-left': 'marquee-left var(--duration, 40s) linear infinite',
+              	'marquee-up': 'marquee-up var(--duration, 40s) linear infinite'
 			},
 
 			//screen sizes

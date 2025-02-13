@@ -13,7 +13,8 @@
 		"land": "Germany",
 		"info": "Info/Extension",
 		"Projektmanager": "Project Manager",
-		"Vertrieb": "Distribution"
+		"Vertrieb": "Distribution",
+		"weiter": "Go to Contact"
 	},
 	"legal": {
 		"privacy": "Privacy Policy",
@@ -90,11 +91,10 @@
 
 			"überUns": "About Us",
 			
-				"werte": "Values",
-				"visionen": "Vision",
-				"mission": "Mission",
+				"werte-mission-vission": "Values",
 				"nachhaltigkeit": "Sustainability",
 				"geschichte": "History",
+				"team": "Team",
 			
 			"karriere": "Career",
 
@@ -104,11 +104,18 @@
 
 				"anwenderstories": "Customer Stories",
 				"referenzen": "References",
-
-			"team": "Team",
-
 				"berichte": "Berichte",
 				"messen": "Messen"
+
+			
+
+				
+
+
+			
+
+		
+				
 	},
 	"gebrauMa": {
 		"titel": "Overview of our used machines",

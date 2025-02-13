@@ -84,7 +84,7 @@
 								<div class="mega-menu-column">
 									<h4>
 										<a
-											class="text-primary text-2xl font-bold hover:underline"
+											class="text-primary text-3xl font-bold hover:underline"
 											onclick={() =>
 												isOpenMap.forEach((value, key) => {
 													isOpenMap.set(key, false);
@@ -98,7 +98,7 @@
 										{#each column.items as subitem}
 											<li>
 												<a
-													class="font-2xl text-secondary hover:text-secondary hover:underline"
+													class="text-2xl text-secondary hover:text-secondary hover:underline"
 													onclick={() =>
 														isOpenMap.forEach((value, key) => {
 															isOpenMap.set(key, false);

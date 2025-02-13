@@ -116,11 +116,11 @@ export const menu = [
 	 			key: 'überUns',
 	 			link: '/unternehmen/über-uns',
 	 			items: [
-	 				{ key: 'werte', link: '/unternehmen/über-uns/werte' },
-	 				{ key: 'visionen', link: '/unternehmen/über-uns/vision' },
-	 				{ key: 'mission', link: '/unternehmen/über-uns/mission' },
+	 				{ key: 'werte-mission-vission', link: '/unternehmen/über-uns/werte' },
 	 				{ key: 'nachhaltigkeit', link: '/unternehmen/über-uns/nachhaltigkeit' },
-	 				{ key: 'geschichte', link: '/unternehmen/über-uns/geschichte' }
+	 				{ key: 'geschichte', link: '/unternehmen/über-uns/geschichte' },
+					{ key: 'team', link: '/unternehmen/über-uns/team'}
+					
 	 			]
 	 		},
 	 		{
@@ -128,22 +128,16 @@ export const menu = [
 	 			link: '/unternehmen/karriere',
 	 			items: [
 	 				{ key: 'stellenausschreibung', link: '/unternehmen/karriere/stellenausschreibung' }
-						]
+				]
 	 		},
 	 		{
 	 			key: 'news',
 	 			link: '/unternehmen/news',
 	 			items: [
 	 				{ key: 'anwenderstories', link: '/unternehmen/news/anwenderstories' },
-	 				{ key: 'referenzen', link: '/unternehmen/news/referenzen' }
-	 			]
-	 		},
-	 		{
-	 			key: 'team',
-	 			link: '/unternehmen/team',
-	 			items: [
-	 				{ key: 'berichte', link: '/unternehmen/team/berichte' },
-	 				{ key: 'messen', link: '/unternehmen/team/messen' }
+	 				{ key: 'referenzen', link: '/unternehmen/news/referenzen' },
+					{ key: 'berichte', link: '/unternehmen/news/berichte' },
+	 				{ key: 'messen', link: '/unternehmen/news/messen' }
 	 			]
 	 		}
 		]

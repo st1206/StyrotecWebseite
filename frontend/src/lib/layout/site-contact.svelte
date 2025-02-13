@@ -44,7 +44,7 @@
 
 <div class="modal flex justify-center">
 	<Button
-		class="bg-primary-500 border-primary-foreground border-2 xl:rounded-none"
+		class="bg-primary-500 border-primary-foreground border-2 rounded-none"
 		onclick={modalExample.toggle}
 	>
 		{$_('contact.title')}
@@ -66,13 +66,16 @@
 			+49 751 5605020 <br />
 			info@styrotec.de
 		</div>
+		
 	</div>
 
 	<hr class="my-6 border-gray-200 sm:mx-auto lg:my-8 dark:border-gray-700" />
 	<div class="modal-box">
 		<div class="column-left">
 			<span>{contactPerson.name}</span> <br />
-			<span>{$_(`contact.${contactPerson.role}`)}</span>
+			<span>{$_(`contact.${contactPerson.role}`)}</span> <br /> 
+			<!-- TODO verlinkung zur richtigen kontaktSeite-->
+			<a href="/kontaktseite" class="absolute bottom-10 bg-primary text-secondary text-xl rounded-sm p-2">{$_(`contact.weiter`)}</a>
 		</div>
 		<div class="column-right">
 			<img src={contactPerson.imgSource} alt={`${contactPerson.name} Profil`} />

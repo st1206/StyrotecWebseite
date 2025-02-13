@@ -13,7 +13,8 @@
 		"land": "Deutschland",
 		"info": "Info/Durchwahl",
 		"Projektmanager": "Projekt Manager",
-		"Vertrieb": "Vertrieb"
+		"Vertrieb": "Vertrieb",
+		"weiter": "Weiter zum Kontakt"
 	},
 	"legal": {
 		"privacy": "Datenschutz",
@@ -90,11 +91,10 @@
 
 			"überUns": "Über Uns",
 			
-				"werte": "Werte",
-				"visionen": "Visionen",
-				"mission": "Mission",
+				"werte-mission-vission": "Werte",
 				"nachhaltigkeit": "Nachhaltigkeit",
-				"geschichte": "Geschichte",
+				"geschichte": "Historie",
+				"team": "Team",
 
 			"karriere": "Karriere",
 
@@ -104,11 +104,11 @@
 
 				"anwenderstories": "Anwenderstories",
 				"referenzen": "Referenzen",
-			
-			"team": "Team",
-
 				"berichte": "Berichte",
 				"messen": "Messen"
+			
+
+				
 	},
 	"gebrauMa": {
 		"titel": "Übersicht über Unsere Gebrauchtmaschinen", 
