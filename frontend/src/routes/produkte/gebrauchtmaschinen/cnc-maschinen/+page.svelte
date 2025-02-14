@@ -1,5 +1,6 @@
 <script lang="ts">
 	import MaschinenCard from '$lib/components/maschinenCard.svelte';
+	import Marquee from '$lib/components/marquee.svelte';
 	import Carousel from '$lib/components/carousel.svelte';
 	
 	let { data } = $props();
@@ -41,6 +42,8 @@
 		leistungsfähig, sondern auch eine ressourcenschonende Alternative zu Neugeräten. Ob für
 		Industrie, Handwerk oder Kleinbetriebe - wir haben die passende Lösung für Ihre Anforderungen.
 	</div>
+
+	
 
 	<div
 		class="mx-[10%] my-[100px] flex w-[80%] flex-col flex-wrap gap-8 xl:my-[100px]  xl:flex-row"

@@ -84,6 +84,7 @@
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-color#browser_compatibility */
 	html {
 		scrollbar-color: hsl(var(--foreground));
+		@apply scroll-smooth;
 	}
 
 	.hide-scrollbar::-webkit-scrollbar {

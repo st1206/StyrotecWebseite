@@ -132,12 +132,12 @@ export const menu = [
 	 		},
 	 		{
 	 			key: 'news',
-	 			link: '/unternehmen/news',
+	 			link: '/unternehmen/news-termine',
 	 			items: [
-	 				{ key: 'anwenderstories', link: '/unternehmen/news/anwenderstories' },
-	 				{ key: 'referenzen', link: '/unternehmen/news/referenzen' },
-					{ key: 'berichte', link: '/unternehmen/news/berichte' },
-	 				{ key: 'messen', link: '/unternehmen/news/messen' }
+	 				{ key: 'anwenderstories', link: '/unternehmen/news-termine/#anwenderstories' },
+	 				{ key: 'referenzen', link: '/unternehmen/news-termine/#referenzen' },
+					{ key: 'berichte', link: '/unternehmen/news-termine/#berichte' },
+	 				{ key: 'messen', link: '/unternehmen/news-termine/#messen' }
 	 			]
 	 		}
 		]

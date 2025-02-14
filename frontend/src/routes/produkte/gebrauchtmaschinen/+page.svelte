@@ -15,7 +15,7 @@
 	</div>
 {/await}
 
-<div class="bg-primary-foreground mt-32 flex flex-col gap-16 p-[5%] xl:gap-32">
+<div class="bg-primary-foreground flex flex-col gap-16 p-[5%] xl:gap-32">
 	<div
 		class=" bg-primary-foreground border-2 border-solid p-4 shadow-[10px_20px_60px_rgba(0,0,0,0.95)] xl:mx-[10%] xl:p-24"
 	>

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Carousel from '$lib/components/carousel.svelte';
 	let { data } = $props();
-	let carouselHeight = 800;
+	let carouselHeight = 700;
 	import { Input, Textarea } from 'svelte-5-ui-lib';
 	import * as Accordion from '$lib/components/ui/accordion';
 	import { _ } from 'svelte-i18n';
@@ -12,6 +12,8 @@
 	import logo5 from '$lib/assets/images/logo5.jpeg';
 	import logo6 from '$lib/assets/images/logo6.jpeg';
 	import hintergrund from '$lib/assets/images/bild11.jpg';
+	import Marquee from '$lib/components/marquee.svelte';
+
 
 </script>
 
@@ -24,14 +26,27 @@
 	{#await data.homepageData}
 		<div>skeleton build</div>
 	{:then homepageData}
-		<div class="relative left-0 top-0 w-[100%] shadow-[10px_10px_20px_rgba(0,0,0,0.75)]">
+		<div class="relative left-0 top-0 w-[100%] shadow-[10px_10px_20px_rgba(0,0,0,0.75)] ">
 			{console.log(homepageData)}
 			<Carousel height={carouselHeight} autoPlay={true} pictures={homepageData.carousel} />
+			
+			
+			
 		</div>
+		<div class="absolute  top-[660px]  h-[70px] w-[80%] bg-secondary [clip-path:polygon(0%_0%,100%_0%,96%_100%,0%_100%)]">
+				<Marquee speed={0.5} hoverSpeed={0} class="my-1">
+					<div> <img src={logo1} alt="logo" class="h-[60px]"></div>
+					<div> <img src={logo2} alt="logo" class="h-[60px]"></div>
+					<div> <img src={logo3} alt="logo" class="h-[60px]"></div>
+					<div> <img src={logo4} alt="logo" class="h-[60px]"></div>
+					<div> <img src={logo5} alt="logo" class="h-[60px]"></div>
+					<div> <img src={logo6} alt="logo" class="h-[60px]"></div>
+				</Marquee>
+			</div>
 
-		<div class="bg-secondary-foreground flex h-[600px] justify-around xl:h-[1200px]">
+		<div class="bg-secondary-foreground flex h-[600px] justify-around xl:h-[1000px]">
 			<div
-				class="bg-secondary my-[5%] h-[40%] w-[80%] shadow-[10px_10px_30px_rgba(0,0,0,0.75)] xl:mt-[400px] xl:h-[40%] xl:w-[40%]"
+				class="bg-secondary my-[5%] h-[40%] w-[80%] shadow-[10px_10px_30px_rgba(0,0,0,0.75)] xl:mt-[300px] xl:h-[40%] xl:w-[40%]"
 			>
 				<div
 					class="bg-primary-foreground relative left-0 top-10 mr-10 bg-opacity-80 shadow-[10px_10px_20px_rgba(0,0,0,0.25)]"
