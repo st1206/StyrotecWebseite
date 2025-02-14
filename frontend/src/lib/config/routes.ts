@@ -31,7 +31,7 @@ export const menu = [
 	 			key: 'styroporbearbeitung',
 	 			link: '/produkte/styroporbearbeitung',
 	 			items: [
-	 				{ key: 'fräswerkzeuge', link: '/produkte/styroporbearbeitung/fräswerkzeug' },
+	 				{ key: 'fräswerkzeuge', link: '/produkte/styroporbearbeitung/fräswerkzeuge' },
 	 				{ key: 'hohlfrässpindeln', link: '/produkte/styroporbearbeitung/hohlfrässpindeln' },
 	 				{ key: 'absaugungen', link: '/produkte/styroporbearbeitung/absaugungen' },
 	 				{ key: 'zerkleinerer', link: '/produkte/styroporbearbeitung/zerkleinerer' },

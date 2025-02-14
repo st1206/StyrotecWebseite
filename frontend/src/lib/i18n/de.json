@@ -162,6 +162,26 @@
 	"kontaktformular": {
 		"email": "Ihre E-Mail:",
 		"nachricht": "Ihre Nachricht an uns:"
+	},
+
+	"styroporfraesen": {
+		"allgemein-Titel": "Allgemeines zu unseren Styrospeed Fräsern",
+		"allgemein-Text": "Hohlfräser aus gehärtetem Spezialstahl zur Bearbeitung von Styropor, Weich- und Hartschaum sowie allen ähnlichen Materialien. Besonders geeignet zur großvolumigen Zerspanung von Styropor (EPS) und Hartschaum auf CNC Fräsmaschinen. Zusammen mit speziellen Hohlfrässpindeln und Hochdruck Styroporabsaugungen können die Styroporspäne durch den Fräser und die Hohlfrässpindel abgesaugt werden. Damit dies auch beim Abtauchen perfekt funktioniert haben wir die Absaugöffnungen perfekt dimensioniert und optimal am Werkzeug positioniert. Durch die spezielle Schneidengeometrie verbunden mit den Spanbrechern sind sehr hohe Vorschübe bei geringer Geräuschbelastung und super Oberflächen realisierbar. Selbst dünnste Rippen bleiben aufgrund des geringen Fräsdrucks stehen ohne zu brechen. In der Standardausführung liefern wir diese Fräser, inkl. einem Wechseltop nach Ihrer Wahl, mit dem Tellerflansch 78/8 mm zur Spannung mittels Überwurfmutter.",
+		"konfiguration-Titel": "Konfiguration",
+		"konfiguration-Text": "Für unsere Hohlfräser gibt es dank vieler Optionen die unterschiedlichsten Konfigurationsmöglichkeiten. Die Fräserköpfe sind austauschbar, dies ermöglicht den schnellen Ersatz bei Abnutzung oder bei leichten Crashs. Die Wechselköpfe gibt es in Kugel-, Schaft-, Eckenradiusausführung oder mit Auslaufschräge.",
+		"schaftausführung": "Schaftausführung", 
+		"kugelausführung": "Kugelausführung", 
+		"eckenradiusausführung": "Eckenradiusausführung",
+		"Auslaufschräge": "Auslaufschräge",
+		"wechselkopf": "Wechselkopf Ausführung",
+		"gefräst":"gefräste Schneide",
+		"raspel":"Raspelzahn",
+		"werkzeugaufnahme": "Werkzeugaufnahme",
+		"werkzeugaufnahme-Text": "Gegen Aufpreis liefern wir unsere Fräser auf Wunsch mit verschiedenen Direktaufnahmen. Diese werden dann von Haus aus gewuchtet und sind somit auch für Drehzahlen über 10.000 U/min einsetzbar. Die Direktaufnahme bietet zusätzlich ein bessere Stabilität als Adapter und die Werkzeuglänge wird nicht unnötig größer. Die Fräser passen so auch in kompaktere Werkzeugwechsler wodurch manuelle Werkzeugwechsel der Vergangenheit angehören.",
+		"besonderheiten": "Besonderheit",
+		"besonderheit-text": "Bei Fräsern mit Zylinderschaft, HSK oder SK Direktaufnahme werden die Wechselköpfe mit einem Kuststoff-Stopfen verschlossen um zu verhindern das sich Material im Fräser absetzt, welches eventuell zu einer Unwucht führen kann.",
+		"bemerkung-titel":"Bemerkung",
+		"bemerkung-text": "Alle Fräser, sind oberflächen-gehärtet und Rundlauf geprüft mit einer Drehzahlfreigabe bis 6.000 U/min, wenn nichts Anderweitiges vermerkt ist. Wir bieten zusätzlich an, alle Fräser gegen Aufpreis mit einer Wuchtgüte G2.5 zu wuchten. Die Fräser ab 500mm Länge müssen immer gewuchtet werden. Auch Fräser mit SK bzw. HSK Direktaufnahme müssen immer gewuchtet werden. Sie erhalten somit ein absolutes Präzisionswerkzeug mit perfektem Rundlauf und langer Lebensdauer."
 	}
 	
 }
