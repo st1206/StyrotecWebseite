@@ -60,9 +60,9 @@
 		</div>
 		<div class="bg-primary-foreground">
 			<div
-				class="h-[800px] w-full bg-[url($lib/assets/images/bild11.jpg)] object-cover xl:[clip-path:polygon(0%_10%,100%_0%,100%_100%,0%_100%)]"
+				class="h-[800px] w-full bg-[url($lib/assets/images/bild11.jpg)] bg-center bg-cover xl:[clip-path:polygon(0%_10%,100%_0%,100%_100%,0%_100%)]"
 			>
-				<div class=" h-[800px] w-full bg-gradient-to-r from-black via-white/5 to-black">
+				<div class=" h-[800px] w-full bg-gradient-to-r from-black via-black/25 to-black">
 					<Accordion.Root
 						type="single"
 						class="text-secondary  absolute ml-[10%]  mt-[10%] w-[80%] object-cover xl:ml-64 xl:mt-32 xl:max-w-[70%] xl:text-3xl"

@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { Modal, uiHelpers } from 'svelte-5-ui-lib';
-	import { slide } from 'svelte/transition';
+	import { fly, slide } from 'svelte/transition';
 	import { linear } from 'svelte/easing';
 	import { Button } from 'svelte-5-ui-lib';
 	import imgMartin from '$lib/assets/images/martin_schreibtisch.jpg';
-	import imgTobias from '$lib/assets/images/tobias_schreibtisch.jpg';
+	import imgTobias from '$lib/assets/images/TobiasSchreibtisch_klein .jpg';
 	import imgRolf from '$lib/assets/images/rolf_schreibtisch.jpg';
 	import imgNorbert from '$lib/assets/images/norbert_schreibtisch.jpg';
 	import { _ } from 'svelte-i18n';
@@ -44,7 +44,7 @@
 
 <div class="modal flex justify-center">
 	<Button
-		class="bg-primary-500 border-primary-foreground border-2 rounded-none"
+		class="bg-primary-500 border-primary-foreground rounded-none border-2"
 		onclick={modalExample.toggle}
 	>
 		{$_('contact.title')}
@@ -56,8 +56,8 @@
 	closeModal={modalExample.close}
 	size="md"
 	position="center-right"
-	transition={slide}
-	params={{ duration: 350, easing: linear, x: -150 }}
+	transition={fly}
+	params={{ duration: 350, easing: linear, x: 150 }}
 >
 	<div class="modal-box">
 		<!-- evtl variabel machen je nach maschine und welche seite man sich befindet (forEach kontakt hinterlegt do unten)-->
@@ -66,16 +66,19 @@
 			+49 751 5605020 <br />
 			info@styrotec.de
 		</div>
-		
 	</div>
 
 	<hr class="my-6 border-gray-200 sm:mx-auto lg:my-8 dark:border-gray-700" />
 	<div class="modal-box">
 		<div class="column-left">
 			<span>{contactPerson.name}</span> <br />
-			<span>{$_(`contact.${contactPerson.role}`)}</span> <br /> 
+			<span>{$_(`contact.${contactPerson.role}`)}</span> <br />
 			<!-- TODO verlinkung zur richtigen kontaktSeite-->
-			<a href="/kontaktseite" class="absolute bottom-10 bg-primary text-secondary text-xl rounded-sm p-2">{$_(`contact.weiter`)}</a>
+			<a
+				href="/kontaktseite"
+				class="bg-primary text-secondary absolute bottom-10 rounded-sm p-2 text-xl"
+				>{$_(`contact.weiter`)}</a
+			>
 		</div>
 		<div class="column-right">
 			<img src={contactPerson.imgSource} alt={`${contactPerson.name} Profil`} />

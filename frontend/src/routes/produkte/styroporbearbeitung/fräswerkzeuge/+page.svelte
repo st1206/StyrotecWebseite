@@ -3,81 +3,145 @@
 	import { _ } from 'svelte-i18n';
 	import * as Carousel from '$lib/components/ui/carousel';
 	import * as Accordion from '$lib/components/ui/accordion';
+	import SK from '$lib/assets/images/fraeswerkzeug/SK.png';
+	import HSK50 from '$lib/assets/images/fraeswerkzeug/HSK50C-klein.png';
+	import HSK63A from '$lib/assets/images/fraeswerkzeug/HSK63A-klein.png';
+	import HSK63F from '$lib/assets/images/fraeswerkzeug/HSK63F-klein.png';
+	import schaft from '$lib/assets/images/fraeswerkzeug/NT40R0 frei-2.png';
+	import kugel from '$lib/assets/images/fraeswerkzeug/NT40R20 frei-2.png';
+	import ecken from '$lib/assets/images/fraeswerkzeug/NT40R10-2.png';
+	import auslauf from '$lib/assets/images/fraeswerkzeug/NT40AS45_2.png';
+	import raspel from '$lib/assets/images/fraeswerkzeug/WTR40R20 frei-2.png';
+	import wechsler from '$lib/assets/images/fraeswerkzeug/S_IMG_9908 frei-2.png';
 </script>
 
-<Carousel.Root>
+<svelte:head>
+	<title>{$_(`styroporfraesen.allgemein-Titel`)}</title>
+	<meta name="description" content="" />
+</svelte:head>
+
+<Carousel.Root class="mt-[60px] w-full">
 	<Carousel.Content style={`max-height: 700px`}>
 		<Carousel.Item class="pl-0">
 			<img class="h-full w-full object-cover" src={bigPic} alt="Bilder" />
 		</Carousel.Item>
 	</Carousel.Content>
 </Carousel.Root>
-<div class=" my-[100px] flex flex-wrap  xl:flex-col">
-	<div>
-		<div class="pb-10">
-			<h1 class="pb-3 text-3xl">{$_(`styroporfraesen.allgemein-Titel`)}</h1>
-			<p class="text-xl">{$_(`styroporfraesen.allgemein-Text`)}</p>
-		</div>
+<div class=" my-[100px] flex flex-wrap xl:flex-col">
+	<div class="mx-4 pb-10 xl:mx-[20%]">
+		<h1 class="mb-4 pb-3 text-4xl">{$_(`styroporfraesen.allgemein-Titel`)}</h1>
+		<p class="overflow-hidden text-xl">{$_(`styroporfraesen.allgemein-Text`)}</p>
+	</div>
 
-		<div class=" w-full bg-primary-foreground text-secondary pt-32 pb-32 xl:[clip-path:polygon(0%_10%,100%_0%,100%_90%,0%_100%)]">
-			<h1 class="pb-3 text-3xl">{$_(`styroporfraesen.konfiguration-Titel`)}</h1>
-			<p class="text-xl">{$_(`styroporfraesen.konfiguration-Text`)}</p>
-			<Accordion.Root
-				type="single"
-				class="text-secondary  relative ml-[10%] w-[80%] object-cover xl:ml-64 xl:mt-8 xl:max-w-[70%] xl:text-3xl"
-			>
-				<Accordion.Item value="item-1">
-					<Accordion.Trigger>{$_(`styroporfraesen.schaftausführung`)}</Accordion.Trigger>
-					<Accordion.Content class="xl:text-xl">
-						
-                         hier bild 1 
-					</Accordion.Content>
-				</Accordion.Item>
-				<Accordion.Item value="item-2">
-					<Accordion.Trigger>{$_(`styroporfraesen.kugelausführung`)}</Accordion.Trigger>
-					<Accordion.Content class="xl:text-xl">
-						
-                         hier bild 2
-					</Accordion.Content>
-				</Accordion.Item>
-				<Accordion.Item value="item-3">
-					<Accordion.Trigger>{$_(`styroporfraesen.eckenradiusausführung`)}</Accordion.Trigger>
-					<Accordion.Content>
-						
-						hier bild 3
-					</Accordion.Content>
-				</Accordion.Item>
-                <Accordion.Item value="item-4">
-					<Accordion.Trigger>{$_(`styroporfraesen.Auslaufschräge`)}</Accordion.Trigger>
-					<Accordion.Content>
-						<!-- TODO: Info über eine sache raussuchen um hier einzufüllen zb. branchen produktkategorien etc. -->
-						hier bild 4
-					</Accordion.Content>
-				</Accordion.Item>
-			</Accordion.Root>
+	<div
+		class="bg-primary-foreground text-secondary flex flex-col py-8 xl:flex-row xl:py-32 xl:[clip-path:polygon(0%_10%,100%_0%,100%_90%,0%_100%)]"
+	>
+		<div class="xl:ml-[350px] xl:w-[600px]">
+			<h1 class="text-primary mx-4 mb-4 text-4xl xl:mx-[20%]">
+				{$_(`styroporfraesen.konfiguration-Titel`)}
+			</h1>
+			<p class="mx-4 text-xl xl:mx-[20%]">{$_(`styroporfraesen.konfiguration-Text`)}</p>
 		</div>
+		<Accordion.Root
+			type="single"
+			class="text-secondary relative mx-4 w-[450px] object-cover   xl:max-w-[70%] xl:text-3xl"
+		>
+			<Accordion.Item value="item-1">
+				<Accordion.Trigger>{$_(`styroporfraesen.schaftausführung`)}</Accordion.Trigger>
+				<Accordion.Content class="xl:text-xl">
+					<img src={schaft} alt="HSK-50" class="h-[300px] bg-center xl:ml-4" />
+				</Accordion.Content>
+			</Accordion.Item>
+			<Accordion.Item value="item-2">
+				<Accordion.Trigger>{$_(`styroporfraesen.kugelausführung`)}</Accordion.Trigger>
+				<Accordion.Content class="xl:text-xl">
+					<img src={kugel} alt="HSK-50" class="h-[300px] bg-center xl:ml-4" />
+				</Accordion.Content>
+			</Accordion.Item>
+			<Accordion.Item value="item-3">
+				<Accordion.Trigger>{$_(`styroporfraesen.eckenradiusausführung`)}</Accordion.Trigger>
+				<Accordion.Content class="xl:text-xl">
+					<img src={ecken} alt="HSK-50" class="h-[300px] bg-center xl:ml-4" />
+				</Accordion.Content>
+			</Accordion.Item>
+			<Accordion.Item value="item-4">
+				<Accordion.Trigger>{$_(`styroporfraesen.Auslaufschräge`)}</Accordion.Trigger>
+				<Accordion.Content class="xl:text-xl">
+					<img src={auslauf} alt="HSK-50" class="h-[300px] bg-center xl:ml-4" />
+				</Accordion.Content>
+			</Accordion.Item>
+		</Accordion.Root>
+	</div>
 
-		<div class="pb-10">
-			<h1 class="pb-3 text-3xl">{$_(`styroporfraesen.wechselkopf`)}</h1>
-            <div class="flex xl:flex-row flex-col gap-10">    
-                <p class="text-xl">{$_(`styroporfraesen.gefräst`)} <br> hier noch bild einfügen</p>
-                <p class="text-xl">{$_(`styroporfraesen.raspel`)} <br> hier anderes bild einfügen </p>
-            </div>
+	<div class="mx-4 my-8 pb-10 xl:mx-[35%] xl:my-32">
+		<h1 class="pb-3 text-4xl">{$_(`styroporfraesen.wechselkopf`)}</h1>
+		<div class="flex flex-col gap-10 xl:flex-row">
+			<p class="h-[200px] w-[200px] text-xl">
+				{$_(`styroporfraesen.gefräst`)} <br />
+				<img src={kugel} alt="HSK-50" class="h-[200px] bg-center" />
+			</p>
+			<p class="h-[200px] w-[200px] text-xl">
+				{$_(`styroporfraesen.raspel`)} <img src={raspel} alt="HSK-50" class="h-[200px] bg-center" />
+			</p>
 		</div>
+	</div>
 
-		<div class="pb-10">
-			<h1 class="pb-3 text-3xl">{$_(`styroporfraesen.werkzeugaufnahme`)}</h1>
-			<p class="text-xl">{$_(`styroporfraesen.werkzeugaufnahme-Text`)}</p>
-		</div>
+	<div class="mx-4 pb-10 xl:mx-[20%]">
+		<h1 class="pb-3 text-4xl">{$_(`styroporfraesen.werkzeugaufnahme`)}</h1>
+		<p class="text-xl">{$_(`styroporfraesen.werkzeugaufnahme-Text`)}</p>
+		<img
+			src={wechsler}
+			alt="HSK-50"
+			class="relative -top-[150px] -mb-[300px] ml-[130px] w-[110px] rotate-90 overflow-hidden bg-center xl:ml-[40%] xl:w-[200px]"
+		/>
+	</div>
 
-		<div class="pb-10">
-			<h1 class="pb-3 text-3xl">{$_(`styroporfraesen.besonderheiten`)}</h1>
+	<div
+		class=" bg-primary-foreground text-secondary w-full py-8 xl:py-32 xl:[clip-path:polygon(0%_10%,100%_0%,100%_90%,0%_100%)]"
+	>
+		<h1 class="text-primary mx-4 mb-4 text-4xl xl:mx-[20%]">
+			{$_(`styroporfraesen.werkzeugaufnahme`)}
+		</h1>
+		<p class="mx-4 text-xl xl:mx-[20%]">{$_(`styroporfraesen.werkzeugaufnahme-Text`)}</p>
+		<Accordion.Root
+			type="single"
+			class="text-secondary  relative mx-4 object-cover xl:mx-[20%] xl:mt-8 xl:max-w-[70%] xl:text-3xl"
+		>
+			<Accordion.Item value="item-1">
+				<Accordion.Trigger>HSK 50</Accordion.Trigger>
+				<Accordion.Content class="xl:text-xl">
+					<img src={HSK50} alt="HSK-50" class="h-[300px] bg-center xl:ml-[40%]" />
+				</Accordion.Content>
+			</Accordion.Item>
+			<Accordion.Item value="item-2">
+				<Accordion.Trigger>HSK 63A</Accordion.Trigger>
+				<Accordion.Content class="xl:text-xl">
+					<img src={HSK63A} alt="HSK-63A" class="h-[300px] bg-center xl:ml-[40%]" />
+				</Accordion.Content>
+			</Accordion.Item>
+			<Accordion.Item value="item-3">
+				<Accordion.Trigger>HSK 63F</Accordion.Trigger>
+				<Accordion.Content class="xl:text-xl">
+					<img src={HSK63F} alt="HSK-63F" class="h-[300px] bg-center xl:ml-[40%]" />
+				</Accordion.Content>
+			</Accordion.Item>
+			<Accordion.Item value="item-4">
+				<Accordion.Trigger>SK 30 - SK 50</Accordion.Trigger>
+				<Accordion.Content class="xl:text-xl">
+					<!-- TODO: Info über eine sache raussuchen um hier einzufüllen zb. branchen produktkategorien etc. -->
+					<img src={SK} alt="SK Aufnahmen" class="h-[300px] bg-center xl:ml-[40%]" />
+				</Accordion.Content>
+			</Accordion.Item>
+		</Accordion.Root>
+
+		<div class="mx-4 mt-[100px] pb-10 xl:mx-[20%]">
+			<h1 class="text-primary pb-3 text-4xl">{$_(`styroporfraesen.besonderheiten`)}</h1>
 			<p class="text-xl">{$_(`styroporfraesen.besonderheit-text`)}</p>
 		</div>
+	</div>
 
-		<div>
-			<h1 class="pb-3 text-3xl">{$_('styroporfraesen.bemerkung-titel')}</h1>
-			<p class="text-xl">{$_('styroporfraesen.bemerkung-text')}</p>
-		</div>
+	<div class="mx-4 my-4 xl:mx-[20%] xl:my-32">
+		<h1 class="pb-3 text-4xl">{$_('styroporfraesen.bemerkung-titel')}</h1>
+		<p class="text-xl">{$_('styroporfraesen.bemerkung-text')}</p>
 	</div>
 </div>

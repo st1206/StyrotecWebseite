@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Search } from 'svelte-5-ui-lib';
+	import { Button, Search } from 'svelte-5-ui-lib';
 	import { SearchOutline } from 'flowbite-svelte-icons';
 	import { uiHelpers } from 'svelte-5-ui-lib';
 	import { menu } from '$lib/config/routes';
@@ -34,11 +34,10 @@
 	<div class="flex gap-2">
 		<!-- searchbar -->
 		<div class="mr-10 hidden md:block">
-			<form class="flex gap-0.5">
-				<Search />
-				<button class="bg-primary p-2.5">
-					<SearchOutline class="h-5 w-5" />
-				</button>
+			<form>
+				<Search class="pl-12 h-[40px] w-[300px] [clip-path:polygon(10%_0%,100%_0%,90%_100%,0%_100%)]">
+					
+				</Search>
 			</form>
 		</div>
 

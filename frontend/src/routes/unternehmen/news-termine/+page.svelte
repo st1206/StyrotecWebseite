@@ -1,24 +1,77 @@
 <!-- News Seite -->
 <script lang="ts">
+	import AnwenderCarousel from '$lib/components/anwenderCarousel.svelte';
+	import BerichteCarousel from '$lib/components/berichteCarousel.svelte';
 	import MessenCarousel from '$lib/components/messenCarousel.svelte';
-	import Button from '$lib/components/ui/button/button.svelte';
+	import ReferenzCarousel from '$lib/components/referenzCarousel.svelte';
 	import { _ } from 'svelte-i18n';
 	let { data } = $props();
 </script>
 
-<!-- Todo: Anwenderstories --- aus header menü an diesen Punkt springen -->
+<!-- Todo: Anwenderstories -->
 
 <!-- Weiterleitung mit [slug] zu anwenderstories seite-->
 <!-- Frage: soll jede Seite gleich sein also anwenderstories, referenzen, berichte und Messen? -->
-<div class="bg-primary h-[1200px]" id="anwenderstories"></div>
+<div class="bg-primary mt-[64px] h-[1200px]" id="anwenderstories">
+	{#await data.anwenderstories}
+		<div>waiting for data</div>
+	{:then anwenderstories}
+        <div class="text-3xl text-secondary ">Hier sind Geschichten von Kunden</div>
+		<div class="flex justify-around">
+			{#if anwenderstories.length !== 0}
+				<div class="relative xl:top-[100px]">
+					<AnwenderCarousel anwenderstorie={anwenderstories[0]} />
+				</div>
+			{:else}
+				<div class="mt-64"> no stories yet</div>
+			{/if}
+		</div>
+	{:catch}
+		Server Error...
+	{/await}
+</div>
 
-<!-- TODO: Referenzen --- aus header menü an diesen Punkt springen-->
-<div class="bg-primary-foreground h-[1200px]" id="referenzen"></div>
+<!-- TODO: Referenzen -->
+<div class="bg-primary-foreground h-[1200px]" id="referenzen">
+	{#await data.referenzen}
+		<div class="text-primary">waiting for data</div>
+	{:then referenzen}
+        <div class="text-3xl text-secondary "> Referenzen </div>
+		<div class="flex justify-around">
+			{#if referenzen.length !== 0}
+				<div class="relative xl:top-[100px] text-primary">
+					<ReferenzCarousel referenz={referenzen[0]} />
+				</div>
+			{:else}
+				<div class="mt-64 text-primary"> no referenzen yet hello</div>
+			{/if}
+		</div>
+	{:catch}
+		Server Error...
+	{/await}
+</div>
 
-<!-- TODO: Berichte --- aus header menü an diesen Punkt springen-->
-<div class="bg-primary h-[1200px]" id="berichte"></div>
+<!-- TODO: Berichte -->
+<div class="bg-primary h-[1200px]" id="berichte">
+	{#await data.berichte}
+		<div class="text-primary">waiting for data</div>
+	{:then berichte}
+        <div class="text-3xl text-secondary "> Berichte </div>
+		<div class="flex justify-around">
+			{#if berichte.length !== 0}
+				<div class="relative xl:top-[100px] text-primary">
+					<BerichteCarousel bericht={berichte[0]} />
+				</div>
+			{:else}
+				<div class="mt-64 text-primary-foreground"> no stories yet hello</div>
+			{/if}
+		</div>
+	{:catch}
+		Server Error...
+	{/await}
+</div>
 
-<!-- TODO: Messen  --- aus header menü an diesen Punkt springen-->
+<!-- TODO: Messen -->
 <div class="bg-primary-foreground h-[1200px]" id="messen">
 	{#await data.messens}
 		<div>waiting for data</div>
