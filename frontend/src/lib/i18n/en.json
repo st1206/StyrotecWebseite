@@ -105,17 +105,13 @@
 				"anwenderstories": "Customer Stories",
 				"referenzen": "References",
 				"berichte": "Berichte",
-				"messen": "Messen"
-
-			
-
-				
-
-
-			
-
-		
-				
+				"messen": "Messen"		
+	},
+	"styroporbearbeitung": { 
+		"titel": "Overview styrofoam machining",
+		"cta": "Learn more",
+		"fräswerkzeuge": "Milling Tools",
+		"fräswerkzeuge-text": "TODO"
 	},
 	"gebrauMa": {
 		"titel": "Overview of our used machines",

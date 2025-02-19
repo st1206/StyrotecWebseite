@@ -110,6 +110,12 @@
 
 				
 	},
+	"styroporbearbeitung": { 
+		"titel": "Übersicht Styroporbearbeitung",
+		"cta": "Mehr erfahren",
+		"fräswerkzeuge": "Fräswerkzeuge",
+		"fräswerkzeuge-text": "TODO"
+	},
 	"gebrauMa": {
 		"titel": "Übersicht über Unsere Gebrauchtmaschinen", 
 		"cta": "Mehr erfahren",

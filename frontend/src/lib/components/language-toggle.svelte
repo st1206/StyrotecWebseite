@@ -10,14 +10,15 @@
 	<DropdownMenu.Root>
 		<DropdownMenu.Trigger>
 			<Button variant="secondary" size="icon">
-				<svelte:component this={getIconComponent($locale)} class="size-6" />
+				<div class="text-xl filter grayscale">	&#x1f310</div>
+				
 			</Button>
 		</DropdownMenu.Trigger>
 		<DropdownMenu.Content>
 			<DropdownMenu.RadioGroup bind:value={$locale}>
 				{#each languages as language (language.code)}
 					<DropdownMenu.RadioItem value={language.code} class="flex cursor-pointer gap-2">
-						<svelte:component this={getIconComponent(language.code)} class="size-6" />
+						
 						<span>{language.label}</span>
 					</DropdownMenu.RadioItem>
 				{/each}

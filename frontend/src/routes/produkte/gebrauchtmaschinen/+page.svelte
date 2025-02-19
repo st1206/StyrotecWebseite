@@ -1,6 +1,9 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button/button.svelte';
-	import imgNorbert from '$lib/assets/images/norbert_schreibtisch.jpg';
+	import gebrauma from '$lib/assets/images/gebrauchtmaschinen/gebrauma.jpg';
+	import holz from '$lib/assets/images/gebrauchtmaschinen/holz.jpg';
+	import modelbau from '$lib/assets/images/gebrauchtmaschinen/modelbau.jpg';
+	import zubehoer from '$lib/assets/images/gebrauchtmaschinen/zubehoer.jpg';
 	import { _ } from 'svelte-i18n';
 	import Carousel from '$lib/components/carousel.svelte';
 	import { Tabs, TabItem } from 'svelte-5-ui-lib';
@@ -37,8 +40,8 @@
 					</div>
 					<div class=" xl:w-[50%]">
 						<img
-							class="border-secondary-foreground relative bottom-[10%] h-[250px] border-4 xl:right-[-20%]"
-							src={imgNorbert}
+							class="border-secondary-foreground relative bottom-[10%] h-[250px] border-4 xl:right-[-20%] m-3"
+							src={gebrauma}
 							alt="bild"
 						/>
 					</div>
@@ -55,8 +58,8 @@
 					</div>
 					<div class=" xl:w-[50%]">
 						<img
-							class="border-secondary-foreground relative bottom-[10%] h-[250px] border-4 xl:right-[-20%]"
-							src={imgNorbert}
+							class="border-secondary-foreground relative bottom-[10%] h-[250px] border-4 xl:right-[-20%] m-3"
+							src={zubehoer}
 							alt="bild"
 						/>
 					</div>
@@ -74,8 +77,8 @@
 					</div>
 					<div class=" xl:w-[50%]">
 						<img
-							class="border-secondary-foreground relative bottom-[10%] h-[250px] border-4 xl:right-[-20%]"
-							src={imgNorbert}
+							class="border-secondary-foreground relative bottom-[10%] h-[250px] border-4 xl:right-[-20%] m-3"
+							src={holz}
 							alt="bild"
 						/>
 					</div>
@@ -93,8 +96,8 @@
 					</div>
 					<div class=" xl:w-[50%]">
 						<img
-							class="border-secondary-foreground relative bottom-[10%] h-[250px] border-4 xl:right-[-20%]"
-							src={imgNorbert}
+							class="border-secondary-foreground relative bottom-[10%] h-[250px] border-4 xl:right-[-20%] m-3"
+							src={modelbau}
 							alt="bild"
 						/>
 					</div>
