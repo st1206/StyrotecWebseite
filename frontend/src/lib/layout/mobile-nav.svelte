@@ -30,7 +30,7 @@
 						
 						<Label class="text-primary text-xl font-medium">{$_(`nav.${item.key}`) ?? item.key}</Label>
 						{#each item.megaMenu as child}
-							<Accordion.Root type="single">
+							<Accordion.Root type="single" >
 								<Accordion.Item value={$_(`nav.${item.key}`) ?? item.key}>
 									<Accordion.Trigger>{$_(`nav.${child.key}`) ?? child.key}</Accordion.Trigger>
 									<Accordion.Content>

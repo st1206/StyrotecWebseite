@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, Search } from 'svelte-5-ui-lib';
+	import { Button, megamenu, Search } from 'svelte-5-ui-lib';
 	import { SearchOutline } from 'flowbite-svelte-icons';
 	import { uiHelpers } from 'svelte-5-ui-lib';
 	import { menu } from '$lib/config/routes';
@@ -10,6 +10,8 @@
 	import { Icons } from '$lib/assets/icons';
 	import LanguageToggle from '$lib/components/language-toggle.svelte';
 	import { _ } from 'svelte-i18n';
+	import { onMount } from 'svelte';
+	import { clickOutside } from '$lib/utils';
 
 	let activeUrl = $state(page.url.pathname);
 	$effect(() => {
@@ -35,9 +37,9 @@
 		<!-- searchbar -->
 		<div class="mr-10 hidden md:block">
 			<form>
-				<Search class="pl-12 h-[40px] w-[300px] [clip-path:polygon(10%_0%,100%_0%,90%_100%,0%_100%)]">
-					
-				</Search>
+				<Search
+					class="h-[40px] w-[300px] pl-12 [clip-path:polygon(10%_0%,100%_0%,90%_100%,0%_100%)]"
+				></Search>
 			</form>
 		</div>
 
@@ -56,9 +58,10 @@
 				<div
 					class="bg-secondary absolute -top-2.5 left-[580px] h-[62px] w-[240px] [clip-path:polygon(19%_0%,100%_0%,81%_100%,0%_100%)]"
 				></div>
-				
+
 				<button
-					class="hover:bg-primary-foreground text-xl  hover:text-secondary bg-secondary z-20 w-[200px] [clip-path:polygon(15%_0%,100%_0%,85%_100%,0%_100%)]"
+					use:clickOutside={() => isOpenMap.set(item.id, false)}
+					class="hover:bg-primary-foreground hover:text-secondary bg-secondary z-20 w-[200px] text-xl [clip-path:polygon(15%_0%,100%_0%,85%_100%,0%_100%)]"
 					onclick={() => {
 						const isCurrentlyOpen = isOpenMap.get(item.id) ?? false;
 						isOpenMap.forEach((_, key) => isOpenMap.set(key, false));
@@ -69,8 +72,11 @@
 				</button>
 
 				{#if isOpenMap.get(item.id)}
+					
 					{#if item.megaMenu}
+						<!-- Mega Menü ab hier-->
 						<div
+							
 							class="bg-primary-foreground fixed left-0 top-[60px] flex h-full w-full justify-around gap-8 bg-opacity-90 p-2 pt-10 backdrop-blur-sm"
 						>
 							<button
@@ -80,36 +86,49 @@
 								✕
 							</button>
 							{#each item.megaMenu as column}
-								<div class="mega-menu-column">
-									<h4>
-										<a
-											class="text-primary text-3xl font-bold hover:underline"
-											onclick={() =>
-												isOpenMap.forEach((value, key) => {
-													isOpenMap.set(key, false);
-												})}
-											href={column.link}
-										>
-											{$_(`nav.${column.key}`) ?? column.key}
-										</a>
-									</h4>
-									<ul>
-										{#each column.items as subitem}
-											<li>
-												<a
-													class="text-2xl text-secondary hover:text-secondary hover:underline"
-													onclick={() =>
-														isOpenMap.forEach((value, key) => {
-															isOpenMap.set(key, false);
-														})}
-													href={subitem.link}
-												>
-													{$_(`nav.${subitem.key}`) ?? subitem.key}
-												</a>
-											</li>
+								<!-- nur für Branchen wegen Bilder -->
+								{#if column.key == 'branchen'}
+									<div class="flex w-[60%] flex-row flex-wrap justify-between gap-10 py-[100px]">
+										{#each column.items as item}
+											<a href={item.link} class="text-primary text-2xl">
+												{$_(`nav.${item.key}`) ?? item.key}
+												<img src={item.ImageUrl} alt="logo" class="h-[250px] w-[250px]" />
+											</a>
 										{/each}
-									</ul>
-								</div>
+									</div>
+								{:else}
+									<!-- Rest ohne Bilder -->
+									<div class="mega-menu-column mt-36">
+										<h4>
+											<a
+												class="text-primary text-3xl font-bold hover:underline"
+												onclick={() =>
+													isOpenMap.forEach((value, key) => {
+														isOpenMap.set(key, false);
+													})}
+												href={column.link}
+											>
+												{$_(`nav.${column.key}`) ?? column.key}
+											</a>
+										</h4>
+										<ul>
+											{#each column.items as subitem}
+												<li>
+													<a
+														class="text-secondary hover:text-secondary text-2xl hover:underline"
+														onclick={() =>
+															isOpenMap.forEach((value, key) => {
+																isOpenMap.set(key, false);
+															})}
+														href={subitem.link}
+													>
+														{$_(`nav.${subitem.key}`) ?? subitem.key}
+													</a>
+												</li>
+											{/each}
+										</ul>
+									</div>
+								{/if}
 							{/each}
 						</div>
 					{/if}
@@ -118,7 +137,7 @@
 		</div>
 	</div>
 
-	<div class="absolute right-10 flex gap-4 ">
+	<div class="absolute right-10 flex gap-4">
 		<!-- language toggle -->
 		<LanguageToggle />
 

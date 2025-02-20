@@ -11,10 +11,10 @@
 	import logo4 from '$lib/assets/images/logo4.jpeg';
 	import logo5 from '$lib/assets/images/logo5.jpeg';
 	import logo6 from '$lib/assets/images/logo6.jpeg';
+	import kreislauf from '$lib/assets/images/styrotec-and-more_schaubild.jpg';
 	import hintergrund from '$lib/assets/images/bild11.jpg';
 	import Marquee from '$lib/components/marquee.svelte';
-
-
+	import { Blockquote } from 'svelte-5-ui-lib';
 </script>
 
 <svelte:head>
@@ -26,27 +26,26 @@
 	{#await data.homepageData}
 		<div>skeleton build</div>
 	{:then homepageData}
-		<div class="relative left-0 top-0 w-[100%] shadow-[10px_10px_20px_rgba(0,0,0,0.75)] ">
+		<div class="relative left-0 top-0 w-[100%] shadow-[10px_10px_20px_rgba(0,0,0,0.75)]">
 			{console.log(homepageData)}
 			<Carousel height={carouselHeight} autoPlay={true} pictures={homepageData.carousel} />
-			
-			
-			
-		</div>
-		<div class="absolute  top-[660px]  h-[70px] w-[80%] bg-secondary [clip-path:polygon(0%_0%,100%_0%,96%_100%,0%_100%)]">
+			<div
+				class="bg-secondary absolute -bottom-8 h-[70px] w-[80%] [clip-path:polygon(0%_0%,100%_0%,96%_100%,0%_100%)] xl:top-[660px]"
+			>
 				<Marquee speed={0.5} hoverSpeed={0} class="my-1">
-					<div> <img src={logo1} alt="logo" class="h-[60px]"></div>
-					<div> <img src={logo2} alt="logo" class="h-[60px]"></div>
-					<div> <img src={logo3} alt="logo" class="h-[60px]"></div>
-					<div> <img src={logo4} alt="logo" class="h-[60px]"></div>
-					<div> <img src={logo5} alt="logo" class="h-[60px]"></div>
-					<div> <img src={logo6} alt="logo" class="h-[60px]"></div>
+					<div><img src={logo1} alt="logo" class="h-[60px]" /></div>
+					<div><img src={logo2} alt="logo" class="h-[60px]" /></div>
+					<div><img src={logo3} alt="logo" class="h-[60px]" /></div>
+					<div><img src={logo4} alt="logo" class="h-[60px]" /></div>
+					<div><img src={logo5} alt="logo" class="h-[60px]" /></div>
+					<div><img src={logo6} alt="logo" class="h-[60px]" /></div>
 				</Marquee>
 			</div>
+		</div>
 
 		<div class="bg-secondary-foreground flex h-[600px] justify-around xl:h-[1000px]">
 			<div
-				class="bg-secondary my-[5%] h-[40%] w-[80%] shadow-[10px_10px_30px_rgba(0,0,0,0.75)] xl:mt-[300px] xl:h-[40%] xl:w-[40%]"
+				class="bg-secondary my-[5%] mt-[100px] h-[40%] w-[80%] shadow-[10px_10px_30px_rgba(0,0,0,0.75)] xl:mt-[300px] xl:h-[40%] xl:w-[40%]"
 			>
 				<div
 					class="bg-primary-foreground relative left-0 top-10 mr-10 bg-opacity-80 shadow-[10px_10px_20px_rgba(0,0,0,0.25)]"
@@ -58,9 +57,29 @@
 				</div>
 			</div>
 		</div>
-		<div class="bg-primary-foreground">
+
+		<div class="relative grid h-[1100px] bg-white">
+			<img
+				src={kreislauf}
+				alt="schaubild"
+				class="absolute top-[250px] xl:left-[25%] xl:top-[10%] h-[400px] xl:h-[75%]"
+			/>
+			<p class="font-boldItalicFont absolute left-5 top-5 text-xl xl:left-20 xl:top-52 xl:w-[400px]">
+				"{$_(`homepage.and-more`)}"
+			</p>
+			<p class="font-boldItalicFont absolute left-5 xl:left-[75%] top-[700px] xl:top-52 text-xl xl:right-20 xl:w-[400px]">
+				"{$_(`homepage.and-more2`)}"
+			</p>
+			<p
+				class="font-boldItalicFont absolute bottom-5 left-5 text-xl xl:bottom-52 xl:left-20 xl:w-[400px]"
+			>
+				"{$_(`homepage.and-more3`)}"
+			</p>
+		</div>
+
+		<div class="bg-white">
 			<div
-				class="h-[800px] w-full bg-[url($lib/assets/images/bild11.jpg)] bg-center bg-cover xl:[clip-path:polygon(0%_10%,100%_0%,100%_100%,0%_100%)]"
+				class="h-[800px] w-full bg-[url($lib/assets/images/bild11.jpg)] bg-cover bg-center xl:[clip-path:polygon(0%_10%,100%_0%,100%_100%,0%_100%)]"
 			>
 				<div class=" h-[800px] w-full bg-gradient-to-r from-black via-black/25 to-black">
 					<Accordion.Root
@@ -195,12 +214,12 @@
 			>
 				<div>
 					<div
-						class="text-secondary absolute left-[30%] top-10 flex flex-col xl:flex-row xl:flex-wrap"
+						class="text-secondary absolute left-[5%] top-10 flex flex-col xl:left-[30%] xl:flex-row xl:flex-wrap"
 					>
 						<h2 class="w-full">{$_(`kontaktformular.email`)}</h2>
-						<Input class="text-primary-foreground w-full" />
+						<Input class="text-primary-foreground xl:w-full" />
 						<h2 class="w-full">{$_(`kontaktformular.nachricht`)}</h2>
-						<Textarea class="text-primary-foreground h-[100px] w-[400px]" />
+						<Textarea class="text-primary-foreground h-[100px] w-[250px] xl:w-[400px]" />
 					</div>
 				</div>
 			</div>

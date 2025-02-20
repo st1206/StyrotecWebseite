@@ -107,6 +107,14 @@
 				"berichte": "Berichte",
 				"messen": "Messen"		
 	},
+
+
+
+	"homepage": {
+		"and-more": "Styrotec offers more than just products for the process of Styrofoam processing. For two decades, a wide range of milling machines in various designs for the target markets of model and mold making, as well as plastics processing, has complemented the service portfolio. In addition, productive solutions in peripheral equipment and attractive service offerings enhance the machines.",
+		"and-more2": "We see ourselves as a partner and advisor for your investment in manufacturing technology throughout its entire lifecycle—from acquisition and productivity enhancements to giving the machine a second life. In doing so, we contribute to the circular economy. Through a collaborative approach, we support our customers worldwide in becoming more competitive.",
+		"and-more3": "As a fair, reliable, and flexible partner, we design the most efficient and cost-effective technical solution and ensure economic success with a broad range of services."
+	},
 	"styroporbearbeitung": { 
 		"titel": "Overview styrofoam machining",
 		"cta": "Learn more",
@@ -180,6 +188,9 @@
 		"wechselkopf": "Interchangeable top - version",
 		"gefräst":"milled cutting edge",
 		"raspel":"rasp tooth",
+		"länge-durchmesser": "Length / Diameter",
+		"tabelle-überschrift": "Our hollow millers",
+		"tabelle-text":"In the following table are our combinations of length and diameter, for which our millers are available (default: ●, optional: ○)",
 		"werkzeugaufnahme": "Tool holder",
 		"werkzeugaufnahme-Text": "For a surcharge, we deliver aour cutters on request with various direct shots. These are then balanced from the ground up and can therefore be used for speeds above 10,000 rpm. The direct mount also offers better stability than the adapter and the tool length does not become unnecessarily larger. The cutters also fit into more compact tool changers, making manual tool changes a thing of the past.",
 		"besonderheiten": "Special feature",

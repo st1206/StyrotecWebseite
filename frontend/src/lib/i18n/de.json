@@ -105,10 +105,16 @@
 				"anwenderstories": "Anwenderstories",
 				"referenzen": "Referenzen",
 				"berichte": "Berichte",
-				"messen": "Messen"
-			
+				"messen": "Messen"				
+	},
 
-				
+
+
+
+	"homepage": {
+		"and-more": "Styrotec bietet mehr als Produkte für den Prozess der Syroporbearbeitung. Eine breite Palette an Fräsmaschinen in unterschiedlichsten Ausführungne für den Zielmarkt Modell- und Formenbau und der Kunststoffbearbeitung ergänzt seit zwei Jahrzehnten das Leistungsspektrum. Hinzu kommen produktive Lösungen in der Peripherie und attraktive Serviceangebote und um die Maschinen.",
+		"and-more2": "Wir verstehen uns als Begleiter und Berater für die Investition in Ihre Fertigungstechnologie über den gesamten Lebenszyklus hinweg von der Anschaffung, über Produktivitätssteigerungen bis hin zum zweiten Leben der Maschine. Hiermit leisten wir einen Beitrag zur Kreislaufwirtschaft. Partnerschaftlich unterstützen wir darin, unsere Kunden weltweit wettbewerbsfähiger zu machen.",
+		"and-more3": "Als fairer, zuverlässiger un flexibler Partner projektieren wir die effizienteste und kostengünstigste technische Lösung und stellen mit einem weiten Dienstleistungsspektrum den wirtschaftlichen Erfolg sicher."
 	},
 	"styroporbearbeitung": { 
 		"titel": "Übersicht Styroporbearbeitung",
@@ -182,6 +188,8 @@
 		"wechselkopf": "Wechselkopf Ausführung",
 		"gefräst":"gefräste Schneide",
 		"raspel":"Raspelzahn",
+		"tabelle-überschrift": "Unsere Hohlfräser",
+		"tabelle-text":"In folgender Tabelle sind kombinationen aus Längen und Durchmesser gegeben, für die es Jeweils unsere Hohlfräser gibt (standart: ●, optional: ○)",
 		"werkzeugaufnahme": "Werkzeugaufnahme",
 		"werkzeugaufnahme-Text": "Gegen Aufpreis liefern wir unsere Fräser auf Wunsch mit verschiedenen Direktaufnahmen. Diese werden dann von Haus aus gewuchtet und sind somit auch für Drehzahlen über 10.000 U/min einsetzbar. Die Direktaufnahme bietet zusätzlich ein bessere Stabilität als Adapter und die Werkzeuglänge wird nicht unnötig größer. Die Fräser passen so auch in kompaktere Werkzeugwechsler wodurch manuelle Werkzeugwechsel der Vergangenheit angehören.",
 		"besonderheiten": "Besonderheit",

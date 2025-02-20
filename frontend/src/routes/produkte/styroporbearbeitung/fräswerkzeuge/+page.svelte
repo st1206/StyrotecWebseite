@@ -13,6 +13,22 @@
 	import auslauf from '$lib/assets/images/fraeswerkzeug/NT40AS45_2.png';
 	import raspel from '$lib/assets/images/fraeswerkzeug/WTR40R20 frei-2.png';
 	import wechsler from '$lib/assets/images/fraeswerkzeug/S_IMG_9908 frei-2.png';
+	
+	import { Table, TableHead, TableBody } from 'svelte-5-ui-lib';
+  	const headItems = ["L / ⌀", "15", "25", "30", "35", "40", "45", "50", "60"];
+ 	const bodyItems = [
+		['100', "●", "●", "●","●","●","●","●","●"],
+		['150', "●", "●", "●","●","●","●","●","●"],
+		['200', "●", "●", "●","●","●","●","●","●"],
+		['250', "", "●", "●","●","●","●","●","●"],
+		['300', "", "●", "●","●","●","●","●","●"],
+		['350', "", "", "●","●","●","●","●","●"],
+		['400', "", "", "●","●","●","●","●","●"],
+		['450', "", "", "","","●","●","●","●"],
+		['500', "", "", "","","●","●","●","●"],
+		['550', "", "", "","","","","","○"],
+		['600', "", "", "","","","","","○"],
+	];
 </script>
 
 <svelte:head>
@@ -27,6 +43,13 @@
 		</Carousel.Item>
 	</Carousel.Content>
 </Carousel.Root>
+
+<img
+				src={wechsler}
+				alt="HSK-50"
+				class="absolute hidden xl:block left-10 top-[2150px] -mb-[300px]  w-[110px]  overflow-hidden bg-center  xl:w-[200px] "
+			/>
+
 <div class=" my-[100px] flex flex-wrap xl:flex-col">
 	<div class="mx-4 pb-10 xl:mx-[20%]">
 		<h1 class="mb-4 pb-3 text-4xl">{$_(`styroporfraesen.allgemein-Titel`)}</h1>
@@ -73,9 +96,9 @@
 		</Accordion.Root>
 	</div>
 
-	<div class="mx-4 my-8 pb-10 xl:mx-[35%] xl:my-32">
+	<div class="mx-4 my-8 pb-10 xl:mx-[35%] xl:mt-32">
 		<h1 class="pb-3 text-4xl">{$_(`styroporfraesen.wechselkopf`)}</h1>
-		<div class="flex flex-col gap-10 xl:flex-row">
+		<div class="flex flex-col gap-12 xl:flex-row text-center">
 			<p class="h-[200px] w-[200px] text-xl">
 				{$_(`styroporfraesen.gefräst`)} <br />
 				<img src={kugel} alt="HSK-50" class="h-[200px] bg-center" />
@@ -86,16 +109,19 @@
 		</div>
 	</div>
 
-	<div class="mx-4 pb-10 xl:mx-[20%]">
-		<h1 class="pb-3 text-4xl">{$_(`styroporfraesen.werkzeugaufnahme`)}</h1>
-		<p class="text-xl">{$_(`styroporfraesen.werkzeugaufnahme-Text`)}</p>
-		<img
-			src={wechsler}
-			alt="HSK-50"
-			class="relative -top-[150px] -mb-[300px] ml-[130px] w-[110px] rotate-90 overflow-hidden bg-center xl:ml-[40%] xl:w-[200px]"
-		/>
+	<div class="mx-4 my-8 pb-10 xl:mt-32 xl:mx-[25%]">
+		<h1 class=" text-4xl  ">{$_(`styroporfraesen.tabelle-überschrift`)}</h1>
+		<p class=" text-xl">
+			{$_(`styroporfraesen.tabelle-text`)} 
+		</p>
 	</div>
-
+	<!-- TODO: Tabelle mobil anpassen-->
+	<div class="max-w-[500px]">
+		<Table striped class="max-w-[400px] bg-secondary border-2 border-primary-foreground ">
+			<TableHead {headItems} class="p-1 bg-primary w-[full]"/>
+			<TableBody {bodyItems} />
+	  	</Table>
+	</div>
 	<div
 		class=" bg-primary-foreground text-secondary w-full py-8 xl:py-32 xl:[clip-path:polygon(0%_10%,100%_0%,100%_90%,0%_100%)]"
 	>

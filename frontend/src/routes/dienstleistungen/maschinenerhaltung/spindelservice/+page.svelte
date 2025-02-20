@@ -2,7 +2,6 @@
 	import { Timeline, TimelineItem } from 'svelte-5-ui-lib';
 	import { _ } from 'svelte-i18n';
 	import * as Carousel from '$lib/components/ui/carousel';
-
 	import headerImg from "$lib/assets/images/spindelservice/Header_2_bearbeitet.png";
 </script>
 
@@ -48,7 +47,7 @@
 
 		</div>
 	</div>
-	<h1 class="text-4xl text-primary-foreground ml-[500px] font-boldFont">{$_(`spindelservice.vorgehensweise`)}</h1>
+	<h1 class="text-4xl text-primary-foreground ml-4 xl:ml-[500px] font-boldFont">{$_(`spindelservice.vorgehensweise`)}</h1>
 	<div class="mx-4 xl:mx-[500px] xl:my-[100px] xl:w-[900px] bg-primary-foreground ">
 		
 

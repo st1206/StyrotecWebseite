@@ -24,3 +24,18 @@ export function getIconComponent(code: string): typeof SvelteComponent {
 	const iconKey = code.split('-').join('') as keyof typeof Icons;
 	return Icons[iconKey] as typeof SvelteComponent;
 }
+export function clickOutside(node: HTMLElement, callback: () => void) {
+	function handleClick(event: MouseEvent) {
+	  if (node && !node.contains(event.target as Node)) {
+		callback();
+	  }
+	}
+  
+	document.addEventListener("click", handleClick);
+  
+	return {
+	  destroy() {
+		document.removeEventListener("click", handleClick);
+	  }
+	};
+  }

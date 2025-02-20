@@ -1,4 +1,13 @@
 // typescript type für Menu Item
+import image1 from "$lib/assets/images/logo1.jpeg"
+import image2 from "$lib/assets/images/logo2.jpeg"
+import image3 from "$lib/assets/images/logo3.jpeg"
+import image4 from "$lib/assets/images/logo4.jpeg"
+import image5 from "$lib/assets/images/logo5.jpeg"
+import image6 from "$lib/assets/images/logo6.jpeg"
+import image7 from "$lib/assets/images/logo1.jpeg"
+import image8 from "$lib/assets/images/logo2.jpeg"
+
 export type MenuRoute = typeof menu;
 
 export const menu = [
@@ -95,14 +104,14 @@ export const menu = [
 	 			key: 'branchen',
 	 			link: '/branchen/branchen',
 	 			items: [
-	 				{ key: 'automobil', link: '/branchen/branchen/automobil' },
-	 				{ key: 'schiffsbau', link: '/branchen/branchen/schiffsbau' },
-	 				{ key: 'modellbau', link: '/branchen/branchen/modellbau' },
-	 				{ key: 'kunststoffindustrie', link: '/branchen/branchen/kunststoffindustrie' },
-	 				{ key: 'betonindustrie', link: '/branchen/branchen/betonindustrie' },
-	 				{ key: 'werbetechnik', link: '/branchen/branchen/werbetechnik' },
-	 				{ key: 'aerospace', link: '/branchen/branchen/aerospace' },
-	 				{ key: 'kunst', link: '/branchen/branchen/kunst' }
+	 				{ key: 'automobil', link: '/branchen/branchen/automobil', ImageUrl: image1},
+	 				{ key: 'schiffsbau', link: '/branchen/branchen/schiffsbau', ImageUrl: image2},
+	 				{ key: 'modellbau', link: '/branchen/branchen/modellbau', ImageUrl: image3},
+	 				{ key: 'kunststoffindustrie', link: '/branchen/branchen/kunststoffindustrie', ImageUrl: image4},
+	 				{ key: 'betonindustrie', link: '/branchen/branchen/betonindustrie',  ImageUrl: image5 },
+	 				{ key: 'werbetechnik', link: '/branchen/branchen/werbetechnik',  ImageUrl: image6},
+	 				{ key: 'aerospace', link: '/branchen/branchen/aerospace',  ImageUrl: image7 },
+	 				{ key: 'kunst', link: '/branchen/branchen/kunst', ImageUrl: image8 }
 	 			]
 	 		}
 	 	]

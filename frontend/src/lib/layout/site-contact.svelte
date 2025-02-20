@@ -44,7 +44,7 @@
 
 <div class="modal flex justify-center">
 	<Button
-		class="bg-primary-500 border-primary-foreground rounded-none border-2"
+		class="bg-primary-500 border-primary-foreground rounded-none text-2xl border-2 w-[130px] h-[70px]"
 		onclick={modalExample.toggle}
 	>
 		{$_('contact.title')}
