@@ -59,6 +59,7 @@
 					class="bg-secondary absolute -top-2.5 left-[580px] h-[62px] w-[240px] [clip-path:polygon(19%_0%,100%_0%,81%_100%,0%_100%)]"
 				></div>
 
+				<!--hover:bg-primary-foreground hover:text-secondary bg-secondary z-20 w-[200px] text-xl [clip-path:polygon(15%_0%,100%_0%,85%_100%,0%_100%)] -->
 				<button
 					use:clickOutside={() => isOpenMap.set(item.id, false)}
 					class="hover:bg-primary-foreground hover:text-secondary bg-secondary z-20 w-[200px] text-xl [clip-path:polygon(15%_0%,100%_0%,85%_100%,0%_100%)]"

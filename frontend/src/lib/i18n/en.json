@@ -177,8 +177,14 @@
 		"laser": "Laser tool probing",
 		"messtaster": "Touch Probe",
 		"alutisch": "Aluminum T-slot table with 250 mm spacing (transverse layout)",
-		"vakuumtusch": "Vacuum table with grid-pattern vacuum channels, 25 x 25 mm",
-		"glatterTisch": "Smooth table with treaded holes"
+		"vakuumtisch": "Vacuum table with grid-pattern vacuum channels, 25 x 25 mm",
+		"glatterTisch": "Smooth table with treaded holes",
+		"übersicht-titel": "Our FS 10 Series - Precision and Flexibility Combined",
+		"übersicht-text": "Our FS 10 series stands out with its classic gantry design featuring a fixed table and a moving gantry underneath. This design offers advantages in terms of stability, consistently moved masses, and optimal accessibility for setup and loading.",
+		"übersicht-punkt1": "Classic gantry milling machine design",
+		"übersicht-punkt2": "Flexibility in machine design and application",
+		"übersicht-punkt3": "Optimal accessibility",
+		"übersicht-ende": "Discover our various configurations!"
 	},
 	"cnc-Masch-Seite": {
 		"beschreibung": "Description",

@@ -558,7 +558,6 @@ export interface ApiFs10Fs10 extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    VorschubAC: Schema.Attribute.String & Schema.Attribute.Required;
     VorschubX: Schema.Attribute.String & Schema.Attribute.Required;
     VorschubY: Schema.Attribute.String & Schema.Attribute.Required;
     VorschubZ: Schema.Attribute.String & Schema.Attribute.Required;

@@ -177,8 +177,14 @@
 		"laser": "Werkzeugvremessung mit Laser",
 		"messtaster": "Messtaster",
 		"alutisch": "Aluminiumtisch mit T-Nuten quer, Abstand 250mm",
-		"vakuumtusch": "Vakuumtisch mit Gitternetz Vakuumkanäle 25 x 25 mm",
-		"glatterTisch": "Glatter Tisch mit Gewindelöchern"
+		"vakuumtisch": "Vakuumtisch mit Gitternetz Vakuumkanäle 25 x 25 mm",
+		"glatterTisch": "Glatter Tisch mit Gewindelöchern",
+		"übersicht-titel": "Unsere Baureihe FS 10 - Präzision und Flexiilität",
+		"übersicht-text": "Unsere Baureihe FS 10 zeichnet sich durch ihre klassische Portalbauweise mit festem Tisch und unten fahrendem Portal aus. Dies bietet Vorteile in Bezug auf Stabilität, gleichbleibend bewegte Massen und optimale Zugänglichkeit zum Rüsten und Beladen.",
+		"übersicht-punkt1": "Klassisches Portalfräsmaschinen-Design",
+		"übersicht-punkt2": "Flexibilität im Maschinendesign sowie in der Anwendung",
+		"übersicht-punkt3": "Optimale Zugänglichkeiten",
+		"übersicht-ende": "Entdecken Sie unsere unterschiedlichen Ausführungen!"
 	},
 	"cnc-Masch-Seite": {
 		"beschreibung": "Beschreibung",

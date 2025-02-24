@@ -60,10 +60,6 @@
       "type": "string",
       "required": true
     },
-    "VorschubAC": {
-      "type": "string",
-      "required": true
-    },
     "Steuerung": {
       "type": "string",
       "required": true
