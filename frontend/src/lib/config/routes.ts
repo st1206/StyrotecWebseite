@@ -17,14 +17,14 @@ export const menu = [
 		link: '/produkte',
 		megaMenu: [
 			{
-				key: 'portalfräsmaschinen',
-				link: '/produkte/portalfräsmaschinen',
+				key: 'portalfraesmaschinen',
+				link: '/produkte/portalfraesmaschinen',
 				items: [
-					{ key: 'fs10', link: '/produkte/portalfräsmaschinen/fs10' },
-					{ key: 'fs15', link: '/produkte/portalfräsmaschinen/f15' },
-					{ key: 'fs20', link: '/produkte/portalfräsmaschinen/fs20' },
-					{ key: 'hybrid3D', link: '/produkte/portalfräsmaschinen/hybrid-3d' },
-					{ key: 'vorratsmaschinen', link: '/produkte/portalfräsmaschinen/vorratsmaschinen' }
+					{ key: 'fs10', link: '/produkte/portalfraesmaschinen/fs10' },
+					{ key: 'fs15', link: '/produkte/portalfraesmaschinen/f15' },
+					{ key: 'fs20', link: '/produkte/portalfraesmaschinen/fs20' },
+					{ key: 'hybrid3D', link: '/produkte/portalfraesmaschinen/hybrid-3d' },
+					{ key: 'vorratsmaschinen', link: '/produkte/portalfraesmaschinen/vorratsmaschinen' }
 				]
 			},
 	 		{

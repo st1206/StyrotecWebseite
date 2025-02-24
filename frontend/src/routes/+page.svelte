@@ -19,7 +19,7 @@
 
 <svelte:head>
 	<title>Styrotec Homepage</title>
-	<meta name="Styrotec Homepage" content="" />
+	<meta name="Styrotec Homepage" content="Homepage - Übersicht über Styrotec" />
 </svelte:head>
 
 <div>

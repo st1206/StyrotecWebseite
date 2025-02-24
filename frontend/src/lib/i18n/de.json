@@ -23,7 +23,7 @@
 	"nav": {
 		"produkte": "Produkte",
 
-			"portalfräsmaschinen": "Portalfräsmaschinen",
+			"portalfraesmaschinen": "Portalfräsmaschinen",
 
 				"fs10": "FS 10",
 				"fs15": "FS 15",
@@ -112,7 +112,7 @@
 
 
 	"homepage": {
-		"and-more": "Styrotec bietet mehr als Produkte für den Prozess der Syroporbearbeitung. Eine breite Palette an Fräsmaschinen in unterschiedlichsten Ausführungne für den Zielmarkt Modell- und Formenbau und der Kunststoffbearbeitung ergänzt seit zwei Jahrzehnten das Leistungsspektrum. Hinzu kommen produktive Lösungen in der Peripherie und attraktive Serviceangebote und um die Maschinen.",
+		"and-more": "Styrotec bietet mehr als Produkte für den Prozess der Syroporbearbeitung. Eine breite Palette an Fräsmaschinen in unterschiedlichsten Ausführungne für den Zielmarkt Modell- und Formenbau und der Kunststoffbearbeitung ergänzt seit zwei Jahrzehnten das Leistungsspektrum. Hinzu kommen produktive Lösungen in der Peripherie und attraktive Serviceangebote rund um die Maschinen.",
 		"and-more2": "Wir verstehen uns als Begleiter und Berater für die Investition in Ihre Fertigungstechnologie über den gesamten Lebenszyklus hinweg von der Anschaffung, über Produktivitätssteigerungen bis hin zum zweiten Leben der Maschine. Hiermit leisten wir einen Beitrag zur Kreislaufwirtschaft. Partnerschaftlich unterstützen wir darin, unsere Kunden weltweit wettbewerbsfähiger zu machen.",
 		"and-more3": "Als fairer, zuverlässiger un flexibler Partner projektieren wir die effizienteste und kostengünstigste technische Lösung und stellen mit einem weiten Dienstleistungsspektrum den wirtschaftlichen Erfolg sicher."
 	},
@@ -133,6 +133,52 @@
 		"holz-text": "Ob für Tischlerei, Möbelbau oder Industrie - unsere gebrauchten Holzbearbeitungsmaschinen bieten höchste Präzision und Effizienz. Alle Maschinen sind voll funktionsfähig, geprüft und bereit für den nächsten Einsatz. Sparen Sie Kosten und setzen Sie auf nachhaltige Maschinenlösungen.",
 		"modell": "Modellbaumaschinen",
 		"modell-text": "Für feinste Detailarbeiten und höchste Präzision: Unsere gebrauchten Modellbaumaschinen sind ideal für Modellbau, Prototyping und Feinarbeiten. Wir bieten eine Auswahl an hochwertigen Maschinen, die Ihre kreativen Projekte auf das nächste Level heben."
+	},
+	"portalfraes": {
+		"titel": "Übersicht über Unsere Portalfräsmaschinen", 
+		"cta": "Mehr erfahren",
+		"FS10": "FS 10",
+		"FS10-text": "Unsere Baureihe FS 10 zeichnet sich durch ihre klassische Portalbauweise mit festem Tisch und unten fahrendem Portal aus. Dies bietet Vorteile in Bezug auf Stabilität, gleichbleibend bewegte Massen und optimale Zugänglichkeit zum Rüsten und Beladen.",
+		"FS15": "FS 15",
+		"FS15-text":"TODO",
+		"FS20": "FS 20",
+		"FS20-text": "TODO",
+		"hybrid": "Hybrid - 3D",
+		"hybrid-text": "TODO",
+		"vorratsmaschinen": "Vorratsmaschinen",
+		"vorratsmaschinen-text": "TODO"
+	},
+	"optionen": {
+		"fraeskoepfe":"Fräsköpfe",
+		"fraesspindeln": "Frässpindeln",
+		"schutzeinrichtungen": "Schutzeinrichtungen",
+		"werkzeugwechsler": "Werkzeugwechsler",
+		"messeinrichtungen": "Messeinrichtungen",
+		"tischvarianten": "Tischvarianten"
+	},
+	"fs10": {
+		"aAchse": "A-Achse",
+		"cAchse": "C-Achse",
+		"direkteMesssysteme": "Direkte Messysteme",
+		"spindelorientierung": "Spindelorientierung",
+		"minimalmengenschmierung": "Minimalmengenschmierung",
+		"blasluft": "Blasluft",
+		"leistung": "Leistung",
+		"drehzahl": "Drehzhl",
+		"drehmoment": "Drehmoment",
+		"aufnahme": "Aufnahme",
+		"4seitig": "Umhausung 4-seitig",
+		"vollumhausung": "Vollumhausung mit Dach",
+		"arbeitsraum": "Arbeitsraumabdeckung",
+		"pickup": "Pick-up Werkzeugwechsler mit 6-10 Werkzeugplätzen mitfahrend am Portal",
+		"tellerwechsler": "Tellerwechsler mit bis zu 16 Plätzen",
+		"schubladen": "Pick-up Schubladen-Werkzeugwechsler mit bis zu 16 Werkzeugplätzen, untergebracht in der Seitenwand",
+		"tastsystem": "Werkzeugtastsysteme",
+		"laser": "Werkzeugvremessung mit Laser",
+		"messtaster": "Messtaster",
+		"alutisch": "Aluminiumtisch mit T-Nuten quer, Abstand 250mm",
+		"vakuumtusch": "Vakuumtisch mit Gitternetz Vakuumkanäle 25 x 25 mm",
+		"glatterTisch": "Glatter Tisch mit Gewindelöchern"
 	},
 	"cnc-Masch-Seite": {
 		"beschreibung": "Beschreibung",

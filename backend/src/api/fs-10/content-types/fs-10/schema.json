@@ -1,0 +1,76 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fs_10s",
+  "info": {
+    "singularName": "fs-10",
+    "pluralName": "fs-10s",
+    "displayName": "FS10",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titel": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Bilder": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "xAchse": {
+      "type": "string",
+      "required": true
+    },
+    "yAchse": {
+      "type": "string",
+      "required": true
+    },
+    "zAchse": {
+      "type": "string",
+      "required": true
+    },
+    "VorschubX": {
+      "type": "string",
+      "required": true
+    },
+    "VorschubY": {
+      "type": "string",
+      "required": true
+    },
+    "VorschubZ": {
+      "type": "string",
+      "required": true
+    },
+    "aAchse": {
+      "type": "string",
+      "required": true
+    },
+    "cAchse": {
+      "type": "string",
+      "required": true
+    },
+    "VorschubAC": {
+      "type": "string",
+      "required": true
+    },
+    "Steuerung": {
+      "type": "string",
+      "required": true
+    },
+    "AbmessungUmhausung": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

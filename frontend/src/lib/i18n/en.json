@@ -23,7 +23,7 @@
 	"nav": {
 		"produkte": "Products",
 
-			"portalfräsmaschinen": "Portal Milling Machines",
+			"portalfraesmaschinen": "Portal Milling Machines",
 		
 				"fs10": "FS 10",
 				"fs15": "FS 15",
@@ -133,6 +133,52 @@
 		"modell": "Modell Building Machines",
 		"modell-text": "For the finest detail work and highest precision, our used model-making machines are ideal for model building, prototyping, and fine machining. We offer a selection of high-quality machines to take your creative projects to the next level."
 
+	},
+	"portalfraes": {
+		"titel": "Overviw of our portal milling machines", 
+		"cta": "Learn more",
+		"FS10": "FS 10",
+		"FS10-text": "Our FS 10 series is characterized by its classic gantry design with a fixed table and a moving gantry at the bottom. This provides advantages in terms of stability, consistently moved masses, and optimal accessibility for setup and loading.",
+		"FS15": "FS 15",
+		"FS15-text":"TODO",
+		"FS20": "FS 20",
+		"FS20-text": "TODO",
+		"hybrid": "Hybrid - 3D",
+		"hybrid-text": "TODO",
+		"vorratsmaschinen": "In-Stock Machines",
+		"vorratsmaschinen-text": "TODO"
+	},
+	"optionen": {
+		"fraeskoepfe":"Milling Heads",
+		"fraesspindeln": "Milling Spindles",
+		"schutzeinrichtungen": "Protective Housing",
+		"werkzeugwechsler": "Tool Changer",
+		"messeinrichtungen": "Probe System",
+		"tischvarianten": "Table Types"
+	},
+	"fs10": {
+		"aAchse": "A-Axis",
+		"cAchse": "C-Axis",
+		"direkteMesssysteme": "Direct Measurement System",
+		"spindelorientierung": "Spindle Orientation",
+		"minimalmengenschmierung": "Minimal Lubrication",
+		"blasluft": "Air Blast",
+		"leistung": "Power",
+		"drehzahl": "Speed",
+		"drehmoment": "Torque",
+		"aufnahme": "Tool Clamping",
+		"4seitig": "4-sided Housing",
+		"vollumhausung": "Fully Enclosed Housing",
+		"arbeitsraum": "Protective Cover",
+		"pickup": "Pick-up tool changer with 6-10 tool positions, moving with the gantry",
+		"tellerwechsler": "Disc tool changer with up to 16 positions",
+		"schubladen": "Pick-up drawer-style tool changer with up to 16 tool positions, integrated into the side wall",
+		"tastsystem": "Tool Probing Systems",
+		"laser": "Laser tool probing",
+		"messtaster": "Touch Probe",
+		"alutisch": "Aluminum T-slot table with 250 mm spacing (transverse layout)",
+		"vakuumtusch": "Vacuum table with grid-pattern vacuum channels, 25 x 25 mm",
+		"glatterTisch": "Smooth table with treaded holes"
 	},
 	"cnc-Masch-Seite": {
 		"beschreibung": "Description",

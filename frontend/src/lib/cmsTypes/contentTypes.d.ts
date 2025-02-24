@@ -524,6 +524,50 @@ export interface ApiBerichteBerichte extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFs10Fs10 extends Struct.CollectionTypeSchema {
+  collectionName: 'fs_10s';
+  info: {
+    description: '';
+    displayName: 'FS10';
+    pluralName: 'fs-10s';
+    singularName: 'fs-10';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    aAchse: Schema.Attribute.String & Schema.Attribute.Required;
+    AbmessungUmhausung: Schema.Attribute.String & Schema.Attribute.Required;
+    Bilder: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    > &
+      Schema.Attribute.Required;
+    cAchse: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::fs-10.fs-10'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Steuerung: Schema.Attribute.String & Schema.Attribute.Required;
+    Titel: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    VorschubAC: Schema.Attribute.String & Schema.Attribute.Required;
+    VorschubX: Schema.Attribute.String & Schema.Attribute.Required;
+    VorschubY: Schema.Attribute.String & Schema.Attribute.Required;
+    VorschubZ: Schema.Attribute.String & Schema.Attribute.Required;
+    xAchse: Schema.Attribute.String & Schema.Attribute.Required;
+    yAchse: Schema.Attribute.String & Schema.Attribute.Required;
+    zAchse: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -1623,6 +1667,7 @@ declare module '@strapi/strapi' {
       'api::about.about': ApiAboutAbout;
       'api::anwenderstorie.anwenderstorie': ApiAnwenderstorieAnwenderstorie;
       'api::berichte.berichte': ApiBerichteBerichte;
+      'api::fs-10.fs-10': ApiFs10Fs10;
       'api::global.global': ApiGlobalGlobal;
       'api::home.home': ApiHomeHome;
       'api::kategorie-bilder.kategorie-bilder': ApiKategorieBilderKategorieBilder;
