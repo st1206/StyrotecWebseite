@@ -11,7 +11,7 @@
 	import logo4 from '$lib/assets/images/homepage/logo4.jpeg';
 	import logo5 from '$lib/assets/images/homepage/logo5.jpeg';
 	import logo6 from '$lib/assets/images/homepage/logo6.jpeg';
-	import karte from '$lib/assets/images/homepage/karte.png';
+	import karte from '$lib/assets/images/homepage/Karte.png';
 	import kreislauf from '$lib/assets/images/styrotec-and-more_schaubild.jpg';
 	import Marquee from '$lib/components/marquee.svelte';
 	import MessenCarousel from '$lib/components/messenCarousel.svelte';
