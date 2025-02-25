@@ -1,12 +1,12 @@
 // typescript type für Menu Item
-import image1 from "$lib/assets/images/logo1.jpeg"
-import image2 from "$lib/assets/images/logo2.jpeg"
-import image3 from "$lib/assets/images/logo3.jpeg"
-import image4 from "$lib/assets/images/logo4.jpeg"
-import image5 from "$lib/assets/images/logo5.jpeg"
-import image6 from "$lib/assets/images/logo6.jpeg"
-import image7 from "$lib/assets/images/logo1.jpeg"
-import image8 from "$lib/assets/images/logo2.jpeg"
+import image1 from "$lib/assets/images/homepage/logo1.jpeg"
+import image2 from "$lib/assets/images/homepage/logo2.jpeg"
+import image3 from "$lib/assets/images/homepage/logo3.jpeg"
+import image4 from "$lib/assets/images/homepage/logo4.jpeg"
+import image5 from "$lib/assets/images/homepage/logo5.jpeg"
+import image6 from "$lib/assets/images/homepage/logo6.jpeg"
+import image7 from "$lib/assets/images/homepage/logo1.jpeg"
+import image8 from "$lib/assets/images/homepage/logo2.jpeg"
 
 export type MenuRoute = typeof menu;
 
