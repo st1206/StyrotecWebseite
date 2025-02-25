@@ -28,11 +28,11 @@
 		</h3>
 
 		<div
-			class="mx-8 mt-32 mb-32 flex flex-col xl:flex-row xl:flex-wrap gap-8 pl-32 "
+			class="xl:mx-8 mt-32 mb-32 flex flex-col xl:flex-row xl:flex-wrap gap-8 pl-4 xl:pl-32 "
 			
 		>
 			{#if maschine.extraBeschreibung}
-				<div class="w-screen">
+				<div class="w-[70%]">
 					<span class="font-bold">{$_(`cnc-Masch-Seite.beschreibung`)}: </span>
 					<span>{maschine.extraBeschreibung}</span>
 				</div>
@@ -43,9 +43,9 @@
 				<MaschinenCarousel height={carouselHeight} pictures={maschine.Bilder} />
 			</div>
 
-			<!-- https://next.shadcn-svelte.com/docs/components/table -->
+			
 
-			<Accordion.Root type="single" class="w-[55%] sm:max-w-[70%]">
+			<Accordion.Root type="single" class="xl:w-[55%] w-[80%] max-w-[70%]">
 				<Accordion.Item value="item-1">
 					<Accordion.Trigger>{$_(`cnc-Masch-Seite.hauptdaten`)}:</Accordion.Trigger>
 					<Accordion.Content>

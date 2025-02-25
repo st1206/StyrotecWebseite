@@ -28,12 +28,12 @@ export const menu = [
 				]
 			},
 	 		{
-		 		key: 'spänepressen',
-				link: '/produkte/spänepressen',
+		 		key: 'spaenepressen',
+				link: '/produkte/spaenepressen',
 				items: [
-					{ key: 'metalle', link: '/produkte/spänepressen/metalle' },
-					{ key: 'kunststoffe', link: '/produkte/spänepressen/kunststoffe' },
-					{ key: 'styropor', link: '/produkte/spänepressen/styropor' }
+					{ key: 'metalle', link: '/produkte/spaenepressen/metalle' },
+					{ key: 'kunststoffe', link: '/produkte/spaenepressen/kunststoffe' },
+					{ key: 'styropor', link: '/produkte/spaenepressen/styropor' }
 				]
 			},
 	 		{

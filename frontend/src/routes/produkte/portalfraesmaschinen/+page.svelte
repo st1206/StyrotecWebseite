@@ -19,22 +19,24 @@
 {#await data.kategorieBilder}
 	<div>skeleton build</div>
 {:then kategorie}
-	<div class="relative left-0 top-0 w-[100%]">
+	<div class="relative z-10 left-0 top-0 w-[100%]">
 		<Carousel height={600} pictures={kategorie.filter(item=> item.Kategorie ==="Portalfräsmaschinen")[0].Bilder} />
 	</div>
 {/await}
-
+<div class="hidden xl:block absolute top-[560px] w-full h-[100px] bg-primary [clip-path:polygon(0%_0%,100%_0%,81%_100%,0%_100%)]"></div>
 <div class="bg-secondary flex flex-col gap-16 p-[5%] xl:gap-32">
-	<div
-		class=" bg-primary-foreground border-2 border-solid p-4 shadow-[10px_20px_60px_rgba(0,0,0,0.95)] xl:mx-[10%] xl:p-24"
-	>
-		<h3 class="text-secondary text-2xl uppercase xl:text-5xl">
+
+	
+
+	
+		<h3 class="text-primary-foreground text-2xl uppercase xl:text-5xl text-center mt-[100px]">
 			{$_(`portalfraes.titel`)}
 		</h3>
-	</div>
+		<p class="text-xl xl:mx-[10%]">Portalfräsmaschinen sind die ideale Lösung für anspruchsvolle Fräsarbeiten, bei denen höchste Präzision, Stabilität und Effizienz gefragt sind. Sie kommen in zahlreichen Branchen wie dem Maschinenbau, der Luft- und Raumfahrt, der Automobilindustrie und dem Formenbau zum Einsatz. Dank ihrer robusten Bauweise und modernen Steuerungstechnologien ermöglichen sie exakte Bearbeitungsergebnisse und eignen sich besonders für großformatige Werkstücke sowie komplexe Geometrien. Leistungsstarke Spindeln und innovative Antriebssysteme sorgen für eine effiziente und schnelle Bearbeitung unterschiedlichster Materialien – von Aluminium über Stahl bis hin zu Titan und Kunststoff. Je nach Anforderung stehen verschiedene Modelle zur Verfügung, von kompakten Maschinen für kleinere Werkstücke bis hin zu großformatigen Hochleistungsanlagen. Besonders flexibel sind 5-Achs-Portalfräsmaschinen, die auch anspruchsvolle Freiformflächen präzise bearbeiten können. Wer auf maximale Effizienz und höchste Qualität setzt, findet in unseren Portalfräsmaschinen die perfekte Lösung. Kontaktieren Sie uns gerne für eine individuelle Beratung.</p>
+	
 
 	<div class="bg-secondary text-primary-foreground text-xl">
-		<Tabs style="underline" contentClass="bg-primary-foreground text-secondary text-2xl rounded-0 border-secondary" >
+		<Tabs style="underline" contentClass="bg-primary-foreground text-secondary text-2xl rounded-0 border-secondary" ulClass="space-x-0 p-1 gap-2">
 			<TabItem open title={$_(`portalfraes.FS10`)} activeClass="w-[200px] p-5 bg-primary text-xl" inactiveClass="w-[200px] p-5 bg-primary-foreground text-secondary text-xl">
 				<h3 class="p-3 text-xl font-bold">{$_(`portalfraes.FS10`)}</h3>
 				<div class="flex flex-col xl:flex-row">

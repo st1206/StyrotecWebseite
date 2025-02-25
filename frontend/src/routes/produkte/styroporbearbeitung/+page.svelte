@@ -16,7 +16,7 @@
 	</div>
 {/await}
 
-<div class="bg-primary-foreground flex flex-col gap-16 p-[5%] xl:gap-32">
+<div class="bg-secondary flex flex-col gap-16 p-[5%] xl:gap-32">
 	<div
 		class=" bg-primary-foreground border-2 border-solid p-4 shadow-[10px_20px_60px_rgba(0,0,0,0.95)] xl:mx-[10%] xl:p-24"
 	>
@@ -26,8 +26,8 @@
 	</div>
 
 	<div class="bg-secondary text-primary-foreground text-xl">
-		<Tabs style="underline">
-			<TabItem open title={$_(`styroporbearbeitung.fräswerkzeuge`)}>
+		<Tabs style="underline" contentClass="bg-primary-foreground text-secondary text-2xl rounded-0 border-secondary" ulClass="space-x-0 p-1 gap-2">
+			<TabItem open title={$_(`styroporbearbeitung.fräswerkzeuge`)} activeClass="w-[200px] p-5 bg-primary text-xl" inactiveClass="w-[200px] p-5 bg-primary-foreground text-secondary text-xl">
 				<h3 class="p-3 text-xl font-bold">{$_(`styroporbearbeitung.fräswerkzeuge`)}</h3>
 				<div class="flex flex-col xl:flex-row">
 					<div class="w-full p-3 xl:w-[50%]">

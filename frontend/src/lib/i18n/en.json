@@ -31,7 +31,7 @@
 				"hybrid3D": "Hybrid - 3D",
 				"vorratsmaschinen": "In-Stock Machines",
 
-			"spänepressen": "Briquettpress",
+			"spaenepressen": "Briquettpress",
 			
 				"metalle": "Metalls",
 				"kunststoffe": "Plastics",
@@ -157,8 +157,6 @@
 		"tischvarianten": "Table Types"
 	},
 	"fs10": {
-		"aAchse": "A-Axis",
-		"cAchse": "C-Axis",
 		"direkteMesssysteme": "Direct Measurement System",
 		"spindelorientierung": "Spindle Orientation",
 		"minimalmengenschmierung": "Minimal Lubrication",
@@ -186,6 +184,14 @@
 		"übersicht-punkt3": "Optimal accessibility",
 		"übersicht-ende": "Discover our various configurations!"
 	},
+	"pressen": {
+		"kunststoff": "Plasics",
+		"kunststoff-text": "",
+		"metalle": "Metalls",
+		"metalle-text": "",
+		"styropor": "Styrofoam",
+		"styropor-text": ""
+	},
 	"cnc-Masch-Seite": {
 		"beschreibung": "Description",
 		"hauptdaten": "Main Data",
@@ -202,11 +208,14 @@
 		"aachse": "a-Axis",
 		"cachse": "c-Axis",
 		"vorschub-xy": "Feed Rate X-Y-Axis",
+		"vorschub-x": "Feed Rate X-Axis",
+		"vorschub-y": "Feed Rate Y-Axis",
 		"vorschub-z": "Feed Rate Z-Axis",
 		"achsbeschleunigung-xyz": "Axis Acceleration X-Y-Z-Axis",
 		"eckdaten": "Key Data",
 		"aufspannfläche": "Clamping Area",
 		"platzbedarf": "Required Space",
+		"abmessung": "Dimensions with enclosure",
 		"gewicht": "Weight",
 		"technischeDaten": "Technical Data",
 		"steuerung": "Control",

@@ -31,7 +31,7 @@
 				"hybrid3D": "Hybrid - 3D",
 				"vorratsmaschinen": "Vorratsmaschinen",
 		
-			"spänepressen": "Spänepressen",
+			"spaenepressen": "Spänepressen",
 				
 				"metalle": "Metalle",
 				"kunststoffe": "Kunststoffe",
@@ -157,8 +157,6 @@
 		"tischvarianten": "Tischvarianten"
 	},
 	"fs10": {
-		"aAchse": "A-Achse",
-		"cAchse": "C-Achse",
 		"direkteMesssysteme": "Direkte Messysteme",
 		"spindelorientierung": "Spindelorientierung",
 		"minimalmengenschmierung": "Minimalmengenschmierung",
@@ -179,12 +177,20 @@
 		"alutisch": "Aluminiumtisch mit T-Nuten quer, Abstand 250mm",
 		"vakuumtisch": "Vakuumtisch mit Gitternetz Vakuumkanäle 25 x 25 mm",
 		"glatterTisch": "Glatter Tisch mit Gewindelöchern",
-		"übersicht-titel": "Unsere Baureihe FS 10 - Präzision und Flexiilität",
+		"übersicht-titel": "Unsere Baureihe FS 10 - Präzision und Flexibilität",
 		"übersicht-text": "Unsere Baureihe FS 10 zeichnet sich durch ihre klassische Portalbauweise mit festem Tisch und unten fahrendem Portal aus. Dies bietet Vorteile in Bezug auf Stabilität, gleichbleibend bewegte Massen und optimale Zugänglichkeit zum Rüsten und Beladen.",
 		"übersicht-punkt1": "Klassisches Portalfräsmaschinen-Design",
 		"übersicht-punkt2": "Flexibilität im Maschinendesign sowie in der Anwendung",
 		"übersicht-punkt3": "Optimale Zugänglichkeiten",
 		"übersicht-ende": "Entdecken Sie unsere unterschiedlichen Ausführungen!"
+	},
+	"pressen": {
+		"kunststoff": "Kunststoffe",
+		"kunststoff-text": "TODO",
+		"metalle": "Metalle",
+		"metalle-text": "TODO",
+		"styropor": "Styropor",
+		"styropor-text": "TODO"
 	},
 	"cnc-Masch-Seite": {
 		"beschreibung": "Beschreibung",
@@ -202,11 +208,14 @@
 		"aachse": "a-Achse",
 		"cachse": "c-Achse",
 		"vorschub-xy": "Vorschubgeschwindigkeit X-Y-Achse",
+		"vorschub-x": "Vorschubgeschwindigkeit X-Achse",
+		"vorschub-y": "Vorschubgeschwindigkeit Y-Achse",
 		"vorschub-z": "Vorschubgeschwindigkeit Z-Achse",
 		"achsbeschleunigung-xyz": "Achsbeschleunigung X-Y-Z-Achse",
 		"eckdaten": "Eckdaten",
 		"aufspannfläche": "Aufspannfläche",
 		"platzbedarf": "Platzbedarf",
+		"abmessung": "Abmessung mit Umhausung",
 		"gewicht": "Gewicht",
 		"technischeDaten": "Technische Daten",
 		"steuerung": "Steuerung",
