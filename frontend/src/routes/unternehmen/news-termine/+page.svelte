@@ -4,19 +4,23 @@
 	import BerichteCarousel from '$lib/components/berichteCarousel.svelte';
 	import MessenCarousel from '$lib/components/messenCarousel.svelte';
 	import ReferenzCarousel from '$lib/components/referenzCarousel.svelte';
+	import header from '$lib/assets/images/news/messestand.jpg'
 	import { _ } from 'svelte-i18n';
 	let { data } = $props();
 </script>
 
-<div class="h-[600px]"> Todo: bild</div>
 
-<div>
-	<h1> News & Weiteres</h1>
-	<p>Bleiben Sie auf dem Laufenden! Hier finden Sie alle Neuigkeiten rund um unser Unternehmen – von spannenden Projekten, Entwicklungen bis zu wichtigen Ankündigungen. Außerdem informieren wir Sie über anstehende Events, Messen und besondere Termine. Schauen Sie gerne regelmäßig vorbei und bleiben Sie informiert!</p>
+
+<div class="[clip-path:polygon(0%_10%,100%_0%,100%_80%,0%_100%)] bg-gradient-to-r from-amber-500 to-amber-200">
+	<img src={header} alt="messestand" class="w-full h-[400px] object-cover">
 </div>
 
-<!-- Weiterleitung mit [slug] zu anwenderstories seite-->
-<!-- Frage: soll jede Seite gleich sein also anwenderstories, referenzen, berichte und Messen? -->
+<div class="p-4 md:p-10 xl:p-32 xl:mx-[300px]">
+	<h1 class="text-xl lg:text-2xl xl:text-3xl ml-3 my-4"> {$_('news.header-titel')}</h1>
+	<p class="text-lg lg:text-xl">{$_('news.header-text')}</p>
+</div>
+
+
 <div class="bg-primary mt-[64px] h-[1200px]" id="anwenderstories">
 	{#await data.anwenderstories}
 		<div>waiting for data</div>

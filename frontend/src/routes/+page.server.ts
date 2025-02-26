@@ -34,7 +34,6 @@ export const load: PageServerLoad = async ({ fetch, cookies }) => {
 				}
 			);
 			const data = await res.json();
-	
 			if (res.ok) {
 				return data.data;
 			} else {

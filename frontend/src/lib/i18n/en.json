@@ -89,11 +89,11 @@
 		
 		"unternehmen": "Company",
 
-			"überUns": "About Us",
+			"ueberUns": "About Us",
 			
 				"werte-mission-vission": "Values",
 				"nachhaltigkeit": "Sustainability",
-				"geschichte": "History",
+				"historie": "History",
 				"team": "Team",
 			
 			"karriere": "Career",
@@ -307,6 +307,19 @@
 		"helfen-vier": "Water damage",
 		"helfen-fünf": "Measuring system failure",
 		"helfen-sechs": "Stretcher problems"
+	},
+	"news": {
+		"header-titel": "News & More",
+		"header-text": "Stay up to date! Here you will find all the latest news about our company – from exciting projects and developments to important announcements. We also keep you informed about upcoming events, trade fairs, and special dates. Feel free to check in regularly and stay informed!"
+	},
+	"ueber-uns": {
+		"gründung-titel": "Founding",
+		"gründung": "Norbert Schuster found the Styrotec GmbH & Co KG company in Waldburg together with a partner",
+		"übernahme-titel": "Acquisition",
+		"übernahme": "Norbert Schuster takes over 100% of the shares in Styrotec GmbH & Co KG.",
+		"umzug-titel": "Relocation",
+		"umzug": "Styrotec is moving to a new location: Siebratsreute, with office spaces and an attached warehouse.",
+		"umzug-2-titel": "2. Relocation",
+		"umzug-2": "Styrotec is moving into a 600 sqm newly built hall in Baienfurt, including a 20-ton overhead crane and an attached office wing."
 	}
-	
 }

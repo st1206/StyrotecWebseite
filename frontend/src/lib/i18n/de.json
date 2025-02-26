@@ -89,11 +89,11 @@
 
 		"unternehmen": "Unternehmen",
 
-			"überUns": "Über Uns",
+			"ueberUns": "Über Uns",
 			
 				"werte-mission-vission": "Werte",
 				"nachhaltigkeit": "Nachhaltigkeit",
-				"geschichte": "Historie",
+				"historie": "Historie",
 				"team": "Team",
 
 			"karriere": "Karriere",
@@ -305,8 +305,21 @@
 		"helfen-drei": "Defekten Drehdurchführungen",
 		"helfen-vier": "Wasserschäden",
 		"helfen-fünf": "Messsystemfehler",
-		"helfen-sechs": "Spannerproblemen"
-		
+		"helfen-sechs": "Spannerproblemen"	
+	},
+	"news": {
+		"header-titel": "News & Weiteres",
+		"header-text": "Bleiben Sie auf dem Laufenden! Hier finden Sie alle Neuigkeiten rund um unser Unternehmen - von spannenden Projekten, Entwicklungen bis zu wichtigen Ankündigungen. Außerdem informieren wir Sie über anstehende Events, Messen und besondere Termine. Schauen Sie gerne regelmäßig vorbei und bleiben Sie informiert!"
+	},
+	"ueber-uns": {
+		"gründung-titel": "Gründung",
+		"gründung": "Norbert Schuster gründet die Styrotec GmbH & Co KG gemeinsam mit einem Partner in Waldburg",
+		"übernahme-titel": "Übernahme",
+		"übernahme": "Norbert Schuster übernimmt 100% der Anteile an der Styrotec GmbH & Co KG",
+		"umzug-titel": "Umzug",
+		"umzug": "Styrotec zieht an den Standort Siebratsreute mit Büroräumen und angeschlossener Lagerhalle",
+		"umzug-2-titel": "2. Umzug",
+		"umzug-2": "Styrotec zieht in eine 600 qm neuwertige Halle in Baienfurt inklusive 20to Deckenkran und angeschlossenem Bürotrakt"
 	}
 	
 }

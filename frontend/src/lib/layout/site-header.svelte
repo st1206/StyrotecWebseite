@@ -35,7 +35,7 @@
 
 	<div class="flex gap-2">
 		<!-- searchbar -->
-		<div class="mr-10 hidden md:block">
+		<div class="mr-10 hidden xl:block">
 			<form>
 				<Search
 					class="h-[40px] w-[300px] pl-12 [clip-path:polygon(10%_0%,100%_0%,90%_100%,0%_100%)]"
@@ -47,22 +47,22 @@
 		<div class="relative hidden lg:flex">
 			{#each menu as item}
 				<div
-					class="bg-secondary absolute -left-5 -top-2.5 h-[62px] w-[240px] [clip-path:polygon(19%_0%,100%_0%,81%_100%,0%_100%)]"
+					class="bg-secondary absolute -left-5 -top-2.5 h-[62px] xl:w-[240px] [clip-path:polygon(19%_0%,100%_0%,81%_100%,0%_100%)]"
 				></div>
 				<div
-					class="bg-secondary absolute -top-2.5 left-[180px] h-[62px] w-[240px] [clip-path:polygon(19%_0%,100%_0%,81%_100%,0%_100%)]"
+					class="bg-secondary absolute -top-2.5 left-[180px] h-[62px] xl:w-[240px] [clip-path:polygon(19%_0%,100%_0%,81%_100%,0%_100%)]"
 				></div>
 				<div
-					class="bg-secondary absolute -top-2.5 left-[380px] h-[62px] w-[240px] [clip-path:polygon(19%_0%,100%_0%,81%_100%,0%_100%)]"
+					class="bg-secondary absolute -top-2.5 left-[380px] h-[62px] xl:w-[240px] [clip-path:polygon(19%_0%,100%_0%,81%_100%,0%_100%)]"
 				></div>
 				<div
-					class="bg-secondary absolute -top-2.5 left-[580px] h-[62px] w-[240px] [clip-path:polygon(19%_0%,100%_0%,81%_100%,0%_100%)]"
+					class="bg-secondary absolute -top-2.5 left-[580px] h-[62px] xl:w-[240px] [clip-path:polygon(19%_0%,100%_0%,81%_100%,0%_100%)]"
 				></div>
 
 				<!--hover:bg-primary-foreground hover:text-secondary bg-secondary z-20 w-[200px] text-xl [clip-path:polygon(15%_0%,100%_0%,85%_100%,0%_100%)] -->
 				<button
 					use:clickOutside={() => isOpenMap.set(item.id, false)}
-					class="hover:bg-primary-foreground hover:text-secondary bg-secondary z-20 w-[200px] text-xl [clip-path:polygon(15%_0%,100%_0%,85%_100%,0%_100%)]"
+					class="hover:text-primary text-secondary xl:text-primary-foreground z-20 w-[150px] text-md xl:text-xl xl:w-[200px] text-xl "
 					onclick={() => {
 						const isCurrentlyOpen = isOpenMap.get(item.id) ?? false;
 						isOpenMap.forEach((_, key) => isOpenMap.set(key, false));

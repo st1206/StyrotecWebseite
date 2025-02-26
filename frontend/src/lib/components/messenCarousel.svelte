@@ -4,7 +4,7 @@
 	import { Card } from 'svelte-5-ui-lib';
 	import { PUBLIC_BACKEND_URL } from '$env/static/public';
 	let { messe }: { messe: AttributesOf<ApiMessenMessen> } = $props();
-	console.log(messe.Bilder[0].alt);
+	
 </script>
 
 <Card

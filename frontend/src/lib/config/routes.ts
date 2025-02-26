@@ -122,13 +122,13 @@ export const menu = [
 	 	link: '/unternehmen',
 	 	megaMenu: [
 	 		{
-	 			key: 'überUns',
-	 			link: '/unternehmen/über-uns',
+	 			key: 'ueberUns',
+	 			link: '/unternehmen/ueber-uns',
 	 			items: [
-	 				{ key: 'werte-mission-vission', link: '/unternehmen/über-uns/werte' },
-	 				{ key: 'nachhaltigkeit', link: '/unternehmen/über-uns/nachhaltigkeit' },
-	 				{ key: 'geschichte', link: '/unternehmen/über-uns/geschichte' },
-					{ key: 'team', link: '/unternehmen/über-uns/team'}
+	 				{ key: 'werte-mission-vission', link: '/unternehmen/ueber-uns/werte' },
+	 				{ key: 'nachhaltigkeit', link: '/unternehmen/ueber-uns/nachhaltigkeit' },
+	 				{ key: 'historie', link: '/unternehmen/ueber-uns/historie' },
+					{ key: 'team', link: '/unternehmen/ueber-uns/team'}
 					
 	 			]
 	 		},
