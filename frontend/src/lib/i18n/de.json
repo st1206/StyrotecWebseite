@@ -184,6 +184,18 @@
 		"übersicht-punkt3": "Optimale Zugänglichkeiten",
 		"übersicht-ende": "Entdecken Sie unsere unterschiedlichen Ausführungen!"
 	},
+	"maschinenerhaltung": {
+		"maschinenerhaltung": "Übersicht über Maschinenerhaltung",
+		"maschinenerhaltung-text": "TODO",
+		"spindelservice": "Spindelservice",
+		"spindelservice-text": "TODO",
+		"wartungen": "Wartungen",
+		"wartungen-text": "TODO",
+		"reparaturen": "Reparaturen",
+		"reparaturen-text": "TODO",
+		"maschinenumzüge": "Maschinenumzüge",
+		"maschinenumzüge-text": "TODO"
+	},
 	"pressen": {
 		"kunststoff": "Kunststoffe",
 		"kunststoff-text": "TODO",

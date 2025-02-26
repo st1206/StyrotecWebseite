@@ -184,6 +184,18 @@
 		"übersicht-punkt3": "Optimal accessibility",
 		"übersicht-ende": "Discover our various configurations!"
 	},
+	"maschinenerhaltung": {
+		"maschinenerhaltung": "Overview over Machine Maintenance",
+		"maschinenerhaltung-text": "TODO",
+		"spindelservice": "Spindle Service",
+		"spindelservice-text": "TODO",
+		"wartungen": "Maintenance",
+		"wartungen-text": "TODO",
+		"reparaturen": "Repairs",
+		"reparaturen-text": "TODO",
+		"maschinenumzüge": "Maschine Relocation",
+		"maschinenumzüge-text": "TODO"
+	},
 	"pressen": {
 		"kunststoff": "Plasics",
 		"kunststoff-text": "",

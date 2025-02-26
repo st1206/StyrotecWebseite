@@ -55,25 +55,25 @@
 			class="text-secondary relative mx-4 w-[450px] object-cover xl:max-w-[70%] xl:text-3xl"
 		>
 			<Accordion.Item value="item-1">
-				<Accordion.Trigger>{$_(`styroporfraesen.schaftausführung`)}</Accordion.Trigger>
+				<Accordion.Trigger class="bg-secondary/5 border-secondary/15 p-4 m-1">{$_(`styroporfraesen.schaftausführung`)}</Accordion.Trigger>
 				<Accordion.Content class="ml-[50px] xl:text-xl">
 					<img src={schaft} alt="HSK-50" class="h-[300px] xl:ml-4" />
 				</Accordion.Content>
 			</Accordion.Item>
 			<Accordion.Item value="item-2">
-				<Accordion.Trigger>{$_(`styroporfraesen.kugelausführung`)}</Accordion.Trigger>
+				<Accordion.Trigger class="bg-secondary/5 border-secondary/15 p-4 m-1">{$_(`styroporfraesen.kugelausführung`)}</Accordion.Trigger>
 				<Accordion.Content class="ml-[50px] xl:text-xl">
 					<img src={kugel} alt="HSK-50" class="h-[300px] bg-center xl:ml-4" />
 				</Accordion.Content>
 			</Accordion.Item>
 			<Accordion.Item value="item-3">
-				<Accordion.Trigger>{$_(`styroporfraesen.eckenradiusausführung`)}</Accordion.Trigger>
+				<Accordion.Trigger class="bg-secondary/5 border-secondary/15 p-4 m-1">{$_(`styroporfraesen.eckenradiusausführung`)}</Accordion.Trigger>
 				<Accordion.Content class="ml-[50px] xl:text-xl">
 					<img src={ecken} alt="HSK-50" class="h-[300px] bg-center xl:ml-4" />
 				</Accordion.Content>
 			</Accordion.Item>
 			<Accordion.Item value="item-4">
-				<Accordion.Trigger>{$_(`styroporfraesen.Auslaufschräge`)}</Accordion.Trigger>
+				<Accordion.Trigger class="bg-secondary/5 border-secondary/15 p-4 m-1">{$_(`styroporfraesen.Auslaufschräge`)}</Accordion.Trigger>
 				<Accordion.Content class="ml-[50px] xl:text-xl">
 					<img src={auslauf} alt="HSK-50" class="h-[300px] bg-center xl:ml-4" />
 				</Accordion.Content>
@@ -102,7 +102,7 @@
 	</div>
 
 	<table class="mb-10 ml-[10%] block w-[70%] xl:ml-[25%]">
-		<thead class="bg-primary">
+		<thead class="bg-primary-foreground/45">
 			<tr>
 				<th class="w-[45px] xl:w-[100px]">L / ⌀</th>
 				<th class="w-[45px] xl:w-[100px]">15</th>
@@ -116,7 +116,7 @@
 			</tr>
 		</thead>
 		<tbody class="text-center">
-			<tr class="bg-secondary">
+			<tr class="p-4 bg-primary-foreground/5">
 				<td>100</td>
 				<td>●</td>
 				<td>●</td>
@@ -127,7 +127,7 @@
 				<td>●</td>
 				<td>●</td>
 			</tr>
-			<tr class="bg-primary-foreground/15">
+			<tr class="p-4 bg-primary-foreground/10">
 				<td>150</td>
 				<td>●</td>
 				<td>●</td>
@@ -138,7 +138,7 @@
 				<td>●</td>
 				<td>●</td>
 			</tr>
-			<tr class="bg-secondary">
+			<tr class="p-4 bg-primary-foreground/5">
 				<td>200</td>
 				<td>●</td>
 				<td>●</td>
@@ -149,7 +149,7 @@
 				<td>●</td>
 				<td>●</td>
 			</tr>
-			<tr class="bg-primary-foreground/15">
+			<tr class="p-4 bg-primary-foreground/10">
 				<td>250</td>
 				<td></td>
 				<td>●</td>
@@ -160,7 +160,7 @@
 				<td>●</td>
 				<td>●</td>
 			</tr>
-			<tr class="bg-secondary">
+			<tr class="p-4 bg-primary-foreground/5">
 				<td>300</td>
 				<td></td>
 				<td>●</td>
@@ -171,7 +171,7 @@
 				<td>●</td>
 				<td>●</td>
 			</tr>
-			<tr class="bg-primary-foreground/15">
+			<tr class="p-4 bg-primary-foreground/10">
 				<td>350</td>
 				<td></td>
 				<td></td>
@@ -182,7 +182,7 @@
 				<td>●</td>
 				<td>●</td>
 			</tr>
-			<tr class="bg-secondary">
+			<tr class="p-4 bg-primary-foreground/5">
 				<td>400</td>
 				<td></td>
 				<td></td>
@@ -193,7 +193,7 @@
 				<td>●</td>
 				<td>●</td>
 			</tr>
-			<tr class="bg-primary-foreground/15">
+			<tr class="p-4 bg-primary-foreground/10">
 				<td>450</td>
 				<td></td>
 				<td></td>
@@ -204,7 +204,7 @@
 				<td>●</td>
 				<td>●</td>
 			</tr>
-			<tr class="bg-secondary">
+			<tr class="p-4 bg-primary-foreground/5">
 				<td>500</td>
 				<td></td>
 				<td></td>
@@ -215,7 +215,7 @@
 				<td>●</td>
 				<td>●</td>
 			</tr>
-			<tr class="bg-primary-foreground/15">
+			<tr class="p-4 bg-primary-foreground/10">
 				<td>550</td>
 				<td></td>
 				<td></td>
@@ -226,7 +226,7 @@
 				<td></td>
 				<td>○</td>
 			</tr>
-			<tr class="bg-secondary">
+			<tr class="p-4 bg-primary-foreground/5">
 				<td>600</td>
 				<td></td>
 				<td></td>

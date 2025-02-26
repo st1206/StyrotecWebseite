@@ -28,7 +28,7 @@
 	</div>
 
 	<div class="bg-secondary text-primary-foreground text-xl">
-		<Tabs style="underline" contentClass="bg-primary-foreground text-secondary text-2xl rounded-0 border-secondary" ulClass="space-x-0 p-1 gap-2">
+		<Tabs tabStyle="full" contentClass="bg-primary-foreground text-secondary text-2xl rounded-0 border-secondary" ulClass="space-x-0 p-1 gap-2">
 			<TabItem open title={$_(`gebrauMa.cnc-maschinen`)} activeClass="w-[270px] p-5 bg-primary text-xl" inactiveClass="w-[270px] p-5 bg-primary-foreground text-secondary text-xl">
 				<h3 class="p-3 text-xl font-bold">{$_(`gebrauMa.cnc-maschinen`)}</h3>
 				<div class="flex flex-col xl:flex-row">

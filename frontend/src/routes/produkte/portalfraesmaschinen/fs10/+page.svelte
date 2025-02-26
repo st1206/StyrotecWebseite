@@ -51,7 +51,7 @@
 		>
 			<Accordion.Item value="item-1">
 				<Accordion.Trigger class=" ">{$_(`optionen.fraeskoepfe`)}</Accordion.Trigger>
-				<Accordion.Content class="border-2 py-0 pt-4 xl:text-xl">
+				<Accordion.Content class=" py-0 pt-4 xl:text-xl">
 					<div class="ml-12 flex flex-col justify-around xl:flex-row xl:pl-[250px]">
 						<div class="w-[400px]">
 							<img src={st7} alt="ST7" class="h-[300px] xl:ml-4" />
@@ -66,51 +66,51 @@
 							<p class="text-center text-xl xl:hidden">HS673</p>
 						</div>
 					</div>
-					<table class="px-x block w-[90%]">
-						<thead class="bg-primary">
+					<table class="block w-screen bg-primary-foreground text-md shadow-md p-4">
+						<thead class="bg-secondary/15">
 							<tr>
-								<th class="min-w-[100px] xl:min-w-[230px]"></th>
-								<th class="min-w-[70px] xl:min-w-[430px]">ST 7</th>
-								<th class="min-w-[70px] xl:min-w-[440px]">ST 8</th>
-								<th class="min-w-[70px] xl:min-w-[440px]">HS673</th>
+								<th class="font-semibold min-w-[90px] xl:min-w-[240px]"></th>
+								<th class="font-semibold min-w-[70px] xl:min-w-[400px]">ST 7</th>
+								<th class="font-semibold min-w-[70px] xl:min-w-[400px]">ST 8</th>
+								<th class="font-semibold min-w-[70px] xl:min-w-[400px]">HS673</th>
 							</tr>
 						</thead>
 						<tbody class="text-center">
-							<tr class="bg-secondary text-primary-foreground">
-								<td class="pl-2 text-left">{$_(`cnc-Masch-Seite.aachse`)}</td>
-								<td>+/- 115°</td>
-								<td>+/- 115°</td>
-								<td>+/- 120°</td>
+							<tr>
+								<td class="p-4 text-left">{$_(`cnc-Masch-Seite.aachse`)}</td>
+								<td class="p-4">+/- 115°</td>
+								<td class="p-4">+/- 115°</td>
+								<td class="p-4">+/- 120°</td>
 							</tr>
-							<tr class="">
-								<td class="pl-2 text-left">{$_(`cnc-Masch-Seite.cachse`)}</td>
-								<td>+/- 360°</td>
-								<td>+/- 360°</td>
-								<td>+/- 360°</td>
+							<tr >
+								<td class="p-4 text-left">{$_(`cnc-Masch-Seite.cachse`)}</td>
+								<td class="p-4">+/- 360°</td>
+								<td class="p-4">+/- 360°</td>
+								<td class="p-4">+/- 360°</td>
 							</tr>
-							<tr class="bg-secondary text-primary-foreground">
-								<td class="pl-2 text-left">{$_(`fs10.direkteMesssysteme`)}</td>
-								<td></td>
-								<td>○</td>
-								<td>●</td>
+							<tr>
+								<td class="p-4 text-left">{$_(`fs10.direkteMesssysteme`)}</td>
+								<td class="p-4"></td>
+								<td class="p-4">○</td>
+								<td class="p-4">●</td>
 							</tr>
-							<tr class="">
-								<td class="pl-2 text-left">{$_(`fs10.spindelorientierung`)}</td>
-								<td>○</td>
-								<td>○</td>
-								<td>○</td>
+							<tr>
+								<td class="p-4 text-left">{$_(`fs10.spindelorientierung`)}</td>
+								<td class="p-4">○</td>
+								<td class="p-4">○</td>
+								<td class="p-4">○</td>
 							</tr>
-							<tr class="bg-secondary text-primary-foreground">
-								<td class="pl-2 text-left">{$_(`fs10.minimalmengenschmierung`)}</td>
-								<td>○</td>
-								<td>○</td>
-								<td>○</td>
+							<tr>
+								<td class="p-4 text-left">{$_(`fs10.minimalmengenschmierung`)}</td>
+								<td class="p-4">○</td>
+								<td class="p-4">○</td>
+								<td class="p-4">○</td>
 							</tr>
-							<tr class="">
-								<td class="pl-2 text-left">{$_(`fs10.blasluft`)}</td>
-								<td>○</td>
-								<td>○</td>
-								<td>○</td>
+							<tr>
+								<td class="p-4 text-left">{$_(`fs10.blasluft`)}</td>
+								<td class="p-4">○</td>
+								<td class="p-4">○</td>
+								<td class="p-4">○</td>
 							</tr>
 						</tbody>
 					</table>
@@ -118,40 +118,40 @@
 			</Accordion.Item>
 			<Accordion.Item value="item-2">
 				<Accordion.Trigger>{$_(`optionen.fraesspindeln`)}</Accordion.Trigger>
-				<Accordion.Content class="border-2 pt-4 xl:text-xl">
-					<table class="block w-[90%]">
-						<thead class="bg-primary">
+				<Accordion.Content class=" pt-4 xl:text-xl">
+					<table class="block w-screen bg-primary-foreground text-md shadow-md p-4">
+						<thead class="bg-secondary/15">
 							<tr>
-								<th class="min-w-[100px] xl:min-w-[240px]"></th>
-								<th class="min-w-[70px] xl:min-w-[430px]">ES 779</th>
-								<th class="min-w-[70px] xl:min-w-[440px]">ES 789</th>
-								<th class="min-w-[70px] xl:min-w-[440px]">ES 779</th>
+								<th class="font-semibold min-w-[100px] xl:min-w-[240px]"></th>
+								<th class="font-semibold min-w-[70px] xl:min-w-[400px]">ES 779</th>
+								<th class="font-semibold min-w-[70px] xl:min-w-[400px]">ES 789</th>
+								<th class="font-semibold min-w-[70px] xl:min-w-[400px]">ES 779</th>
 							</tr>
 						</thead>
 						<tbody class="text-center">
-							<tr class="bg-secondary text-primary-foreground">
-								<td class="pl-2 text-left">{$_(`fs10.leistung`)}</td>
-								<td>10 kW</td>
-								<td>15 kW</td>
-								<td>22 kW</td>
+							<tr >
+								<td class="p-4  text-left">{$_(`fs10.leistung`)}</td>
+								<td class="p-4 ">10 kW</td>
+								<td class="p-4 ">15 kW</td>
+								<td class="p-4 ">22 kW</td>
 							</tr>
-							<tr class="bg-secondary/25">
-								<td class="pl-2 text-left">{$_(`fs10.drehzahl`)}</td>
-								<td>24.000 min-1</td>
-								<td>24.000 min-1</td>
-								<td>24.000 min-1</td>
+							<tr >
+								<td class="p-4  text-left">{$_(`fs10.drehzahl`)}</td>
+								<td class="p-4 ">24.000 min-1</td>
+								<td class="p-4 ">24.000 min-1</td>
+								<td class="p-4 ">24.000 min-1</td>
 							</tr>
-							<tr class="bg-secondary text-primary-foreground">
-								<td class="pl-2 text-left">{$_(`fs10.drehmoment`)}</td>
-								<td>10,9 Nm</td>
-								<td>15 Nm</td>
-								<td>18 Nm</td>
+							<tr >
+								<td class="p-4  text-left">{$_(`fs10.drehmoment`)}</td>
+								<td class="p-4 ">10,9 Nm</td>
+								<td class="p-4 ">15 Nm</td>
+								<td class="p-4 ">18 Nm</td>
 							</tr>
-							<tr class="bg-secondary/25">
-								<td class="pl-2 text-left">{$_(`fs10.aufnahme`)}</td>
-								<td>HSK 63F</td>
-								<td>HSK 63F</td>
-								<td>HSK 63A</td>
+							<tr >
+								<td class="p-4  text-left">{$_(`fs10.aufnahme`)}</td>
+								<td class="p-4 ">HSK 63F</td>
+								<td class="p-4 ">HSK 63F</td>
+								<td class="p-4 ">HSK 63A</td>
 							</tr>
 						</tbody>
 					</table>
@@ -159,7 +159,7 @@
 			</Accordion.Item>
 			<Accordion.Item value="item-3">
 				<Accordion.Trigger>{$_(`optionen.schutzeinrichtungen`)}</Accordion.Trigger>
-				<Accordion.Content class=" border-2 pt-4 xl:text-xl">
+				<Accordion.Content class="pt-4 xl:text-xl">
 					<div class="flex flex-col justify-around xl:flex-row">
 						<div class="w-[400px]">
 							<img src={vierSeitig} alt="ST7" class="h-[300px] xl:ml-4" />
@@ -178,7 +178,7 @@
 			</Accordion.Item>
 			<Accordion.Item value="item-4">
 				<Accordion.Trigger>{$_(`optionen.werkzeugwechsler`)}</Accordion.Trigger>
-				<Accordion.Content class=" border-2 pt-4 xl:text-xl">
+				<Accordion.Content class="pt-4 xl:text-xl">
 					<div class="flex flex-col justify-around xl:flex-row">
 						<div class="w-[400px]">
 							<img src={wzwpickup} alt="ST7" class="h-[300px] xl:ml-4" />
@@ -197,7 +197,7 @@
 			</Accordion.Item>
 			<Accordion.Item value="item-5">
 				<Accordion.Trigger>{$_(`optionen.messeinrichtungen`)}</Accordion.Trigger>
-				<Accordion.Content class=" border-2 pt-4 xl:text-xl">
+				<Accordion.Content class="pt-4 xl:text-xl">
 					<div class="flex flex-col justify-around xl:flex-row">
 						<div class="w-[400px]">
 							<img src={tastsystem} alt="ST7" class="h-[300px] xl:ml-4" />
@@ -216,7 +216,7 @@
 			</Accordion.Item>
 			<Accordion.Item value="item-6">
 				<Accordion.Trigger>{$_(`optionen.tischvarianten`)}</Accordion.Trigger>
-				<Accordion.Content class=" border-2 pt-4 xl:text-xl">
+				<Accordion.Content class="pt-4 xl:text-xl">
 					<div class="flex flex-col justify-around xl:flex-row">
 						<div class="w-[400px]">
 							<img src={alu} alt="ST7" class="h-[300px] xl:ml-4" />
@@ -241,10 +241,10 @@
 			<div class="bg-primary ">skeleton build</div>
 		{:then fs10s}
             {#each fs10s as fs10}
-            <div class="py-[100px]">    
+            <div class="py-[100px] mx-4 xl:mx-[200px] border border-primary-foreground/5 bg-primary-foreground/15 my-32">    
                 <h1 class="text-5xl font-boldFont uppercase text-center mb-16">FS 10 - {fs10.Titel}</h1>
-                <div class ="flex flex-col xl:flex-row justify-around mx-[15%]">
-                    <table class="w-[80%] xl:w-[35%]">
+                <div class ="flex flex-col xl:flex-row justify-around ">
+                    <table class="w-[80%] ml-4 xl:w-[35%]">
                         <tbody>
                             <tr class="bg-primary-foreground/5">
                                 <td>{$_(`cnc-Masch-Seite.xachse`)}</td>

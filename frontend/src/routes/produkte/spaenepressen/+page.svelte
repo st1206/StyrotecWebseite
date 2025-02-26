@@ -15,7 +15,7 @@
 	/>
 	<div class="bg-secondary text-primary-foreground text-xl p-[5%]">
 		<Tabs
-			style="underline"
+			tabStyle="full"
 			contentClass="bg-primary-foreground text-secondary text-2xl rounded-0 border-secondary"
 			ulClass="space-x-0 p-1 gap-2"
 		>

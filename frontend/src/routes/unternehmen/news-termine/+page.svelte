@@ -8,7 +8,12 @@
 	let { data } = $props();
 </script>
 
-<!-- Todo: Anwenderstories -->
+<div class="h-[600px]"> Todo: bild</div>
+
+<div>
+	<h1> News & Weiteres</h1>
+	<p>Bleiben Sie auf dem Laufenden! Hier finden Sie alle Neuigkeiten rund um unser Unternehmen – von spannenden Projekten, Entwicklungen bis zu wichtigen Ankündigungen. Außerdem informieren wir Sie über anstehende Events, Messen und besondere Termine. Schauen Sie gerne regelmäßig vorbei und bleiben Sie informiert!</p>
+</div>
 
 <!-- Weiterleitung mit [slug] zu anwenderstories seite-->
 <!-- Frage: soll jede Seite gleich sein also anwenderstories, referenzen, berichte und Messen? -->

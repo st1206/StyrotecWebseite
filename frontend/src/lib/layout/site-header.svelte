@@ -44,7 +44,7 @@
 		</div>
 
 		<!-- menu -->
-		<div class="relative hidden xl:flex">
+		<div class="relative hidden lg:flex">
 			{#each menu as item}
 				<div
 					class="bg-secondary absolute -left-5 -top-2.5 h-[62px] w-[240px] [clip-path:polygon(19%_0%,100%_0%,81%_100%,0%_100%)]"
@@ -143,7 +143,7 @@
 		<LanguageToggle />
 
 		<!-- mobile menu -->
-		<div class="xl:hidden">
+		<div class="lg:hidden">
 			<MobileNav />
 		</div>
 	</div>
