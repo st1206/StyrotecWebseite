@@ -5,7 +5,7 @@
 	import * as Accordion from '$lib/components/ui/accordion';
 </script>
 
-<div class="bg-primary/85">
+<div class="bg-primary/70">
 	<div class="[clip-path:polygon(0%_10%,100%_0%,100%_80%,0%_100%)]">
 		<img src={header} alt="messestand" class="h-[400px] w-full object-cover" />
 	</div>
@@ -23,6 +23,7 @@
                 title={$_('ueber-uns.gründung-titel')}
                 dateFormat="year"
                 date="2002"
+                timeClass="text-primary-foreground text-xl ml-4"
                 divClass="border w-[20px] border-primary-foreground bg-primary"
             >
                 <p class="mb-4 text-base font-normal text-primary-foreground dark:text-gray-400">
@@ -63,20 +64,41 @@
                 </p>
             </TimelineItem>
         </Timeline>
-    </div>  
+        <div class="h-[100px]">
+
+        </div>
+    </div> 
+</div>
+
+<div class="bg-primary"> 
 
 	<div
-		class="bg-primary-foreground text-secondary flex w-full flex-col py-8 xl:flex-row xl:py-32 xl:[clip-path:polygon(0%_10%,100%_0%,100%_90%,0%_100%)]"
+		class="bg-primary-foreground text-secondary flex w-full flex-col py-8 xl:flex-row xl:py-32 "
 	>
 		<Accordion.Root type="single" class="text-secondary  ml-4 xl:ml-[10%] xl:w-[80%] xl:text-3xl">
 			<Accordion.Item value="item-1">
 				<Accordion.Trigger>Info nummer 1</Accordion.Trigger>
-				<Accordion.Content class="xl:text-xl"></Accordion.Content>
+				<Accordion.Content class="xl:text-xl">
+
+                </Accordion.Content>
+			</Accordion.Item>
+            <Accordion.Item value="item-2">
+				<Accordion.Trigger>Info nummer 1</Accordion.Trigger>
+				<Accordion.Content class="xl:text-xl">
+
+                </Accordion.Content>
+			</Accordion.Item>
+            <Accordion.Item value="item-3">
+				<Accordion.Trigger>Info nummer 1</Accordion.Trigger>
+				<Accordion.Content class="xl:text-xl">
+
+                </Accordion.Content>
 			</Accordion.Item>
 		</Accordion.Root>
 	</div>
 
-    <div>
-
+    <div class="p-4 md:p-10 xl:p-32 xl:mx-[300px]">
+    	<h1 class="text-xl lg:text-2xl xl:text-3xl ml-3 my-4"> {$_('ueber-uns.werte-titel')}</h1>
+	    <p class="text-lg lg:text-xl">{$_('ueber-uns.werte-text')}</p>
     </div>
 </div>

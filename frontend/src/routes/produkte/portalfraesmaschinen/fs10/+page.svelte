@@ -24,21 +24,96 @@
 </script>
 
 
-<img src={top} alt="FS10 Titelbild" class="w-full object-cover h-[300px] xl:h-[600px]">
+<img src={top} alt="FS10 Titelbild" class="w-full object-cover h-[300px] lg:h-[600px]">
 
-<div class=" my-[100px] text-xl">
-	<div class="mx-4 mb-4 xl:mx-[400px] xl:my-[200px]">
-		<h1 class="font-boldFont pb-6 text-5xl uppercase">
+<div class="absolute top-0 right-0 z-10 bg-primary-foreground h-[1100px] w-[700px] [clip-path:polygon(40%_0%,100%_0%,100%_100%,0%_100%)] opacity-90">
+	<img src={top} alt="action" class="relative top-[600px] left-0 object-cover h-[500px]">
+</div>
+
+
+<div class=" text-xl">
+	
+	<div class="mx-4 mb-4 lg:ml-[80px] lg:mt-[100px] lg:mr-[800px]">
+		<div>
+			<h1 class="font-boldFont pb-6 text-5xl uppercase">
 			{$_(`fs10.übersicht-titel`)}
-		</h1>
-		<p>{$_(`fs10.übersicht-text`)}</p>
-		<ul class="py-2">
-			<li>● {$_(`fs10.übersicht-punkt1`)}</li>
-			<li>● {$_(`fs10.übersicht-punkt2`)}</li>
-			<li>● {$_(`fs10.übersicht-punkt3`)}</li>
-		</ul>
-		<p>{$_(`fs10.übersicht-ende`)}</p>
+			</h1>
+			<p>{$_(`fs10.übersicht-text`)}</p>
+			<ul class="py-2">
+				<li>● {$_(`fs10.übersicht-punkt1`)}</li>
+				<li>● {$_(`fs10.übersicht-punkt2`)}</li>
+				<li>● {$_(`fs10.übersicht-punkt3`)}</li>
+			</ul>
+			<p>{$_(`fs10.übersicht-ende`)}</p>
+		</div>
 	</div>
+
+	<div class="h-[500px] w-full bg-primary-foreground mt-[68px]"></div>
+
+    <div class="xl:mt-[50px]">
+		{#await data.fs10s}
+			<div class="bg-primary ">skeleton build</div>
+		{:then fs10s}
+            {#each fs10s as fs10}
+            <div class="py-[50px] mx-4 xl:mx-[200px] border border-primary-foreground/5 bg-primary-foreground/15 my-[96px]">    
+                <h1 class="text-5xl font-boldFont uppercase text-center mb-16">FS 10 - {fs10.Titel}</h1>
+                <div class ="flex flex-col xl:flex-row justify-around ">
+                    <table class="w-[80%] ml-4 xl:w-[35%]">
+                        <tbody>
+                            <tr class="bg-primary-foreground/5">
+                                <td>{$_(`cnc-Masch-Seite.xachse`)}</td>
+                                <td class="text-right">{fs10.xAchse}</td>
+                            </tr>
+                            <tr> 
+                                <td>{$_(`cnc-Masch-Seite.yachse`)}</td>
+                                <td class="text-right w-[50%]">{fs10.yAchse}</td>
+                            </tr>
+                            <tr class="bg-primary-foreground/5"> 
+                                <td>{$_(`cnc-Masch-Seite.zachse`)}</td>
+                                <td class="text-right w-[50%]">{fs10.zAchse}</td>
+                            </tr>
+                            <tr> 
+                                <td>{$_(`cnc-Masch-Seite.vorschub-x`)}</td>
+                                <td class="text-right w-[50%]">{fs10.VorschubX}</td>
+                            </tr>
+							<tr class="bg-primary-foreground/5"> 
+                                <td>{$_(`cnc-Masch-Seite.vorschub-y`)}</td>
+                                <td class="text-right w-[50%]">{fs10.VorschubY}</td>
+                            </tr>
+                            <tr> 
+                                <td>{$_(`cnc-Masch-Seite.vorschub-z`)}</td>
+                                <td class="text-right w-[50%]">{fs10.VorschubZ}</td>
+                            </tr>
+                            <tr class="bg-primary-foreground/5"> 
+                                <td>{$_(`cnc-Masch-Seite.aachse`)}</td>
+                                <td class="text-right w-[50%]">{fs10.aAchse}</td>
+                            </tr>
+                            <tr>  
+                                <td>{$_(`cnc-Masch-Seite.cachse`)}</td>
+                                <td class="text-right w-[50%]">{fs10.cAchse}</td>
+                            </tr>
+                            <tr class="bg-primary-foreground/5"> 
+                                <td>{$_(`cnc-Masch-Seite.steuerung`)}</td>
+                                <td class="text-right w-[50%]">{fs10.Steuerung}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+					
+                    <div class="relative left-0 top-0 w-[80%] xl:w-[35%]">
+                        <MaschinenCarousel
+                            height={600}
+                            pictures={fs10.Bilder}
+                        />
+                    </div>
+                </div>
+            </div>
+            {/each}
+        {:catch}
+        <p>Error loading the page</p>
+		{/await}       
+	</div>
+
+	
 
 	
 
@@ -52,17 +127,17 @@
 			<Accordion.Item value="item-1">
 				<Accordion.Trigger class=" ">{$_(`optionen.fraeskoepfe`)}</Accordion.Trigger>
 				<Accordion.Content class=" py-0 pt-4 xl:text-xl">
-					<div class="ml-12 flex flex-col justify-around xl:flex-row xl:pl-[250px]">
+					<div class="ml-12 flex flex-col justify-around xl:flex-row xl:pl-[330px]">
 						<div class="w-[400px]">
-							<img src={st7} alt="ST7" class="h-[300px] xl:ml-4" />
+							<img src={st7} alt="ST7" class="h-[200px] xl:ml-4" />
 							<p class="text-center text-xl xl:hidden">ST 7</p>
 						</div>
 						<div class="w-[400px]">
-							<img src={st8} alt="ST 8" class="h-[300px] bg-center xl:ml-4" />
+							<img src={st8} alt="ST 8" class="h-[200px] bg-center xl:ml-4" />
 							<p class="text-center text-xl xl:hidden">ST 8</p>
 						</div>
 						<div class="w-[400px]">
-							<img src={HS673} alt="HS673" class="h-[300px] bg-center xl:ml-4" />
+							<img src={HS673} alt="HS673" class="h-[200px] bg-center xl:ml-4" />
 							<p class="text-center text-xl xl:hidden">HS673</p>
 						</div>
 					</div>
@@ -235,73 +310,7 @@
 			</Accordion.Item>
 		</Accordion.Root>
 	</div>
-
-    <div class="xl:mt-[50px]">
-		{#await data.fs10s}
-			<div class="bg-primary ">skeleton build</div>
-		{:then fs10s}
-            {#each fs10s as fs10}
-            <div class="py-[100px] mx-4 xl:mx-[200px] border border-primary-foreground/5 bg-primary-foreground/15 my-32">    
-                <h1 class="text-5xl font-boldFont uppercase text-center mb-16">FS 10 - {fs10.Titel}</h1>
-                <div class ="flex flex-col xl:flex-row justify-around ">
-                    <table class="w-[80%] ml-4 xl:w-[35%]">
-                        <tbody>
-                            <tr class="bg-primary-foreground/5">
-                                <td>{$_(`cnc-Masch-Seite.xachse`)}</td>
-                                <td class="text-right">{fs10.xAchse}</td>
-                            </tr>
-                            <tr> 
-                                <td>{$_(`cnc-Masch-Seite.yachse`)}</td>
-                                <td class="text-right w-[50%]">{fs10.yAchse}</td>
-                            </tr>
-                            <tr class="bg-primary-foreground/5"> 
-                                <td>{$_(`cnc-Masch-Seite.zachse`)}</td>
-                                <td class="text-right w-[50%]">{fs10.zAchse}</td>
-                            </tr>
-                            <tr> 
-                                <td>{$_(`cnc-Masch-Seite.vorschub-x`)}</td>
-                                <td class="text-right w-[50%]">{fs10.VorschubX}</td>
-                            </tr>
-							<tr class="bg-primary-foreground/5"> 
-                                <td>{$_(`cnc-Masch-Seite.vorschub-y`)}</td>
-                                <td class="text-right w-[50%]">{fs10.VorschubY}</td>
-                            </tr>
-                            <tr> 
-                                <td>{$_(`cnc-Masch-Seite.vorschub-z`)}</td>
-                                <td class="text-right w-[50%]">{fs10.VorschubZ}</td>
-                            </tr>
-                            <tr class="bg-primary-foreground/5"> 
-                                <td>{$_(`cnc-Masch-Seite.aachse`)}</td>
-                                <td class="text-right w-[50%]">{fs10.aAchse}</td>
-                            </tr>
-                            <tr>  
-                                <td>{$_(`cnc-Masch-Seite.cachse`)}</td>
-                                <td class="text-right w-[50%]">{fs10.cAchse}</td>
-                            </tr>
-                            <tr class="bg-primary-foreground/5"> 
-                                <td>{$_(`cnc-Masch-Seite.steuerung`)}</td>
-                                <td class="text-right w-[50%]">{fs10.Steuerung}</td>
-                            </tr>
-                            <tr> 
-                                <td>{$_(`cnc-Masch-Seite.abmessung`)}</td>
-                                <td class="text-right w-[50%]">{fs10.AbmessungUmhausung}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-					
-                    <div class="relative left-0 top-0 w-[80%] xl:w-[35%]">
-                        <MaschinenCarousel
-                            height={600}
-                            pictures={fs10.Bilder}
-                        />
-                    </div>
-                </div>
-            </div>
-            {/each}
-        {:catch}
-        <p>Error loading the page</p>
-		{/await}       
-	</div>
+	
 
 	<p class="mx-4 mb-4 xl:mx-[400px] xl:my-[100px]">Unsere Portalfräsmaschinen stehen für <span class="text-primary">Präzision, Effizienz und Qualität.</span> Lassen Sie sich persönlich beraten und entdecken Sie, welche Lösung am besten zu Ihren Anforderungen passt. Wir freuen uns auf Ihre Anfrage!</p>
 </div>

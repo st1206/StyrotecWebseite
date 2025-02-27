@@ -46,23 +46,9 @@
 		<!-- menu -->
 		<div class="relative hidden lg:flex">
 			{#each menu as item}
-				<div
-					class="bg-secondary absolute -left-5 -top-2.5 h-[62px] xl:w-[240px] [clip-path:polygon(19%_0%,100%_0%,81%_100%,0%_100%)]"
-				></div>
-				<div
-					class="bg-secondary absolute -top-2.5 left-[180px] h-[62px] xl:w-[240px] [clip-path:polygon(19%_0%,100%_0%,81%_100%,0%_100%)]"
-				></div>
-				<div
-					class="bg-secondary absolute -top-2.5 left-[380px] h-[62px] xl:w-[240px] [clip-path:polygon(19%_0%,100%_0%,81%_100%,0%_100%)]"
-				></div>
-				<div
-					class="bg-secondary absolute -top-2.5 left-[580px] h-[62px] xl:w-[240px] [clip-path:polygon(19%_0%,100%_0%,81%_100%,0%_100%)]"
-				></div>
-
-				<!--hover:bg-primary-foreground hover:text-secondary bg-secondary z-20 w-[200px] text-xl [clip-path:polygon(15%_0%,100%_0%,85%_100%,0%_100%)] -->
 				<button
 					use:clickOutside={() => isOpenMap.set(item.id, false)}
-					class="hover:text-primary text-secondary xl:text-primary-foreground z-20 w-[150px] text-md xl:text-xl xl:w-[200px] text-xl "
+					class="hover:text-primary text-secondary  z-20 w-[150px] text-md xl:text-xl xl:w-[200px] text-xl "
 					onclick={() => {
 						const isCurrentlyOpen = isOpenMap.get(item.id) ?? false;
 						isOpenMap.forEach((_, key) => isOpenMap.set(key, false));
