@@ -104,7 +104,6 @@
 
 				"anwenderstories": "Anwenderstories",
 				"referenzen": "Referenzen",
-				"berichte": "Berichte",
 				"messen": "Messen"				
 	},
 
@@ -112,6 +111,8 @@
 
 
 	"homepage": {
+		"weltweit-titel": "Unsere Maschinen im weltweiten Einsatz",
+		"weltweit-text": "Unsere Maschinen im weltweiten Einsatz Unsere Portalfräsmaschinen erfreuen sich weltweit großer Nachfrage und sind in zahlreichen Ländern und Kontinenten im Einsatz. Vom Herzen Europas über Nordamerika bis hin zu den innovativen Märkten in Asien – unsere Maschinen haben sich in einer Vielzahl von Branchen und Produktionsumgebungen bewährt. Sie kommen in der Automobilindustrie, der Luft- und Raumfahrt, im Maschinenbau und vielen anderen Bereichen zum Einsatz. Mit ihrer hohen Präzision, Langlebigkeit und Flexibilität bieten sie maßgeschneiderte Lösungen für unterschiedlichste Fertigungsanforderungen. Unsere langjährige Erfahrung und unser kontinuierlicher Innovationsgeist haben uns zu einem vertrauenswürdigen Partner für Unternehmen weltweit gemacht. Vertrauen auch Sie auf die bewährte Technologie von Styrotec, um Ihre Produktionsprozesse zu optimieren und Ihre Fertigung auf das nächste Level zu heben.",
 		"and-more": "Styrotec bietet mehr als Produkte für den Prozess der Syroporbearbeitung. Eine breite Palette an Fräsmaschinen in unterschiedlichsten Ausführungne für den Zielmarkt Modell- und Formenbau und der Kunststoffbearbeitung ergänzt seit zwei Jahrzehnten das Leistungsspektrum. Hinzu kommen produktive Lösungen in der Peripherie und attraktive Serviceangebote rund um die Maschinen.",
 		"and-more2": "Wir verstehen uns als Begleiter und Berater für die Investition in Ihre Fertigungstechnologie über den gesamten Lebenszyklus hinweg von der Anschaffung, über Produktivitätssteigerungen bis hin zum zweiten Leben der Maschine. Hiermit leisten wir einen Beitrag zur Kreislaufwirtschaft. Partnerschaftlich unterstützen wir darin, unsere Kunden weltweit wettbewerbsfähiger zu machen.",
 		"and-more3": "Als fairer, zuverlässiger un flexibler Partner projektieren wir die effizienteste und kostengünstigste technische Lösung und stellen mit einem weiten Dienstleistungsspektrum den wirtschaftlichen Erfolg sicher."
@@ -135,7 +136,14 @@
 		"modell-text": "Für feinste Detailarbeiten und höchste Präzision: Unsere gebrauchten Modellbaumaschinen sind ideal für Modellbau, Prototyping und Feinarbeiten. Wir bieten eine Auswahl an hochwertigen Maschinen, die Ihre kreativen Projekte auf das nächste Level heben."
 	},
 	"portalfraes": {
-		"titel": "Übersicht über Unsere Portalfräsmaschinen", 
+		"titel": "Unsere Portalfräsmaschinen", 
+		"beschreibungs-text": "Unsere Portalfräsmaschinen stehen für Präzision, Langlebigkeit und maximale Effizienz. Ob für die Bearbeitung von Schäumen, Holz, Ureol, Kunststoffen, Aluminium oder Verbundwerkstoffen: Mit den Maschinen von Styrotec erhalten Sie leistungsstarke Lösungen für unterschiedlichste Anforderungen!",
+		"beschreibung-1": "Höchste Präzision",
+		"beschreibung-2": "Individuelle Lösungen",
+		"beschreibung-3": "Robuste Bauweise",
+		"beschreibung-4": "Benutzerfreundlichkeit",
+		"beschreibung-5": "Vielseitige Einsatzmöglichkeiten",
+		"beschreibung-6": "Optimales Preis- / Leistungsverhältnis",
 		"cta": "Mehr erfahren",
 		"FS10": "FS 10",
 		"FS10-text": "Unsere Baureihe FS 10 zeichnet sich durch ihre klassische Portalbauweise mit festem Tisch und unten fahrendem Portal aus. Dies bietet Vorteile in Bezug auf Stabilität, gleichbleibend bewegte Massen und optimale Zugänglichkeit zum Rüsten und Beladen.",
@@ -182,7 +190,11 @@
 		"übersicht-punkt1": "Klassisches Portalfräsmaschinen-Design",
 		"übersicht-punkt2": "Flexibilität im Maschinendesign sowie in der Anwendung",
 		"übersicht-punkt3": "Optimale Zugänglichkeiten",
-		"übersicht-ende": "Entdecken Sie unsere unterschiedlichen Ausführungen!"
+		"übersicht-ende": "Entdecken Sie unsere unterschiedlichen Ausführungen!",
+		"achsen": "Achs-Daten",
+		"geschwindigkeit": "Geschwindigkeiten",
+		"schwenk": "Schwenkwinkel",
+		"steuerung": "Steuerung"
 	},
 	"maschinenerhaltung": {
 		"maschinenerhaltung": "Übersicht über Maschinenerhaltung",

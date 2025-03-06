@@ -11,7 +11,6 @@
 		autoPlay = true
 	}: { pictures: any; height: number; autoPlay?: boolean } = $props();
 	const plugin = Autoplay({ delay: 5000, stopOnInteraction: false, playOnInit: autoPlay });
-	console.log(pictures);
 
 	// Store für aktiven Slide-Index
 	/* let selectedIndex = writable(0);

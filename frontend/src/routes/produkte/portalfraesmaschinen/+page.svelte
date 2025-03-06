@@ -24,15 +24,23 @@
 	</div>
 {/await}
 <div class="hidden xl:block absolute top-[560px] w-full h-[100px] bg-primary [clip-path:polygon(0%_0%,100%_0%,81%_100%,0%_100%)]"></div>
-<div class="bg-secondary flex flex-col gap-16 p-[5%] xl:gap-32">
+<div class="bg-secondary flex flex-col gap-4 p-[5%] md:gap-12 xl:gap-16">
 
 	
 
 	
-		<h3 class="text-primary-foreground text-2xl uppercase xl:text-5xl text-center mt-[100px]">
+		<h3 class="text-primary-foreground text-2xl uppercase xl:text-5xl text-center xl:mt-[80px] font-boldFont">
 			{$_(`portalfraes.titel`)}
 		</h3>
-		<p class="text-xl xl:mx-[10%]">Portalfräsmaschinen sind die ideale Lösung für anspruchsvolle Fräsarbeiten, bei denen höchste Präzision, Stabilität und Effizienz gefragt sind. Sie kommen in zahlreichen Branchen wie dem Maschinenbau, der Luft- und Raumfahrt, der Automobilindustrie und dem Formenbau zum Einsatz. Dank ihrer robusten Bauweise und modernen Steuerungstechnologien ermöglichen sie exakte Bearbeitungsergebnisse und eignen sich besonders für großformatige Werkstücke sowie komplexe Geometrien. Leistungsstarke Spindeln und innovative Antriebssysteme sorgen für eine effiziente und schnelle Bearbeitung unterschiedlichster Materialien – von Aluminium über Stahl bis hin zu Titan und Kunststoff. Je nach Anforderung stehen verschiedene Modelle zur Verfügung, von kompakten Maschinen für kleinere Werkstücke bis hin zu großformatigen Hochleistungsanlagen. Besonders flexibel sind 5-Achs-Portalfräsmaschinen, die auch anspruchsvolle Freiformflächen präzise bearbeiten können. Wer auf maximale Effizienz und höchste Qualität setzt, findet in unseren Portalfräsmaschinen die perfekte Lösung. Kontaktieren Sie uns gerne für eine individuelle Beratung.</p>
+		<p class="text-xl xl:mx-[10%]">{$_(`portalfraes.beschreibungs-text`)}</p>
+		<ul class="text-xl xl:mx-[10%] text-center">
+			<li class=" text-xl md:text-2xl xl:text-3xl font-boldFont">{$_(`portalfraes.beschreibung-1`)}</li>
+			<li class=" text-xl md:text-2xl xl:text-3xl font-boldFont">{$_(`portalfraes.beschreibung-2`)}</li>
+			<li class=" text-xl md:text-2xl xl:text-3xl font-boldFont">{$_(`portalfraes.beschreibung-3`)}</li>
+			<li class=" text-xl md:text-2xl xl:text-3xl font-boldFont">{$_(`portalfraes.beschreibung-4`)}</li>
+			<li class=" text-xl md:text-2xl xl:text-3xl font-boldFont">{$_(`portalfraes.beschreibung-5`)}</li>
+			<li class=" text-xl md:text-2xl xl:text-3xl font-boldFont">{$_(`portalfraes.beschreibung-6`)}</li>
+		</ul>
 	
 
 	<div class="bg-secondary text-primary-foreground text-xl">

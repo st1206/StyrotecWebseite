@@ -145,7 +145,6 @@ export const menu = [
 	 			items: [
 	 				{ key: 'anwenderstories', link: '/unternehmen/news-termine/#anwenderstories' },
 	 				{ key: 'referenzen', link: '/unternehmen/news-termine/#referenzen' },
-					{ key: 'berichte', link: '/unternehmen/news-termine/#berichte' },
 	 				{ key: 'messen', link: '/unternehmen/news-termine/#messen' }
 	 			]
 	 		}

@@ -35,6 +35,10 @@
 									<Accordion.Trigger>{$_(`nav.${child.key}`) ?? child.key}</Accordion.Trigger>
 									<Accordion.Content>
 										<div class="flex flex-col gap-2">
+											<!-- Übersichtseite link -->
+											<a onclick={() => (open = false)} class="text-md font-boldFont" href={child.link}>
+												{$_(`nav.${child.key}`) ?? child.key}
+											</a>
 											{#each child.items as childItem}
 												<a onclick={() => (open = false)} class="text-md" href={childItem.link}>
 													{$_(`nav.${childItem.key}`) ?? childItem.key}

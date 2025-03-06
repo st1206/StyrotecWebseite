@@ -8,6 +8,7 @@
 	import imgRolf from '$lib/assets/images/rolf_schreibtisch.jpg';
 	import imgNorbert from '$lib/assets/images/norbert_schreibtisch.jpg';
 	import { _ } from 'svelte-i18n';
+	import Mail from "lucide-svelte/icons/mail";
 
 	/**
 	 *
@@ -42,12 +43,12 @@
 	});
 </script>
 
-<div class="modal flex justify-center">
+<div class="modal -right-[27px] xl:-right-[42px] flex justify-center">
 	<Button
-		class="bg-primary-500 border-primary-foreground h-[50px] w-[100px] rounded-none border-2 text-xl xl:h-[70px] xl:w-[130px] xl:text-2xl"
+		class="bg-primary-500 border-primary-foreground h-[50px] w-[100px] rounded-none border-2 text-xl xl:h-[60px] xl:w-[130px] xl:text-2xl"
 		onclick={modalExample.toggle}
 	>
-		{$_('contact.title')}
+		<div class="w-full pr-1"><Mail size={22}/></div>{$_('contact.title')}
 	</Button>
 </div>
 <Modal
@@ -102,7 +103,6 @@
 	}
 	.modal {
 		position: fixed;
-		right: 0px;
 		top: 50%;
 		background: #f6a312;
 		transform: translateY(-50%);

@@ -20,23 +20,35 @@
 	import MaschinenCarousel from '$lib/components/maschinenCarousel.svelte';
 
 	let { data } = $props();
-    console.log(data);
+	console.log(data);
 </script>
 
-
-<img src={top} alt="FS10 Titelbild" class="w-full object-cover h-[300px] lg:h-[600px]">
-
-<div class="absolute top-0 right-0 z-10 bg-primary-foreground h-[1100px] w-[700px] [clip-path:polygon(40%_0%,100%_0%,100%_100%,0%_100%)] opacity-90">
-	<img src={top} alt="action" class="relative top-[600px] left-0 object-cover h-[500px]">
+<div class="relative mt-[64px] ">
+	<div
+		class="bg-primary-foreground absolute hidden lg:block h-[200px] w-[40%] opacity-95 [clip-path:polygon(0%_0%,100%_0%,50%_50%,0%_100%)]"
+	>
+		<h1 class="text-secondary hidden lg:block font-boldFont pl-10 pt-14 text-4xl xl:text-5xl">Schlagwort.</h1>
+	</div>
+	<img src={top} alt="FS10 Titelbild" class="h-[300px] w-full object-cover lg:h-[600px]" />
+	<div
+		class="bg-primary-foreground absolute hidden lg:block bottom-0 right-0 h-[200px] w-[40%] [clip-path:polygon(50%_50%,100%_0%,100%_100%,0%_100%)]"
+	></div>
 </div>
 
-
-<div class=" text-xl">
-	
-	<div class="mx-4 mb-4 lg:ml-[80px] lg:mt-[100px] lg:mr-[800px]">
+<div class="relative text-xl">
+	<div class="bg-primary-foreground h-[30px] w-full"></div>
+	<img
+		src={arbeitsraum}
+		alt="FS10 Titelbild"
+		class="absolute -top-[170px] hidden lg:block right-0 h-[300px] w-[40%] object-cover [clip-path:polygon(0%_28.5%,100%_0%,100%_100%,0%_100%)] lg:h-[700px]"
+	/>
+	<div
+		class="from-primary-foreground/25 hidden lg:block via-primary-foreground/15 to-secondary absolute -top-[170px] right-0 h-[300px] w-[40%] bg-gradient-to-bl [clip-path:polygon(0%_28.5%,100%_0%,100%_100%,0%_100%)] lg:h-[700px]"
+	></div>
+	<div class="mx-4 pb-3 ml-[30px] lg:ml-[80px] md:mr-[300px] lg:mr-[600px] xl:mr-[800px] lg:mt-[100px]">
 		<div>
 			<h1 class="font-boldFont pb-6 text-5xl uppercase">
-			{$_(`fs10.übersicht-titel`)}
+				{$_(`fs10.übersicht-titel`)}
 			</h1>
 			<p>{$_(`fs10.übersicht-text`)}</p>
 			<ul class="py-2">
@@ -48,88 +60,124 @@
 		</div>
 	</div>
 
-	<div class="h-[500px] w-full bg-primary-foreground mt-[68px]"></div>
-
-    <div class="xl:mt-[50px]">
+	<div class="xl:mt-[150px]">
 		{#await data.fs10s}
-			<div class="bg-primary ">skeleton build</div>
+			<div class="bg-primary">skeleton build</div>
 		{:then fs10s}
-            {#each fs10s as fs10}
-            <div class="py-[50px] mx-4 xl:mx-[200px] border border-primary-foreground/5 bg-primary-foreground/15 my-[96px]">    
-                <h1 class="text-5xl font-boldFont uppercase text-center mb-16">FS 10 - {fs10.Titel}</h1>
-                <div class ="flex flex-col xl:flex-row justify-around ">
-                    <table class="w-[80%] ml-4 xl:w-[35%]">
-                        <tbody>
-                            <tr class="bg-primary-foreground/5">
-                                <td>{$_(`cnc-Masch-Seite.xachse`)}</td>
-                                <td class="text-right">{fs10.xAchse}</td>
-                            </tr>
-                            <tr> 
-                                <td>{$_(`cnc-Masch-Seite.yachse`)}</td>
-                                <td class="text-right w-[50%]">{fs10.yAchse}</td>
-                            </tr>
-                            <tr class="bg-primary-foreground/5"> 
-                                <td>{$_(`cnc-Masch-Seite.zachse`)}</td>
-                                <td class="text-right w-[50%]">{fs10.zAchse}</td>
-                            </tr>
-                            <tr> 
-                                <td>{$_(`cnc-Masch-Seite.vorschub-x`)}</td>
-                                <td class="text-right w-[50%]">{fs10.VorschubX}</td>
-                            </tr>
-							<tr class="bg-primary-foreground/5"> 
-                                <td>{$_(`cnc-Masch-Seite.vorschub-y`)}</td>
-                                <td class="text-right w-[50%]">{fs10.VorschubY}</td>
-                            </tr>
-                            <tr> 
-                                <td>{$_(`cnc-Masch-Seite.vorschub-z`)}</td>
-                                <td class="text-right w-[50%]">{fs10.VorschubZ}</td>
-                            </tr>
-                            <tr class="bg-primary-foreground/5"> 
-                                <td>{$_(`cnc-Masch-Seite.aachse`)}</td>
-                                <td class="text-right w-[50%]">{fs10.aAchse}</td>
-                            </tr>
-                            <tr>  
-                                <td>{$_(`cnc-Masch-Seite.cachse`)}</td>
-                                <td class="text-right w-[50%]">{fs10.cAchse}</td>
-                            </tr>
-                            <tr class="bg-primary-foreground/5"> 
-                                <td>{$_(`cnc-Masch-Seite.steuerung`)}</td>
-                                <td class="text-right w-[50%]">{fs10.Steuerung}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-					
-                    <div class="relative left-0 top-0 w-[80%] xl:w-[35%]">
-                        <MaschinenCarousel
-                            height={600}
-                            pictures={fs10.Bilder}
-                        />
-                    </div>
-                </div>
-            </div>
-            {/each}
-        {:catch}
-        <p>Error loading the page</p>
-		{/await}       
+			{#each fs10s as fs10}
+				<div
+					class="border-primary-foreground/5 bg-primary-foreground mx-12 my-[96px] rounded-2xl border py-[50px] xl:mx-[200px]"
+				>
+					<h1 class="font-boldFont text-secondary mb-4 md:mb-16 text-center text-3xl md:text-5xl uppercase">
+						FS 10 - {fs10.Titel}
+					</h1>
+
+					<div class="flex flex-col justify-around xl:flex-row">
+						<Accordion.Root
+							type="single"
+							class="text-secondary relative mx-4 ml-4 object-cover xl:ml-[10%] xl:max-w-[45%] text-xl md:text-2xl xl:text-3xl"
+						>
+							<Accordion.Item value="item-1">
+								<Accordion.Trigger class="w-screen"
+									>{$_(`fs10.achsen`)}</Accordion.Trigger
+								>
+								<Accordion.Content class="pt-4 xl:text-xl mx-1 bg-primary-foreground/15">
+									<table class="bg-secondary/15 block text-md p-4 w-full border border-secondary/25 ">
+										<tbody >
+											<tr class="w-[100%]">
+												<td class="w-[50%] text-left">{$_(`cnc-Masch-Seite.xachse`)}</td>
+												<td class="w-[45%] text-right">{fs10.xAchse}</td>
+											</tr>
+											<tr>
+												<td class="text-left">{$_(`cnc-Masch-Seite.yachse`)}</td>
+												<td class="text-right">{fs10.yAchse}</td>
+											</tr>
+											<tr>
+												<td class="text-left">{$_(`cnc-Masch-Seite.zachse`)}</td>
+												<td class="text-right">{fs10.zAchse}</td>
+											</tr>
+										</tbody>
+									</table>
+								</Accordion.Content>
+							</Accordion.Item>
+							<Accordion.Item value="item-2">
+								<Accordion.Trigger>{$_(`fs10.geschwindigkeit`)}</Accordion.Trigger>
+								<Accordion.Content class="pt-4 xl:text-xl mx-1 bg-primary-foreground/15">
+									<table class="bg-secondary/15 text-md block p-4 border border-secondary/25">
+										<tbody class="text-left">
+											<tr>
+												<td class="w-[50%]">{$_(`cnc-Masch-Seite.vorschub-x`)}</td>
+												<td class="w-[50%] text-right">{fs10.VorschubX}</td>
+											</tr>
+											<tr>
+												<td>{$_(`cnc-Masch-Seite.vorschub-y`)}</td>
+												<td class="w-[50%] text-right">{fs10.VorschubY}</td>
+											</tr>
+											<tr>
+												<td>{$_(`cnc-Masch-Seite.vorschub-z`)}</td>
+												<td class="w-[50%] text-right">{fs10.VorschubZ}</td>
+											</tr>
+										</tbody>
+									</table>
+								</Accordion.Content>
+							</Accordion.Item>
+							<Accordion.Item value="item-3">
+								<Accordion.Trigger>{$_(`fs10.schwenk`)}</Accordion.Trigger>
+								<Accordion.Content class="pt-4 xl:text-xl">
+									<table class="bg-primary-foreground text-md block w-screen p-4">
+										<tbody class="text-left">
+											<tr>
+												<td>{$_(`cnc-Masch-Seite.aachse`)}</td>
+												<td class="w-[50%] text-right">{fs10.aAchse}</td>
+											</tr>
+											<tr>
+												<td>{$_(`cnc-Masch-Seite.cachse`)}</td>
+												<td class="w-[50%] text-right">{fs10.cAchse}</td>
+											</tr>
+										</tbody>
+									</table>
+								</Accordion.Content>
+							</Accordion.Item>
+							<Accordion.Item value="item-4">
+								<Accordion.Trigger>{$_(`fs10.steuerung`)}</Accordion.Trigger>
+								<Accordion.Content class="pt-4 xl:text-xl">
+									<table class="bg-primary-foreground text-md block w-screen p-4">
+										<tbody class="text-left">
+											<tr>
+												<td class="w-[50%] text-left">{fs10.Steuerung}</td>
+											</tr>
+										</tbody>
+									</table>
+								</Accordion.Content>
+							</Accordion.Item>
+						</Accordion.Root>
+
+						<div class="relative left-10 xl:left-0 xl:top-0 w-[80%] xl:w-[45%]">
+							<MaschinenCarousel height={400} pictures={fs10.Bilder} />
+						</div>
+
+						
+					</div>
+				</div>
+			{/each}
+		{:catch}
+			<p>Error loading the page</p>
+		{/await}
 	</div>
 
-	
-
-	
-
 	<div
-		class="bg-primary-foreground text-secondary w-full py-8 xl:py-32 xl:mb-[200px] xl:[clip-path:polygon(0%_10%,100%_0%,100%_90%,0%_100%)]"
+		class="bg-primary-foreground text-secondary w-full py-8 xl:mb-[100px] xl:py-32 xl:[clip-path:polygon(0%_10%,100%_0%,100%_90%,0%_100%)]"
 	>
 		<Accordion.Root
 			type="single"
-			class="text-secondary relative mx-4 object-cover ml-4 xl:ml-[10%] xl:max-w-[80%] xl:text-3xl"
+			class="text-secondary relative mx-4 ml-4 object-cover xl:ml-[10%] xl:max-w-[80%] xl:text-3xl"
 		>
 			<Accordion.Item value="item-1">
 				<Accordion.Trigger class=" ">{$_(`optionen.fraeskoepfe`)}</Accordion.Trigger>
 				<Accordion.Content class=" py-0 pt-4 xl:text-xl">
-					<div class="ml-12 flex flex-col justify-around xl:flex-row xl:pl-[330px]">
+					<div class="ml-12 flex flex-col justify-around md:flex-row xl:pl-[330px]">
 						<div class="w-[400px]">
-							<img src={st7} alt="ST7" class="h-[200px] xl:ml-4" />
+							<img src={st7} alt="ST7" class="h-[200px] :ml-4" />
 							<p class="text-center text-xl xl:hidden">ST 7</p>
 						</div>
 						<div class="w-[400px]">
@@ -141,13 +189,13 @@
 							<p class="text-center text-xl xl:hidden">HS673</p>
 						</div>
 					</div>
-					<table class="block w-screen bg-primary-foreground text-md shadow-md p-4">
+					<table class="bg-primary-foreground text-md block w-screen p-4 shadow-md">
 						<thead class="bg-secondary/15">
 							<tr>
-								<th class="font-semibold min-w-[90px] xl:min-w-[240px]"></th>
-								<th class="font-semibold min-w-[70px] xl:min-w-[400px]">ST 7</th>
-								<th class="font-semibold min-w-[70px] xl:min-w-[400px]">ST 8</th>
-								<th class="font-semibold min-w-[70px] xl:min-w-[400px]">HS673</th>
+								<th class="min-w-[90px] font-semibold lg:min-w-[240px]"></th>
+								<th class="min-w-[70px] font-semibold lg:min-w-[400px]">ST 7</th>
+								<th class="min-w-[70px] font-semibold lg:min-w-[400px]">ST 8</th>
+								<th class="min-w-[70px] font-semibold lg:min-w-[400px]">HS673</th>
 							</tr>
 						</thead>
 						<tbody class="text-center">
@@ -157,7 +205,7 @@
 								<td class="p-4">+/- 115°</td>
 								<td class="p-4">+/- 120°</td>
 							</tr>
-							<tr >
+							<tr>
 								<td class="p-4 text-left">{$_(`cnc-Masch-Seite.cachse`)}</td>
 								<td class="p-4">+/- 360°</td>
 								<td class="p-4">+/- 360°</td>
@@ -194,39 +242,39 @@
 			<Accordion.Item value="item-2">
 				<Accordion.Trigger>{$_(`optionen.fraesspindeln`)}</Accordion.Trigger>
 				<Accordion.Content class=" pt-4 xl:text-xl">
-					<table class="block w-screen bg-primary-foreground text-md shadow-md p-4">
+					<table class="bg-primary-foreground text-md block w-screen p-4 shadow-md">
 						<thead class="bg-secondary/15">
 							<tr>
-								<th class="font-semibold min-w-[100px] xl:min-w-[240px]"></th>
-								<th class="font-semibold min-w-[70px] xl:min-w-[400px]">ES 779</th>
-								<th class="font-semibold min-w-[70px] xl:min-w-[400px]">ES 789</th>
-								<th class="font-semibold min-w-[70px] xl:min-w-[400px]">ES 779</th>
+								<th class="min-w-[100px] font-semibold lg:min-w-[240px]"></th>
+								<th class="min-w-[70px] font-semibold lg:min-w-[400px]">ES 779</th>
+								<th class="min-w-[70px] font-semibold lg:min-w-[400px]">ES 789</th>
+								<th class="min-w-[70px] font-semibold lg:min-w-[400px]">ES 779</th>
 							</tr>
 						</thead>
 						<tbody class="text-center">
-							<tr >
-								<td class="p-4  text-left">{$_(`fs10.leistung`)}</td>
-								<td class="p-4 ">10 kW</td>
-								<td class="p-4 ">15 kW</td>
-								<td class="p-4 ">22 kW</td>
+							<tr>
+								<td class="p-4 text-left">{$_(`fs10.leistung`)}</td>
+								<td class="p-4">10 kW</td>
+								<td class="p-4">15 kW</td>
+								<td class="p-4">22 kW</td>
 							</tr>
-							<tr >
-								<td class="p-4  text-left">{$_(`fs10.drehzahl`)}</td>
-								<td class="p-4 ">24.000 min-1</td>
-								<td class="p-4 ">24.000 min-1</td>
-								<td class="p-4 ">24.000 min-1</td>
+							<tr>
+								<td class="p-4 text-left">{$_(`fs10.drehzahl`)}</td>
+								<td class="p-4">24.000 min-1</td>
+								<td class="p-4">24.000 min-1</td>
+								<td class="p-4">24.000 min-1</td>
 							</tr>
-							<tr >
-								<td class="p-4  text-left">{$_(`fs10.drehmoment`)}</td>
-								<td class="p-4 ">10,9 Nm</td>
-								<td class="p-4 ">15 Nm</td>
-								<td class="p-4 ">18 Nm</td>
+							<tr>
+								<td class="p-4 text-left">{$_(`fs10.drehmoment`)}</td>
+								<td class="p-4">10,9 Nm</td>
+								<td class="p-4">15 Nm</td>
+								<td class="p-4">18 Nm</td>
 							</tr>
-							<tr >
-								<td class="p-4  text-left">{$_(`fs10.aufnahme`)}</td>
-								<td class="p-4 ">HSK 63F</td>
-								<td class="p-4 ">HSK 63F</td>
-								<td class="p-4 ">HSK 63A</td>
+							<tr>
+								<td class="p-4 text-left">{$_(`fs10.aufnahme`)}</td>
+								<td class="p-4">HSK 63F</td>
+								<td class="p-4">HSK 63F</td>
+								<td class="p-4">HSK 63A</td>
 							</tr>
 						</tbody>
 					</table>
@@ -310,7 +358,11 @@
 			</Accordion.Item>
 		</Accordion.Root>
 	</div>
-	
 
-	<p class="mx-4 mb-4 xl:mx-[400px] xl:my-[100px]">Unsere Portalfräsmaschinen stehen für <span class="text-primary">Präzision, Effizienz und Qualität.</span> Lassen Sie sich persönlich beraten und entdecken Sie, welche Lösung am besten zu Ihren Anforderungen passt. Wir freuen uns auf Ihre Anfrage!</p>
+	<p class="mx-4 mb-4 xl:mx-[400px] xl:mb-[100px]">
+		Unsere Portalfräsmaschinen stehen für <span class="text-primary"
+			>Präzision, Effizienz und Qualität.</span
+		> Lassen Sie sich persönlich beraten und entdecken Sie, welche Lösung am besten zu Ihren Anforderungen
+		passt. Wir freuen uns auf Ihre Anfrage!
+	</p>
 </div>

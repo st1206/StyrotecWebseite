@@ -104,13 +104,14 @@
 
 				"anwenderstories": "Customer Stories",
 				"referenzen": "References",
-				"berichte": "Berichte",
 				"messen": "Messen"		
 	},
 
 
 
 	"homepage": {
+		"weltweit-titel": "Our machines in wordlwide use",
+		"weltweit-text": "Our portal milling machines are in high demand worldwide and are used in numerous countries and continents. From the heart of Europe to North America and the innovative markets of Asia - our machines have proven themselves in a wide range of industries and production environments. They are used in the automotive industry, aerospace, mechanical engineering, and many other sectors. With their high precision, durability, and flexibility, they provide tailored solutions for a variety of manufacturing requirements. Our many years of experience and continuous spirit of innovation have made us a trusted partner for companies around the world. Trust in the proven technology of Styrotec to optimize your production processes and take your manufacturing to the next level.",
 		"and-more": "Styrotec offers more than just products for the process of Styrofoam processing. For two decades, a wide range of milling machines in various designs for the target markets of model and mold making, as well as plastics processing, has complemented the service portfolio. In addition, productive solutions in peripheral equipment and attractive service offerings enhance the machines.",
 		"and-more2": "We see ourselves as a partner and advisor for your investment in manufacturing technology throughout its entire lifecycle—from acquisition and productivity enhancements to giving the machine a second life. In doing so, we contribute to the circular economy. Through a collaborative approach, we support our customers worldwide in becoming more competitive.",
 		"and-more3": "As a fair, reliable, and flexible partner, we design the most efficient and cost-effective technical solution and ensure economic success with a broad range of services."
@@ -122,7 +123,7 @@
 		"fräswerkzeuge-text": "TODO"
 	},
 	"gebrauMa": {
-		"titel": "Overview of our used machines",
+		"titel": "Our used machines",
 		"cta": "Learn more",
 		"cnc-maschinen": "CNC Maschines",
 		"cnc-maschinen-text": "Discover our wide selection of used CNC milling machines from renowned manufacturers. Each machine is carefully inspected to ensure top quality and full functionality. Benefit from flexibility and resource efficiency while making a valuable contribution to the circular economy.",
@@ -135,7 +136,14 @@
 
 	},
 	"portalfraes": {
-		"titel": "Overviw of our portal milling machines", 
+		"titel": "Our portal milling machines", 
+		"beschreibungs-text": "Our portal milling machines stand for precision, durability, and maximum efficiency. Whether for processing foams, wood, Ureol, plastics, aluminum, or composite materials - with Styrotec machines, you get powerful solutions for a wide range of requirements!",
+		"beschreibung-1": "Highest Precision",
+		"beschreibung-2": "Customized Solutions",
+		"beschreibung-3": "Robust Construction",
+		"beschreibung-4": "User-friendliness",
+		"beschreibung-5": "Versatile Applications",
+		"beschreibung-6": "Optimal price-performance ratio",
 		"cta": "Learn more",
 		"FS10": "FS 10",
 		"FS10-text": "Our FS 10 series is characterized by its classic gantry design with a fixed table and a moving gantry at the bottom. This provides advantages in terms of stability, consistently moved masses, and optimal accessibility for setup and loading.",
@@ -182,7 +190,11 @@
 		"übersicht-punkt1": "Classic gantry milling machine design",
 		"übersicht-punkt2": "Flexibility in machine design and application",
 		"übersicht-punkt3": "Optimal accessibility",
-		"übersicht-ende": "Discover our various configurations!"
+		"übersicht-ende": "Discover our various configurations!",
+		"achsen": "Axis-Data",
+		"geschwindigkeit": "Speeds",
+		"schwenk": "Swivel Angle",
+		"steuerung": "Control"
 	},
 	"maschinenerhaltung": {
 		"maschinenerhaltung": "Overview over Machine Maintenance",
