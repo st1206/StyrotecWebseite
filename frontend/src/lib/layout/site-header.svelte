@@ -8,6 +8,7 @@
 	import MobileNav from './mobile-nav.svelte';
 	import { page } from '$app/state';
 	import { Icons } from '$lib/assets/icons';
+	import logo from '$lib/assets/images/Logo_schwarzeSchrift_orange.gif'
 	import LanguageToggle from '$lib/components/language-toggle.svelte';
 	import { _ } from 'svelte-i18n';
 	import { onMount } from 'svelte';
@@ -25,16 +26,17 @@
 	});
 
 	let isOpenMap = $state(new SvelteMap());
+	
 </script>
 
 <nav
-	class="bg-primary-foreground fixed z-50 flex w-full justify-around gap-2 p-3 shadow-[10px_10px_15px_rgba(0,0,0,0.45)]"
+	class="bg-primary-foreground fixed z-50 flex w-full justify-between gap-2 p-3 shadow-[10px_10px_15px_rgba(0,0,0,0.45)]" class:bg-opacity-100={Array.from(isOpenMap.values()).includes(true)} class:bg-opacity-20={!Array.from(isOpenMap.values()).includes(true)}
 >
 	<!-- logo -->
 	<a class="ml-2 w-24" href="/"><img src={Icons.logo} alt="Logo" /></a>
 
 	<div class="flex gap-2">
-		<!-- searchbar -->
+		<!-- searchbar 
 		<div class="mr-10 hidden xl:block">
 			<form>
 				<Search
@@ -42,13 +44,13 @@
 				></Search>
 			</form>
 		</div>
-
+		-->
 		<!-- menu -->
 		<div class="relative hidden lg:flex">
 			{#each menu as item}
 				<button
 					use:clickOutside={() => isOpenMap.set(item.id, false)}
-					class="hover:text-primary text-secondary  z-20 w-[150px] text-md xl:text-xl xl:w-[200px] text-xl "
+					class="hover:text-primary text-secondary  z-20 w-[150px] text-md xl:text-xl xl:w-[200px] text-xl bg-primary-foreground rounded-lg mx-4"
 					onclick={() => {
 						const isCurrentlyOpen = isOpenMap.get(item.id) ?? false;
 						isOpenMap.forEach((_, key) => isOpenMap.set(key, false));
@@ -123,8 +125,8 @@
 			{/each}
 		</div>
 	</div>
-
-	<div class="absolute right-10 flex gap-4">
+	<Button size="sm" class="bg-primary text-secondary text-xl" href="https://styrotec.shop/" target="_blank"> Onlineshop</Button>
+	<div class="flex gap-4">
 		<!-- language toggle -->
 		<LanguageToggle />
 
@@ -134,7 +136,7 @@
 		</div>
 	</div>
 
-	<div class="hidden xl:block"></div>
+	
 </nav>
 
 <style>

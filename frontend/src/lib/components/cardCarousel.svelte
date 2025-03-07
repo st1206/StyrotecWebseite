@@ -21,7 +21,7 @@
 							: referenz.Bilder[0].url})"
 					>
 						<div
-							class="bg-primary-foreground/90 text-secondary relative h-full w-full rounded-lg p-32"
+							class="bg-primary-foreground/75 text-secondary relative h-full w-full rounded-lg p-32"
 						>
 							<div class="h-[300px] w-[300px] ">
 								<h1 class="text-3xl uppercase font-boldFont">{referenz.Titel} </h1>
@@ -37,7 +37,7 @@
 			
             
 		</Carousel.Content>
-        <Carousel.Previous class="left-2 bg-opacity-70 border-primary hover:bg-primary border-2 bg-secondary/15" />
-		<Carousel.Next class="right-2 bg-opacity-70 border-primary hover:bg-primary border-2 bg-secondary/15" />
+        <Carousel.Previous class="left-64 bg-opacity-70 border-primary-foreground text-primary-foreground hover:bg-primary border-2 bg-secondary" />
+		<Carousel.Next class="right-64 bg-opacity-70 border-primary hover:bg-primary border-2 bg-secondary/15" />
 	</Carousel.Root>
 </div>

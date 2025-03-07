@@ -4,11 +4,15 @@
 	import { _ } from 'svelte-i18n';
 	import * as Accordion from '$lib/components/ui/accordion';
     import kreislauf from '$lib/assets/images/styrotec-and-more_schaubild.jpg';
+    import vid from '$lib/assets/videos/Imagefilm.mp4';
 </script>
 
 <div class="">
-	<div class="[clip-path:polygon(0%_10%,100%_0%,100%_80%,0%_100%)]">
-		<img src={header} alt="messestand" class="h-[600px] w-full object-cover" />
+	<div class="[clip-path:polygon(0%_0%,100%_0%,100%_80%,0%_100%)]">
+        <video autoplay loop muted class="h-[800px] w-full object-cover">
+            <source src={vid} type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
 	</div>
 	<!--
 <div class="p-4 md:p-10 xl:p-32 xl:mx-[300px]">

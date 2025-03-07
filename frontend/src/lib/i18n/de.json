@@ -109,10 +109,21 @@
 
 
 
-
+	"sprachen": {
+		"local":"DE"
+	},
 	"homepage": {
+		"einführung-titel": "Präzision in Styropor & mehr - Willkommen bei Styrotec",
+		"einführung-text": "Wie unser Name schon verrät, sind wir Experten im Bereich Styropor - doch das ist längst nicht alles. Bei Styrotec bieten wir ein umfassendes Sortiment an Produkten und Dienstleistungen für den Modellbau. Von Ersatzteilen über kleine konventionelle Maschinen bis hin zu großen CNC-Systemen - wir liefern alles, was Sie für präzise und effiziente Fertigung benötigen.",
+		"einführung-punkt1": " Maßgeschneiderte Lösungen für Ihren Modellbau",
+		"einführung-punkt2": "Hochwertige Maschinen & Zubehör für jede Anforderung",
+		"einführung-punkt3": "Individuelle Beratung & Service für optimale Ergebnisse",
+		"einführung-ende": "Entdecken Sie unser Angebot und bringen Sie Ihre Ideen in Form!",
 		"weltweit-titel": "Unsere Maschinen im weltweiten Einsatz",
-		"weltweit-text": "Unsere Maschinen im weltweiten Einsatz Unsere Portalfräsmaschinen erfreuen sich weltweit großer Nachfrage und sind in zahlreichen Ländern und Kontinenten im Einsatz. Vom Herzen Europas über Nordamerika bis hin zu den innovativen Märkten in Asien – unsere Maschinen haben sich in einer Vielzahl von Branchen und Produktionsumgebungen bewährt. Sie kommen in der Automobilindustrie, der Luft- und Raumfahrt, im Maschinenbau und vielen anderen Bereichen zum Einsatz. Mit ihrer hohen Präzision, Langlebigkeit und Flexibilität bieten sie maßgeschneiderte Lösungen für unterschiedlichste Fertigungsanforderungen. Unsere langjährige Erfahrung und unser kontinuierlicher Innovationsgeist haben uns zu einem vertrauenswürdigen Partner für Unternehmen weltweit gemacht. Vertrauen auch Sie auf die bewährte Technologie von Styrotec, um Ihre Produktionsprozesse zu optimieren und Ihre Fertigung auf das nächste Level zu heben.",
+		"weltweit-text": "Unsere Portalfräsmaschinen erfreuen sich weltweit großer Nachfrage und sind in zahlreichen Ländern und Kontinenten im Einsatz. Vom Herzen Europas über Nordamerika bis hin zu den innovativen Märkten in Asien - unsere Maschinen haben sich in einer Vielzahl von Branchen und Produktionsumgebungen bewährt. Sie kommen in der Automobilindustrie, der Luft- und Raumfahrt, im Maschinenbau und vielen anderen Bereichen zum Einsatz. Mit ihrer hohen Präzision, Langlebigkeit und Flexibilität bieten sie maßgeschneiderte Lösungen für unterschiedlichste Fertigungsanforderungen. Unsere langjährige Erfahrung und unser kontinuierlicher Innovationsgeist haben uns zu einem vertrauenswürdigen Partner für Unternehmen weltweit gemacht. Vertrauen auch Sie auf die bewährte Technologie von Styrotec, um Ihre Produktionsprozesse zu optimieren und Ihre Fertigung auf das nächste Level zu heben.",
+		"unternehmen-news-titel":"Bleiben sie auf dem Laufenden.",
+		"unternehmen-überUns-titel": "Styrotec and More...",
+		"unternehmen-karriere-titel": "Auf der suche nach einem Job ?",
 		"and-more": "Styrotec bietet mehr als Produkte für den Prozess der Syroporbearbeitung. Eine breite Palette an Fräsmaschinen in unterschiedlichsten Ausführungne für den Zielmarkt Modell- und Formenbau und der Kunststoffbearbeitung ergänzt seit zwei Jahrzehnten das Leistungsspektrum. Hinzu kommen produktive Lösungen in der Peripherie und attraktive Serviceangebote rund um die Maschinen.",
 		"and-more2": "Wir verstehen uns als Begleiter und Berater für die Investition in Ihre Fertigungstechnologie über den gesamten Lebenszyklus hinweg von der Anschaffung, über Produktivitätssteigerungen bis hin zum zweiten Leben der Maschine. Hiermit leisten wir einen Beitrag zur Kreislaufwirtschaft. Partnerschaftlich unterstützen wir darin, unsere Kunden weltweit wettbewerbsfähiger zu machen.",
 		"and-more3": "Als fairer, zuverlässiger un flexibler Partner projektieren wir die effizienteste und kostengünstigste technische Lösung und stellen mit einem weiten Dienstleistungsspektrum den wirtschaftlichen Erfolg sicher."
@@ -321,7 +332,11 @@
 	},
 	"news": {
 		"header-titel": "News & Weiteres",
-		"header-text": "Bleiben Sie auf dem Laufenden! Hier finden Sie alle Neuigkeiten rund um unser Unternehmen - von spannenden Projekten, Entwicklungen bis zu wichtigen Ankündigungen. Außerdem informieren wir Sie über anstehende Events, Messen und besondere Termine. Schauen Sie gerne regelmäßig vorbei und bleiben Sie informiert!"
+		"header-text": "Bleiben Sie auf dem Laufenden! Hier finden Sie alle Neuigkeiten rund um unser Unternehmen - von spannenden Projekten, Entwicklungen bis zu wichtigen Ankündigungen. Außerdem informieren wir Sie über anstehende Events, Messen und besondere Termine. Schauen Sie gerne regelmäßig vorbei und bleiben Sie informiert!",
+		"kundengeschichten": "Kundengeschichten",
+		"referenzen": "Referenzen",
+		"messen": "Messen",
+		"messestand": "Besucht uns am stand"
 	},
 	"ueber-uns": {
 		"gründung-titel": "Gründung",

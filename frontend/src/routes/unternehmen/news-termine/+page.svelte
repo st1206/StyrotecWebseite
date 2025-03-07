@@ -11,7 +11,7 @@
 
 
 
-<div class="[clip-path:polygon(0%_10%,100%_0%,100%_80%,0%_100%)] bg-gradient-to-r from-amber-500 to-amber-200">
+<div class="[clip-path:polygon(0%_0%,100%_0%,100%_80%,0%_100%)] bg-gradient-to-r from-amber-500 to-amber-200">
 	<img src={header} alt="messestand" class="w-full h-[500px] object-cover">
 </div>
 
@@ -27,7 +27,7 @@
 	{#await data.anwenderstories}
 		<div>waiting for data</div>
 	{:then anwenderstories}
-        <div class="text-5xl text-secondary text-center uppercase p-12">Hier sind Geschichten von Kunden</div>
+        <div class="text-5xl text-secondary text-center uppercase p-12">{$_('news.kundengeschichten')}</div>
 		<div class="flex justify-around">
 			{#if anwenderstories.length !== 0}
 				<div class="relative xl:top-[100px] overflow-hidden">
@@ -49,7 +49,7 @@
 	{#await data.referenzen}
 		<div class="text-primary">waiting for data</div>
 	{:then referenzen}
-        <div class="text-5xl text-primary-foreground font-boldFont uppercase text-center p-12"> Referenzen </div>
+        <div class="text-5xl text-primary-foreground font-boldFont uppercase text-center p-12"> {$_('news.referenzen')} </div>
 			{#if referenzen.length !== 0}
 				<div class="xl:top-[100px] text-primary">
 					<CardCarousel referenzen={referenzen} />
@@ -70,8 +70,8 @@
 	{#await data.messens}
 		<div>waiting for data</div>
 	{:then messen}
-        <div class="text-5xl uppercase font-boldFont text-secondary text-center p-12"> Messen </div>
-		<div class="flex justify-around">
+        <div class="text-5xl uppercase font-boldFont text-secondary text-center p-12"> {$_('news.messen')} </div>
+		<div class="flex flex-col md:flex-row flex-wrap justify-around">
 			{#if messen.length === 1}
 				<div class="xl:top-[100px]">
 					<MessenCard messe={messen[0]} />

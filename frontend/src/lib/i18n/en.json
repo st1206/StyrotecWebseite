@@ -108,10 +108,21 @@
 	},
 
 
-
+	"sprachen": {
+		"local":"EN"
+	},
 	"homepage": {
+		"einführung-titel": "Precision in Styrofoam & More - Welcome to Styrotec",
+		"einführung-text": "As our name suggests, we are experts in the field of Styrofoam - but that is not all. At Styrotec, we offer a comprehensive range of products and services for model making. From spare parts and small conventional machines to large CNC systems, we provide everything you need for precise and efficient manufacturing.",
+		"einführung-punkt1": " Tailor-made solutions for your model-making needs",
+		"einführung-punkt2": "High-quality machines & accessories for every requirement",
+		"einführung-punkt3": " Personalized consulting & service for optimal results",
+		"einführung-ende": "Discover our offerings and bring your ideas to life!",
 		"weltweit-titel": "Our machines in wordlwide use",
 		"weltweit-text": "Our portal milling machines are in high demand worldwide and are used in numerous countries and continents. From the heart of Europe to North America and the innovative markets of Asia - our machines have proven themselves in a wide range of industries and production environments. They are used in the automotive industry, aerospace, mechanical engineering, and many other sectors. With their high precision, durability, and flexibility, they provide tailored solutions for a variety of manufacturing requirements. Our many years of experience and continuous spirit of innovation have made us a trusted partner for companies around the world. Trust in the proven technology of Styrotec to optimize your production processes and take your manufacturing to the next level.",
+		"unternehmen-news-titel":"Stay updated.",
+		"unternehmen-überUns-titel": "Styrotec and More...",
+		"unternehmen-karriere-titel": "Looking for a job?",
 		"and-more": "Styrotec offers more than just products for the process of Styrofoam processing. For two decades, a wide range of milling machines in various designs for the target markets of model and mold making, as well as plastics processing, has complemented the service portfolio. In addition, productive solutions in peripheral equipment and attractive service offerings enhance the machines.",
 		"and-more2": "We see ourselves as a partner and advisor for your investment in manufacturing technology throughout its entire lifecycle—from acquisition and productivity enhancements to giving the machine a second life. In doing so, we contribute to the circular economy. Through a collaborative approach, we support our customers worldwide in becoming more competitive.",
 		"and-more3": "As a fair, reliable, and flexible partner, we design the most efficient and cost-effective technical solution and ensure economic success with a broad range of services."
@@ -322,7 +333,11 @@
 	},
 	"news": {
 		"header-titel": "News & More",
-		"header-text": "Stay up to date! Here you will find all the latest news about our company – from exciting projects and developments to important announcements. We also keep you informed about upcoming events, trade fairs, and special dates. Feel free to check in regularly and stay informed!"
+		"header-text": "Stay up to date! Here you will find all the latest news about our company – from exciting projects and developments to important announcements. We also keep you informed about upcoming events, trade fairs, and special dates. Feel free to check in regularly and stay informed!",
+		"kundengeschichten": "Customer stories",
+		"referenzen": "References",
+		"messen": "Fairs",
+		"messestand": "Come visit us at Stand"
 	},
 	"ueber-uns": {
 		"gründung-titel": "Founding",

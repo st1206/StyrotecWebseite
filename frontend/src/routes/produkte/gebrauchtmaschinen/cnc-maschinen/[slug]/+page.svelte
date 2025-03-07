@@ -28,7 +28,7 @@
 		</h3>
 
 		<div
-			class="xl:mx-8 mt-32 mb-32 flex flex-col xl:flex-row xl:flex-wrap gap-8 pl-4 xl:pl-32 "
+			class="xl:mx-8 mt-32 mb-32 flex flex-col xl:flex-row xl:flex-wrap gap-8 pl-4 xl:pl-32 text-2xl"
 			
 		>
 			{#if maschine.extraBeschreibung}
@@ -38,34 +38,34 @@
 				</div>
 			{/if}
 			<div
-				class="h-fit w-[300px] xl:w-[30%] overflow-x-hidden border-2 border-solid shadow-[10px_10px_20px_rgba(0,0,0,0.75)]"
+				class="h-fit w-[80%] md:w-[60%] xl:w-[30%] overflow-x-hidden border-2 border-solid shadow-[10px_10px_20px_rgba(0,0,0,0.75)]"
 			>
 				<MaschinenCarousel height={carouselHeight} pictures={maschine.Bilder} />
 			</div>
 
 			
 
-			<Accordion.Root type="single" class="xl:w-[55%] w-[80%] max-w-[70%]">
+			<Accordion.Root type="single" class="xl:w-[55%] w-[80%] ">
 				<Accordion.Item value="item-1">
 					<Accordion.Trigger>{$_(`cnc-Masch-Seite.hauptdaten`)}:</Accordion.Trigger>
-					<Accordion.Content>
+					<Accordion.Content >
 						<div class="bg-primary-foreground flex justify-between bg-opacity-10">
-							<span class="font-medium">{$_(`cnc-Masch-Seite.bezeichnung`)}: </span> <span>{maschine.Bezeichnung}</span>
+							<span class="font-medium">{$_(`cnc-Masch-Seite.bezeichnung`)}: </span> <span class="text-right">{maschine.Bezeichnung}</span>
 						</div>
 						<div class="flex justify-between">
-							<span class="font-medium">{$_(`cnc-Masch-Seite.hersteller`)}: </span> <span>{maschine.Hersteller}</span>
+							<span class="font-medium">{$_(`cnc-Masch-Seite.hersteller`)}: </span> <span class="text-right">{maschine.Hersteller}</span>
 						</div>
 						<div class="bg-primary-foreground flex justify-between bg-opacity-10">
-							<span class="font-medium">{$_(`cnc-Masch-Seite.typ`)}: </span> <span>{maschine.Typ}</span>
+							<span class="font-medium">{$_(`cnc-Masch-Seite.typ`)}: </span> <span class="text-right">{maschine.Typ}</span>
 						</div>
 						<div class="flex justify-between">
-							<span class="font-medium">{$_(`cnc-Masch-Seite.baujahr`)}: </span> <span>{maschine.Baujahr}</span>
+							<span class="font-medium">{$_(`cnc-Masch-Seite.baujahr`)}: </span> <span class="text-right">{maschine.Baujahr}</span>
 						</div>
 						<div class="bg-primary-foreground flex justify-between bg-opacity-10">
-							<span class="font-medium">{$_(`cnc-Masch-Seite.standort`)}: </span> <span>{maschine.Standort}</span>
+							<span class="font-medium">{$_(`cnc-Masch-Seite.standort`)}: </span> <span class="text-right">{maschine.Standort}</span>
 						</div>
 						<div class="flex justify-between">
-							<span class="font-medium">{$_(`cnc-Masch-Seite.zustand`)}: </span> <span>{maschine.Zustand}</span>
+							<span class="font-medium">{$_(`cnc-Masch-Seite.zustand`)}: </span> <span class="text-right">{maschine.Zustand}</span>
 						</div>
 					</Accordion.Content>
 				</Accordion.Item>
@@ -73,35 +73,35 @@
 					<Accordion.Trigger>{$_(`cnc-Masch-Seite.achsdaten`)}:</Accordion.Trigger>
 					<Accordion.Content>
 						<div class="bg-primary-foreground flex justify-between bg-opacity-10">
-							<span class="font-medium">{$_(`cnc-Masch-Seite.xachse`)}: </span> <span>{maschine.xAchse}</span>
+							<span class="font-medium">{$_(`cnc-Masch-Seite.xachse`)}: </span> <span class="text-right">{maschine.xAchse}</span>
 						</div>
 						<div class="flex justify-between">
-							<span class="font-medium">{$_(`cnc-Masch-Seite.yachse`)}: </span> <span>{maschine.yAchse}</span>
+							<span class="font-medium">{$_(`cnc-Masch-Seite.yachse`)}: </span> <span class="text-right">{maschine.yAchse}</span>
 						</div>
 						<div class="bg-primary-foreground flex justify-between bg-opacity-10">
-							<span class="font-medium">{$_(`cnc-Masch-Seite.zachse`)}: </span> <span>{maschine.zAchse}</span>
+							<span class="font-medium">{$_(`cnc-Masch-Seite.zachse`)}: </span> <span class="text-right">{maschine.zAchse}</span>
 						</div>
 						{#if maschine.extraAchsen}
 							<div class="flex justify-between">
 								<span class="font-medium">{$_(`cnc-Masch-Seite.aachse`)}: </span>
-								<span>{maschine.extraAchsen.aAchse}</span>
+								<span class="text-right">{maschine.extraAchsen.aAchse}</span>
 							</div>
 							<div class="bg-primary-foreground flex justify-between bg-opacity-10">
 								<span class="font-medium">{$_(`cnc-Masch-Seite.cachse`)}: </span>
-								<span>{maschine.extraAchsen.cAchse}</span>
+								<span class="text-right">{maschine.extraAchsen.cAchse}</span>
 							</div>
 						{/if}
 						<div class="flex justify-between">
 							<span class="font-medium">{$_(`cnc-Masch-Seite.vorschub-xy`)}: </span>
-							<span>{maschine.VorschubgeschwindigkeitXY}</span>
+							<span class="text-right">{maschine.VorschubgeschwindigkeitXY}</span>
 						</div>
 						<div class="bg-primary-foreground flex justify-between bg-opacity-10">
 							<span class="font-medium">{$_(`cnc-Masch-Seite.vorschub-z`)}: </span>
-							<span>{maschine.VorschubgeschwindigkeitZ}</span>
+							<span class="text-right">{maschine.VorschubgeschwindigkeitZ}</span>
 						</div>
 						<div class="flex justify-between">
 							<span class="font-medium">{$_(`cnc-Masch-Seite.achsbeschleunigung-xyz`)}: </span>
-							<span>{maschine.AchsbeschleunigungXYZ}</span>
+							<span class="text-right">{maschine.AchsbeschleunigungXYZ}</span>
 						</div>
 					</Accordion.Content>
 				</Accordion.Item>
@@ -110,13 +110,13 @@
 					<Accordion.Content>
 						<div class="bg-primary-foreground flex justify-between bg-opacity-10">
 							<span class="font-medium">{$_(`cnc-Masch-Seite.aufspannfläche`)}: </span>
-							<span>{maschine.Aufspannflaeche}</span>
+							<span class="text-right">{maschine.Aufspannflaeche}</span>
 						</div>
 						<div class="flex justify-between">
-							<span class="font-medium">{$_(`cnc-Masch-Seite.platzbedarf`)}: </span> <span>{maschine.Platzbedarf}</span>
+							<span class="font-medium">{$_(`cnc-Masch-Seite.platzbedarf`)}: </span> <span class="text-right">{maschine.Platzbedarf}</span>
 						</div>
 						<div class="bg-primary-foreground flex justify-between bg-opacity-10">
-							<span class="font-medium">{$_(`cnc-Masch-Seite.gewicht`)}: </span> <span>{maschine.Gewicht}</span>
+							<span class="font-medium">{$_(`cnc-Masch-Seite.gewicht`)}: </span> <span class="text-right">{maschine.Gewicht}</span>
 						</div>
 					</Accordion.Content>
 				</Accordion.Item>
@@ -124,43 +124,43 @@
 					<Accordion.Trigger>{$_(`cnc-Masch-Seite.technischeDaten`)}:</Accordion.Trigger>
 					<Accordion.Content>
 						<div class="bg-primary-foreground flex justify-between bg-opacity-10">
-							<span class="font-medium">{$_(`cnc-Masch-Seite.steuerung`)}: </span> <span>{maschine.Steuerung}</span>
+							<span class="font-medium">{$_(`cnc-Masch-Seite.steuerung`)}: </span> <span class="text-right">{maschine.Steuerung}</span>
 						</div>
 						<div class="flex justify-between">
-							<span class="font-medium">{$_(`cnc-Masch-Seite.fräskopf`)}: </span> <span>{maschine.Fraeskopf}</span>
+							<span class="font-medium">{$_(`cnc-Masch-Seite.fräskopf`)}: </span> <span class="text-right">{maschine.Fraeskopf}</span>
 						</div>
 						<div class="bg-primary-foreground flex justify-between bg-opacity-10">
 							<span class="font-medium">{$_(`cnc-Masch-Seite.spindelleistung`)}: </span>
-							<span>{maschine.Spindelleistung}</span>
+							<span class="text-right">{maschine.Spindelleistung}</span>
 						</div>
 						<div class="flex justify-between">
 							<span class="font-medium">{$_(`cnc-Masch-Seite.spindeldrehzahl`)}: </span>
-							<span>{maschine.Spindeldrehzahl}</span>
+							<span class="text-right">{maschine.Spindeldrehzahl}</span>
 						</div>
 						<div class="bg-primary-foreground flex justify-between bg-opacity-10">
-							<span class="font-medium">{$_(`cnc-Masch-Seite.drehmoment`)}: </span> <span>{maschine.Drehmoment}</span>
+							<span class="font-medium">{$_(`cnc-Masch-Seite.drehmoment`)}: </span> <span class="text-right">{maschine.Drehmoment}</span>
 						</div>
 						<div class="flex justify-between">
 							<span class="font-medium">{$_(`cnc-Masch-Seite.werkzeugaufnahme`)}: </span>
-							<span>{maschine.Werkzeugaufnahme}</span>
+							<span class="text-right">{maschine.Werkzeugaufnahme}</span>
 						</div>
 						<div class="bg-primary-foreground flex justify-between bg-opacity-10">
 							<span class="font-medium">{$_(`cnc-Masch-Seite.werkzeugabspannung`)}: </span>
-							<span>{maschine.Werkzeugabspannung}</span>
+							<span class="text-right">{maschine.Werkzeugabspannung}</span>
 						</div>
 						<div class="flex justify-between">
 							<span class="font-medium">{$_(`cnc-Masch-Seite.kühlmittelzufuhr`)}: </span>
-							<span>{maschine.Kuehlmittelzufuhr}</span>
+							<span class="text-right">{maschine.Kuehlmittelzufuhr}</span>
 						</div>
 						<div class="bg-primary-foreground flex justify-between bg-opacity-10">
-							<span class="font-medium">{$_(`cnc-Masch-Seite.blasluft`)}: </span> <span>{maschine.Blasluft}</span>
+							<span class="font-medium">{$_(`cnc-Masch-Seite.blasluft`)}: </span> <span class="text-right">{maschine.Blasluft}</span>
 						</div>
 						<div class="flex justify-between">
 							<span class="font-medium">{$_(`cnc-Masch-Seite.anschlussleistung`)}: </span>
-							<span>{maschine.Anschlussleistung}</span>
+							<span class="text-right">{maschine.Anschlussleistung}</span>
 						</div>
 						<div class="bg-primary-foreground flex justify-between bg-opacity-10">
-							<span class="font-medium">{$_(`cnc-Masch-Seite.vorsicherung`)}: </span> <span>{maschine.Vorsicherung}</span>
+							<span class="font-medium">{$_(`cnc-Masch-Seite.vorsicherung`)}: </span> <span class="text-right">{maschine.Vorsicherung}</span>
 						</div>
 					</Accordion.Content>
 				</Accordion.Item>
@@ -171,7 +171,7 @@
 						<Accordion.Content>
 							{#each maschine.Zusatzoptionen as option}
 								<div class="flex justify-between">
-									<span>- {option.Option}</span>
+									<span class="text-right">- {option.Option}</span>
 								</div>
 							{/each}
 						</Accordion.Content>
