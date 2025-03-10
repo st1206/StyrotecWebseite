@@ -4,7 +4,7 @@
 	import { linear } from 'svelte/easing';
 	import { Button } from 'svelte-5-ui-lib';
 	import imgMartin from '$lib/assets/images/martin_schreibtisch.jpg';
-	import imgTobias from '$lib/assets/images/TobiasSchreibtisch_klein .jpg';
+	import imgTobias from '$lib/assets/images/TobiasSchreibtisch_klein.jpg';
 	import imgRolf from '$lib/assets/images/rolf_schreibtisch.jpg';
 	import imgNorbert from '$lib/assets/images/norbert_schreibtisch.jpg';
 	import { _ } from 'svelte-i18n';

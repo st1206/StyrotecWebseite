@@ -4,7 +4,6 @@
 	import { Button } from 'svelte-5-ui-lib';
 	let { data } = $props();
 	let carouselHeight = 700;
-	import { Input, Textarea } from 'svelte-5-ui-lib';
 	import * as Accordion from '$lib/components/ui/accordion';
 	import { _ } from 'svelte-i18n';
 	import logo1 from '$lib/assets/images/homepage/logo1.jpeg';
@@ -16,7 +15,7 @@
 	import karte from '$lib/assets/images/homepage/Karte.png';
 	import { fly } from "svelte/transition";
 
-  	let texts = ["Text 1", "Text 2", "Text 3"]; // Deine Texte
+  	let texts = ["fräsen mit leidenschaft", "and more", "Hier steht info"]; // Deine Texte
   	let index = $state(0);
 
   	function nextText() {
@@ -382,22 +381,5 @@
 		</div>
 	</div>
 
-	<div
-		class="from-background via-primary to-secondary-foreground relative z-0 h-[600px] w-full bg-gradient-to-bl"
-	>
-		<div
-			class="bg-primary-foreground absolute mt-[160px] h-[300px] w-full shadow-[10px_10px_30px_rgba(0,0,0,0.75)]"
-		>
-			<div>
-				<div
-					class="text-secondary absolute left-[5%] top-10 flex flex-col xl:left-[30%] xl:flex-row xl:flex-wrap"
-				>
-					<h2 class="w-full">{$_(`kontaktformular.email`)}</h2>
-					<Input class="text-primary-foreground xl:w-full" />
-					<h2 class="w-full">{$_(`kontaktformular.nachricht`)}</h2>
-					<Textarea class="text-primary-foreground h-[100px] w-[250px] xl:w-[400px]" />
-				</div>
-			</div>
-		</div>
-	</div>
+	
 </div>

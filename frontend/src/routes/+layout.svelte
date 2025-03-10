@@ -4,6 +4,7 @@
 	let { children } = $props();
 	import SiteFooter from '$lib/layout/site-footer.svelte';
 	import SiteContact from '$lib/layout/site-contact.svelte';
+	import BottomContactForm from '$lib/layout/bottom-contactForm.svelte';
 </script>
 
 <svelte:head>
@@ -28,6 +29,7 @@
 	<main class="relative flex-1" style="margin-right: 0; margin-left: 0">
 		{@render children()}
 	</main>
+	<BottomContactForm />
 	<SiteContact />
 	<SiteFooter />
 </div>
