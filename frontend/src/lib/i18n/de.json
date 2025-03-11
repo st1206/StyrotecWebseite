@@ -148,6 +148,7 @@
 	},
 	"portalfraes": {
 		"titel": "Unsere Portalfräsmaschinen", 
+		"sub": "und Fertigungstechnologien",
 		"beschreibungs-text": "Unsere Portalfräsmaschinen stehen für Präzision, Langlebigkeit und maximale Effizienz. Ob für die Bearbeitung von Schäumen, Holz, Ureol, Kunststoffen, Aluminium oder Verbundwerkstoffen: Mit den Maschinen von Styrotec erhalten Sie leistungsstarke Lösungen für unterschiedlichste Anforderungen!",
 		"beschreibung-1": "Höchste Präzision",
 		"beschreibung-2": "Individuelle Lösungen",
@@ -159,13 +160,13 @@
 		"FS10": "FS 10",
 		"FS10-text": "Unsere Baureihe FS 10 zeichnet sich durch ihre klassische Portalbauweise mit festem Tisch und unten fahrendem Portal aus. Dies bietet Vorteile in Bezug auf Stabilität, gleichbleibend bewegte Massen und optimale Zugänglichkeit zum Rüsten und Beladen.",
 		"FS15": "FS 15",
-		"FS15-text":"TODO",
+		"FS15-text":"Die Baureihe FS 15 steht für kompromisslose Leistungsfähigkeit bei der Bearbeitung besonders großer Werkstücke. Ihr Aufbau als HSC 5-Achs Gantry Maschine ermöglicht herausragende Stabilität und Präzision. Sie eignet sie sich optimal für anspruchsvolle Anwendungen, bei denen sowohl Flexibilität als auch hohe Bearbeitungsgeschwindigkeiten gefragt sind.",
 		"FS20": "FS 20",
-		"FS20-text": "TODO",
+		"FS20-text": "Die Baureihe FS 20 wurde speziell für die wirtschaftliche Fräsbearbeitung entwickelt. Mit ihrem feststehenden Portal und dem verfahrbaren Tisch lässt sich sehr effizient und flexibel arbeiten. Sie eignet sich optimal für die Fertigung mit hohem Automatisierungsgrad und findet auch in der Betonbranche weitreichende Anwendungen.",
 		"hybrid": "Hybrid - 3D",
-		"hybrid-text": "TODO",
+		"hybrid-text": "Hybride Fertigung kombiniert zwei Verfahren: Additive Fertigung (3D-Druck) ermöglicht den schnellen, präzisen und kostengünstigen Aufbau von Bauteilen aus plastischen Werkstoffen. Subtraktive Fertigung (CNC-Fräsen) verfeinert die Oberflächen und bringt das Bauteil in die Endform. Die Kombination beider Verfahren in einer Umgebung macht die Hybridfertigung aus.",
 		"vorratsmaschinen": "Vorratsmaschinen",
-		"vorratsmaschinen-text": "TODO"
+		"vorratsmaschinen-text": "Wir halten immer einige unserer Styrotec Portalfräsmaschinen am Lager, um schnell liefern zu können. Sie wollen Ihren Maschinenpark kurzfristig erweitern und dürfen nicht auf Lieferzeiten angewiesen sein? Dann ist bei unseren Vorratsmaschinen mit Sicherheit etwas dabei! Gerne können die Maschinen auch vor Ort besichtigt werden."
 	},
 	"optionen": {
 		"fraeskoepfe":"Fräsköpfe",
@@ -176,6 +177,7 @@
 		"tischvarianten": "Tischvarianten"
 	},
 	"fs10": {
+		"optionen": "Optionen",
 		"direkteMesssysteme": "Direkte Messysteme",
 		"spindelorientierung": "Spindelorientierung",
 		"minimalmengenschmierung": "Minimalmengenschmierung",

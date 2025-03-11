@@ -7,6 +7,9 @@
 	import { _ } from 'svelte-i18n';
 	import Carousel from '$lib/components/carousel.svelte';
 	import { Tabs, TabItem } from 'svelte-5-ui-lib';
+	import KatCard from '$lib/components/katCard.svelte';
+	import img1 from '$lib/assets/images/portalfraesmaschinen/FS10ST_klein.jpg';
+	console.log(img1);
 	let { data } = $props();
 </script>
 
@@ -23,18 +26,19 @@
 		<Carousel height={600} pictures={kategorie.filter(item=> item.Kategorie ==="Portalfräsmaschinen")[0].Bilder} />
 	</div>
 {/await}
-<div class="hidden xl:block absolute top-[560px] w-full h-[100px] bg-primary [clip-path:polygon(0%_0%,100%_0%,81%_100%,0%_100%)]"></div>
+<div class="relative -top-[50px] w-full h-[100px] md:h-[100px] bg-primary [clip-path:polygon(0%_0%,100%_0%,81%_100%,0%_100%)]"></div>
 
 
-<div class="bg-secondary flex flex-col gap-4 p-[5%] md:gap-12 xl:gap-16">
+<div class="bg-secondary flex flex-col p-[5%] ">
 	
-		<h3 class="text-primary-foreground text-2xl uppercase xl:text-5xl text-center xl:mt-[80px] font-boldFont w-[60%]">
+		<h3 class="text-primary-foreground text-2xl uppercase xl:text-5xl text-right font-boldFont w-[60%]">
 			{$_(`portalfraes.titel`)}
 		</h3>
+		<h1 class="uppercase text-right text-4xl w-[60%]">{$_(`portalfraes.sub`)}</h1>
 		<p class="text-xl xl:mx-[10%] w-[60%]">{$_(`portalfraes.beschreibungs-text`)}</p>
 		<div class="w-[40%] h-auto text-secondary bg-primary-foreground py-8 rounded-lg ">
 			<ul class="text-xl xl:mx-[10%] text-left ">
-				<li class=" text-xl md:text-2xl xl:text-3xl font-boldFont"><span class="text-primary">&#x2713 </span>{$_(`portalfraes.beschreibung-1`)}</li>
+				<li class=" text-xl md:text-2xl xl:text-3xl font-boldFont"><span class="text-primary">&#x2713 </span> {$_(`portalfraes.beschreibung-1`)}</li>
 				<li class=" text-xl md:text-2xl xl:text-3xl font-boldFont"><span class="text-primary">&#x2713 </span> {$_(`portalfraes.beschreibung-2`)}</li>
 				<li class=" text-xl md:text-2xl xl:text-3xl font-boldFont"><span class="text-primary">&#x2713 </span> {$_(`portalfraes.beschreibung-3`)}</li>
 				<li class=" text-xl md:text-2xl xl:text-3xl font-boldFont"><span class="text-primary">&#x2713 </span> {$_(`portalfraes.beschreibung-4`)}</li>
@@ -42,8 +46,33 @@
 				<li class=" text-xl md:text-2xl xl:text-3xl font-boldFont"><span class="text-primary">&#x2713 </span> {$_(`portalfraes.beschreibung-6`)}</li>
 			</ul>
 		</div>
+		
+		<div>
+			<div class="bg-secondary mx-[5%] my-[100px]">
+				<h1 class="uppercase font-boldFont text-5xl text-center">TODO</h1>
+				<div class="flex flex-col flex-wrap justify-around gap-[5%] md:flex-row">
+					
+					<!-- FS10 karte --> 
+					<KatCard titel={$_(`portalfraes.FS10`)} text={$_(`portalfraes.FS10-text`)} image={"/src/lib/assets/images/portalfraesmaschinen/FS10ST_klein.jpg"} link="/produkte/portalfraesmaschinen/fs10" />
+					
+					<!-- FS15 Karte -->
+					<KatCard titel={$_(`portalfraes.FS15`)} text={$_(`portalfraes.FS15-text`)} image={"/src/lib/assets/images/portalfraesmaschinen/fs15.jpg"} link="/produkte/portalfraesmaschinen/fs15" />
 	
+					<!-- FS20 Karte -->
+					<KatCard titel={$_(`portalfraes.FS20`)} text={$_(`portalfraes.FS20-text`)} image={"/src/lib/assets/images/portalfraesmaschinen/FS20.jpg"} link="/produkte/portalfraesmaschinen/fs20"/>
 
+					<!-- 3D Karte -->
+					<KatCard titel={$_(`portalfraes.hybrid`)} text={$_(`portalfraes.hybrid-text`)} image={"/src/lib/assets/images/portalfraesmaschinen/3d.jpg"} link="/produkte/portalfraesmaschinen/hybridn-3d" />
+
+					<!-- vorratsmaschinen Karte -->
+					<KatCard titel={$_(`portalfraes.vorratsmaschinen`)} text={$_(`portalfraes.vorratsmaschinen-text`)} image={"/src/lib/assets/images/portalfraesmaschinen/vorrat.jpg"} link="/produkte/portalfraesmaschinen/vorratsmaschinen" />
+					
+
+					
+				</div>
+			</div>
+		</div>
+	
 	<div class="bg-secondary text-primary-foreground text-xl w-[60%] ">
 		<Tabs tabStyle="full" contentClass="bg-primary-foreground text-secondary text-2xl rounded-0" ulClass="space-x-0 p-1 gap-2">
 			<TabItem open title={$_(`portalfraes.FS10`)} activeClass="w-[200px] p-5 bg-primary text-xl" inactiveClass="w-[200px] p-5 bg-primary-foreground text-secondary text-xl">
@@ -141,4 +170,6 @@
 			</TabItem>
 		</Tabs>
 	</div>
+
+	
 </div>

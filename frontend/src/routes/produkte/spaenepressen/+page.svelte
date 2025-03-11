@@ -15,7 +15,7 @@
 		src={portalfraes}
 		alt="bild"
 	/>
-	<div class="hidden xl:block absolute top-[560px] w-full h-[100px] bg-primary [clip-path:polygon(0%_0%,100%_0%,81%_100%,0%_100%)]"></div>
+	<div class="relative -top-[50px] w-full h-[100px] md:h-[100px] bg-primary [clip-path:polygon(0%_0%,100%_0%,81%_100%,0%_100%)]"></div>
 	
 	
 	
@@ -25,8 +25,10 @@
 	<div>
 		<div class="bg-secondary mx-[5%] my-[100px]">
 			<h1 class="uppercase font-boldFont text-5xl text-center">TODO</h1>
+			
 			<div class="flex flex-col flex-wrap justify-around gap-[5%] md:flex-row">
 				<!-- Kunststoff karte -->
+				 
 				<KatCard titel={$_(`pressen.kunststoff`)} text="TODO" image={""} link="/produkte/spaenepressen/kunststoffe" />
 				
 				<!-- Metalle Karte -->

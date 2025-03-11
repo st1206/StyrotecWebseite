@@ -74,7 +74,7 @@
 
 					<div class="flex flex-col justify-around xl:flex-row">
 						<Accordion.Root
-							
+							type="single"
 							class="text-secondary relative mx-4 ml-4 object-cover xl:ml-[10%] xl:max-w-[45%] text-xl md:text-2xl xl:text-3xl"
 						>
 							<Accordion.Item value="item-1">
@@ -168,6 +168,8 @@
 	<div
 		class="bg-primary-foreground text-secondary w-full py-8 xl:mb-[100px] xl:py-32 xl:[clip-path:polygon(0%_10%,100%_0%,100%_90%,0%_100%)]"
 	>
+		<h1 class="uppercase font-boldFont text-5xl text-center mb-16">{$_(`fs10.optionen`)}</h1>
+
 		<Accordion.Root
 			type="single"
 			class="text-secondary relative mx-4 ml-4 object-cover xl:ml-[10%] xl:max-w-[80%] xl:text-3xl"

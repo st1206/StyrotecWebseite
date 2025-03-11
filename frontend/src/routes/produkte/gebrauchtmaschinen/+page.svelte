@@ -17,7 +17,7 @@
 		<Carousel height={600} pictures={kategorie.filter(item=> item.Kategorie ==="gebrauchtmaschinen")[0].Bilder} />
 	</div>
 {/await}
-<div class="hidden md:block absolute top-[560px] w-full h-[100px] bg-primary [clip-path:polygon(0%_0%,100%_0%,81%_100%,0%_100%)]"></div>
+<div class="relative -top-[50px] w-full h-[100px] md:h-[100px] bg-primary [clip-path:polygon(0%_0%,100%_0%,81%_100%,0%_100%)]"></div>
 <div class="bg-secondary flex flex-col gap-16 p-[5%] xl:gap-32">
 	<div
 		class=" bg-primary-foreground border-2 border-solid p-4 shadow-[10px_20px_60px_rgba(0,0,0,0.95)] xl:mx-[10%] xl:p-24"

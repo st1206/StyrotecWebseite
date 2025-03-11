@@ -114,7 +114,7 @@
 		<div class="flex flex-col flex-wrap justify-around gap-[5%] md:flex-row">
 			<!-- portalfräs card-->
 			<KatCard titel={$_('nav.portalfraesmaschinen')} text={$_('portalfraes.beschreibungs-text')} image={"src/lib/assets/images/bild11.jpg"} link={"/produkte/portalfraesmaschinen"}/>
-
+			
 			<!-- Spänepressen card-->
 			<KatCard titel={$_('nav.spaenepressen')} text="TODO" image={"src/lib/assets/images/homepage/MSP500_klein.jpg"} link={"/produkte/spaenepressen"}/>
 	

@@ -21,7 +21,7 @@ export const menu = [
 				link: '/produkte/portalfraesmaschinen',
 				items: [
 					{ key: 'fs10', link: '/produkte/portalfraesmaschinen/fs10' },
-					{ key: 'fs15', link: '/produkte/portalfraesmaschinen/f15' },
+					{ key: 'fs15', link: '/produkte/portalfraesmaschinen/fs15' },
 					{ key: 'fs20', link: '/produkte/portalfraesmaschinen/fs20' },
 					{ key: 'hybrid3D', link: '/produkte/portalfraesmaschinen/hybrid-3d' },
 					{ key: 'vorratsmaschinen', link: '/produkte/portalfraesmaschinen/vorratsmaschinen' }
@@ -104,14 +104,14 @@ export const menu = [
 	 			key: 'branchen',
 	 			link: '/branchen/branchen',
 	 			items: [
-	 				{ key: 'automobil', link: '/branchen/branchen/automobil', ImageUrl: image1},
-	 				{ key: 'schiffsbau', link: '/branchen/branchen/schiffsbau', ImageUrl: image2},
-	 				{ key: 'modellbau', link: '/branchen/branchen/modellbau', ImageUrl: image3},
-	 				{ key: 'kunststoffindustrie', link: '/branchen/branchen/kunststoffindustrie', ImageUrl: image4},
-	 				{ key: 'betonindustrie', link: '/branchen/branchen/betonindustrie',  ImageUrl: image5 },
-	 				{ key: 'werbetechnik', link: '/branchen/branchen/werbetechnik',  ImageUrl: image6},
-	 				{ key: 'aerospace', link: '/branchen/branchen/aerospace',  ImageUrl: image7 },
-	 				{ key: 'kunst', link: '/branchen/branchen/kunst', ImageUrl: image8 }
+	 				{ key: 'automobil', link: '/branchen/#automobil', ImageUrl: image1},
+	 				{ key: 'schiffsbau', link: '/branchen/#schiffsbau', ImageUrl: image2},
+	 				{ key: 'modellbau', link: '/branchen/#modellbau', ImageUrl: image3},
+	 				{ key: 'kunststoffindustrie', link: '/branchen/#kunststoffindustrie', ImageUrl: image4},
+	 				{ key: 'betonindustrie', link: '/branchen/#betonindustrie',  ImageUrl: image5 },
+	 				{ key: 'werbetechnik', link: '/branchen/#werbetechnik',  ImageUrl: image6},
+	 				{ key: 'aerospace', link: '/branchen/#aerospace',  ImageUrl: image7 },
+	 				{ key: 'kunst', link: '/branchen/#kunst', ImageUrl: image8 }
 	 			]
 	 		}
 	 	]

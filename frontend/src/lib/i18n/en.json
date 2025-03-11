@@ -148,6 +148,7 @@
 	},
 	"portalfraes": {
 		"titel": "Our portal milling machines", 
+		"sub": "and manufacturing Technologies",
 		"beschreibungs-text": "Our portal milling machines stand for precision, durability, and maximum efficiency. Whether for processing foams, wood, Ureol, plastics, aluminum, or composite materials - with Styrotec machines, you get powerful solutions for a wide range of requirements!",
 		"beschreibung-1": "Highest Precision",
 		"beschreibung-2": "Customized Solutions",
@@ -159,13 +160,13 @@
 		"FS10": "FS 10",
 		"FS10-text": "Our FS 10 series is characterized by its classic gantry design with a fixed table and a moving gantry at the bottom. This provides advantages in terms of stability, consistently moved masses, and optimal accessibility for setup and loading.",
 		"FS15": "FS 15",
-		"FS15-text":"TODO",
+		"FS15-text":"The FS 15 series represents uncompromising performance in machining exceptionally large workpieces. Its design as an HSC 5-axis gantry machine ensures outstanding stability and precision. It is ideally suited for demanding applications that require both flexibility and high machining speeds.",
 		"FS20": "FS 20",
-		"FS20-text": "TODO",
+		"FS20-text": "The FS 20 series was specifically developed for cost-effective milling operations. With its fixed portal and movable table, it enables highly efficient and flexible machining. It is ideal for production with a high degree of automation and is also widely used in the concrete industry.",
 		"hybrid": "Hybrid - 3D",
-		"hybrid-text": "TODO",
+		"hybrid-text": "Hybrid manufacturing combines two processes: additive manufacturing (3D printing) enables fast, precise, and cost-effective production of components from plastic materials. Subtractive manufacturing (CNC milling) refines surfaces and shapes the component into its final form. The integration of both processes in one environment defines hybrid manufacturing.",
 		"vorratsmaschinen": "In-Stock Machines",
-		"vorratsmaschinen-text": "TODO"
+		"vorratsmaschinen-text": "We always keep a selection of our Styrotec portal milling machines in stock for fast delivery. Need to expand your machine fleet on short notice without waiting for long lead times? Our stock machines are the perfect solution! You’re also welcome to visit and inspect them on-site."
 	},
 	"optionen": {
 		"fraeskoepfe":"Milling Heads",
@@ -176,6 +177,7 @@
 		"tischvarianten": "Table Types"
 	},
 	"fs10": {
+		"optionen": "Options",
 		"direkteMesssysteme": "Direct Measurement System",
 		"spindelorientierung": "Spindle Orientation",
 		"minimalmengenschmierung": "Minimal Lubrication",
