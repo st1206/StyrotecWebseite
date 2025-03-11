@@ -30,7 +30,7 @@
 </script>
 
 <nav
-	class="bg-primary-foreground fixed z-50 flex w-full justify-between gap-2 p-3 shadow-[10px_10px_15px_rgba(0,0,0,0.45)]" class:bg-opacity-100={Array.from(isOpenMap.values()).includes(true)} class:bg-opacity-20={!Array.from(isOpenMap.values()).includes(true)}
+	class="bg-primary-foreground fixed z-50 flex w-full justify-between gap-2 p-3 shadow-[10px_10px_15px_rgba(0,0,0,0.45)]" 
 >
 	<!-- logo -->
 	<a class="ml-2 w-24" href="/"><img src={Icons.logo} alt="Logo" /></a>
@@ -129,7 +129,7 @@
 	<div class="flex gap-4">
 		<!-- language toggle -->
 		<LanguageToggle />
-
+		<div>&#128270</div>
 		<!-- mobile menu -->
 		<div class="lg:hidden">
 			<MobileNav />

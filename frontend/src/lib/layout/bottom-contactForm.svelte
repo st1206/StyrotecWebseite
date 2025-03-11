@@ -2,7 +2,8 @@
     import { Input, Textarea } from 'svelte-5-ui-lib';
     import { _ } from 'svelte-i18n';
     import * as Accordion from '$lib/components/ui/accordion';
-    import { Checkbox, Helper, Label } from 'svelte-5-ui-lib';
+    let checked = false;
+    
     
 </script>
 
@@ -18,11 +19,12 @@
                         <div class="w-[50%] text-left p-16">
                             <h1 class="text-3xl uppercase">Ihr Direkter Ansprechpartner: </h1> <br />
                             <span class="text-xl">Rolf Röhm </span> <br />
+                            <span class="text-xl">Vertrieb</span>
                             <!-- TODO verlinkung zur richtigen kontaktSeite-->
                             
                         </div>
                     </div>
-                    <div class="p-8 mt-16">
+                    <div class="p-8 mt-4">
                         <h2 class="w-full">{$_(`kontaktformular.email`)}</h2>
                         <Input class="text-primary-foreground xl:w-full bg-secondary border-primary" />
                         <h2 class="w-full">{$_(`kontaktformular.nachricht`)}</h2>
@@ -34,14 +36,15 @@
             <!-- Newsletter + weiterleitung zu Kontaktformular-->
 			<div class="w-[90%] md:w-[40%] h-[500px] bg-primary-foreground text-secondary rounded-lg p-16">
                 <Accordion.Root
-                    type="single"
+                    
                     class=""
                 >
                     <Accordion.Item value="item-1">
-                        <Accordion.Trigger>{$_('homepage.unternehmen-news-titel')}</Accordion.Trigger>
+                        <Accordion.Trigger>Newsletter</Accordion.Trigger>
                         <Accordion.Content class="xl:text-xl">
                             <!-- TODO: Inhalt zu news etc. -->
-                            <Checkbox class="text-white" checked color="cyan">My Checkbox</Checkbox>
+                            
+
                             
                             
                         </Accordion.Content>

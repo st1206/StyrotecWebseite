@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mitarbeiters",
+  "info": {
+    "singularName": "mitarbeiter",
+    "pluralName": "mitarbeiters",
+    "displayName": "Mitarbeiter",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "Bilder": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Telefonnummer": {
+      "type": "string",
+      "required": true
+    },
+    "Email": {
+      "type": "email",
+      "required": true
+    }
+  }
+}

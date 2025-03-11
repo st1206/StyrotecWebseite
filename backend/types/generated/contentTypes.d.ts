@@ -1062,6 +1062,13 @@ export interface ApiMessenMessen extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    MesseLink: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     Messename: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique &
@@ -1078,6 +1085,40 @@ export interface ApiMessenMessen extends Struct.CollectionTypeSchema {
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMitarbeiterMitarbeiter extends Struct.CollectionTypeSchema {
+  collectionName: 'mitarbeiters';
+  info: {
+    description: '';
+    displayName: 'Mitarbeiter';
+    pluralName: 'mitarbeiters';
+    singularName: 'mitarbeiter';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Bilder: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Email: Schema.Attribute.Email & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::mitarbeiter.mitarbeiter'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    publishedAt: Schema.Attribute.DateTime;
+    Telefonnummer: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1673,6 +1714,7 @@ declare module '@strapi/strapi' {
       'api::konventionelle.konventionelle': ApiKonventionelleKonventionelle;
       'api::maschine.maschine': ApiMaschineMaschine;
       'api::messen.messen': ApiMessenMessen;
+      'api::mitarbeiter.mitarbeiter': ApiMitarbeiterMitarbeiter;
       'api::referenzen.referenzen': ApiReferenzenReferenzen;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

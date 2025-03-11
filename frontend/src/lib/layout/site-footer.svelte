@@ -28,7 +28,7 @@
 					{$_(`contact.land`)} <br />
 				</div>
 				<div>
-					tel.: +49 751 5605020 <br />
+					tel.: +49 751 56050-20 <br />
 					mail: info@styrotec.com
 				</div>
 			</div>

@@ -23,13 +23,13 @@
 	console.log(data);
 </script>
 
-<div class="relative mt-[64px] ">
+<div class="relative ">
 	<div
-		class="bg-primary-foreground absolute hidden lg:block h-[200px] w-[40%] opacity-95 [clip-path:polygon(0%_0%,100%_0%,50%_50%,0%_100%)]"
+		class="bg-primary-foreground absolute hidden lg:block h-[230px] w-[50%] opacity-95 [clip-path:polygon(0%_0%,100%_0%,50%_50%,0%_100%)]"
 	>
-		<h1 class="text-secondary hidden lg:block font-boldFont pl-10 pt-14 text-4xl xl:text-5xl">Schlagwort.</h1>
+		<h1 class="text-secondary hidden lg:block font-boldFont pl-10 pt-24 text-4xl xl:text-5xl">Schlagwort.</h1>
 	</div>
-	<img src={top} alt="FS10 Titelbild" class="h-[300px] w-full object-cover lg:h-[600px]" />
+	<img src={top} alt="FS10 Titelbild" class="h-[300px] w-full object-cover lg:h-[700px]" />
 	<div
 		class="bg-primary-foreground absolute hidden lg:block bottom-0 right-0 h-[200px] w-[40%] [clip-path:polygon(50%_50%,100%_0%,100%_100%,0%_100%)]"
 	></div>
@@ -74,7 +74,7 @@
 
 					<div class="flex flex-col justify-around xl:flex-row">
 						<Accordion.Root
-							type="single"
+							
 							class="text-secondary relative mx-4 ml-4 object-cover xl:ml-[10%] xl:max-w-[45%] text-xl md:text-2xl xl:text-3xl"
 						>
 							<Accordion.Item value="item-1">
