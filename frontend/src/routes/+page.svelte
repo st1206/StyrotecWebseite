@@ -2,6 +2,7 @@
 	import Carousel from '$lib/components/carousel.svelte';
 	import * as Carousel2 from '$lib/components/ui/carousel';
 	import { Button } from 'svelte-5-ui-lib';
+	import KatCard from '$lib/components/katCard.svelte';
 	let { data } = $props();
 	let carouselHeight = 700;
 	import * as Accordion from '$lib/components/ui/accordion';
@@ -112,92 +113,17 @@
 		<h1 class="uppercase font-boldFont text-5xl text-center">Unsere Produktgruppen</h1>
 		<div class="flex flex-col flex-wrap justify-around gap-[5%] md:flex-row">
 			<!-- portalfräs card-->
-			<div
-				class="mt-[5%] h-auto w-[90%] rounded-lg bg-[url($lib/assets/images/bild11.jpg)] bg-cover md:w-[45%]"
-			>
-				<div class="bg-primary-foreground/80 relative h-full w-full rounded-lg">
-					<h1 class="text-secondary font-boldFont px-[10%] pb-[5%] pt-[10%] text-3xl">
-						{$_('nav.portalfraesmaschinen')}
-					</h1>
-					<p
-						class="text-secondary w-full px-4 pb-[20%] text-justify md:px-8 md:pb-[30%] lg:px-16 lg:pb-[20%]"
-					>
-						{$_('portalfraes.beschreibungs-text')}
-					</p>
-
-					<a
-						href="/produkte/portalfraesmaschinen"
-						class="bg-primary text-secondary font-boldFont absolute bottom-4 left-4 rounded-md p-2 text-xl hover:scale-105 md:bottom-8 md:left-8 lg:bottom-16 lg:left-16"
-						>{$_('portalfraes.cta')}</a
-					>
-				</div>
-			</div>
+			<KatCard titel={$_('nav.portalfraesmaschinen')} text={$_('portalfraes.beschreibungs-text')} image={"src/lib/assets/images/bild11.jpg"} link={"/produkte/portalfraesmaschinen"}/>
 
 			<!-- Spänepressen card-->
-			<div
-				class="mt-[5%] h-auto w-[90%] rounded-lg bg-[url($lib/assets/images/homepage/MSP500_klein.jpg)] bg-cover md:w-[45%]"
-			>
-				<div class="bg-primary-foreground/80 relative h-full w-full rounded-lg">
-					<h1 class="text-secondary font-boldFont px-[10%] pb-[5%] pt-[10%] text-3xl">
-						{$_('nav.spaenepressen')}
-					</h1>
-					<p
-						class="text-secondary w-full px-4 pb-[20%] text-justify md:px-8 md:pb-[30%] lg:px-16 lg:pb-[20%]"
-					>
-						TODO
-					</p>
-
-					<a
-						href="/produkte/spaenepressen"
-						class="bg-primary text-secondary font-boldFont absolute bottom-4 left-4 rounded-md p-2 text-xl hover:scale-105 md:bottom-8 md:left-8 lg:bottom-16 lg:left-16"
-						>{$_('portalfraes.cta')}</a
-					>
-				</div>
-			</div>
-
+			<KatCard titel={$_('nav.spaenepressen')} text="TODO" image={"src/lib/assets/images/homepage/MSP500_klein.jpg"} link={"/produkte/spaenepressen"}/>
+	
 			<!-- Styropor card-->
-			<div
-				class="mt-[5%] h-auto w-[90%] rounded-lg bg-[url($lib/assets/images/homepage/styroporCard_klein.jpg)] bg-cover md:w-[45%]"
-			>
-				<div class="bg-primary-foreground/80 relative h-full w-full rounded-lg">
-					<h1 class="text-secondary font-boldFont px-[10%] pb-[5%] pt-[10%] text-3xl">
-						{$_('nav.styroporbearbeitung')}
-					</h1>
-					<p
-						class="text-secondary w-full px-4 pb-[20%] text-justify md:px-8 md:pb-[30%] lg:px-16 lg:pb-[20%]"
-					>
-						TODO
-					</p>
-
-					<a
-						href="/produkte/styroporbearbeitung"
-						class="bg-primary text-secondary font-boldFont absolute bottom-4 left-4 rounded-md p-2 text-xl hover:scale-105 md:bottom-8 md:left-8 lg:bottom-16 lg:left-16"
-						>{$_('portalfraes.cta')}</a
-					>
-				</div>
-			</div>
-
+			<KatCard titel={$_('nav.styroporbearbeitung')} text="TODO" image={"src/lib/assets/images/homepage/styroporCard_klein.jpg"} link={"/produkte/styroporbearbeitung"} />
+			
 			<!-- Gebrauchtmaschinen card-->
-			<div
-				class="mt-[5%] h-auto w-[90%] rounded-lg bg-[url($lib/assets/images/homepage/gebraumaCard_klein.jpg)] bg-cover md:w-[45%]"
-			>
-				<div class="bg-primary-foreground/80 relative h-full w-full rounded-lg">
-					<h1 class="text-secondary font-boldFont px-[10%] pb-[5%] pt-[10%] text-3xl">
-						{$_('nav.gebrauchtmaschinen')}
-					</h1>
-					<p
-						class="text-secondary w-full px-4 pb-[20%] text-justify md:px-8 md:pb-[30%] lg:px-16 lg:pb-[20%]"
-					>
-						TODO
-					</p>
-
-					<a
-						href="/produkte/gebrauchtmaschinen"
-						class="bg-primary text-secondary font-boldFont absolute bottom-4 left-4 rounded-md p-2 text-xl hover:scale-105 md:bottom-8 md:left-8 lg:bottom-16 lg:left-16"
-						>{$_('portalfraes.cta')}</a
-					>
-				</div>
-			</div>
+			<KatCard titel={$_('nav.gebrauchtmaschinen')} text="TODO" image={"src/lib/assets/images/homepage/gebraumaCard_klein.jpg"} link={"/produkte/gebrauchtmaschinen"}/>
+			
 		</div>
 	</div>
 </div>

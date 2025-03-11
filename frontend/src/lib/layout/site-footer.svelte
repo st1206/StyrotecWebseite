@@ -6,7 +6,7 @@
 </script>
 
 <Footer
-	class="bg-primary-foreground bottom-0 z-10 size-full shadow-[0px_-10px_25px_rgba(0,0,0,0.35)]"
+	class="bg-primary-foreground bottom-0 z-10 size-full "
 	footerType="socialmedia"
 >
 	<div></div>

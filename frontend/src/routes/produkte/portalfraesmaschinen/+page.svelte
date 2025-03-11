@@ -24,26 +24,27 @@
 	</div>
 {/await}
 <div class="hidden xl:block absolute top-[560px] w-full h-[100px] bg-primary [clip-path:polygon(0%_0%,100%_0%,81%_100%,0%_100%)]"></div>
+
+
 <div class="bg-secondary flex flex-col gap-4 p-[5%] md:gap-12 xl:gap-16">
-
 	
-
-	
-		<h3 class="text-primary-foreground text-2xl uppercase xl:text-5xl text-center xl:mt-[80px] font-boldFont">
+		<h3 class="text-primary-foreground text-2xl uppercase xl:text-5xl text-center xl:mt-[80px] font-boldFont w-[60%]">
 			{$_(`portalfraes.titel`)}
 		</h3>
-		<p class="text-xl xl:mx-[10%]">{$_(`portalfraes.beschreibungs-text`)}</p>
-		<ul class="text-xl xl:mx-[10%] text-center">
-			<li class=" text-xl md:text-2xl xl:text-3xl font-boldFont">{$_(`portalfraes.beschreibung-1`)}</li>
-			<li class=" text-xl md:text-2xl xl:text-3xl font-boldFont">{$_(`portalfraes.beschreibung-2`)}</li>
-			<li class=" text-xl md:text-2xl xl:text-3xl font-boldFont">{$_(`portalfraes.beschreibung-3`)}</li>
-			<li class=" text-xl md:text-2xl xl:text-3xl font-boldFont">{$_(`portalfraes.beschreibung-4`)}</li>
-			<li class=" text-xl md:text-2xl xl:text-3xl font-boldFont">{$_(`portalfraes.beschreibung-5`)}</li>
-			<li class=" text-xl md:text-2xl xl:text-3xl font-boldFont">{$_(`portalfraes.beschreibung-6`)}</li>
-		</ul>
+		<p class="text-xl xl:mx-[10%] w-[60%]">{$_(`portalfraes.beschreibungs-text`)}</p>
+		<div class="w-[40%] h-auto text-secondary bg-primary-foreground py-8 rounded-lg ">
+			<ul class="text-xl xl:mx-[10%] text-left ">
+				<li class=" text-xl md:text-2xl xl:text-3xl font-boldFont"><span class="text-primary">&#x2713 </span>{$_(`portalfraes.beschreibung-1`)}</li>
+				<li class=" text-xl md:text-2xl xl:text-3xl font-boldFont"><span class="text-primary">&#x2713 </span> {$_(`portalfraes.beschreibung-2`)}</li>
+				<li class=" text-xl md:text-2xl xl:text-3xl font-boldFont"><span class="text-primary">&#x2713 </span> {$_(`portalfraes.beschreibung-3`)}</li>
+				<li class=" text-xl md:text-2xl xl:text-3xl font-boldFont"><span class="text-primary">&#x2713 </span> {$_(`portalfraes.beschreibung-4`)}</li>
+				<li class=" text-xl md:text-2xl xl:text-3xl font-boldFont"><span class="text-primary">&#x2713 </span> {$_(`portalfraes.beschreibung-5`)}</li>
+				<li class=" text-xl md:text-2xl xl:text-3xl font-boldFont"><span class="text-primary">&#x2713 </span> {$_(`portalfraes.beschreibung-6`)}</li>
+			</ul>
+		</div>
 	
 
-	<div class="bg-secondary text-primary-foreground text-xl">
+	<div class="bg-secondary text-primary-foreground text-xl w-[60%] ">
 		<Tabs tabStyle="full" contentClass="bg-primary-foreground text-secondary text-2xl rounded-0" ulClass="space-x-0 p-1 gap-2">
 			<TabItem open title={$_(`portalfraes.FS10`)} activeClass="w-[200px] p-5 bg-primary text-xl" inactiveClass="w-[200px] p-5 bg-primary-foreground text-secondary text-xl">
 				<h3 class="p-3 text-xl font-bold">{$_(`portalfraes.FS10`)}</h3>

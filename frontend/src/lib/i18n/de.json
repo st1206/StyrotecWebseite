@@ -268,8 +268,10 @@
 	},
 
 	"kontaktformular": {
-
-		"email": "Ihre E-Mail:",
+		"name": "Name",
+		"firma": "Firma",
+		"tel": "Telefonnummer",
+		"email": "E-Mail:",
 		"nachricht": "Ihre Nachricht:"
 	},
 

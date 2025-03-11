@@ -1117,6 +1117,7 @@ export interface ApiMitarbeiterMitarbeiter extends Struct.CollectionTypeSchema {
     Name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    Position: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     Telefonnummer: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;

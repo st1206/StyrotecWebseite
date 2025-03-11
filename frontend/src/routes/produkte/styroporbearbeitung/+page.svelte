@@ -11,11 +11,11 @@
 {#await data.kategorieBilder}
 	<div>skeleton build</div>
 {:then kategorie}
-	<div class="relative left-0 top-0 w-[100%]">
+	<div class="relative z-10 left-0 top-0 w-[100%]">
 		<Carousel height={600} pictures={kategorie[0].Bilder} />
 	</div>
 {/await}
-
+<div class="hidden xl:block absolute top-[560px] w-full h-[100px] bg-primary [clip-path:polygon(0%_0%,100%_0%,81%_100%,0%_100%)]"></div>
 <div class="bg-secondary flex flex-col gap-16 p-[5%] xl:gap-32">
 	<div
 		class=" bg-primary-foreground border-2 border-solid p-4 shadow-[10px_20px_60px_rgba(0,0,0,0.95)] xl:mx-[10%] xl:p-24"

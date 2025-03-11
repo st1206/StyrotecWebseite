@@ -6,7 +6,7 @@
 	import { Tabs, TabItem } from 'svelte-5-ui-lib';
 </script>
 
-<img src={head} alt="head" class="h-[600px] w-full object-cover">
+<img src={head} alt="head" class="relative z-10 h-[600px] w-full object-cover">
 <div class="hidden xl:block absolute top-[560px] w-full h-[100px] bg-primary [clip-path:polygon(0%_0%,100%_0%,81%_100%,0%_100%)]"></div>
 <div class="bg-secondary flex flex-col gap-16 p-[5%] xl:gap-32">
 

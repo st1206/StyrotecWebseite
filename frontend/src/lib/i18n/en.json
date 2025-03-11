@@ -268,8 +268,11 @@
 	},
 
 	"kontaktformular": {
-		"email": "Your E-Mail:",
-		"nachricht": "Your message to:"
+		"name": "Name",
+		"firma": "Company",
+		"tel": "phone number",
+		"email": "E-Mail:",
+		"nachricht": "Your message:"
 	},
 
 	"styroporfraesen": {

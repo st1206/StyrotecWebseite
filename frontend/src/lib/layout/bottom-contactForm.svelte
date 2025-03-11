@@ -9,7 +9,7 @@
 
 <div class="w-full">
     <div
-		class="from-background via-primary to-secondary-foreground relative z-0 h-auto w-full bg-gradient-to-bl"
+		class="from-primary/65 via-primary to-secondary-foreground relative z-0 h-auto w-full bg-gradient-to-b"
 	>
 		<div class="flex flex-col md:flex-row  justify-around py-[5%] ">
             <!-- Ansprechpartner Card -->
@@ -24,9 +24,27 @@
                             
                         </div>
                     </div>
-                    <div class="p-8 mt-4">
-                        <h2 class="w-full">{$_(`kontaktformular.email`)}</h2>
-                        <Input class="text-primary-foreground xl:w-full bg-secondary border-primary" />
+                    <div class="px-8 flex flex-row gap-4">
+                        <div class="w-[50%]">
+                            <h2 class="w-full">{$_(`kontaktformular.name`)}</h2>
+                            <Input class="text-primary-foreground  bg-secondary border-primary w-full" />
+                        </div>
+                        <div class="w-[50%]">
+                            <h2 class="w-full">{$_(`kontaktformular.firma`)}</h2>
+                            <Input class="text-primary-foreground  bg-secondary border-primary w-full" />
+                        </div>
+                    </div>
+                    <div class="px-8 mt-4 flex flex-row gap-4">
+                        <div class="w-[50%]">
+                            <h2 class="w-full">{$_(`kontaktformular.email`)}</h2>
+                            <Input class="text-primary-foreground  bg-secondary border-primary w-full" />
+                        </div>
+                        <div class="w-[50%]">
+                            <h2 class="w-full">{$_(`kontaktformular.tel`)}</h2>
+                            <Input class="text-primary-foreground  bg-secondary border-primary w-full" />
+                        </div>
+                    </div>
+                    <div class="px-8 pb-8">
                         <h2 class="w-full">{$_(`kontaktformular.nachricht`)}</h2>
                         <Textarea class="text-primary-foreground h-[100px] w-auto xl:w-[100%]" innerClass="bg-secondary " divClass="border-primary"/>
                     </div>
@@ -36,7 +54,7 @@
             <!-- Newsletter + weiterleitung zu Kontaktformular-->
 			<div class="w-[90%] md:w-[40%] h-[500px] bg-primary-foreground text-secondary rounded-lg p-16">
                 <Accordion.Root
-                    
+                    type="single"
                     class=""
                 >
                     <Accordion.Item value="item-1">
