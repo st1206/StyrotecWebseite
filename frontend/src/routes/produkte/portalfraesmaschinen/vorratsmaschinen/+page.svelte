@@ -37,6 +37,7 @@
 			</h1>
 			<p>{$_(`vorratsmaschinen.übersicht-text`)}</p>
             <p>{$_(`vorratsmaschinen.übersicht-text2`)}</p>
+            <p>hello</p>
 		</div>
 	</div>
 </div>
