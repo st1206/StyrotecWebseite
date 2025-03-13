@@ -129,12 +129,28 @@
 	},
 	"styroporbearbeitung": { 
 		"titel": "Overview styrofoam machining",
+		"sub": "TODO",
+		"beschreibungs-text": "TODO",
 		"cta": "Learn more",
 		"fräswerkzeuge": "Milling Tools",
-		"fräswerkzeuge-text": "TODO"
+		"fräswerkzeuge-text": "TODO",
+		"absaugungen": "TODO",
+		"absaugungen-text": "TODO",
+		"hohlfrässpindeln": "TODO",
+		"hohlfrässpindeln-text": "TODO",
+		"kleber": "TODO",
+		"kleber-text": "TODO",
+		"pressen": "TODO",
+		"pressen-text": "TODO",
+		"rohmaterial": "TODO",
+		"rohmaterial-text": "TODO",
+		"zerkleinerer": "TODO",
+		"zerkleinerer-text": "TODO"
 	},
 	"gebrauMa": {
 		"titel": "Our used machines",
+		"sub": "Todo",
+		"beschreibungs-text": "TODO",
 		"cta": "Learn more",
 		"cnc-maschinen": "CNC Maschines",
 		"cnc-maschinen-text": "Discover our wide selection of used CNC milling machines from renowned manufacturers. Each machine is carefully inspected to ensure top quality and full functionality. Benefit from flexibility and resource efficiency while making a valuable contribution to the circular economy.",
@@ -209,9 +225,36 @@
 		"schwenk": "Swivel Angle",
 		"steuerung": "Control"
 	},
+	"fs15": {
+		"übersicht-titel": "Our FS 15 series - For the highest demands and large dimensions",
+		"übersicht-text": "The FS 15 series stands for uncompromising performance in the machining of particularly large workpieces. Its design as an HSC 5-axis gantry machine ensures outstanding stability and precision. It is ideally suited for demanding applications where both flexibility and high machining speeds are required.",
+		"übersicht-punkt1": "Large-volume machining",
+		"übersicht-punkt2": "High dynamics with extreme rigidity",
+		"übersicht-punkt3": "Fast changeover times",
+		"übersicht-ende": "Discover our various versions!"
+	},
+	"fs20": {
+		"übersicht-titel": "Our FS 20 series - For maximum efficiency and cost-effectiveness",
+		"übersicht-text": "The FS 20 series has been specially developed for cost-effective milling. With its fixed portal and movable table, it enables highly efficient and flexible operation. It is ideal for manufacturing with a high degree of automation and is also widely used in the concrete industry.",
+		"übersicht-punkt1": "Robust and efficient",
+		"übersicht-punkt2": "High degree of automation",
+		"übersicht-punkt3": "High cost-effectiveness",
+		"übersicht-ende": "Discover our various versions!"
+	},
+	"hybrid": {
+		"übersicht-titel": "3D Hybrid Milling Machines - Precision through the combination of 3D printing and CNC milling",
+		"übersicht-text": "Our 3D hybrid milling machines combine the benefits of additive and subtractive manufacturing in one system. 3D printing enables the fast and cost-effective production of complex components from plastic materials, while CNC milling precisely removes material and refines the surfaces to the desired shape.",
+		"übersicht-text2": "By combining these processes in one machine, you benefit from maximum flexibility, efficiency, and precision - ideal for complex geometries and optimized production."
+	},
+	"vorratsmaschinen": {
+		"übersicht-titel": "Styrotec In-Stock Machines - fast and uncomplicated",
+		"übersicht-text": "We always keep some of our Styrotec portal milling machines in stock to ensure fast delivery.",
+		"übersicht-text2": "Do you want to expand your machine park at short notice and can't afford to wait for long delivery times? Then our stock machines are sure to have the right option for you! You are also welcome to visit and inspect the machines on-site."
+	},
 	"maschinenerhaltung": {
-		"maschinenerhaltung": "Overview over Machine Maintenance",
-		"maschinenerhaltung-text": "TODO",
+		"titel": "Machine Maintenance",
+		"sub": "TODO",
+		"beschreibungs-text": "TODO",
 		"spindelservice": "Spindle Service",
 		"spindelservice-text": "TODO",
 		"wartungen": "Maintenance",
@@ -221,13 +264,33 @@
 		"maschinenumzüge": "Maschine Relocation",
 		"maschinenumzüge-text": "TODO"
 	},
+	"maschinenvermarktung": {
+		"titel": "Machine Marketing",
+		"sub": "TODO",
+		"beschreibungs-text": "TODO",
+		"bewertung": "Machine Evaluation",
+		"bewertung-text": "TODO",
+		"vermittlung": "Machine Mediation",
+		"vermittlung-text": "TODO",
+		"ankauf": "Machine Purchase",
+		"ankauf-text": "TODO"
+	},
+	"maschinenmodernisierung": {
+		"titel": "Machine Modernization",
+		"sub": "TODO",
+		"beschreibungs-text": "TODO",
+		"retrofit": "Retrofit",
+		"retrofit-text": "TODO",
+		"ueberholung": "Overhaul",
+		"ueberholung-text": "TODO"
+	},
 	"pressen": {
 		"kunststoff": "Plasics",
-		"kunststoff-text": "",
+		"kunststoff-text": "TODO",
 		"metalle": "Metalls",
-		"metalle-text": "",
+		"metalle-text": "TODO",
 		"styropor": "Styrofoam",
-		"styropor-text": ""
+		"styropor-text": "TODO"
 	},
 	"cnc-Masch-Seite": {
 		"beschreibung": "Description",
@@ -342,7 +405,8 @@
 		"kundengeschichten": "Customer stories",
 		"referenzen": "References",
 		"messen": "Fairs",
-		"messestand": "Come visit us at Stand"
+		"messestand": "Come visit us at Stand",
+		"messelink": "Link to the Fair"
 	},
 	"ueber-uns": {
 		"gründung-titel": "Founding",

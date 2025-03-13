@@ -2,6 +2,11 @@ import { browser } from '$app/environment';
 
 import { locale, waitLocale } from 'svelte-i18n';
 import type { LayoutLoad } from './$types';
+import type { AttributesOf } from '$lib/cmsTypes/types';
+import { PUBLIC_BACKEND_URL } from '$env/static/public';
+
+
+import { error } from '@sveltejs/kit';
 
 
 export const load: LayoutLoad = async () => {
@@ -11,7 +16,7 @@ export const load: LayoutLoad = async () => {
 		
 	}
 	await waitLocale();
-	/* const loadMitarbeiter = async (): Promise<AttributesOf<ApiMitarbeiterMitarbeiter>> => {
+	/*const loadMitarbeiter = async (): Promise<AttributesOf<ApiMitarbeiterMitarbeiter>> => {
 			const res = await fetch(
 				`${PUBLIC_BACKEND_URL}/api/mitarbeiters?populate=*`,
 				{

@@ -2,11 +2,13 @@
 	import Button from '$lib/components/ui/button/button.svelte';
 	import gebrauma from '$lib/assets/images/gebrauchtmaschinen/gebrauma.jpg';
 	import holz from '$lib/assets/images/gebrauchtmaschinen/holz.jpg';
-	import modelbau from '$lib/assets/images/gebrauchtmaschinen/modelbau.jpg';
+	import modellbau from '$lib/assets/images/gebrauchtmaschinen/modelbau.jpg';
 	import zubehoer from '$lib/assets/images/gebrauchtmaschinen/zubehoer.jpg';
+	import action from '$lib/assets/images/portalfraesmaschinen/fraesaction.jpg';
 	import { _ } from 'svelte-i18n';
 	import Carousel from '$lib/components/carousel.svelte';
 	import { Tabs, TabItem } from 'svelte-5-ui-lib';
+	import KatCard from '$lib/components/katCard.svelte';
 	let { data } = $props();
 </script>
 
@@ -14,95 +16,70 @@
 	<div>skeleton build</div>
 {:then kategorie}
 	<div class="relative z-10 left-0 top-0 w-[100%]">
-		<Carousel height={600} pictures={kategorie.filter(item=> item.Kategorie ==="gebrauchtmaschinen")[0].Bilder} />
+		<Carousel height={600} pictures={kategorie.filter(item=> item.Kategorie ==="Gebrauchtmaschinen")[0].Bilder} />
 	</div>
 {/await}
 <div class="relative -top-[50px] w-full h-[100px] md:h-[100px] bg-primary [clip-path:polygon(0%_0%,100%_0%,81%_100%,0%_100%)]"></div>
-<div class="bg-secondary flex flex-col gap-16 p-[5%] xl:gap-32">
-	<div
-		class=" bg-primary-foreground border-2 border-solid p-4 shadow-[10px_20px_60px_rgba(0,0,0,0.95)] xl:mx-[10%] xl:p-24"
-	>
-		<h3 class="text-secondary text-2xl uppercase xl:text-5xl">
-			{$_(`gebrauMa.titel`)}
-		</h3>
+
+
+<div class="bg-secondary flex flex-col py-[30px] lg:flex-row">
+	<div class="w-[90%] md:w-[60%]">
+		<div class="relative mb-4 md:-left-[5%] xl:-left-[20%]">
+			<h3
+				class="text-primary-foreground font-boldFont pl-2 text-right text-xl uppercase md:pl-6 md:text-3xl lg:pl-12 lg:text-5xl"
+			>
+				{$_(`gebrauMa.titel`)}
+			</h3>
+			<h1 class="pl-2 text-right text-xl uppercase md:pl-6 md:text-2xl lg:pl-12 lg:text-4xl">
+				{$_(`gebrauMa.sub`)}
+			</h1>
+		</div>
+		<p class="p-4 md:text-xl lg:text-2xl xl:mx-[10%]">{$_(`gebrauMa.beschreibungs-text`)}</p>
 	</div>
+	<img
+		src={action}
+		alt="action bild"
+		class="hidden h-[400px] w-[30%] rounded-lg object-cover lg:block"
+	/>
+</div>
 
-	<div class="bg-secondary text-primary-foreground text-xl">
-		<Tabs tabStyle="full" contentClass="bg-primary-foreground text-secondary text-2xl rounded-0 border-secondary" ulClass="space-x-0 p-1 gap-2">
-			<TabItem open title={$_(`gebrauMa.cnc-maschinen`)} activeClass="w-[270px] p-5 bg-primary text-xl" inactiveClass="w-[270px] p-5 bg-primary-foreground text-secondary text-xl">
-				<h3 class="p-3 text-xl font-bold">{$_(`gebrauMa.cnc-maschinen`)}</h3>
-				<div class="flex flex-col xl:flex-row">
-					<div class="w-full p-3 xl:w-[50%]">
-						{$_(`gebrauMa.cnc-maschinen-text`)} <br />
-						<Button class="relative -bottom-5 left-[3%]  xl:right-[90px]"
-							><a href="/produkte/gebrauchtmaschinen/cnc-maschinen">{$_(`gebrauMa.cta`)}</a></Button
-						>
-					</div>
-					<div class=" xl:w-[50%]">
-						<img
-							class="border-secondary-foreground relative bottom-[10%] h-[250px] border-4 xl:right-[-20%] m-3"
-							src={gebrauma}
-							alt="bild"
-						/>
-					</div>
-				</div>
-			</TabItem>
-			<TabItem title={$_(`gebrauMa.cnc-zubehör`)} activeClass="w-[270px] p-5 bg-primary text-xl" inactiveClass="w-[270px] p-5 bg-primary-foreground text-secondary text-xl">
-				<h3 class="p-3 text-xl font-bold">{$_(`gebrauMa.cnc-zubehör`)}</h3>
-				<div class="flex flex-col xl:flex-row">
-					<div class="w-full p-3 xl:w-[50%]">
-						{$_(`gebrauMa.cnc-zubehör-text`)} <br />
-						<Button class="relative -bottom-5 left-[3%]  xl:right-[90px]"
-							><a href="/produkte/gebrauchtmaschinen/cnc-maschinen">{$_(`gebrauMa.cta`)}</a></Button
-						>
-					</div>
-					<div class=" xl:w-[50%]">
-						<img
-							class="border-secondary-foreground relative bottom-[10%] h-[250px] border-4 xl:right-[-20%] m-3"
-							src={zubehoer}
-							alt="bild"
-						/>
-					</div>
-				</div>
-			</TabItem>
 
-			<TabItem title={$_(`gebrauMa.holz`)} activeClass="w-[270px] p-5 bg-primary text-xl" inactiveClass="w-[270px] p-5 bg-primary-foreground text-secondary text-xl">
-				<h3 class="p-3 text-xl font-bold">{$_(`gebrauMa.holz`)}</h3>
-				<div class="flex flex-col xl:flex-row">
-					<div class="w-full p-3 xl:w-[50%]">
-						{$_(`gebrauMa.holz-text`)} <br />
-						<Button class="relative -bottom-5 left-[3%]  xl:right-[90px]"
-							><a href="/produkte/gebrauchtmaschinen/cnc-maschinen">{$_(`gebrauMa.cta`)}</a></Button
-						>
-					</div>
-					<div class=" xl:w-[50%]">
-						<img
-							class="border-secondary-foreground relative bottom-[10%] h-[250px] border-4 xl:right-[-20%] m-3"
-							src={holz}
-							alt="bild"
-						/>
-					</div>
-				</div>
-			</TabItem>
 
-			<TabItem title={$_(`gebrauMa.modell`)} activeClass="w-[270px] p-5 bg-primary text-xl" inactiveClass="w-[270px] p-5 bg-primary-foreground text-secondary text-xl">
-				<h3 class="p-3 text-xl font-bold">{$_(`gebrauMa.modell`)}</h3>
-				<div class="flex flex-col xl:flex-row">
-					<div class="w-full p-3 xl:w-[50%]">
-						{$_(`gebrauMa.modell-text`)} <br />
-						<Button class="relative -bottom-5 left-[3%]  xl:right-[90px]"
-							><a href="/produkte/gebrauchtmaschinen/cnc-maschinen">{$_(`gebrauMa.cta`)}</a></Button
-						>
-					</div>
-					<div class=" xl:w-[50%]">
-						<img
-							class="border-secondary-foreground relative bottom-[10%] h-[250px] border-4 xl:right-[-20%] m-3"
-							src={modelbau}
-							alt="bild"
-						/>
-					</div>
-				</div>
-			</TabItem>
-		</Tabs>
+<div class="bg-secondary mx-[5%] my-[100px]">
+	<h1 class="font-boldFont text-center text-5xl uppercase">TODO</h1>
+	<div class="flex flex-col flex-wrap justify-around gap-[5%] md:flex-row">
+		<!-- cnc - maschinen karte -->
+		<KatCard
+			titel={$_(`gebrauMa.cnc-maschinen`)}
+			text={$_(`gebrauMa.cnc-maschinen-text`)}
+			image={gebrauma}
+			link="/produkte/gebrauchtmaschinen/cnc-maschinen"
+		/>
+
+		<!-- cnc zubehör  Karte -->
+		<KatCard
+			titel={$_(`gebrauMa.cnc-zubehör`)}
+			text={$_(`gebrauMa.cnc-zubehör-text`)}
+			image={zubehoer}
+			link="/produkte/gebrauchtmaschinen/cnc-zubehör"
+		/>
+
+		<!-- modellbaumaschinen Karte -->
+		<KatCard
+			titel={$_(`gebrauMa.holz`)}
+			text={$_(`gebrauMa.holz-text`)}
+			image={holz}
+			link="/produkte/gebrauchtmaschinen/holzbearbeitungsmaschinen"
+		/>
+
+		<!-- holzbearbeitungsmaschinen -->
+		<KatCard
+			titel={$_(`gebrauMa.modell`)}
+			text={$_(`gebrauMa.modell-text`)}
+			image={modellbau}
+			link="/produkte/gebrauchtmaschinen/modellbaumaschinen"
+		/>	
 	</div>
 </div>
+
+

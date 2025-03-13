@@ -3,17 +3,27 @@
     import { _ } from 'svelte-i18n';
     import * as Accordion from '$lib/components/ui/accordion';
     let checked = false;
-    
+    /* let { data } = $props(); */
     
 </script>
+<!--
+{#await data.mitarbeiter}
+    <div> Waiting for Data</div>
+{:then mitarbeiter}
+    diplay the Mitarbeiter
+{:catch}
+    Server Error. 
+{/await}
+-->
+
 
 <div class="w-full">
     <div
 		class="from-primary/65 via-primary to-secondary-foreground relative z-0 h-auto w-full bg-gradient-to-b"
 	>
-		<div class="flex flex-col md:flex-row  justify-around py-[5%] ">
+		<div class="flex flex-col md:flex-row justify-center  md:justify-around gap-2 px-4 md:px-0 py-[5%] ">
             <!-- Ansprechpartner Card -->
-            <div class="w-[90%] md:w-[40%] bg-primary-foreground text-secondary rounded-lg bg-[url($lib/assets/images/rolf_schreibtisch.jpg)] bg-cover">
+            <div class="w-[90%] md:w-[40%]  bg-primary-foreground text-secondary rounded-lg bg-center bg-[url($lib/assets/images/rolf_schreibtisch.jpg)] bg-cover">
                 <div class="w-full h-full bg-primary-foreground/35 rounded-lg">
                     <div class="flex flex-row">
                         <div class="w-[50%] text-left p-16">

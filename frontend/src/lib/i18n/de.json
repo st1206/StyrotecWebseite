@@ -130,12 +130,29 @@
 	},
 	"styroporbearbeitung": { 
 		"titel": "Übersicht Styroporbearbeitung",
+		"sub": "TODO",
+		"beschreibungs-text": "TODO",
 		"cta": "Mehr erfahren",
 		"fräswerkzeuge": "Fräswerkzeuge",
-		"fräswerkzeuge-text": "TODO"
+		"fräswerkzeuge-text": "TODO",
+		"absaugungen": "TODO",
+		"absaugungen-text": "TODO",
+		"hohlfrässpindeln": "TODO",
+		"hohlfrässpindeln-text": "TODO",
+		"kleber": "TODO",
+		"kleber-text": "TODO",
+		"pressen": "TODO",
+		"pressen-text": "TODO",
+		"rohmaterial": "TODO",
+		"rohmaterial-text": "TODO",
+		"zerkleinerer": "TODO",
+		"zerkleinerer-text": "TODO"
 	},
+	
 	"gebrauMa": {
-		"titel": "Übersicht über Unsere Gebrauchtmaschinen", 
+		"titel": "Unsere Gebrauchtmaschinen", 
+		"sub": "Todo",
+		"beschreibungs-text": "TODO",
 		"cta": "Mehr erfahren",
 		"cnc-maschinen": "CNC Maschinen",
 		"cnc-maschinen-text": "Entdecken Sie unsere große Auswahl an gebrauchten CNC-Fräsmaschinen namhafter Hersteller. Jede Maschine wird sorgfältig geprüft, um höchste Qualität und volle Funktionalität zu gewährleisten. Profitieren Sie von Flexibilität, Ressourcenschonung und leisten Sie einen wertvollen Beitrag zur Kreislaufwirtschaft.",
@@ -209,9 +226,36 @@
 		"schwenk": "Schwenkwinkel",
 		"steuerung": "Steuerung"
 	},
+	"fs15": {
+		"übersicht-titel": "Unsere Baureihe FS 15 - Für höchste Ansprüche und große Dimensionen",
+		"übersicht-text": "Die Baureihe FS 15 steht für kompromisslose Leistungsfähigkeit bei der Bearbeitung besonders großer Werkstücke. Ihr Aufbau als HSC 5-Achs Gantry Maschine ermöglicht herausragende Stabilität und Präzision. Sie eignet sie sich optimal für anspruchsvolle Anwendungen, bei denen sowohl Flexibilität als auch hohe Bearbeitungsgeschwindigkeiten gefragt sind.",
+		"übersicht-punkt1": "Großvolumige Bearbeitung",
+		"übersicht-punkt2": "Hohe Dynamik bei extremer Steifigkeit",
+		"übersicht-punkt3": "Schnelle Umrüstzeiten",
+		"übersicht-ende": "Entdecken Sie unsere unterschiedlichen Ausführungen!"
+	},
+	"fs20": {
+		"übersicht-titel": "Unsere Baureihe FS 20 - Für höchste Effizienz und Wirtschaftlichkeit",
+		"übersicht-text": "Die Baureihe FS 20 wurde speziell für die wirtschaftliche Fräsbearbeitung entwickelt. Mit ihrem feststehenden Portal und dem verfahrbaren Tisch lässt sich sehr effizient und flexibel arbeiten. Sie eignet sich optimal für die Fertigung mit hohem Automatisierungsgrad und findet auch in der Betonbranche weitreichende Anwendungen.",
+		"übersicht-punkt1": "Robust und effizient",
+		"übersicht-punkt2": "Hoher Automatisierungsgrad",
+		"übersicht-punkt3": "Hohe Wirtschaftlichkeit",
+		"übersicht-ende": "Entdecken Sie unsere unterschiedlichen Ausführungen!"
+	},
+	"hybrid": {
+		"übersicht-titel": "3D-Hybrid-Fräsmaschinen - Präzision durch Kombination von 3D-Druck und CNC-Fräsen",
+		"übersicht-text": "Unsere 3D-Hybrid-Fräsmaschinen vereinen die Vorteile der additiven und subtraktiven Fertigung in einem System. Der 3D-Druck ermöglicht die schnelle und kostengünstige Herstellung komplexer Bauteile aus plastischen Werkstoffen, während das CNC-Fräsen präzise Material abträgt und die Oberflächen bis zur gewünschten Form verfeinert.",
+		"übersicht-text2": "Durch die Kombination dieser Verfahren in einer Maschine profitieren Sie von höchster Flexibilität, Effizienz und Präzision - ideal für komplexe Geometrien und eine optimierte Fertigung."
+	},
+	"vorratsmaschinen": {
+		"übersicht-titel": "Styortec Vorratsmaschinen - schnell und unkompliziert",
+		"übersicht-text": "wir halten immer einige unserer Styrotec Portalfräsmaschinen am Lager, um schnell liefern zu können.",
+		"übersicht-text2": "Sie wollen ihren Maschinenpark kurzfristig erweitern und dürfen nicht auf Lieferzeiten angewiesen sein ? Dann ist bei unseren Vorratsmaschinen mit Sicherheit etwas dabei! Gerne können die Maschinen auch vor Ort besichtigt werden."
+	},
 	"maschinenerhaltung": {
-		"maschinenerhaltung": "Übersicht über Maschinenerhaltung",
-		"maschinenerhaltung-text": "TODO",
+		"titel": "Maschinenerhaltung",
+		"sub": "TODO",
+		"beschreibungs-text": "TODO",
 		"spindelservice": "Spindelservice",
 		"spindelservice-text": "TODO",
 		"wartungen": "Wartungen",
@@ -220,6 +264,26 @@
 		"reparaturen-text": "TODO",
 		"maschinenumzüge": "Maschinenumzüge",
 		"maschinenumzüge-text": "TODO"
+	},
+	"maschinenvermarktung": {
+		"titel": "Maschinenvermarktung",
+		"sub": "TODO",
+		"beschreibungs-text": "TODO",
+		"bewertung": "Maschinenbewertung",
+		"bewertung-text": "TODO",
+		"vermittlung": "Maschinenvermittlung",
+		"vermittlung-text": "TODO",
+		"ankauf": "Ankauf",
+		"ankauf-text": "TODO"
+	},
+	"maschinenmodernisierung": {
+		"titel": "Maschinenmodernisierung",
+		"sub": "TODO",
+		"beschreibungs-text": "TODO",
+		"retrofit": "Retrofit",
+		"retrofit-text": "TODO",
+		"ueberholung": "Überholung",
+		"ueberholung-text": "TODO"
 	},
 	"pressen": {
 		"kunststoff": "Kunststoffe",
@@ -341,7 +405,8 @@
 		"kundengeschichten": "Kundengeschichten",
 		"referenzen": "Referenzen",
 		"messen": "Messen",
-		"messestand": "Besucht uns am stand"
+		"messestand": "Besucht uns am stand",
+		"messelink": "Link zur Messe"
 	},
 	"ueber-uns": {
 		"gründung-titel": "Gründung",

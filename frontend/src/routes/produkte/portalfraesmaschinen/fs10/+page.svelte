@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { _ } from 'svelte-i18n';
-	import * as Accordion from '$lib/components/ui/accordion';
+	
 	import vierSeitig from '$lib/assets/images/portalfraesmaschinen/4-seitige_Umhausung.png';
 	import vollumhausung from '$lib/assets/images/portalfraesmaschinen/Umhausung.png';
 	import arbeitsraum from '$lib/assets/images/portalfraesmaschinen/Arbeitsraumabdeckung.jpg';
@@ -18,9 +17,11 @@
 	import glatt from '$lib/assets/images/portalfraesmaschinen/tisch-glatt.jpg';
 	import top from '$lib/assets/images/portalfraesmaschinen/FS10ST_klein.jpg';
 	import MaschinenCarousel from '$lib/components/maschinenCarousel.svelte';
-
+	
+	import { _ } from 'svelte-i18n';
+	import * as Accordion from '$lib/components/ui/accordion';
 	let { data } = $props();
-	console.log(data);
+
 </script>
 
 <div class="relative ">
@@ -45,7 +46,7 @@
 	<div
 		class="from-primary-foreground/25 hidden lg:block via-primary-foreground/15 to-secondary absolute -top-[170px] right-0 h-[300px] w-[40%] bg-gradient-to-bl [clip-path:polygon(0%_28.5%,100%_0%,100%_100%,0%_100%)] lg:h-[700px]"
 	></div>
-	<div class="mx-4 pb-3 ml-[30px] lg:ml-[80px] md:mr-[300px] lg:mr-[600px] xl:mr-[800px] lg:mt-[100px]">
+	<div class="mx-4 pb-3 ml-[30px] lg:ml-[80px] md:mr-[300px] lg:mr-[600px] xl:mr-[800px] mt-8 lg:mt-[100px]">
 		<div>
 			<h1 class="font-boldFont pb-6 text-5xl uppercase">
 				{$_(`fs10.übersicht-titel`)}
@@ -59,7 +60,9 @@
 			<p>{$_(`fs10.übersicht-ende`)}</p>
 		</div>
 	</div>
+</div>
 
+<div>
 	<div class="xl:mt-[150px]">
 		{#await data.fs10s}
 			<div class="bg-primary">skeleton build</div>
@@ -152,7 +155,7 @@
 							</Accordion.Item>
 						</Accordion.Root>
 
-						<div class="relative left-10 xl:left-0 xl:top-0 w-[80%] xl:w-[45%]">
+						<div class="relative left-10 xl:left-0 xl:top-0 w-[80%] xl:w-[45%] p-4">
 							<MaschinenCarousel height={400} pictures={fs10.Bilder} />
 						</div>
 
@@ -239,6 +242,7 @@
 							</tr>
 						</tbody>
 					</table>
+					<span>○ - optional, ● - standard </span>
 				</Accordion.Content>
 			</Accordion.Item>
 			<Accordion.Item value="item-2">

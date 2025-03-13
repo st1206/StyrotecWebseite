@@ -43,9 +43,9 @@
 	});
 </script>
 
-<div class="modal -right-[27px] xl:-right-[42px] flex justify-center">
+<div class="modal -right-[27px] xl:-right-[42px] flex justify-center rounded-lg">
 	<Button
-		class="bg-primary-500 border-primary-foreground h-[50px] w-[100px] rounded-none border-2 text-xl xl:h-[60px] xl:w-[130px] xl:text-2xl"
+		class="bg-primary-500 border-primary-foreground h-[50px] w-[100px] rounded-lg border-2 text-xl xl:h-[60px] xl:w-[130px] xl:text-2xl"
 		onclick={modalExample.toggle}
 	>
 		<div class="w-full pr-1"><Mail size={22}/></div>{$_('contact.title')}

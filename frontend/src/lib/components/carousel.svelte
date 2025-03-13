@@ -4,7 +4,7 @@
 	import { PUBLIC_BACKEND_URL } from '$env/static/public';
 	import { writable } from "svelte/store";
 	import { onMount, tick } from "svelte";
-
+	let options = {loop: true};
 	let {
 		pictures,
 		height,
@@ -52,7 +52,7 @@
 
 </script>
 
-<Carousel.Root plugins={[plugin]}>
+<Carousel.Root plugins={[plugin]} opts= {options}>
 	<Carousel.Content style={`max-height: ${height}px`}>
 		{#each pictures as picture}
 			<Carousel.Item class="pl-0">

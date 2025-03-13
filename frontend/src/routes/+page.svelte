@@ -91,10 +91,10 @@
 
 
 
-<div class=" flex flex-row flex-wrap bg-primary-foreground text-secondary gap-12 p-32">
+<div class=" flex flex-row flex-wrap bg-primary-foreground text-secondary gap-12 p-4 lg:p-12 lg:pt-24">
 	
 	
-	<div class="text-lg pl-32  h-[400px] w-[40%]">
+	<div class="text-lg pl-4 lg:pl-8   w-[90%] lg:w-[50%]">
 		<h1 class="text-3xl uppercase font-boldFont pb-2">{$_('homepage.einführung-titel')}</h1>
 		{$_('homepage.einführung-text')} <br>
 		● {$_('homepage.einführung-punkt1')} <br>
@@ -103,7 +103,7 @@
 		{$_('homepage.einführung-ende')}
 	</div>
 	
-	<img src={karte} alt="Karte" class="h-[400px] "> 
+	<img src={karte} alt="Karte" class="hidden lg:block w-[40%] "> 
 	
 </div>
 
@@ -131,7 +131,7 @@
 <!-- Weltweit -->
 <div class="mt-64 mb-12">
 	<div class="mt-[5%] h-auto ml-[15%] w-[70%] bg-center rounded-lg bg-[url($lib/assets/images/homepage/weltkarte.png)] bg-cover">
-				<div class="bg-primary-foreground/85 relative h-full w-full rounded-lg p-44 text-secondary">
+				<div class="bg-primary-foreground/85 relative h-full w-full rounded-lg p-16 md:p-44 text-secondary">
 					<h1 class="text-m xl:text-4xl font-boldFont mb-10">{$_(`homepage.weltweit-titel`)}</h1>
 					<p class="hidden xl:block xl:text-2xl">
 						{$_(`homepage.weltweit-text`)}
@@ -157,8 +157,8 @@
 						<Accordion.Trigger>{$_('homepage.unternehmen-news-titel')}</Accordion.Trigger>
 						<Accordion.Content class="xl:text-xl">
 							<!-- TODO: Inhalt zu news etc. -->
-							 blabla 
-							 <Button class="text-xl md:text-2xl lg:text-3xl text-secondary border-2 border-secondary" href="/unternehmen/news-termine">News & Termine</Button>
+							 
+							<Button class="text-xl md:text-2xl lg:text-3xl text-secondary border-2 border-secondary" href="/unternehmen/news-termine">News & Termine</Button>
 							
 						</Accordion.Content>
 					</Accordion.Item>

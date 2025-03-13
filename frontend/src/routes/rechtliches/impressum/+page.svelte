@@ -8,8 +8,8 @@
 
     <h2>Vertreten durch</h2>
     <p>
-        Handelsregister Ulm HRA 551449 – Geschäftsführer: Norbert Schuster <br>
-        PhG: Styrotec Verwaltungs GmbH – Handelsregister Ulm HRB 552448
+        Handelsregister Ulm HRA 551449 - Geschäftsführer: Norbert Schuster <br>
+        PhG: Styrotec Verwaltungs GmbH - Handelsregister Ulm HRB 552448
     </p>
     <h2>Kontakt</h2>
     <p>
