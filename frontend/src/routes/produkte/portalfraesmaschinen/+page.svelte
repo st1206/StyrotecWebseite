@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button/button.svelte';
-	import portalfraes from '$lib/assets/images/gebrauchtmaschinen/gebrauma.jpg';
-	import holz from '$lib/assets/images/gebrauchtmaschinen/holz.jpg';
-	import modelbau from '$lib/assets/images/gebrauchtmaschinen/modelbau.jpg';
-	import zubehoer from '$lib/assets/images/gebrauchtmaschinen/zubehoer.jpg';
+	import fs10Bild from '$lib/assets/images/portalfraesmaschinen/FS10ST_klein.jpg'
+	import fs15Bild from '$lib/assets/images/portalfraesmaschinen/fs15.jpg'
+	import fs20Bild from '$lib/assets/images/portalfraesmaschinen/FS20.jpg'
+	import dreidBild from '$lib/assets/images/portalfraesmaschinen/3d.jpg'
+	import vorratBild from '$lib/assets/images/portalfraesmaschinen/vorrat.jpg'
 	import { _ } from 'svelte-i18n';
 	import Carousel from '$lib/components/carousel.svelte';
 	import { Tabs, TabItem } from 'svelte-5-ui-lib';
@@ -101,7 +101,7 @@
 				<KatCard
 					titel={$_(`portalfraes.FS10`)}
 					text={$_(`portalfraes.FS10-text`)}
-					image={'/src/lib/assets/images/portalfraesmaschinen/FS10ST_klein.jpg'}
+					image={fs10Bild}
 					link="/produkte/portalfraesmaschinen/fs10"
 				/>
 
@@ -109,7 +109,7 @@
 				<KatCard
 					titel={$_(`portalfraes.FS15`)}
 					text={$_(`portalfraes.FS15-text`)}
-					image={'/src/lib/assets/images/portalfraesmaschinen/fs15.jpg'}
+					image={fs15Bild}
 					link="/produkte/portalfraesmaschinen/fs15"
 				/>
 
@@ -117,7 +117,7 @@
 				<KatCard
 					titel={$_(`portalfraes.FS20`)}
 					text={$_(`portalfraes.FS20-text`)}
-					image={'/src/lib/assets/images/portalfraesmaschinen/FS20.jpg'}
+					image={fs20Bild}
 					link="/produkte/portalfraesmaschinen/fs20"
 				/>
 
@@ -125,7 +125,7 @@
 				<KatCard
 					titel={$_(`portalfraes.hybrid`)}
 					text={$_(`portalfraes.hybrid-text`)}
-					image={'/src/lib/assets/images/portalfraesmaschinen/3d.jpg'}
+					image={dreidBild}
 					link="/produkte/portalfraesmaschinen/hybrid-3d"
 				/>
 
@@ -133,11 +133,12 @@
 				<KatCard
 					titel={$_(`portalfraes.vorratsmaschinen`)}
 					text={$_(`portalfraes.vorratsmaschinen-text`)}
-					image={'/src/lib/assets/images/portalfraesmaschinen/vorrat.jpg'}
+					image={vorratBild}
 					link="/produkte/portalfraesmaschinen/vorratsmaschinen"
 				/>
 			</div>
 		</div>
 	</div>
 </div>
-	
+
+

@@ -45,6 +45,7 @@
 <div class="bg-secondary mx-[5%] my-[100px]">
 	<h1 class="font-boldFont text-center text-5xl uppercase">TODO</h1>
 	<div class="flex flex-col flex-wrap justify-around gap-[5%] md:flex-row">
+		
 		<!-- Bewertung karte -->
 		<KatCard
 			titel={$_(`maschinenvermarktung.bewertung`)}
