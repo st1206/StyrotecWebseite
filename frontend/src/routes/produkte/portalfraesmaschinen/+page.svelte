@@ -3,7 +3,7 @@
 	import fs15Bild from '$lib/assets/images/portalfraesmaschinen/fs15.jpg'
 	import fs20Bild from '$lib/assets/images/portalfraesmaschinen/FS20.jpg'
 	import dreidBild from '$lib/assets/images/portalfraesmaschinen/3d.jpg'
-	import vorratBild from '$lib/assets/images/portalfraesmaschinen/vorrat.jpg'
+	import vorratBild from '$lib/assets/images/portalfraesmaschinen/VorratMaschine.jpg'
 	import { _ } from 'svelte-i18n';
 	import Carousel from '$lib/components/carousel.svelte';
 	import { Tabs, TabItem } from 'svelte-5-ui-lib';
