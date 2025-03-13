@@ -1,5 +1,5 @@
 <script lang="ts">
-    import top from '$lib/assets/images/portalfraesmaschinen/vorrat.jpg';
+    
 	
 	import arbeitsraum from '$lib/assets/images/portalfraesmaschinen/Arbeitsraumabdeckung.jpg';
 	import { _ } from 'svelte-i18n';
@@ -14,7 +14,7 @@
 	>
 		<h1 class="text-secondary hidden lg:block font-boldFont pl-10 pt-24 text-4xl xl:text-5xl">Schlagwort.</h1>
 	</div>
-	<img src={top} alt="FS10 Titelbild" class="h-[300px] w-full object-cover lg:h-[700px]" />
+	<img src={arbeitsraum} alt="FS10 Titelbild" class="h-[300px] w-full object-cover lg:h-[700px]" />
 	<div
 		class="bg-primary-foreground absolute hidden lg:block bottom-0 right-0 h-[200px] w-[40%] [clip-path:polygon(50%_50%,100%_0%,100%_100%,0%_100%)]"
 	></div>
