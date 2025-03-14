@@ -14,6 +14,13 @@
 	import logo5 from '$lib/assets/images/homepage/logo5.jpeg';
 	import logo6 from '$lib/assets/images/homepage/logo6.jpeg';
 	import karte from '$lib/assets/images/homepage/Karte.png';
+	import portal from '$lib/assets/images/homepage/bild11.jpg'
+	import pressen from '$lib/assets/images/homepage/MSP500_klein.jpg'
+	import styropor from '$lib/assets/images/homepage/styroporCard_klein.jpg'
+	import gebrauma from '$lib/assets/images/homepage/gebraumaCard_klein.jpg'
+	
+	
+
 	import { fly } from "svelte/transition";
 
   	let texts = ["fräsen mit leidenschaft", "and more", "Hier steht info"]; // Deine Texte
@@ -113,16 +120,16 @@
 		<h1 class="uppercase font-boldFont text-5xl text-center">Unsere Produktgruppen</h1>
 		<div class="flex flex-col flex-wrap justify-around gap-[5%] md:flex-row">
 			<!-- portalfräs card-->
-			<KatCard titel={$_('nav.portalfraesmaschinen')} text={$_('portalfraes.beschreibungs-text')} image={"src/lib/assets/images/bild11.jpg"} link={"/produkte/portalfraesmaschinen"}/>
+			<KatCard titel={$_('nav.portalfraesmaschinen')} text={$_('portalfraes.beschreibungs-text')} image={portal} link={"/produkte/portalfraesmaschinen"}/>
 			
 			<!-- Spänepressen card-->
-			<KatCard titel={$_('nav.spaenepressen')} text="TODO" image={"src/lib/assets/images/homepage/MSP500_klein.jpg"} link={"/produkte/spaenepressen"}/>
+			<KatCard titel={$_('nav.spaenepressen')} text="TODO" image={pressen} link={"/produkte/spaenepressen"}/>
 	
 			<!-- Styropor card-->
-			<KatCard titel={$_('nav.styroporbearbeitung')} text="TODO" image={"src/lib/assets/images/homepage/styroporCard_klein.jpg"} link={"/produkte/styroporbearbeitung"} />
+			<KatCard titel={$_('nav.styroporbearbeitung')} text="TODO" image={styropor} link={"/produkte/styroporbearbeitung"} />
 			
 			<!-- Gebrauchtmaschinen card-->
-			<KatCard titel={$_('nav.gebrauchtmaschinen')} text="TODO" image={"src/lib/assets/images/homepage/gebraumaCard_klein.jpg"} link={"/produkte/gebrauchtmaschinen"}/>
+			<KatCard titel={$_('nav.gebrauchtmaschinen')} text="TODO" image={gebrauma} link={"/produkte/gebrauchtmaschinen"}/>
 			
 		</div>
 	</div>
