@@ -9,6 +9,15 @@
 	let { data } = $props();
 </script>
 
+<svelte:head>
+	<title>Maschinenvermarktung - Übersicht</title>
+	<meta
+		name="description"
+		content=""
+	/>
+</svelte:head>
+
+
 <!-- Head -->
 {#await data.kategorieBilder}
 	<div>skeleton build</div>

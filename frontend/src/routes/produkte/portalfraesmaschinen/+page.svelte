@@ -17,8 +17,8 @@
 <svelte:head>
 	<title>Portalfräsmaschinen - Übersicht</title>
 	<meta
-		name="Übersicht- Portalfräsmaschinen"
-		content="Portalfräsmaschinen der Firma Styrotec, Übersicht über FS10 FS15 FS20 Hybrid-3D Vorratsmaschinen"
+		name="description"
+		content="Portalfräsmaschinen der Firma Styrotec, Übersicht über FS10, FS15, FS20, Hybrid-3D und Vorratsmaschinen"
 	/>
 </svelte:head>
 

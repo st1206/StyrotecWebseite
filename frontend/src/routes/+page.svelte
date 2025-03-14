@@ -23,7 +23,7 @@
    		index = (index + 1) % texts.length;
  	}
 
-  	setInterval(nextText, 3000);
+  	setInterval(nextText, 5000);
 	
 	import Marquee from '$lib/components/marquee.svelte';
 	import MessenCard from '$lib/components/messenCard.svelte';
@@ -46,28 +46,28 @@
 			<Carousel height={carouselHeight} autoPlay={true} pictures={homepageData.carousel} />
 			
 			<div
-				class="bg-secondary  absolute  hidden h-[70px] w-[80%]  lg:block xl:top-[660px] rounded-l-none rounded-r-lg"
+				class="bg-secondary  absolute hidden h-[70px] w-[80%]  lg:block xl:top-[660px] rounded-l-none rounded-r-lg"
 			>
 				<Marquee speed={0.5} hoverSpeed={0} class="my-1">
-					<div class="text-primary-foreground pt-3 text-2xl font-boldFont">
+					<div class="text-primary-foreground pt-3 text-lg font-boldFont">
 						<a href="/produkte/portalfraesmaschinen">{$_('nav.portalfraesmaschinen')}</a>
 					</div>
-					<div class="text-primary-foreground pt-3 text-2xl font-boldFont">
+					<div class="text-primary-foreground pt-3 text-lg font-boldFont">
 						<a href="/produkte/spaenepressen">{$_('nav.spaenepressen')}</a>
 					</div>
-					<div class="text-primary-foreground pt-3 text-2xl font-boldFont">
+					<div class="text-primary-foreground pt-3 text-lg font-boldFont">
 						<a href="/produkte/styroporbearbeitung">{$_('nav.styroporbearbeitung')}</a>
 					</div>
-					<div class="text-primary-foreground pt-3 text-2xl font-boldFont">
+					<div class="text-primary-foreground pt-3 text-lg font-boldFont">
 						<a href="/produkte/gebrauchtmaschinen">{$_('nav.gebrauchtmaschinen')}</a>
 					</div>
-					<div class="text-primary-foreground pt-3 text-2xl font-boldFont">
+					<div class="text-primary-foreground pt-3 text-lg font-boldFont">
 						<a href="/dienstleistungen/maschinenerhaltung">{$_('nav.maschinenerhaltung')}</a>
 					</div>
-					<div class="text-primary-foreground pt-3 text-2xl font-boldFont">
+					<div class="text-primary-foreground pt-3 text-lg font-boldFont">
 						<a href="/dienstleistungen/maschinenvermarktung">{$_('nav.maschinenvermarktung')}</a>
 					</div>
-					<div class="text-primary-foreground pt-3 text-2xl font-boldFont">
+					<div class="text-primary-foreground pt-3 text-lg font-boldFont">
 						<a href="/dienstleistungen/maschinenmodernisierung"
 							>{$_('nav.maschinenmodernisierung')}</a
 						>
@@ -79,10 +79,10 @@
 		SERVER ERROR...
 	{/await}
 </div>
-<div class="absolute h-auto w-auto p-4 bg-primary-foreground/85 top-[300px] left-[200px] z-60 text-5xl text-center text-secondary font-boldFont rounded-lg">
+<div class="absolute h-auto w-auto p-4 bg-primary-foreground/85 top-[300px] left-[20%]  z-60 text-xl md:text-2xl lg:text-5xl text-center text-secondary font-boldFont rounded-lg">
 	{#each texts as text, i (text)}
     {#if i === index}
-      <p in:fly="{{ x: -200, duration: 500 }}" out:fly="{{ x: 200, duration: 500 }}">
+      <p in:fly="{{ x: 200, duration: 500 }}" out:fly="{{ x: -200, duration: 500 }}">
         {text}
       </p>
     {/if}
@@ -130,10 +130,10 @@
 
 <!-- Weltweit -->
 <div class="mt-64 mb-12">
-	<div class="mt-[5%] h-auto ml-[15%] w-[70%] bg-center rounded-lg bg-[url($lib/assets/images/homepage/weltkarte.png)] bg-cover">
-				<div class="bg-primary-foreground/85 relative h-full w-full rounded-lg p-16 md:p-44 text-secondary">
-					<h1 class="text-m xl:text-4xl font-boldFont mb-10">{$_(`homepage.weltweit-titel`)}</h1>
-					<p class="hidden xl:block xl:text-2xl">
+	<div class="h-auto  w-full bg-center  bg-[url($lib/assets/images/homepage/weltkarte.png)] bg-cover">
+				<div class="bg-primary-foreground/85 relative h-full w-full  p-16 md:p-16 lg:p-32 xl:p-44 text-secondary">
+					<h1 class="text-m text-xl md:text-2xl xl:text-4xl font-boldFont mb-10">{$_(`homepage.weltweit-titel`)}</h1>
+					<p class="text-lg xl:text-2xl">
 						{$_(`homepage.weltweit-text`)}
 					</p>
 				</div>

@@ -9,6 +9,18 @@
 	let { data } = $props();
 </script>
 
+<svelte:head>
+	<title>Styroporbearbeitung - Übersicht</title>
+	<meta
+		name="description"
+		content="Alles im Bereich der Styroporbearbeitung der Firma Styrotec, angefangen bei werkzeugen und Aufnahmen, bishin zu Maschinenperipherie wie pressen und zerkleinerer"
+	/>
+</svelte:head>
+
+
+
+
+
 {#await data.kategorieBilder}
 	<div>skeleton build</div>
 {:then kategorie}

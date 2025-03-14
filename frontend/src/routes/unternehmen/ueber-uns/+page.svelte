@@ -5,77 +5,39 @@
 	import * as Accordion from '$lib/components/ui/accordion';
     import kreislauf from '$lib/assets/images/styrotec-and-more_schaubild.jpg';
     import vid from '$lib/assets/videos/Imagefilm.mp4';
+	import type { ApiMitarbeiterMitarbeiter } from '$lib/cmsTypes/contentTypes';
+	import type { AttributesOf } from '$lib/cmsTypes/types';
+	import { PUBLIC_BACKEND_URL } from '$env/static/public';
+    let { data } = $props();
+    
 </script>
 
-<div class="">
+<div  class="">
 	<div class="[clip-path:polygon(0%_0%,100%_0%,100%_80%,0%_100%)]">
         <video autoplay loop muted class="h-[800px] w-full object-cover">
             <source src={vid} type="video/mp4" />
             Your browser does not support the video tag.
         </video>
 	</div>
+</div>
 	<!--
 <div class="p-4 md:p-10 xl:p-32 xl:mx-[300px]">
 	<h1 class="text-xl lg:text-2xl xl:text-3xl ml-3 my-4"> {$_('news.header-titel')}</h1>
 	<p class="text-lg lg:text-xl">{$_('news.header-text')}</p>
 </div>
 -->
-    <div class="">
-        <h1 class="text-primary-foreground text-center text-5xl lg:my-[100px] uppercase font-boldFont">Styrotec Historie</h1>
-        <Timeline class="border-primary mx-10 md:mx-32 lg:ml-[400px] xl:ml-[500px]" >
-            <TimelineItem
-                h3Class="mt-4 mb-2 text-md md:text-lg lg:text-xl xl:text-3xl"
-                title={$_('ueber-uns.gründung-titel')}
-                dateFormat="year"
-                date="2002"
-                timeClass="text-primary-foreground text-xl ml-4"
-                divClass="border w-[20px] border-primary-foreground bg-primary"
-            >
-                <p class="mb-4 text-base font-normal text-primary-foreground dark:text-gray-400">
-                    {$_('ueber-uns.gründung')}
-                </p>
-            </TimelineItem>
-            <TimelineItem
-                h3Class="mt-4 mb-2 text-md md:text-lg lg:text-xl xl:text-3xl"
-                title={$_('ueber-uns.übernahme-titel')}
-                dateFormat="year"
-                date="2008"
-                divClass="border-2 border-primary-foreground bg-primary "
-            >
-                <p class="text-base font-normal text-gray-500 dark:text-gray-400">
-                    {$_('ueber-uns.übernahme')}
-                </p>
-            </TimelineItem>
-            <TimelineItem
-                h3Class="mt-4 mb-2 text-md md:text-lg lg:text-xl xl:text-3xl"
-                title={$_('ueber-uns.umzug-titel')}
-                dateFormat="year"
-                date="2015"
-                divClass="border-2 border-primary-foreground bg-primary "
-            >
-                <p class="text-base font-normal text-gray-500 dark:text-gray-400">
-                    {$_('ueber-uns.umzug')}
-                </p>
-            </TimelineItem>
-            <TimelineItem
-                h3Class="mt-4 mb-2 text-md md:text-lg lg:text-xl xl:text-3xl"
-                title={$_('ueber-uns.umzug-2-titel')}
-                dateFormat="year"
-                date="2021"
-                divClass="border-2 border-primary-foreground bg-primary "
-            >
-                <p class="text-base font-normal text-gray-500 dark:text-gray-400">
-                    {$_('ueber-uns.umzug-2')}
-                </p>
-            </TimelineItem>
-        </Timeline>
-        <div class="h-[100px]">
 
-        </div>
-    </div> 
+<div id="werte"> 
+    <div class="p-4 md:p-10 xl:p-32 xl:mx-[300px]">
+    	<h1 class="text-xl lg:text-2xl xl:text-3xl ml-3 my-4"> {$_('ueber-uns.werte-titel')}</h1>
+	    <p class="text-lg lg:text-xl">{$_('ueber-uns.werte-text')}</p>
+    </div>
 </div>
 
-<div class="bg-primary"> 
+
+
+
+<div class="bg-primary" id=""> 
 
 	<div
 		class="bg-primary-foreground text-secondary flex w-full flex-col py-8 xl:flex-row xl:py-32 "
@@ -103,7 +65,7 @@
 	</div>
 </div>
 
-<div class="relative grid h-[1100px] bg-white">
+<div class="relative grid h-[1100px] bg-white" id="nachhaltigkeit">
     <img
         src={kreislauf}
         alt="schaubild"
@@ -124,10 +86,94 @@
     </p>
 </div>
 
+<div class="p-6 md:p-12 lg:p-32  xl:px-96 bg-primary-foreground">
+    <div class="bg-secondary lg:py-12 rounded-lg" id="historie">
+        <h2 class="text-primary-foreground text-center text-5xl py-4 md:py-8 uppercase font-boldFont">Styrotec Historie</h2>
+        <Timeline class="border-primary mx-[15%] " >
+            <TimelineItem
+                h3Class="mt-2 mb-1 text-xl md:text-lg lg:text-xl xl:text-3xl"
+                title={$_('ueber-uns.gründung-titel')}
+                dateFormat="year"
+                date="2002"
+                timeClass="text-primary-foreground font-boldFont text-2xl ml-12"
+                divClass="border rounded-lg w-[40px] h-[20px] border-primary-foreground bg-primary"
+            >
+                <p class="mb-4 text-base font-normal text-primary-foreground ">
+                    {$_('ueber-uns.gründung')}
+                </p>
+            </TimelineItem>
+            <TimelineItem
+                h3Class="mt-2 mb-1 text-md md:text-lg lg:text-xl xl:text-3xl"
+                title={$_('ueber-uns.übernahme-titel')}
+                dateFormat="year"
+                date="2008"
+                timeClass="text-primary-foreground font-boldFont text-2xl ml-12"
+                divClass="border rounded-lg w-[40px] h-[20px] border-primary-foreground bg-primary"
+            >
+                <p class="mb-4 text-base font-normal text-primary-foreground ">
+                    {$_('ueber-uns.übernahme')}
+                </p>
+            </TimelineItem>
+            <TimelineItem
+                h3Class="mt-2 mb-1 text-md md:text-lg lg:text-xl xl:text-3xl"
+                title={$_('ueber-uns.umzug-titel')}
+                dateFormat="year"
+                date="2015"
+                timeClass="text-primary-foreground font-boldFont text-2xl ml-12"
+                divClass="border rounded-lg w-[40px] h-[20px] border-primary-foreground bg-primary"
+            >
+                <p class="mb-4 text-base font-normal text-primary-foreground ">
+                    {$_('ueber-uns.umzug')}
+                </p>
+            </TimelineItem>
+            <TimelineItem 
+                h3Class="mt-2 mb-1 text-md md:text-lg lg:text-xl xl:text-3xl"
+                title={$_('ueber-uns.umzug-2-titel')}
+                dateFormat="year"
+                date="2021"
+                timeClass="text-primary-foreground font-boldFont text-2xl ml-12"
+                divClass="border rounded-lg w-[40px] h-[20px] border-primary-foreground bg-primary"
+            >
+                <p class="mb-4 text-base font-normal text-primary-foreground pb-4">
+                    {$_('ueber-uns.umzug-2')}
+                </p>
+            </TimelineItem>
+        </Timeline>
+        
+    </div> 
+</div>
 
-<div> 
-    <div class="p-4 md:p-10 xl:p-32 xl:mx-[300px]">
-    	<h1 class="text-xl lg:text-2xl xl:text-3xl ml-3 my-4"> {$_('ueber-uns.werte-titel')}</h1>
-	    <p class="text-lg lg:text-xl">{$_('ueber-uns.werte-text')}</p>
+
+
+<div class="w-full h-auto bg-primary-foreground" id="team" >
+    <div class="pt-24">
+        <h2 class="text-5xl text-secondary text-center font-boldFont uppercase">{$_('ueber-uns.team-titel')}</h2>
+        <p class="text-2xl text-secondary px-[20%] pt-6">{$_('ueber-uns.team-text')}</p>
     </div>
+    
+    
+    {#await data.mitarbeiter}
+        <p>Waiting for Data</p>
+    {:then mitarbeiter}
+        
+        <div class="p-[5%]  lg:p-32 flex flex-col md:flex-row gap-12 flex-wrap">
+            {#each mitarbeiter as arbeiter}
+                
+                <div
+                    class="bg-secondary w-[90%] h-[350px]  xl:h-[450px] rounded-lg bg-center bg-cover  md:w-[45%]"
+                    style="background-image: url({!PUBLIC_BACKEND_URL.includes('https')
+                        ? `${PUBLIC_BACKEND_URL}${arbeiter.Bilder.url}`
+                        : arbeiter.Bilder.url})"
+                >
+                   <div class="m-4 p-2 relative top-48 xl:top-72 text-xl xl:text-3xl text-secondary bg-primary-foreground rounded-lg bg-opacity-70">
+                        {arbeiter.Name} <br>
+                        {arbeiter.Position}
+                   </div>
+                </div>
+            {/each}
+        </div>
+    {:catch}
+        <p>server Error</p>
+    {/await}
+    
 </div>

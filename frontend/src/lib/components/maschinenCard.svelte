@@ -6,20 +6,22 @@
 	let { maschine }: { maschine: AttributesOf<ApiMaschineMaschine> } = $props();
 </script>
 
-<Card
-	class="bg-secondary w-[310px] shadow-[10px_10px_20px_rgba(0,0,0,0.75)]  hover:scale-105 xl:w-[450px]"
->
-	<a href={`/produkte/gebrauchtmaschinen/cnc-maschinen/${maschine.slug}`}>
-		<img
-			class="relative left-0 top-0 w-[240px] bg-center xl:w-[380px]"
-			src={!PUBLIC_BACKEND_URL.includes('https')
-				? `${PUBLIC_BACKEND_URL}${maschine.Bilder[0].url}`
-				: maschine.Bilder[0].formats.small.url}
-			alt="bild"
-		/>
-		<h5 class="left-0 top-0 mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-			{maschine.Titel} - {maschine.Bezeichnung}
-		</h5>
-		<span class="font-medium dark:text-white">Baujahr: {maschine.Baujahr}</span>
-	</a>
-</Card>
+
+<a href={`/produkte/gebrauchtmaschinen/cnc-maschinen/${maschine.slug}`}>
+	<div 
+		class="w-[400px] h-[400px] md:w-[450px] md:h-[450px] rounded-lg bg-cover bg-center" 
+		style="background-image: url({!PUBLIC_BACKEND_URL.includes('https')
+					? `${PUBLIC_BACKEND_URL}${maschine.Bilder[0].url}`
+					: maschine.Bilder[0].formats.small.url})">
+			<div class="bg-primary-foreground bg-opacity-50 h-full w-full rounded-lg p-12 text-secondary">
+				<h5 class="left-0 top-0 mb-2 text-4xl font-bold ">
+						{maschine.Titel} <br> {maschine.Bezeichnung}
+				</h5>
+				<span class="text-xl ">Baujahr: {maschine.Baujahr}</span>
+				
+			</div>
+
+			
+	</div>
+</a>
+

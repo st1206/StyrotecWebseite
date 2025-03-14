@@ -12,6 +12,13 @@
 	let { data } = $props();
 </script>
 
+<svelte:head>
+	<title>Gebrauchtmaschinen - Übersicht</title>
+	<meta name="description" content="Übersicht über Gebrauchtmaschinen und Unterkategorien." />
+</svelte:head>
+
+
+
 {#await data.kategorieBilder}
 	<div>skeleton build</div>
 {:then kategorie}
@@ -25,14 +32,14 @@
 <div class="bg-secondary flex flex-col py-[30px] lg:flex-row">
 	<div class="w-[90%] md:w-[60%]">
 		<div class="relative mb-4 md:-left-[5%] xl:-left-[20%]">
-			<h3
+			<h1
 				class="text-primary-foreground font-boldFont pl-2 text-right text-xl uppercase md:pl-6 md:text-3xl lg:pl-12 lg:text-5xl"
 			>
 				{$_(`gebrauMa.titel`)}
-			</h3>
-			<h1 class="pl-2 text-right text-xl uppercase md:pl-6 md:text-2xl lg:pl-12 lg:text-4xl">
-				{$_(`gebrauMa.sub`)}
 			</h1>
+			<h2 class="pl-2 text-right text-xl uppercase md:pl-6 md:text-2xl lg:pl-12 lg:text-4xl">
+				{$_(`gebrauMa.sub`)}
+			</h2>
 		</div>
 		<p class="p-4 md:text-xl lg:text-2xl xl:mx-[10%]">{$_(`gebrauMa.beschreibungs-text`)}</p>
 	</div>
@@ -61,7 +68,7 @@
 			titel={$_(`gebrauMa.cnc-zubehör`)}
 			text={$_(`gebrauMa.cnc-zubehör-text`)}
 			image={zubehoer}
-			link="/produkte/gebrauchtmaschinen/cnc-zubehör"
+			link="/produkte/gebrauchtmaschinen/cnc-zubehoer"
 		/>
 
 		<!-- modellbaumaschinen Karte -->

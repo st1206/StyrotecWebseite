@@ -54,7 +54,7 @@ export const menu = [
 	 			link: '/produkte/gebrauchtmaschinen',
 	 			items: [
 	 				{ key: 'cnc-maschinen', link: '/produkte/gebrauchtmaschinen/cnc-maschinen' },
-	 				{ key: 'cnc-zubehör', link: '/produkte/gebrauchtmaschinen/zubehör' },
+	 				{ key: 'cnc-zubehör', link: '/produkte/gebrauchtmaschinen/cnc-zubehoer' },
 	 				{ key: 'modellbaumaschinen', link: '/produkte/gebrauchtmaschinen/modellbaumaschinen' },
 	 				{ key: 'holzbearbeitungsmaschinen', link: '/produkte/gebrauchtmaschinen/holzbearbeitungsmaschinen' }
 	 			]
@@ -125,10 +125,10 @@ export const menu = [
 	 			key: 'ueberUns',
 	 			link: '/unternehmen/ueber-uns',
 	 			items: [
-	 				{ key: 'werte-mission-vission', link: '/unternehmen/ueber-uns/werte' },
-	 				{ key: 'nachhaltigkeit', link: '/unternehmen/ueber-uns/nachhaltigkeit' },
-	 				{ key: 'historie', link: '/unternehmen/ueber-uns/historie' },
-					{ key: 'team', link: '/unternehmen/ueber-uns/team'}
+	 				{ key: 'werte-mission-vission', link: '/unternehmen/ueber-uns/#werte' },
+	 				{ key: 'nachhaltigkeit', link: '/unternehmen/ueber-uns/#nachhaltigkeit' },
+	 				{ key: 'historie', link: '/unternehmen/ueber-uns/#historie' },
+					{ key: 'team', link: '/unternehmen/ueber-uns/#team'}
 					
 	 			]
 	 		},

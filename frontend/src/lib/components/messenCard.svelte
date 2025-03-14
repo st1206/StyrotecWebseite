@@ -5,7 +5,6 @@
 	import { PUBLIC_BACKEND_URL } from '$env/static/public';
 	import { _ } from 'svelte-i18n';
 	let { messe }: { messe: AttributesOf<ApiMessenMessen> } = $props();
-	console.log(messe)
 </script>
 
 <a href={messe.MesseLink} target="_blank">

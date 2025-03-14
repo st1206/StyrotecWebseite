@@ -8,6 +8,17 @@
 	let { data } = $props();
 </script>
 
+<svelte:head>
+	<title>Spänepressen - Übersicht</title>
+	<meta
+		name="description"
+		content="Spänepressen der Firma Styrotec, Übersicht unsere Pressen für die Materialien Metall, Kunststoffe und Styropor"
+	/>
+</svelte:head>
+
+
+
+
 <div>
 	
     <img

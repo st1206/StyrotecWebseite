@@ -163,6 +163,10 @@
 		"modell": "Modellbaumaschinen",
 		"modell-text": "Für feinste Detailarbeiten und höchste Präzision: Unsere gebrauchten Modellbaumaschinen sind ideal für Modellbau, Prototyping und Feinarbeiten. Wir bieten eine Auswahl an hochwertigen Maschinen, die Ihre kreativen Projekte auf das nächste Level heben."
 	},
+	"cnc-maschinen": {
+		"titel": "CNC-Maschinen",
+		"text": "In unserem Lager finden Sie eine große Auswahl an gebrauchten CNC-Fräsmaschinen führender Hersteller. Jede Maschine wird von unseren Experten sorgfältig geprüft und gewartet, um eine einwandfreie Funktionalität und Präzision zu gewährleisten. Der Kauf einer gebrauchten CNC-Maschine bietet zahlreiche Vorteile: Sie sparen Kosten, profitieren von sofortiger Verfügbarkeit und tragen gleichzeitig zur Nachhaltigkeit bei. Unsere Maschinen sind nicht nur leistungsfähig, sondern auch eine ressourcenschonende Alternative zu Neugeräten. Ob für Industrie, Handwerk oder Kleinbetriebe - wir haben die passende Lösung für Ihre Anforderungen."
+	},
 	"portalfraes": {
 		"titel": "Unsere Portalfräsmaschinen", 
 		"sub": "und Fertigungstechnologien",
@@ -418,8 +422,9 @@
 		"umzug-2-titel": "2. Umzug",
 		"umzug-2": "Styrotec zieht in eine 600 qm neuwertige Halle in Baienfurt inklusive 20to Deckenkran und angeschlossenem Bürotrakt",
 		"werte-titel": "Unsere Werte",
-		"werte-text": "TODO"
-	
+		"werte-text": "TODO",
+		"team-titel": "TODO",
+		"team-text": "Hinter jedem erfolgreichen Projekt steht ein großartiges Team - und wir sind stolz darauf, genau das zu haben! Unsere Vertriebsexperten bringen die besten Lösungen zu unseren Kunden, unser Marketing-Team sorgt für kreative Sichtbarkeit, und unsere Projektmanager halten alles zusammen. Gemeinsam bringen wir unsere Talente und Ideen ein, um Großartiges zu schaffen. Schau dir an, wer wir sind!"
 	}
 	
 }
