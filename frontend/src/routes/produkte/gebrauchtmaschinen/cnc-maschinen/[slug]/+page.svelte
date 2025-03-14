@@ -19,7 +19,7 @@
 						: maschine.Bilder[0].url}
 					alt="Bilder"
 					class="h-[300px] w-full object-cover lg:h-[700px] relative z-10"
-				/>
+				/> 
 				<div class="relative -top-[50px] w-full h-[100px] md:h-[100px] bg-primary [clip-path:polygon(0%_0%,100%_0%,81%_100%,0%_100%)]"></div>
 		<div class="mt-[100px] mr-[40%]">
 			<h1
