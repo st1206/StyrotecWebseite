@@ -14,10 +14,10 @@
 	import logo5 from '$lib/assets/images/homepage/logo5.jpeg';
 	import logo6 from '$lib/assets/images/homepage/logo6.jpeg';
 	import karte from '$lib/assets/images/homepage/Karte.png';
-	import portal from '$lib/assets/images/homepage/bild11.jpg'
-	import pressen from '$lib/assets/images/homepage/MSP500_klein.jpg'
-	import styropor from '$lib/assets/images/homepage/styroporCard_klein.jpg'
-	import gebrauma from '$lib/assets/images/homepage/gebraumaCard_klein.jpg'
+	import portal from '$lib/assets/images/homepage/bild11.jpg';
+	import pressen from '$lib/assets/images/homepage/MSP500_klein.jpg';
+	import styropor from '$lib/assets/images/homepage/styroporCard_klein.jpg';
+	import gebrauma from '$lib/assets/images/homepage/gebraumaCard_klein.jpg';
 	
 	
 
