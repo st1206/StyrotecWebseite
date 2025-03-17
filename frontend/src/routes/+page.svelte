@@ -14,7 +14,7 @@
 	import logo5 from '$lib/assets/images/homepage/logo5.jpeg';
 	import logo6 from '$lib/assets/images/homepage/logo6.jpeg';
 	import karte from '$lib/assets/images/homepage/Karte.png';
-	import portal from '$lib/assets/images/homepage/bild11.jpg';
+	import portal from '$lib/assets/images/homepage/bild_innenraum.jpg';
 	import pressen from '$lib/assets/images/homepage/MSP500_klein.jpg';
 	import styropor from '$lib/assets/images/homepage/styroporCard_klein.jpg';
 	import gebrauma from '$lib/assets/images/homepage/gebraumaCard_klein.jpg';
@@ -151,7 +151,7 @@
 <div>
 	<div class="bg-secondary">
 		<div
-			class=" w-full bg-[url($lib/assets/images/bild11.jpg)] bg-cover bg-center xl:[clip-path:polygon(0%_10%,100%_0%,100%_100%,0%_100%)]"
+			class=" w-full bg-[url($lib/assets/images/homepage/bild_innenraum.jpg)] bg-cover bg-center xl:[clip-path:polygon(0%_10%,100%_0%,100%_100%,0%_100%)]"
 		>
 			
 			<div class=" h-[800px] w-full bg-gradient-to-r from-black via-black/25 to-black">

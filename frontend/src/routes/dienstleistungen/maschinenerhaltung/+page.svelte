@@ -1,5 +1,5 @@
 <script lang="ts">
-	import head from '$lib/assets/images/homepage/bild11.jpg';
+	import head from '$lib/assets/images/homepage/bild_innenraum.jpg';
     import Button from '$lib/components/ui/button/button.svelte';
     import { _ } from 'svelte-i18n';
 	import Carousel from '$lib/components/carousel.svelte';
