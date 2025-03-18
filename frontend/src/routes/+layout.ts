@@ -7,6 +7,7 @@ import { PUBLIC_BACKEND_URL } from '$env/static/public';
 
 
 import { error } from '@sveltejs/kit';
+import type { Actions } from './$types';
 
 
 export const load: LayoutLoad = async () => {

@@ -12,7 +12,7 @@
 
 
 <div class="[clip-path:polygon(0%_0%,100%_0%,100%_80%,0%_100%)] bg-gradient-to-r from-amber-500 to-amber-200">
-	<img src={header} alt="messestand" class="w-full h-[500px] object-cover">
+	<img src={header} alt="messestand" class="w-full h-[600px] object-cover">
 </div>
 
 <div class="p-4 md:p-10 xl:p-20 xl:mx-[300px]">

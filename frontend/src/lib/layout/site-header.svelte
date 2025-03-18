@@ -50,7 +50,7 @@
 			{#each menu as item}
 				<button
 					use:clickOutside={() => isOpenMap.set(item.id, false)}
-					class="hover:text-primary text-secondary  z-20 w-[150px] text-md xl:text-xl xl:w-[200px] text-xl bg-primary-foreground rounded-lg mx-4"
+					class="hover:text-primary text-secondary uppercase font-boldFont z-20 w-[150px] text-md xl:text-xl xl:w-[200px] text-xl bg-primary-foreground rounded-lg mx-4"
 					onclick={() => {
 						const isCurrentlyOpen = isOpenMap.get(item.id) ?? false;
 						isOpenMap.forEach((_, key) => isOpenMap.set(key, false));
