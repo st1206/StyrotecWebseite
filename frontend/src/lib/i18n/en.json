@@ -220,7 +220,7 @@
 		"übersicht-punkt2": "Flexibility in machine design and application",
 		"übersicht-punkt3": "Optimal accessibility",
 		"übersicht-ende": "Discover our various configurations!",
-		"achsen": "Axis-Data",
+		"achsen": "Axis",
 		"geschwindigkeit": "Speeds",
 		"schwenk": "Swivel Angle",
 		"steuerung": "Control"
@@ -301,7 +301,7 @@
 		"baujahr": "Year",
 		"standort": "Location",
 		"zustand": "Condition",
-		"achsdaten": "Axis-Data",
+		"achsdaten": "Axis",
 		"xachse": "x-Axis",
 		"yachse": "y-Axis",
 		"zachse": "z-Axis",
@@ -421,5 +421,26 @@
 		"werte-text": "TODO",
 		"team-titel": "TODO",
 		"team-text": "Behind every successful project stands a great team - and we are proud to have exactly that! Our sales experts bring the best solutions to our customers, our marketing team ensures creative visibility, and our project managers keep everything running smoothly. Together, we combine our talents and ideas to achieve great things. Take a look at who we are!"
+	},
+	"branchen": {
+		"auto-titel": "Automotive",
+		"auto-sub": "Precision. Efficiency. Flexibility. Longevity.",
+		"schiff-titel": "Maritime",
+		"schiff-sub": "Todo",
+		"modell-titel": "Model Building",
+		"modell-sub": "Todo",
+		"kunststoff-titel": "Plasitcs",
+		"kunststoff-sub": "Todo",
+		"beton-titel": "Concrete",
+		"beton-sub": "TODO",
+		"werbe-titel": "Advertisement",
+		"werbe-sub": "Todo",
+		"luft-titel": "Aerospace",
+		"luft-sub": "Todo",
+		"kunst-titel": "Art",
+		"kunst-sub": "Todo",
+		"lösung": "Our Solutions",
+		"links": "Maschines",
+		"rechts": "Additional equipment"
 	}
 }

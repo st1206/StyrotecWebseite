@@ -244,13 +244,13 @@
 			<Accordion.Item value="item-2">
 				<Accordion.Trigger>{$_(`optionen.fraesspindeln`)}</Accordion.Trigger>
 				<Accordion.Content class=" pt-4 xl:text-xl">
-					<table class="bg-primary-foreground text-md block w-screen p-4 shadow-md">
+					<table class="bg-primary-foreground text-md block w-full p-4 shadow-md">
 						<thead class="bg-secondary/15">
 							<tr>
-								<th class="min-w-[100px] font-semibold lg:min-w-[240px]"></th>
-								<th class="min-w-[70px] font-semibold lg:min-w-[400px]">ES 779</th>
-								<th class="min-w-[70px] font-semibold lg:min-w-[400px]">ES 789</th>
-								<th class="min-w-[70px] font-semibold lg:min-w-[400px]">ES 779</th>
+								<th class="w-auto font-semibold "></th>
+								<th class=" font-semibold w-[430px]">ES 779</th>
+								<th class=" font-semibold w-[430px]">ES 789</th>
+								<th class=" font-semibold w-[430px]">ES 779</th>
 							</tr>
 						</thead>
 						<tbody class="text-center">

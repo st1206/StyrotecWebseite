@@ -570,6 +570,7 @@ export interface ApiFs10Fs10 extends Struct.CollectionTypeSchema {
 export interface ApiFs15Fs15 extends Struct.CollectionTypeSchema {
   collectionName: 'fs_15s';
   info: {
+    description: '';
     displayName: 'FS15';
     pluralName: 'fs-15s';
     singularName: 'fs-15';
@@ -577,115 +578,42 @@ export interface ApiFs15Fs15 extends Struct.CollectionTypeSchema {
   options: {
     draftAndPublish: true;
   };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
   attributes: {
-    aAchse: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    AbmessungUmhausung: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    aAchse: Schema.Attribute.String & Schema.Attribute.Required;
+    AbmessungUmhausung: Schema.Attribute.String & Schema.Attribute.Required;
     Bilder: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    cAchse: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+      Schema.Attribute.Required;
+    cAchse: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::fs-15.fs-15'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::fs-15.fs-15'> &
+      Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    Steuerung: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    Steuerung: Schema.Attribute.String & Schema.Attribute.Required;
     Titel: Schema.Attribute.String &
       Schema.Attribute.Required &
-      Schema.Attribute.Unique &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+      Schema.Attribute.Unique;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    VorschubX: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    VorschubY: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    VorschubZ: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    xAchse: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    yAchse: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    zAchse: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    VorschubX: Schema.Attribute.String & Schema.Attribute.Required;
+    VorschubY: Schema.Attribute.String & Schema.Attribute.Required;
+    VorschubZ: Schema.Attribute.String & Schema.Attribute.Required;
+    xAchse: Schema.Attribute.String & Schema.Attribute.Required;
+    yAchse: Schema.Attribute.String & Schema.Attribute.Required;
+    zAchse: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
 export interface ApiFs20Fs20 extends Struct.CollectionTypeSchema {
   collectionName: 'fs_20s';
   info: {
+    description: '';
     displayName: 'FS20';
     pluralName: 'fs-20s';
     singularName: 'fs-20';
@@ -693,109 +621,35 @@ export interface ApiFs20Fs20 extends Struct.CollectionTypeSchema {
   options: {
     draftAndPublish: true;
   };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
   attributes: {
-    aAchse: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    AbmessungUmhausung: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    aAchse: Schema.Attribute.String & Schema.Attribute.Required;
+    AbmessungUmhausung: Schema.Attribute.String & Schema.Attribute.Required;
     Bilder: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    cAchse: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+      Schema.Attribute.Required;
+    cAchse: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::fs-20.fs-20'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::fs-20.fs-20'> &
+      Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    Steuerung: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    Steuerung: Schema.Attribute.String & Schema.Attribute.Required;
     Titel: Schema.Attribute.String &
       Schema.Attribute.Required &
-      Schema.Attribute.Unique &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+      Schema.Attribute.Unique;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    VorschubX: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    VorschubY: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    VorschubZ: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    xAchse: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    yAchse: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    zAchse: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    VorschubX: Schema.Attribute.String & Schema.Attribute.Required;
+    VorschubY: Schema.Attribute.String & Schema.Attribute.Required;
+    VorschubZ: Schema.Attribute.String & Schema.Attribute.Required;
+    xAchse: Schema.Attribute.String & Schema.Attribute.Required;
+    yAchse: Schema.Attribute.String & Schema.Attribute.Required;
+    zAchse: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 

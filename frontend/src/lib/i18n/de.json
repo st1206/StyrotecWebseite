@@ -148,7 +148,6 @@
 		"zerkleinerer": "TODO",
 		"zerkleinerer-text": "TODO"
 	},
-	
 	"gebrauMa": {
 		"titel": "Unsere Gebrauchtmaschinen", 
 		"sub": "Todo",
@@ -225,7 +224,7 @@
 		"übersicht-punkt2": "Flexibilität im Maschinendesign sowie in der Anwendung",
 		"übersicht-punkt3": "Optimale Zugänglichkeiten",
 		"übersicht-ende": "Entdecken Sie unsere unterschiedlichen Ausführungen!",
-		"achsen": "Achs-Daten",
+		"achsen": "Achsen",
 		"geschwindigkeit": "Geschwindigkeiten",
 		"schwenk": "Schwenkwinkel",
 		"steuerung": "Steuerung"
@@ -249,7 +248,10 @@
 	"hybrid": {
 		"übersicht-titel": "3D-Hybrid-Fräsmaschinen - Präzision durch Kombination von 3D-Druck und CNC-Fräsen",
 		"übersicht-text": "Unsere 3D-Hybrid-Fräsmaschinen vereinen die Vorteile der additiven und subtraktiven Fertigung in einem System. Der 3D-Druck ermöglicht die schnelle und kostengünstige Herstellung komplexer Bauteile aus plastischen Werkstoffen, während das CNC-Fräsen präzise Material abträgt und die Oberflächen bis zur gewünschten Form verfeinert.",
-		"übersicht-text2": "Durch die Kombination dieser Verfahren in einer Maschine profitieren Sie von höchster Flexibilität, Effizienz und Präzision - ideal für komplexe Geometrien und eine optimierte Fertigung."
+		"übersicht-text2": "Durch die Kombination dieser Verfahren in einer Maschine profitieren Sie von höchster Flexibilität, Effizienz und Präzision - ideal für komplexe Geometrien und eine optimierte Fertigung.",
+		"titel": "",
+		"text": ""
+
 	},
 	"vorratsmaschinen": {
 		"übersicht-titel": "Styortec Vorratsmaschinen - schnell und unkompliziert",
@@ -306,7 +308,7 @@
 		"baujahr": "Bauhjahr",
 		"standort": "Standort",
 		"zustand": "Zustand",
-		"achsdaten": "Achs-Daten",
+		"achsdaten": "Achsen",
 		"xachse": "x-Achse",
 		"yachse": "y-Achse",
 		"zachse": "z-Achse",
@@ -425,6 +427,27 @@
 		"werte-text": "TODO",
 		"team-titel": "TODO",
 		"team-text": "Hinter jedem erfolgreichen Projekt steht ein großartiges Team - und wir sind stolz darauf, genau das zu haben! Unsere Vertriebsexperten bringen die besten Lösungen zu unseren Kunden, unser Marketing-Team sorgt für kreative Sichtbarkeit, und unsere Projektmanager halten alles zusammen. Gemeinsam bringen wir unsere Talente und Ideen ein, um Großartiges zu schaffen. Schau dir an, wer wir sind!"
+	},
+	"branchen": {
+		"auto-titel": "Automotive",
+		"auto-sub": "Präzision. Effizienz. Flexibilität. Langlebigkeit.",
+		"schiff-titel": "Maritime",
+		"schiff-sub": "Todo",
+		"modell-titel": "Modellbau",
+		"modell-sub": "Todo",
+		"kunststoff-titel": "Kunststoff",
+		"kunststoff-sub": "Todo",
+		"beton-titel": "Betonindustrie",
+		"beton-sub": "TODO",
+		"werbe-titel": "Werbetechnik",
+		"werbe-sub": "Todo",
+		"luft-titel": "Aerospace",
+		"luft-sub": "Todo",
+		"kunst-titel": "Kunst",
+		"kunst-sub": "Todo",
+		"lösung": "Unsere Lösungen",
+		"links": "Maschinen",
+		"rechts": "Zusätzliches"
 	}
 	
 }
