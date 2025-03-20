@@ -1,6 +1,7 @@
 <script>
     import { _ } from 'svelte-i18n';
 	import * as Accordion from '$lib/components/ui/accordion';
+	import temp from '$lib/assets/images/portalfraesmaschinen/temperatur.jpg'
     import top from '$lib/assets/images/portalfraesmaschinen/3d.jpg';
     import arbeitsraum from '$lib/assets/images/portalfraesmaschinen/Arbeitsraumabdeckung.jpg';
 </script>    
@@ -25,7 +26,7 @@
 	<img
 		src={arbeitsraum}
 		alt="FS20 Titelbild"
-		class="absolute -top-[170px] hidden lg:block right-0 h-[300px] w-[40%] object-cover [clip-path:polygon(0%_28.5%,100%_0%,100%_100%,0%_100%)] lg:h-[700px]"
+		class="absolute -top-[170px] hidden lg:block right-0 h-[300px] w-[40%] object-contain [clip-path:polygon(0%_28.5%,100%_0%,100%_100%,0%_100%)] lg:h-[700px]"
 	/>
 	<div
 		class="from-primary-foreground/25 hidden lg:block via-primary-foreground/15 to-secondary absolute -top-[170px] right-0 h-[300px] w-[40%] bg-gradient-to-bl [clip-path:polygon(0%_28.5%,100%_0%,100%_100%,0%_100%)] lg:h-[700px]"
@@ -40,5 +41,9 @@
 			<p>{$_(`fs20.übersicht-ende`)}</p>
 		</div>
 	</div>
-    
 </div>
+
+<div>
+	
+</div>
+

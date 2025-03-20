@@ -4,7 +4,8 @@
   "info": {
     "singularName": "vorratsmaschine",
     "pluralName": "vorratsmaschines",
-    "displayName": "vorratsmaschine"
+    "displayName": "vorratsmaschine",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -116,19 +117,28 @@
       "required": true
     },
     "Bilder": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
       ],
-      "type": "media",
-      "multiple": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "slug": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
+      "type": "uid",
       "required": true
     }
   }

@@ -4,6 +4,9 @@
 	import arbeitsraum from '$lib/assets/images/portalfraesmaschinen/Arbeitsraumabdeckung.jpg';
 	import { _ } from 'svelte-i18n';
 	import * as Accordion from '$lib/components/ui/accordion';
+	
+	import VorratmaschinenCard from '$lib/components/vorratmaschinenCard.svelte';
+	let { data } = $props();
 </script>
 
 
@@ -40,4 +43,22 @@
             
 		</div>
 	</div>
+</div>
+
+<div>
+	{#await data.vorrat}
+		<div>skeleton build</div>
+	{:then maschines}	
+		<div
+			class="mx-2 md:mx-[10%]  py-16 lg:py-[190px] xl:py-[250px]  flex flex-col justify-around flex-wrap gap-8   md:flex-row"
+		>
+			{#each maschines as maschine}
+				<VorratmaschinenCard {maschine} />
+			{:else}
+				<p class="text-primary uppercase text-7xl">Momentan keine Maschinen auf Vorrat</p>
+			{/each}
+		</div>
+	{:catch}
+		SERVER ERROR...
+	{/await}
 </div>

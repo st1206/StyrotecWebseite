@@ -1286,6 +1286,7 @@ export interface ApiVorratsmaschineVorratsmaschine
   extends Struct.CollectionTypeSchema {
   collectionName: 'vorratsmaschines';
   info: {
+    description: '';
     displayName: 'vorratsmaschine';
     pluralName: 'vorratsmaschines';
     singularName: 'vorratsmaschine';
@@ -1339,6 +1340,13 @@ export interface ApiVorratsmaschineVorratsmaschine
       'api::vorratsmaschine.vorratsmaschine'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     Steuerung: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{

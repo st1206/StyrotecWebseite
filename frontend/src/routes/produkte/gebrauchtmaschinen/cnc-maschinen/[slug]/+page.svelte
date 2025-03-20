@@ -18,12 +18,12 @@
 						? `${PUBLIC_BACKEND_URL}${maschine.Bilder[0].url}`
 						: maschine.Bilder[0].url}
 					alt="Bilder"
-					class="h-[300px] w-full object-cover lg:h-[700px] relative z-10"
+					class="h-[300px] w-full object-cover lg:h-[600px] relative z-10"
 				/> 
 				<div class="relative -top-[50px] w-full h-[100px] md:h-[100px] bg-primary [clip-path:polygon(0%_0%,100%_0%,81%_100%,0%_100%)]"></div>
-		<div class="mt-[100px] mr-[40%]">
+		<div class=" xl:mt-[50px] mr-[40%]">
 			<h1
-				class="text-primary-foreground font-boldFont pl-2 text-right text-xl uppercase md:pl-6 md:text-3xl lg:pl-12 lg:text-5xl"
+				class="text-primary-foreground font-boldFont pl-2 text-right text-3xl uppercase md:pl-6 md:text-5xl lg:pl-12 lg:text-7xl"
 			>
 				{maschine.Titel}
 			</h1>
@@ -46,7 +46,6 @@
 			>
 				<MaschinenCarousel height={carouselHeight} pictures={maschine.Bilder} />
 			</div>
-			<div class="text-primary">{maschine.Zusatzoptionen}</div>
 			<Accordion.Root type="single" class="xl:w-[55%] w-[80%] ">
 				<Accordion.Item value="item-1">
 					<Accordion.Trigger>{$_(`cnc-Masch-Seite.hauptdaten`)}:</Accordion.Trigger>

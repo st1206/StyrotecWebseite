@@ -74,84 +74,82 @@
 					<div class="flex flex-col justify-around xl:flex-row">
 						<Accordion.Root
 							type="single"
-							class="text-secondary relative mx-4 ml-4 object-cover xl:ml-[10%] xl:max-w-[45%] text-xl md:text-2xl xl:text-3xl"
+							class="text-secondary relative mx-4 object-cover xl:w-[50%] text-xl md:text-2xl xl:text-3xl"
 						>
 							<Accordion.Item value="item-1">
-								<Accordion.Trigger class="w-screen"
+								<Accordion.Trigger class="w-[400px]"
 									>{$_(`fs10.achsen`)}</Accordion.Trigger
 								>
 								<Accordion.Content class="pt-4 xl:text-xl mx-1 bg-primary-foreground/15">
-									<table class="bg-secondary/15 block text-md p-4 w-full border border-secondary/25 ">
-										<tbody >
-											<tr class="w-[100%]">
-												<td class="w-[50%] text-left">{$_(`cnc-Masch-Seite.xachse`)}</td>
-												<td class="w-[45%] text-right">{fs15.xAchse}</td>
-											</tr>
-											<tr>
-												<td class="text-left">{$_(`cnc-Masch-Seite.yachse`)}</td>
-												<td class="text-right">{fs15.yAchse}</td>
-											</tr>
-											<tr>
-												<td class="text-left">{$_(`cnc-Masch-Seite.zachse`)}</td>
-												<td class="text-right">{fs15.zAchse}</td>
-											</tr>
-										</tbody>
-									</table>
+									<div class="bg-secondary/5 p-2 md:p-4">	
+										<div class="flex flex-row justify-between">
+											<span class="text-left">{$_(`cnc-Masch-Seite.xachse`)}</span>
+											<span class="text-right">{fs15.xAchse}</span>
+										</div>
+										<div class="flex flex-row justify-between">
+											<span class="text-left">{$_(`cnc-Masch-Seite.yachse`)}</span>
+											<span class="text-right">{fs15.yAchse}</span>
+										</div>
+										<div class="flex flex-row justify-between">
+											<span class="text-left">{$_(`cnc-Masch-Seite.zachse`)}</span>
+											<span class="text-right">{fs15.zAchse}</span>
+										</div>
+									</div>	
 								</Accordion.Content>
 							</Accordion.Item>
 							<Accordion.Item value="item-2">
 								<Accordion.Trigger>{$_(`fs10.geschwindigkeit`)}</Accordion.Trigger>
-								<Accordion.Content class="pt-4 xl:text-xl mx-1 bg-primary-foreground/15">
-									<table class="bg-secondary/15 text-md block p-4 border border-secondary/25">
-										<tbody class="text-left">
-											<tr>
-												<td class="w-[50%]">{$_(`cnc-Masch-Seite.vorschub-x`)}</td>
-												<td class="w-[50%] text-right">{fs15.VorschubX}</td>
-											</tr>
-											<tr>
-												<td>{$_(`cnc-Masch-Seite.vorschub-y`)}</td>
-												<td class="w-[50%] text-right">{fs15.VorschubY}</td>
-											</tr>
-											<tr>
-												<td>{$_(`cnc-Masch-Seite.vorschub-z`)}</td>
-												<td class="w-[50%] text-right">{fs15.VorschubZ}</td>
-											</tr>
-										</tbody>
-									</table>
+								<Accordion.Content class="pt-4 xl:text-xl mx-1 bg-primary-foreground/15 ">
+									<div class="bg-secondary/5 p-2 md:p-4">	
+										<div class="flex flex-row justify-between">
+											<span class="w-auto">{$_(`cnc-Masch-Seite.vorschub-x`)}</span>
+											<span class="w-auto text-right">{fs15.VorschubX}</span>
+										</div>
+										<div class="flex flex-row justify-between">
+											<span>{$_(`cnc-Masch-Seite.vorschub-y`)}</span>
+											<span class="w-auto text-right">{fs15.VorschubY}</span>
+										</div>
+										<div class="flex flex-row justify-between">
+											<span>{$_(`cnc-Masch-Seite.vorschub-z`)}</span>
+											<span class="w-auto text-right">{fs15.VorschubZ}</span>
+										</div>
+									</div>
 								</Accordion.Content>
 							</Accordion.Item>
 							<Accordion.Item value="item-3">
 								<Accordion.Trigger>{$_(`fs10.schwenk`)}</Accordion.Trigger>
-								<Accordion.Content class="pt-4 xl:text-xl mx-1">
-									<table class="bg-secondary/15 text-md block p-4 border border-secondary/25">
-										<tbody class="text-left">
-											<tr>
-												<td>{$_(`cnc-Masch-Seite.aachse`)}</td>
-												<td class="w-[50%] text-right">{fs15.aAchse}</td>
-											</tr>
-											<tr>
-												<td>{$_(`cnc-Masch-Seite.cachse`)}</td>
-												<td class="w-[50%] text-right">{fs15.cAchse}</td>
-											</tr>
-										</tbody>
-									</table>
+								<Accordion.Content class="pt-4 xl:text-xl mx-1 bg-primary-foreground/15">
+									<div class="bg-secondary/5 p-2 md:p-4">	
+										<div class="flex flex-row justify-between">
+											<span class="w-[50%]">{$_(`cnc-Masch-Seite.aachse`)}</span>
+											<span class="w-[50%] text-right">{fs15.aAchse}</span>
+										</div>
+										<div class="flex flex-row justify-between">
+											<span>{$_(`cnc-Masch-Seite.cachse`)}</span>
+											<span class="w-[50%] text-right">{fs15.cAchse}</span>
+										</div>
+									</div>
+									
 								</Accordion.Content>
 							</Accordion.Item>
 							<Accordion.Item value="item-4">
 								<Accordion.Trigger>{$_(`fs10.steuerung`)}</Accordion.Trigger>
-								<Accordion.Content class="pt-4 xl:text-xl mx-1">
-									<table class="bg-secondary/15 text-md block p-4 border border-secondary/25">
-										<tbody class="text-left">
-											<tr>
-												<td class="w-[50%] text-left">{fs15.Steuerung}</td>
-											</tr>
-										</tbody>
-									</table>
+								<Accordion.Content class="pt-4 xl:text-xl mx-1 bg-primary-foreground/15">
+									<div class="bg-secondary/5 p-2 md:p-4">	
+										<div class="flex flex-row justify-between">
+											<span class="w-auto text-left">{fs15.Steuerung}</span>
+										</div>
+										
+									</div>
+									
 								</Accordion.Content>
 							</Accordion.Item>
 						</Accordion.Root>
 
-						<div class="relative left-10 xl:left-0 xl:top-0 w-[80%] xl:w-[45%] p-4">
+
+						
+
+						<div class="relative left-10 xl:left-0 xl:top-0 w-[80%] xl:w-[40%] p-4">
 							<MaschinenCarousel height={400} pictures={fs15.Bilder} />
 						</div>
 

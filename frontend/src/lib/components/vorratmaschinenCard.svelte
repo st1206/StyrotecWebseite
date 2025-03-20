@@ -7,7 +7,7 @@
 </script>
 
 
-<a href={`/produkte/gebrauchtmaschinen/cnc-maschinen/${maschine.slug}`}>
+<a href={`/produkte/portalfraesmaschinen/vorratsmaschinen/${maschine.slug}`}>
 	<div 
 		class="w-[400px] h-[400px] md:w-[450px] md:h-[450px] rounded-lg bg-cover bg-center" 
 		style="background-image: url({!PUBLIC_BACKEND_URL.includes('https')
@@ -24,4 +24,3 @@
 			
 	</div>
 </a>
-

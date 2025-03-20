@@ -35,24 +35,24 @@
 />
 
 <div class=" my-[100px] flex flex-wrap xl:flex-col">
-	<div class="mx-4 pb-10 xl:mx-[20%]">
-		<h1 class="mb-4 pb-3 text-4xl">{$_(`styroporfraesen.allgemein-Titel`)}</h1>
+	<div class="mx-4 pb-10 md:mx-[10%] xl:mx-[20%]">
+		<h1 class="mb-4 pb-3 text-4xl uppercase font-boldFont">{$_(`styroporfraesen.allgemein-Titel`)}</h1>
 		<p class="overflow-hidden text-xl">{$_(`styroporfraesen.allgemein-Text`)}</p>
 	</div>
 
 	<div
 		class="bg-primary-foreground text-secondary flex w-full flex-col py-8 xl:flex-row xl:py-32 xl:[clip-path:polygon(0%_10%,100%_0%,100%_90%,0%_100%)]"
 	>
-		<div class="xl:ml-[350px] xl:w-[600px]">
+		<div class="mx-4 mb-4 md:mx-[10%] xl:ml-[10%] xl:w-[40%]">
 			<h1 class="text-primary mx-4 mb-4 text-4xl xl:mx-[20%]">
 				{$_(`styroporfraesen.konfiguration-Titel`)}
 			</h1>
-			<p class="mx-4 text-xl xl:mx-[20%]">{$_(`styroporfraesen.konfiguration-Text`)}</p>
+			<p class="mx-4 text-xl xl:mx-[10%]">{$_(`styroporfraesen.konfiguration-Text`)}</p>
 		</div>
 
 		<Accordion.Root
 			type="single"
-			class="text-secondary relative mx-4 w-[450px] object-cover xl:max-w-[70%] xl:text-3xl"
+			class="text-secondary relative ml-4 md:ml-[10%] xl:ml-0 w-[80%] xl:w-[30%] object-cover  xl:text-3xl"
 		>
 			<Accordion.Item value="item-1">
 				<Accordion.Trigger class="bg-secondary/5 border-secondary/15 p-4 m-1">{$_(`styroporfraesen.schaftausführung`)}</Accordion.Trigger>
@@ -81,10 +81,10 @@
 		</Accordion.Root>
 	</div>
 
-	<div class="mx-4 my-8 pb-10 xl:mx-[35%] xl:mt-32">
+	<div class="mx-4 my-8 pb-10 md:mx-[35%] xl:mt-32">
 		<h1 class="pb-3 text-4xl">{$_(`styroporfraesen.wechselkopf`)}</h1>
-		<div class="flex flex-col gap-12 text-center xl:flex-row">
-			<p class="h-[200px] w-[200px] text-xl">
+		<div class="flex flex-col gap-12 justify-around md:flex-row">
+			<p class="h-auto w-[200px] text-xl">
 				{$_(`styroporfraesen.gefräst`)} <br />
 				<img src={kugel} alt="HSK-50" class="h-[200px] bg-center" />
 			</p>
@@ -101,18 +101,18 @@
 		</p>
 	</div>
 
-	<table class="mb-10 ml-[10%] block w-[70%] xl:ml-[25%]">
+	<table class="mb-10 ml-[10%] block w-auto xl:ml-[25%]">
 		<thead class="bg-primary-foreground/45">
 			<tr>
-				<th class="w-[45px] xl:w-[100px]">L / ⌀</th>
-				<th class="w-[45px] xl:w-[100px]">15</th>
-				<th class="w-[45px] xl:w-[100px]">25</th>
-				<th class="w-[45px] xl:w-[100px]">30</th>
-				<th class="w-[45px] xl:w-[100px]">35</th>
-				<th class="w-[45px] xl:w-[100px]">40</th>
-				<th class="w-[45px] xl:w-[100px]">45</th>
-				<th class="w-[45px] xl:w-[100px]">50</th>
-				<th class="w-[45px] xl:w-[100px]">60</th>
+				<th class="w-[40px] md:w-[70px] lg:w-[90px]">L / ⌀</th>
+				<th class="w-[40px] md:w-[70px] lg:w-[90px]">15</th>
+				<th class="w-[40px] md:w-[70px] lg:w-[90px]">25</th>
+				<th class="w-[40px] md:w-[70px] lg:w-[90px]">30</th>
+				<th class="w-[40px] md:w-[70px] lg:w-[90px]">35</th>
+				<th class="w-[40px] md:w-[70px] lg:w-[90px]">40</th>
+				<th class="w-[40px] md:w-[70px] lg:w-[90px]">45</th>
+				<th class="w-[40px] md:w-[70px] lg:w-[90px]">50</th>
+				<th class="w-[40px] md:w-[70px] lg:w-[90px]">60</th>
 			</tr>
 		</thead>
 		<tbody class="text-center">
@@ -247,16 +247,16 @@
 	<div
 		class=" bg-primary-foreground text-secondary flex w-full flex-col py-8 xl:flex-row xl:py-32 xl:[clip-path:polygon(0%_10%,100%_0%,100%_90%,0%_100%)]"
 	>
-		<div class="xl:ml-[350px] xl:w-[600px]">
+		<div class="mx-4 mb-4 md:mx-[10%] xl:ml-[10%] xl:w-[40%]">
 			<h1 class="text-primary mx-4 mb-4 text-4xl xl:mx-[20%]">
 				{$_(`styroporfraesen.werkzeugaufnahme`)}
 			</h1>
-			<p class="mx-4 text-xl xl:mx-[20%]">{$_(`styroporfraesen.werkzeugaufnahme-Text`)}</p>
+			<p class="mx-4 text-xl xl:mx-[10%]">{$_(`styroporfraesen.werkzeugaufnahme-Text`)}</p>
 		</div>
 
 		<Accordion.Root
 			type="single"
-			class="text-secondary  relative mx-4 w-[450px] object-cover xl:max-w-[70%] xl:text-3xl"
+			class="text-secondary relative ml-4 md:ml-[10%] xl:ml-0 w-[80%] xl:w-[30%] object-cover  xl:text-3xl"
 		>
 			<Accordion.Item value="item-1">
 				<Accordion.Trigger>HSK 50</Accordion.Trigger>
