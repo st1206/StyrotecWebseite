@@ -1177,6 +1177,48 @@ export interface ApiMessenMessen extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiMetallpresseMetallpresse
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'metallpresses';
+  info: {
+    displayName: 'Metallpresse';
+    pluralName: 'metallpresses';
+    singularName: 'metallpresse';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Bilder: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    > &
+      Schema.Attribute.Required;
+    Brikettformat: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Durchsatz: Schema.Attribute.String & Schema.Attribute.Required;
+    Gewicht: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::metallpresse.metallpresse'
+    > &
+      Schema.Attribute.Private;
+    Mase: Schema.Attribute.String & Schema.Attribute.Required;
+    Motorleistung: Schema.Attribute.String & Schema.Attribute.Required;
+    Pressdruck: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    Titel: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiMitarbeiterMitarbeiter extends Struct.CollectionTypeSchema {
   collectionName: 'mitarbeiters';
   info: {
@@ -1931,6 +1973,7 @@ declare module '@strapi/strapi' {
       'api::konventionelle.konventionelle': ApiKonventionelleKonventionelle;
       'api::maschine.maschine': ApiMaschineMaschine;
       'api::messen.messen': ApiMessenMessen;
+      'api::metallpresse.metallpresse': ApiMetallpresseMetallpresse;
       'api::mitarbeiter.mitarbeiter': ApiMitarbeiterMitarbeiter;
       'api::referenzen.referenzen': ApiReferenzenReferenzen;
       'api::vorratsmaschine.vorratsmaschine': ApiVorratsmaschineVorratsmaschine;

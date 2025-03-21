@@ -20,13 +20,37 @@
 	<meta name="description" content="" />
 </svelte:head>
 
-<Carousel.Root class="mt-[60px] w-full">
-	<Carousel.Content style={`max-height: 700px`}>
-		<Carousel.Item class="pl-0">
-			<img class="h-full w-full object-cover" src={bigPic} alt="Bilder" />
-		</Carousel.Item>
-	</Carousel.Content>
-</Carousel.Root>
+<div class="relative ">
+	<div
+		class="bg-primary-foreground absolute hidden lg:block h-[230px] w-[50%] opacity-95 [clip-path:polygon(0%_0%,100%_0%,50%_50%,0%_100%)]"
+	>
+		<h1 class="text-secondary hidden lg:block font-boldFont pl-10 pt-24 text-4xl xl:text-5xl">Schlagwort.</h1>
+	</div>
+	<img src={bigPic} alt="FS10 Titelbild" class="h-[300px] w-full object-cover lg:h-[700px]" />
+	<div
+		class="bg-primary-foreground absolute hidden lg:block bottom-0 right-0 h-[200px] w-[40%] [clip-path:polygon(50%_50%,100%_0%,100%_100%,0%_100%)]"
+	></div>
+</div>
+
+<div class="relative text-xl">
+	<div class="bg-primary-foreground h-[30px] w-full"></div>
+	<img
+		src={bigPic}
+		alt="FS10 Titelbild"
+		class="absolute -top-[170px] hidden lg:block right-0 h-[300px] w-[40%] object-cover [clip-path:polygon(0%_28.5%,100%_0%,100%_100%,0%_100%)] lg:h-[700px]"
+	/>
+	<div
+		class="from-primary-foreground/25 hidden lg:block via-primary-foreground/15 to-secondary absolute -top-[170px] right-0 h-[300px] w-[40%] bg-gradient-to-bl [clip-path:polygon(0%_28.5%,100%_0%,100%_100%,0%_100%)] lg:h-[700px]"
+	></div>
+	<div class="mx-4 pb-3 ml-[30px] lg:ml-[80px] md:mr-[100px] lg:mr-[600px] xl:mr-[800px] mt-8 lg:mt-[100px]">
+		<div>
+			<h1 class="font-boldFont pb-6 text-2xl md:text-3xl lg:text-4xl xl:text-5xl uppercase">
+				{$_(`styroporfraesen.allgemein-Titel`)}
+			</h1>
+			<p>{$_(`styroporfraesen.allgemein-Text`)}</p>
+		</div>
+	</div>
+</div>
 
 <img
 	src={wechsler}
@@ -35,10 +59,6 @@
 />
 
 <div class=" my-[100px] flex flex-wrap xl:flex-col">
-	<div class="mx-4 pb-10 md:mx-[10%] xl:mx-[20%]">
-		<h1 class="mb-4 pb-3 text-4xl uppercase font-boldFont">{$_(`styroporfraesen.allgemein-Titel`)}</h1>
-		<p class="overflow-hidden text-xl">{$_(`styroporfraesen.allgemein-Text`)}</p>
-	</div>
 
 	<div
 		class="bg-primary-foreground text-secondary flex w-full flex-col py-8 xl:flex-row xl:py-32 xl:[clip-path:polygon(0%_10%,100%_0%,100%_90%,0%_100%)]"
@@ -82,7 +102,7 @@
 	</div>
 
 	<div class="mx-4 my-8 pb-10 md:mx-[35%] xl:mt-32">
-		<h1 class="pb-3 text-4xl">{$_(`styroporfraesen.wechselkopf`)}</h1>
+		<h1 class="pb-3 text-4xl font-boldFont text-center">{$_(`styroporfraesen.wechselkopf`)}</h1>
 		<div class="flex flex-col gap-12 justify-around md:flex-row">
 			<p class="h-auto w-[200px] text-xl">
 				{$_(`styroporfraesen.gefräst`)} <br />
@@ -95,24 +115,24 @@
 	</div>
 
 	<div class="mx-4 my-8 pb-10 xl:mx-[25%] xl:mt-32">
-		<h1 class=" text-4xl">{$_(`styroporfraesen.tabelle-überschrift`)}</h1>
+		<h1 class=" text-4xl font-boldFont">{$_(`styroporfraesen.tabelle-überschrift`)}</h1>
 		<p class=" text-xl">
 			{$_(`styroporfraesen.tabelle-text`)}
 		</p>
 	</div>
 
-	<table class="mb-10 ml-[10%] block w-auto xl:ml-[25%]">
-		<thead class="bg-primary-foreground/45">
+	<table class="mb-10 ml-[10%]  xl:mx-[25%]">
+		<thead class="bg-primary-foreground text-secondary">
 			<tr>
-				<th class="w-[40px] md:w-[70px] lg:w-[90px]">L / ⌀</th>
-				<th class="w-[40px] md:w-[70px] lg:w-[90px]">15</th>
-				<th class="w-[40px] md:w-[70px] lg:w-[90px]">25</th>
-				<th class="w-[40px] md:w-[70px] lg:w-[90px]">30</th>
-				<th class="w-[40px] md:w-[70px] lg:w-[90px]">35</th>
-				<th class="w-[40px] md:w-[70px] lg:w-[90px]">40</th>
-				<th class="w-[40px] md:w-[70px] lg:w-[90px]">45</th>
-				<th class="w-[40px] md:w-[70px] lg:w-[90px]">50</th>
-				<th class="w-[40px] md:w-[70px] lg:w-[90px]">60</th>
+				<th class="w-[40px] md:w-[70px] lg:w-[80px]">L / ⌀</th>
+				<th class="w-[40px] md:w-[70px] lg:w-[80px]">15</th>
+				<th class="w-[40px] md:w-[70px] lg:w-[80px]">25</th>
+				<th class="w-[40px] md:w-[70px] lg:w-[80px]">30</th>
+				<th class="w-[40px] md:w-[70px] lg:w-[80px]">35</th>
+				<th class="w-[40px] md:w-[70px] lg:w-[80px]">40</th>
+				<th class="w-[40px] md:w-[70px] lg:w-[80px]">45</th>
+				<th class="w-[40px] md:w-[70px] lg:w-[80px]">50</th>
+				<th class="w-[40px] md:w-[70px] lg:w-[80px]">60</th>
 			</tr>
 		</thead>
 		<tbody class="text-center">
@@ -239,8 +259,9 @@
 			</tr>
 		</tbody>
 	</table>
-	<div class="mx-4 mt-[100px] pb-10 xl:mx-[20%]">
-		<h1 class="text-primary-foreground pb-3 text-4xl">{$_(`styroporfraesen.besonderheiten`)}</h1>
+
+	<div class="mx-4 mt-[100px] pb-10 xl:mx-[25%]">
+		<h1 class="text-primary-foreground pb-3 text-4xl font-boldFont">{$_(`styroporfraesen.besonderheiten`)}</h1>
 		<p class="text-xl">{$_(`styroporfraesen.besonderheit-text`)}</p>
 	</div>
 
@@ -286,8 +307,8 @@
 		</Accordion.Root>
 	</div>
 
-	<div class="font-boldItalicFont mx-4 my-4 xl:mx-[20%] xl:my-32">
-		<h1 class="pb-3 text-2xl">{$_('styroporfraesen.bemerkung-titel')}</h1>
+	<div class="mx-4 my-4 xl:mx-[20%] xl:my-32">
+		<h1 class="pb-3 text-2xl font-boldFont">{$_('styroporfraesen.bemerkung-titel')}</h1>
 		<p class="font-boldItalicFont">{$_('styroporfraesen.bemerkung-text')}</p>
 	</div>
 </div>

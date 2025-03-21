@@ -244,7 +244,37 @@
 	"hybrid": {
 		"übersicht-titel": "3D Hybrid Milling Machines - Precision through the combination of 3D printing and CNC milling",
 		"übersicht-text": "Our 3D hybrid milling machines combine the benefits of additive and subtractive manufacturing in one system. 3D printing enables the fast and cost-effective production of complex components from plastic materials, while CNC milling precisely removes material and refines the surfaces to the desired shape.",
-		"übersicht-text2": "By combining these processes in one machine, you benefit from maximum flexibility, efficiency, and precision - ideal for complex geometries and optimized production."
+		"übersicht-text2": "By combining these processes in one machine, you benefit from maximum flexibility, efficiency, and precision - ideal for complex geometries and optimized production.",
+		"combi-titel": "Efficient Manufacturing through the Combination of 3D Printing and CNC Milling",
+		"combi-text": "Hybrid manufacturing combines two processes: additive manufacturing (3D printing), which builds components accurately and cost-effectively from a 3D model, and subtractive manufacturing (CNC milling), which removes material and refines surfaces. By integrating both methods in one environment, components can be produced more efficiently and with optimized quality.",
+		"vorteile-titel": "Advantages of Hybrid Manufacturing",
+		"vorteile-text": "The Styrotec hybrid machine enables the fast production of large-volume parts by combining additive and subtractive manufacturing. This enhances surface quality, reduces material waste, and saves expensive materials. The quick switch between processes ensures optimal machine utilization. Additionally, the finished parts are ready for immediate use without further post-processing.",
+		"anbringung-titel": "The 3D Technology",
+		"anbringung-text": "The adaptation for the 3D print head is carried out on the Z-slide next to the milling head (for models G.12 and G.20). For the more powerful models G.50 and G.200, a second portal is used. The overall system also includes a granulate drying and transport system.",
+		"z-schieber": "On the Z-slide, there is an innovative granulate transport system that enables the smooth transport of up to 100 meters of all types of materials.",
+		"varianten": "Implementation Variants of the Printhead",
+		"punkt1": "Type G.12 with a capacity of 12 kg/h",
+		"punkt2": "Type G.20 with a capacity of 20 kg/h",
+		"punkt3": "Type G.50 with a capacity of 50 kg/h",
+		"punkt4": "Type G.200 with a capacity of 200 kg/h",
+		"parameter": "Manufacturing Parameters",
+		"kapa": "Extruder Capacity",
+		"temp": "Extruder temperature",
+		"düsen": "Print Nozzles",
+		"weg": "Path for 3D-print",
+		"weg-text": "same as milling",
+		"geschwindigkeit": "Print speed",
+		"geschwindigkeit-text": "up to 20 m/min",
+		"material": "Materials",
+		"grund": "Base material",
+		"verstärkte": "Reinforced Materials",
+		"fortschrittlich": "Advanced Materials",
+		"prozess": "Printing Process",
+		"prozess-text1": "It can typically be printed perpendicular to the table surface or at an angle of up to 45°, allowing, for example, boat hulls to be printed without supports.",
+		"prozess-text2": "The print head is autonomous and comes with its own remote control. To increase efficiency, we also integrate it into the milling machine control system for the specific management of printing parameters.",
+		"prozess-text3": "When changing the manufacturing technology, the print head is placed in a swapping and storage station and can be reinserted when needed.",
+		"fräsprozess": "The Milling Process",
+		"fräsprozess-text": "Parts produced via 3D printing often require post-processing to achieve better dimensional and surface tolerances. The combination of additive and subtractive manufacturing allows for high-speed additive printing of components, with functional areas being refined using subtractive methods. Machining is often more productive and cost-effective than additive methods, especially for less complex geometries. Many parts consist of various geometric regions, and by combining both methods, the most suitable technique is applied for each area. In many cases, it is difficult or impractical to produce finished parts solely through additive manufacturing, so post-processing through machining is commonly required. Hybrid machines with integrated 3D printers help significantly reduce this effort."
 	},
 	"vorratsmaschinen": {
 		"übersicht-titel": "Styrotec In-Stock Machines - fast and uncomplicated",
@@ -285,12 +315,19 @@
 		"ueberholung-text": "TODO"
 	},
 	"pressen": {
+		"titel": "Todo",
+		"sub": "TODO",
+		"beschreibungs-text": "TODO",
 		"kunststoff": "Plasics",
 		"kunststoff-text": "TODO",
 		"metalle": "Metalls",
 		"metalle-text": "TODO",
 		"styropor": "Styrofoam",
-		"styropor-text": "TODO"
+		"styropor-text": "TODO",
+		"beschreibung-1": "Automatic Chip Feed to the Briquetting Press with Controlled Operation",
+		"beschreibung-2": "Energy savings thanks to level sensors that put the machine into standby mode when no compressible material is detected",
+		"beschreibung-3": "Efficient coolant recovery through the collection and recycling tray", 
+		"beschreibung-4": "Optimized storage of briquettes in suitable containers thanks to an integrated conveyor belt that collects the briquettes at the discharge point"
 	},
 	"cnc-Masch-Seite": {
 		"beschreibung": "Description",
@@ -443,4 +480,5 @@
 		"links": "Maschines",
 		"rechts": "Additional equipment"
 	}
+	
 }

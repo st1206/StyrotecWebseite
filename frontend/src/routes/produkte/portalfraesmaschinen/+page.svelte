@@ -37,7 +37,7 @@
 ></div>
 
 <div class="bg-secondary flex flex-col py-[30px] lg:flex-row">
-	<div class="w-[90%] md:w-[60%]">
+	<div class="w-[90%] lg:w-[60%]">
 		<div class="relative mb-4 md:-left-[5%] xl:-left-[20%]">
 			<h3
 				class="text-primary-foreground font-boldFont pl-2 text-right text-xl uppercase md:pl-6 md:text-3xl lg:pl-12 lg:text-5xl"
@@ -57,9 +57,9 @@
 	/>
 </div>
 
-<div class="bg-secondary flex flex-col">
+<div class="bg-secondary ">
 	<div
-		class="text-secondary bg-primary-foreground flex flex-col lg:flex-row h-auto w-full py-8 md:py-12 md:pl-[5%] lg:py-24 pl-[5%] lg:pl-[15%]"
+		class="text-secondary bg-primary-foreground flex flex-col text-center lg:text-left lg:flex-row h-auto w-full py-8 md:py-12 md:pl-[5%] lg:py-24 pl-[5%] lg:pl-[15%]"
 	>
 		<div class="text-xl w-[80%] lg:w-[50%] ">
 			<div class=" font-boldFont mb-2 text-xl md:text-2xl xl:text-3xl">

@@ -9,7 +9,7 @@ import { LANG_KEY } from '$lib/i18n';
 export const load: PageServerLoad = async ({ fetch, params, cookies }) => {
     const loadVorrat = async (): Promise<AttributesOf<ApiVorratsmaschineVorratsmaschine>> => {
         const res = await fetch(
-            `${PUBLIC_BACKEND_URL}/api/vorratmaschines?filters[slug][$eq]=${params.slug}&populate=*&locale=${cookies.get(LANG_KEY)}`,
+            `${PUBLIC_BACKEND_URL}/api/vorratsmaschines?filters[slug][$eq]=${params.slug}&populate=*&locale=${cookies.get(LANG_KEY)}`,
             {
                 method: 'GET',
                 headers: getRequestHeaders()

@@ -1,5 +1,11 @@
 // typescript type für Menu Item
-import image1 from "$lib/assets/images/homepage/logo1.jpeg"
+import ads from "$lib/assets/images/branchen/ads_icon.png"
+import art from "$lib/assets/images/branchen/art_icon.png"
+import car from "$lib/assets/images/branchen/car_icon.png"
+import modelling from "$lib/assets/images/branchen/modelling_icon.png"
+import plane from "$lib/assets/images/branchen/plane_icon.png"
+import ship from "$lib/assets/images/branchen/ship_icon.png"
+
 import image2 from "$lib/assets/images/homepage/logo2.jpeg"
 import image3 from "$lib/assets/images/homepage/logo3.jpeg"
 import image4 from "$lib/assets/images/homepage/logo4.jpeg"
@@ -104,14 +110,14 @@ export const menu = [
 	 			key: 'branchen',
 	 			link: '/branchen/branchen',
 	 			items: [
-	 				{ key: 'automobil', link: '/branchen/#automobil', ImageUrl: image1},
-	 				{ key: 'schiffsbau', link: '/branchen/#schiffsbau', ImageUrl: image2},
-	 				{ key: 'modellbau', link: '/branchen/#modellbau', ImageUrl: image3},
+	 				{ key: 'automobil', link: '/branchen/#automobil', ImageUrl: car},
+	 				{ key: 'schiffsbau', link: '/branchen/#schiffsbau', ImageUrl: ship},
+	 				{ key: 'modellbau', link: '/branchen/#modellbau', ImageUrl: modelling},
 	 				{ key: 'kunststoffindustrie', link: '/branchen/#kunststoffindustrie', ImageUrl: image4},
 	 				{ key: 'betonindustrie', link: '/branchen/#betonindustrie',  ImageUrl: image5 },
-	 				{ key: 'werbetechnik', link: '/branchen/#werbetechnik',  ImageUrl: image6},
-	 				{ key: 'aerospace', link: '/branchen/#aerospace',  ImageUrl: image7 },
-	 				{ key: 'kunst', link: '/branchen/#kunst', ImageUrl: image8 }
+	 				{ key: 'werbetechnik', link: '/branchen/#werbetechnik',  ImageUrl: ads},
+	 				{ key: 'aerospace', link: '/branchen/#aerospace',  ImageUrl: plane },
+	 				{ key: 'kunst', link: '/branchen/#kunst', ImageUrl: art }
 	 			]
 	 		}
 	 	]
@@ -136,7 +142,7 @@ export const menu = [
 	 			key: 'karriere',
 	 			link: '/unternehmen/karriere',
 	 			items: [
-	 				{ key: 'stellenausschreibung', link: '/unternehmen/karriere/stellenausschreibung' }
+	 				{ key: 'stellenausschreibung', link: '/unternehmen/karriere/#stellenausschreibung' }
 				]
 	 		},
 	 		{

@@ -30,7 +30,7 @@
 
 
 <div class="bg-secondary flex flex-col py-[30px] lg:flex-row">
-	<div class="w-[90%] md:w-[60%]">
+	<div class="w-[90%] lg:w-[60%]">
 		<div class="relative mb-4 md:-left-[5%] xl:-left-[20%]">
 			<h1
 				class="text-primary-foreground font-boldFont pl-2 text-right text-xl uppercase md:pl-6 md:text-3xl lg:pl-12 lg:text-5xl"

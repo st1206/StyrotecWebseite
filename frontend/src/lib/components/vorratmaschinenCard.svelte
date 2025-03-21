@@ -14,10 +14,13 @@
 					? `${PUBLIC_BACKEND_URL}${maschine.Bilder[0].url}`
 					: maschine.Bilder[0].formats.small.url})">
 			<div class="bg-primary-foreground bg-opacity-50 h-full w-full rounded-lg p-12 text-secondary">
-				<h5 class="left-0 top-0 mb-2 text-4xl font-bold ">
-						{maschine.Titel} <br> {maschine.Bezeichnung}
-				</h5>
-				<span class="text-xl ">Baujahr: {maschine.Baujahr}</span>
+				<h1 class="left-0 top-0 mb-2 text-4xl font-bold ">
+						{maschine.Titel} 
+				</h1>
+				<h2>
+					{maschine.AbmessungUmhausung}
+				</h2>
+				
 				
 			</div>
 

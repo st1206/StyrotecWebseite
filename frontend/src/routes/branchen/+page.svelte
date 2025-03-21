@@ -19,15 +19,15 @@
     <!-- Automobil -->
 	<div class="relative mt-[125px]">
 		<!-- dunkel Filter -->
-		<div class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[380px]">
+		<div class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]">
 			<!-- Heading im Bild -->
 			<h1
-				class="font-boldFont text-secondary relative left-4 top-4 w-[400px] text-3xl uppercase md:left-16 md:top-16 md:text-5xl lg:left-24 lg:top-32 lg:text-7xl"
+				class="font-boldFont text-secondary relative left-4 top-4 w-auto text-3xl uppercase md:left-16 md:top-16 md:text-5xl lg:left-24 xl:top-32 lg:text-7xl"
 			>
 				{$_('branchen.auto-titel')}
 			</h1>
 			<p
-				class="text-secondary/65 relative left-4 top-2 md:left-16 md:top-16 lg:left-24 lg:top-32 lg:text-xl"
+				class="text-secondary/65 relative left-4 top-2 md:left-16 md:top-16 lg:left-24 xl:top-32 lg:text-xl"
 			>
 				{$_('branchen.auto-sub')}
 			</p>
@@ -38,7 +38,7 @@
 		<img
 			src={auto1}
 			alt="FS10 Titelbild"
-			class="h-[150px] w-full rounded-t-3xl object-cover object-bottom md:h-[250px] lg:h-[380px]"
+			class="h-[150px] w-full rounded-t-3xl object-cover object-bottom md:h-[250px] lg:h-[300px] xl:h-[380px]"
 		/>
 		<!-- dropdown in der Mitte -->
 		<Accordion.Root
@@ -77,12 +77,12 @@
 		<!-- dunkel Filter + Bild unten -->
 		<div class="relative -top-[50px] md:-top-[90px]">
 			<div
-				class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[380px]"
+				class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]"
 			></div>
 			<img
 				src={auto2}
 				alt="FS10 Titelbild"
-				class="h-[150px] w-full rounded-b-3xl object-cover object-top md:h-[250px] lg:h-[380px]"
+				class="h-[150px] w-full rounded-b-3xl object-cover object-top md:h-[250px] lg:h-[300px] xl:h-[380px]"
 			/>
 		</div>
 	</div>
@@ -90,15 +90,15 @@
     <!-- Schiff -->
     <div class="relative ">
 		<!-- dunkel Filter -->
-		<div class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[380px]">
+		<div class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]">
 			<!-- Heading im Bild -->
 			<h1
-				class="font-boldFont text-secondary relative left-4 top-4 w-[400px] text-3xl uppercase md:left-16 md:top-16 md:text-5xl lg:left-24 lg:top-32 lg:text-7xl"
+				class="font-boldFont text-secondary relative left-4 top-4 w-auto text-3xl uppercase md:left-16 md:top-16 md:text-5xl lg:left-24 xl:top-32 lg:text-7xl"
 			>
 				{$_('branchen.schiff-titel')}
 			</h1>
 			<p
-				class="text-secondary/65 relative left-4 top-2 md:left-16 md:top-16 lg:left-24 lg:top-32 lg:text-xl"
+				class="text-secondary/65 relative left-4 top-2 md:left-16 md:top-16 lg:left-24 xl:top-32 lg:text-xl"
 			>
 				{$_('branchen.schiff-sub')}
 			</p>
@@ -109,7 +109,7 @@
 		<img
 			src={schiff1}
 			alt="FS10 Titelbild"
-			class="h-[150px] w-full rounded-t-3xl object-cover object-bottom md:h-[250px] lg:h-[380px]"
+			class="h-[150px] w-full rounded-t-3xl object-cover object-bottom md:h-[250px] lg:h-[300px] xl:h-[380px]"
 		/>
 		<!-- dropdown in der Mitte -->
 		<Accordion.Root
@@ -148,12 +148,12 @@
 		<!-- dunkel Filter + Bild unten -->
 		<div class="relative -top-[50px] md:-top-[90px]">
 			<div
-				class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[380px]"
+				class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]"
 			></div>
 			<img
 				src={schiff2}
 				alt="FS10 Titelbild"
-				class="h-[150px] w-full rounded-b-3xl object-cover object-top md:h-[250px] lg:h-[380px]"
+				class="h-[150px] w-full rounded-b-3xl object-cover object-top md:h-[250px] lg:h-[300px] xl:h-[380px]"
 			/>
 		</div>
 	</div>
@@ -161,15 +161,15 @@
     <!-- Modellbau -->
     <div class="relative ">
 		<!-- dunkel Filter -->
-		<div class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[380px]">
+		<div class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]">
 			<!-- Heading im Bild -->
 			<h1
-				class="font-boldFont text-secondary relative left-4 top-4 w-[400px] text-3xl uppercase md:left-16 md:top-16 md:text-5xl lg:left-24 lg:top-32 lg:text-7xl"
+				class="font-boldFont text-secondary relative left-4 top-4 w-auto text-3xl uppercase md:left-16 md:top-16 md:text-5xl lg:left-24 xl:top-32 lg:text-7xl"
 			>
 				{$_('branchen.modell-titel')}
 			</h1>
 			<p
-				class="text-secondary/65 relative left-4 top-2 md:left-16 md:top-16 lg:left-24 lg:top-32 lg:text-xl"
+				class="text-secondary/65 relative left-4 top-2 md:left-16 md:top-16 lg:left-24 xl:top-32 lg:text-xl"
 			>
 				{$_('branchen.modell-sub')}
 			</p>
@@ -180,7 +180,7 @@
 		<img
 			src={schiff1}
 			alt="FS10 Titelbild"
-			class="h-[150px] w-full rounded-t-3xl object-cover object-bottom md:h-[250px] lg:h-[380px]"
+			class="h-[150px] w-full rounded-t-3xl object-cover object-bottom md:h-[250px] lg:h-[300px] xl:h-[380px]"
 		/>
 		<!-- dropdown in der Mitte -->
 		<Accordion.Root
@@ -219,12 +219,12 @@
 		<!-- dunkel Filter + Bild unten -->
 		<div class="relative -top-[50px] md:-top-[90px]">
 			<div
-				class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[380px]"
+				class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]"
 			></div>
 			<img
 				src={schiff2}
 				alt="FS10 Titelbild"
-				class="h-[150px] w-full rounded-b-3xl object-cover object-top md:h-[250px] lg:h-[380px]"
+				class="h-[150px] w-full rounded-b-3xl object-cover object-top md:h-[250px] lg:h-[300px] xl:h-[380px]"
 			/>
 		</div>
 	</div>
@@ -232,15 +232,15 @@
     <!-- Kunststoffindustrie -->
     <div class="relative ">
 		<!-- dunkel Filter -->
-		<div class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[380px]">
+		<div class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]">
 			<!-- Heading im Bild -->
 			<h1
-				class="font-boldFont text-secondary relative left-4 top-4 w-[400px] text-3xl uppercase md:left-16 md:top-16 md:text-5xl lg:left-24 lg:top-32 lg:text-7xl"
+				class="font-boldFont text-secondary relative left-4 top-4 w-auto text-3xl uppercase md:left-16 md:top-16 md:text-5xl lg:left-24 xl:top-32 lg:text-7xl"
 			>
 				{$_('branchen.kunststoff-titel')}
 			</h1>
 			<p
-				class="text-secondary/65 relative left-4 top-2 md:left-16 md:top-16 lg:left-24 lg:top-32 lg:text-xl"
+				class="text-secondary/65 relative left-4 top-2 md:left-16 md:top-16 lg:left-24 xl:top-32 lg:text-xl"
 			>
 				{$_('branchen.kunststoff-sub')}
 			</p>
@@ -251,7 +251,7 @@
 		<img
 			src={schiff1}
 			alt="FS10 Titelbild"
-			class="h-[150px] w-full rounded-t-3xl object-cover object-bottom md:h-[250px] lg:h-[380px]"
+			class="h-[150px] w-full rounded-t-3xl object-cover object-bottom md:h-[250px] lg:h-[300px] xl:h-[380px]"
 		/>
 		<!-- dropdown in der Mitte -->
 		<Accordion.Root
@@ -290,12 +290,12 @@
 		<!-- dunkel Filter + Bild unten -->
 		<div class="relative -top-[50px] md:-top-[90px]">
 			<div
-				class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[380px]"
+				class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]"
 			></div>
 			<img
 				src={schiff2}
 				alt="FS10 Titelbild"
-				class="h-[150px] w-full rounded-b-3xl object-cover object-top md:h-[250px] lg:h-[380px]"
+				class="h-[150px] w-full rounded-b-3xl object-cover object-top md:h-[250px] lg:h-[300px] xl:h-[380px]"
 			/>
 		</div>
 	</div>
@@ -303,15 +303,15 @@
     <!-- Betonindustrie -->
     <div class="relative ">
 		<!-- dunkel Filter -->
-		<div class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[380px]">
+		<div class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]">
 			<!-- Heading im Bild -->
 			<h1
-				class="font-boldFont text-secondary relative left-4 top-4 w-[400px] text-3xl uppercase md:left-16 md:top-16 md:text-5xl lg:left-24 lg:top-32 lg:text-7xl"
+				class="font-boldFont text-secondary relative left-4 top-4 w-auto text-3xl uppercase md:left-16 md:top-16 md:text-5xl lg:left-24 xl:top-32 lg:text-7xl"
 			>
 				{$_('branchen.beton-titel')}
 			</h1>
 			<p
-				class="text-secondary/65 relative left-4 top-2 md:left-16 md:top-16 lg:left-24 lg:top-32 lg:text-xl"
+				class="text-secondary/65 relative left-4 top-2 md:left-16 md:top-16 lg:left-24 xl:top-32 lg:text-xl"
 			>
 				{$_('branchen.beton-sub')}
 			</p>
@@ -322,7 +322,7 @@
 		<img
 			src={beton1}
 			alt="FS10 Titelbild"
-			class="h-[150px] w-full rounded-t-3xl object-cover object-bottom md:h-[250px] lg:h-[380px]"
+			class="h-[150px] w-full rounded-t-3xl object-cover object-bottom md:h-[250px] lg:h-[300px] xl:h-[380px]"
 		/>
 		<!-- dropdown in der Mitte -->
 		<Accordion.Root
@@ -361,12 +361,12 @@
 		<!-- dunkel Filter + Bild unten -->
 		<div class="relative -top-[50px] md:-top-[90px]">
 			<div
-				class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[380px]"
+				class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]"
 			></div>
 			<img
 				src={beton2}
 				alt="FS10 Titelbild"
-				class="h-[150px] w-full rounded-b-3xl object-cover object-top md:h-[250px] lg:h-[380px]"
+				class="h-[150px] w-full rounded-b-3xl object-cover object-top md:h-[250px] lg:h-[300px] xl:h-[380px]"
 			/>
 		</div>
 	</div>
@@ -374,15 +374,15 @@
     <!-- Werbetechnik -->
     <div class="relative ">
 		<!-- dunkel Filter -->
-		<div class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[380px]">
+		<div class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]">
 			<!-- Heading im Bild -->
 			<h1
-				class="font-boldFont text-secondary relative left-4 top-4 w-[400px] text-3xl uppercase md:left-16 md:top-16 md:text-5xl lg:left-24 lg:top-32 lg:text-7xl"
+				class="font-boldFont text-secondary relative left-4 top-4 w-auto text-3xl uppercase md:left-16 md:top-16 md:text-5xl lg:left-24 xl:top-32 lg:text-7xl"
 			>
 				{$_('branchen.werbe-titel')}
 			</h1>
 			<p
-				class="text-secondary/65 relative left-4 top-2 md:left-16 md:top-16 lg:left-24 lg:top-32 lg:text-xl"
+				class="text-secondary/65 relative left-4 top-2 md:left-16 md:top-16 lg:left-24 xl:top-32 lg:text-xl"
 			>
 				{$_('branchen.werbe-sub')}
 			</p>
@@ -393,7 +393,7 @@
 		<img
 			src={schiff1}
 			alt="FS10 Titelbild"
-			class="h-[150px] w-full rounded-t-3xl object-cover object-bottom md:h-[250px] lg:h-[380px]"
+			class="h-[150px] w-full rounded-t-3xl object-cover object-bottom md:h-[250px] lg:h-[300px] xl:h-[380px]"
 		/>
 		<!-- dropdown in der Mitte -->
 		<Accordion.Root
@@ -432,12 +432,12 @@
 		<!-- dunkel Filter + Bild unten -->
 		<div class="relative -top-[50px] md:-top-[90px]">
 			<div
-				class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[380px]"
+				class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]"
 			></div>
 			<img
 				src={schiff2}
 				alt="FS10 Titelbild"
-				class="h-[150px] w-full rounded-b-3xl object-cover object-top md:h-[250px] lg:h-[380px]"
+				class="h-[150px] w-full rounded-b-3xl object-cover object-top md:h-[250px] lg:h-[300px] xl:h-[380px]"
 			/>
 		</div>
 	</div>
@@ -445,15 +445,15 @@
     <!-- Aerospace -->
     <div class="relative ">
 		<!-- dunkel Filter -->
-		<div class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[380px]">
+		<div class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]">
 			<!-- Heading im Bild -->
 			<h1
-				class="font-boldFont text-secondary relative left-4 top-4 w-[400px] text-3xl uppercase md:left-16 md:top-16 md:text-5xl lg:left-24 lg:top-32 lg:text-7xl"
+				class="font-boldFont text-secondary relative left-4 top-4 w-auto text-3xl uppercase md:left-16 md:top-16 md:text-5xl lg:left-24 xl:top-32 lg:text-7xl"
 			>
 				{$_('branchen.luft-titel')}
 			</h1>
 			<p
-				class="text-secondary/65 relative left-4 top-2 md:left-16 md:top-16 lg:left-24 lg:top-32 lg:text-xl"
+				class="text-secondary/65 relative left-4 top-2 md:left-16 md:top-16 lg:left-24 xl:top-32 lg:text-xl"
 			>
 				{$_('branchen.luft-sub')}
 			</p>
@@ -464,7 +464,7 @@
 		<img
 			src={luft1}
 			alt="FS10 Titelbild"
-			class="h-[150px] w-full rounded-t-3xl object-cover object-bottom md:h-[250px] lg:h-[380px]"
+			class="h-[150px] w-full rounded-t-3xl object-cover object-bottom md:h-[250px] lg:h-[300px] xl:h-[380px]"
 		/>
 		<!-- dropdown in der Mitte -->
 		<Accordion.Root
@@ -503,12 +503,12 @@
 		<!-- dunkel Filter + Bild unten -->
 		<div class="relative -top-[50px] md:-top-[90px]">
 			<div
-				class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[380px]"
+				class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]"
 			></div>
 			<img
 				src={luft2}
 				alt="FS10 Titelbild"
-				class="h-[150px] w-full rounded-b-3xl object-cover object-top md:h-[250px] lg:h-[380px]"
+				class="h-[150px] w-full rounded-b-3xl object-cover object-top md:h-[250px] lg:h-[300px] xl:h-[380px]"
 			/>
 		</div>
 	</div>
@@ -516,15 +516,15 @@
     <!-- Kunst -->
     <div class="relative ">
 		<!-- dunkel Filter -->
-		<div class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[380px]">
+		<div class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]">
 			<!-- Heading im Bild -->
 			<h1
-				class="font-boldFont text-secondary relative left-4 top-4 w-[400px] text-3xl uppercase md:left-16 md:top-16 md:text-5xl lg:left-24 lg:top-32 lg:text-7xl"
+				class="font-boldFont text-secondary relative left-4 top-4 w-auto text-3xl uppercase md:left-16 md:top-16 md:text-5xl lg:left-24 xl:top-32 lg:text-7xl"
 			>
 				{$_('branchen.kunst-titel')}
 			</h1>
 			<p
-				class="text-secondary/65 relative left-4 top-2 md:left-16 md:top-16 lg:left-24 lg:top-32 lg:text-xl"
+				class="text-secondary/65 relative left-4 top-2 md:left-16 md:top-16 lg:left-24 xl:top-32 lg:text-xl"
 			>
 				{$_('branchen.kunst-sub')}
 			</p>
@@ -535,7 +535,7 @@
 		<img
 			src={kunst1}
 			alt="FS10 Titelbild"
-			class="h-[150px] w-full rounded-t-3xl object-cover object-bottom md:h-[250px] lg:h-[380px]"
+			class="h-[150px] w-full rounded-t-3xl object-cover object-bottom md:h-[250px] lg:h-[300px] xl:h-[380px]"
 		/>
 		<!-- dropdown in der Mitte -->
 		<Accordion.Root
@@ -574,12 +574,12 @@
 		<!-- dunkel Filter + Bild unten -->
 		<div class="relative -top-[50px] md:-top-[90px]">
 			<div
-				class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[380px]"
+				class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]"
 			></div>
 			<img
 				src={kunst2}
 				alt="FS10 Titelbild"
-				class="h-[150px] w-full rounded-b-3xl object-cover object-top md:h-[250px] lg:h-[380px]"
+				class="h-[150px] w-full rounded-b-3xl object-cover object-top md:h-[250px] lg:h-[300px] xl:h-[380px]"
 			/>
 		</div>
 	</div>

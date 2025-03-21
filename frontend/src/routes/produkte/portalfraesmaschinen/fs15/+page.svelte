@@ -46,7 +46,7 @@
 	></div>
 	<div class="mx-4 pb-3 ml-[30px] lg:ml-[80px] md:mr-[300px] lg:mr-[600px] xl:mr-[800px] mt-8 lg:mt-[100px]">
 		<div>
-			<h1 class="font-boldFont pb-6 text-5xl uppercase">
+			<h1 class="font-boldFont pb-6 text-2xl md:text-3xl lg:text-4xl xl:text-5xl uppercase">
 				{$_(`fs15.übersicht-titel`)}
 			</h1>
 			<p>{$_(`fs15.übersicht-text`)}</p>

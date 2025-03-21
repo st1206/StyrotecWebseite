@@ -249,9 +249,36 @@
 		"übersicht-titel": "3D-Hybrid-Fräsmaschinen - Präzision durch Kombination von 3D-Druck und CNC-Fräsen",
 		"übersicht-text": "Unsere 3D-Hybrid-Fräsmaschinen vereinen die Vorteile der additiven und subtraktiven Fertigung in einem System. Der 3D-Druck ermöglicht die schnelle und kostengünstige Herstellung komplexer Bauteile aus plastischen Werkstoffen, während das CNC-Fräsen präzise Material abträgt und die Oberflächen bis zur gewünschten Form verfeinert.",
 		"übersicht-text2": "Durch die Kombination dieser Verfahren in einer Maschine profitieren Sie von höchster Flexibilität, Effizienz und Präzision - ideal für komplexe Geometrien und eine optimierte Fertigung.",
-		"titel": "",
-		"text": ""
-
+		"combi-titel": "Effiziente Fertigung durch die Kombination von 3D-Druck und CNC-Fräsen",
+		"combi-text": "Die hybride Fertigung kombiniert zwei Verfahren: additive Fertigung (3D-Druck), die präzise und kostengünstig Bauteile aus einem 3D-Modell aufbaut, und subtraktive Fertigung (CNC-Fräsen), die Material abträgt und Oberflächen verfeinert. Durch diese Kombination in einer Umgebung entstehen Bauteile effizienter und mit optimierter Qualität.",
+		"vorteile-titel": "Vorteile der hybriden Fertigung",
+		"vorteile-text": "Die Styrotec Hybridmaschine ermöglicht die schnelle Herstellung großvolumiger Teile durch die Kombination von additiver und subtraktiver Fertigung. Dies verbessert die Oberflächenqualität, reduziert Materialabfall und spart teure Werkstoffe. Der schnelle Wechsel zwischen den Verfahren sorgt für eine optimale Maschinenauslastung. Zudem sind die gefertigten Teile sofort einsatzbereit, ohne zusätzliche Nachbearbeitung.",
+		"anbringung-titel": "Die 3D Technologie",
+		"anbringung-text": "Die Adaptation für den 3D-Druckkopf erfolgt am Z-Schieber neben dem Fräskopf (für die Typen G.12 und G.20). Für die leistungsfähigeren Typen G. 50 und G.200 wird ein zweites Portal verwendet. Im Gesamtsystem ist auch ein Granulattrocknungs- und Transportsystem vorgesehen.",
+		"z-schieber": "Am Z-Schieber befindet sich ein innovatives Granulat-Transportsystem, das einen problemlosen Transport von bis zu 100 m aller Materialarten ermöglicht",
+		"varianten": "Ausführungsvarianten Druckkopf",
+		"punkt1": "G.12 mit einer Kapazität von 12 kg/h",
+		"punkt2": "G.20 mit einer Kapazität von 20 kg/h",
+		"punkt3": "G.50 mit einer Kapazität von 50 kg/h",
+		"punkt4": "G.200 mit einer Kapazität von 200 kg/h",
+		"parameter": "Fertigungsparameter",
+		"kapa": "Extruder Kapazität",
+		"temp": "Extrudertemperatur",
+		"düsen": "Druckdüsen",
+		"weg": "Verfahrweg 3D-Druck",
+		"weg-text": "wie Fräsmaschine",
+		"geschwindigkeit": "Druckgeschwindigkeit",
+		"geschwindigkeit-text": "bis zu 20 m/min",
+		"material": "Materialien",
+		"grund": "Grundmaterialien",
+		"verstärkte": "Verstärkte Materialien",
+		"fortschrittlich": "Fortschrittliche Materialien",
+		"prozess": "Druckprozess",
+		"prozess-text1": "Es kann typischerweise senkrecht zur Tischoberfläche oder in einem Winkel von bis zu 45° gedruckt werden, was es ermöglicht, z. B. Bootsrümpfe ohne Supports zu drucken.",
+		"prozess-text2": "Der Druckkopf ist autonom und verfügt über eine eigene Fernbedienung. Zur Steigerung der Effizienz integrieren wir es auch in die Fräsmaschinensteuerung für die spezifische Verwaltung der Druckparameter.",
+		"prozess-text3": "Bei Wechsel der Fertigungstechnologie wird der Druckkopf in einer Wechsel- und Aufbewahrungsstation abgelegt und bei Bedarf wieder eingewechselt.",
+		"fräsprozess": "Der Fräsprozess",
+		"fräsprozess-text": "Teile, die im 3D-Druck hergestellt werden, erfordern häufig eine Nachbearbeitung, um bessere Maß- und Oberflächentoleranzen zu erzielen. Die Kombination von additiver und subtraktiver Fertigung ermöglicht es, mit hoher Geschwindigkeit Bauteile additiv zu drucken und spezifische funktionelle Bereiche durch zerspanende Verfahren nachzubearbeiten. Die Zerspanung ist in vielen Fällen produktiver und kostengünstiger als additive Verfahren, besonders bei weniger komplexen Geometrien. Bei vielen Bauteilen, die aus verschiedenen Geometriebereichen bestehen, kommt bei der Kombination beider Verfahren jeweils die am besten geeignete Methode zum Einsatz. Für viele Anwendungen ist es schwierig oder mit hohem Aufwand verbunden, Bauteile rein additiv zu fertigen, weshalb eine Nachbearbeitung durch zerspanende Verfahren notwendig wird. Hybridmaschinen mit integriertem 3D-Drucker reduzieren diesen Aufwand erheblich."
 	},
 	"vorratsmaschinen": {
 		"übersicht-titel": "Styortec Vorratsmaschinen - schnell und unkompliziert",
@@ -292,12 +319,19 @@
 		"ueberholung-text": "TODO"
 	},
 	"pressen": {
+		"titel": "Todo",
+		"sub": "TODO",
+		"beschreibungs-text": "TODO",
 		"kunststoff": "Kunststoffe",
 		"kunststoff-text": "TODO",
 		"metalle": "Metalle",
 		"metalle-text": "TODO",
 		"styropor": "Styropor",
-		"styropor-text": "TODO"
+		"styropor-text": "TODO",
+		"beschreibung-1": "Automatische Spänezufuhr zur Brikettpresse mit kontrolliertem Betrieb",
+		"beschreibung-2": "Energieeinsparung dank Füllstandssonden, die die Maschine in Stand-by-Modus versetzt, wenn kein zu verdichtendes Material erkannt wird",
+		"beschreibung-3": "Effiziente Kühlmittelrückgewinnung durch die Auffang- und Rückgewinnungswanne", 
+		"beschreibung-4": "Optimierte Lagerung der Briketts in geeigneten Behältern dank eines integrierten Förderbandes, das die Briketts am Auswurf aufnimmt"
 	},
 	"cnc-Masch-Seite": {
 		"beschreibung": "Beschreibung",
@@ -449,5 +483,4 @@
 		"links": "Maschinen",
 		"rechts": "Zusätzliches"
 	}
-	
 }

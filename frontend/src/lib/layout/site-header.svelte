@@ -81,7 +81,7 @@
 										{#each column.items as item}
 											<a href={item.link} class="text-primary text-2xl">
 												{$_(`nav.${item.key}`) ?? item.key}
-												<img src={item.ImageUrl} alt="logo" class="h-[150px] w-[150px] xl:h-[250px] xl:w-[250px]" />
+												<img src={item.ImageUrl} alt="logo" class="h-[150px] w-[150px] xl:h-[250px] xl:w-[250px] bg-secondary rounded-lg" />
 											</a>
 										{/each}
 									</div>

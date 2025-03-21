@@ -7,6 +7,7 @@
 	let carouselHeight = 700;
 	import * as Accordion from '$lib/components/ui/accordion';
 	import { _ } from 'svelte-i18n';
+	import halle from '$lib/assets/images/ueberUns/halle_klein.jpg'
 	import logo1 from '$lib/assets/images/homepage/logo1.jpeg';
 	import logo2 from '$lib/assets/images/homepage/logo2.jpeg';
 	import logo3 from '$lib/assets/images/homepage/logo3.jpeg';
@@ -98,11 +99,11 @@
 
 
 
-<div class=" flex flex-row flex-wrap bg-primary-foreground text-secondary gap-12 p-4 lg:p-12 lg:pt-24">
+<div class=" flex flex-row flex-wrap bg-secondary text-primary-foreground gap-12 p-4 lg:p-12 lg:pt-24">
 	
 	
 	<div class="text-lg pl-4 lg:pl-8   w-[90%] lg:w-[50%]">
-		<h1 class="text-3xl uppercase font-boldFont pb-2">{$_('homepage.einführung-titel')}</h1>
+		<h1 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl uppercase font-boldFont pb-2">{$_('homepage.einführung-titel')}</h1>
 		{$_('homepage.einführung-text')} <br>
 		● {$_('homepage.einführung-punkt1')} <br>
 		● {$_('homepage.einführung-punkt2')} <br>
@@ -110,7 +111,13 @@
 		{$_('homepage.einführung-ende')}
 	</div>
 	
-	<img src={karte} alt="Karte" class="hidden lg:block w-[40%] "> 
+		<div style="background-image: url({halle})" class="w-[40%] h-[400px] rounded-lg hover:scale-105">
+			<a href="/unternehmen/ueber-uns">
+				<div class="bg-primary-foreground/45 hover:bg-primary-foreground/65 w-[100%] h-[400px] rounded-lg">
+					<h2 class="text-center text-secondary uppercase font-boldFont p-32 text-2xl md:text-3xl lg:text-4xl xl:text-5xl"> Lernen sie mehr über uns !</h2>
+				</div>
+			</a>
+		</div>
 	
 </div>
 

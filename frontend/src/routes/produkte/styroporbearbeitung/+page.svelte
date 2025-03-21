@@ -30,7 +30,7 @@
 {/await}
 <div class="relative -top-[50px] w-full h-[100px] md:h-[100px] bg-primary [clip-path:polygon(0%_0%,100%_0%,81%_100%,0%_100%)]"></div>
 <div class="bg-secondary flex flex-col py-[30px] lg:flex-row">
-	<div class="w-[90%] md:w-[60%]">
+	<div class="w-[90%] lg:w-[60%]">
 		<div class="relative mb-4 md:-left-[5%] xl:-left-[20%]">
 			<h3
 				class="text-primary-foreground font-boldFont pl-2 text-right text-xl uppercase md:pl-6 md:text-3xl lg:pl-12 lg:text-5xl"
