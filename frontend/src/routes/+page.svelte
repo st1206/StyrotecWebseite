@@ -104,7 +104,7 @@
 	
 	<div class="text-lg pl-4 lg:pl-8   w-[90%] lg:w-[50%]">
 		<h1 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl uppercase font-boldFont pb-2">{$_('homepage.einführung-titel')}</h1>
-		{$_('homepage.einführung-text')} <br>
+		<p class="text-justify">{$_('homepage.einführung-text')}</p>
 		● {$_('homepage.einführung-punkt1')} <br>
 		● {$_('homepage.einführung-punkt2')} <br>
 		● {$_('homepage.einführung-punkt3')} <br>
@@ -147,7 +147,7 @@
 	<div class="h-auto  w-full bg-center  bg-[url($lib/assets/images/homepage/weltkarte.png)] bg-cover">
 				<div class="bg-primary-foreground/85 relative h-full w-full  p-16 md:p-16 lg:p-32 xl:p-44 text-secondary">
 					<h1 class="text-m text-xl md:text-2xl xl:text-4xl font-boldFont mb-10">{$_(`homepage.weltweit-titel`)}</h1>
-					<p class="text-lg xl:text-2xl">
+					<p class="text-lg xl:text-2xl text-justify">
 						{$_(`homepage.weltweit-text`)}
 					</p>
 				</div>

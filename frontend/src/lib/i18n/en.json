@@ -122,10 +122,7 @@
 		"weltweit-text": "Our portal milling machines are in high demand worldwide and are used in numerous countries and continents. From the heart of Europe to North America and the innovative markets of Asia - our machines have proven themselves in a wide range of industries and production environments. They are used in the automotive industry, aerospace, mechanical engineering, and many other sectors. With their high precision, durability, and flexibility, they provide tailored solutions for a variety of manufacturing requirements. Our many years of experience and continuous spirit of innovation have made us a trusted partner for companies around the world. Trust in the proven technology of Styrotec to optimize your production processes and take your manufacturing to the next level.",
 		"unternehmen-news-titel":"Stay updated.",
 		"unternehmen-überUns-titel": "Styrotec and More...",
-		"unternehmen-karriere-titel": "Looking for a job?",
-		"and-more": "Styrotec offers more than just products for the process of Styrofoam processing. For two decades, a wide range of milling machines in various designs for the target markets of model and mold making, as well as plastics processing, has complemented the service portfolio. In addition, productive solutions in peripheral equipment and attractive service offerings enhance the machines.",
-		"and-more2": "We see ourselves as a partner and advisor for your investment in manufacturing technology throughout its entire lifecycle—from acquisition and productivity enhancements to giving the machine a second life. In doing so, we contribute to the circular economy. Through a collaborative approach, we support our customers worldwide in becoming more competitive.",
-		"and-more3": "As a fair, reliable, and flexible partner, we design the most efficient and cost-effective technical solution and ensure economic success with a broad range of services."
+		"unternehmen-karriere-titel": "Looking for a job?"
 	},
 	"styroporbearbeitung": { 
 		"titel": "Overview styrofoam machining",
@@ -327,7 +324,15 @@
 		"beschreibung-1": "Automatic Chip Feed to the Briquetting Press with Controlled Operation",
 		"beschreibung-2": "Energy savings thanks to level sensors that put the machine into standby mode when no compressible material is detected",
 		"beschreibung-3": "Efficient coolant recovery through the collection and recycling tray", 
-		"beschreibung-4": "Optimized storage of briquettes in suitable containers thanks to an integrated conveyor belt that collects the briquettes at the discharge point"
+		"beschreibung-4": "Optimized storage of briquettes in suitable containers thanks to an integrated conveyor belt that collects the briquettes at the discharge point",
+		"parameter": "Performance and Process Parameters",
+		"eigenschaften": "Physical properties",
+		"durchsatz": "Throughput",
+		"format": "Briquett format",
+		"leistung": "Engine power",
+		"druck": "Briquetting pressure",
+		"maße": "Dimensions",
+		"gewicht": "Weight"
 	},
 	"cnc-Masch-Seite": {
 		"beschreibung": "Description",
@@ -456,7 +461,23 @@
 		"umzug-2": "Styrotec is moving into a 600 sqm newly built hall in Baienfurt, including a 20-ton overhead crane and an attached office wing.",
 		"werte-titel": "Our Values",
 		"werte-text": "TODO",
-		"team-titel": "TODO",
+		"wert1": "Fairness.",
+		"wert1-text": "As a company, we place great importance on treating our customers and employees with respect. Fairness means that we treat our customers and employees equally and advocate for equal opportunities. Fairness also means acting ethically and transparently informing our customers and employees about decisions and processes.",
+		"wert2": "Reliability.", 
+		"wert2-text": "As a company, we place great importance on fulfilling our promises to customers and employees reliably and punctually. Reliability means that we plan realistically, communicate honestly, and meet the expectations of our customers and employees.",
+		"wert3": "Flexibiliy.",
+		"wert3-text": "For us, flexibility primarily means the ability to act quickly, purposefully, and successfully. Flexibility also means being open to new perspectives and methods, as well as responding swiftly and adaptively to customer requirements. A consistently high willingness to change and overall mental agility are the cornerstones of our success story.",
+		"nachhaltigkeit-titel": "Sustainability",
+		"nachhaltigkeit-text1": "Promoting sustainability and environmental protection is more important today than ever. The industry has also recognized that sustainable actions not only protect the environment but also offer economic benefits.",
+		"nachhaltigkeit-text2": "Sustainability is an integral part of Styrotec's corporate philosophy. We are aware of our responsibility toward the environment and rely on innovative solutions to conserve resources, reduce emissions, and establish sustainable products.",
+		"nachhaltigkeit-text3": "Our modern industrial hall with a large-scale photovoltaic system forms the foundation of our environmentally conscious actions. In addition, our sustainable product range helps our customers achieve their ecological goals.",
+		"wiederverwendung": "Reuse.",
+		"wiederverwendung-text": "An effective way to meet these goals is the increased use of used machines. Purchasing used machines provides companies with a sustainable alternative to buying new ones, as it significantly reduces resource consumption and the environmental impact of new production. At the same time, reusing machines minimizes disposal and recycling needs, further reducing the ecological footprint. Additionally, used machines promote the concept of the circular economy and contribute to maximizing the lifespan of machines.",
+		"abfall": "Recycle.",
+		"abfall-text": "Another sustainable solution at Styrotec is our range of chip presses. Different materials generate chips at our customers' sites. By pressing and briquetting, the volume is significantly reduced, leading to lower transport and storage costs. At the same time, less harmful material is released into the environment, contributing to resource conservation and emission reduction.",
+		"wiederverwertung": "Refurbish.",
+		"wiederverwertung-text": "Our service, retrofit, and overhaul offerings allow for a significant extension of the lifespan of machines and systems. This reduces the need for new production and conserves valuable resources. By modernizing existing machines, energy efficiency and performance can also be optimized, offering both ecological and economic benefits.",
+		"team-titel": "Your contact at Styrotec",
 		"team-text": "Behind every successful project stands a great team - and we are proud to have exactly that! Our sales experts bring the best solutions to our customers, our marketing team ensures creative visibility, and our project managers keep everything running smoothly. Together, we combine our talents and ideas to achieve great things. Take a look at who we are!"
 	},
 	"branchen": {

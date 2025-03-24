@@ -2,6 +2,8 @@
     import { _ } from 'svelte-i18n';
 	import * as Accordion from '$lib/components/ui/accordion';
     import top from '$lib/assets/images/portalfraesmaschinen/FS10ST_klein.jpg';
+	import MaschinenCarousel from '$lib/components/maschinenCarousel.svelte';
+	let { data } = $props();
 </script>
 
 
@@ -28,16 +30,242 @@
 	<div
 		class="from-primary-foreground/25 hidden lg:block via-primary-foreground/15 to-secondary absolute -top-[170px] right-0 h-[300px] w-[40%] bg-gradient-to-bl [clip-path:polygon(0%_28.5%,100%_0%,100%_100%,0%_100%)] lg:h-[700px]"
 	></div>
-	<div class="mx-4 pb-3 ml-[30px] lg:ml-[0px]  lg:mr-[520px] xl:mr-[720px] mt-8 lg:mt-[50px]">
+	<div class="mx-4 pb-3 ml-[30px] lg:ml-[80px] md:mr-[100px] lg:mr-[45%] xl:mr-[45%] mt-8 lg:mt-[100px]">
 		<div>
 			<h1 class="font-boldFont  text-5xl text-center uppercase">
 				{$_(`cnc-maschinen.titel`)}
 			</h1>
-			<p class="p-4 md:px-8 lg:px-16 text-sm sm:text-xl">{$_(`cnc-maschinen.text`)}</p>
+			<p class="p-4  text-sm sm:text-xl text-justify">{$_(`cnc-maschinen.text`)}</p>
 			
 		</div>
-	</div>
-	
+	</div>	
 </div>
 
+<div>
+	<div class="xl:mt-[150px]">
+		{#await data.metallpressens}
+			<div class="bg-primary">skeleton build</div>
+		{:then metallpressens}
+			{#each metallpressens as presse}
+				<div
+					class="border-primary-foreground/5 bg-primary-foreground mx-12 my-[96px] rounded-2xl border py-[50px] xl:mx-[200px]"
+				>
+					<h1 class="font-boldFont text-secondary mb-4 md:mb-16 text-center text-3xl md:text-5xl uppercase">
+						{presse.Titel}
+					</h1>
 
+					<div class="flex flex-col justify-around lg:flex-row">
+						<Accordion.Root
+							type="single"
+							class="text-secondary relative mx-4 object-cover xl:w-[50%] text-xl md:text-2xl xl:text-3xl"
+						>
+							<Accordion.Item value="item-1">
+								<Accordion.Trigger class="w-[400px]"
+									>{$_(`pressen.parameter`)}</Accordion.Trigger
+								>
+								<Accordion.Content class="pt-4 xl:text-xl mx-1 bg-primary-foreground/15">
+									<div class="bg-secondary/5 p-2 md:p-4">	
+										<div class="flex flex-row justify-between">
+											<span class="text-left">{$_(`pressen.durchsatz`)}</span>
+											<span class="text-right">{presse.Durchsatz}</span>
+										</div>
+										<div class="flex flex-row justify-between">
+											<span class="text-left">{$_(`pressen.leistung`)}</span>
+											<span class="text-right">{presse.Motorleistung}</span>
+										</div>
+										<div class="flex flex-row justify-between">
+											<span class="w-auto">{$_(`pressen.format`)}</span>
+											<span class="w-auto text-right">{presse.Brikettformat}</span>
+										</div>
+										<div class="flex flex-row justify-between">
+											<span class="text-left">{$_(`pressen.druck`)}</span>
+											<span class="text-right">{presse.Pressdruck}</span>
+										</div>
+									</div>	
+								</Accordion.Content>
+							</Accordion.Item>
+							<Accordion.Item value="item-2">
+								<Accordion.Trigger>{$_(`pressen.eigenschaften`)}</Accordion.Trigger>
+								<Accordion.Content class="pt-4 xl:text-xl mx-1 bg-primary-foreground/15 ">
+									<div class="bg-secondary/5 p-2 md:p-4">	
+										<div class="flex flex-row justify-between">
+											<span>{$_(`pressen.maße`)}</span>
+											<span class="w-auto text-right">{presse.Mase}</span>
+										</div>
+										<div class="flex flex-row justify-between">
+											<span>{$_(`pressen.gewicht`)}</span>
+											<span class="w-auto text-right">{presse.Gewicht}</span>
+										</div>
+									</div>
+								</Accordion.Content>
+							</Accordion.Item>
+						</Accordion.Root>
+
+						<div class="relative left-10 lg:left-0 lg:top-0 w-[80%] lg:w-[40%] p-4">
+							<MaschinenCarousel height={400} pictures={presse.Bilder} />
+						</div>
+
+						
+					</div>
+				</div>
+			{/each}
+		{:catch}
+			<p>Error loading the page</p>
+		{/await}
+	</div>
+</div>
+
+<div
+		class="bg-primary-foreground text-secondary w-full py-8 xl:mb-[100px] xl:py-32 xl:[clip-path:polygon(0%_10%,100%_0%,100%_90%,0%_100%)]"
+	>
+		<h1 class="uppercase font-boldFont text-5xl text-center mb-16">{$_(`fs10.optionen`)}</h1>
+
+		<Accordion.Root
+			type="single"
+			class="text-secondary relative mx-4 ml-4 object-cover xl:ml-[10%] xl:max-w-[80%] xl:text-3xl"
+		>
+			<Accordion.Item value="item-1">
+				<Accordion.Trigger class=" ">{$_(`optionen.fraeskoepfe`)}</Accordion.Trigger>
+				<Accordion.Content class=" py-0  xl:text-xl">
+					<div class="flex flex-col justify-around md:flex-row flex-wrap">
+						<div class="w-[90%] md:w-[45%] lg:w-[30%] content-center bg-secondary/5 rounded-lg flex flex-col justify-center py-12 m-4">
+							<p class="z-10 text-center text-5xl font-boldFont mb-2 ">ST 7 - Fräskopf</p>
+							
+							<img src={top} alt="ST7" class="h-[350px] w-auto object-contain " />
+							<p class="ml-4 uppercase font-boldFont text-2xl mb-0">Schlank.</p>
+							<p class="ml-4">einseitig abgestützter Kompakt Kopf</p>
+						</div>
+						<div class="w-[90%] md:w-[45%] lg:w-[30%] content-center bg-secondary/5 rounded-lg flex flex-col justify-center py-12 m-4">
+							<p class="text-center text-5xl font-boldFont mb-2">ST 8 - Fräskopf</p>
+							<img src={top} alt="ST 8" class="h-[350px] w-auto object-contain" />
+							<p class="ml-4 uppercase font-boldFont text-2xl mb-0">Stabil.</p>
+							<p class="ml-4">beidseitig abgestützter Kompakt Kopf</p>
+						</div>
+						<div class="w-[90%] md:w-[45%] lg:w-[30%] content-center bg-secondary/5 rounded-lg flex flex-col justify-center py-12 m-4">
+							<p class="text-center text-5xl font-boldFont mb-2">HS673 - Fräskopf</p>
+							<img src={top} alt="HS673" class="h-[350px] w-auto object-contain" />
+							<p class="ml-4 uppercase font-boldFont text-2xl mb-0">Schlank.</p>
+							<p class="ml-4">einseitig abgestützter Kompakt Kopf</p>
+						</div>
+					</div>
+				</Accordion.Content>
+			</Accordion.Item>
+			<Accordion.Item value="item-2">
+				<Accordion.Trigger>{$_(`optionen.fraesspindeln`)}</Accordion.Trigger>
+				<Accordion.Content class=" pt-4 xl:text-xl">
+					<table class="bg-primary-foreground text-md block w-screen p-4 ">
+						<thead class="bg-secondary/15">
+							<tr>
+								<th class="min-w-[100px] font-semibold lg:min-w-[240px]"></th>
+								<th class="min-w-[70px] font-semibold lg:min-w-[400px]">ES 779</th>
+								<th class="min-w-[70px] font-semibold lg:min-w-[400px]">ES 789</th>
+								<th class="min-w-[70px] font-semibold lg:min-w-[400px]">ES 779</th>
+							</tr>
+						</thead>
+						<tbody class="text-center">
+							<tr>
+								<td class="p-2 text-left">{$_(`fs10.leistung`)}</td>
+								<td class="p-2">10 kW</td>
+								<td class="p-2">15 kW</td>
+								<td class="p-2">22 kW</td>
+							</tr>
+							<tr>
+								<td class="p-2 text-left">{$_(`fs10.drehzahl`)}</td>
+								<td class="p-2">24.000 min-1</td>
+								<td class="p-2">24.000 min-1</td>
+								<td class="p-2">24.000 min-1</td>
+							</tr>
+							<tr>
+								<td class="p-2 text-left">{$_(`fs10.drehmoment`)}</td>
+								<td class="p-2">10,9 Nm</td>
+								<td class="p-2">15 Nm</td>
+								<td class="p-2">18 Nm</td>
+							</tr>
+							<tr>
+								<td class="p-2 text-left">{$_(`fs10.aufnahme`)}</td>
+								<td class="p-2">HSK 63F</td>
+								<td class="p-2">HSK 63F</td>
+								<td class="p-2">HSK 63A</td>
+							</tr>
+						</tbody>
+					</table>
+				</Accordion.Content>
+			</Accordion.Item>
+			<Accordion.Item value="item-3">
+				<Accordion.Trigger>{$_(`optionen.schutzeinrichtungen`)}</Accordion.Trigger>
+				<Accordion.Content class="pt-4 xl:text-xl">
+					<div class="flex flex-col justify-around xl:flex-row">
+						<div class="w-[400px]">
+							<img src={top} alt="ST7" class="h-[300px] xl:ml-4" />
+							<p class="text-center text-xl">{$_(`fs10.4seitig`)}</p>
+						</div>
+						<div class="w-[400px]">
+							<img src={top} alt="ST 8" class="h-[300px] bg-center xl:ml-4" />
+							<p class="text-center text-xl">{$_(`fs10.vollumhausung`)}</p>
+						</div>
+						<div class="w-[400px]">
+							<img src={top} alt="HS673" class="h-[300px] bg-center xl:ml-4" />
+							<p class="text-center text-xl">{$_(`fs10.arbeitsraum`)}</p>
+						</div>
+					</div>
+				</Accordion.Content>
+			</Accordion.Item>
+			<Accordion.Item value="item-4">
+				<Accordion.Trigger>{$_(`optionen.werkzeugwechsler`)}</Accordion.Trigger>
+				<Accordion.Content class="pt-4 xl:text-xl">
+					<div class="flex flex-col justify-around xl:flex-row">
+						<div class="w-[400px]">
+							<img src={top} alt="ST7" class="h-[300px] xl:ml-4" />
+							<p class="text-center text-xl">{$_(`fs10.pickup`)}</p>
+						</div>
+						<div class="w-[400px]">
+							<img src={top} alt="ST 8" class="h-[300px] bg-center xl:ml-4" />
+							<p class="text-center text-xl">{$_(`fs10.schubladen`)}</p>
+						</div>
+						<div class="w-[400px]">
+							<img src={top} alt="HS673" class="h-[300px] bg-center xl:ml-4" />
+							<p class="text-center text-xl">{$_(`fs10.tellerwechsler`)}</p>
+						</div>
+					</div>
+				</Accordion.Content>
+			</Accordion.Item>
+			<Accordion.Item value="item-5">
+				<Accordion.Trigger>{$_(`optionen.messeinrichtungen`)}</Accordion.Trigger>
+				<Accordion.Content class="pt-4 xl:text-xl">
+					<div class="flex flex-col justify-around xl:flex-row">
+						<div class="w-[400px]">
+							<img src={top} alt="ST7" class="h-[300px] xl:ml-4" />
+							<p class="text-center text-xl">{$_(`fs10.tastsystem`)}</p>
+						</div>
+						<div class="w-[400px]">
+							<img src={top} alt="ST 8" class="h-[300px] bg-center xl:ml-4" />
+							<p class="text-center text-xl">{$_(`fs10.laser`)}</p>
+						</div>
+						<div class="w-[400px]">
+							<img src={top} alt="HS673" class="h-[300px] bg-center xl:ml-4" />
+							<p class="text-center text-xl">{$_(`fs10.messtaster`)}</p>
+						</div>
+					</div>
+				</Accordion.Content>
+			</Accordion.Item>
+			<Accordion.Item value="item-6">
+				<Accordion.Trigger>{$_(`optionen.tischvarianten`)}</Accordion.Trigger>
+				<Accordion.Content class="pt-4 xl:text-xl">
+					<div class="flex flex-col justify-around xl:flex-row">
+						<div class="w-[400px]">
+							<img src={top} alt="ST7" class="h-[300px] xl:ml-4" />
+							<p class="text-center text-xl">{$_(`fs10.alutisch`)}</p>
+						</div>
+						<div class="w-[400px]">
+							<img src={top} alt="ST 8" class="h-[300px] bg-center xl:ml-4" />
+							<p class="text-center text-xl">{$_(`fs10.vakuumtisch`)}</p>
+						</div>
+						<div class="w-[400px]">
+							<img src={top} alt="HS673" class="h-[300px] bg-center xl:ml-4" />
+							<p class="text-center text-xl">{$_(`fs10.glatterTisch`)}</p>
+						</div>
+					</div>
+				</Accordion.Content>
+			</Accordion.Item>
+		</Accordion.Root>
+	</div>

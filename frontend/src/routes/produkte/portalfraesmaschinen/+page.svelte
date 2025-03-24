@@ -48,7 +48,7 @@
 				{$_(`portalfraes.sub`)}
 			</h1>
 		</div>
-		<p class="p-4 md:text-xl lg:text-2xl xl:mx-[10%]">{$_(`portalfraes.beschreibungs-text`)}</p>
+		<p class="p-4 md:text-xl lg:text-2xl xl:mx-[10%] text-justify">{$_(`portalfraes.beschreibungs-text`)}</p>
 	</div>
 	<img
 		src={action}

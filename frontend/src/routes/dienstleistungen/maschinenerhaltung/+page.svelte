@@ -32,7 +32,7 @@
 				{$_(`maschinenerhaltung.sub`)}
 			</h1>
 		</div>
-		<p class="p-4 md:text-xl lg:text-2xl xl:mx-[10%]">{$_(`maschinenerhaltung.beschreibungs-text`)}</p>
+		<p class="p-4 md:text-xl lg:text-2xl xl:mx-[10%] text-justify">{$_(`maschinenerhaltung.beschreibungs-text`)}</p>
 	</div>
 	<img
 		src={head}
@@ -82,81 +82,4 @@
 
 
 
-<div>
-	<div class="bg-secondary text-primary-foreground text-xl">
-		<Tabs tabStyle="full" contentClass="bg-primary-foreground text-secondary text-2xl rounded-0 border-secondary" ulClass="space-x-0 p-1 gap-2">
-			<TabItem open title={$_(`maschinenerhaltung.spindelservice`)} activeClass="w-[200px] p-5 bg-primary text-xl" inactiveClass="w-[200px] p-5 bg-primary-foreground text-secondary text-xl">
-				<h3 class="p-3 text-xl font-bold">{$_(`maschinenerhaltung.spindelservice`)}</h3>
-				<div class="flex flex-col xl:flex-row">
-					<div class="w-full p-3 xl:w-[50%]">
-						{$_(`spindelservice.spindelschaden`)} <br />
-						<Button class="relative -bottom-5 left-[3%]  xl:right-[90px]"
-							><a href="/dienstleistungen/maschinenerhaltung/spindelservice">{$_(`portalfraes.cta`)}</a></Button
-						>
-					</div>
-					<div class=" xl:w-[50%]">
-						<img
-							class="border-secondary-foreground relative bottom-[10%] h-[250px] border-4 xl:right-[-20%] m-3"
-							src={head}
-							alt="bild"
-						/>
-					</div>
-				</div>
-			</TabItem>
-            <TabItem title={$_(`maschinenerhaltung.wartungen`)} activeClass="w-[200px] p-5 bg-primary text-xl" inactiveClass="w-[200px] p-5 bg-primary-foreground text-secondary text-xl">
-				<h3 class="p-3 text-xl font-bold">{$_(`maschinenerhaltung.wartungen`)}</h3>
-				<div class="flex flex-col xl:flex-row">
-					<div class="w-full p-3 xl:w-[50%]">
-						{$_(`maschinenerhaltung.wartungen-text`)} <br />
-						<Button class="relative -bottom-5 left-[3%]  xl:right-[90px]"
-							><a href="/dienstleistungen/maschinenerhaltung/wartungen">{$_(`portalfraes.cta`)}</a></Button
-						>
-					</div>
-					<div class=" xl:w-[50%]">
-						<img
-							class="border-secondary-foreground relative bottom-[10%] h-[250px] border-4 xl:right-[-20%] m-3"
-							src={head}
-							alt="bild"
-						/>
-					</div>
-				</div>
-			</TabItem>
-            <TabItem title={$_(`maschinenerhaltung.reparaturen`)} activeClass="w-[200px] p-5 bg-primary text-xl" inactiveClass="w-[200px] p-5 bg-primary-foreground text-secondary text-xl">
-				<h3 class="p-3 text-xl font-bold">{$_(`maschinenerhaltung.reparaturen`)}</h3>
-				<div class="flex flex-col xl:flex-row">
-					<div class="w-full p-3 xl:w-[50%]">
-						{$_(`maschinenerhaltung.reparaturen-text`)} <br />
-						<Button class="relative -bottom-5 left-[3%]  xl:right-[90px]"
-							><a href="/dienstleistungen/maschinenerhaltung/reparaturen">{$_(`portalfraes.cta`)}</a></Button
-						>
-					</div>
-					<div class=" xl:w-[50%]">
-						<img
-							class="border-secondary-foreground relative bottom-[10%] h-[250px] border-4 xl:right-[-20%] m-3"
-							src={head}
-							alt="bild"
-						/>
-					</div>
-				</div>
-			</TabItem>
-            <TabItem title={$_(`maschinenerhaltung.maschinenumzüge`)} activeClass="w-[200px] p-5 bg-primary text-xl" inactiveClass="w-[200px] p-5 bg-primary-foreground text-secondary text-xl">
-				<h3 class="p-3 text-xl font-bold">{$_(`maschinenerhaltung.maschinenumzüge`)}</h3>
-				<div class="flex flex-col xl:flex-row">
-					<div class="w-full p-3 xl:w-[50%]">
-						{$_(`maschinenerhaltung.maschinenumzüge-text`)} <br />
-						<Button class="relative -bottom-5 left-[3%]  xl:right-[90px]"
-							><a href="/dienstleistungen/maschinenerhaltung/maschinenumzuege">{$_(`portalfraes.cta`)}</a></Button
-						>
-					</div>
-					<div class=" xl:w-[50%]">
-						<img
-							class="border-secondary-foreground relative bottom-[10%] h-[250px] border-4 xl:right-[-20%] m-3"
-							src={head}
-							alt="bild"
-						/>
-					</div>
-				</div>
-			</TabItem>
-        </Tabs>
-    </div>
-</div>
+

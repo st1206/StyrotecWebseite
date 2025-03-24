@@ -42,7 +42,7 @@
 				{$_(`pressen.sub`)}
 			</h1>
 		</div>
-		<p class="p-4 md:text-xl lg:text-2xl xl:mx-[10%]">{$_(`pressen.beschreibungs-text`)}</p>
+		<p class="p-4 md:text-xl lg:text-2xl xl:mx-[10%] text-justify">{$_(`pressen.beschreibungs-text`)}</p>
 	</div>
 	<img
 		src={portalfraes}
@@ -54,27 +54,24 @@
 	
 <div class="bg-secondary ">
 	<div
-		class="text-secondary bg-primary-foreground flex flex-col text-left lg:gap-12 lg:flex-row h-auto w-full py-8 md:py-12 md:pl-[5%] lg:py-24 px-[5%] lg:pl-[10%]"
-	>
-		<div class="text-xl w-[90%] lg:w-[50%] ">
-			<div class=" font-boldFont mb-2 text-xl md:text-2xl xl:text-3xl">
-				<span class="text-primary">&#x2713 </span>
-				{$_(`pressen.beschreibung-1`)}
-			</div>
-			<div class=" font-boldFont mb-2 text-xl md:text-2xl xl:text-3xl">
-				<span class="text-primary">&#x2713 </span>
-				{$_(`pressen.beschreibung-2`)}
-			</div>
+		class="text-secondary bg-primary-foreground flex flex-col text-left gap-[5%] md:flex-row flex-wrap h-auto w-full py-8 md:py-12  lg:py-24 px-[5%]  lg:px-[10%]"
+	>	
+		<div class=" font-boldFont mb-12 text-xl md:text-2xl xl:text-3xl w-[80%] md:w-[45%] ">
+			<span class="text-primary">&#x2713 </span>
+			{$_(`pressen.beschreibung-2`)} 
 		</div>
-		<div class="text-xl w-[80%] lg:w-[50%] ">
-			<div class=" font-boldFont mb-2 text-xl md:text-2xl xl:text-3xl">
-				<span class="text-primary">&#x2713 </span>
-				{$_(`pressen.beschreibung-3`)}
-			</div>
-			<div class=" font-boldFont mb-2 text-xl md:text-2xl xl:text-3xl">
-				<span class="text-primary">&#x2713 </span>
-				{$_(`pressen.beschreibung-4`)}
-			</div>
+		<div class=" font-boldFont mb-12 text-xl md:text-2xl xl:text-3xl w-[80%] md:w-[45%] ">
+			<span class="text-primary">&#x2713 </span>
+			{$_(`pressen.beschreibung-4`)}
+		</div>
+		
+		<div class=" font-boldFont mb-12 text-xl md:text-2xl xl:text-3xl w-[80%] md:w-[45%] ">
+			<span class="text-primary">&#x2713 </span>
+			{$_(`pressen.beschreibung-1`)} 
+		</div>
+		<div class=" font-boldFont mb-12 text-xl md:text-2xl xl:text-3xl w-[80%] md:w-[45%] ">
+			<span class="text-primary">&#x2713 </span>
+			{$_(`pressen.beschreibung-3`)}
 		</div>
 	</div>
 </div>	

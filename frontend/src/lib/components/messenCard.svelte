@@ -8,19 +8,16 @@
 </script>
 
 <a href={messe.MesseLink} target="_blank">
-<Card
+<div
 	
-	class="bg-secondary w-[450px] h-[310px] shadow-[10px_10px_20px_rgba(0,0,0,0.75)] bg-center hover:scale-105 xl:w-[450px]"
+	class="bg-secondary  shadow-[10px_10px_20px_rgba(0,0,0,0.75)] bg-center rounded-lg hover:scale-105 md:w-[350px] lg:w-[420px] xl:w-[600px]"
 	style="background-image: url({!PUBLIC_BACKEND_URL.includes('https')
 	
 							? `${PUBLIC_BACKEND_URL}${messe.Bilder[0].url}`
 							: messe.Bilder[0].url})"
-	padding= "none"
-	size= "md"
-							
 >
-	<div class="bg-secondary/65 w-[310px] h-[310px] xl:w-[450px] rounded-lg">
-		<div class="p-12">
+	<div class="bg-secondary/65 md:w-[350px] lg:w-[420px] xl:w-[600px] rounded-lg">
+		<div class="p-12 ">
 			<h5 class="left-0 top-0 text-5xl font-bold  text-primary-foreground">	
 				{messe.Messename} 	
 			</h5>
@@ -32,9 +29,11 @@
 			</div>
 			
 			<div class="text-2xl font-boldFont mt-24">
-				{$_('news.messestand')}: {messe.Messestand}
+				{#if messe.Messestand !== "Kein Stand"}
+					{$_('news.messestand')}: {messe.Messestand}
+				{/if}
 			</div>
 		</div>
 	</div>
-</Card>
+</div>
 </a>

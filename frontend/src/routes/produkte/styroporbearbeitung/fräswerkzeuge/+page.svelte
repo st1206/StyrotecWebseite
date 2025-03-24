@@ -42,12 +42,12 @@
 	<div
 		class="from-primary-foreground/25 hidden lg:block via-primary-foreground/15 to-secondary absolute -top-[170px] right-0 h-[300px] w-[40%] bg-gradient-to-bl [clip-path:polygon(0%_28.5%,100%_0%,100%_100%,0%_100%)] lg:h-[700px]"
 	></div>
-	<div class="mx-4 pb-3 ml-[30px] lg:ml-[80px] md:mr-[100px] lg:mr-[600px] xl:mr-[800px] mt-8 lg:mt-[100px]">
+	<div class="mx-4 pb-3 ml-[30px] lg:ml-[80px] md:mr-[100px] lg:mr-[45%] xl:mr-[45%] mt-8 lg:mt-[100px]">
 		<div>
 			<h1 class="font-boldFont pb-6 text-2xl md:text-3xl lg:text-4xl xl:text-5xl uppercase">
 				{$_(`styroporfraesen.allgemein-Titel`)}
 			</h1>
-			<p>{$_(`styroporfraesen.allgemein-Text`)}</p>
+			<p class="text-justify">{$_(`styroporfraesen.allgemein-Text`)}</p>
 		</div>
 	</div>
 </div>
@@ -67,7 +67,7 @@
 			<h1 class="text-primary mx-4 mb-4 text-4xl xl:mx-[20%]">
 				{$_(`styroporfraesen.konfiguration-Titel`)}
 			</h1>
-			<p class="mx-4 text-xl xl:mx-[10%]">{$_(`styroporfraesen.konfiguration-Text`)}</p>
+			<p class="mx-4 text-xl xl:mx-[10%] text-justify">{$_(`styroporfraesen.konfiguration-Text`)}</p>
 		</div>
 
 		<Accordion.Root
@@ -262,7 +262,7 @@
 
 	<div class="mx-4 mt-[100px] pb-10 xl:mx-[25%]">
 		<h1 class="text-primary-foreground pb-3 text-4xl font-boldFont">{$_(`styroporfraesen.besonderheiten`)}</h1>
-		<p class="text-xl">{$_(`styroporfraesen.besonderheit-text`)}</p>
+		<p class="text-xl text-justify">{$_(`styroporfraesen.besonderheit-text`)}</p>
 	</div>
 
 	<div
@@ -272,7 +272,7 @@
 			<h1 class="text-primary mx-4 mb-4 text-4xl xl:mx-[20%]">
 				{$_(`styroporfraesen.werkzeugaufnahme`)}
 			</h1>
-			<p class="mx-4 text-xl xl:mx-[10%]">{$_(`styroporfraesen.werkzeugaufnahme-Text`)}</p>
+			<p class="mx-4 text-xl xl:mx-[10%] text-justify">{$_(`styroporfraesen.werkzeugaufnahme-Text`)}</p>
 		</div>
 
 		<Accordion.Root
@@ -309,6 +309,6 @@
 
 	<div class="mx-4 my-4 xl:mx-[20%] xl:my-32">
 		<h1 class="pb-3 text-2xl font-boldFont">{$_('styroporfraesen.bemerkung-titel')}</h1>
-		<p class="font-boldItalicFont">{$_('styroporfraesen.bemerkung-text')}</p>
+		<p class="font-boldItalicFont text-justify">{$_('styroporfraesen.bemerkung-text')}</p>
 	</div>
 </div>

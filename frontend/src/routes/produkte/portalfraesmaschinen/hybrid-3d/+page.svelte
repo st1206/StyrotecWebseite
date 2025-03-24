@@ -39,33 +39,33 @@
 	<div
 		class="from-primary-foreground/25 hidden lg:block via-primary-foreground/15 to-secondary absolute -top-[170px] right-0 h-[300px] w-[40%] bg-gradient-to-bl [clip-path:polygon(0%_28.5%,100%_0%,100%_100%,0%_100%)] lg:h-[700px]"
 	></div>
-	<div class="mx-4 pb-3  lg:ml-[80px] md:mr-[100px] lg:mr-[600px] xl:mr-[800px] mt-8 lg:mt-[100px]">
+	<div class="mx-4 pb-3 ml-[30px] lg:ml-[80px] md:mr-[100px] lg:mr-[45%] xl:mr-[45%] mt-8 lg:mt-[100px]">
 		<div>
 			<h1 class="font-boldFont pb-6 text-2xl md:text-3xl lg:text-4xl xl:text-5xl uppercase">
 				{$_(`hybrid.übersicht-titel`)}
 			</h1>
-			<p>{$_(`hybrid.übersicht-text`)}</p>
-            <p>{$_('hybrid.übersicht-text2')} </p> <br>
+			<p class="text-justify">{$_(`hybrid.übersicht-text`)}</p>
+            <p class="text-justify">{$_('hybrid.übersicht-text2')} </p> <br>
 		</div>
 	</div>
 </div>
 
 <div class="px-4 md:px-12 lg:px-[20%] xl:px-[30%] bg-primary-foreground text-secondary w-full py-8 xl:py-32 xl:[clip-path:polygon(0%_10%,100%_0%,100%_90%,0%_100%)]">
 	<h2 class="text-primary text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-2 md:mb-4 lg:mb-8">{$_('hybrid.vorteile-titel')}</h2>
-	<p class="text-lg md:text-xl lg:text-2xl xl:text-3xl">{$_('hybrid.vorteile-text')}</p>
+	<p class="text-lg md:text-xl lg:text-2xl xl:text-3xl text-justify">{$_('hybrid.vorteile-text')}</p>
 </div>
 
 
 
 <div class="p-4 md:p-20 xl:px-32">
 	<h2 class="mb-1 md:mb-4 xl:mb-12 font-boldFont text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-center ">{$_('hybrid.anbringung-titel')}</h2>
-	<div class="flex flex-col md:flex-row gap-8 lg:gap-12">
+	<div class="flex flex-col md:flex-row gap-8 lg:gap-20">
 		<div class="md:w-[50%]">
-			<p class="text-lg md:text-xl lg:text-2xl xl:text-3xl">{$_('hybrid.anbringung-text')}</p>
+			<p class="text-lg md:text-xl lg:text-2xl xl:text-3xl text-justify">{$_('hybrid.anbringung-text')}</p>
 			<img src={zschieber} alt="z-Schieber" class="w-[50%] ml-[20%] my-4" />
 		</div>
 		<div class="md:w-[50%]">
-			<p class="text-lg md:text-xl lg:text-2xl xl:text-3xl">{$_('hybrid.z-schieber')}</p>
+			<p class="text-lg md:text-xl lg:text-2xl xl:text-3xl text-justify">{$_('hybrid.z-schieber')}</p>
 			<img src={zuführ} alt="Zuführsystem" class="w-[50%] ml-[20%] my-4" />
 		</div>
 	</div>
@@ -163,9 +163,9 @@
 
 <div class="px-4 md:px-12 lg:px-[10%] xl:px-[20%]  w-full py-8 md:py-16 xl:py-24">
 	<h2 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-boldFont mb-2 md:mb-4 lg:mb-8">{$_('hybrid.prozess')}</h2>
-	<p class="text-lg md:text-xl lg:text-2xl xl:text-3xl">{$_('hybrid.prozess-text1')}</p>
-	<p class="text-lg md:text-xl lg:text-2xl xl:text-3xl">{$_('hybrid.prozess-text2')}</p>
-	<p class="text-lg md:text-xl lg:text-2xl xl:text-3xl">{$_('hybrid.prozess-text3')}</p>
+	<p class="text-justify text-lg md:text-xl lg:text-2xl xl:text-3xl">{$_('hybrid.prozess-text1')}</p>
+	<p class="text-justify text-lg md:text-xl lg:text-2xl xl:text-3xl">{$_('hybrid.prozess-text2')}</p>
+	<p class="text-justify text-lg md:text-xl lg:text-2xl xl:text-3xl">{$_('hybrid.prozess-text3')}</p>
 	<div class="flex flex-row gap-4 mt-[20px]">
 		<img src={temp} alt="HS673" class="w-[45%]  object-cover" />
 		<img src={process} alt="HS673" class="w-[45%]   object-cover" />
@@ -176,7 +176,7 @@
 
 <div class="px-4 md:px-12 lg:px-[10%] xl:px-[20%]  w-full py-8 xl:py-12 ">
 	<h2 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-boldFont mb-2 md:mb-4 lg:mb-8">{$_('hybrid.fräsprozess')}</h2>
-	<div class="text-lg md:text-xl lg:text-2xl xl:text-3xl">{$_('hybrid.fräsprozess-text')}</div>
+	<div class="text-lg md:text-xl lg:text-2xl xl:text-3xl text-justify">{$_('hybrid.fräsprozess-text')}</div>
 </div>
 
 

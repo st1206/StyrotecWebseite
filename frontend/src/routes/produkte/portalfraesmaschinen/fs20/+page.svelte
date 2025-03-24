@@ -43,12 +43,12 @@
 	<div
 		class="from-primary-foreground/25 hidden lg:block via-primary-foreground/15 to-secondary absolute -top-[170px] right-0 h-[300px] w-[40%] bg-gradient-to-bl [clip-path:polygon(0%_28.5%,100%_0%,100%_100%,0%_100%)] lg:h-[700px]"
 	></div>
-	<div class="mx-4 pb-3 ml-[30px] lg:ml-[80px] md:mr-[300px] lg:mr-[600px] xl:mr-[800px] mt-8 lg:mt-[100px]">
+	<div class="mx-4 pb-3 ml-[30px] lg:ml-[80px] md:mr-[100px] lg:mr-[45%] xl:mr-[45%] mt-8 lg:mt-[100px]">
 		<div>
 			<h1 class="font-boldFont pb-6 text-2xl md:text-3xl lg:text-4xl xl:text-5xl uppercase">
 				{$_(`fs20.übersicht-titel`)}
 			</h1>
-			<p>{$_(`fs20.übersicht-text`)}</p>
+			<p class="text-justify">{$_(`fs20.übersicht-text`)}</p>
 			<ul class="py-2">
 				<li>● {$_(`fs20.übersicht-punkt1`)}</li>
 				<li>● {$_(`fs20.übersicht-punkt2`)}</li>

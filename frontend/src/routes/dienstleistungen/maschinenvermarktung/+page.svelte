@@ -41,7 +41,7 @@
 				{$_(`maschinenvermarktung.sub`)}
 			</h1>
 		</div>
-		<p class="p-4 md:text-xl lg:text-2xl xl:mx-[10%]">{$_(`maschinenvermarktung.beschreibungs-text`)}</p>
+		<p class="p-4 md:text-xl lg:text-2xl xl:mx-[10%] text-justify">{$_(`maschinenvermarktung.beschreibungs-text`)}</p>
 	</div>
 	<img
 		src={head}

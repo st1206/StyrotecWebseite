@@ -50,7 +50,7 @@ export const menu = [
 	 				{ key: 'hohlfrässpindeln', link: '/produkte/styroporbearbeitung/hohlfrässpindeln' },
 	 				{ key: 'absaugungen', link: '/produkte/styroporbearbeitung/absaugungen' },
 	 				{ key: 'zerkleinerer', link: '/produkte/styroporbearbeitung/zerkleinerer' },
-	 				{ key: 'pressen', link: '/produkte/styroporbearbeitung/pressen' },
+	 				{ key: 'pressen', link: '/produkte/spaenepressen/styropor' },
 	 				{ key: 'rohmaterial', link: '/produkte/styroporbearbeitung/rohmaterial' },
 	 				{ key: 'kleber', link: '/produkte/styroporbearbeitung/kleber' }
 	 			]
@@ -149,7 +149,7 @@ export const menu = [
 	 			key: 'news',
 	 			link: '/unternehmen/news-termine',
 	 			items: [
-	 				{ key: 'anwenderstories', link: '/unternehmen/news-termine/#anwenderstories' },
+	 				//{ key: 'anwenderstories', link: '/unternehmen/news-termine/#anwenderstories' },
 	 				{ key: 'referenzen', link: '/unternehmen/news-termine/#referenzen' },
 	 				{ key: 'messen', link: '/unternehmen/news-termine/#messen' }
 	 			]

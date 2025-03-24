@@ -123,10 +123,7 @@
 		"weltweit-text": "Unsere Portalfräsmaschinen erfreuen sich weltweit großer Nachfrage und sind in zahlreichen Ländern und Kontinenten im Einsatz. Vom Herzen Europas über Nordamerika bis hin zu den innovativen Märkten in Asien - unsere Maschinen haben sich in einer Vielzahl von Branchen und Produktionsumgebungen bewährt. Sie kommen in der Automobilindustrie, der Luft- und Raumfahrt, im Maschinenbau und vielen anderen Bereichen zum Einsatz. Mit ihrer hohen Präzision, Langlebigkeit und Flexibilität bieten sie maßgeschneiderte Lösungen für unterschiedlichste Fertigungsanforderungen. Unsere langjährige Erfahrung und unser kontinuierlicher Innovationsgeist haben uns zu einem vertrauenswürdigen Partner für Unternehmen weltweit gemacht. Vertrauen auch Sie auf die bewährte Technologie von Styrotec, um Ihre Produktionsprozesse zu optimieren und Ihre Fertigung auf das nächste Level zu heben.",
 		"unternehmen-news-titel":"Bleiben sie auf dem Laufenden.",
 		"unternehmen-überUns-titel": "Styrotec and More...",
-		"unternehmen-karriere-titel": "Auf der suche nach einem Job ?",
-		"and-more": "Styrotec bietet mehr als Produkte für den Prozess der Syroporbearbeitung. Eine breite Palette an Fräsmaschinen in unterschiedlichsten Ausführungne für den Zielmarkt Modell- und Formenbau und der Kunststoffbearbeitung ergänzt seit zwei Jahrzehnten das Leistungsspektrum. Hinzu kommen produktive Lösungen in der Peripherie und attraktive Serviceangebote rund um die Maschinen.",
-		"and-more2": "Wir verstehen uns als Begleiter und Berater für die Investition in Ihre Fertigungstechnologie über den gesamten Lebenszyklus hinweg von der Anschaffung, über Produktivitätssteigerungen bis hin zum zweiten Leben der Maschine. Hiermit leisten wir einen Beitrag zur Kreislaufwirtschaft. Partnerschaftlich unterstützen wir darin, unsere Kunden weltweit wettbewerbsfähiger zu machen.",
-		"and-more3": "Als fairer, zuverlässiger un flexibler Partner projektieren wir die effizienteste und kostengünstigste technische Lösung und stellen mit einem weiten Dienstleistungsspektrum den wirtschaftlichen Erfolg sicher."
+		"unternehmen-karriere-titel": "Auf der suche nach einem Job ?"
 	},
 	"styroporbearbeitung": { 
 		"titel": "Übersicht Styroporbearbeitung",
@@ -331,7 +328,15 @@
 		"beschreibung-1": "Automatische Spänezufuhr zur Brikettpresse mit kontrolliertem Betrieb",
 		"beschreibung-2": "Energieeinsparung dank Füllstandssonden, die die Maschine in Stand-by-Modus versetzt, wenn kein zu verdichtendes Material erkannt wird",
 		"beschreibung-3": "Effiziente Kühlmittelrückgewinnung durch die Auffang- und Rückgewinnungswanne", 
-		"beschreibung-4": "Optimierte Lagerung der Briketts in geeigneten Behältern dank eines integrierten Förderbandes, das die Briketts am Auswurf aufnimmt"
+		"beschreibung-4": "Optimierte Lagerung der Briketts in geeigneten Behältern dank eines integrierten Förderbandes, das die Briketts am Auswurf aufnimmt",
+		"parameter": "Leistungs- und Prozessparameter",
+		"eigenschaften": "Physische Eigenschaften",
+		"durchsatz": "Durchsatz",
+		"format": "Brikettformat",
+		"leistung": "Motorleistung",
+		"druck": "Spezifischer Pressdruck",
+		"maße": "Maße",
+		"gewicht": "Gewicht"
 	},
 	"cnc-Masch-Seite": {
 		"beschreibung": "Beschreibung",
@@ -459,7 +464,23 @@
 		"umzug-2": "Styrotec zieht in eine 600 qm neuwertige Halle in Baienfurt inklusive 20to Deckenkran und angeschlossenem Bürotrakt",
 		"werte-titel": "Unsere Werte",
 		"werte-text": "TODO",
-		"team-titel": "TODO",
+		"wert1": "Fairness.",
+		"wert1-text": "Als Unternehmen legen wir besonderen Wert auf einen respektvollen Umgang mit Kunden und Mitarbeitern. Fairness bedeutet, dass wir unsere Kunden und Mitarbeiter gleichberechtigt behandeln und uns für Chancengleichheit einsetzen. Fairness bedeutet auch, dass wir ethisch handeln und transparent unsere Kunden und Mitarbeiter über Entscheidungen und Prozesse informieren.",
+		"wert2": "Zuverlässigkeit.", 
+		"wert2-text": "Als Unternehmen legen wir besonderen Wert auf eine verlässliche und pünktliche Erfüllung von Versprechen gegenüber unseren Kunden und Mitarbeitern. Zuverlässigkeit bedeutet, dass wir realistisch planen, ehrlich kommunizieren und die Erwartungen unserer Kunden und Mitarbeiter erfüllen.",
+		"wert3": "Flexibilität.",
+		"wert3-text": "Flexibilität ist für uns in erster Linie die Fähigkeit, in kürzester Zeit zielorientiert und erfolgreich zu handeln. Flexibilität bedeutet zudem die Offenheit für neue Perspektiven und Methoden sowie flexibel und schnell auf Kundenanforderungen zu reagieren. Eine stetig hohe Veränderungsbereitschaft und geistige Beweglichkeit insgesamt sind die Grundpfeiler unserer Erfolgsgeschichte.",
+		"nachhaltigkeit-titel": "Nachhaltigkeit",
+		"nachhaltigkeit-text1": "Die Förderung von Nachhaltigkeit und Umweltschutz ist heute wichtiger denn je. Auch die Industrie hat erkannt, dass nachhaltiges Handeln nicht nur die Umwelt schützt, sondern auch wirtschaftliche Vorteile bietet. ",
+		"nachhaltigkeit-text2": "Nachhaltigkeit ist fester Bestandteil der Unternehmensphilosophie von Styrotec. Wir sind uns unserer Verantwortung gegenüber der Umwelt bewusst und setzen auf innovative Lösungen, um Ressourcen zu schonen, Emissionen zu reduzieren und nachhaltige Produkte zu etablieren.",
+		"nachhaltigkeit-text3": "Unsere moderne Industriehalle mit einer großflächigen Photovoltaik-Anlage bildet das Fundament unseres umweltbewussten Handelns. Darüber hinaus unterstützen wir mit unserem nachhaltigen Produktangebot auch unsere Kunden dabei, ihre ökologischen Ziele zu erreichen. ",
+		"wiederverwendung": "Wiederverwendung.",
+		"wiederverwendung-text": "Eine wirkungsvolle Möglichkeit, diesen Zielen gerecht zu werden, ist der verstärkte Einsatz von Gebrauchtmaschinen. Der Kauf gebrauchter Maschinen bietet Unternehmen eine nachhaltige Alternative zur Neubeschaffung, da er den Ressourcenverbrauch sowie die Umweltauswirkungen der Neuproduktion erheblich reduziert. Gleichzeitig minimiert die Wiederverwendung den Entsorgungs- und Recyclingbedarf, was den ökologischen Fußabdruck zusätzlich verringert. Zudem fördern Gebrauchtmaschinen die Idee der Kreislaufwirtschaft und tragen zur maximalen Nutzung der Maschinenlebensdauer bei.",
+		"abfall": "Abfallverwertung.",
+		"abfall-text": "Eine weitere nachhaltige Lösung bei Styrotec sind unsere verschiedenen Modelle an Spänepressen. Unterschiedliche Materialien fallen bei unseren Kunden als Späne an. Durch das Pressen und Brikettieren wird das Volumen erheblich reduziert, wodurch Transport- und Lagerkosten gesenkt werden. Gleichzeitig wird weniger belastendes Material in die Umwelt abgegeben, was zur Ressourcenschonung und Emissionsreduzierung beiträgt.",
+		"wiederverwertung": "Wiederverwertung.",
+		"wiederverwertung-text": "Unsere Service-, Retrofit- und Überholangebote ermöglichen es, die Lebensdauer von Maschinen und Anlagen erheblich zu verlängern. Dies reduziert den Bedarf an Neuproduktionen und schont wertvolle Ressourcen. Durch die Modernisierung bestehender Maschinen können zudem Energieeffizienz und Leistungsfähigkeit optimiert werden, was sowohl ökologische als auch wirtschaftliche Vorteile bietet.",
+		"team-titel": "Ihre Ansprechpartner bei Styrotec",
 		"team-text": "Hinter jedem erfolgreichen Projekt steht ein großartiges Team - und wir sind stolz darauf, genau das zu haben! Unsere Vertriebsexperten bringen die besten Lösungen zu unseren Kunden, unser Marketing-Team sorgt für kreative Sichtbarkeit, und unsere Projektmanager halten alles zusammen. Gemeinsam bringen wir unsere Talente und Ideen ein, um Großartiges zu schaffen. Schau dir an, wer wir sind!"
 	},
 	"branchen": {

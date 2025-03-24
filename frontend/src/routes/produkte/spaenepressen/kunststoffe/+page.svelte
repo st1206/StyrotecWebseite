@@ -28,12 +28,12 @@
 	<div
 		class="from-primary-foreground/25 hidden lg:block via-primary-foreground/15 to-secondary absolute -top-[170px] right-0 h-[300px] w-[40%] bg-gradient-to-bl [clip-path:polygon(0%_28.5%,100%_0%,100%_100%,0%_100%)] lg:h-[700px]"
 	></div>
-	<div class="mx-4 pb-3 ml-[30px] lg:ml-[0px]  lg:mr-[520px] xl:mr-[720px] mt-8 lg:mt-[50px]">
+	<div class="mx-4 pb-3 ml-[30px] lg:ml-[80px] md:mr-[100px] lg:mr-[45%] xl:mr-[45%] mt-8 lg:mt-[100px]">
 		<div>
 			<h1 class="font-boldFont  text-5xl text-center uppercase">
 				{$_(`cnc-maschinen.titel`)}
 			</h1>
-			<p class="p-4 md:px-8 lg:px-16 text-sm sm:text-xl">{$_(`cnc-maschinen.text`)}</p>
+			<p class="p-4 text-sm sm:text-xl text-justify">{$_(`cnc-maschinen.text`)}</p>
 			
 		</div>
 	</div>
