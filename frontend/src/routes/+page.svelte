@@ -8,9 +8,9 @@
 	import * as Accordion from '$lib/components/ui/accordion';
 	import { _ } from 'svelte-i18n';
 	import halle from '$lib/assets/images/ueberUns/halle_klein.jpg'
-	import logo1 from '$lib/assets/images/homepage/logo1.jpeg';
-	import logo2 from '$lib/assets/images/homepage/logo2.jpeg';
-	import logo3 from '$lib/assets/images/homepage/logo3.jpeg';
+	import auto from '$lib/assets/images/branchen/car_icon.png';
+	import ship from '$lib/assets/images/branchen/ship_icon.png';
+	import concrete from '$lib/assets/images/branchen/concrete_icon.png';
 	import logo4 from '$lib/assets/images/homepage/logo4.jpeg';
 	import logo5 from '$lib/assets/images/homepage/logo5.jpeg';
 	import logo6 from '$lib/assets/images/homepage/logo6.jpeg';
@@ -111,10 +111,10 @@
 		{$_('homepage.einführung-ende')}
 	</div>
 	
-		<div style="background-image: url({halle})" class="w-[40%] h-[400px] rounded-lg hover:scale-105">
+		<div style="background-image: url({halle})" class="lg:w-[40%] w-[90%] h-[200px] lg:h-[400px] ml-[5%] lg:ml-0 rounded-lg hover:scale-105">
 			<a href="/unternehmen/ueber-uns">
-				<div class="bg-primary-foreground/45 hover:bg-primary-foreground/65 w-[100%] h-[400px] rounded-lg">
-					<h2 class="text-center text-secondary uppercase font-boldFont p-32 text-2xl md:text-3xl lg:text-4xl xl:text-5xl"> Lernen sie mehr über uns !</h2>
+				<div class="bg-primary-foreground/45 hover:bg-primary-foreground/65 w-[100%] h-[200px] lg:h-[400px] rounded-lg">
+					<h2 class="text-center text-secondary uppercase font-boldFont p-16 lg:p-32 text-2xl md:text-3xl lg:text-4xl xl:text-5xl"> Lernen sie mehr über uns !</h2>
 				</div>
 			</a>
 		</div>
@@ -147,7 +147,7 @@
 	<div class="h-auto  w-full bg-center  bg-[url($lib/assets/images/homepage/weltkarte.png)] bg-cover">
 				<div class="bg-primary-foreground/85 relative h-full w-full  p-16 md:p-16 lg:p-32 xl:p-44 text-secondary">
 					<h1 class="text-m text-xl md:text-2xl xl:text-4xl font-boldFont mb-10">{$_(`homepage.weltweit-titel`)}</h1>
-					<p class="text-lg xl:text-2xl text-justify">
+					<p class="text-sm md:text-lg xl:text-2xl text-justify">
 						{$_(`homepage.weltweit-text`)}
 					</p>
 				</div>
@@ -205,26 +205,26 @@
 		<Carousel2.Root opts={{ loop: true }}>
 			<Carousel2.Content style={`max-height: 600px`} >
 				<Carousel2.Item class="ml-[10%] mr-[10%] basis-1/2 ">
-					<div class="bg-cover rounded-lg bg-[url($lib/assets/images/homepage/NorbertRolf_klein.jpg)] bg-center ">
+					<div class="bg-cover rounded-lg w-[100%] h-[250px] md:h-[400px] lg:h-[500px] bg-[url($lib/assets/images/homepage/NorbertRolf_klein.jpg)] bg-center ">
 						<div
-							class="bg-primary-foreground/75 text-secondary relative h-full w-full rounded-lg p-4 md:p-16 lg:p-32"
+							class="bg-primary-foreground/75 text-secondary relative h-full w-full rounded-lg p-4 md:p-12 lg:p-20 xl:p-32"
 						>
 							<div class="h-[300px] w-[300px] ">
-								<h1 class="text-xl md:text-3xl uppercase font-boldFont">Maschinenerhaltung </h1>
-								<p class="text-xl">TODO</p>
+								<h1 class="text-lg md:text-3xl lg:text-4xl xl:text-5xl uppercase font-boldFont">{$_('homepage.erhaltung')}</h1>
+								<p class="text-sm md:text-md lg:text-lg xl:text-xl">{$_('homepage.erhaltung-text')}</p>
 								
 							</div>
 						</div>
 					</div>
 				</Carousel2.Item>	
 				<Carousel2.Item class="ml-[10%] mr-[10%] basis-1/2 ">
-					<div class="bg-cover rounded-lg bg-[url($lib/assets/images/homepage/NorbertRolf_klein.jpg)] bg-center">
+					<div class="bg-cover rounded-lg w-[100%] h-[250px] md:h-[400px] lg:h-[500px] bg-[url($lib/assets/images/homepage/NorbertRolf_klein.jpg)] bg-center">
 						<div
-							class="bg-primary-foreground/75 text-secondary relative h-full w-full rounded-lg p-4 md:p-16 lg:p-32"
+							class="bg-primary-foreground/75 text-secondary relative h-full w-full rounded-lg p-4 md:p-12 lg:p-20 xl:p-32"
 						>
 							<div class="h-[300px] w-[300px] ">
-								<h1 class="text-xl md:text-3xl uppercase font-boldFont">Maschinenvermarktung </h1>
-								<p class="text-xl">TODO</p>
+								<h1 class="text-xl md:text-3xl uppercase font-boldFont">{$_('homepage.vermarktung')}</h1>
+								<p class="text-xl">{$_('homepage.vermarktung-text')}</p>
 								
 								
 							</div>
@@ -232,13 +232,13 @@
 					</div>
 				</Carousel2.Item>
 				<Carousel2.Item class="ml-[10%] mr-[10%] basis-1/2 ">
-					<div class="bg-cover rounded-lg bg-[url($lib/assets/images/homepage/NorbertRolf_klein.jpg)] bg-center">
+					<div class="bg-cover rounded-lg w-[100%] h-[250px] md:h-[400px] lg:h-[500px] bg-[url($lib/assets/images/homepage/NorbertRolf_klein.jpg)] bg-center">
 						<div
-							class="bg-primary-foreground/75 text-secondary relative h-full w-full rounded-lg p-4 md:p-16 lg:p-32"
+							class="bg-primary-foreground/75 text-secondary relative h-full w-full rounded-lg p-4 md:p-12 lg:p-20 xl:p-32"
 						>
 							<div class="h-[300px] w-[300px] ">
-								<h1 class="text-xl md:text-3xl uppercase font-boldFont">Maschinenmodernisierung </h1>
-								<p class="text-xl">TODO</p>
+								<h1 class="text-xl md:text-3xl uppercase font-boldFont">{$_('homepage.modernisierung')} </h1>
+								<p class="text-xl">{$_('homepage.modernisierung-text')}</p>
 								
 								
 							</div>
@@ -246,11 +246,40 @@
 					</div>
 				</Carousel2.Item>
 			</Carousel2.Content>
-			<Carousel2.Previous class="left-64 bg-opacity-70 border-primary-foreground text-primary-foreground hover:bg-primary border-2 bg-secondary" />
-			<Carousel2.Next class="right-64 bg-opacity-70 border-primary hover:bg-primary border-2 bg-secondary/15" />
+			<Carousel2.Previous class="left-10 md:left-16 lg:left-32 xl:left-64 bg-opacity-70 border-primary-foreground text-primary-foreground hover:bg-primary border-2 bg-secondary" />
+			<Carousel2.Next class="right-10 md:right-16 lg:right-32 xl:right-64 bg-opacity-70 border-primary-foreground text-primary-foreground hover:bg-primary border-2 bg-secondary/15" />
 		</Carousel2.Root>
 	</div>
 </div>
+
+<div class="px-[5%]">
+	<div class="flex flex-col md:flex-row flex-wrap justify-around gap-2">
+		<div class="w-[25%]">
+			<h2 class="font-boldFont text-center uppercase text-xl md:text-2xl lg:text-3xl xl:text-5xl"> Automotive </h2>
+			<img src={auto} alt="logo-Auto" class="relative w-[50%] ml-[25%]" />
+		</div>
+		<div class="w-[25%]">
+			<h2 class="font-boldFont text-center uppercase text-xl md:text-2xl lg:text-3xl xl:text-5xl"> Maritime </h2>
+			<img src={ship} alt="logo-Auto" class="relative w-[50%] ml-[25%]" />
+		</div>
+		<div class="w-[25%]">
+			<h2 class="font-boldFont text-center uppercase text-xl md:text-2xl lg:text-3xl xl:text-5xl"> Concrete </h2>
+			<img src={concrete} alt="logo-Auto" class="relative w-[50%] ml-[25%]" />
+		</div>
+		<div class="w-[25%]">
+			<h2 class="font-boldFont text-center uppercase text-xl md:text-2xl lg:text-3xl xl:text-5xl"> Automotive </h2>
+			<img src={auto} alt="logo-Auto" class="relative w-[50%] ml-[25%]" />
+		</div>
+		<div class="w-[25%]">
+			<h2 class="font-boldFont text-center uppercase text-xl md:text-2xl lg:text-3xl xl:text-5xl"> Automotive </h2>
+			<img src={auto} alt="logo-Auto" class="relative w-[50%] ml-[25%]" />
+		</div>
+	</div>
+	
+</div>
+
+
+
 
 <div>
 	<div>
@@ -258,36 +287,7 @@
 			class="flex-col md:px-[30%] py-16 shadow-[10px_-10px_30px_rgba(0,0,0,0.75)] xl:flex xl:flex-row xl:flex-wrap xl:justify-between xl:gap-2 xl:px-96 xl:py-64"
 		>
 			<h1 class=" mb-32 text-center uppercase text-5xl font-boldFont ">...All das in verschiedensten Bereichen</h1>
-			<div
-				class="border-primary-foreground bg-primary-foreground my-3 w-[70%] border-2 xl:w-[300px]"
-			>
-				<h3
-					class="bg-primary-foreground text-secondary absolute mt-[70px] bg-opacity-80 px-4 text-xl xl:mt-[230px] xl:text-4xl"
-				>
-					Kategorie nr 1
-				</h3>
-				<img src={logo1} alt="logo-Kategorie-x" />
-			</div>
-			<div
-				class="border-primary-foreground bg-primary-foreground my-3 w-[70%] border-2 xl:w-[300px]"
-			>
-				<h3
-					class="bg-primary-foreground text-secondary absolute mt-[70px] bg-opacity-80 px-4 text-xl xl:mt-[230px] xl:text-4xl"
-				>
-					Kategorie nr 2
-				</h3>
-				<img src={logo2} alt="logo-Kategorie-x" />
-			</div>
-			<div
-				class="border-primary-foreground bg-primary-foreground my-3 w-[70%] border-2 xl:w-[300px]"
-			>
-				<h3
-					class="bg-primary-foreground text-secondary absolute mt-[70px] bg-opacity-80 px-4 text-xl xl:mt-[230px] xl:text-4xl"
-				>
-					Kategorie nr 3
-				</h3>
-				<img src={logo3} alt="logo-Kategorie-x" />
-			</div>
+			
 			<div
 				class="border-primary-foreground bg-primary-foreground my-3 w-[70%] border-2 xl:w-[300px]"
 			>

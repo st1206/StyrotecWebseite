@@ -14,11 +14,11 @@
     style="background-image: url({image})"
 >
     <div class="bg-primary-foreground/80 relative h-full w-full rounded-lg">
-        <h1 class="text-secondary font-boldFont px-[10%] pb-[5%] pt-[10%] text-xl md:text-3xl lg:text-5xl">
+        <h1 class="text-secondary font-boldFont px-[10%] pb-[5%] pt-[10%] text-xl md:text-2xl lg:text-3xl xl:text-4xl">
             {titel}
         </h1>
         <p
-            class="text-secondary w-full px-4 pb-[20%] text-justify md:text-lg lg:text-xl md:px-8 md:pb-[30%] lg:px-16 lg:pb-[20%]"
+            class="text-secondary w-full px-[10%] pb-[20%] text-justify text-sm md:text-md lg:text-lg xl:text-xl  md:pb-[30%]  lg:pb-[30%]"
         >
            {text}
         </p>

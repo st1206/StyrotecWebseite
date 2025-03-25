@@ -131,11 +131,10 @@ export const menu = [
 	 			key: 'ueberUns',
 	 			link: '/unternehmen/ueber-uns',
 	 			items: [
+					{ key: 'team', link: '/unternehmen/ueber-uns/#team'},
 	 				{ key: 'werte-mission-vission', link: '/unternehmen/ueber-uns/#werte' },
-	 				{ key: 'nachhaltigkeit', link: '/unternehmen/ueber-uns/#nachhaltigkeit' },
-	 				{ key: 'historie', link: '/unternehmen/ueber-uns/#historie' },
-					{ key: 'team', link: '/unternehmen/ueber-uns/#team'}
-					
+					{ key: 'historie', link: '/unternehmen/ueber-uns/#historie' },
+	 				{ key: 'nachhaltigkeit', link: '/unternehmen/ueber-uns/#nachhaltigkeit' },			
 	 			]
 	 		},
 	 		{

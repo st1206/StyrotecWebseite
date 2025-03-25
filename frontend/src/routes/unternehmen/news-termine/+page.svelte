@@ -59,7 +59,7 @@
 					<CardCarousel referenzen={referenzen} />
 				</div>
 			{:else}
-				<div class="mt-64 text-primary"> no referenzen yet hello</div>
+				<div class="mt-64 text-primary"> no referenzen yet</div>
 			{/if}
 
 	{:catch}
