@@ -1,18 +1,12 @@
 // typescript type für Menu Item
-import ads from "$lib/assets/images/branchen/ads_icon.png"
-import art from "$lib/assets/images/branchen/art_icon.png"
-import car from "$lib/assets/images/branchen/car_icon.png"
-import modelling from "$lib/assets/images/branchen/modelling_icon.png"
-import plane from "$lib/assets/images/branchen/plane_icon.png"
-import ship from "$lib/assets/images/branchen/ship_icon.png"
-
-import image2 from "$lib/assets/images/homepage/logo2.jpeg"
-import image3 from "$lib/assets/images/homepage/logo3.jpeg"
-import image4 from "$lib/assets/images/homepage/logo4.jpeg"
-import image5 from "$lib/assets/images/homepage/logo5.jpeg"
-import image6 from "$lib/assets/images/homepage/logo6.jpeg"
-import image7 from "$lib/assets/images/homepage/logo1.jpeg"
-import image8 from "$lib/assets/images/homepage/logo2.jpeg"
+import auto from '$lib/assets/images/branchen/auto_hell.png';
+import ads from '$lib/assets/images/branchen/ads_hell.png';
+import art from '$lib/assets/images/branchen/art_hell.png';
+import beton from '$lib/assets/images/branchen/beton_hell.png';
+import kunststoff from '$lib/assets/images/branchen/kunststoff_hell.png';
+import modell from '$lib/assets/images/branchen/modell_hell.png';
+import plane from '$lib/assets/images/branchen/plane_hell.png';
+import ship from '$lib/assets/images/branchen/ship_hell.png';
 
 export type MenuRoute = typeof menu;
 
@@ -51,8 +45,8 @@ export const menu = [
 	 				{ key: 'absaugungen', link: '/produkte/styroporbearbeitung/absaugungen' },
 	 				{ key: 'zerkleinerer', link: '/produkte/styroporbearbeitung/zerkleinerer' },
 	 				{ key: 'pressen', link: '/produkte/spaenepressen/styropor' },
-	 				{ key: 'rohmaterial', link: '/produkte/styroporbearbeitung/rohmaterial' },
-	 				{ key: 'kleber', link: '/produkte/styroporbearbeitung/kleber' }
+	 				{ key: 'rohmaterial', link: '/produkte/styroporbearbeitung/material/#rohmaterial' },
+	 				{ key: 'kleber', link: '/produkte/styroporbearbeitung/material/#kleber' }
 	 			]
 	 		},
 	 		{
@@ -62,7 +56,7 @@ export const menu = [
 	 				{ key: 'cnc-maschinen', link: '/produkte/gebrauchtmaschinen/cnc-maschinen' },
 	 				{ key: 'cnc-zubehör', link: '/produkte/gebrauchtmaschinen/cnc-zubehoer' },
 	 				{ key: 'modellbaumaschinen', link: '/produkte/gebrauchtmaschinen/modellbaumaschinen' },
-	 				{ key: 'holzbearbeitungsmaschinen', link: '/produkte/gebrauchtmaschinen/holzbearbeitungsmaschinen' }
+	 				{ key: 'holzbearbeitungsmaschinen', link: '/produkte/gebrauchtmaschinen/modellbaumaschinen' }
 	 			]
 	 		},
 	 	]
@@ -110,13 +104,13 @@ export const menu = [
 	 			key: 'branchen',
 	 			link: '/branchen/branchen',
 	 			items: [
-	 				{ key: 'automobil', link: '/branchen/#automobil', ImageUrl: car},
+	 				{ key: 'automobil', link: '/branchen/#automobil', ImageUrl: auto},
 	 				{ key: 'schiffsbau', link: '/branchen/#schiffsbau', ImageUrl: ship},
-	 				{ key: 'modellbau', link: '/branchen/#modellbau', ImageUrl: modelling},
-	 				{ key: 'kunststoffindustrie', link: '/branchen/#kunststoffindustrie', ImageUrl: image4},
-	 				{ key: 'betonindustrie', link: '/branchen/#betonindustrie',  ImageUrl: image5 },
+					 { key: 'aerospace', link: '/branchen/#aerospace',  ImageUrl: plane },
+	 				{ key: 'modellbau', link: '/branchen/#modellbau', ImageUrl: modell},
+	 				{ key: 'kunststoffindustrie', link: '/branchen/#kunststoffindustrie', ImageUrl: kunststoff},
+	 				{ key: 'betonindustrie', link: '/branchen/#betonindustrie',  ImageUrl: beton },
 	 				{ key: 'werbetechnik', link: '/branchen/#werbetechnik',  ImageUrl: ads},
-	 				{ key: 'aerospace', link: '/branchen/#aerospace',  ImageUrl: plane },
 	 				{ key: 'kunst', link: '/branchen/#kunst', ImageUrl: art }
 	 			]
 	 		}

@@ -24,11 +24,15 @@
 {#await data.kategorieBilder}
 	<div>skeleton build</div>
 {:then kategorie}
-	<div class="relative z-10 left-0 top-0 w-[100%]">
-		<Carousel height={600} pictures={kategorie[0].Bilder} />
+	<div class="relative left-0 top-0 z-10 w-[100%]">
+		<Carousel
+			height={600}
+			pictures={kategorie.filter((item) => item.Kategorie === 'Styroporbearbeitung')[0].Bilder}
+		/>
 	</div>
 {/await}
 <div class="relative -top-[50px] w-full h-[100px] md:h-[100px] bg-primary [clip-path:polygon(0%_0%,100%_0%,81%_100%,0%_100%)]"></div>
+
 <div class="bg-secondary flex flex-col py-[30px] lg:flex-row">
 	<div class="w-[90%] lg:w-[60%]">
 		<div class="relative mb-4 md:-left-[5%] xl:-left-[20%]">

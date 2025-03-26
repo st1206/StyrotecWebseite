@@ -117,7 +117,7 @@
 			class="text-secondary relative -top-12 bg-opacity-0 md:-top-20 md:py-2"
 		>
 			<Accordion.Item value="item-1">
-				<Accordion.Trigger class="font-boldFont w-[40%] md:text-2xl bg-primary/15">
+				<Accordion.Trigger class="font-boldFont w-[40%] md:text-2xl bg-secondary/35">
 					{$_('branchen.lösung')}</Accordion.Trigger
 				>
 				<Accordion.Content class="pt-4 xl:text-xl  ">
@@ -158,6 +158,77 @@
 		</div>
 	</div>
 
+	<!-- Aerospace -->
+	<div class="relative ">
+		<!-- dunkel Filter -->
+		<div class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]">
+			<!-- Heading im Bild -->
+			<h1
+				class="font-boldFont text-secondary relative left-4 top-4 w-auto text-3xl uppercase md:left-16 md:top-16 md:text-5xl lg:left-24 xl:top-32 lg:text-7xl"
+			>
+				{$_('branchen.luft-titel')}
+			</h1>
+			<p
+				class="text-secondary/65 relative left-4 top-2 md:left-16 md:top-16 lg:left-24 xl:top-32 lg:text-xl"
+			>
+				{$_('branchen.luft-sub')}
+			</p>
+		</div>
+		<!-- Link an richtige Stelle der Seite -->
+		<div class="absolute -top-[130px]" id="aerospace"></div>
+		<!-- obere Hälfte Bild-->
+		<img
+			src={luft1}
+			alt="FS10 Titelbild"
+			class="h-[150px] w-full rounded-t-3xl object-cover object-bottom md:h-[250px] lg:h-[300px] xl:h-[380px]"
+		/>
+		<!-- dropdown in der Mitte -->
+		<Accordion.Root
+			type="single"
+			class="text-secondary relative -top-12 bg-opacity-0 md:-top-20 md:py-2"
+		>
+			<Accordion.Item value="item-1">
+				<Accordion.Trigger class="font-boldFont w-[40%] md:text-2xl bg-secondary/35">
+					{$_('branchen.lösung')}</Accordion.Trigger
+				>
+				<Accordion.Content class="pt-4 xl:text-xl  ">
+					<div class="flex flex-row justify-around">
+						<div class="h-auto w-[48%] py-1">
+							<h2 class="pb-2 text-center text-2xl">{$_('branchen.links')}</h2>
+							<div class="flex flex-row flex-wrap justify-between gap-2 md:justify-normal">
+								<Button class="bg-primary "><a href="/" class="hover:underline">Link 1</a></Button>
+								<Button class="bg-primary"><a href="/" class="hover:underline">Link 1</a></Button>
+								<Button class="bg-primary"><a href="/" class="hover:underline">Link 1</a></Button>
+								<Button class="bg-primary"><a href="/" class="hover:underline">Link 1</a></Button>
+								<Button class="bg-primary"><a href="/" class="hover:underline">Link 1</a></Button>
+							</div>
+						</div>
+						<div class="bg-secondary/25 h-auto w-[1px]"></div>
+						<div class="h-auto w-[48%] py-1">
+							<h2 class="pb-2 text-center text-2xl">{$_('branchen.rechts')}</h2>
+							<div class="flex flex-row flex-wrap justify-around gap-2">
+								<Button class="bg-primary"><a href="/" class="hover:underline">Link 1</a></Button>
+								<Button class="bg-primary"><a href="/" class="hover:underline">Link 2</a></Button>
+								<Button class="bg-primary"><a href="/" class="hover:underline">Link 3</a></Button>
+							</div>
+						</div>
+					</div>
+				</Accordion.Content>
+			</Accordion.Item>
+		</Accordion.Root>
+		<!-- dunkel Filter + Bild unten -->
+		<div class="relative -top-[50px] md:-top-[90px]">
+			<div
+				class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]"
+			></div>
+			<img
+				src={luft2}
+				alt="FS10 Titelbild"
+				class="h-[150px] w-full rounded-b-3xl object-cover object-top md:h-[250px] lg:h-[300px] xl:h-[380px]"
+			/>
+		</div>
+	</div>
+
     <!-- Modellbau -->
     <div class="relative ">
 		<!-- dunkel Filter -->
@@ -188,7 +259,7 @@
 			class="text-secondary relative -top-12 bg-opacity-0 md:-top-20 md:py-2"
 		>
 			<Accordion.Item value="item-1">
-				<Accordion.Trigger class="font-boldFont w-[40%] md:text-2xl">
+				<Accordion.Trigger class="font-boldFont w-[40%] md:text-2xl bg-secondary/35">
 					{$_('branchen.lösung')}</Accordion.Trigger
 				>
 				<Accordion.Content class="pt-4 xl:text-xl  ">
@@ -259,7 +330,7 @@
 			class="text-secondary relative -top-12 bg-opacity-0 md:-top-20 md:py-2"
 		>
 			<Accordion.Item value="item-1">
-				<Accordion.Trigger class="font-boldFont w-[40%] md:text-2xl">
+				<Accordion.Trigger class="font-boldFont w-[40%] md:text-2xl bg-secondary/35">
 					{$_('branchen.lösung')}</Accordion.Trigger
 				>
 				<Accordion.Content class="pt-4 xl:text-xl  ">
@@ -330,7 +401,7 @@
 			class="text-secondary relative -top-12 bg-opacity-0 md:-top-20 md:py-2"
 		>
 			<Accordion.Item value="item-1">
-				<Accordion.Trigger class="font-boldFont w-[40%] md:text-2xl">
+				<Accordion.Trigger class="font-boldFont w-[40%] md:text-2xl bg-secondary/35">
 					{$_('branchen.lösung')}</Accordion.Trigger
 				>
 				<Accordion.Content class="pt-4 xl:text-xl  ">
@@ -401,7 +472,7 @@
 			class="text-secondary relative -top-12 bg-opacity-0 md:-top-20 md:py-2"
 		>
 			<Accordion.Item value="item-1">
-				<Accordion.Trigger class="font-boldFont w-[40%] md:text-2xl">
+				<Accordion.Trigger class="font-boldFont w-[40%] md:text-2xl bg-secondary/35">
 					{$_('branchen.lösung')}</Accordion.Trigger
 				>
 				<Accordion.Content class="pt-4 xl:text-xl  ">
@@ -442,77 +513,6 @@
 		</div>
 	</div>
 
-    <!-- Aerospace -->
-    <div class="relative ">
-		<!-- dunkel Filter -->
-		<div class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]">
-			<!-- Heading im Bild -->
-			<h1
-				class="font-boldFont text-secondary relative left-4 top-4 w-auto text-3xl uppercase md:left-16 md:top-16 md:text-5xl lg:left-24 xl:top-32 lg:text-7xl"
-			>
-				{$_('branchen.luft-titel')}
-			</h1>
-			<p
-				class="text-secondary/65 relative left-4 top-2 md:left-16 md:top-16 lg:left-24 xl:top-32 lg:text-xl"
-			>
-				{$_('branchen.luft-sub')}
-			</p>
-		</div>
-		<!-- Link an richtige Stelle der Seite -->
-		<div class="absolute -top-[130px]" id="aerospace"></div>
-		<!-- obere Hälfte Bild-->
-		<img
-			src={luft1}
-			alt="FS10 Titelbild"
-			class="h-[150px] w-full rounded-t-3xl object-cover object-bottom md:h-[250px] lg:h-[300px] xl:h-[380px]"
-		/>
-		<!-- dropdown in der Mitte -->
-		<Accordion.Root
-			type="single"
-			class="text-secondary relative -top-12 bg-opacity-0 md:-top-20 md:py-2"
-		>
-			<Accordion.Item value="item-1">
-				<Accordion.Trigger class="font-boldFont w-[40%] md:text-2xl">
-					{$_('branchen.lösung')}</Accordion.Trigger
-				>
-				<Accordion.Content class="pt-4 xl:text-xl  ">
-					<div class="flex flex-row justify-around">
-						<div class="h-auto w-[48%] py-1">
-							<h2 class="pb-2 text-center text-2xl">{$_('branchen.links')}</h2>
-							<div class="flex flex-row flex-wrap justify-between gap-2 md:justify-normal">
-								<Button class="bg-primary "><a href="/" class="hover:underline">Link 1</a></Button>
-								<Button class="bg-primary"><a href="/" class="hover:underline">Link 1</a></Button>
-								<Button class="bg-primary"><a href="/" class="hover:underline">Link 1</a></Button>
-								<Button class="bg-primary"><a href="/" class="hover:underline">Link 1</a></Button>
-								<Button class="bg-primary"><a href="/" class="hover:underline">Link 1</a></Button>
-							</div>
-						</div>
-						<div class="bg-secondary/25 h-auto w-[1px]"></div>
-						<div class="h-auto w-[48%] py-1">
-							<h2 class="pb-2 text-center text-2xl">{$_('branchen.rechts')}</h2>
-							<div class="flex flex-row flex-wrap justify-around gap-2">
-								<Button class="bg-primary"><a href="/" class="hover:underline">Link 1</a></Button>
-								<Button class="bg-primary"><a href="/" class="hover:underline">Link 2</a></Button>
-								<Button class="bg-primary"><a href="/" class="hover:underline">Link 3</a></Button>
-							</div>
-						</div>
-					</div>
-				</Accordion.Content>
-			</Accordion.Item>
-		</Accordion.Root>
-		<!-- dunkel Filter + Bild unten -->
-		<div class="relative -top-[50px] md:-top-[90px]">
-			<div
-				class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]"
-			></div>
-			<img
-				src={luft2}
-				alt="FS10 Titelbild"
-				class="h-[150px] w-full rounded-b-3xl object-cover object-top md:h-[250px] lg:h-[300px] xl:h-[380px]"
-			/>
-		</div>
-	</div>
-
     <!-- Kunst -->
     <div class="relative ">
 		<!-- dunkel Filter -->
@@ -543,7 +543,7 @@
 			class="text-secondary relative -top-12 bg-opacity-0 md:-top-20 md:py-2"
 		>
 			<Accordion.Item value="item-1">
-				<Accordion.Trigger class="font-boldFont w-[40%] md:text-2xl">
+				<Accordion.Trigger class="font-boldFont w-[40%] md:text-2xl bg-secondary/35">
 					{$_('branchen.lösung')}</Accordion.Trigger
 				>
 				<Accordion.Content class="pt-4 xl:text-xl  ">

@@ -55,7 +55,7 @@
 <img
 	src={wechsler}
 	alt="HSK-50"
-	class="absolute left-10 top-[2150px] -mb-[300px] hidden w-[110px] overflow-hidden bg-center xl:block xl:w-[200px]"
+	class="absolute left-10 top-[2150px] -mb-[300px] hidden w-[110px] overflow-hidden bg-center lg:block xl:w-[200px]"
 />
 
 <div class=" my-[100px] flex flex-wrap xl:flex-col">
@@ -101,9 +101,9 @@
 		</Accordion.Root>
 	</div>
 
-	<div class="mx-4 my-8 pb-10 md:mx-[35%] xl:mt-32">
-		<h1 class="pb-3 text-4xl font-boldFont text-center">{$_(`styroporfraesen.wechselkopf`)}</h1>
-		<div class="flex flex-col gap-12 justify-around md:flex-row">
+	<div class="mx-4 my-8 pb-10 md:mx-[25%] xl:mt-32">
+		<h1 class="pb-3 md:pb-6 lg:pb-12 xl:bp-16 text-4xl font-boldFont text-center">{$_(`styroporfraesen.wechselkopf`)}</h1>
+		<div class="flex flex-col gap-12 justify-around sm:flex-row">
 			<p class="h-auto w-[200px] text-xl">
 				{$_(`styroporfraesen.gefräst`)} <br />
 				<img src={kugel} alt="HSK-50" class="h-[200px] bg-center" />
@@ -114,14 +114,14 @@
 		</div>
 	</div>
 
-	<div class="mx-4 my-8 pb-10 xl:mx-[25%] xl:mt-32">
+	<div class="mx-4 my-8 pb-10 md:mx-[10%] lg:mx-[25%] xl:mt-32">
 		<h1 class=" text-4xl font-boldFont">{$_(`styroporfraesen.tabelle-überschrift`)}</h1>
 		<p class=" text-xl">
 			{$_(`styroporfraesen.tabelle-text`)}
 		</p>
 	</div>
 
-	<table class="mb-10 ml-[10%]  xl:mx-[25%]">
+	<table class="mb-10 ml-[10%]  lg:mx-[25%]">
 		<thead class="bg-primary-foreground text-secondary">
 			<tr>
 				<th class="w-[40px] md:w-[70px] lg:w-[80px]">L / ⌀</th>
@@ -260,7 +260,7 @@
 		</tbody>
 	</table>
 
-	<div class="mx-4 mt-[100px] pb-10 xl:mx-[25%]">
+	<div class="mx-4 mt-[100px] pb-10 md:mx-[10%] lg:mx-[25%]">
 		<h1 class="text-primary-foreground pb-3 text-4xl font-boldFont">{$_(`styroporfraesen.besonderheiten`)}</h1>
 		<p class="text-xl text-justify">{$_(`styroporfraesen.besonderheit-text`)}</p>
 	</div>

@@ -7,19 +7,21 @@
 	let carouselHeight = 700;
 	import * as Accordion from '$lib/components/ui/accordion';
 	import { _ } from 'svelte-i18n';
+
 	import halle from '$lib/assets/images/ueberUns/halle_klein.jpg'
-	import auto from '$lib/assets/images/branchen/car_icon.png';
-	import ship from '$lib/assets/images/branchen/ship_icon.png';
-	import concrete from '$lib/assets/images/branchen/concrete_icon.png';
-	import logo4 from '$lib/assets/images/homepage/logo4.jpeg';
-	import logo5 from '$lib/assets/images/homepage/logo5.jpeg';
-	import logo6 from '$lib/assets/images/homepage/logo6.jpeg';
-	import karte from '$lib/assets/images/homepage/Karte.png';
 	import portal from '$lib/assets/images/homepage/bild_innenraum.jpg';
 	import pressen from '$lib/assets/images/homepage/MSP500_klein.jpg';
 	import styropor from '$lib/assets/images/homepage/styroporCard_klein.jpg';
 	import gebrauma from '$lib/assets/images/homepage/gebraumaCard_klein.jpg';
-	
+
+	import auto from '$lib/assets/images/branchen/auto_dunkel.png';
+	import ads from '$lib/assets/images/branchen/ads_dunkel.png';
+	import art from '$lib/assets/images/branchen/art_dunkel.png';
+	import beton from '$lib/assets/images/branchen/beton_dunkel.png';
+	import kunststoff from '$lib/assets/images/branchen/kunststoff_dunkel.png';
+	import modell from '$lib/assets/images/branchen/modell_dunkel.png';
+	import plane from '$lib/assets/images/branchen/plane_dunkel.png';
+	import ship from '$lib/assets/images/branchen/ship_dunkel.png';
 	
 
 	import { fly } from "svelte/transition";
@@ -252,7 +254,7 @@
 	</div>
 </div>
 
-<div class="px-[5%]">
+<div class="px-[15%] py-[5%]">
 	<div class="flex flex-col md:flex-row flex-wrap justify-around gap-2">
 		<div class="w-[25%]">
 			<h2 class="font-boldFont text-center uppercase text-xl md:text-2xl lg:text-3xl xl:text-5xl"> Automotive </h2>
@@ -263,63 +265,28 @@
 			<img src={ship} alt="logo-Auto" class="relative w-[50%] ml-[25%]" />
 		</div>
 		<div class="w-[25%]">
+			<h2 class="font-boldFont text-center uppercase text-xl md:text-2xl lg:text-3xl xl:text-5xl"> Aerospace </h2>
+			<img src={plane} alt="logo-Auto" class="relative w-[50%] ml-[25%]" />
+		</div>
+		<div class="w-[25%]">
 			<h2 class="font-boldFont text-center uppercase text-xl md:text-2xl lg:text-3xl xl:text-5xl"> Concrete </h2>
-			<img src={concrete} alt="logo-Auto" class="relative w-[50%] ml-[25%]" />
+			<img src={beton} alt="logo-Auto" class="relative w-[50%] ml-[25%]" />
 		</div>
 		<div class="w-[25%]">
-			<h2 class="font-boldFont text-center uppercase text-xl md:text-2xl lg:text-3xl xl:text-5xl"> Automotive </h2>
-			<img src={auto} alt="logo-Auto" class="relative w-[50%] ml-[25%]" />
+			<h2 class="font-boldFont text-center uppercase text-xl md:text-2xl lg:text-3xl xl:text-5xl"> Advertisement </h2>
+			<img src={ads} alt="logo-Auto" class="relative w-[50%] ml-[25%]" />
 		</div>
 		<div class="w-[25%]">
-			<h2 class="font-boldFont text-center uppercase text-xl md:text-2xl lg:text-3xl xl:text-5xl"> Automotive </h2>
-			<img src={auto} alt="logo-Auto" class="relative w-[50%] ml-[25%]" />
+			<h2 class="font-boldFont text-center uppercase text-xl md:text-2xl lg:text-3xl xl:text-5xl"> Art </h2>
+			<img src={art} alt="logo-Auto" class="relative w-[50%] ml-[25%]" />
+		</div>
+		<div class="w-[25%]">
+			<h2 class="font-boldFont text-center uppercase text-xl md:text-2xl lg:text-3xl xl:text-5xl"> Plastics </h2>
+			<img src={kunststoff} alt="logo-Auto" class="relative w-[50%] ml-[25%]" />
+		</div>
+		<div class="w-[25%]">
+			<h2 class="font-boldFont text-center uppercase text-xl md:text-2xl lg:text-3xl xl:text-5xl"> Modelling </h2>
+			<img src={modell} alt="logo-Auto" class="relative w-[50%] ml-[25%]" />
 		</div>
 	</div>
-	
-</div>
-
-
-
-
-<div>
-	<div>
-		<div
-			class="flex-col md:px-[30%] py-16 shadow-[10px_-10px_30px_rgba(0,0,0,0.75)] xl:flex xl:flex-row xl:flex-wrap xl:justify-between xl:gap-2 xl:px-96 xl:py-64"
-		>
-			<h1 class=" mb-32 text-center uppercase text-5xl font-boldFont ">...All das in verschiedensten Bereichen</h1>
-			
-			<div
-				class="border-primary-foreground bg-primary-foreground my-3 w-[70%] border-2 xl:w-[300px]"
-			>
-				<h3
-					class="bg-primary-foreground text-secondary absolute mt-[70px] bg-opacity-80 px-4 text-xl xl:mt-[230px] xl:text-4xl"
-				>
-					Kategorie nr 4
-				</h3>
-				<img src={logo4} alt="logo-Kategorie-x" />
-			</div>
-			<div
-				class="border-primary-foreground bg-primary-foreground my-3 w-[70%] border-2 xl:w-[300px]"
-			>
-				<h3
-					class="bg-primary-foreground text-secondary absolute mt-[70px] bg-opacity-80 px-4 text-xl xl:mt-[230px] xl:text-4xl"
-				>
-					Kategorie nr 5
-				</h3>
-				<img src={logo5} alt="logo-Kategorie-x" />
-			</div>
-			<div
-				class="border-primary-foreground bg-primary-foreground my-3 w-[70%] border-2 xl:w-[300px]"
-			>
-				<h3
-					class="bg-primary-foreground text-secondary absolute mt-[70px] bg-opacity-80 px-4 text-xl xl:mt-[230px] xl:text-4xl"
-				>
-					Kategorie nr 6
-				</h3>
-				<img src={logo6} alt="logo-Kategorie-x" />
-			</div>
-		</div>
-	</div>
-
-	
 </div>

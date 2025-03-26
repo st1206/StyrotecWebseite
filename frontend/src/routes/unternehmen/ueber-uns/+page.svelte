@@ -76,8 +76,7 @@
 
 
 <!-- Historie -->
-
-<div class="p-6 md:p-12 lg:p-32  xl:px-64 bg-primary-foreground">
+<div class="p-6 md:p-12 lg:p-32  xl:px-64 bg-primary-foreground" id="historie">
     
     <div class="bg-secondary h-auto w-full flex jsutify-center items-center p-4 md:p-8 lg:p-12 xl:p-16 rounded-lg">
         

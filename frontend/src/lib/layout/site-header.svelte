@@ -77,11 +77,11 @@
 							{#each item.megaMenu as column}
 								<!-- nur für Branchen wegen Bilder -->
 								{#if column.key == 'branchen'}
-									<div class="flex w-[60%] flex-row flex-wrap justify-between gap-10 py-[100px]">
+									<div class="flex w-[70%] flex-row flex-wrap justify-between gap-10 py-[100px]">
 										{#each column.items as item}
-											<a href={item.link} class="text-primary text-2xl">
-												{$_(`nav.${item.key}`) ?? item.key}
-												<img src={item.ImageUrl} alt="logo" class="h-[150px] w-[150px] xl:h-[250px] xl:w-[250px] bg-secondary rounded-lg" />
+											<a href={item.link} class="text-primary text-2xl h-auto w-[20%]">
+												<h2 class="text-center">{$_(`nav.${item.key}`) ?? item.key}</h2>
+												<img src={item.ImageUrl} alt="logo" class=" rounded-lg" />
 											</a>
 										{/each}
 									</div>

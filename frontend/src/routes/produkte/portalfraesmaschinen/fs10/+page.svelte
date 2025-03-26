@@ -171,8 +171,9 @@
 		<Accordion.Root
 			type="single"
 			class="text-secondary relative mx-4 ml-4 object-cover xl:ml-[10%] xl:max-w-[80%] xl:text-3xl"
+			value={'item-1'}
 		>
-			<Accordion.Item value="item-1">
+			<Accordion.Item value="item-1" >
 				<Accordion.Trigger class=" ">{$_(`optionen.fraeskoepfe`)}</Accordion.Trigger>
 				<Accordion.Content class=" py-0  xl:text-xl">
 					<div class="flex flex-col justify-around md:flex-row flex-wrap">

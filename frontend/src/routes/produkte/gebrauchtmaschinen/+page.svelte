@@ -71,15 +71,15 @@
 			link="/produkte/gebrauchtmaschinen/cnc-zubehoer"
 		/>
 
-		<!-- modellbaumaschinen Karte -->
+		<!-- holz Karte -->
 		<KatCard
 			titel={$_(`gebrauMa.holz`)}
 			text={$_(`gebrauMa.holz-text`)}
 			image={holz}
-			link="/produkte/gebrauchtmaschinen/holzbearbeitungsmaschinen"
+			link="/produkte/gebrauchtmaschinen/modellbaumaschinen"
 		/>
 
-		<!-- holzbearbeitungsmaschinen -->
+		<!-- Modell Karte -->
 		<KatCard
 			titel={$_(`gebrauMa.modell`)}
 			text={$_(`gebrauMa.modell-text`)}
