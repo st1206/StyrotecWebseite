@@ -4,7 +4,8 @@
   "info": {
     "singularName": "konventionelle",
     "pluralName": "konventionelles",
-    "displayName": "Konventionelle"
+    "displayName": "Konventionelle",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -26,19 +27,89 @@
       "unique": true
     },
     "Bilder": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
       ],
-      "type": "media",
-      "multiple": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "Zugehoerigkeit": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
+      "type": "enumeration",
+      "enum": [
+        "Fräsen",
+        "Drehen",
+        "Schleifen",
+        "Sägen",
+        "Bohren"
+      ],
+      "required": true
+    },
+    "TechnischeDaten": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text",
+      "required": true
+    },
+    "Beschreibung": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text",
+      "required": true
+    },
+    "Hersteller": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "Baujahr": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "Zustand": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "Bezeichnung": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
       "required": true
     }
   }

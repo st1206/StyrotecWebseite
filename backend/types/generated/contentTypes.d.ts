@@ -769,6 +769,7 @@ export interface ApiKonventionelleKonventionelle
   extends Struct.CollectionTypeSchema {
   collectionName: 'konventionelles';
   info: {
+    description: '';
     displayName: 'Konventionelle';
     pluralName: 'konventionelles';
     singularName: 'konventionelle';
@@ -782,6 +783,27 @@ export interface ApiKonventionelleKonventionelle
     };
   };
   attributes: {
+    Baujahr: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Beschreibung: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Bezeichnung: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     Bilder: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
@@ -795,12 +817,26 @@ export interface ApiKonventionelleKonventionelle
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Hersteller: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::konventionelle.konventionelle'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    TechnischeDaten: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     Titel: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique &
@@ -812,6 +848,22 @@ export interface ApiKonventionelleKonventionelle
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Zugehoerigkeit: Schema.Attribute.Enumeration<
+      ['Fr\u00E4sen', 'Drehen', 'Schleifen', 'S\u00E4gen', 'Bohren']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Zustand: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
   };
 }
 
