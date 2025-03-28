@@ -49,9 +49,13 @@
 				<Accordion.Trigger class="font-boldFont w-[40%] md:text-2xl bg-secondary/35">
 					{$_('branchen.lösung')}</Accordion.Trigger
 				>
-				<Accordion.Content class="pt-4 xl:text-xl  ">
+				<Accordion.Content class="pt-3 xl:text-xl  ">
+					<div class="pl-4 md:pl-16 lg:pl-24">
+						
+					</div>
+
 					<div class="flex flex-row justify-around">
-						<div class="h-auto w-[48%] py-1">
+						<div class="h-auto w-[48%]  bg-secondary/5 rounded-lg p-4">
 							<h2 class="pb-2 text-center text-2xl">{$_('branchen.links')}</h2>
 							<div class="flex flex-row flex-wrap justify-between gap-2 md:justify-normal">
 								<Button class="bg-primary "><a href="/" class="hover:underline">Link 1</a></Button>
@@ -62,7 +66,7 @@
 							</div>
 						</div>
 						<div class="bg-secondary/25 h-auto w-[1px]"></div>
-						<div class="h-auto w-[48%] py-1">
+						<div class="h-auto w-[48%]  bg-secondary/5 rounded-lg p-4">
 							<h2 class="pb-2 text-center text-2xl">{$_('branchen.rechts')}</h2>
 							<div class="flex flex-row flex-wrap justify-around gap-2">
 								<Button class="bg-primary"><a href="/" class="hover:underline">Link 1</a></Button>

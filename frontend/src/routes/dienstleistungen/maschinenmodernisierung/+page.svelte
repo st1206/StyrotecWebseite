@@ -41,9 +41,44 @@
 	/>
 </div>
 
+<div class="bg-secondary ">
+	<div
+		class="text-secondary bg-primary-foreground flex flex-col text-left gap-[5%] md:flex-row flex-wrap h-auto w-full py-8 md:py-12  lg:py-24 px-[5%]  lg:px-[10%]"
+	>
+		<div class="text-xl w-[80%] lg:w-[45%] ">
+			<div class=" font-boldFont mb-2 text-xl md:text-2xl xl:text-3xl">
+				<span class="text-primary">&#x2713 </span>
+				TODO
+			</div>
+			<div class=" font-boldFont mb-2 text-xl md:text-2xl xl:text-3xl">
+				<span class="text-primary">&#x2713 </span>
+				TODO
+			</div>
+			<div class=" font-boldFont mb-2 text-xl md:text-2xl xl:text-3xl">
+				<span class="text-primary">&#x2713 </span>
+				TODO
+			</div>
+		</div>
+		<div class="text-xl w-[80%] lg:w-[45%] ">
+			<div class=" font-boldFont mb-2 text-xl md:text-2xl xl:text-3xl">
+				<span class="text-primary">&#x2713 </span>
+				TODO
+			</div>
+			<div class=" font-boldFont mb-2 text-xl md:text-2xl xl:text-3xl">
+				<span class="text-primary">&#x2713 </span>
+				TODO
+			</div>
+			<div class=" font-boldFont mb-2 text-xl md:text-2xl xl:text-3xl">
+				<span class="text-primary">&#x2713 </span>
+				TODO
+			</div>
+		</div>
+	</div>
+</div>
+
 <!-- Weiterleitungs -cards  zu Kategorien-->
 <div class="bg-secondary mx-[5%] my-[100px]">
-	<h1 class="font-boldFont text-center text-5xl uppercase">TODO</h1>
+	
 	<div class="flex flex-col flex-wrap justify-around gap-[5%] md:flex-row">
 		<!-- Bewertung karte -->
 		<KatCard

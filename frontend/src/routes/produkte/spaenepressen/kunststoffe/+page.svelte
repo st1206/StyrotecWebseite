@@ -31,9 +31,9 @@
 	<div class="mx-4 pb-3 ml-[30px] lg:ml-[80px] md:mr-[100px] lg:mr-[45%] xl:mr-[45%] mt-8 lg:mt-[100px]">
 		<div>
 			<h1 class="font-boldFont  text-5xl text-center uppercase">
-				{$_(`cnc-maschinen.titel`)}
+				{$_(`pressen.titel`)}
 			</h1>
-			<p class="p-4 text-sm sm:text-xl text-justify">{$_(`cnc-maschinen.text`)}</p>
+			<p class="p-4 text-sm sm:text-xl text-justify">{$_('pressen.kunststoff-text')}</p>
 			
 		</div>
 	</div>

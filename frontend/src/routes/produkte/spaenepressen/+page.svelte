@@ -81,18 +81,16 @@
 <div> 
 	<div>
 		<div class="bg-secondary mx-[5%] my-[100px]">
-			<h1 class="uppercase font-boldFont text-5xl text-center">TODO</h1>
 			
 			<div class="flex flex-col flex-wrap justify-around gap-[5%] md:flex-row">
-				<!-- Kunststoff karte -->
-				 
-				<KatCard titel={$_(`pressen.kunststoff`)} text="TODO" image={""} link="/produkte/spaenepressen/kunststoffe" />
-				
 				<!-- Metalle Karte -->
-				<KatCard titel={$_(`pressen.metalle`)} text="TODO" image={""} link="/produkte/spaenepressen/metalle" />
+				<KatCard titel={$_(`pressen.metalle`)} text={$_('pressen.metalle-text')} image={""} link="/produkte/spaenepressen/metalle" />
+
+				<!-- Kunststoff karte --> 
+				<KatCard titel={$_(`pressen.kunststoff`)} text={$_('pressen.kunststoff-text')} image={""} link="/produkte/spaenepressen/kunststoffe" />
 
 				<!-- Styropor Karte -->
-				<KatCard titel={$_(`pressen.styropor`)} text="TODO" image={""} link="/produkte/spaenepressen/styropor" />
+				<KatCard titel={$_(`pressen.styropor`)} text={$_('pressen.styropor-text')} image={""} link="/produkte/spaenepressen/styropor" />
 
 			</div>
 		</div>

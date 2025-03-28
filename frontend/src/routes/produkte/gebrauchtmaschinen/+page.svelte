@@ -5,11 +5,11 @@
 	import modellbau from '$lib/assets/images/gebrauchtmaschinen/modelbau.jpg';
 	import zubehoer from '$lib/assets/images/gebrauchtmaschinen/zubehoer.jpg';
 	import action from '$lib/assets/images/portalfraesmaschinen/fraesaction.jpg';
-	import { _ } from 'svelte-i18n';
 	import Carousel from '$lib/components/carousel.svelte';
 	import { Tabs, TabItem } from 'svelte-5-ui-lib';
 	import KatCard from '$lib/components/katCard.svelte';
 	let { data } = $props();
+	import { _ } from 'svelte-i18n';
 </script>
 
 <svelte:head>
@@ -50,7 +50,29 @@
 	/>
 </div>
 
-
+<div class="bg-secondary ">
+	<div
+		class="text-secondary bg-primary-foreground flex flex-col text-left gap-[5%] md:flex-row flex-wrap h-auto w-full py-8 md:py-12  lg:py-24 px-[5%]  lg:px-[10%]"
+	>	
+		<div class=" font-boldFont mb-12 text-xl md:text-2xl xl:text-3xl w-[80%] md:w-[45%] ">
+			<span class="text-primary">&#x2713 </span>
+			TODO
+		</div>
+		<div class=" font-boldFont mb-12 text-xl md:text-2xl xl:text-3xl w-[80%] md:w-[45%] ">
+			<span class="text-primary">&#x2713 </span>
+			TODO
+		</div>
+		
+		<div class=" font-boldFont mb-12 text-xl md:text-2xl xl:text-3xl w-[80%] md:w-[45%] ">
+			<span class="text-primary">&#x2713 </span>
+			TODO
+		</div>
+		<div class=" font-boldFont mb-12 text-xl md:text-2xl xl:text-3xl w-[80%] md:w-[45%] ">
+			<span class="text-primary">&#x2713 </span>
+			TODO
+		</div>
+	</div>
+</div>
 
 <div class="bg-secondary mx-[5%] my-[100px]">
 	<h1 class="font-boldFont text-center text-5xl uppercase">TODO</h1>

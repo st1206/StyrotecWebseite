@@ -23,11 +23,11 @@
 				<div class="relative -top-[50px] w-full h-[100px] md:h-[100px] bg-primary [clip-path:polygon(0%_0%,100%_0%,81%_100%,0%_100%)]"></div>
 		<div class=" xl:mt-[50px] mr-[40%]">
 			<h1
-				class="text-primary-foreground font-boldFont pl-2 text-right text-7xl uppercase md:pl-6 md:text-5xl lg:pl-12 lg:text-7xl"
+				class="text-primary-foreground font-boldFont pl-2 text-right text-7xl uppercase md:pl-6 md:text-5xl lg:pl-12 lg:text-9xl"
 			>
 				{maschine.Titel}
 			</h1>
-			<h2 class="pl-2 text-right text-xl uppercase md:pl-6 md:text-2xl lg:pl-12 lg:text-3xl">
+			<h2 class="pl-2 text-right text-xl uppercase md:pl-6 md:text-2xl lg:pl-12 lg:text-5xl">
 				{maschine.Bezeichnung}
 			</h2>
 		</div>

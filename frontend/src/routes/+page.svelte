@@ -56,7 +56,7 @@
 			<Carousel height={carouselHeight} autoPlay={true} pictures={homepageData.carousel} />
 			
 			<div
-				class="bg-secondary  absolute hidden h-[70px] w-[80%]  lg:block xl:top-[660px] rounded-l-none rounded-r-lg"
+				class="bg-secondary  absolute hidden h-[70px] w-[80%]  lg:block xl:top-[726px] rounded-l-none rounded-r-lg"
 			>
 				<Marquee speed={0.5} hoverSpeed={0} class="my-1">
 					<div class="text-primary-foreground pt-3 text-lg font-boldFont">
@@ -132,13 +132,13 @@
 			<KatCard titel={$_('nav.portalfraesmaschinen')} text={$_('portalfraes.beschreibungs-text')} image={portal} link={"/produkte/portalfraesmaschinen"}/>
 			
 			<!-- Spänepressen card-->
-			<KatCard titel={$_('nav.spaenepressen')} text="TODO" image={pressen} link={"/produkte/spaenepressen"}/>
+			<KatCard titel={$_('nav.spaenepressen')} text={$_(`pressen.beschreibungs-text`)} image={pressen} link={"/produkte/spaenepressen"}/>
 	
 			<!-- Styropor card-->
-			<KatCard titel={$_('nav.styroporbearbeitung')} text="TODO" image={styropor} link={"/produkte/styroporbearbeitung"} />
+			<KatCard titel={$_('nav.styroporbearbeitung')} text={$_(`styroporbearbeitung.beschreibungs-text`)} image={styropor} link={"/produkte/styroporbearbeitung"} />
 			
 			<!-- Gebrauchtmaschinen card-->
-			<KatCard titel={$_('nav.gebrauchtmaschinen')} text="TODO" image={gebrauma} link={"/produkte/gebrauchtmaschinen"}/>
+			<KatCard titel={$_('nav.gebrauchtmaschinen')} text={$_(`gebrauMa.beschreibungs-text`)} image={gebrauma} link={"/produkte/gebrauchtmaschinen"}/>
 			
 		</div>
 	</div>
@@ -255,38 +255,62 @@
 </div>
 
 <div class="px-[15%] py-[5%]">
-	<div class="flex flex-col md:flex-row flex-wrap justify-around gap-2">
-		<div class="w-[25%]">
-			<h2 class="font-boldFont text-center uppercase text-xl md:text-2xl lg:text-3xl xl:text-5xl"> Automotive </h2>
-			<img src={auto} alt="logo-Auto" class="relative w-[50%] ml-[25%]" />
-		</div>
-		<div class="w-[25%]">
-			<h2 class="font-boldFont text-center uppercase text-xl md:text-2xl lg:text-3xl xl:text-5xl"> Maritime </h2>
-			<img src={ship} alt="logo-Auto" class="relative w-[50%] ml-[25%]" />
-		</div>
-		<div class="w-[25%]">
-			<h2 class="font-boldFont text-center uppercase text-xl md:text-2xl lg:text-3xl xl:text-5xl"> Aerospace </h2>
-			<img src={plane} alt="logo-Auto" class="relative w-[50%] ml-[25%]" />
-		</div>
-		<div class="w-[25%]">
-			<h2 class="font-boldFont text-center uppercase text-xl md:text-2xl lg:text-3xl xl:text-5xl"> Concrete </h2>
-			<img src={beton} alt="logo-Auto" class="relative w-[50%] ml-[25%]" />
-		</div>
-		<div class="w-[25%]">
-			<h2 class="font-boldFont text-center uppercase text-xl md:text-2xl lg:text-3xl xl:text-5xl"> Advertisement </h2>
-			<img src={ads} alt="logo-Auto" class="relative w-[50%] ml-[25%]" />
-		</div>
-		<div class="w-[25%]">
-			<h2 class="font-boldFont text-center uppercase text-xl md:text-2xl lg:text-3xl xl:text-5xl"> Art </h2>
-			<img src={art} alt="logo-Auto" class="relative w-[50%] ml-[25%]" />
-		</div>
-		<div class="w-[25%]">
-			<h2 class="font-boldFont text-center uppercase text-xl md:text-2xl lg:text-3xl xl:text-5xl"> Plastics </h2>
-			<img src={kunststoff} alt="logo-Auto" class="relative w-[50%] ml-[25%]" />
-		</div>
-		<div class="w-[25%]">
-			<h2 class="font-boldFont text-center uppercase text-xl md:text-2xl lg:text-3xl xl:text-5xl"> Modelling </h2>
-			<img src={modell} alt="logo-Auto" class="relative w-[50%] ml-[25%]" />
-		</div>
+	<div class="flex flex-col sm:flex-row flex-wrap justify-evenly gap-2">
+		<!-- Automobil -->
+		<a href="/branchen/#automobil" class="w-[80%] sm:w-[25%] group">
+			<div >
+				<h2 class="font-boldFont text-center uppercase text-xl md:text-2xl lg:text-3xl xl:text-5xl">{$_('branchen.auto-titel')} </h2>
+				<img src={auto} alt="Automotive-Icon" class="relative w-full sm:w-[60%] sm:ml-[25%] group-hover:scale-125 transition-transform duration-300 " />
+			</div>
+		</a>
+		<!-- Schiffsbau -->
+		<a href="/branchen/#schiffsbau" class="w-[80%] sm:w-[25%] group">
+			<div >
+				<h2 class="font-boldFont text-center uppercase text-xl md:text-2xl lg:text-3xl xl:text-5xl">{$_('branchen.schiff-titel')} </h2>
+				<img src={ship} alt="Maritime-Icon" class="relative w-full sm:w-[60%] sm:ml-[25%] group-hover:scale-125 transition-transform duration-300" />
+			</div>
+		</a>
+		<!-- Aerospace-->
+		<a href="/branchen/#aerospace" class="w-[80%] sm:w-[25%] group">
+			<div >
+				<h2 class="font-boldFont text-center uppercase text-xl md:text-2xl lg:text-3xl xl:text-5xl">{$_('branchen.luft-titel')} </h2>
+				<img src={plane} alt="Aerospace-Icon" class="relative w-full sm:w-[60%] sm:ml-[25%] group-hover:scale-125 transition-transform duration-300" />
+			</div>
+		</a>
+		<!-- Modellbau -->
+		<a href="/branchen/#modellbau" class="w-[80%] sm:w-[25%] group">
+			<div >
+				<h2 class="font-boldFont text-center uppercase text-xl md:text-2xl lg:text-3xl xl:text-5xl">{$_('branchen.modell-titel')} </h2>
+				<img src={modell} alt="Modellbau-Icon" class="relative w-full sm:w-[60%] sm:ml-[25%] hover:scale-110 transition-transform duration-300" />
+			</div>
+		</a>
+		<!-- Kunststoffindustrie -->
+		<a href="/branchen/#kunststoffindustrie" class="w-[80%] sm:w-[25%] group">
+			<div >
+				<h2 class="font-boldFont text-center uppercase text-xl md:text-2xl lg:text-3xl xl:text-5xl">{$_('branchen.kunststoff-titel')} </h2>
+				<img src={kunststoff} alt="Kunststoff-Icon" class="relative w-full sm:w-[60%] sm:ml-[25%] group-hover:scale-125 transition-transform duration-300" />
+			</div>
+		</a>
+		<!-- Betonindustrie -->
+		<a href="/branchen/#betonindustrie" class="w-[80%] sm:w-[25%] group">
+			<div >
+				<h2 class="font-boldFont text-center uppercase text-xl md:text-2xl lg:text-3xl xl:text-5xl">{$_('branchen.beton-titel')} </h2>
+				<img src={beton} alt="Concrete-Icon" class="relative w-full sm:w-[60%] sm:ml-[25%] group-hover:scale-125 transition-transform duration-300" />
+			</div>
+		</a>
+		<!-- Werbetechnik -->
+		<a href="/branchen/#werbetechnik" class="w-[80%] sm:w-[25%] group">
+			<div >
+				<h2 class="font-boldFont text-center uppercase text-xl md:text-2xl lg:text-3xl xl:text-5xl">{$_('branchen.werbe-titel')} </h2>
+				<img src={ads} alt="Advertisement-Icon" class="relative w-full sm:w-[60%] sm:ml-[25%] group-hover:scale-125 transition-transform duration-300" />
+			</div>
+		</a>
+		<!-- Kunst -->
+		<a href="/branchen/#kunst" class="w-[80%] sm:w-[25%] group">
+			<div >
+				<h2 class="font-boldFont text-center uppercase text-xl md:text-2xl lg:text-3xl xl:text-5xl">{$_('branchen.kunst-titel')} </h2>
+				<img src={art} alt="Kunst-Icon" class="relative w-full sm:w-[60%] sm:ml-[25%] group-hover:scale-125 transition-transform duration-300" />
+			</div>
+		</a>		
 	</div>
 </div>

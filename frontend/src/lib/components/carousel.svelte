@@ -52,7 +52,7 @@
 
 </script>
 
-<Carousel.Root plugins={[plugin]} opts= {options}>
+<Carousel.Root plugins={[plugin]} opts= {options} class="pt-[66px]">
 	<Carousel.Content style={`max-height: ${height}px`}>
 		{#each pictures as picture}
 			<Carousel.Item class="pl-0">

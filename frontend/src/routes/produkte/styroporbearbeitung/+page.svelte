@@ -54,19 +54,43 @@
 	/>
 </div>
 
+<div class="bg-secondary ">
+	<div
+		class="text-secondary bg-primary-foreground flex flex-col text-left gap-[5%] md:flex-row flex-wrap h-auto w-full py-8 md:py-12  lg:py-24 px-[5%]  lg:px-[10%]"
+	>	
+		<div class=" font-boldFont mb-12 text-xl md:text-2xl xl:text-3xl w-[80%] md:w-[45%] ">
+			<span class="text-primary">&#x2713 </span>
+			TODO
+		</div>
+		<div class=" font-boldFont mb-12 text-xl md:text-2xl xl:text-3xl w-[80%] md:w-[45%] ">
+			<span class="text-primary">&#x2713 </span>
+			TODO
+		</div>
+		
+		<div class=" font-boldFont mb-12 text-xl md:text-2xl xl:text-3xl w-[80%] md:w-[45%] ">
+			<span class="text-primary">&#x2713 </span>
+			TODO
+		</div>
+		<div class=" font-boldFont mb-12 text-xl md:text-2xl xl:text-3xl w-[80%] md:w-[45%] ">
+			<span class="text-primary">&#x2713 </span>
+			TODO
+		</div>
+	</div>
+</div>	
+
 <div>
 	<div>
 		<div class="bg-secondary mx-[5%] my-[100px]">
-			<h1 class="font-boldFont text-center text-5xl uppercase">TODO</h1>
+			
 			<div class="flex flex-col flex-wrap justify-around gap-[5%] md:flex-row">
-				<!-- absaugungen karte -->
+				<!-- fräswerkzeuge -->
 				<KatCard
-					titel={$_(`styroporbearbeitung.absaugungen`)}
-					text={$_(`styroporbearbeitung.absaugungen-text`)}
+					titel={$_(`styroporbearbeitung.fräswerkzeuge`)}
+					text={$_(`styroporbearbeitung.fräswerkzeuge-text`)}
 					image={gebrauma}
-					link="/produkte/styroporbearbeitung/absaugungen"
+					link="/produkte/styroporbearbeitung/fräswerkzeuge"
 				/>
-
+				
 				<!-- hohlfrässpindel  Karte -->
 				<KatCard
 					titel={$_(`styroporbearbeitung.hohlfrässpindeln`)}
@@ -75,26 +99,26 @@
 					link="/produkte/styroporbearbeitung/hohlfrässpindeln"
 				/>
 
-				<!-- kleber Karte -->
+				<!-- absaugungen karte -->
 				<KatCard
-					titel={$_(`styroporbearbeitung.kleber`)}
-					text={$_(`styroporbearbeitung.kleber-text`)}
+					titel={$_(`styroporbearbeitung.absaugungen`)}
+					text={$_(`styroporbearbeitung.absaugungen-text`)}
 					image={gebrauma}
-					link="/produkte/styroporbearbeitung/kleber"
+					link="/produkte/styroporbearbeitung/absaugungen"
 				/>
 
-				<!-- fräswerkzeuge -->
+				<!-- Shredder -->
 				<KatCard
-					titel={$_(`styroporbearbeitung.fräswerkzeuge`)}
-					text={$_(`styroporbearbeitung.fräswerkzeuge-text`)}
+					titel={$_(`styroporbearbeitung.zerkleinerer`)}
+					text={$_(`styroporbearbeitung.zerkleinerer-text`)}
 					image={gebrauma}
-					link="/produkte/styroporbearbeitung/fräswerkzeuge"
+					link="/produkte/styroporbearbeitung/zerkleinerer"
 				/>
 
 				<!-- pressen -->
 				<KatCard
 					titel={$_(`styroporbearbeitung.pressen`)}
-					text={$_(`styroporbearbeitung.pressen-text`)}
+					text={$_(`pressen.styropor-text`)}
 					image={gebrauma}
 					link="/produkte/spaenepressen/styropor"
 				/>
@@ -106,13 +130,13 @@
 					image={gebrauma}
 					link="/produkte/styroporbearbeitung/rohmaterial"
 				/>
-
-				<!-- holzbearbeitungsmaschinen -->
+				
+				<!-- kleber Karte -->
 				<KatCard
-					titel={$_(`styroporbearbeitung.zerkleinerer`)}
-					text={$_(`styroporbearbeitung.zerkleinerer-text`)}
+					titel={$_(`styroporbearbeitung.kleber`)}
+					text={$_(`styroporbearbeitung.kleber-text`)}
 					image={gebrauma}
-					link="/produkte/styroporbearbeitung/zerkleinerer"
+					link="/produkte/styroporbearbeitung/kleber"
 				/>	
 			</div>
 		</div>

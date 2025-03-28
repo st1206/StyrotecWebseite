@@ -5,6 +5,7 @@
 	import SiteFooter from '$lib/layout/site-footer.svelte';
 	import SiteContact from '$lib/layout/site-contact.svelte';
 	import BottomContactForm from '$lib/layout/bottom-contactForm.svelte';
+	import logo from '$lib/assets/images/Logo_schwarzeSchrift_orange.gif'
 </script>
 
 <svelte:head>
@@ -18,8 +19,8 @@
 	<meta property="og:image:alt" content={} />
 	<meta property="og:description" content={} />
 	<meta property="og:site_name" content={} />
-	<meta property="og:locale" content="DE_DE" />
-	<link rel="shortcut icon" href="" /> -->
+	<meta property="og:locale" content="DE_DE" /> -->
+	<link rel="shortcut icon" href={logo} /> 
 </svelte:head>
 
 <!-- root layout  -->

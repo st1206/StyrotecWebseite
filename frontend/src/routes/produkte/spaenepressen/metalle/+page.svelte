@@ -2,6 +2,7 @@
     import { _ } from 'svelte-i18n';
 	import * as Accordion from '$lib/components/ui/accordion';
     import top from '$lib/assets/images/portalfraesmaschinen/FS10ST_klein.jpg';
+	import action from '$lib/assets/images/pressen/pallets_klein.jpg'
 	import MaschinenCarousel from '$lib/components/maschinenCarousel.svelte';
 	let { data } = $props();
 </script>
@@ -23,7 +24,7 @@
 <div class="relative text-xl">
 	<div class="bg-primary-foreground h-[30px] w-full"></div>
 	<img
-		src={top}
+		src={action}
 		alt="FS10 Titelbild"
 		class="absolute -top-[170px] hidden lg:block right-0  w-[40%] object-cover [clip-path:polygon(0%_28.5%,100%_0%,100%_100%,0%_100%)] lg:h-[700px]"
 	/>
@@ -33,9 +34,9 @@
 	<div class="mx-4 pb-3 ml-[30px] lg:ml-[80px] md:mr-[100px] lg:mr-[45%] xl:mr-[45%] mt-8 lg:mt-[100px]">
 		<div>
 			<h1 class="font-boldFont  text-5xl text-center uppercase">
-				{$_(`cnc-maschinen.titel`)}
+				{$_(`pressen.titel`)}
 			</h1>
-			<p class="p-4  text-sm sm:text-xl text-justify">{$_(`cnc-maschinen.text`)}</p>
+			<p class="p-4  text-sm sm:text-xl text-justify">{$_(`pressen.metalle-text`)}</p>
 			
 		</div>
 	</div>	
@@ -50,14 +51,14 @@
 				<div
 					class="border-primary-foreground/5 bg-primary-foreground mx-12 my-[96px] rounded-2xl border py-[50px] xl:mx-[200px]"
 				>
-					<h1 class="font-boldFont text-secondary mb-4 md:mb-16 text-center text-3xl md:text-5xl uppercase">
+					<h1 class="font-boldFont text-secondary mb-4 md:mb-12 text-center text-3xl md:text-5xl uppercase">
 						{presse.Titel}
 					</h1>
 
 					<div class="flex flex-col justify-around lg:flex-row">
 						<Accordion.Root
 							type="single"
-							class="text-secondary relative mx-4 object-cover xl:w-[50%] text-xl md:text-2xl xl:text-3xl"
+							class="text-secondary relative mx-4 object-cover xl:w-[50%] text-xl md:text-2xl xl:text-3xl md:pt-16"
 						>
 							<Accordion.Item value="item-1">
 								<Accordion.Trigger class="w-[400px]"
@@ -118,34 +119,25 @@
 <div
 		class="bg-primary-foreground text-secondary w-full py-8 xl:mb-[100px] xl:py-32 xl:[clip-path:polygon(0%_10%,100%_0%,100%_90%,0%_100%)]"
 	>
-		<h1 class="uppercase font-boldFont text-5xl text-center mb-16">{$_(`fs10.optionen`)}</h1>
+		<h1 class="uppercase font-boldFont text-5xl text-center mb-16">Details</h1>
 
 		<Accordion.Root
 			type="single"
 			class="text-secondary relative mx-4 ml-4 object-cover xl:ml-[10%] xl:max-w-[80%] xl:text-3xl"
 		>
 			<Accordion.Item value="item-1">
-				<Accordion.Trigger class=" ">{$_(`optionen.fraeskoepfe`)}</Accordion.Trigger>
+				<Accordion.Trigger class=" ">Flexibilität in der Anwendung</Accordion.Trigger>
 				<Accordion.Content class=" py-0  xl:text-xl">
 					<div class="flex flex-col justify-around md:flex-row flex-wrap">
 						<div class="w-[90%] md:w-[45%] lg:w-[30%] content-center bg-secondary/5 rounded-lg flex flex-col justify-center py-12 m-4">
-							<p class="z-10 text-center text-5xl font-boldFont mb-2 ">ST 7 - Fräskopf</p>
-							
-							<img src={top} alt="ST7" class="h-[350px] w-auto object-contain " />
+							<p class="z-10 text-center text-5xl font-boldFont mb-2 ">Maschinenseitig</p>
 							<p class="ml-4 uppercase font-boldFont text-2xl mb-0">Schlank.</p>
-							<p class="ml-4">einseitig abgestützter Kompakt Kopf</p>
+							<p class="ml-4">Spänepressen zu maschinenseitigen Beladung arbeiten mit über Späneförderer direkt aus der Maschine zugeführten Spänen und können automatisierte Anlagen ergänzen. Es kann auch manuell zugeladen werden.</p>
 						</div>
 						<div class="w-[90%] md:w-[45%] lg:w-[30%] content-center bg-secondary/5 rounded-lg flex flex-col justify-center py-12 m-4">
-							<p class="text-center text-5xl font-boldFont mb-2">ST 8 - Fräskopf</p>
-							<img src={top} alt="ST 8" class="h-[350px] w-auto object-contain" />
+							<p class="text-center text-5xl font-boldFont mb-2">Zentral</p>
 							<p class="ml-4 uppercase font-boldFont text-2xl mb-0">Stabil.</p>
-							<p class="ml-4">beidseitig abgestützter Kompakt Kopf</p>
-						</div>
-						<div class="w-[90%] md:w-[45%] lg:w-[30%] content-center bg-secondary/5 rounded-lg flex flex-col justify-center py-12 m-4">
-							<p class="text-center text-5xl font-boldFont mb-2">HS673 - Fräskopf</p>
-							<img src={top} alt="HS673" class="h-[350px] w-auto object-contain" />
-							<p class="ml-4 uppercase font-boldFont text-2xl mb-0">Schlank.</p>
-							<p class="ml-4">einseitig abgestützter Kompakt Kopf</p>
+							<p class="ml-4">Zentral positionierte Spänepressen eignenn sich für die manuelle Beladung mit Hebekoppgeräten. Mit dem entsprechenden Zubehör lässt sich die Beladung automatisieren.</p>
 						</div>
 					</div>
 				</Accordion.Content>

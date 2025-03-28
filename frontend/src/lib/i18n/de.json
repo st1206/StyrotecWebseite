@@ -138,17 +138,17 @@
 		"cta": "Mehr erfahren",
 		"fräswerkzeuge": "Fräswerkzeuge",
 		"fräswerkzeuge-text": "TODO",
-		"absaugungen": "TODO",
+		"absaugungen": "Absaugungen",
 		"absaugungen-text": "TODO",
-		"hohlfrässpindeln": "TODO",
+		"hohlfrässpindeln": "Hohlfrässpindeln",
 		"hohlfrässpindeln-text": "TODO",
-		"kleber": "TODO",
+		"kleber": "Kleber",
 		"kleber-text": "TODO",
-		"pressen": "TODO",
+		"pressen": "Styroporpressen",
 		"pressen-text": "TODO",
-		"rohmaterial": "TODO",
+		"rohmaterial": "Rohmaterial",
 		"rohmaterial-text": "TODO",
-		"zerkleinerer": "TODO",
+		"zerkleinerer": "Styroshredder",
 		"zerkleinerer-text": "TODO"
 	},
 	"gebrauMa": {
@@ -291,15 +291,15 @@
 	"maschinenerhaltung": {
 		"titel": "Maschinenerhaltung",
 		"sub": "TODO",
-		"beschreibungs-text": "TODO",
+		"beschreibungs-text": "Ihre CNC-Maschinen sind das Rückgrat Ihrer Fertigung. Stillstandzeiten und Produktionsausfälle können teuer werden und Ihre Wettbewerbsfähigkeit beeinträchtigen. Vertrauen Sie auf unsere Expertise und sichern Sie die Langlebigkeit und Präzision Ihrer Maschinen durch unsere professionellen Wartungsdienstleistungen. Investieren Sie in die Zukunft Ihrer Produktion und vertrauen Sie auf unsere professionellen CNC-Maschinenwartungsdienstleistungen.",
 		"spindelservice": "Spindelservice",
-		"spindelservice-text": "TODO",
+		"spindelservice-text": "Die Spindel ist das Herzstück Ihrer CNC-Maschine. Ihre Leistungsfähigkeit und Präzision sind entscheidend für die Qualität Ihrer Fertigung. Ein Ausfall oder eine Fehlfunktion der Spindel kann zu Produktionsausfällen, Ausschuss und hohen Reparaturkosten führen. Unser spezialisierter Spindelservice sorgt dafür, dass Ihre Spindeln stets in Bestzustand sind und ihre optimale Leistung erbringen.",
 		"wartungen": "Wartungen",
 		"wartungen-text": "TODO",
 		"reparaturen": "Reparaturen",
 		"reparaturen-text": "TODO",
 		"maschinenumzüge": "Maschinenumzüge",
-		"maschinenumzüge-text": "TODO"
+		"maschinenumzüge-text": "Ein Maschinenumzug oder eine Maschinenverlagerung ist ein komplexer Prozess, der sorgfältige Planung und professionelle Durchführung erfordert. Wir bieten Ihnen einen umfassenden Service, der Ihre Maschinen sicher und effizient an ihren neuen Standort bringt, damit Ihre Produktion schnellstmöglich wieder aufgenommen werden kann."
 	},
 	"maschinenvermarktung": {
 		"titel": "Maschinenvermarktung",
@@ -312,11 +312,11 @@
 		"punkt5": "Wir arbeiten transparent und fair",
 		"punkt6": "Sie können sich auf Ihren Geschäftsbetrieb konzentrieren",
 		"bewertung": "Maschinenbewertung",
-		"bewertung-text": "TODO",
+		"bewertung-text": "Egal, ob Sie Ihre Maschinen verkaufen, intern bewerten oder für Planungen einschätzen müssen - wir unterstützen Sie mit präzisen und realistischen Bewertungen. Dank unserer langjährigen Erfahrung und exzellenten Marktkenntnisse analysieren wir alle wertbestimmenden Parameter wie Alter, Zustand, Hersteller sowie aktuelle Marktlage. Nach einer gemeinsamen Begutachtung. Nach einer gemeinsamen Begutachtung vor Ort erhalten Sie eine detaillierte Maschinenbewertung.",
 		"vermittlung": "Maschinenvermittlung",
-		"vermittlung-text": "TODO",
+		"vermittlung-text": "Sollten Sie eine Werkzeugmaschine direkt am Markt veräußern wollen, um zum Beispiel umzustrukturieren oder Platz für neue Technologien zu schaffen, unterstützen wir Sie gerne bei der Suche nach einem neuen Besitzer Ihrer Maschine. Dabei setzen wir auf klare Prozesse, die Ihnen Transparenz garantieren und viel Arbeit abnehmen. Gleichzeitig erhöhen wir durch unser großes Netzwerk Ihre Verkaufschancen.",
 		"ankauf": "Ankauf",
-		"ankauf-text": "TODO"
+		"ankauf-text": "Wenn Sie Ihre Werkzeugmaschine verkaufen möchten, bieten wir Ihnen neben der Vermittlung auch ein direktes Kaufangebot. Nach einer Begutachtung unterbreiten wir attraktive Angebote und kümmern uns flexibel um die Demontage und den Abtransport Ihrer Maschine, um einen reibungslosen Übergang zu gewährleisten."
 	},
 	"maschinenmodernisierung": {
 		"titel": "Maschinenmodernisierung",
@@ -328,15 +328,15 @@
 		"ueberholung-text": "TODO"
 	},
 	"pressen": {
-		"titel": "Spänepressen",
+		"titel": "Brikettierpressen",
 		"sub": "zu- und Abführsysteme",
-		"beschreibungs-text": "TODO",
+		"beschreibungs-text": "Die hydraulischen Brikettierpressen von Styrotec verdichten die angefallenen Leichtmetall-, Guss- und Stahlspäne auf wirtschaftliche Art und Weise in leicht zu handhabende Briketts. Die Styrotec-Pressen sind extrem robust und kompakt und gewährleisten eine gleichbleibende Brikettqualität im Dauerbetrieb bei hoher Durchsatzleistung.",
 		"kunststoff": "Kunststoffe",
-		"kunststoff-text": "TODO",
+		"kunststoff-text": "Kunststoffbrikettierpressen verdichten Kunststoffe, natürliche und synthetische Reste, Abfälle und andere sehr sperrige, oft leichte Materialien aus der industriellen Fertigung. Diese Pressen kommen vor allem in der Industrie oder Recyclinganlagen zum Einsatz, um Kunststoffe wie Folien, PET-Flaschen, Verpackungsmaterialien und mehr effizient zu verarbeiten.",
 		"metalle": "Metalle",
-		"metalle-text": "TODO",
+		"metalle-text": "Die hydraulischen Brikettierpressen der Baureihe MSP verwenden innovative Technologien, um Metallspäne auf extrem wirtschaftliche Weise zu formstabilen Briketts mit geringer Restfeuchte zu verdichten. Die Maschinen sind robust gebaut, wartungsarm und gewährleisten eine gleichbleibende Brikettqualität im Dauerbetrieb.",
 		"styropor": "Styropor",
-		"styropor-text": "TODO",
+		"styropor-text": "Mit einer innovativen Technologie verdichtet die Presse auf extrem wirtschaftliche Art und Weise sperrige Schaumstoffabfälle aus EPS (Styropor®) in leicht zu handhabende Blöcke. Die so erzielte extreme Volumenreduktion von bis zu 40:1 spart nicht nur in erheblichen Umfang Transport- und Entsorgungskosten. Die produzierten Blöcke sind darüber hinaus als Rohstoff wieder verwertbar und tragen zu einer schnellen Amortisation bei.",
 		"beschreibung-1": "Automatische Spänezufuhr zur Brikettpresse mit kontrolliertem Betrieb",
 		"beschreibung-2": "Energieeinsparung dank Füllstandssonden, die die Maschine in Stand-by-Modus versetzt, wenn kein zu verdichtendes Material erkannt wird",
 		"beschreibung-3": "Effiziente Kühlmittelrückgewinnung durch die Auffang- und Rückgewinnungswanne", 
