@@ -11,23 +11,24 @@
 	import schiff2 from '$lib/assets/images/branchen/Schiffsbau_bot.jpg';
 	import * as Accordion from '$lib/components/ui/accordion';
 	import { _ } from 'svelte-i18n';
-	import { Button } from 'svelte-5-ui-lib';
+	import { Button } from '$lib/components/ui/button';
 </script>
 
-
-<div class="bg-primary-foreground flex flex-col gap-8 px-16 md:gap-16 md:px-24 lg:gap-32">
-    <!-- Automobil -->
+<div class="flex flex-col gap-8 bg-primary-foreground px-16 md:gap-16 md:px-24 lg:gap-32">
+	<!-- Automobil -->
 	<div class="relative mt-[125px]">
 		<!-- dunkel Filter -->
-		<div class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]">
+		<div
+			class="absolute h-[150px] w-full bg-primary-foreground/50 md:h-[250px] lg:h-[300px] xl:h-[380px]"
+		>
 			<!-- Heading im Bild -->
 			<h1
-				class="font-boldFont text-secondary relative left-4 top-4 w-auto text-3xl uppercase md:left-16 md:top-16 md:text-5xl lg:left-24 xl:top-32 lg:text-7xl"
+				class="relative left-4 top-4 w-auto font-boldFont text-3xl uppercase text-secondary md:left-16 md:top-16 md:text-5xl lg:left-24 lg:text-7xl xl:top-32"
 			>
 				{$_('branchen.auto-titel')}
 			</h1>
 			<p
-				class="text-secondary/65 relative left-4 top-2 md:left-16 md:top-16 lg:left-24 xl:top-32 lg:text-xl"
+				class="relative left-4 top-2 text-secondary/65 md:left-16 md:top-16 lg:left-24 lg:text-xl xl:top-32"
 			>
 				{$_('branchen.auto-sub')}
 			</p>
@@ -41,21 +42,16 @@
 			class="h-[150px] w-full rounded-t-3xl object-cover object-bottom md:h-[250px] lg:h-[300px] xl:h-[380px]"
 		/>
 		<!-- dropdown in der Mitte -->
-		<Accordion.Root
-			type="single"
-			class="text-secondary relative -top-12 md:-top-20 md:py-2"
-		>
+		<Accordion.Root type="single" class="relative -top-12 text-secondary md:-top-20 md:py-2">
 			<Accordion.Item value="item-1">
-				<Accordion.Trigger class="font-boldFont w-[40%] md:text-2xl bg-secondary/35">
+				<Accordion.Trigger class="w-[40%] bg-secondary/35 font-boldFont md:text-2xl">
 					{$_('branchen.lösung')}</Accordion.Trigger
 				>
 				<Accordion.Content class="pt-3 xl:text-xl  ">
-					<div class="pl-4 md:pl-16 lg:pl-24">
-						
-					</div>
+					<div class="pl-4 md:pl-16 lg:pl-24"></div>
 
 					<div class="flex flex-row justify-around">
-						<div class="h-auto w-[48%]  bg-secondary/5 rounded-lg p-4">
+						<div class="h-auto w-[48%] rounded-lg bg-secondary/5 p-4">
 							<h2 class="pb-2 text-center text-2xl">{$_('branchen.links')}</h2>
 							<div class="flex flex-row flex-wrap justify-between gap-2 md:justify-normal">
 								<Button class="bg-primary "><a href="/" class="hover:underline">Link 1</a></Button>
@@ -65,8 +61,8 @@
 								<Button class="bg-primary"><a href="/" class="hover:underline">Link 1</a></Button>
 							</div>
 						</div>
-						<div class="bg-secondary/25 h-auto w-[1px]"></div>
-						<div class="h-auto w-[48%]  bg-secondary/5 rounded-lg p-4">
+						<div class="h-auto w-[1px] bg-secondary/25"></div>
+						<div class="h-auto w-[48%] rounded-lg bg-secondary/5 p-4">
 							<h2 class="pb-2 text-center text-2xl">{$_('branchen.rechts')}</h2>
 							<div class="flex flex-row flex-wrap justify-around gap-2">
 								<Button class="bg-primary"><a href="/" class="hover:underline">Link 1</a></Button>
@@ -81,7 +77,7 @@
 		<!-- dunkel Filter + Bild unten -->
 		<div class="relative -top-[50px] md:-top-[90px]">
 			<div
-				class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]"
+				class="absolute h-[150px] w-full bg-primary-foreground/50 md:h-[250px] lg:h-[300px] xl:h-[380px]"
 			></div>
 			<img
 				src={auto2}
@@ -91,18 +87,20 @@
 		</div>
 	</div>
 
-    <!-- Schiff -->
-    <div class="relative ">
+	<!-- Schiff -->
+	<div class="relative">
 		<!-- dunkel Filter -->
-		<div class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]">
+		<div
+			class="absolute h-[150px] w-full bg-primary-foreground/50 md:h-[250px] lg:h-[300px] xl:h-[380px]"
+		>
 			<!-- Heading im Bild -->
 			<h1
-				class="font-boldFont text-secondary relative left-4 top-4 w-auto text-3xl uppercase md:left-16 md:top-16 md:text-5xl lg:left-24 xl:top-32 lg:text-7xl"
+				class="relative left-4 top-4 w-auto font-boldFont text-3xl uppercase text-secondary md:left-16 md:top-16 md:text-5xl lg:left-24 lg:text-7xl xl:top-32"
 			>
 				{$_('branchen.schiff-titel')}
 			</h1>
 			<p
-				class="text-secondary/65 relative left-4 top-2 md:left-16 md:top-16 lg:left-24 xl:top-32 lg:text-xl"
+				class="relative left-4 top-2 text-secondary/65 md:left-16 md:top-16 lg:left-24 lg:text-xl xl:top-32"
 			>
 				{$_('branchen.schiff-sub')}
 			</p>
@@ -118,10 +116,10 @@
 		<!-- dropdown in der Mitte -->
 		<Accordion.Root
 			type="single"
-			class="text-secondary relative -top-12 bg-opacity-0 md:-top-20 md:py-2"
+			class="relative -top-12 bg-opacity-0 text-secondary md:-top-20 md:py-2"
 		>
 			<Accordion.Item value="item-1">
-				<Accordion.Trigger class="font-boldFont w-[40%] md:text-2xl bg-secondary/35">
+				<Accordion.Trigger class="w-[40%] bg-secondary/35 font-boldFont md:text-2xl">
 					{$_('branchen.lösung')}</Accordion.Trigger
 				>
 				<Accordion.Content class="pt-4 xl:text-xl  ">
@@ -136,7 +134,7 @@
 								<Button class="bg-primary"><a href="/" class="hover:underline">Link 1</a></Button>
 							</div>
 						</div>
-						<div class="bg-secondary/25 h-auto w-[1px]"></div>
+						<div class="h-auto w-[1px] bg-secondary/25"></div>
 						<div class="h-auto w-[48%] py-1">
 							<h2 class="pb-2 text-center text-2xl">{$_('branchen.rechts')}</h2>
 							<div class="flex flex-row flex-wrap justify-around gap-2">
@@ -152,7 +150,7 @@
 		<!-- dunkel Filter + Bild unten -->
 		<div class="relative -top-[50px] md:-top-[90px]">
 			<div
-				class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]"
+				class="absolute h-[150px] w-full bg-primary-foreground/50 md:h-[250px] lg:h-[300px] xl:h-[380px]"
 			></div>
 			<img
 				src={schiff2}
@@ -163,17 +161,19 @@
 	</div>
 
 	<!-- Aerospace -->
-	<div class="relative ">
+	<div class="relative">
 		<!-- dunkel Filter -->
-		<div class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]">
+		<div
+			class="absolute h-[150px] w-full bg-primary-foreground/50 md:h-[250px] lg:h-[300px] xl:h-[380px]"
+		>
 			<!-- Heading im Bild -->
 			<h1
-				class="font-boldFont text-secondary relative left-4 top-4 w-auto text-3xl uppercase md:left-16 md:top-16 md:text-5xl lg:left-24 xl:top-32 lg:text-7xl"
+				class="relative left-4 top-4 w-auto font-boldFont text-3xl uppercase text-secondary md:left-16 md:top-16 md:text-5xl lg:left-24 lg:text-7xl xl:top-32"
 			>
 				{$_('branchen.luft-titel')}
 			</h1>
 			<p
-				class="text-secondary/65 relative left-4 top-2 md:left-16 md:top-16 lg:left-24 xl:top-32 lg:text-xl"
+				class="relative left-4 top-2 text-secondary/65 md:left-16 md:top-16 lg:left-24 lg:text-xl xl:top-32"
 			>
 				{$_('branchen.luft-sub')}
 			</p>
@@ -189,10 +189,10 @@
 		<!-- dropdown in der Mitte -->
 		<Accordion.Root
 			type="single"
-			class="text-secondary relative -top-12 bg-opacity-0 md:-top-20 md:py-2"
+			class="relative -top-12 bg-opacity-0 text-secondary md:-top-20 md:py-2"
 		>
 			<Accordion.Item value="item-1">
-				<Accordion.Trigger class="font-boldFont w-[40%] md:text-2xl bg-secondary/35">
+				<Accordion.Trigger class="w-[40%] bg-secondary/35 font-boldFont md:text-2xl">
 					{$_('branchen.lösung')}</Accordion.Trigger
 				>
 				<Accordion.Content class="pt-4 xl:text-xl  ">
@@ -207,7 +207,7 @@
 								<Button class="bg-primary"><a href="/" class="hover:underline">Link 1</a></Button>
 							</div>
 						</div>
-						<div class="bg-secondary/25 h-auto w-[1px]"></div>
+						<div class="h-auto w-[1px] bg-secondary/25"></div>
 						<div class="h-auto w-[48%] py-1">
 							<h2 class="pb-2 text-center text-2xl">{$_('branchen.rechts')}</h2>
 							<div class="flex flex-row flex-wrap justify-around gap-2">
@@ -223,7 +223,7 @@
 		<!-- dunkel Filter + Bild unten -->
 		<div class="relative -top-[50px] md:-top-[90px]">
 			<div
-				class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]"
+				class="absolute h-[150px] w-full bg-primary-foreground/50 md:h-[250px] lg:h-[300px] xl:h-[380px]"
 			></div>
 			<img
 				src={luft2}
@@ -233,18 +233,20 @@
 		</div>
 	</div>
 
-    <!-- Modellbau -->
-    <div class="relative ">
+	<!-- Modellbau -->
+	<div class="relative">
 		<!-- dunkel Filter -->
-		<div class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]">
+		<div
+			class="absolute h-[150px] w-full bg-primary-foreground/50 md:h-[250px] lg:h-[300px] xl:h-[380px]"
+		>
 			<!-- Heading im Bild -->
 			<h1
-				class="font-boldFont text-secondary relative left-4 top-4 w-auto text-3xl uppercase md:left-16 md:top-16 md:text-5xl lg:left-24 xl:top-32 lg:text-7xl"
+				class="relative left-4 top-4 w-auto font-boldFont text-3xl uppercase text-secondary md:left-16 md:top-16 md:text-5xl lg:left-24 lg:text-7xl xl:top-32"
 			>
 				{$_('branchen.modell-titel')}
 			</h1>
 			<p
-				class="text-secondary/65 relative left-4 top-2 md:left-16 md:top-16 lg:left-24 xl:top-32 lg:text-xl"
+				class="relative left-4 top-2 text-secondary/65 md:left-16 md:top-16 lg:left-24 lg:text-xl xl:top-32"
 			>
 				{$_('branchen.modell-sub')}
 			</p>
@@ -260,10 +262,10 @@
 		<!-- dropdown in der Mitte -->
 		<Accordion.Root
 			type="single"
-			class="text-secondary relative -top-12 bg-opacity-0 md:-top-20 md:py-2"
+			class="relative -top-12 bg-opacity-0 text-secondary md:-top-20 md:py-2"
 		>
 			<Accordion.Item value="item-1">
-				<Accordion.Trigger class="font-boldFont w-[40%] md:text-2xl bg-secondary/35">
+				<Accordion.Trigger class="w-[40%] bg-secondary/35 font-boldFont md:text-2xl">
 					{$_('branchen.lösung')}</Accordion.Trigger
 				>
 				<Accordion.Content class="pt-4 xl:text-xl  ">
@@ -278,7 +280,7 @@
 								<Button class="bg-primary"><a href="/" class="hover:underline">Link 1</a></Button>
 							</div>
 						</div>
-						<div class="bg-secondary/25 h-auto w-[1px]"></div>
+						<div class="h-auto w-[1px] bg-secondary/25"></div>
 						<div class="h-auto w-[48%] py-1">
 							<h2 class="pb-2 text-center text-2xl">{$_('branchen.rechts')}</h2>
 							<div class="flex flex-row flex-wrap justify-around gap-2">
@@ -294,7 +296,7 @@
 		<!-- dunkel Filter + Bild unten -->
 		<div class="relative -top-[50px] md:-top-[90px]">
 			<div
-				class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]"
+				class="absolute h-[150px] w-full bg-primary-foreground/50 md:h-[250px] lg:h-[300px] xl:h-[380px]"
 			></div>
 			<img
 				src={schiff2}
@@ -304,18 +306,20 @@
 		</div>
 	</div>
 
-    <!-- Kunststoffindustrie -->
-    <div class="relative ">
+	<!-- Kunststoffindustrie -->
+	<div class="relative">
 		<!-- dunkel Filter -->
-		<div class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]">
+		<div
+			class="absolute h-[150px] w-full bg-primary-foreground/50 md:h-[250px] lg:h-[300px] xl:h-[380px]"
+		>
 			<!-- Heading im Bild -->
 			<h1
-				class="font-boldFont text-secondary relative left-4 top-4 w-auto text-3xl uppercase md:left-16 md:top-16 md:text-5xl lg:left-24 xl:top-32 lg:text-7xl"
+				class="relative left-4 top-4 w-auto font-boldFont text-3xl uppercase text-secondary md:left-16 md:top-16 md:text-5xl lg:left-24 lg:text-7xl xl:top-32"
 			>
 				{$_('branchen.kunststoff-titel')}
 			</h1>
 			<p
-				class="text-secondary/65 relative left-4 top-2 md:left-16 md:top-16 lg:left-24 xl:top-32 lg:text-xl"
+				class="relative left-4 top-2 text-secondary/65 md:left-16 md:top-16 lg:left-24 lg:text-xl xl:top-32"
 			>
 				{$_('branchen.kunststoff-sub')}
 			</p>
@@ -331,10 +335,10 @@
 		<!-- dropdown in der Mitte -->
 		<Accordion.Root
 			type="single"
-			class="text-secondary relative -top-12 bg-opacity-0 md:-top-20 md:py-2"
+			class="relative -top-12 bg-opacity-0 text-secondary md:-top-20 md:py-2"
 		>
 			<Accordion.Item value="item-1">
-				<Accordion.Trigger class="font-boldFont w-[40%] md:text-2xl bg-secondary/35">
+				<Accordion.Trigger class="w-[40%] bg-secondary/35 font-boldFont md:text-2xl">
 					{$_('branchen.lösung')}</Accordion.Trigger
 				>
 				<Accordion.Content class="pt-4 xl:text-xl  ">
@@ -349,7 +353,7 @@
 								<Button class="bg-primary"><a href="/" class="hover:underline">Link 1</a></Button>
 							</div>
 						</div>
-						<div class="bg-secondary/25 h-auto w-[1px]"></div>
+						<div class="h-auto w-[1px] bg-secondary/25"></div>
 						<div class="h-auto w-[48%] py-1">
 							<h2 class="pb-2 text-center text-2xl">{$_('branchen.rechts')}</h2>
 							<div class="flex flex-row flex-wrap justify-around gap-2">
@@ -365,7 +369,7 @@
 		<!-- dunkel Filter + Bild unten -->
 		<div class="relative -top-[50px] md:-top-[90px]">
 			<div
-				class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]"
+				class="absolute h-[150px] w-full bg-primary-foreground/50 md:h-[250px] lg:h-[300px] xl:h-[380px]"
 			></div>
 			<img
 				src={schiff2}
@@ -375,18 +379,20 @@
 		</div>
 	</div>
 
-    <!-- Betonindustrie -->
-    <div class="relative ">
+	<!-- Betonindustrie -->
+	<div class="relative">
 		<!-- dunkel Filter -->
-		<div class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]">
+		<div
+			class="absolute h-[150px] w-full bg-primary-foreground/50 md:h-[250px] lg:h-[300px] xl:h-[380px]"
+		>
 			<!-- Heading im Bild -->
 			<h1
-				class="font-boldFont text-secondary relative left-4 top-4 w-auto text-3xl uppercase md:left-16 md:top-16 md:text-5xl lg:left-24 xl:top-32 lg:text-7xl"
+				class="relative left-4 top-4 w-auto font-boldFont text-3xl uppercase text-secondary md:left-16 md:top-16 md:text-5xl lg:left-24 lg:text-7xl xl:top-32"
 			>
 				{$_('branchen.beton-titel')}
 			</h1>
 			<p
-				class="text-secondary/65 relative left-4 top-2 md:left-16 md:top-16 lg:left-24 xl:top-32 lg:text-xl"
+				class="relative left-4 top-2 text-secondary/65 md:left-16 md:top-16 lg:left-24 lg:text-xl xl:top-32"
 			>
 				{$_('branchen.beton-sub')}
 			</p>
@@ -402,10 +408,10 @@
 		<!-- dropdown in der Mitte -->
 		<Accordion.Root
 			type="single"
-			class="text-secondary relative -top-12 bg-opacity-0 md:-top-20 md:py-2"
+			class="relative -top-12 bg-opacity-0 text-secondary md:-top-20 md:py-2"
 		>
 			<Accordion.Item value="item-1">
-				<Accordion.Trigger class="font-boldFont w-[40%] md:text-2xl bg-secondary/35">
+				<Accordion.Trigger class="w-[40%] bg-secondary/35 font-boldFont md:text-2xl">
 					{$_('branchen.lösung')}</Accordion.Trigger
 				>
 				<Accordion.Content class="pt-4 xl:text-xl  ">
@@ -420,7 +426,7 @@
 								<Button class="bg-primary"><a href="/" class="hover:underline">Link 1</a></Button>
 							</div>
 						</div>
-						<div class="bg-secondary/25 h-auto w-[1px]"></div>
+						<div class="h-auto w-[1px] bg-secondary/25"></div>
 						<div class="h-auto w-[48%] py-1">
 							<h2 class="pb-2 text-center text-2xl">{$_('branchen.rechts')}</h2>
 							<div class="flex flex-row flex-wrap justify-around gap-2">
@@ -436,7 +442,7 @@
 		<!-- dunkel Filter + Bild unten -->
 		<div class="relative -top-[50px] md:-top-[90px]">
 			<div
-				class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]"
+				class="absolute h-[150px] w-full bg-primary-foreground/50 md:h-[250px] lg:h-[300px] xl:h-[380px]"
 			></div>
 			<img
 				src={beton2}
@@ -446,18 +452,20 @@
 		</div>
 	</div>
 
-    <!-- Werbetechnik -->
-    <div class="relative ">
+	<!-- Werbetechnik -->
+	<div class="relative">
 		<!-- dunkel Filter -->
-		<div class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]">
+		<div
+			class="absolute h-[150px] w-full bg-primary-foreground/50 md:h-[250px] lg:h-[300px] xl:h-[380px]"
+		>
 			<!-- Heading im Bild -->
 			<h1
-				class="font-boldFont text-secondary relative left-4 top-4 w-auto text-3xl uppercase md:left-16 md:top-16 md:text-5xl lg:left-24 xl:top-32 lg:text-7xl"
+				class="relative left-4 top-4 w-auto font-boldFont text-3xl uppercase text-secondary md:left-16 md:top-16 md:text-5xl lg:left-24 lg:text-7xl xl:top-32"
 			>
 				{$_('branchen.werbe-titel')}
 			</h1>
 			<p
-				class="text-secondary/65 relative left-4 top-2 md:left-16 md:top-16 lg:left-24 xl:top-32 lg:text-xl"
+				class="relative left-4 top-2 text-secondary/65 md:left-16 md:top-16 lg:left-24 lg:text-xl xl:top-32"
 			>
 				{$_('branchen.werbe-sub')}
 			</p>
@@ -473,10 +481,10 @@
 		<!-- dropdown in der Mitte -->
 		<Accordion.Root
 			type="single"
-			class="text-secondary relative -top-12 bg-opacity-0 md:-top-20 md:py-2"
+			class="relative -top-12 bg-opacity-0 text-secondary md:-top-20 md:py-2"
 		>
 			<Accordion.Item value="item-1">
-				<Accordion.Trigger class="font-boldFont w-[40%] md:text-2xl bg-secondary/35">
+				<Accordion.Trigger class="w-[40%] bg-secondary/35 font-boldFont md:text-2xl">
 					{$_('branchen.lösung')}</Accordion.Trigger
 				>
 				<Accordion.Content class="pt-4 xl:text-xl  ">
@@ -491,7 +499,7 @@
 								<Button class="bg-primary"><a href="/" class="hover:underline">Link 1</a></Button>
 							</div>
 						</div>
-						<div class="bg-secondary/25 h-auto w-[1px]"></div>
+						<div class="h-auto w-[1px] bg-secondary/25"></div>
 						<div class="h-auto w-[48%] py-1">
 							<h2 class="pb-2 text-center text-2xl">{$_('branchen.rechts')}</h2>
 							<div class="flex flex-row flex-wrap justify-around gap-2">
@@ -507,7 +515,7 @@
 		<!-- dunkel Filter + Bild unten -->
 		<div class="relative -top-[50px] md:-top-[90px]">
 			<div
-				class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]"
+				class="absolute h-[150px] w-full bg-primary-foreground/50 md:h-[250px] lg:h-[300px] xl:h-[380px]"
 			></div>
 			<img
 				src={schiff2}
@@ -517,18 +525,20 @@
 		</div>
 	</div>
 
-    <!-- Kunst -->
-    <div class="relative ">
+	<!-- Kunst -->
+	<div class="relative">
 		<!-- dunkel Filter -->
-		<div class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]">
+		<div
+			class="absolute h-[150px] w-full bg-primary-foreground/50 md:h-[250px] lg:h-[300px] xl:h-[380px]"
+		>
 			<!-- Heading im Bild -->
 			<h1
-				class="font-boldFont text-secondary relative left-4 top-4 w-auto text-3xl uppercase md:left-16 md:top-16 md:text-5xl lg:left-24 xl:top-32 lg:text-7xl"
+				class="relative left-4 top-4 w-auto font-boldFont text-3xl uppercase text-secondary md:left-16 md:top-16 md:text-5xl lg:left-24 lg:text-7xl xl:top-32"
 			>
 				{$_('branchen.kunst-titel')}
 			</h1>
 			<p
-				class="text-secondary/65 relative left-4 top-2 md:left-16 md:top-16 lg:left-24 xl:top-32 lg:text-xl"
+				class="relative left-4 top-2 text-secondary/65 md:left-16 md:top-16 lg:left-24 lg:text-xl xl:top-32"
 			>
 				{$_('branchen.kunst-sub')}
 			</p>
@@ -544,10 +554,10 @@
 		<!-- dropdown in der Mitte -->
 		<Accordion.Root
 			type="single"
-			class="text-secondary relative -top-12 bg-opacity-0 md:-top-20 md:py-2"
+			class="relative -top-12 bg-opacity-0 text-secondary md:-top-20 md:py-2"
 		>
 			<Accordion.Item value="item-1">
-				<Accordion.Trigger class="font-boldFont w-[40%] md:text-2xl bg-secondary/35">
+				<Accordion.Trigger class="w-[40%] bg-secondary/35 font-boldFont md:text-2xl">
 					{$_('branchen.lösung')}</Accordion.Trigger
 				>
 				<Accordion.Content class="pt-4 xl:text-xl  ">
@@ -562,7 +572,7 @@
 								<Button class="bg-primary"><a href="/" class="hover:underline">Link 1</a></Button>
 							</div>
 						</div>
-						<div class="bg-secondary/25 h-auto w-[1px]"></div>
+						<div class="h-auto w-[1px] bg-secondary/25"></div>
 						<div class="h-auto w-[48%] py-1">
 							<h2 class="pb-2 text-center text-2xl">{$_('branchen.rechts')}</h2>
 							<div class="flex flex-row flex-wrap justify-around gap-2">
@@ -578,7 +588,7 @@
 		<!-- dunkel Filter + Bild unten -->
 		<div class="relative -top-[50px] md:-top-[90px]">
 			<div
-				class="bg-primary-foreground/50 absolute h-[150px] w-full md:h-[250px] lg:h-[300px] xl:h-[380px]"
+				class="absolute h-[150px] w-full bg-primary-foreground/50 md:h-[250px] lg:h-[300px] xl:h-[380px]"
 			></div>
 			<img
 				src={kunst2}

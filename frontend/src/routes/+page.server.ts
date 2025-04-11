@@ -26,22 +26,22 @@ export const load: PageServerLoad = async ({ fetch, cookies }) => {
 		}
 	};
 	const loadMessen = async (): Promise<AttributesOf<ApiMessenMessen>[]> => {
-			const res = await fetch(
-				`${PUBLIC_BACKEND_URL}/api/messens?populate=*&locale=${cookies.get(LANG_KEY)}`,
-				{
-					method: 'GET',
-					headers: getRequestHeaders()
-				}
-			);
-			const data = await res.json();
-			if (res.ok) {
-				return data.data;
-			} else {
-				console.error(data.error);
-				error(500, 'An error occured while feching maschinen 3');
+		const res = await fetch(
+			`${PUBLIC_BACKEND_URL}/api/messens?populate=*&locale=${cookies.get(LANG_KEY)}`,
+			{
+				method: 'GET',
+				headers: getRequestHeaders()
 			}
+		);
+		const data = await res.json();
+		if (res.ok) {
+			return data.data;
+		} else {
+			console.error(data.error);
+			error(500, 'An error occured while feching maschinen 3');
+		}
 	};
-	
+
 	return {
 		messen: loadMessen(),
 		homepageData: loadHomepageData()

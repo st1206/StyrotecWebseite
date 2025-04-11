@@ -20,8 +20,20 @@
       "components": [
         "shared.media",
         "shared.quote",
-        "shared.rich-text"
+        "shared.rich-text",
+        "shared.seo"
       ]
+    },
+    "werwerwefrsdf": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.quote"
+      ]
+    },
+    "fs_15s": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::fs-15.fs-15"
     }
   }
 }

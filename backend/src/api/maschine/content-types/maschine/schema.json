@@ -337,17 +337,6 @@
     "slug": {
       "type": "uid",
       "required": true
-    },
-    "Zusatzoptionen": {
-      "displayName": "Optionen",
-      "type": "component",
-      "repeatable": true,
-      "component": "liste.optionen",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
     }
   }
 }

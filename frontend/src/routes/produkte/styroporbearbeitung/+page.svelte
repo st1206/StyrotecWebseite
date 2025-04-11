@@ -1,11 +1,8 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button/button.svelte';
 	import gebrauma from '$lib/assets/images/gebrauchtmaschinen/gebrauma.jpg';
-	
-	import { _ } from 'svelte-i18n';
 	import Carousel from '$lib/components/carousel.svelte';
-	import { Tabs, TabItem } from 'svelte-5-ui-lib';
 	import KatCard from '$lib/components/katCard.svelte';
+	import { _ } from 'svelte-i18n';
 	let { data } = $props();
 </script>
 
@@ -17,10 +14,6 @@
 	/>
 </svelte:head>
 
-
-
-
-
 {#await data.kategorieBilder}
 	<div>skeleton build</div>
 {:then kategorie}
@@ -31,13 +24,15 @@
 		/>
 	</div>
 {/await}
-<div class="relative -top-[50px] w-full h-[100px] md:h-[100px] bg-primary [clip-path:polygon(0%_0%,100%_0%,81%_100%,0%_100%)]"></div>
+<div
+	class="relative -top-[50px] h-[100px] w-full bg-primary [clip-path:polygon(0%_0%,100%_0%,81%_100%,0%_100%)] md:h-[100px]"
+></div>
 
-<div class="bg-secondary flex flex-col py-[30px] lg:flex-row">
+<div class="flex flex-col bg-secondary py-[30px] lg:flex-row">
 	<div class="w-[90%] lg:w-[60%]">
 		<div class="relative mb-4 md:-left-[5%] xl:-left-[20%]">
 			<h3
-				class="text-primary-foreground font-boldFont pl-2 text-right text-xl uppercase md:pl-6 md:text-3xl lg:pl-12 lg:text-5xl"
+				class="pl-2 text-right font-boldFont text-xl uppercase text-primary-foreground md:pl-6 md:text-3xl lg:pl-12 lg:text-5xl"
 			>
 				{$_(`styroporbearbeitung.titel`)}
 			</h3>
@@ -45,7 +40,9 @@
 				{$_(`styroporbearbeitung.sub`)}
 			</h1>
 		</div>
-		<p class="p-4 md:text-xl lg:text-2xl xl:mx-[10%] text-justify">{$_(`styroporbearbeitung.beschreibungs-text`)}</p>
+		<p class="p-4 text-justify md:text-xl lg:text-2xl xl:mx-[10%]">
+			{$_(`styroporbearbeitung.beschreibungs-text`)}
+		</p>
 	</div>
 	<img
 		src={gebrauma}
@@ -54,34 +51,33 @@
 	/>
 </div>
 
-<div class="bg-secondary ">
+<div class="bg-secondary">
 	<div
-		class="text-secondary bg-primary-foreground flex flex-col text-left gap-[5%] md:flex-row flex-wrap h-auto w-full py-8 md:py-12  lg:py-24 px-[5%]  lg:px-[10%]"
-	>	
-		<div class=" font-boldFont mb-12 text-xl md:text-2xl xl:text-3xl w-[80%] md:w-[45%] ">
+		class="flex h-auto w-full flex-col flex-wrap gap-[5%] bg-primary-foreground px-[5%] py-8 text-left text-secondary md:flex-row md:py-12 lg:px-[10%] lg:py-24"
+	>
+		<div class=" mb-12 w-[80%] font-boldFont text-xl md:w-[45%] md:text-2xl xl:text-3xl">
 			<span class="text-primary">&#x2713 </span>
 			TODO
 		</div>
-		<div class=" font-boldFont mb-12 text-xl md:text-2xl xl:text-3xl w-[80%] md:w-[45%] ">
+		<div class=" mb-12 w-[80%] font-boldFont text-xl md:w-[45%] md:text-2xl xl:text-3xl">
 			<span class="text-primary">&#x2713 </span>
 			TODO
 		</div>
-		
-		<div class=" font-boldFont mb-12 text-xl md:text-2xl xl:text-3xl w-[80%] md:w-[45%] ">
+
+		<div class=" mb-12 w-[80%] font-boldFont text-xl md:w-[45%] md:text-2xl xl:text-3xl">
 			<span class="text-primary">&#x2713 </span>
 			TODO
 		</div>
-		<div class=" font-boldFont mb-12 text-xl md:text-2xl xl:text-3xl w-[80%] md:w-[45%] ">
+		<div class=" mb-12 w-[80%] font-boldFont text-xl md:w-[45%] md:text-2xl xl:text-3xl">
 			<span class="text-primary">&#x2713 </span>
 			TODO
 		</div>
 	</div>
-</div>	
+</div>
 
 <div>
 	<div>
-		<div class="bg-secondary mx-[5%] my-[100px]">
-			
+		<div class="mx-[5%] my-[100px] bg-secondary">
 			<div class="flex flex-col flex-wrap justify-around gap-[5%] md:flex-row">
 				<!-- fräswerkzeuge -->
 				<KatCard
@@ -90,7 +86,7 @@
 					image={gebrauma}
 					link="/produkte/styroporbearbeitung/fräswerkzeuge"
 				/>
-				
+
 				<!-- hohlfrässpindel  Karte -->
 				<KatCard
 					titel={$_(`styroporbearbeitung.hohlfrässpindeln`)}
@@ -130,14 +126,14 @@
 					image={gebrauma}
 					link="/produkte/styroporbearbeitung/rohmaterial"
 				/>
-				
+
 				<!-- kleber Karte -->
 				<KatCard
 					titel={$_(`styroporbearbeitung.kleber`)}
 					text={$_(`styroporbearbeitung.kleber-text`)}
 					image={gebrauma}
 					link="/produkte/styroporbearbeitung/kleber"
-				/>	
+				/>
 			</div>
 		</div>
 	</div>

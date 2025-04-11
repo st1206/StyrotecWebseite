@@ -43,7 +43,7 @@
 }
 
 @layer base {
-	@font-face{
+	@font-face {
 		font-family: 'bookFont';
 		src: local('bookFont'), url('/fonts/bookFont/OfficinaSansStd-Book.otf');
 		font-weight: normal;

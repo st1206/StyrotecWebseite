@@ -26,16 +26,16 @@ export function getIconComponent(code: string): typeof SvelteComponent {
 }
 export function clickOutside(node: HTMLElement, callback: () => void) {
 	function handleClick(event: MouseEvent) {
-	  if (node && !node.contains(event.target as Node)) {
-		callback();
-	  }
+		if (node && !node.contains(event.target as Node)) {
+			callback();
+		}
 	}
-  
-	document.addEventListener("click", handleClick);
-  
+
+	document.addEventListener('click', handleClick);
+
 	return {
-	  destroy() {
-		document.removeEventListener("click", handleClick);
-	  }
+		destroy() {
+			document.removeEventListener('click', handleClick);
+		}
 	};
-  }
+}

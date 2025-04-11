@@ -23,94 +23,92 @@
 	"nav": {
 		"produkte": "Produkte",
 
-			"portalfraesmaschinen": "Portalfräsmaschinen",
+		"portalfraesmaschinen": "Portalfräsmaschinen",
 
-				"fs10": "FS 10",
-				"fs15": "FS 15",
-				"fs20": "FS 20",
-				"hybrid3D": "Hybrid - 3D",
-				"vorratsmaschinen": "Vorratsmaschinen",
-		
-			"spaenepressen": "Spänepressen",
-				
-				"metalle": "Metalle",
-				"kunststoffe": "Kunststoffe",
-				"styropor": "Styropor",
+		"fs10": "FS 10",
+		"fs15": "FS 15",
+		"fs20": "FS 20",
+		"hybrid3D": "Hybrid - 3D",
+		"vorratsmaschinen": "Vorratsmaschinen",
 
-			"styroporbearbeitung": "Styroporbearbeitung",
+		"spaenepressen": "Spänepressen",
 
-				"fräswerkzeuge": "Fräswerkzeuge",
-				"hohlfrässpindeln": "Hohlfrässpindeln",
-				"absaugungen": "Absaugungen",
-				"zerkleinerer": "Zerkleinerer",
-				"pressen": "Pressen",
-				"rohmaterial": "Rohmaterial",
-				"kleber": "Kleber",
+		"metalle": "Metalle",
+		"kunststoffe": "Kunststoffe",
+		"styropor": "Styropor",
 
-			"gebrauchtmaschinen": "Gebrauchtmaschinen",
+		"styroporbearbeitung": "Styroporbearbeitung",
 
-				"cnc-maschinen": "CNC Maschinen",
-				"cnc-zubehör": "CNC Zubehör",
-				"modellbaumaschinen": "Modellbaumaschinen",
-				"holzbearbeitungsmaschinen": "Holzbearbeitungsmaschinen",
+		"fräswerkzeuge": "Fräswerkzeuge",
+		"hohlfrässpindeln": "Hohlfrässpindeln",
+		"absaugungen": "Absaugungen",
+		"zerkleinerer": "Zerkleinerer",
+		"pressen": "Pressen",
+		"rohmaterial": "Rohmaterial",
+		"kleber": "Kleber",
+
+		"gebrauchtmaschinen": "Gebrauchtmaschinen",
+
+		"cnc-maschinen": "CNC Maschinen",
+		"cnc-zubehör": "CNC Zubehör",
+		"modellbaumaschinen": "Modellbaumaschinen",
+		"holzbearbeitungsmaschinen": "Holzbearbeitungsmaschinen",
 
 		"dienstleistungen": "Dienstleistungen",
 
-			"maschinenerhaltung": "Maschinenerhaltung",
-				
-				"spindelservice": "Spindelservice",
-				"wartungen": "Wartungen", 
-				"reparaturen": "Reparaturen",
-				"maschinenumzüge": "Maschinenumzüge",
+		"maschinenerhaltung": "Maschinenerhaltung",
 
-			"maschinenvermarktung": "Maschinenvermarktung",
+		"spindelservice": "Spindelservice",
+		"wartungen": "Wartungen",
+		"reparaturen": "Reparaturen",
+		"maschinenumzüge": "Maschinenumzüge",
 
-				"bewertung": "Bewertung",
-				"vermittlung": "Vermittlung",
-				"ankauf": "Ankauf",
+		"maschinenvermarktung": "Maschinenvermarktung",
 
-			"maschinenmodernisierung": "Maschinenmodernisierung",
+		"bewertung": "Bewertung",
+		"vermittlung": "Vermittlung",
+		"ankauf": "Ankauf",
 
-				"retrofit": "Retrofit",
-				"überholung": "Überholung",
+		"maschinenmodernisierung": "Maschinenmodernisierung",
+
+		"retrofit": "Retrofit",
+		"überholung": "Überholung",
 
 		"Branchen": "Branchen",
 
-			"branchen": "Branchen",
+		"branchen": "Branchen",
 
-				"automobil": "Automobil",
-				"schiffsbau": "Schiffsbau",
-				"modellbau": "Modellbau",
-				"kunststoffindustrie": "Kunststoffindustrie",
-				"betonindustrie": "Betonindustrie",
-				"werbetechnik": "Werbetechnik",
-				"aerospace": "Aerospace",
-				"kunst": "Kunst",
+		"automobil": "Automobil",
+		"schiffsbau": "Schiffsbau",
+		"modellbau": "Modellbau",
+		"kunststoffindustrie": "Kunststoffindustrie",
+		"betonindustrie": "Betonindustrie",
+		"werbetechnik": "Werbetechnik",
+		"aerospace": "Aerospace",
+		"kunst": "Kunst",
 
 		"unternehmen": "Unternehmen",
 
-			"ueberUns": "Über Uns",
-				
-				"team": "Team",
-				"werte-mission-vission": "Werte",
-				"historie": "Historie",
-				"nachhaltigkeit": "Nachhaltigkeit",
+		"ueberUns": "Über Uns",
 
-			"karriere": "Karriere",
+		"team": "Team",
+		"werte-mission-vission": "Werte",
+		"historie": "Historie",
+		"nachhaltigkeit": "Nachhaltigkeit",
 
-				"stellenausschreibung": "Stellenausschreibung",
+		"karriere": "Karriere",
 
-			"news": "News",
+		"stellenausschreibung": "Stellenausschreibung",
 
-				"anwenderstories": "Anwenderstories",
-				"referenzen": "Referenzen",
-				"messen": "Messen"				
+		"news": "News",
+
+		"anwenderstories": "Anwenderstories",
+		"referenzen": "Referenzen",
+		"messen": "Messen"
 	},
 
-
-
 	"sprachen": {
-		"local":"DE"
+		"local": "DE"
 	},
 	"homepage": {
 		"einführung-titel": "Präzision in Styropor & mehr - Willkommen bei Styrotec",
@@ -121,7 +119,7 @@
 		"einführung-ende": "Entdecken Sie unser Angebot und bringen Sie Ihre Ideen in Form!",
 		"weltweit-titel": "Unsere Maschinen im weltweiten Einsatz",
 		"weltweit-text": "Unsere Portalfräsmaschinen erfreuen sich weltweit großer Nachfrage und sind in zahlreichen Ländern und Kontinenten im Einsatz. Vom Herzen Europas über Nordamerika bis hin zu den innovativen Märkten in Asien - unsere Maschinen haben sich in einer Vielzahl von Branchen und Produktionsumgebungen bewährt. Sie kommen in der Automobilindustrie, der Luft- und Raumfahrt, im Maschinenbau und vielen anderen Bereichen zum Einsatz. Mit ihrer hohen Präzision, Langlebigkeit und Flexibilität bieten sie maßgeschneiderte Lösungen für unterschiedlichste Fertigungsanforderungen. Unsere langjährige Erfahrung und unser kontinuierlicher Innovationsgeist haben uns zu einem vertrauenswürdigen Partner für Unternehmen weltweit gemacht. Vertrauen auch Sie auf die bewährte Technologie von Styrotec, um Ihre Produktionsprozesse zu optimieren und Ihre Fertigung auf das nächste Level zu heben.",
-		"unternehmen-news-titel":"Bleiben sie auf dem Laufenden.",
+		"unternehmen-news-titel": "Bleiben sie auf dem Laufenden.",
 		"unternehmen-überUns-titel": "Styrotec and More...",
 		"unternehmen-karriere-titel": "Auf der suche nach einem Job ?",
 		"erhaltung": "Maschinenerhaltung",
@@ -131,7 +129,7 @@
 		"modernisierung": "Maschinenmodernisierung",
 		"modernisierung-text": "TODO"
 	},
-	"styroporbearbeitung": { 
+	"styroporbearbeitung": {
 		"titel": "Übersicht Styroporbearbeitung",
 		"sub": "TODO",
 		"beschreibungs-text": "TODO",
@@ -152,14 +150,14 @@
 		"zerkleinerer-text": "TODO"
 	},
 	"gebrauMa": {
-		"titel": "Unsere Gebrauchtmaschinen", 
+		"titel": "Unsere Gebrauchtmaschinen",
 		"sub": "Todo",
 		"beschreibungs-text": "TODO",
 		"cta": "Mehr erfahren",
 		"cnc-maschinen": "CNC Maschinen",
 		"cnc-maschinen-text": "Entdecken Sie unsere große Auswahl an gebrauchten CNC-Fräsmaschinen namhafter Hersteller. Jede Maschine wird sorgfältig geprüft, um höchste Qualität und volle Funktionalität zu gewährleisten. Profitieren Sie von Flexibilität, Ressourcenschonung und leisten Sie einen wertvollen Beitrag zur Kreislaufwirtschaft.",
 		"cnc-zubehör": "CNC Zubehör",
-		"cnc-zubehör-text":"Maximieren Sie die Leistung Ihrer CNC-Maschine mit unserem hochwertigen Zubehör. Ob Spannmittel, Werkzeughalter oder Ersatzteile bei uns finden Sie alles, um Ihre Produktion effizienter und präziser zu gestalten. Unsere geprüften Zubehörteile garantieren Langlebigkeit und höchste Kompatibilität.",
+		"cnc-zubehör-text": "Maximieren Sie die Leistung Ihrer CNC-Maschine mit unserem hochwertigen Zubehör. Ob Spannmittel, Werkzeughalter oder Ersatzteile bei uns finden Sie alles, um Ihre Produktion effizienter und präziser zu gestalten. Unsere geprüften Zubehörteile garantieren Langlebigkeit und höchste Kompatibilität.",
 		"holz": "Holzbearbeitungsmaschinen",
 		"holz-text": "Ob für Tischlerei, Möbelbau oder Industrie - unsere gebrauchten Holzbearbeitungsmaschinen bieten höchste Präzision und Effizienz. Alle Maschinen sind voll funktionsfähig, geprüft und bereit für den nächsten Einsatz. Sparen Sie Kosten und setzen Sie auf nachhaltige Maschinenlösungen.",
 		"modell": "Modellbaumaschinen",
@@ -170,7 +168,7 @@
 		"text": "In unserem Lager finden Sie eine große Auswahl an gebrauchten CNC-Fräsmaschinen führender Hersteller. Jede Maschine wird von unseren Experten sorgfältig geprüft und gewartet, um eine einwandfreie Funktionalität und Präzision zu gewährleisten. Der Kauf einer gebrauchten CNC-Maschine bietet zahlreiche Vorteile: Sie sparen Kosten, profitieren von sofortiger Verfügbarkeit und tragen gleichzeitig zur Nachhaltigkeit bei. Unsere Maschinen sind nicht nur leistungsfähig, sondern auch eine ressourcenschonende Alternative zu Neugeräten. Ob für Industrie, Handwerk oder Kleinbetriebe - wir haben die passende Lösung für Ihre Anforderungen."
 	},
 	"portalfraes": {
-		"titel": "Unsere Portalfräsmaschinen", 
+		"titel": "Unsere Portalfräsmaschinen",
 		"sub": "und Fertigungstechnologien",
 		"beschreibungs-text": "Unsere Portalfräsmaschinen stehen für Präzision, Langlebigkeit und maximale Effizienz. Ob für die Bearbeitung von Schäumen, Holz, Ureol, Kunststoffen, Aluminium oder Verbundwerkstoffen: Mit den Maschinen von Styrotec erhalten Sie leistungsstarke Lösungen für unterschiedlichste Anforderungen!",
 		"beschreibung-1": "Höchste Präzision",
@@ -183,7 +181,7 @@
 		"FS10": "FS 10",
 		"FS10-text": "Unsere Baureihe FS 10 zeichnet sich durch ihre klassische Portalbauweise mit festem Tisch und unten fahrendem Portal aus. Dies bietet Vorteile in Bezug auf Stabilität, gleichbleibend bewegte Massen und optimale Zugänglichkeit zum Rüsten und Beladen.",
 		"FS15": "FS 15",
-		"FS15-text":"Die Baureihe FS 15 steht für kompromisslose Leistungsfähigkeit bei der Bearbeitung besonders großer Werkstücke. Ihr Aufbau als HSC 5-Achs Gantry Maschine ermöglicht herausragende Stabilität und Präzision. Sie eignet sie sich optimal für anspruchsvolle Anwendungen, bei denen sowohl Flexibilität als auch hohe Bearbeitungsgeschwindigkeiten gefragt sind.",
+		"FS15-text": "Die Baureihe FS 15 steht für kompromisslose Leistungsfähigkeit bei der Bearbeitung besonders großer Werkstücke. Ihr Aufbau als HSC 5-Achs Gantry Maschine ermöglicht herausragende Stabilität und Präzision. Sie eignet sie sich optimal für anspruchsvolle Anwendungen, bei denen sowohl Flexibilität als auch hohe Bearbeitungsgeschwindigkeiten gefragt sind.",
 		"FS20": "FS 20",
 		"FS20-text": "Die Baureihe FS 20 wurde speziell für die wirtschaftliche Fräsbearbeitung entwickelt. Mit ihrem feststehenden Portal und dem verfahrbaren Tisch lässt sich sehr effizient und flexibel arbeiten. Sie eignet sich optimal für die Fertigung mit hohem Automatisierungsgrad und findet auch in der Betonbranche weitreichende Anwendungen.",
 		"hybrid": "Hybrid - 3D",
@@ -192,7 +190,7 @@
 		"vorratsmaschinen-text": "Wir halten immer einige unserer Styrotec Portalfräsmaschinen am Lager, um schnell liefern zu können. Sie wollen Ihren Maschinenpark kurzfristig erweitern und dürfen nicht auf Lieferzeiten angewiesen sein? Dann ist bei unseren Vorratsmaschinen mit Sicherheit etwas dabei! Gerne können die Maschinen auch vor Ort besichtigt werden."
 	},
 	"optionen": {
-		"fraeskoepfe":"Fräsköpfe",
+		"fraeskoepfe": "Fräsköpfe",
 		"fraesspindeln": "Frässpindeln",
 		"schutzeinrichtungen": "Schutzeinrichtungen",
 		"werkzeugwechsler": "Werkzeugwechsler",
@@ -339,7 +337,7 @@
 		"styropor-text": "Mit einer innovativen Technologie verdichtet die Presse auf extrem wirtschaftliche Art und Weise sperrige Schaumstoffabfälle aus EPS (Styropor®) in leicht zu handhabende Blöcke. Die so erzielte extreme Volumenreduktion von bis zu 40:1 spart nicht nur in erheblichen Umfang Transport- und Entsorgungskosten. Die produzierten Blöcke sind darüber hinaus als Rohstoff wieder verwertbar und tragen zu einer schnellen Amortisation bei.",
 		"beschreibung-1": "Automatische Spänezufuhr zur Brikettpresse mit kontrolliertem Betrieb",
 		"beschreibung-2": "Energieeinsparung dank Füllstandssonden, die die Maschine in Stand-by-Modus versetzt, wenn kein zu verdichtendes Material erkannt wird",
-		"beschreibung-3": "Effiziente Kühlmittelrückgewinnung durch die Auffang- und Rückgewinnungswanne", 
+		"beschreibung-3": "Effiziente Kühlmittelrückgewinnung durch die Auffang- und Rückgewinnungswanne",
 		"beschreibung-4": "Optimierte Lagerung der Briketts in geeigneten Behältern dank eines integrierten Förderbandes, das die Briketts am Auswurf aufnimmt",
 		"parameter": "Leistungs- und Prozessparameter",
 		"eigenschaften": "Physische Eigenschaften",
@@ -403,20 +401,20 @@
 		"allgemein-Text": "Hohlfräser aus gehärtetem Spezialstahl zur Bearbeitung von Styropor, Weich- und Hartschaum sowie allen ähnlichen Materialien. Besonders geeignet zur großvolumigen Zerspanung von Styropor (EPS) und Hartschaum auf CNC Fräsmaschinen. Zusammen mit speziellen Hohlfrässpindeln und Hochdruck Styroporabsaugungen können die Styroporspäne durch den Fräser und die Hohlfrässpindel abgesaugt werden. Damit dies auch beim Abtauchen perfekt funktioniert haben wir die Absaugöffnungen perfekt dimensioniert und optimal am Werkzeug positioniert. Durch die spezielle Schneidengeometrie verbunden mit den Spanbrechern sind sehr hohe Vorschübe bei geringer Geräuschbelastung und super Oberflächen realisierbar. Selbst dünnste Rippen bleiben aufgrund des geringen Fräsdrucks stehen ohne zu brechen. In der Standardausführung liefern wir diese Fräser, inkl. einem Wechseltop nach Ihrer Wahl, mit dem Tellerflansch 78/8 mm zur Spannung mittels Überwurfmutter.",
 		"konfiguration-Titel": "Konfiguration",
 		"konfiguration-Text": "Für unsere Hohlfräser gibt es dank vieler Optionen die unterschiedlichsten Konfigurationsmöglichkeiten. Die Fräserköpfe sind austauschbar, dies ermöglicht den schnellen Ersatz bei Abnutzung oder bei leichten Crashs. Die Wechselköpfe gibt es in Kugel-, Schaft-, Eckenradiusausführung oder mit Auslaufschräge.",
-		"schaftausführung": "Schaftausführung", 
-		"kugelausführung": "Kugelausführung", 
+		"schaftausführung": "Schaftausführung",
+		"kugelausführung": "Kugelausführung",
 		"eckenradiusausführung": "Eckenradiusausführung",
 		"Auslaufschräge": "Auslaufschräge",
 		"wechselkopf": "Wechselkopf Ausführung",
-		"gefräst":"gefräste Schneide",
-		"raspel":"Raspelzahn",
+		"gefräst": "gefräste Schneide",
+		"raspel": "Raspelzahn",
 		"tabelle-überschrift": "Unsere Hohlfräser",
-		"tabelle-text":"In folgender Tabelle sind kombinationen aus Längen und Durchmesser gegeben, für die es Jeweils unsere Hohlfräser gibt (standart: ●, optional: ○)",
+		"tabelle-text": "In folgender Tabelle sind kombinationen aus Längen und Durchmesser gegeben, für die es Jeweils unsere Hohlfräser gibt (standart: ●, optional: ○)",
 		"werkzeugaufnahme": "Werkzeugaufnahme",
 		"werkzeugaufnahme-Text": "Gegen Aufpreis liefern wir unsere Fräser auf Wunsch mit verschiedenen Direktaufnahmen. Diese werden dann von Haus aus gewuchtet und sind somit auch für Drehzahlen über 10.000 U/min einsetzbar. Die Direktaufnahme bietet zusätzlich ein bessere Stabilität als Adapter und die Werkzeuglänge wird nicht unnötig größer. Die Fräser passen so auch in kompaktere Werkzeugwechsler wodurch manuelle Werkzeugwechsel der Vergangenheit angehören.",
 		"besonderheiten": "Besonderheit",
 		"besonderheit-text": "Bei Fräsern mit Zylinderschaft, HSK oder SK Direktaufnahme werden die Wechselköpfe mit einem Kuststoff-Stopfen verschlossen um zu verhindern das sich Material im Fräser absetzt, welches eventuell zu einer Unwucht führen kann.",
-		"bemerkung-titel":"Bemerkung",
+		"bemerkung-titel": "Bemerkung",
 		"bemerkung-text": "Alle Fräser, sind oberflächen-gehärtet und Rundlauf geprüft mit einer Drehzahlfreigabe bis 6.000 U/min, wenn nichts Anderweitiges vermerkt ist. Wir bieten zusätzlich an, alle Fräser gegen Aufpreis mit einer Wuchtgüte G2.5 zu wuchten. Die Fräser ab 500mm Länge müssen immer gewuchtet werden. Auch Fräser mit SK bzw. HSK Direktaufnahme müssen immer gewuchtet werden. Sie erhalten somit ein absolutes Präzisionswerkzeug mit perfektem Rundlauf und langer Lebensdauer."
 	},
 	"spindelservice": {
@@ -441,7 +439,7 @@
 		"wir-bieten": "Wir Bieten ihnen...",
 		"wir-bieten-eins": "Markenunabhängige Spindelreparaturen",
 		"wir-bieten-zwei": "Aus- & Einbau der Spindel vor Ort",
-		"wir-bieten-drei": "Technische Beratung und Fehlerdiagnose", 
+		"wir-bieten-drei": "Technische Beratung und Fehlerdiagnose",
 		"wir-bieten-vier": "Wartung und vorbeugende Instandhaltung",
 		"wir-bieten-fünf": "Express - Spindelreparaturen",
 		"wir-bieten-sechs": "Tauschspindeln",
@@ -454,7 +452,7 @@
 		"helfen-drei": "Defekten Drehdurchführungen",
 		"helfen-vier": "Wasserschäden",
 		"helfen-fünf": "Messsystemfehler",
-		"helfen-sechs": "Spannerproblemen"	
+		"helfen-sechs": "Spannerproblemen"
 	},
 	"news": {
 		"header-titel": "News & Weiteres",
@@ -470,7 +468,7 @@
 		"gründung": "Norbert Schuster gründet die Styrotec GmbH & Co KG gemeinsam mit einem Partner in Waldburg.",
 		"portfolio-titel": "Portfolio - Entwicklung",
 		"portfolio": "Entwicklung unseres speziellen Produktportfolios mit Werkzeugen und CNC-Fräsmaschinen für die Styroporverarbeitung.",
-		"erste-titel": "Erste CNC-Maschine", 
+		"erste-titel": "Erste CNC-Maschine",
 		"erste": "Auslieferung unserer ersten CNC-Portalfräsmaschine in Zusammenarbeit mit unserem Partner.",
 		"gebrauma-titel": "Gebrauchtmaschinen",
 		"gebrauma": "Erste Vermittlung von gebrauchten konventionellen Bearbeitungsmaschinen.",
@@ -490,7 +488,7 @@
 		"werte-text": "TODO",
 		"wert1": "Fairness.",
 		"wert1-text": "Als Unternehmen legen wir besonderen Wert auf einen respektvollen Umgang mit Kunden und Mitarbeitern. Fairness bedeutet, dass wir unsere Kunden und Mitarbeiter gleichberechtigt behandeln und uns für Chancengleichheit einsetzen. Fairness bedeutet auch, dass wir ethisch handeln und transparent unsere Kunden und Mitarbeiter über Entscheidungen und Prozesse informieren.",
-		"wert2": "Zuverlässigkeit.", 
+		"wert2": "Zuverlässigkeit.",
 		"wert2-text": "Als Unternehmen legen wir besonderen Wert auf eine verlässliche und pünktliche Erfüllung von Versprechen gegenüber unseren Kunden und Mitarbeitern. Zuverlässigkeit bedeutet, dass wir realistisch planen, ehrlich kommunizieren und die Erwartungen unserer Kunden und Mitarbeiter erfüllen.",
 		"wert3": "Flexibilität.",
 		"wert3-text": "Flexibilität ist für uns in erster Linie die Fähigkeit, in kürzester Zeit zielorientiert und erfolgreich zu handeln. Flexibilität bedeutet zudem die Offenheit für neue Perspektiven und Methoden sowie flexibel und schnell auf Kundenanforderungen zu reagieren. Eine stetig hohe Veränderungsbereitschaft und geistige Beweglichkeit insgesamt sind die Grundpfeiler unserer Erfolgsgeschichte.",

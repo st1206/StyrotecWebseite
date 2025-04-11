@@ -2,9 +2,8 @@
 	import Autoplay from 'embla-carousel-autoplay';
 	import * as Carousel from '$lib/components/ui/carousel';
 	import { PUBLIC_BACKEND_URL } from '$env/static/public';
-	import { writable } from "svelte/store";
-	import { onMount, tick } from "svelte";
-	let options = {loop: true};
+
+	let options = { loop: true };
 	let {
 		pictures,
 		height,
@@ -49,12 +48,11 @@
       }, 100); // Verzögerung von 100ms
     }
   });*/
-
 </script>
 
-<Carousel.Root plugins={[plugin]} opts= {options} class="pt-[66px]">
+<Carousel.Root plugins={[plugin]} opts={options} class="pt-[66px]">
 	<Carousel.Content style={`max-height: ${height}px`}>
-		{#each pictures as picture}
+		{#each pictures as picture, i}
 			<Carousel.Item class="pl-0">
 				<img
 					class="h-full w-full object-cover"
@@ -66,17 +64,15 @@
 			</Carousel.Item>
 		{/each}
 	</Carousel.Content>
-	
-	
-	<div class="hidden xl:flex relative bottom-10 left-[85%]  -mt-3 gap-2 w-[10%] ">
+
+	<div class="relative bottom-10 left-[85%] -mt-3 hidden w-[10%] gap-2 xl:flex">
 		{#each pictures as _, index}
-		  <button
-			aria-label="hello"
-			class="relative w-3 h-3 rounded-full transition duration-300 bg-primary-foreground hover:bg-gray-500"
-			
-		  ></button>
+			<button
+				aria-label="hello"
+				class="bg-primary-foreground relative h-3 w-3 rounded-full transition duration-300 hover:bg-gray-500"
+			></button>
 		{/each}
-	  </div>
-	  <!-- onclick={() => scrollToind(index)}
+	</div>
+	<!-- onclick={() => scrollToind(index)}
 	  class:selected={$selectedIndex === index} -->
 </Carousel.Root>

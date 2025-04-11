@@ -382,11 +382,12 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   };
   attributes: {
     blocks: Schema.Attribute.DynamicZone<
-      ['shared.media', 'shared.quote', 'shared.rich-text']
+      ['shared.media', 'shared.quote', 'shared.rich-text', 'shared.seo']
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    fs_15s: Schema.Attribute.Relation<'oneToMany', 'api::fs-15.fs-15'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::about.about'> &
       Schema.Attribute.Private;
@@ -395,16 +396,17 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    werwerwefrsdf: Schema.Attribute.DynamicZone<['shared.quote']>;
   };
 }
 
-export interface ApiAnwenderstorieAnwenderstorie
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'anwenderstories';
+export interface ApiEmployeeEmployee extends Struct.CollectionTypeSchema {
+  collectionName: 'employees';
   info: {
-    displayName: 'Anwenderstorie';
-    pluralName: 'anwenderstories';
-    singularName: 'anwenderstorie';
+    description: '';
+    displayName: 'Mitarbeiter';
+    pluralName: 'employees';
+    singularName: 'employee';
   };
   options: {
     draftAndPublish: true;
@@ -415,20 +417,10 @@ export interface ApiAnwenderstorieAnwenderstorie
     };
   };
   attributes: {
-    Bilder: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Kunde: Schema.Attribute.String &
+    email: Schema.Attribute.Email &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -438,17 +430,9 @@ export interface ApiAnwenderstorieAnwenderstorie
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::anwenderstorie.anwenderstorie'
+      'api::employee.employee'
     >;
-    publishedAt: Schema.Attribute.DateTime;
-    Story: Schema.Attribute.Text &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Titel: Schema.Attribute.String &
+    name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique &
       Schema.Attribute.SetPluginOptions<{
@@ -456,63 +440,23 @@ export interface ApiAnwenderstorieAnwenderstorie
           localized: true;
         };
       }>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiBerichteBerichte extends Struct.CollectionTypeSchema {
-  collectionName: 'berichtes';
-  info: {
-    displayName: 'Berichte';
-    pluralName: 'berichtes';
-    singularName: 'berichte';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    Bericht: Schema.Attribute.Text &
+    picture: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    position: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    Bilder: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    Link: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::berichte.berichte'
-    >;
     publishedAt: Schema.Attribute.DateTime;
-    Titel: Schema.Attribute.String &
+    tel: Schema.Attribute.String &
       Schema.Attribute.Required &
-      Schema.Attribute.Unique &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -696,19 +640,41 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
+    asd: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     carousel: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     > &
-      Schema.Attribute.Required;
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'> &
-      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'>;
     publishedAt: Schema.Attribute.DateTime;
+    TEST: Schema.Attribute.Blocks &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1130,12 +1096,6 @@ export interface ApiMaschineMaschine extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
-    Zusatzoptionen: Schema.Attribute.Component<'liste.optionen', true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     Zustand: Schema.Attribute.Enumeration<
       [
         'gebraucht',
@@ -1271,48 +1231,13 @@ export interface ApiMetallpresseMetallpresse
   };
 }
 
-export interface ApiMitarbeiterMitarbeiter extends Struct.CollectionTypeSchema {
-  collectionName: 'mitarbeiters';
-  info: {
-    description: '';
-    displayName: 'Mitarbeiter';
-    pluralName: 'mitarbeiters';
-    singularName: 'mitarbeiter';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Bilder: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    Email: Schema.Attribute.Email & Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::mitarbeiter.mitarbeiter'
-    > &
-      Schema.Attribute.Private;
-    Name: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique;
-    Position: Schema.Attribute.String & Schema.Attribute.Required;
-    publishedAt: Schema.Attribute.DateTime;
-    Telefonnummer: Schema.Attribute.String & Schema.Attribute.Required;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiReferenzenReferenzen extends Struct.CollectionTypeSchema {
-  collectionName: 'referenzens';
+export interface ApiReferenceReference extends Struct.CollectionTypeSchema {
+  collectionName: 'references';
   info: {
     description: '';
     displayName: 'Referenzen';
-    pluralName: 'referenzens';
-    singularName: 'referenzen';
+    pluralName: 'references';
+    singularName: 'reference';
   };
   options: {
     draftAndPublish: true;
@@ -1323,32 +1248,29 @@ export interface ApiReferenzenReferenzen extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    Bilder: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Branche: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    industry: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::referenzen.referenzen'
+      'api::reference.reference'
     >;
-    Produkt: Schema.Attribute.String &
+    media: Schema.Attribute.Media<'images' | 'videos', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    product: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1356,7 +1278,14 @@ export interface ApiReferenzenReferenzen extends Struct.CollectionTypeSchema {
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
-    Titel: Schema.Attribute.String &
+    timestamp: Schema.Attribute.Date &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1366,13 +1295,6 @@ export interface ApiReferenzenReferenzen extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Zeitpunkt: Schema.Attribute.Date &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
   };
 }
 
@@ -2014,8 +1936,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
-      'api::anwenderstorie.anwenderstorie': ApiAnwenderstorieAnwenderstorie;
-      'api::berichte.berichte': ApiBerichteBerichte;
+      'api::employee.employee': ApiEmployeeEmployee;
       'api::fs-10.fs-10': ApiFs10Fs10;
       'api::fs-15.fs-15': ApiFs15Fs15;
       'api::fs-20.fs-20': ApiFs20Fs20;
@@ -2026,8 +1947,7 @@ declare module '@strapi/strapi' {
       'api::maschine.maschine': ApiMaschineMaschine;
       'api::messen.messen': ApiMessenMessen;
       'api::metallpresse.metallpresse': ApiMetallpresseMetallpresse;
-      'api::mitarbeiter.mitarbeiter': ApiMitarbeiterMitarbeiter;
-      'api::referenzen.referenzen': ApiReferenzenReferenzen;
+      'api::reference.reference': ApiReferenceReference;
       'api::vorratsmaschine.vorratsmaschine': ApiVorratsmaschineVorratsmaschine;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

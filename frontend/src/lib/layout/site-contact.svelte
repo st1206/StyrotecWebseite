@@ -1,23 +1,12 @@
-<script lang="ts">
-	import { Modal, uiHelpers } from 'svelte-5-ui-lib';
+<!-- <script lang="ts">
 	import { fly, slide } from 'svelte/transition';
 	import { linear } from 'svelte/easing';
-	import { Button } from 'svelte-5-ui-lib';
 	import imgMartin from '$lib/assets/images/martin_schreibtisch.jpg';
 	import imgTobias from '$lib/assets/images/TobiasSchreibtisch_klein.jpg';
 	import imgRolf from '$lib/assets/images/rolf_schreibtisch.jpg';
 	import imgNorbert from '$lib/assets/images/norbert_schreibtisch.jpg';
 	import { _ } from 'svelte-i18n';
-	import Mail from "lucide-svelte/icons/mail";
-
-	/**
-	 *
-	 * IMAGES am besten aus dem Backend laden. Also je nach condition (zuständigkeit)
-	 * das passende Profil mit Bild, Namen, rolle laden
-	 * IMAGES MÜSSEN UNBEDINGT IN KLEINERER AUFLÖSUNG EXPORTIERT UND KOMPRIMIERT WERDEN
-	 * DERZEIT 6000x4000px
-	 *
-	 */
+	import Mail from 'lucide-svelte/icons/mail';
 
 	const modalExample = uiHelpers();
 	let modalStatus = $derived(modalExample.isOpen);
@@ -27,7 +16,7 @@
 		role: string;
 		imgSource: string;
 	} = $derived.by(() => {
-		const condition: string = 'tobias'; // TODO implement abfrage nach zuständigkeit
+		const condition: string = 'tobias';
 		switch (condition) {
 			case 'rolf':
 				return { name: 'Rolf', role: 'Vertrieb', imgSource: imgRolf };
@@ -43,12 +32,13 @@
 	});
 </script>
 
-<div class="modal -right-[27px] xl:-right-[42px] flex justify-center rounded-lg">
+<div class="modal -right-[27px] flex justify-center rounded-lg xl:-right-[42px]">
 	<Button
 		class="bg-primary-500 border-primary-foreground h-[50px] w-[100px] rounded-lg border-2 text-xl xl:h-[60px] xl:w-[130px] xl:text-2xl"
 		onclick={modalExample.toggle}
 	>
-		<div class="w-full pr-1"><Mail size={22}/></div>{$_('contact.title')}
+		<div class="w-full pr-1"><Mail size={22} /></div>
+		{$_('contact.title')}
 	</Button>
 </div>
 <Modal
@@ -61,7 +51,6 @@
 	params={{ duration: 350, easing: linear, x: 150 }}
 >
 	<div class="modal-box">
-		<!-- evtl variabel machen je nach maschine und welche seite man sich befindet (forEach kontakt hinterlegt do unten)-->
 		<div class="column-left">{$_('contact.info')}</div>
 		<div class="column-right">
 			+49 751 5605020 <br />
@@ -74,7 +63,6 @@
 		<div class="column-left">
 			<span>{contactPerson.name}</span> <br />
 			<span>{$_(`contact.${contactPerson.role}`)}</span> <br />
-			<!-- TODO verlinkung zur richtigen kontaktSeite-->
 			<a
 				href="/kontaktseite"
 				class="bg-primary text-secondary absolute bottom-10 rounded-sm p-2 text-xl"
@@ -109,4 +97,4 @@
 		transform: rotate(-90deg);
 		z-index: 10;
 	}
-</style>
+</style> -->

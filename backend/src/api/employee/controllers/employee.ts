@@ -4,4 +4,4 @@
 
 import { factories } from '@strapi/strapi'
 
-export default factories.createCoreController('api::mitarbeiter.mitarbeiter');
+export default factories.createCoreController('api::employee.employee');

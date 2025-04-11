@@ -27,8 +27,8 @@ export const menu = [
 					{ key: 'vorratsmaschinen', link: '/produkte/portalfraesmaschinen/vorratsmaschinen' }
 				]
 			},
-	 		{
-		 		key: 'spaenepressen',
+			{
+				key: 'spaenepressen',
 				link: '/produkte/spaenepressen',
 				items: [
 					{ key: 'metalle', link: '/produkte/spaenepressen/metalle' },
@@ -36,117 +36,124 @@ export const menu = [
 					{ key: 'styropor', link: '/produkte/spaenepressen/styropor' }
 				]
 			},
-	 		{
-	 			key: 'styroporbearbeitung',
-	 			link: '/produkte/styroporbearbeitung',
-	 			items: [
-	 				{ key: 'fräswerkzeuge', link: '/produkte/styroporbearbeitung/fräswerkzeuge' },
-	 				{ key: 'hohlfrässpindeln', link: '/produkte/styroporbearbeitung/hohlfrässpindeln' },
-	 				{ key: 'absaugungen', link: '/produkte/styroporbearbeitung/absaugungen' },
-	 				{ key: 'zerkleinerer', link: '/produkte/styroporbearbeitung/zerkleinerer' },
-	 				{ key: 'pressen', link: '/produkte/spaenepressen/styropor' },
-	 				{ key: 'rohmaterial', link: '/produkte/styroporbearbeitung/material/#rohmaterial' },
-	 				{ key: 'kleber', link: '/produkte/styroporbearbeitung/material/#kleber' }
-	 			]
-	 		},
-	 		{
-	 			key: 'gebrauchtmaschinen',
-	 			link: '/produkte/gebrauchtmaschinen',
-	 			items: [
-	 				{ key: 'cnc-maschinen', link: '/produkte/gebrauchtmaschinen/cnc-maschinen' },
-	 				{ key: 'cnc-zubehör', link: '/produkte/gebrauchtmaschinen/cnc-zubehoer' },
-	 				{ key: 'modellbaumaschinen', link: '/produkte/gebrauchtmaschinen/modellbaumaschinen' },
-	 				{ key: 'holzbearbeitungsmaschinen', link: '/produkte/gebrauchtmaschinen/modellbaumaschinen' }
-	 			]
-	 		},
-	 	]
-	 },
-	 {
-	 	id: 2,
-	 	key: 'dienstleistungen',
-	 	link: '/about',
-	 	megaMenu: [
-	 		{
-	 			key: 'maschinenerhaltung',
-	 			link: '/dienstleistungen/maschinenerhaltung',
-	 			items: [
-	 				{ key: 'spindelservice', link: '/dienstleistungen/maschinenerhaltung/spindelservice' },
-	 				{ key: 'wartungen', link: '/dienstleistungen/maschinenerhaltung/wartungen' },
-	 				{ key: 'reparaturen', link: '/dienstleistungen/maschinenerhaltung/reparaturen' },
-	 				{ key: 'maschinenumzüge', link: '/dienstleistungen/maschinenerhaltung/maschinenumzüge' }
-	 			]
-	 		},
-	 		{
-	 			key: 'maschinenvermarktung',
-	 			link: '/dienstleistungen/maschinenvermarktung',
-	 			items: [
-	 				{ key: 'bewertung', link: '/dienstleistungen/maschinenvermarktung/bewertung' },
-	 				{ key: 'vermittlung', link: '/dienstleistungen/maschinenvermarktung/vermittlung' },
-	 				{ key: 'ankauf', link: '/dienstleistungen/maschinenvermarktung/ankauf' }
-	 			]
-	 		},
-	 		{
-	 			key: 'maschinenmodernisierung',
-	 			link: '/dienstleistungen/maschinenmodernisierung',
-	 			items: [
-	 				{ key: 'retrofit', link: '/dienstleistungen/maschinenmodernisierung/retrofit' },
-	 				{ key: 'überholung', link: '/dienstleistungen/maschinenmodernisierung/überholung' }
-	 			]
-	 		}
-	 	]
-	 },
-	 {
-	 	id: 3,
-	 	key: 'branchen',
-	 	link: '/branchen',
-	 	megaMenu: [
-	 		{
-	 			key: 'branchen',
-	 			link: '/branchen/branchen',
-	 			items: [
-	 				{ key: 'automobil', link: '/branchen/#automobil', ImageUrl: auto},
-	 				{ key: 'schiffsbau', link: '/branchen/#schiffsbau', ImageUrl: ship},
-					 { key: 'aerospace', link: '/branchen/#aerospace',  ImageUrl: plane },
-	 				{ key: 'modellbau', link: '/branchen/#modellbau', ImageUrl: modell},
-	 				{ key: 'kunststoffindustrie', link: '/branchen/#kunststoffindustrie', ImageUrl: kunststoff},
-	 				{ key: 'betonindustrie', link: '/branchen/#betonindustrie',  ImageUrl: beton },
-	 				{ key: 'werbetechnik', link: '/branchen/#werbetechnik',  ImageUrl: ads},
-	 				{ key: 'kunst', link: '/branchen/#kunst', ImageUrl: art }
-	 			]
-	 		}
-	 	]
-	 },
-	 {
-	 	id: 4,
-	 	key: 'unternehmen',
-	 	link: '/unternehmen',
-	 	megaMenu: [
-	 		{
-	 			key: 'ueberUns',
-	 			link: '/unternehmen/ueber-uns',
-	 			items: [
-					{ key: 'team', link: '/unternehmen/ueber-uns/#team'},
-	 				{ key: 'werte-mission-vission', link: '/unternehmen/ueber-uns/#werte' },
-					{ key: 'historie', link: '/unternehmen/ueber-uns/#historie' },
-	 				{ key: 'nachhaltigkeit', link: '/unternehmen/ueber-uns/#nachhaltigkeit' },			
-	 			]
-	 		},
-	 		{
-	 			key: 'karriere',
-	 			link: '/unternehmen/karriere',
-	 			items: [
-	 				{ key: 'stellenausschreibung', link: '/unternehmen/karriere/#stellenausschreibung' }
+			{
+				key: 'styroporbearbeitung',
+				link: '/produkte/styroporbearbeitung',
+				items: [
+					{ key: 'fräswerkzeuge', link: '/produkte/styroporbearbeitung/fräswerkzeuge' },
+					{ key: 'hohlfrässpindeln', link: '/produkte/styroporbearbeitung/hohlfrässpindeln' },
+					{ key: 'absaugungen', link: '/produkte/styroporbearbeitung/absaugungen' },
+					{ key: 'zerkleinerer', link: '/produkte/styroporbearbeitung/zerkleinerer' },
+					{ key: 'pressen', link: '/produkte/spaenepressen/styropor' },
+					{ key: 'rohmaterial', link: '/produkte/styroporbearbeitung/material/#rohmaterial' },
+					{ key: 'kleber', link: '/produkte/styroporbearbeitung/material/#kleber' }
 				]
-	 		},
-	 		{
-	 			key: 'news',
-	 			link: '/unternehmen/news-termine',
-	 			items: [
-	 				//{ key: 'anwenderstories', link: '/unternehmen/news-termine/#anwenderstories' },
-	 				{ key: 'referenzen', link: '/unternehmen/news-termine/#referenzen' },
-	 				{ key: 'messen', link: '/unternehmen/news-termine/#messen' }
-	 			]
-	 		}
+			},
+			{
+				key: 'gebrauchtmaschinen',
+				link: '/produkte/gebrauchtmaschinen',
+				items: [
+					{ key: 'cnc-maschinen', link: '/produkte/gebrauchtmaschinen/cnc-maschinen' },
+					{ key: 'cnc-zubehör', link: '/produkte/gebrauchtmaschinen/cnc-zubehoer' },
+					{ key: 'modellbaumaschinen', link: '/produkte/gebrauchtmaschinen/modellbaumaschinen' },
+					{
+						key: 'holzbearbeitungsmaschinen',
+						link: '/produkte/gebrauchtmaschinen/modellbaumaschinen'
+					}
+				]
+			}
+		]
+	},
+	{
+		id: 2,
+		key: 'dienstleistungen',
+		link: '/about',
+		megaMenu: [
+			{
+				key: 'maschinenerhaltung',
+				link: '/dienstleistungen/maschinenerhaltung',
+				items: [
+					{ key: 'spindelservice', link: '/dienstleistungen/maschinenerhaltung/spindelservice' },
+					{ key: 'wartungen', link: '/dienstleistungen/maschinenerhaltung/wartungen' },
+					{ key: 'reparaturen', link: '/dienstleistungen/maschinenerhaltung/reparaturen' },
+					{ key: 'maschinenumzüge', link: '/dienstleistungen/maschinenerhaltung/maschinenumzüge' }
+				]
+			},
+			{
+				key: 'maschinenvermarktung',
+				link: '/dienstleistungen/maschinenvermarktung',
+				items: [
+					{ key: 'bewertung', link: '/dienstleistungen/maschinenvermarktung/bewertung' },
+					{ key: 'vermittlung', link: '/dienstleistungen/maschinenvermarktung/vermittlung' },
+					{ key: 'ankauf', link: '/dienstleistungen/maschinenvermarktung/ankauf' }
+				]
+			},
+			{
+				key: 'maschinenmodernisierung',
+				link: '/dienstleistungen/maschinenmodernisierung',
+				items: [
+					{ key: 'retrofit', link: '/dienstleistungen/maschinenmodernisierung/retrofit' },
+					{ key: 'überholung', link: '/dienstleistungen/maschinenmodernisierung/überholung' }
+				]
+			}
+		]
+	},
+	{
+		id: 3,
+		key: 'branchen',
+		link: '/branchen',
+		megaMenu: [
+			{
+				key: 'branchen',
+				link: '/branchen/branchen',
+				items: [
+					{ key: 'automobil', link: '/branchen/#automobil', ImageUrl: auto },
+					{ key: 'schiffsbau', link: '/branchen/#schiffsbau', ImageUrl: ship },
+					{ key: 'aerospace', link: '/branchen/#aerospace', ImageUrl: plane },
+					{ key: 'modellbau', link: '/branchen/#modellbau', ImageUrl: modell },
+					{
+						key: 'kunststoffindustrie',
+						link: '/branchen/#kunststoffindustrie',
+						ImageUrl: kunststoff
+					},
+					{ key: 'betonindustrie', link: '/branchen/#betonindustrie', ImageUrl: beton },
+					{ key: 'werbetechnik', link: '/branchen/#werbetechnik', ImageUrl: ads },
+					{ key: 'kunst', link: '/branchen/#kunst', ImageUrl: art }
+				]
+			}
+		]
+	},
+	{
+		id: 4,
+		key: 'unternehmen',
+		link: '/unternehmen',
+		megaMenu: [
+			{
+				key: 'ueberUns',
+				link: '/unternehmen/ueber-uns',
+				items: [
+					{ key: 'team', link: '/unternehmen/ueber-uns/#team' },
+					{ key: 'werte-mission-vission', link: '/unternehmen/ueber-uns/#werte' },
+					{ key: 'historie', link: '/unternehmen/ueber-uns/#historie' },
+					{ key: 'nachhaltigkeit', link: '/unternehmen/ueber-uns/#nachhaltigkeit' }
+				]
+			},
+			{
+				key: 'karriere',
+				link: '/unternehmen/karriere',
+				items: [
+					{ key: 'stellenausschreibung', link: '/unternehmen/karriere/#stellenausschreibung' }
+				]
+			},
+			{
+				key: 'news',
+				link: '/unternehmen/news-termine',
+				items: [
+					//{ key: 'anwenderstories', link: '/unternehmen/news-termine/#anwenderstories' },
+					{ key: 'referenzen', link: '/unternehmen/news-termine/#referenzen' },
+					{ key: 'messen', link: '/unternehmen/news-termine/#messen' }
+				]
+			}
 		]
 	}
 ] as const;

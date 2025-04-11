@@ -1,21 +1,10 @@
 import typography from '@tailwindcss/typography';
-import flowbiteTypography from 'flowbite-typography';
 import type { Config } from 'tailwindcss';
-import { fontFamily } from 'tailwindcss/defaultTheme';
-import tailwindcssAnimate from 'tailwindcss-animate';
-import animate from 'tailwindcss-animate';
-
-
 
 export default {
-	content: [
-		'./src/**/*.{html,js,svelte,ts}',
-		'./node_modules/svelte-5-ui-lib/**/*.{html,js,svelte,ts}',
-		'./node_modules/flowbite-svelte-icons/**/*.{html,js,svelte,ts}',
-		'./node_modules/svelte-animated-icons/**/*.{html,js,svelte,ts}'
-	],
+	content: ['./src/**/*.{html,js,svelte,ts}'],
 
-	plugins: [flowbiteTypography, typography, tailwindcssAnimate, animate],
+	plugins: [typography],
 
 	darkMode: 'class',
 
@@ -28,7 +17,6 @@ export default {
 			}
 		},
 		extend: {
-
 			colors: {
 				border: 'hsl(var(--border) / <alpha-value>)',
 				input: 'hsl(var(--input) / <alpha-value>)',
@@ -87,13 +75,13 @@ export default {
 			},
 			keyframes: {
 				'marquee-left': {
-                  	from: { transform: 'translateX(0)' },
-                  	to: { transform: 'translateX(calc(-100% - var(--gap)))' }
-             	 },
-              	'marquee-up': {
-                  	from: { transform: 'translateY(0)' },
-                  	to: { transform: 'translateY(calc(-100% - var(--gap)))' }
-             	 },
+					from: { transform: 'translateX(0)' },
+					to: { transform: 'translateX(calc(-100% - var(--gap)))' }
+				},
+				'marquee-up': {
+					from: { transform: 'translateY(0)' },
+					to: { transform: 'translateY(calc(-100% - var(--gap)))' }
+				},
 				'accordion-down': {
 					from: { height: '0' },
 					to: { height: 'var(--bits-accordion-content-height)' }
@@ -112,7 +100,7 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'caret-blink': 'caret-blink 1.25s ease-out infinite',
 				'marquee-left': 'marquee-left var(--duration, 40s) linear infinite',
-              	'marquee-up': 'marquee-up var(--duration, 40s) linear infinite'
+				'marquee-up': 'marquee-up var(--duration, 40s) linear infinite'
 			},
 
 			//screen sizes
@@ -174,5 +162,4 @@ export default {
 			}
 		}
 	}
-	
 } satisfies Config;

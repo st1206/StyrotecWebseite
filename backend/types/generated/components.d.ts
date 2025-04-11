@@ -1,14 +1,5 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface AAchseExtraAchsen extends Struct.ComponentSchema {
-  collectionName: 'components_a_achse_extra_achsens';
-  info: {
-    displayName: 'extraAchsen';
-    icon: 'apps';
-  };
-  attributes: {};
-}
-
 export interface ExtraAchsenExtraAchsen extends Struct.ComponentSchema {
   collectionName: 'components_extra_achsen_extra_achsens';
   info: {
@@ -17,17 +8,6 @@ export interface ExtraAchsenExtraAchsen extends Struct.ComponentSchema {
   attributes: {
     aAchse: Schema.Attribute.String & Schema.Attribute.Required;
     cAchse: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
-export interface ListeOptionen extends Struct.ComponentSchema {
-  collectionName: 'components_liste_optionens';
-  info: {
-    displayName: 'Optionen';
-    icon: 'stack';
-  };
-  attributes: {
-    Option: Schema.Attribute.String;
   };
 }
 
@@ -77,16 +57,13 @@ export interface SharedSeo extends Struct.ComponentSchema {
   attributes: {
     metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
     metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    shareImage: Schema.Attribute.Media<'images'>;
   };
 }
 
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'a-achse.extra-achsen': AAchseExtraAchsen;
       'extra-achsen.extra-achsen': ExtraAchsenExtraAchsen;
-      'liste.optionen': ListeOptionen;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

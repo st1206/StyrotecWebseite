@@ -3,7 +3,6 @@ import { browser } from '$app/environment';
 import { init, register } from 'svelte-i18n';
 import { locale } from 'svelte-i18n';
 
-
 export const LANG_KEY = 'lang';
 
 export const DEFAULT_LOCALE = 'de-DE';
@@ -31,7 +30,6 @@ locale.subscribe(async (value) => {
 		return;
 	}
 	console.log('Language updated');
-	
 });
 
 export const languages = [

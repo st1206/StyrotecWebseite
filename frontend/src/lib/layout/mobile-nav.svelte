@@ -14,10 +14,10 @@
 
 <Sheet.Root bind:open>
 	<Sheet.Trigger class="flex h-full items-center">
-		<Menu class="text-primary size-6" />
+		<Menu class="size-6 text-primary" />
 	</Sheet.Trigger>
 	<Sheet.Content side="top" class="pb-18 h-screen bg-white">
-		<Sheet.Header class="bg-primary-foreground w-full px-4 py-4">
+		<Sheet.Header class="w-full bg-primary-foreground px-4 py-4">
 			<a class="ml-2 w-24" href="/"><img src={Icons.logo} alt="Logo Styrotec" /></a>
 		</Sheet.Header>
 		<ScrollArea
@@ -27,16 +27,21 @@
 			<div class="flex h-full w-full flex-col gap-8">
 				{#each menu as item}
 					<div>
-						
-						<Label class="text-primary text-xl font-medium">{$_(`nav.${item.key}`) ?? item.key}</Label>
+						<Label class="text-xl font-medium text-primary"
+							>{$_(`nav.${item.key}`) ?? item.key}</Label
+						>
 						{#each item.megaMenu as child}
-							<Accordion.Root type="single" >
+							<Accordion.Root type="single">
 								<Accordion.Item value={$_(`nav.${item.key}`) ?? item.key}>
 									<Accordion.Trigger>{$_(`nav.${child.key}`) ?? child.key}</Accordion.Trigger>
 									<Accordion.Content>
 										<div class="flex flex-col gap-2">
 											<!-- Übersichtseite link -->
-											<a onclick={() => (open = false)} class="text-md font-boldFont" href={child.link}>
+											<a
+												onclick={() => (open = false)}
+												class="text-md font-boldFont"
+												href={child.link}
+											>
 												{$_(`nav.${child.key}`) ?? child.key}
 											</a>
 											{#each child.items as childItem}

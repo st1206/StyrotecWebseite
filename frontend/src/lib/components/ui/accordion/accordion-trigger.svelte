@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Accordion as AccordionPrimitive, type WithoutChild } from "bits-ui";
-	import ChevronDown from "lucide-svelte/icons/chevron-down";
-	import { cn } from "$lib/utils.js";
+	import { Accordion as AccordionPrimitive, type WithoutChild } from 'bits-ui';
+	import ChevronDown from 'lucide-svelte/icons/chevron-down';
+	import { cn } from '$lib/utils.js';
 
 	let {
 		ref = $bindable(null),
@@ -10,7 +10,7 @@
 		children,
 		...restProps
 	}: WithoutChild<AccordionPrimitive.TriggerProps> & {
-		level?: AccordionPrimitive.HeaderProps["level"];
+		level?: AccordionPrimitive.HeaderProps['level'];
 	} = $props();
 </script>
 
@@ -18,7 +18,7 @@
 	<AccordionPrimitive.Trigger
 		bind:ref
 		class={cn(
-			"flex flex-1 items-center justify-between py-4  transition-all uppercase hover:font-boldFont hover:ml-5  [&[data-state=open]>svg]:rotate-180 bg-secondary/5 border border-secondary/15 p-2 md:p-4 m-1",
+			'm-1 flex flex-1 items-center justify-between  border border-secondary/15 bg-secondary/5 p-2  py-4 uppercase transition-all hover:ml-5 hover:font-boldFont md:p-4 [&[data-state=open]>svg]:rotate-180',
 			className
 		)}
 		{...restProps}

@@ -1,9 +1,9 @@
 {
   "kind": "collectionType",
-  "collectionName": "referenzens",
+  "collectionName": "references",
   "info": {
-    "singularName": "referenzen",
-    "pluralName": "referenzens",
+    "singularName": "reference",
+    "pluralName": "references",
     "displayName": "Referenzen",
     "description": ""
   },
@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "Titel": {
+    "title": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -25,7 +25,7 @@
       "type": "string",
       "required": true
     },
-    "Produkt": {
+    "product": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -34,7 +34,7 @@
       "type": "string",
       "required": true
     },
-    "Branche": {
+    "industry": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -43,27 +43,22 @@
       "type": "string",
       "required": true
     },
-    "Zeitpunkt": {
+    "timestamp": {
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         }
       },
       "type": "date",
       "required": true
     },
-    "Bilder": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
+    "media": {
+      "allowedTypes": ["images", "videos"],
       "type": "media",
       "multiple": true,
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         }
       },
       "required": true

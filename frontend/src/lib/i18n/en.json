@@ -6,9 +6,9 @@
 	"about": {
 		"title": "About us",
 		"description": "Learn more about us"
-	}, 
-	"contact": { 
-		"title": "Contact", 
+	},
+	"contact": {
+		"title": "Contact",
 		"description": "Contact us",
 		"land": "Germany",
 		"info": "Info/Extension",
@@ -23,93 +23,92 @@
 	"nav": {
 		"produkte": "Products",
 
-			"portalfraesmaschinen": "Portal Milling Machines",
-		
-				"fs10": "FS 10",
-				"fs15": "FS 15",
-				"fs20": "FS 20",
-				"hybrid3D": "Hybrid - 3D",
-				"vorratsmaschinen": "In-Stock Machines",
+		"portalfraesmaschinen": "Portal Milling Machines",
 
-			"spaenepressen": "Briquettpress",
-			
-				"metalle": "Metalls",
-				"kunststoffe": "Plastics",
-				"styropor": "Styrofoam",
+		"fs10": "FS 10",
+		"fs15": "FS 15",
+		"fs20": "FS 20",
+		"hybrid3D": "Hybrid - 3D",
+		"vorratsmaschinen": "In-Stock Machines",
 
-			"styroporbearbeitung": "Styrofoam Machining",
+		"spaenepressen": "Briquettpress",
 
-				"fräswerkzeuge": "Milling Tools",
-				"hohlfrässpindeln": "Hollow Milling Spindle",
-				"absaugungen": "Suction Systems",
-				"zerkleinerer": "Shredder",
-				"pressen": "Presses",
-				"rohmaterial": "Raw Material",
-				"kleber": "Adhesive",
+		"metalle": "Metalls",
+		"kunststoffe": "Plastics",
+		"styropor": "Styrofoam",
 
-			"gebrauchtmaschinen": "Used Machines",
+		"styroporbearbeitung": "Styrofoam Machining",
 
-				"cnc-maschinen": "CNC Machines",
-				"cnc-zubehör": "CNC Accessories",
-				"modellbaumaschinen": "Model Building Machines",
-				"holzbearbeitungsmaschinen": "Woodworking Machines",
+		"fräswerkzeuge": "Milling Tools",
+		"hohlfrässpindeln": "Hollow Milling Spindle",
+		"absaugungen": "Suction Systems",
+		"zerkleinerer": "Shredder",
+		"pressen": "Presses",
+		"rohmaterial": "Raw Material",
+		"kleber": "Adhesive",
+
+		"gebrauchtmaschinen": "Used Machines",
+
+		"cnc-maschinen": "CNC Machines",
+		"cnc-zubehör": "CNC Accessories",
+		"modellbaumaschinen": "Model Building Machines",
+		"holzbearbeitungsmaschinen": "Woodworking Machines",
 
 		"dienstleistungen": "Services",
 
-			"maschinenerhaltung": "Machine Maintenance",
-				
-				"spindelservice": "Spindle Service",
-				"wartungen": "Maintenance", 
-				"reparaturen": "Repairs",
-				"maschinenumzüge": "Moving Machines",
+		"maschinenerhaltung": "Machine Maintenance",
 
-			"maschinenvermarktung": "Machine Marketing",
+		"spindelservice": "Spindle Service",
+		"wartungen": "Maintenance",
+		"reparaturen": "Repairs",
+		"maschinenumzüge": "Moving Machines",
 
-				"bewertung": "Evaluation",
-				"vermittlung": "Mediation",
-				"ankauf": "Purchase",
+		"maschinenvermarktung": "Machine Marketing",
 
-			"maschinenmodernisierung": "Machine Modernization",
+		"bewertung": "Evaluation",
+		"vermittlung": "Mediation",
+		"ankauf": "Purchase",
 
-				"retrofit": "Retrofit",
-				"überholung": "Overhaul",
+		"maschinenmodernisierung": "Machine Modernization",
+
+		"retrofit": "Retrofit",
+		"überholung": "Overhaul",
 
 		"Branchen": "Industries",
 
-			"branchen": "Industries",
+		"branchen": "Industries",
 
-				"automobil": "Automotive",
-				"schiffsbau": "Shipbuilding",
-				"modellbau": "Modell Making",
-				"kunststoffindustrie": "Plastic Industrie",
-				"betonindustrie": "Concrete Industrie",
-				"werbetechnik": "Advertising Technology",
-				"aerospace": "Aerospace",
-				"kunst": "Art",
-		
+		"automobil": "Automotive",
+		"schiffsbau": "Shipbuilding",
+		"modellbau": "Modell Making",
+		"kunststoffindustrie": "Plastic Industrie",
+		"betonindustrie": "Concrete Industrie",
+		"werbetechnik": "Advertising Technology",
+		"aerospace": "Aerospace",
+		"kunst": "Art",
+
 		"unternehmen": "Company",
 
-			"ueberUns": "About Us",
-				
-				"team": "Team",
-				"werte-mission-vission": "Philosophy",
-				"historie": "History",
-				"nachhaltigkeit": "Sustainability",
-			
-			"karriere": "Career",
+		"ueberUns": "About Us",
 
-				"stellenausschreibung": "Job Openings",
+		"team": "Team",
+		"werte-mission-vission": "Philosophy",
+		"historie": "History",
+		"nachhaltigkeit": "Sustainability",
 
-			"news": "News",
+		"karriere": "Career",
 
-				"anwenderstories": "Customer Stories",
-				"referenzen": "References",
-				"messen": "Messen"		
+		"stellenausschreibung": "Job Openings",
+
+		"news": "News",
+
+		"anwenderstories": "Customer Stories",
+		"referenzen": "References",
+		"messen": "Messen"
 	},
 
-
 	"sprachen": {
-		"local":"EN"
+		"local": "EN"
 	},
 	"homepage": {
 		"einführung-titel": "Precision in Styrofoam & More - Welcome to Styrotec",
@@ -120,7 +119,7 @@
 		"einführung-ende": "Discover our offerings and bring your ideas to life!",
 		"weltweit-titel": "Our machines in wordlwide use",
 		"weltweit-text": "Our portal milling machines are in high demand worldwide and are used in numerous countries and continents. From the heart of Europe to North America and the innovative markets of Asia - our machines have proven themselves in a wide range of industries and production environments. They are used in the automotive industry, aerospace, mechanical engineering, and many other sectors. With their high precision, durability, and flexibility, they provide tailored solutions for a variety of manufacturing requirements. Our many years of experience and continuous spirit of innovation have made us a trusted partner for companies around the world. Trust in the proven technology of Styrotec to optimize your production processes and take your manufacturing to the next level.",
-		"unternehmen-news-titel":"Stay updated.",
+		"unternehmen-news-titel": "Stay updated.",
 		"unternehmen-überUns-titel": "Styrotec and More...",
 		"unternehmen-karriere-titel": "Looking for a job?",
 		"erhaltung": "Machine Maintenance",
@@ -130,7 +129,7 @@
 		"modernisierung": "Machine Modernization",
 		"modernisierung-text": "TODO"
 	},
-	"styroporbearbeitung": { 
+	"styroporbearbeitung": {
 		"titel": "Overview styrofoam machining",
 		"sub": "TODO",
 		"beschreibungs-text": "TODO",
@@ -163,10 +162,9 @@
 		"holz-text": "Whether for carpentry, furniture manufacturing, or industrial use – our used woodworking machines offer maximum precision and efficiency. All machines are fully functional, tested, and ready for their next use. Save costs and choose sustainable machine solutions.",
 		"modell": "Modell Building Machines",
 		"modell-text": "For the finest detail work and highest precision, our used model-making machines are ideal for model building, prototyping, and fine machining. We offer a selection of high-quality machines to take your creative projects to the next level."
-
 	},
 	"portalfraes": {
-		"titel": "Our portal milling machines", 
+		"titel": "Our portal milling machines",
 		"sub": "and manufacturing Technologies",
 		"beschreibungs-text": "Our portal milling machines stand for precision, durability, and maximum efficiency. Whether for processing foams, wood, Ureol, plastics, aluminum, or composite materials - with Styrotec machines, you get powerful solutions for a wide range of requirements!",
 		"beschreibung-1": "Highest Precision",
@@ -179,7 +177,7 @@
 		"FS10": "FS 10",
 		"FS10-text": "Our FS 10 series is characterized by its classic gantry design with a fixed table and a moving gantry at the bottom. This provides advantages in terms of stability, consistently moved masses, and optimal accessibility for setup and loading.",
 		"FS15": "FS 15",
-		"FS15-text":"The FS 15 series represents uncompromising performance in machining exceptionally large workpieces. Its design as an HSC 5-axis gantry machine ensures outstanding stability and precision. It is ideally suited for demanding applications that require both flexibility and high machining speeds.",
+		"FS15-text": "The FS 15 series represents uncompromising performance in machining exceptionally large workpieces. Its design as an HSC 5-axis gantry machine ensures outstanding stability and precision. It is ideally suited for demanding applications that require both flexibility and high machining speeds.",
 		"FS20": "FS 20",
 		"FS20-text": "The FS 20 series was specifically developed for cost-effective milling operations. With its fixed portal and movable table, it enables highly efficient and flexible machining. It is ideal for production with a high degree of automation and is also widely used in the concrete industry.",
 		"hybrid": "Hybrid - 3D",
@@ -188,7 +186,7 @@
 		"vorratsmaschinen-text": "We always keep a selection of our Styrotec portal milling machines in stock for fast delivery. Need to expand your machine fleet on short notice without waiting for long lead times? Our stock machines are the perfect solution! You’re also welcome to visit and inspect them on-site."
 	},
 	"optionen": {
-		"fraeskoepfe":"Milling Heads",
+		"fraeskoepfe": "Milling Heads",
 		"fraesspindeln": "Milling Spindles",
 		"schutzeinrichtungen": "Protective Housing",
 		"werkzeugwechsler": "Tool Changer",
@@ -335,7 +333,7 @@
 		"styropor-text": "Using innovative technology, the press efficiently compacts bulky foam waste from EPS (Styrofoam®) into easy-to-handle blocks. The resulting extreme volume reduction of up to 40:1 not only significantly reduces transport and disposal costs but also makes the produced blocks recyclable as raw material, contributing to a fast return on investment.",
 		"beschreibung-1": "Automatic Chip Feed to the Briquetting Press with Controlled Operation",
 		"beschreibung-2": "Energy savings thanks to level sensors that put the machine into standby mode when no compressible material is detected",
-		"beschreibung-3": "Efficient coolant recovery through the collection and recycling tray", 
+		"beschreibung-3": "Efficient coolant recovery through the collection and recycling tray",
 		"beschreibung-4": "Optimized storage of briquettes in suitable containers thanks to an integrated conveyor belt that collects the briquettes at the discharge point",
 		"parameter": "Performance and Process Parameters",
 		"eigenschaften": "Physical properties",
@@ -399,16 +397,16 @@
 		"allgemein-Text": "Hollow cutters made of hardened special steel for milling polystyrene, soft foam and hard foam as well as all similar materials. Particularly suitable for large-volume machining of polystyrene (EPS) and hard foam on CNC milling machines. Together with special hollow milling spindles and high-pressure polystyrene exhausting units, the polystyrene chips can be sucked through the cutter and the hollow milling spindle. In order for this to work perfectly even when the tool is going inside of the block, we have perfectly dimensioned the suction openings and positioned them on the tool. Due to the special cutting geometry combined with the chip breakers, very high feed rates can be achieved with low noise and super-surfaces. Even the thinnest ribs remain without breaking because of the low milling pressure. In the standard version we deliver these cutters, incl. a interchangeable tip of your choice, with the 78/8mm flange for clamping with M90x2 cap nut.",
 		"konfiguration-Titel": "Configuration",
 		"konfiguration-Text": "There are a lots of possibilities to configure the right hollow milling tool for your application purpose. The tip are interchangeable, which make it possible to exchange them fast after crashs or mechanical wear. This also safes money because you don't need to buy a complete new tool. The interchangeable tips are available in ball, flat, corner radius design or with an 45° chamfer.",
-		"schaftausführung": "Flat version", 
-		"kugelausführung": "Ball version", 
+		"schaftausführung": "Flat version",
+		"kugelausführung": "Ball version",
 		"eckenradiusausführung": "Corner radius",
 		"Auslaufschräge": "Chamfer",
 		"wechselkopf": "Interchangeable top - version",
-		"gefräst":"milled cutting edge",
-		"raspel":"rasp tooth",
+		"gefräst": "milled cutting edge",
+		"raspel": "rasp tooth",
 		"länge-durchmesser": "Length / Diameter",
 		"tabelle-überschrift": "Our hollow millers",
-		"tabelle-text":"In the following table are our combinations of length and diameter, for which our millers are available (default: ●, optional: ○)",
+		"tabelle-text": "In the following table are our combinations of length and diameter, for which our millers are available (default: ●, optional: ○)",
 		"werkzeugaufnahme": "Tool holder",
 		"werkzeugaufnahme-Text": "For a surcharge, we deliver aour cutters on request with various direct shots. These are then balanced from the ground up and can therefore be used for speeds above 10,000 rpm. The direct mount also offers better stability than the adapter and the tool length does not become unnecessarily larger. The cutters also fit into more compact tool changers, making manual tool changes a thing of the past.",
 		"besonderheiten": "Special feature",
@@ -438,7 +436,7 @@
 		"wir-bieten": "We offer you...",
 		"wir-bieten-eins": "Brand indipendant spindle repair",
 		"wir-bieten-zwei": "Removal and reinstallation of the spindle on site",
-		"wir-bieten-drei": "Technical advice and failure diagnosis", 
+		"wir-bieten-drei": "Technical advice and failure diagnosis",
 		"wir-bieten-vier": "Maintenance and preventive maintenance",
 		"wir-bieten-fünf": "Express - spindle repairs",
 		"wir-bieten-sechs": "Exchange spindles",
@@ -467,7 +465,7 @@
 		"gründung": "Norbert Schuster founded Styrotec GmbH & Co KG together with a partner in Waldburg.",
 		"portfolio-titel": "Portfolio development",
 		"portfolio": "Development of our specialized product portfolio with tools and CNC milling machines for Styrofoam processing.",
-		"erste-titel": "First CNC-Machine", 
+		"erste-titel": "First CNC-Machine",
 		"erste": "Delivery of our first CNC gantry milling machine in collaboration with our partner.",
 		"gebrauma-titel": "Used Machines",
 		"gebrauma": "First brokerage of used conventional processing machines.",
@@ -487,7 +485,7 @@
 		"werte-text": "TODO",
 		"wert1": "Fairness.",
 		"wert1-text": "As a company, we place great importance on treating our customers and employees with respect. Fairness means that we treat our customers and employees equally and advocate for equal opportunities. Fairness also means acting ethically and transparently informing our customers and employees about decisions and processes.",
-		"wert2": "Reliability.", 
+		"wert2": "Reliability.",
 		"wert2-text": "As a company, we place great importance on fulfilling our promises to customers and employees reliably and punctually. Reliability means that we plan realistically, communicate honestly, and meet the expectations of our customers and employees.",
 		"wert3": "Flexibiliy.",
 		"wert3-text": "For us, flexibility primarily means the ability to act quickly, purposefully, and successfully. Flexibility also means being open to new perspectives and methods, as well as responding swiftly and adaptively to customer requirements. A consistently high willingness to change and overall mental agility are the cornerstones of our success story.",
@@ -525,5 +523,4 @@
 		"links": "Maschines",
 		"rechts": "Additional equipment"
 	}
-	
 }
