@@ -381,22 +381,257 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
-    blocks: Schema.Attribute.DynamicZone<
-      ['shared.media', 'shared.quote', 'shared.rich-text', 'shared.seo']
-    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    fs_15s: Schema.Attribute.Relation<'oneToMany', 'api::fs-15.fs-15'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::about.about'> &
       Schema.Attribute.Private;
+    nbgnvb: Schema.Attribute.Component<'test.test', true>;
+    pl: Schema.Attribute.DynamicZone<['test.jzhvglkjh', 'test.ljh-khj']>;
     publishedAt: Schema.Attribute.DateTime;
+    testdyn: Schema.Attribute.DynamicZone<['test.test-component', 'test.test']>;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    werwerwefrsdf: Schema.Attribute.DynamicZone<['shared.quote']>;
+  };
+}
+
+export interface ApiCncMachineCncMachine extends Struct.CollectionTypeSchema {
+  collectionName: 'cnc-machines';
+  info: {
+    description: '';
+    displayName: 'CNC-Maschinen';
+    pluralName: 'cnc-machines';
+    singularName: 'cnc-machine';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    aAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
+    additionalEquipment: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    airBlast: Schema.Attribute.String & Schema.Attribute.Required;
+    axisAccelerationXYZ: Schema.Attribute.String & Schema.Attribute.Required;
+    cAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
+    clampingSurface: Schema.Attribute.String & Schema.Attribute.Required;
+    condition: Schema.Attribute.Enumeration<
+      [
+        'gebraucht',
+        'gebraucht, gut',
+        'gebraucht, sehr gut',
+        '\u00FCberholt',
+        'neu',
+      ]
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    connectedLoad: Schema.Attribute.String & Schema.Attribute.Required;
+    contactPerson: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::employee.employee'
+    > &
+      Schema.Attribute.Required;
+    controlSystem: Schema.Attribute.String & Schema.Attribute.Required;
+    coolantSupply: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    designation: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    internalId: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::cnc-machine.cnc-machine'
+    >;
+    location: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    mainFuse: Schema.Attribute.String & Schema.Attribute.Required;
+    manufacturer: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    millingHead: Schema.Attribute.String & Schema.Attribute.Required;
+    modelType: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    pictures: Schema.Attribute.Media<'images', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID & Schema.Attribute.Required;
+    spaceRequirement: Schema.Attribute.String & Schema.Attribute.Required;
+    spindlePower: Schema.Attribute.String;
+    spindleSpeed: Schema.Attribute.String & Schema.Attribute.Required;
+    toolClampingSystem: Schema.Attribute.String & Schema.Attribute.Required;
+    toolHolder: Schema.Attribute.String & Schema.Attribute.Required;
+    torque: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    weight: Schema.Attribute.String & Schema.Attribute.Required;
+    xAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
+    xyFeedRate: Schema.Attribute.String & Schema.Attribute.Required;
+    yAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
+    yearOfManufacture: Schema.Attribute.String & Schema.Attribute.Required;
+    zAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
+    zFeedRate: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ApiConventionalMachineConventionalMachine
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'conventional-machines';
+  info: {
+    description: '';
+    displayName: 'Konventionelle Maschinen';
+    pluralName: 'conventional-machines';
+    singularName: 'conventional-machine';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    category: Schema.Attribute.Enumeration<
+      ['milling', 'turning', 'grinding', 'sawing', 'drilling']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    condition: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    designation: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::conventional-machine.conventional-machine'
+    >;
+    manufacturer: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    pictures: Schema.Attribute.Media<'images', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID & Schema.Attribute.Required;
+    technicalData: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    yearOfManufacture: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
   };
 }
 
@@ -424,7 +659,7 @@ export interface ApiEmployeeEmployee extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     locale: Schema.Attribute.String;
@@ -440,7 +675,7 @@ export interface ApiEmployeeEmployee extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
-    picture: Schema.Attribute.Media<'images' | 'files'> &
+    picture: Schema.Attribute.Media<'images'> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -459,7 +694,80 @@ export interface ApiEmployeeEmployee extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
+          localized: false;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFairFair extends Struct.CollectionTypeSchema {
+  collectionName: 'fairs';
+  info: {
+    description: '';
+    displayName: 'Messen';
+    pluralName: 'fairs';
+    singularName: 'fair';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    booth: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
           localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    endDate: Schema.Attribute.Date &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    externalLink: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::fair.fair'>;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    pictures: Schema.Attribute.Media<'images', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID & Schema.Attribute.Required;
+    startDate: Schema.Attribute.Date &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
         };
       }>;
     updatedAt: Schema.Attribute.DateTime;
@@ -469,131 +777,192 @@ export interface ApiEmployeeEmployee extends Struct.CollectionTypeSchema {
 }
 
 export interface ApiFs10Fs10 extends Struct.CollectionTypeSchema {
-  collectionName: 'fs_10s';
+  collectionName: 'fs10s';
   info: {
     description: '';
     displayName: 'FS10';
-    pluralName: 'fs-10s';
-    singularName: 'fs-10';
+    pluralName: 'fs10s';
+    singularName: 'fs10';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    aAchse: Schema.Attribute.String & Schema.Attribute.Required;
-    AbmessungUmhausung: Schema.Attribute.String & Schema.Attribute.Required;
-    Bilder: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    > &
-      Schema.Attribute.Required;
-    cAchse: Schema.Attribute.String & Schema.Attribute.Required;
+    aAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
+    cAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
+    controlSystem: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    enclosureDimensions: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::fs-10.fs-10'> &
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::fs10.fs10'> &
       Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    Steuerung: Schema.Attribute.String & Schema.Attribute.Required;
-    Titel: Schema.Attribute.String &
+    name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    pictures: Schema.Attribute.Media<'images', true> &
+      Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    VorschubX: Schema.Attribute.String & Schema.Attribute.Required;
-    VorschubY: Schema.Attribute.String & Schema.Attribute.Required;
-    VorschubZ: Schema.Attribute.String & Schema.Attribute.Required;
-    xAchse: Schema.Attribute.String & Schema.Attribute.Required;
-    yAchse: Schema.Attribute.String & Schema.Attribute.Required;
-    zAchse: Schema.Attribute.String & Schema.Attribute.Required;
+    xAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
+    xFeedRate: Schema.Attribute.String & Schema.Attribute.Required;
+    yAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
+    yFeedRate: Schema.Attribute.String & Schema.Attribute.Required;
+    zAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
+    zFeedRate: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
 export interface ApiFs15Fs15 extends Struct.CollectionTypeSchema {
-  collectionName: 'fs_15s';
+  collectionName: 'fs15s';
   info: {
     description: '';
     displayName: 'FS15';
-    pluralName: 'fs-15s';
-    singularName: 'fs-15';
+    pluralName: 'fs15s';
+    singularName: 'fs15';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    aAchse: Schema.Attribute.String & Schema.Attribute.Required;
-    AbmessungUmhausung: Schema.Attribute.String & Schema.Attribute.Required;
-    Bilder: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    > &
-      Schema.Attribute.Required;
-    cAchse: Schema.Attribute.String & Schema.Attribute.Required;
+    aAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
+    cAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
+    controlSystem: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    enclosureDimensions: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::fs-15.fs-15'> &
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::fs15.fs15'> &
       Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    Steuerung: Schema.Attribute.String & Schema.Attribute.Required;
-    Titel: Schema.Attribute.String &
+    name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    pictures: Schema.Attribute.Media<'images', true> &
+      Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    VorschubX: Schema.Attribute.String & Schema.Attribute.Required;
-    VorschubY: Schema.Attribute.String & Schema.Attribute.Required;
-    VorschubZ: Schema.Attribute.String & Schema.Attribute.Required;
-    xAchse: Schema.Attribute.String & Schema.Attribute.Required;
-    yAchse: Schema.Attribute.String & Schema.Attribute.Required;
-    zAchse: Schema.Attribute.String & Schema.Attribute.Required;
+    xAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
+    xFeedRate: Schema.Attribute.String & Schema.Attribute.Required;
+    yAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
+    yFeedRate: Schema.Attribute.String & Schema.Attribute.Required;
+    zAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
+    zFeedRate: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
 export interface ApiFs20Fs20 extends Struct.CollectionTypeSchema {
-  collectionName: 'fs_20s';
+  collectionName: 'fs20s';
   info: {
     description: '';
     displayName: 'FS20';
-    pluralName: 'fs-20s';
-    singularName: 'fs-20';
+    pluralName: 'fs20s';
+    singularName: 'fs20';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    aAchse: Schema.Attribute.String & Schema.Attribute.Required;
-    AbmessungUmhausung: Schema.Attribute.String & Schema.Attribute.Required;
-    Bilder: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    > &
-      Schema.Attribute.Required;
-    cAchse: Schema.Attribute.String & Schema.Attribute.Required;
+    aAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
+    cAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
+    controlSystem: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    enclosureDimensions: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::fs-20.fs-20'> &
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::fs20.fs20'> &
       Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    Steuerung: Schema.Attribute.String & Schema.Attribute.Required;
-    Titel: Schema.Attribute.String &
+    name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    pictures: Schema.Attribute.Media<'images', true> &
+      Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    VorschubX: Schema.Attribute.String & Schema.Attribute.Required;
-    VorschubY: Schema.Attribute.String & Schema.Attribute.Required;
-    VorschubZ: Schema.Attribute.String & Schema.Attribute.Required;
-    xAchse: Schema.Attribute.String & Schema.Attribute.Required;
-    yAchse: Schema.Attribute.String & Schema.Attribute.Required;
-    zAchse: Schema.Attribute.String & Schema.Attribute.Required;
+    xAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
+    xFeedRate: Schema.Attribute.String & Schema.Attribute.Required;
+    yAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
+    yFeedRate: Schema.Attribute.String & Schema.Attribute.Required;
+    zAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
+    zFeedRate: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ApiGantryMachinePageGantryMachinePage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'gantry_machine_pages';
+  info: {
+    description: '';
+    displayName: 'Portalfraesmaschinen Seite';
+    pluralName: 'gantry-machine-pages';
+    singularName: 'gantry-machine-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    basicTextImage: Schema.Attribute.Component<
+      'page-components.basic-text-image',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    exploreMore: Schema.Attribute.Component<
+      'page-components.explore-more',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heroCarousel: Schema.Attribute.Component<
+      'page-components.hero-carousel',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::gantry-machine-page.gantry-machine-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    uspList: Schema.Attribute.Component<'partial-components.usp-list', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
   };
 }
 
@@ -612,7 +981,6 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    defaultSeo: Schema.Attribute.Component<'shared.seo', false>;
     favicon: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -668,7 +1036,13 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'>;
     publishedAt: Schema.Attribute.DateTime;
-    TEST: Schema.Attribute.Blocks &
+    test: Schema.Attribute.Component<'test.test-component', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    TESTasd: Schema.Attribute.Blocks &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -681,553 +1055,43 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiKategorieBilderKategorieBilder
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'kategorie_bilders';
-  info: {
-    displayName: 'Kategorie_Bilder';
-    pluralName: 'kategorie-bilders';
-    singularName: 'kategorie-bilder';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    Bilder: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    Kategorie: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::kategorie-bilder.kategorie-bilder'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiKonventionelleKonventionelle
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'konventionelles';
+export interface ApiMetalPressMetalPress extends Struct.CollectionTypeSchema {
+  collectionName: 'metal-presses';
   info: {
     description: '';
-    displayName: 'Konventionelle';
-    pluralName: 'konventionelles';
-    singularName: 'konventionelle';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    Baujahr: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Beschreibung: Schema.Attribute.Text &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Bezeichnung: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Bilder: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    Hersteller: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::konventionelle.konventionelle'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    TechnischeDaten: Schema.Attribute.Text &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Titel: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    Zugehoerigkeit: Schema.Attribute.Enumeration<
-      ['Fr\u00E4sen', 'Drehen', 'Schleifen', 'S\u00E4gen', 'Bohren']
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Zustand: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-  };
-}
-
-export interface ApiMaschineMaschine extends Struct.CollectionTypeSchema {
-  collectionName: 'maschines';
-  info: {
-    description: '';
-    displayName: 'Maschine';
-    pluralName: 'maschines';
-    singularName: 'maschine';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    AchsbeschleunigungXYZ: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Anschlussleistung: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Ansprechpartner: Schema.Attribute.Enumeration<
-      [
-        'Martin Sch\u00FCtze',
-        'Tobias Schuster',
-        'Rolf R\u00F6hm',
-        'Norbert Schuster',
-      ]
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Aufspannflaeche: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Baujahr: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Bezeichnung: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Bilder: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Blasluft: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    Drehmoment: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    extraAchsen: Schema.Attribute.Component<
-      'extra-achsen.extra-achsen',
-      false
-    > &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    extraBeschreibung: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Fraeskopf: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Gewicht: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Hersteller: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Interne_Id: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Kuehlmittelzufuhr: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::maschine.maschine'
-    >;
-    Platzbedarf: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID & Schema.Attribute.Required;
-    Spindeldrehzahl: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Spindelleistung: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Standort: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Steuerung: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Titel: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Typ: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    VorschubgeschwindigkeitXY: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    VorschubgeschwindigkeitZ: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Vorsicherung: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Werkzeugabspannung: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Werkzeugaufnahme: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    xAchse: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    yAchse: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    zAchse: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Zusatzausstattung: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Zustand: Schema.Attribute.Enumeration<
-      [
-        'gebraucht',
-        'gebraucht, gut',
-        'gebraucht, sehr gut',
-        '\u00FCberholt',
-        'neu',
-      ]
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-  };
-}
-
-export interface ApiMessenMessen extends Struct.CollectionTypeSchema {
-  collectionName: 'messens';
-  info: {
-    description: '';
-    displayName: 'Messen';
-    pluralName: 'messens';
-    singularName: 'messen';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    Bilder: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::messen.messen'>;
-    Messeanfang: Schema.Attribute.Date &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Messeende: Schema.Attribute.Date &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    MesseLink: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Messename: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Messestand: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiMetallpresseMetallpresse
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'metallpresses';
-  info: {
-    displayName: 'Metallpresse';
-    pluralName: 'metallpresses';
-    singularName: 'metallpresse';
+    displayName: 'Metallpressen';
+    pluralName: 'metal-presses';
+    singularName: 'metal-press';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Bilder: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    > &
-      Schema.Attribute.Required;
-    Brikettformat: Schema.Attribute.String & Schema.Attribute.Required;
+    briquetteFormat: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Durchsatz: Schema.Attribute.String & Schema.Attribute.Required;
-    Gewicht: Schema.Attribute.String & Schema.Attribute.Required;
+    dimensions: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::metallpresse.metallpresse'
+      'api::metal-press.metal-press'
     > &
       Schema.Attribute.Private;
-    Mase: Schema.Attribute.String & Schema.Attribute.Required;
-    Motorleistung: Schema.Attribute.String & Schema.Attribute.Required;
-    Pressdruck: Schema.Attribute.String & Schema.Attribute.Required;
-    publishedAt: Schema.Attribute.DateTime;
-    Titel: Schema.Attribute.String &
+    motorPower: Schema.Attribute.String & Schema.Attribute.Required;
+    name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    pictures: Schema.Attribute.Media<'images', true> &
+      Schema.Attribute.Required;
+    pressingForce: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID & Schema.Attribute.Required;
+    throughput: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    weight: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -1251,13 +1115,6 @@ export interface ApiReferenceReference extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    industry: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1270,6 +1127,13 @@ export interface ApiReferenceReference extends Struct.CollectionTypeSchema {
           localized: false;
         };
       }>;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     product: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -1278,18 +1142,19 @@ export interface ApiReferenceReference extends Struct.CollectionTypeSchema {
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
+    sector: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Schema.Attribute.UID & Schema.Attribute.Required;
     timestamp: Schema.Attribute.Date &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
-        };
-      }>;
-    title: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
         };
       }>;
     updatedAt: Schema.Attribute.DateTime;
@@ -1298,14 +1163,14 @@ export interface ApiReferenceReference extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiVorratsmaschineVorratsmaschine
+export interface ApiStockMachineStockMachine
   extends Struct.CollectionTypeSchema {
-  collectionName: 'vorratsmaschines';
+  collectionName: 'stock-machines';
   info: {
     description: '';
-    displayName: 'vorratsmaschine';
-    pluralName: 'vorratsmaschines';
-    singularName: 'vorratsmaschine';
+    displayName: 'Vorratsmaschinen';
+    pluralName: 'stock-machines';
+    singularName: 'stock-machine';
   };
   options: {
     draftAndPublish: true;
@@ -1316,31 +1181,21 @@ export interface ApiVorratsmaschineVorratsmaschine
     };
   };
   attributes: {
-    aAchse: Schema.Attribute.String &
+    aAxis: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
-    AbmessungUmhausung: Schema.Attribute.String &
+    cAxis: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
-    Bilder: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    cAchse: Schema.Attribute.String &
+    controlSystem: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1350,27 +1205,40 @@ export interface ApiVorratsmaschineVorratsmaschine
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    enclosureDimensions: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    feedRateX: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    feedRateY: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    feedRateZ: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::vorratsmaschine.vorratsmaschine'
+      'api::stock-machine.stock-machine'
     >;
-    publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Steuerung: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    Titel: Schema.Attribute.String &
+    name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique &
       Schema.Attribute.SetPluginOptions<{
@@ -1378,49 +1246,43 @@ export interface ApiVorratsmaschineVorratsmaschine
           localized: true;
         };
       }>;
+    pictures: Schema.Attribute.Media<'images', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    VorschubX: Schema.Attribute.String &
+    xAxis: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
-    VorschubY: Schema.Attribute.String &
+    yAxis: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
-    VorschubZ: Schema.Attribute.String &
+    zAxis: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
-        };
-      }>;
-    xAchse: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    yAchse: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    zAchse: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
   };
@@ -1936,19 +1798,19 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
+      'api::cnc-machine.cnc-machine': ApiCncMachineCncMachine;
+      'api::conventional-machine.conventional-machine': ApiConventionalMachineConventionalMachine;
       'api::employee.employee': ApiEmployeeEmployee;
-      'api::fs-10.fs-10': ApiFs10Fs10;
-      'api::fs-15.fs-15': ApiFs15Fs15;
-      'api::fs-20.fs-20': ApiFs20Fs20;
+      'api::fair.fair': ApiFairFair;
+      'api::fs10.fs10': ApiFs10Fs10;
+      'api::fs15.fs15': ApiFs15Fs15;
+      'api::fs20.fs20': ApiFs20Fs20;
+      'api::gantry-machine-page.gantry-machine-page': ApiGantryMachinePageGantryMachinePage;
       'api::global.global': ApiGlobalGlobal;
       'api::home.home': ApiHomeHome;
-      'api::kategorie-bilder.kategorie-bilder': ApiKategorieBilderKategorieBilder;
-      'api::konventionelle.konventionelle': ApiKonventionelleKonventionelle;
-      'api::maschine.maschine': ApiMaschineMaschine;
-      'api::messen.messen': ApiMessenMessen;
-      'api::metallpresse.metallpresse': ApiMetallpresseMetallpresse;
+      'api::metal-press.metal-press': ApiMetalPressMetalPress;
       'api::reference.reference': ApiReferenceReference;
-      'api::vorratsmaschine.vorratsmaschine': ApiVorratsmaschineVorratsmaschine;
+      'api::stock-machine.stock-machine': ApiStockMachineStockMachine;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

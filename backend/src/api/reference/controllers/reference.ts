@@ -1,7 +1,7 @@
 /**
- * referenzen controller
+ * reference controller
  */
 
-import { factories } from '@strapi/strapi'
+import { factories } from "@strapi/strapi";
 
-export default factories.createCoreController('api::reference.reference');
+export default factories.createCoreController("api::reference.reference");

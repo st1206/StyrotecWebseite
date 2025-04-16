@@ -1,11 +1,9 @@
 <script lang="ts">
-	import SiteHeader from '$lib/layout/site-header.svelte';
 	import '../app.css';
-	let { children } = $props();
-	import SiteFooter from '$lib/layout/site-footer.svelte';
-	import SiteContact from '$lib/layout/site-contact.svelte';
-	import BottomContactForm from '$lib/layout/bottom-contactForm.svelte';
+	import SiteHeader from '$lib/layout/site-header.svelte';
 	import logo from '$lib/assets/images/Logo_schwarzeSchrift_orange.gif';
+
+	let { children } = $props();
 </script>
 
 <svelte:head>
@@ -25,12 +23,12 @@
 
 <!-- root layout  -->
 
-<div class="flex flex-col bg-secondary">
+<div class="flex min-h-screen flex-col">
 	<SiteHeader />
-	<main class="relative flex-1" style="margin-right: 0; margin-left: 0">
+	<main class="flex-1">
 		{@render children()}
 	</main>
-	<BottomContactForm />
+	<!-- <BottomContactForm />
 	<SiteContact />
-	<SiteFooter />
+	<SiteFooter /> -->
 </div>

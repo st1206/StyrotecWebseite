@@ -1,4 +1,3 @@
-// typescript type für Menu Item
 import auto from '$lib/assets/images/branchen/auto_hell.png';
 import ads from '$lib/assets/images/branchen/ads_hell.png';
 import art from '$lib/assets/images/branchen/art_hell.png';
@@ -13,53 +12,48 @@ export type MenuRoute = typeof menu;
 export const menu = [
 	{
 		id: 1,
-		key: 'produkte',
-		link: '/produkte',
+		key: 'products',
 		megaMenu: [
 			{
-				key: 'portalfraesmaschinen',
-				link: '/produkte/portalfraesmaschinen',
+				key: 'gantryMachines',
 				items: [
 					{ key: 'fs10', link: '/produkte/portalfraesmaschinen/fs10' },
 					{ key: 'fs15', link: '/produkte/portalfraesmaschinen/fs15' },
 					{ key: 'fs20', link: '/produkte/portalfraesmaschinen/fs20' },
 					{ key: 'hybrid3D', link: '/produkte/portalfraesmaschinen/hybrid-3d' },
-					{ key: 'vorratsmaschinen', link: '/produkte/portalfraesmaschinen/vorratsmaschinen' }
+					{ key: 'stockMachines', link: '/produkte/portalfraesmaschinen/vorratsmaschinen' }
 				]
 			},
 			{
-				key: 'spaenepressen',
-				link: '/produkte/spaenepressen',
+				key: 'chipPresses',
 				items: [
-					{ key: 'metalle', link: '/produkte/spaenepressen/metalle' },
-					{ key: 'kunststoffe', link: '/produkte/spaenepressen/kunststoffe' },
-					{ key: 'styropor', link: '/produkte/spaenepressen/styropor' }
+					{ key: 'metals', link: '/produkte/spaenepressen/metalle' },
+					{ key: 'synthetics', link: '/produkte/spaenepressen/kunststoffe' },
+					{ key: 'styrofoam', link: '/produkte/spaenepressen/styropor' }
 				]
 			},
 			{
-				key: 'styroporbearbeitung',
-				link: '/produkte/styroporbearbeitung',
+				key: 'styrofoamProcessing',
 				items: [
-					{ key: 'fräswerkzeuge', link: '/produkte/styroporbearbeitung/fräswerkzeuge' },
-					{ key: 'hohlfrässpindeln', link: '/produkte/styroporbearbeitung/hohlfrässpindeln' },
-					{ key: 'absaugungen', link: '/produkte/styroporbearbeitung/absaugungen' },
-					{ key: 'zerkleinerer', link: '/produkte/styroporbearbeitung/zerkleinerer' },
-					{ key: 'pressen', link: '/produkte/spaenepressen/styropor' },
-					{ key: 'rohmaterial', link: '/produkte/styroporbearbeitung/material/#rohmaterial' },
-					{ key: 'kleber', link: '/produkte/styroporbearbeitung/material/#kleber' }
+					{ key: 'millingTools', link: '/produkte/styroporbearbeitung/fräswerkzeuge' },
+					{ key: 'hollowMillingSpindles', link: '/produkte/styroporbearbeitung/hohlfrässpindeln' },
+					{ key: 'suction', link: '/produkte/styroporbearbeitung/absaugungen' },
+					{ key: 'shredder', link: '/produkte/styroporbearbeitung/zerkleinerer' },
+					// { key: 'presses', link: '/produkte/spaenepressen/styropor' },
+					{ key: 'material', link: '/produkte/styroporbearbeitung/material/#rohmaterial' },
+					{ key: 'material', link: '/produkte/styroporbearbeitung/material/#kleber' }
 				]
 			},
 			{
-				key: 'gebrauchtmaschinen',
-				link: '/produkte/gebrauchtmaschinen',
+				key: 'usedMachines',
 				items: [
-					{ key: 'cnc-maschinen', link: '/produkte/gebrauchtmaschinen/cnc-maschinen' },
-					{ key: 'cnc-zubehör', link: '/produkte/gebrauchtmaschinen/cnc-zubehoer' },
-					{ key: 'modellbaumaschinen', link: '/produkte/gebrauchtmaschinen/modellbaumaschinen' },
-					{
-						key: 'holzbearbeitungsmaschinen',
-						link: '/produkte/gebrauchtmaschinen/modellbaumaschinen'
-					}
+					{ key: 'cncMachines', link: '/produkte/gebrauchtmaschinen/cnc-maschinen' },
+					// { key: 'cncComponentParts', link: '/produkte/gebrauchtmaschinen/cnc-zubehoer' },
+					{ key: 'conventionalMachines', link: '/produkte/gebrauchtmaschinen/modellbaumaschinen' } // ?!? Modellbaumaschinen !== Konventionelle
+					// {
+					// 	key: 'holzbearbeitungsmaschinen',
+					// 	link: '/produkte/gebrauchtmaschinen/modellbaumaschinen'
+					// }
 				]
 			}
 		]
@@ -157,150 +151,3 @@ export const menu = [
 		]
 	}
 ] as const;
-// en: [
-// 	{
-// 		id: 1,
-// 		label: 'Products',
-// 		link: '/produkte',
-// 		megaMenu: [
-// 			{
-// 				title: 'Portal Milling Machines',
-// 				link: '/portalfräsmaschinen',
-// 				items: [
-// 					{ label: 'FS 10', link: '/produkte/portalfräsmaschinen' },
-// 					{ label: 'FS 15', link: '/products/2' },
-// 					{ label: 'FS 20', link: '/products/3' },
-// 					{ label: 'Hybrid - 3D', link: '/products/3' },
-// 					{ label: 'Stock machines', link: '/products/3' }
-// 				]
-// 			},
-// 			{
-// 				title: 'Briquettpress',
-// 				link: '/spänepressen',
-// 				items: [
-// 					{ label: 'Metalls', link: '/products/a' },
-// 					{ label: 'Plastics', link: '/products/b' },
-// 					{ label: 'Styrofoam', link: '/products/c' }
-// 				]
-// 			},
-// 			{
-// 				title: 'Styrofoam machining',
-// 				link: '/styroporbearbeitung',
-// 				items: [
-// 					{ label: 'Milling Tools', link: '/products/x' },
-// 					{ label: 'Hollow Milling Spindle', link: '/products/y' },
-// 					{ label: 'Suction', link: '/products/3' },
-// 					{ label: 'Shredder', link: '/products/3' },
-// 					{ label: 'Presses', link: '/products/3' },
-// 					{ label: 'Raw Material', link: '/products/3' },
-// 					{ label: 'Adhesive', link: '/products/3' }
-// 				]
-// 			},
-// 			{
-// 				title: 'Used machines',
-// 				link: '/produkte/gebrauchtmaschinen',
-// 				items: [
-// 					{ label: 'CNC - Sachines', link: '/produkte/gebrauchtmaschinen/cnc-maschinen' },
-// 					{ label: 'CNC - Accessories', link: '/products/y' },
-// 					{ label: 'Model Building Machines', link: '/products/3' },
-// 					{ label: 'Woodworking Machines ', link: '/products/3' }
-// 				]
-// 			}
-// 		]
-// 	},
-// 	{
-// 		id: 2,
-// 		label: 'Services',
-// 		link: '/about',
-// 		megaMenu: [
-// 			{
-// 				title: 'Machine Maintenance',
-// 				link: '/',
-// 				items: [
-// 					{ label: 'Spindle Service', link: '/dienstleistungen/spindelservice' },
-// 					{ label: 'Maintenance', link: '/products/2' },
-// 					{ label: 'Repairs', link: '/products/3' },
-// 					{ label: 'Moving Machines', link: '/products/3' }
-// 				]
-// 			},
-// 			{
-// 				title: 'Machine Marketing',
-// 				link: '/',
-// 				items: [
-// 					{ label: 'Evaluation', link: '/products/a' },
-// 					{ label: 'Mediation', link: '/products/b' },
-// 					{ label: 'Purchase', link: '/products/c' }
-// 				]
-// 			},
-// 			{
-// 				title: 'Machine Modernization',
-// 				link: '/',
-// 				items: [
-// 					{ label: 'Retrofit', link: '/products/x' },
-// 					{ label: 'Overhaul', link: '/products/y' }
-// 				]
-// 			}
-// 		]
-// 	},
-
-// 	{
-// 		id: 3,
-// 		label: 'Industries',
-// 		link: '/branchen',
-// 		megaMenu: [
-// 			{
-// 				title: 'Industries',
-// 				link: '/',
-// 				items: [
-// 					{ label: 'Automotive', link: '/products/1' },
-// 					{ label: 'Shipbuilding', link: '/products/2' },
-// 					{ label: 'Modell Making', link: '/products/3' },
-// 					{ label: 'Plastic Industrie', link: '/products/3' },
-// 					{ label: 'Concrete Industrie', link: '/products/3' },
-// 					{ label: 'Advertising Technology', link: '/products/3' },
-// 					{ label: 'Aerospace', link: '/products/3' },
-// 					{ label: 'Art', link: '/products/3' }
-// 				]
-// 			}
-// 		]
-// 	},
-// 	{
-// 		id: 4,
-// 		label: 'Company',
-// 		link: '/unternehmen',
-// 		megaMenu: [
-// 			{
-// 				title: 'About us',
-// 				link: '/',
-// 				items: [
-// 					{ label: 'Values', link: '/products/1' },
-// 					{ label: 'Vision', link: '/products/2' },
-// 					{ label: 'Mission', link: '/products/3' },
-// 					{ label: 'Sustainability', link: '/products/3' },
-// 					{ label: 'History', link: '/unternehmen/geschichte' }
-// 				]
-// 			},
-// 			{
-// 				title: 'Career',
-// 				link: '/',
-// 				items: [{ label: 'Job Openings', link: '/products/a' }]
-// 			},
-// 			{
-// 				title: 'News',
-// 				link: '/',
-// 				items: [
-// 					{ label: 'User Stories', link: '/products/x' },
-// 					{ label: 'References', link: '/products/y' }
-// 				]
-// 			},
-// 			{
-// 				title: 'Team',
-// 				link: '/',
-// 				items: [
-// 					{ label: 'Reports', link: '/products/x' },
-// 					{ label: 'Fairs', link: '/products/y' }
-// 				]
-// 			}
-// 		]
-// 	}
-// ]

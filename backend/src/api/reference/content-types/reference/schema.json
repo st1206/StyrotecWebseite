@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "title": {
+    "name": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -34,7 +34,7 @@
       "type": "string",
       "required": true
     },
-    "industry": {
+    "sector": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -61,6 +61,10 @@
           "localized": false
         }
       },
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
       "required": true
     }
   }

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_test_tests",
+  "info": {
+    "displayName": "test",
+    "icon": "car"
+  },
+  "options": {},
+  "attributes": {
+    "cnc_maschinen": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::cnc-machine.cnc-machine"
+    }
+  }
+}

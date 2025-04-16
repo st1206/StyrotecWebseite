@@ -15,25 +15,24 @@
     "title": {
       "type": "string"
     },
-    "blocks": {
+    "testdyn": {
       "type": "dynamiczone",
       "components": [
-        "shared.media",
-        "shared.quote",
-        "shared.rich-text",
-        "shared.seo"
+        "test.test-component",
+        "test.test"
       ]
     },
-    "werwerwefrsdf": {
+    "pl": {
       "type": "dynamiczone",
       "components": [
-        "shared.quote"
+        "test.jzhvglkjh",
+        "test.ljh-khj"
       ]
     },
-    "fs_15s": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::fs-15.fs-15"
+    "nbgnvb": {
+      "type": "component",
+      "repeatable": true,
+      "component": "test.test"
     }
   }
 }

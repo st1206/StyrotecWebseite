@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_test_ljh_khjs",
+  "info": {
+    "displayName": "ljh khj",
+    "icon": "bell",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "nested": {
+      "type": "component",
+      "repeatable": true,
+      "component": "test.test-component"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_partial_components_usp_lists",
+  "info": {
+    "displayName": "uspItem",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

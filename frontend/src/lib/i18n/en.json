@@ -29,7 +29,7 @@
 		"fs15": "FS 15",
 		"fs20": "FS 20",
 		"hybrid3D": "Hybrid - 3D",
-		"vorratsmaschinen": "In-Stock Machines",
+		"vorratsmaschinen": "stock Machines",
 
 		"spaenepressen": "Briquettpress",
 
@@ -118,7 +118,7 @@
 		"einführung-punkt3": " Personalized consulting & service for optimal results",
 		"einführung-ende": "Discover our offerings and bring your ideas to life!",
 		"weltweit-titel": "Our machines in wordlwide use",
-		"weltweit-text": "Our portal milling machines are in high demand worldwide and are used in numerous countries and continents. From the heart of Europe to North America and the innovative markets of Asia - our machines have proven themselves in a wide range of industries and production environments. They are used in the automotive industry, aerospace, mechanical engineering, and many other sectors. With their high precision, durability, and flexibility, they provide tailored solutions for a variety of manufacturing requirements. Our many years of experience and continuous spirit of innovation have made us a trusted partner for companies around the world. Trust in the proven technology of Styrotec to optimize your production processes and take your manufacturing to the next level.",
+		"weltweit-text": "Our portal milling machines are in high demand worldwide and are used in numerous countries and continents. From the heart of Europe to North America and the innovative markets of Asia - our machines have proven themselves in a wide range of industries and production environments. They are used in the automotive sector, aerospace, mechanical engineering, and many other sectors. With their high precision, durability, and flexibility, they provide tailored solutions for a variety of manufacturing requirements. Our many years of experience and continuous spirit of innovation have made us a trusted partner for companies around the world. Trust in the proven technology of Styrotec to optimize your production processes and take your manufacturing to the next level.",
 		"unternehmen-news-titel": "Stay updated.",
 		"unternehmen-überUns-titel": "Styrotec and More...",
 		"unternehmen-karriere-titel": "Looking for a job?",
@@ -179,10 +179,10 @@
 		"FS15": "FS 15",
 		"FS15-text": "The FS 15 series represents uncompromising performance in machining exceptionally large workpieces. Its design as an HSC 5-axis gantry machine ensures outstanding stability and precision. It is ideally suited for demanding applications that require both flexibility and high machining speeds.",
 		"FS20": "FS 20",
-		"FS20-text": "The FS 20 series was specifically developed for cost-effective milling operations. With its fixed portal and movable table, it enables highly efficient and flexible machining. It is ideal for production with a high degree of automation and is also widely used in the concrete industry.",
+		"FS20-text": "The FS 20 series was specifically developed for cost-effective milling operations. With its fixed portal and movable table, it enables highly efficient and flexible machining. It is ideal for production with a high degree of automation and is also widely used in the concrete sector.",
 		"hybrid": "Hybrid - 3D",
 		"hybrid-text": "Hybrid manufacturing combines two processes: additive manufacturing (3D printing) enables fast, precise, and cost-effective production of components from plastic materials. Subtractive manufacturing (CNC milling) refines surfaces and shapes the component into its final form. The integration of both processes in one environment defines hybrid manufacturing.",
-		"vorratsmaschinen": "In-Stock Machines",
+		"vorratsmaschinen": "stock Machines",
 		"vorratsmaschinen-text": "We always keep a selection of our Styrotec portal milling machines in stock for fast delivery. Need to expand your machine fleet on short notice without waiting for long lead times? Our stock machines are the perfect solution! You’re also welcome to visit and inspect them on-site."
 	},
 	"optionen": {
@@ -236,7 +236,7 @@
 	},
 	"fs20": {
 		"übersicht-titel": "Our FS 20 series - For maximum efficiency and cost-effectiveness",
-		"übersicht-text": "The FS 20 series has been specially developed for cost-effective milling. With its fixed portal and movable table, it enables highly efficient and flexible operation. It is ideal for manufacturing with a high degree of automation and is also widely used in the concrete industry.",
+		"übersicht-text": "The FS 20 series has been specially developed for cost-effective milling. With its fixed portal and movable table, it enables highly efficient and flexible operation. It is ideal for manufacturing with a high degree of automation and is also widely used in the concrete sector.",
 		"übersicht-punkt1": "Robust and efficient",
 		"übersicht-punkt2": "High degree of automation",
 		"übersicht-punkt3": "High cost-effectiveness",
@@ -278,7 +278,7 @@
 		"fräsprozess-text": "Parts produced via 3D printing often require post-processing to achieve better dimensional and surface tolerances. The combination of additive and subtractive manufacturing allows for high-speed additive printing of components, with functional areas being refined using subtractive methods. Machining is often more productive and cost-effective than additive methods, especially for less complex geometries. Many parts consist of various geometric regions, and by combining both methods, the most suitable technique is applied for each area. In many cases, it is difficult or impractical to produce finished parts solely through additive manufacturing, so post-processing through machining is commonly required. Hybrid machines with integrated 3D printers help significantly reduce this effort."
 	},
 	"vorratsmaschinen": {
-		"übersicht-titel": "Styrotec In-Stock Machines - fast and uncomplicated",
+		"übersicht-titel": "Styrotec stock Machines - fast and uncomplicated",
 		"übersicht-text": "We always keep some of our Styrotec portal milling machines in stock to ensure fast delivery.",
 		"übersicht-text2": "Do you want to expand your machine park at short notice and can't afford to wait for long delivery times? Then our stock machines are sure to have the right option for you! You are also welcome to visit and inspect the machines on-site."
 	},

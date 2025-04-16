@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_page_components_hero_carousel",
+  "info": {
+    "displayName": "HeroCarousel",
+    "icon": "picture",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "pictures": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

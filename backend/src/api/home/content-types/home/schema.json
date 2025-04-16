@@ -32,7 +32,7 @@
         }
       }
     },
-    "TEST": {
+    "TESTasd": {
       "type": "blocks",
       "required": true,
       "pluginOptions": {
@@ -48,6 +48,16 @@
         }
       },
       "type": "string"
+    },
+    "test": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "test.test-component"
     }
   }
 }

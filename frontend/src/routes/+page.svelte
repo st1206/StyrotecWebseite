@@ -3,7 +3,6 @@
 	import * as Carousel2 from '$lib/components/ui/carousel';
 	import KatCard from '$lib/components/katCard.svelte';
 	import * as Accordion from '$lib/components/ui/accordion';
-	import { _ } from 'svelte-i18n';
 	import halle from '$lib/assets/images/ueberUns/halle_klein.jpg';
 	import portal from '$lib/assets/images/homepage/bild_innenraum.jpg';
 	import pressen from '$lib/assets/images/homepage/MSP500_klein.jpg';
@@ -18,18 +17,9 @@
 	import plane from '$lib/assets/images/branchen/plane_dunkel.png';
 	import ship from '$lib/assets/images/branchen/ship_dunkel.png';
 	import { Button } from '$lib/components/ui/button';
+	import { _ } from 'svelte-i18n';
 
 	let { data } = $props();
-	let carouselHeight = 700;
-
-	let texts = ['fräsen mit leidenschaft', 'and more', 'Hier steht info']; // Deine Texte
-	let index = $state(0);
-
-	function nextText() {
-		index = (index + 1) % texts.length;
-	}
-
-	setInterval(nextText, 5000);
 </script>
 
 <svelte:head>
@@ -42,14 +32,16 @@
 		<div>skeleton build</div>
 	{:then homepageData}
 		<div class="relative left-0 top-0 w-[100%]">
-			<Carousel height={carouselHeight} autoPlay={true} pictures={homepageData.carousel} />
+			<!-- {#if homepageData.carousel.length > 0}
+				<Carousel height={carouselHeight} autoPlay={true} pictures={homepageData.carousel} />
+			{/if} -->
 		</div>
 
 		<div
-			class=" flex flex-row flex-wrap gap-12 bg-secondary p-4 text-primary-foreground lg:p-12 lg:pt-24"
+			class=" bg-secondary text-primary-foreground flex flex-row flex-wrap gap-12 p-4 lg:p-12 lg:pt-24"
 		>
 			<div class="w-[90%] pl-4 text-lg lg:w-[50%] lg:pl-8">
-				<h1 class="pb-2 font-boldFont text-2xl uppercase md:text-3xl lg:text-4xl xl:text-5xl">
+				<h1 class="font-boldFont pb-2 text-2xl uppercase md:text-3xl lg:text-4xl xl:text-5xl">
 					{$_('homepage.einführung-titel')}
 				</h1>
 				<p class="text-justify">{$_('homepage.einführung-text')}</p>
@@ -65,10 +57,10 @@
 			>
 				<a href="/unternehmen/ueber-uns">
 					<div
-						class="h-[200px] w-[100%] rounded-lg bg-primary-foreground/45 hover:bg-primary-foreground/65 lg:h-[400px]"
+						class="bg-primary-foreground/45 hover:bg-primary-foreground/65 h-[200px] w-[100%] rounded-lg lg:h-[400px]"
 					>
 						<h2
-							class="p-16 text-center font-boldFont text-2xl uppercase text-secondary md:text-3xl lg:p-32 lg:text-4xl xl:text-5xl"
+							class="font-boldFont text-secondary p-16 text-center text-2xl uppercase md:text-3xl lg:p-32 lg:text-4xl xl:text-5xl"
 						>
 							Lernen sie mehr über uns !
 						</h2>
@@ -79,8 +71,8 @@
 
 		<!-- Produkte -->
 		<div>
-			<div class="mx-[5%] mt-[100px] bg-secondary">
-				<h1 class="text-center font-boldFont text-5xl uppercase">Unsere Produktgruppen</h1>
+			<div class="bg-secondary mx-[5%] mt-[100px]">
+				<h1 class="font-boldFont text-center text-5xl uppercase">Unsere Produktgruppen</h1>
 				<div class="flex flex-col flex-wrap justify-around gap-[5%] md:flex-row">
 					<!-- portalfräs card-->
 					<KatCard
@@ -123,9 +115,9 @@
 				class="h-auto w-full bg-[url($lib/assets/images/homepage/weltkarte.png)] bg-cover bg-center"
 			>
 				<div
-					class="relative h-full w-full bg-primary-foreground/85 p-16 text-secondary md:p-16 lg:p-32 xl:p-44"
+					class="bg-primary-foreground/85 text-secondary relative h-full w-full p-16 md:p-16 lg:p-32 xl:p-44"
 				>
-					<h1 class="text-m mb-10 font-boldFont text-xl md:text-2xl xl:text-4xl">
+					<h1 class="text-m font-boldFont mb-10 text-xl md:text-2xl xl:text-4xl">
 						{$_(`homepage.weltweit-titel`)}
 					</h1>
 					<p class="text-justify text-sm md:text-lg xl:text-2xl">
@@ -142,12 +134,12 @@
 					class=" w-full bg-[url($lib/assets/images/homepage/bild_innenraum.jpg)] bg-cover bg-center xl:[clip-path:polygon(0%_10%,100%_0%,100%_100%,0%_100%)]"
 				>
 					<div class=" h-[800px] w-full bg-gradient-to-r from-black via-black/25 to-black">
-						<h1 class=" pt-32 text-center font-boldFont text-5xl uppercase text-secondary">
+						<h1 class=" font-boldFont text-secondary pt-32 text-center text-5xl uppercase">
 							Styrotec - Wissenswertes
 						</h1>
 						<Accordion.Root
 							type="single"
-							class="absolute  ml-[10%] mt-[10%]  w-[80%] object-cover text-secondary xl:ml-64 xl:mt-32 xl:max-w-[70%] xl:text-3xl"
+							class="text-secondary  absolute ml-[10%]  mt-[10%] w-[80%] object-cover xl:ml-64 xl:mt-32 xl:max-w-[70%] xl:text-3xl"
 						>
 							<Accordion.Item value="item-1">
 								<Accordion.Trigger>{$_('homepage.unternehmen-news-titel')}</Accordion.Trigger>
@@ -155,7 +147,7 @@
 									<!-- TODO: Inhalt zu news etc. -->
 
 									<Button
-										class="border-2 border-secondary text-xl text-secondary md:text-2xl lg:text-3xl"
+										class="border-secondary text-secondary border-2 text-xl md:text-2xl lg:text-3xl"
 										href="/unternehmen/news-termine"
 									>
 										News & Termine
@@ -167,7 +159,7 @@
 								<Accordion.Content class="xl:text-xl">
 									<!-- TODO: Über uns Inhalt. -->
 									<Button
-										class="border-2 border-secondary text-xl text-secondary md:text-2xl lg:text-3xl"
+										class="border-secondary text-secondary border-2 text-xl md:text-2xl lg:text-3xl"
 										href="/unternehmen/news-termine">Über Uns</Button
 									>
 								</Accordion.Content>
@@ -177,7 +169,7 @@
 								<Accordion.Content>
 									<!-- TODO: Karriere -->
 									<Button
-										class="border-2 border-secondary text-xl text-secondary md:text-2xl lg:text-3xl"
+										class="border-secondary text-secondary border-2 text-xl md:text-2xl lg:text-3xl"
 										href="/unternehmen/news-termine">Karriere</Button
 									>
 								</Accordion.Content>
@@ -191,7 +183,7 @@
 		<!-- Dienstleistungen -->
 		<div class="my-32">
 			<!-- TODO: Texte überschriften und Bilder anpassen -->
-			<h1 class="mb-32 px-4 text-center font-boldFont text-5xl uppercase md:px-32 lg:px-64">
+			<h1 class="font-boldFont mb-32 px-4 text-center text-5xl uppercase md:px-32 lg:px-64">
 				Wir bieten nicht nur Produkte, sondern auch den Service und Logistik darum...
 			</h1>
 			<div class="w-full">
@@ -202,7 +194,7 @@
 								class="h-[250px] w-[100%] rounded-lg bg-[url($lib/assets/images/homepage/NorbertRolf_klein.jpg)] bg-cover bg-center md:h-[400px] lg:h-[500px]"
 							>
 								<div
-									class="relative h-full w-full rounded-lg bg-primary-foreground/75 p-4 text-secondary md:p-12 lg:p-20 xl:p-32"
+									class="bg-primary-foreground/75 text-secondary relative h-full w-full rounded-lg p-4 md:p-12 lg:p-20 xl:p-32"
 								>
 									<div class="h-[300px] w-[300px]">
 										<h1 class="font-boldFont text-lg uppercase md:text-3xl lg:text-4xl xl:text-5xl">
@@ -220,7 +212,7 @@
 								class="h-[250px] w-[100%] rounded-lg bg-[url($lib/assets/images/homepage/NorbertRolf_klein.jpg)] bg-cover bg-center md:h-[400px] lg:h-[500px]"
 							>
 								<div
-									class="relative h-full w-full rounded-lg bg-primary-foreground/75 p-4 text-secondary md:p-12 lg:p-20 xl:p-32"
+									class="bg-primary-foreground/75 text-secondary relative h-full w-full rounded-lg p-4 md:p-12 lg:p-20 xl:p-32"
 								>
 									<div class="h-[300px] w-[300px]">
 										<h1 class="font-boldFont text-xl uppercase md:text-3xl">
@@ -236,7 +228,7 @@
 								class="h-[250px] w-[100%] rounded-lg bg-[url($lib/assets/images/homepage/NorbertRolf_klein.jpg)] bg-cover bg-center md:h-[400px] lg:h-[500px]"
 							>
 								<div
-									class="relative h-full w-full rounded-lg bg-primary-foreground/75 p-4 text-secondary md:p-12 lg:p-20 xl:p-32"
+									class="bg-primary-foreground/75 text-secondary relative h-full w-full rounded-lg p-4 md:p-12 lg:p-20 xl:p-32"
 								>
 									<div class="h-[300px] w-[300px]">
 										<h1 class="font-boldFont text-xl uppercase md:text-3xl">
@@ -249,10 +241,10 @@
 						</Carousel2.Item>
 					</Carousel2.Content>
 					<Carousel2.Previous
-						class="left-10 border-2 border-primary-foreground bg-secondary bg-opacity-70 text-primary-foreground hover:bg-primary md:left-16 lg:left-32 xl:left-64"
+						class="border-primary-foreground bg-secondary text-primary-foreground hover:bg-primary left-10 border-2 bg-opacity-70 md:left-16 lg:left-32 xl:left-64"
 					/>
 					<Carousel2.Next
-						class="right-10 border-2 border-primary-foreground bg-secondary/15 bg-opacity-70 text-primary-foreground hover:bg-primary md:right-16 lg:right-32 xl:right-64"
+						class="border-primary-foreground bg-secondary/15 text-primary-foreground hover:bg-primary right-10 border-2 bg-opacity-70 md:right-16 lg:right-32 xl:right-64"
 					/>
 				</Carousel2.Root>
 			</div>
@@ -264,7 +256,7 @@
 				<a href="/branchen/#automobil" class="group w-[80%] sm:w-[25%]">
 					<div>
 						<h2
-							class="text-center font-boldFont text-xl uppercase md:text-2xl lg:text-3xl xl:text-5xl"
+							class="font-boldFont text-center text-xl uppercase md:text-2xl lg:text-3xl xl:text-5xl"
 						>
 							{$_('branchen.auto-titel')}
 						</h2>
@@ -279,7 +271,7 @@
 				<a href="/branchen/#schiffsbau" class="group w-[80%] sm:w-[25%]">
 					<div>
 						<h2
-							class="text-center font-boldFont text-xl uppercase md:text-2xl lg:text-3xl xl:text-5xl"
+							class="font-boldFont text-center text-xl uppercase md:text-2xl lg:text-3xl xl:text-5xl"
 						>
 							{$_('branchen.schiff-titel')}
 						</h2>
@@ -294,7 +286,7 @@
 				<a href="/branchen/#aerospace" class="group w-[80%] sm:w-[25%]">
 					<div>
 						<h2
-							class="text-center font-boldFont text-xl uppercase md:text-2xl lg:text-3xl xl:text-5xl"
+							class="font-boldFont text-center text-xl uppercase md:text-2xl lg:text-3xl xl:text-5xl"
 						>
 							{$_('branchen.luft-titel')}
 						</h2>
@@ -309,7 +301,7 @@
 				<a href="/branchen/#modellbau" class="group w-[80%] sm:w-[25%]">
 					<div>
 						<h2
-							class="text-center font-boldFont text-xl uppercase md:text-2xl lg:text-3xl xl:text-5xl"
+							class="font-boldFont text-center text-xl uppercase md:text-2xl lg:text-3xl xl:text-5xl"
 						>
 							{$_('branchen.modell-titel')}
 						</h2>
@@ -324,7 +316,7 @@
 				<a href="/branchen/#kunststoffindustrie" class="group w-[80%] sm:w-[25%]">
 					<div>
 						<h2
-							class="text-center font-boldFont text-xl uppercase md:text-2xl lg:text-3xl xl:text-5xl"
+							class="font-boldFont text-center text-xl uppercase md:text-2xl lg:text-3xl xl:text-5xl"
 						>
 							{$_('branchen.kunststoff-titel')}
 						</h2>
@@ -339,7 +331,7 @@
 				<a href="/branchen/#betonindustrie" class="group w-[80%] sm:w-[25%]">
 					<div>
 						<h2
-							class="text-center font-boldFont text-xl uppercase md:text-2xl lg:text-3xl xl:text-5xl"
+							class="font-boldFont text-center text-xl uppercase md:text-2xl lg:text-3xl xl:text-5xl"
 						>
 							{$_('branchen.beton-titel')}
 						</h2>
@@ -354,7 +346,7 @@
 				<a href="/branchen/#werbetechnik" class="group w-[80%] sm:w-[25%]">
 					<div>
 						<h2
-							class="text-center font-boldFont text-xl uppercase md:text-2xl lg:text-3xl xl:text-5xl"
+							class="font-boldFont text-center text-xl uppercase md:text-2xl lg:text-3xl xl:text-5xl"
 						>
 							{$_('branchen.werbe-titel')}
 						</h2>
@@ -369,7 +361,7 @@
 				<a href="/branchen/#kunst" class="group w-[80%] sm:w-[25%]">
 					<div>
 						<h2
-							class="text-center font-boldFont text-xl uppercase md:text-2xl lg:text-3xl xl:text-5xl"
+							class="font-boldFont text-center text-xl uppercase md:text-2xl lg:text-3xl xl:text-5xl"
 						>
 							{$_('branchen.kunst-titel')}
 						</h2>

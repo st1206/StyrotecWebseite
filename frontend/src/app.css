@@ -4,7 +4,6 @@
 
 @layer base {
 	:root {
-		/* mehr für die komponenten von shadcn */
 		--background: 38 86% 73%;
 		--foreground: 36 5% 19%;
 		--muted: 210 40% 96.1%; /* hellgrau*/
@@ -19,7 +18,7 @@
 		--destructive: 0 72.2% 50.6%; /* rot */
 		--destructive-foreground: 210 40% 98%; /* hellgrau */
 		--ring: 222.2 84% 4.9%;
-		--radius: 0.5rem;
+		--radius: 0rem;
 		--sidebar-background: 0 0% 98%;
 		--sidebar-foreground: 240 5.3% 26.1%; /* dunkelgrau */
 		--sidebar-primary: 240 5.9% 10%;
@@ -29,13 +28,10 @@
 		--sidebar-border: 220 13% 91%;
 		--sidebar-ring: 217.2 91.2% 59.8%;
 
-		/* würde ich anpassen */
 		--primary: 38 93% 52%; /* orange */
 		--primary-foreground: 36 5% 19%; /* dunkelgrau */
-		/* secondary wird auch von komponenten öfter benutzt. ist meistens einfach ne "softere" version von primary */
 		--secondary: 38 57% 92%; /* beige   38 86% 73%*/
 		--secondary-foreground: 36 5% 19%; /*dunkelgrau*/
-		/* wenn du sehr spezielle farben hast würde ich neue variablen anlegen, damit die komponenten nicht zu wild in farben werden */
 		--tertiary: 210 40% 96.1%;
 		--tertiary-foreground: 38 88% 67%; /* helleres gelb */
 		--border: 214.3 31.8% 91.4%;
@@ -58,47 +54,18 @@
 		src: local('boldItalicFont'), url('/fonts/boldItalicFont/OfficinaSansStd-BoldItalic.otf');
 		font-weight: italic;
 	}
+
 	* {
 		@apply border-border;
 	}
 	body {
-		@apply bg-background text-foreground;
+		@apply bg-secondary text-foreground;
 		@apply font-bookFont;
-	}
-
-	/* === Scrollbars === */
-
-	::-webkit-scrollbar {
-		@apply w-1;
-		@apply h-1;
-	}
-
-	::-webkit-scrollbar-track {
-		@apply !bg-background;
-	}
-	::-webkit-scrollbar-thumb {
-		@apply rounded-xl !bg-muted-foreground;
-	}
-
-	/* Firefox */
-	/* https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-color#browser_compatibility */
-	html {
-		scrollbar-color: hsl(var(--foreground));
-		@apply scroll-smooth;
-	}
-
-	.hide-scrollbar::-webkit-scrollbar {
-		display: none;
-	}
-
-	.hide-scrollbar {
-		-ms-overflow-style: none;
-		scrollbar-width: none;
 	}
 
 	/* === Highlighting === */
 	::selection {
-		@apply bg-muted-foreground;
+		@apply bg-primary-foreground;
 		@apply text-white;
 	}
 

@@ -1,0 +1,67 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fs20s",
+  "info": {
+    "singularName": "fs20",
+    "pluralName": "fs20s",
+    "displayName": "FS20",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "pictures": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "xAxisTravel": {
+      "type": "string",
+      "required": true
+    },
+    "yAxisTravel": {
+      "type": "string",
+      "required": true
+    },
+    "zAxisTravel": {
+      "type": "string",
+      "required": true
+    },
+    "xFeedRate": {
+      "type": "string",
+      "required": true
+    },
+    "yFeedRate": {
+      "type": "string",
+      "required": true
+    },
+    "zFeedRate": {
+      "type": "string",
+      "required": true
+    },
+    "aAxisTravel": {
+      "type": "string",
+      "required": true
+    },
+    "cAxisTravel": {
+      "type": "string",
+      "required": true
+    },
+    "controlSystem": {
+      "type": "string",
+      "required": true
+    },
+    "enclosureDimensions": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

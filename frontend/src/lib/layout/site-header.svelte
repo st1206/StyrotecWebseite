@@ -1,141 +1,173 @@
 <script lang="ts">
-	import { menu } from '$lib/config/routes';
-	import { SvelteMap } from 'svelte/reactivity';
-	import MobileNav from './mobile-nav.svelte';
 	import { Icons } from '$lib/assets/icons';
-	import LanguageToggle from '$lib/components/language-toggle.svelte';
-	import { clickOutside } from '$lib/utils';
-	import { _ } from 'svelte-i18n';
-	import { Button } from '$lib/components/ui/button';
+	import Button from '$lib/components/ui/button/button.svelte';
+	import { menu } from '$lib/config/routes';
+	import { clickOutside, cn } from '$lib/utils';
+	import { onDestroy } from 'svelte';
+	import { backInOut } from 'svelte/easing';
+	import { SvelteMap } from 'svelte/reactivity';
+	import { fade, fly } from 'svelte/transition';
 
-	let isOpenMap = new SvelteMap();
+	type MenuState = {
+		hovered: boolean;
+		open: boolean;
+	};
+
+	let itemStateMap = new SvelteMap<number, MenuState>();
+
+	function closeAll(): void {
+		for (const [k, state] of itemStateMap.entries()) {
+			itemStateMap.set(k, { hovered: false, open: false });
+		}
+	}
+
+	function handleMouseEnter(itemId: number): void {
+		closeAll();
+		itemStateMap.set(itemId, { hovered: true, open: true });
+	}
+
+	function handleMouseLeave(itemId: number): void {
+		const current = itemStateMap.get(itemId) ?? { hovered: false, open: false };
+		itemStateMap.set(itemId, { hovered: false, open: current.open });
+	}
+
+	function isAnyItemOpen(): boolean {
+		return Array.from(itemStateMap.values()).some((state) => state.open);
+	}
+
+	function onlyThisItemActive(itemId: number): boolean {
+		const thisItem = itemStateMap.get(itemId);
+		if (!thisItem || (!thisItem.hovered && !thisItem.open)) {
+			return false;
+		}
+
+		for (const [k, st] of itemStateMap.entries()) {
+			if (k !== itemId && (st.hovered || st.open)) {
+				return false;
+			}
+		}
+		return true;
+	}
 </script>
 
+<div class="absolute top-0 h-20 w-full bg-primary-foreground"></div>
+
 <nav
-	class="fixed z-50 flex w-full items-center justify-between gap-2 bg-primary-foreground p-3 shadow-[10px_10px_15px_rgba(0,0,0,0.45)]"
+	use:clickOutside={closeAll}
+	onmouseleave={closeAll}
+	class={cn(
+		isAnyItemOpen()
+			? 'h-[450px] bg-primary-foreground/100 supports-[backdrop-filter]:bg-primary-foreground/100'
+			: 'h-20 bg-primary-foreground/95 supports-[backdrop-filter]:bg-primary-foreground/80',
+		'fixed top-0 z-40 w-full p-2 px-8 shadow-lg backdrop-blur transition-all duration-300 ease-in-out'
+	)}
 >
-	<!-- logo -->
-	<a class="ml-2 w-24" href="/"><img src={Icons.logo} alt="Logo" /></a>
+	<div class="flex h-16 items-center justify-between gap-2">
+		<!-- Logo -->
+		<a class="w-24" href="/">
+			<img src={Icons.logo} alt="Logo" />
+		</a>
 
-	<div class="flex gap-2">
-		<!-- searchbar -->^
-
-		<!-- menu -->
-		<div class="relative hidden lg:flex">
-			{#each menu as item}
-				<button
-					use:clickOutside={() => isOpenMap.set(item.id, false)}
-					class="text-md z-20 mx-4 w-[150px] rounded-lg bg-primary-foreground font-boldFont text-xl uppercase text-secondary hover:text-primary xl:w-[200px] xl:text-xl"
-					onclick={() => {
-						const isCurrentlyOpen = isOpenMap.get(item.id) ?? false;
-						isOpenMap.forEach((_, key) => isOpenMap.set(key, false));
-						isOpenMap.set(item.id, !isCurrentlyOpen);
-					}}
+		<div class="hidden lg:flex">
+			{#each menu as item, i}
+				<Button
+					variant="ghost"
+					class={cn(
+						i < menu.length - 1 ? 'border-r-2' : '',
+						onlyThisItemActive(item.id) ? 'bg-primary' : '',
+						'h-full -skew-x-[15deg] cursor-default text-xl uppercase text-white transition duration-300 hover:bg-primary hover:text-white'
+					)}
+					onmouseenter={() => handleMouseEnter(item.id)}
+					onmouseleave={() => handleMouseLeave(item.id)}
 				>
-					{$_(`nav.${item.key}`)}
-				</button>
+					<span class="mx-8 skew-x-[15deg]">
+						{item.key}
+					</span>
+				</Button>
+			{/each}
+		</div>
 
-				{#if isOpenMap.get(item.id)}
-					{#if item.megaMenu}
-						<!-- Mega Menü ab hier-->
-						<div
-							class="fixed left-0 top-[60px] flex h-full w-full justify-around gap-8 bg-primary-foreground bg-opacity-90 p-2 pt-10 backdrop-blur-sm"
-						>
-							<button
-								class="fixed right-6 bg-secondary px-2 hover:bg-primary"
-								onclick={() => isOpenMap.set(item.id, false)}
+		<Button>
+			<span class="skew-x-[15deg]">Onlineshop</span>
+		</Button>
+	</div>
+
+	{#if isAnyItemOpen()}
+		<div
+			class="container mt-16 flex justify-around"
+			in:fly={{ y: -30, duration: 300 }}
+			out:fly={{ y: -30, duration: 200 }}
+		>
+			{#each menu as item}
+				<!-- If this item is open and has a megaMenu array -->
+				{#if itemStateMap.get(item.id)?.open && item.megaMenu}
+					{#each item.megaMenu as column, i}
+						<!-- Only insert this column if showItems is true -->
+						<div class="flex flex-col gap-6">
+							<a
+								class="text-3xl font-bold text-primary hover:underline"
+								onclick={closeAll}
+								href="/"
 							>
-								✕
-							</button>
-							{#each item.megaMenu as column}
-								<!-- nur für Branchen wegen Bilder -->
-								{#if column.key == 'branchen'}
-									<div class="flex w-[70%] flex-row flex-wrap justify-between gap-10 py-[100px]">
-										{#each column.items as item}
-											<a href={item.link} class="h-auto w-[20%] text-2xl text-primary">
-												<h2 class="text-center">{$_(`nav.${item.key}`) ?? item.key}</h2>
-												<img src={item.ImageUrl} alt="logo" class=" rounded-lg" />
-											</a>
-										{/each}
-									</div>
-								{:else}
-									<!-- Rest ohne Bilder -->
-									<div class="mega-menu-column mt-36">
-										<h4>
-											<a
-												class="text-3xl font-bold text-primary hover:underline"
-												onclick={() =>
-													isOpenMap.forEach((value, key) => {
-														isOpenMap.set(key, false);
-													})}
-												href={column.link}
-											>
-												{$_(`nav.${column.key}`) ?? column.key}
-											</a>
-										</h4>
-										<ul>
-											{#each column.items as subitem}
-												<li>
-													<a
-														class="text-2xl text-secondary hover:text-secondary hover:underline"
-														onclick={() =>
-															isOpenMap.forEach((value, key) => {
-																isOpenMap.set(key, false);
-															})}
-														href={subitem.link}
-													>
-														{$_(`nav.${subitem.key}`) ?? subitem.key}
-													</a>
-												</li>
-											{/each}
-										</ul>
-									</div>
-								{/if}
-							{/each}
+								{column.key}
+							</a>
+
+							<ul class="flex flex-col gap-1">
+								{#each column.items as subitem, j}
+									<!-- Only insert the li if showChildren is true -->
+									<li>
+										<a
+											class=" text-lg text-white hover:underline"
+											onclick={closeAll}
+											href={subitem.link}
+										>
+											{subitem.key}
+										</a>
+									</li>
+								{/each}
+							</ul>
 						</div>
-					{/if}
+					{/each}
 				{/if}
 			{/each}
 		</div>
-	</div>
-	<Button
-		size="sm"
-		class="bg-primary text-xl text-secondary"
-		href="https://styrotec.shop/"
-		target="_blank"
-	>
-		Onlineshop
-	</Button>
-	<div class="flex gap-4">
-		<!-- language toggle -->
-		<LanguageToggle />
-		<div>&#128270</div>
-		<!-- mobile menu -->
-		<div class="lg:hidden">
-			<MobileNav />
-		</div>
-	</div>
+	{/if}
 </nav>
+{#if isAnyItemOpen()}
+	<div
+		transition:fade={{ duration: 300 }}
+		class="fixed left-0 top-20 z-30 h-full w-full backdrop-blur-sm"
+	></div>
+{/if}
+<!-- 
+{#each item.megaMenu as column, i}
+<div
+    class="my-4 flex flex-col"
+    in:fly={{ y: -30, easing: backInOut, duration: 300, delay: 120 }}
+    out:fly={{ y: -30, easing: backInOut, duration: 200 }}
+>
+    <h4>
+        <a
+            class="text-3xl font-bold text-primary hover:underline"
+            onclick={() => closeAll()}
+            href="/"
+        >
+            {column.key}
+        </a>
+    </h4>
 
-<style>
-	.mega-menu-column {
-		min-width: 150px;
-		padding-left: 3%;
-	}
-
-	.mega-menu-column h4 {
-		color: #f6edde;
-		font-size: 2rem;
-		margin-bottom: 0.5rem;
-	}
-
-	.mega-menu-column ul {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-	}
-
-	.mega-menu-column ul li {
-		margin-bottom: 0.5rem;
-	}
-</style>
+    <ul>
+        {#each column.items as subitem, i}
+            <li>
+                <a
+                    class="text-2xl text-secondary hover:text-secondary hover:underline"
+                    onclick={() => closeAll()}
+                    href={subitem.link}
+                >
+                    {subitem.key}
+                </a>
+            </li>
+        {/each}
+    </ul>
+</div>
+{/each} -->

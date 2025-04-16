@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "metal-presses",
+  "info": {
+    "singularName": "metal-press",
+    "pluralName": "metal-presses",
+    "displayName": "Metallpressen",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "throughput": {
+      "type": "string",
+      "required": true
+    },
+    "briquetteFormat": {
+      "type": "string",
+      "required": true
+    },
+    "motorPower": {
+      "type": "string",
+      "required": true
+    },
+    "pressingForce": {
+      "type": "string",
+      "required": true
+    },
+    "dimensions": {
+      "type": "string",
+      "required": true
+    },
+    "weight": {
+      "type": "string",
+      "required": true
+    },
+    "pictures": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "slug": {
+      "type": "uid",
+      "required": true
+    }
+  }
+}
