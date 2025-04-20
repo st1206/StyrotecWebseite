@@ -55,29 +55,21 @@
 			</div>
 		</div>
 		<Separator class="hidden w-full bg-white/20 lg:block" orientation="horizontal" />
-		<div class="hidden w-full items-center justify-between py-16 lg:flex">
-			<div class=" flex w-max flex-col gap-8">
-				<img src={Icons.logoLight} alt="Logo" class="h-20 w-max" />
-				<!-- <div class="flex flex-col gap-1">
-				<span class="font-sans font-medium">Adresse</span>
-				<span class="font-sans">
-					Styrotec GmbH + Co KG <br />
-					Kartonstr. 2<br />
-					88255 Baienfurt <br />
-				</span>
-			</div> -->
+		<div class=" flex w-full items-center justify-center py-16 lg:justify-between">
+			<div class="flex w-max flex-col gap-8">
+				<img src={Icons.logoLight} alt="Logo" class="mx-auto h-20 w-max lg:mx-0" />
 				<div class="flex gap-6">
 					<div class="flex flex-col gap-1">
-						<span class="font-sans font-medium">Email</span>
+						<span class="mx-auto font-sans font-medium lg:mx-0">Email</span>
 						<span class="font-sans">info@styrotec.com</span>
 					</div>
 					<div class="flex flex-col gap-1">
-						<span class="items-center font-sans font-medium">Telefonnummer</span>
+						<span class="mx-auto items-center font-sans font-medium lg:mx-0">Telefonnummer</span>
 						<span class="font-sans">+49 751 56050-20</span>
 					</div>
 				</div>
 			</div>
-			<div class="flex font-sans lg:gap-8 xl:gap-16">
+			<div class="hidden font-sans lg:flex lg:gap-8 xl:gap-16">
 				{#each menu as menuItems}
 					<div>
 						<h3 class="text-primary mb-4 font-semibold capitalize">{$_(`nav.${menuItems.key}`)}</h3>
