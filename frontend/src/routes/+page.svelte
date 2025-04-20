@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Carousel from '$lib/components/carousel.svelte';
 	import * as Carousel2 from '$lib/components/ui/carousel';
 	import KatCard from '$lib/components/katCard.svelte';
 	import * as Accordion from '$lib/components/ui/accordion';

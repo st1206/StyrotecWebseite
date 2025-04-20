@@ -13,43 +13,39 @@ export const menu = [
 	{
 		id: 1,
 		key: 'products',
-		megaMenu: [
+		menuRoutes: [
 			{
 				key: 'gantryMachines',
-				items: [
-					{ key: 'fs10', link: '/produkte/portalfraesmaschinen/fs10' },
-					{ key: 'fs15', link: '/produkte/portalfraesmaschinen/fs15' },
-					{ key: 'fs20', link: '/produkte/portalfraesmaschinen/fs20' },
-					{ key: 'hybrid3D', link: '/produkte/portalfraesmaschinen/hybrid-3d' },
-					{ key: 'stockMachines', link: '/produkte/portalfraesmaschinen/vorratsmaschinen' }
+				routeChildren: [
+					{ key: 'fs10' },
+					{ key: 'fs15' },
+					{ key: 'fs20' },
+					{ key: 'hybrid3D' },
+					{ key: 'stockMachines' }
 				]
 			},
 			{
 				key: 'chipPresses',
-				items: [
-					{ key: 'metals', link: '/produkte/spaenepressen/metalle' },
-					{ key: 'synthetics', link: '/produkte/spaenepressen/kunststoffe' },
-					{ key: 'styrofoam', link: '/produkte/spaenepressen/styropor' }
-				]
+				routeChildren: [{ key: 'metals' }, { key: 'synthetics' }, { key: 'styrofoam' }]
 			},
 			{
 				key: 'styrofoamProcessing',
-				items: [
-					{ key: 'millingTools', link: '/produkte/styroporbearbeitung/fräswerkzeuge' },
-					{ key: 'hollowMillingSpindles', link: '/produkte/styroporbearbeitung/hohlfrässpindeln' },
-					{ key: 'suction', link: '/produkte/styroporbearbeitung/absaugungen' },
-					{ key: 'shredder', link: '/produkte/styroporbearbeitung/zerkleinerer' },
+				routeChildren: [
+					{ key: 'millingTools' },
+					{ key: 'hollowMillingSpindles' },
+					{ key: 'suction' },
+					{ key: 'shredder' },
 					// { key: 'presses', link: '/produkte/spaenepressen/styropor' },
-					{ key: 'material', link: '/produkte/styroporbearbeitung/material/#rohmaterial' },
-					{ key: 'material', link: '/produkte/styroporbearbeitung/material/#kleber' }
+					{ key: 'rawmaterial' },
+					{ key: 'glue' }
 				]
 			},
 			{
 				key: 'usedMachines',
-				items: [
-					{ key: 'cncMachines', link: '/produkte/gebrauchtmaschinen/cnc-maschinen' },
+				routeChildren: [
+					{ key: 'cncMachines' },
 					// { key: 'cncComponentParts', link: '/produkte/gebrauchtmaschinen/cnc-zubehoer' },
-					{ key: 'conventionalMachines', link: '/produkte/gebrauchtmaschinen/modellbaumaschinen' } // ?!? Modellbaumaschinen !== Konventionelle
+					{ key: 'conventionalMachines' } // ?!? Modellbaumaschinen !== Konventionelle
 					// {
 					// 	key: 'holzbearbeitungsmaschinen',
 					// 	link: '/produkte/gebrauchtmaschinen/modellbaumaschinen'
@@ -61,12 +57,10 @@ export const menu = [
 	{
 		id: 2,
 		key: 'dienstleistungen',
-		link: '/about',
-		megaMenu: [
+		menuRoutes: [
 			{
 				key: 'maschinenerhaltung',
-				link: '/dienstleistungen/maschinenerhaltung',
-				items: [
+				routeChildren: [
 					{ key: 'spindelservice', link: '/dienstleistungen/maschinenerhaltung/spindelservice' },
 					{ key: 'wartungen', link: '/dienstleistungen/maschinenerhaltung/wartungen' },
 					{ key: 'reparaturen', link: '/dienstleistungen/maschinenerhaltung/reparaturen' },
@@ -76,7 +70,7 @@ export const menu = [
 			{
 				key: 'maschinenvermarktung',
 				link: '/dienstleistungen/maschinenvermarktung',
-				items: [
+				routeChildren: [
 					{ key: 'bewertung', link: '/dienstleistungen/maschinenvermarktung/bewertung' },
 					{ key: 'vermittlung', link: '/dienstleistungen/maschinenvermarktung/vermittlung' },
 					{ key: 'ankauf', link: '/dienstleistungen/maschinenvermarktung/ankauf' }
@@ -85,7 +79,7 @@ export const menu = [
 			{
 				key: 'maschinenmodernisierung',
 				link: '/dienstleistungen/maschinenmodernisierung',
-				items: [
+				routeChildren: [
 					{ key: 'retrofit', link: '/dienstleistungen/maschinenmodernisierung/retrofit' },
 					{ key: 'überholung', link: '/dienstleistungen/maschinenmodernisierung/überholung' }
 				]
@@ -95,12 +89,10 @@ export const menu = [
 	{
 		id: 3,
 		key: 'branchen',
-		link: '/branchen',
-		megaMenu: [
+		menuRoutes: [
 			{
 				key: 'branchen',
-				link: '/branchen/branchen',
-				items: [
+				routeChildren: [
 					{ key: 'automobil', link: '/branchen/#automobil', ImageUrl: auto },
 					{ key: 'schiffsbau', link: '/branchen/#schiffsbau', ImageUrl: ship },
 					{ key: 'aerospace', link: '/branchen/#aerospace', ImageUrl: plane },
@@ -120,12 +112,10 @@ export const menu = [
 	{
 		id: 4,
 		key: 'unternehmen',
-		link: '/unternehmen',
-		megaMenu: [
+		menuRoutes: [
 			{
 				key: 'ueberUns',
-				link: '/unternehmen/ueber-uns',
-				items: [
+				routeChildren: [
 					{ key: 'team', link: '/unternehmen/ueber-uns/#team' },
 					{ key: 'werte-mission-vission', link: '/unternehmen/ueber-uns/#werte' },
 					{ key: 'historie', link: '/unternehmen/ueber-uns/#historie' },
@@ -135,14 +125,14 @@ export const menu = [
 			{
 				key: 'karriere',
 				link: '/unternehmen/karriere',
-				items: [
+				routeChildren: [
 					{ key: 'stellenausschreibung', link: '/unternehmen/karriere/#stellenausschreibung' }
 				]
 			},
 			{
 				key: 'news',
 				link: '/unternehmen/news-termine',
-				items: [
+				routeChildren: [
 					//{ key: 'anwenderstories', link: '/unternehmen/news-termine/#anwenderstories' },
 					{ key: 'referenzen', link: '/unternehmen/news-termine/#referenzen' },
 					{ key: 'messen', link: '/unternehmen/news-termine/#messen' }

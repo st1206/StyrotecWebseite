@@ -26,27 +26,29 @@
 	});
 </script>
 
-<section class="mt-36 sm:container sm:mx-auto">
-	<h2 class="mb-12 text-center font-boldFont text-xl uppercase md:text-2xl lg:text-5xl">
+<section class="mb-32 mt-20 sm:container sm:mx-auto lg:mt-28 xl:my-36">
+	<h2 class="font-boldFont mb-12 text-center text-3xl uppercase md:text-4xl">
 		{data.sectionTitle}
 	</h2>
 
-	<div class="grid grid-cols-3 gap-8">
+	<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 		{#each data.previewCards as card, i}
 			<div
-				class="relative"
+				class="relative shadow-md"
 				onmouseenter={() => handleMouseEnter(i)}
 				onmouseleave={handleMouseLeave}
 				aria-hidden="true"
 			>
 				<Card.Root
-					class="group relative h-[600px] w-full 
-						cursor-pointer 
+					class="group relative h-[300px] 
+						w-full 
 						overflow-hidden 
-						shadow-[5px_5px_0_transparent] 
-						transition duration-500 
-						hover:shadow-[8px_8px_0_#f6a313] 
-						focus:outline-none"
+						shadow-[5px_5px_0_transparent] transition 
+						duration-500 
+						hover:shadow-[8px_8px_0_#f6a313]
+						focus:outline-none
+						lg:h-[400px]
+						"
 				>
 					{#if card.thumbnail}
 						<img
@@ -70,20 +72,20 @@
 							shadow-lg
 						"
 						style="
-							transform: translateY({hoveredIndex === i ? '0px' : overlayHeights[i] - 88 + 'px'});
+							transform: translateY({hoveredIndex === i ? '0px' : overlayHeights[i] - 72 + 'px'});
 							transition: transform 0.2s ease-in-out;
 						"
 					>
 						<Card.Header>
 							<Card.Title class="flex items-end justify-between">
 								<h3 class="font-boldFont">{card.title}</h3>
-								<h4 class="text-end font-sans text-sm font-medium tracking-wide text-primary">
+								<h4 class="text-primary text-end font-sans text-sm font-medium tracking-wide">
 									Portalfräsmaschinen
 								</h4>
 							</Card.Title>
 						</Card.Header>
 
-						<Card.Content class="prose text-justify font-sans font-medium">
+						<Card.Content class="prose text-justify font-sans text-xs font-medium">
 							{@html card.content}
 						</Card.Content>
 

@@ -3,6 +3,7 @@
 	import * as Carousel from '$lib/components/ui/carousel';
 	import { PUBLIC_BACKEND_URL } from '$env/static/public';
 	import type { CarouselAPI, CarouselOptions } from '$lib/components/ui/carousel/context';
+	import { innerWidth } from 'svelte/reactivity/window';
 
 	let data = $props();
 
@@ -52,15 +53,26 @@
 </script>
 
 <section class="sm:container">
-	<div class="relative -mx-8 mt-32 xl:shadow-[5px_5px_0_#f6a313]">
+	<div class="relative -mx-8 mt-20 lg:mx-auto lg:mt-32 lg:w-full lg:shadow-[5px_5px_0_#f6a313]">
+		<div
+			class="from-primary/90 via-primary/20 absolute inset-0 z-10 bg-gradient-to-r to-transparent"
+		></div>
+
+		<!-- Text content -->
+		<div class="absolute inset-y-0 z-20 flex items-center pl-2 sm:container">
+			<h1 class="font-boldFont text-4xl text-white drop-shadow-md lg:text-5xl">
+				Fräsen mit <br /> Leidenschaft
+			</h1>
+		</div>
+
 		<Carousel.Root
 			setApi={(emblaApi) => (api = emblaApi)}
 			plugins={[Autoplay(autoPlayOptions)]}
 			opts={carouselOptions}
 		>
-			<Carousel.Content style={`max-height: ${600}px`}>
+			<Carousel.Content style={`height: ${(innerWidth?.current ?? 0) > 1440 ? 600 : 500}px`}>
 				{#each data.pictures as picture, i}
-					<Carousel.Item class="pl-0 ">
+					<Carousel.Item class="pl-0">
 						<img
 							class="h-full w-full object-cover"
 							src={!PUBLIC_BACKEND_URL.includes('https')
@@ -73,7 +85,7 @@
 			</Carousel.Content>
 		</Carousel.Root>
 
-		<div class="absolute bottom-5 left-1/2 flex -translate-x-1/2 flex-col items-center">
+		<div class="absolute bottom-5 right-10 z-40 flex flex-col items-center">
 			<!-- Dot Navigation -->
 			<div class="flex space-x-2">
 				{#each Array.from({ length: count }, (_, i) => i + 1) as slide (slide)}
@@ -88,3 +100,6 @@
 		</div>
 	</div>
 </section>
+<div
+	class="bg-primary h-[15px] w-full [clip-path:polygon(0%_0%,100%_0%,85%_100%,0%_100%)] lg:hidden"
+></div>

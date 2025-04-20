@@ -1,60 +1,42 @@
+// src/hooks.server.ts
 import { pages, type Lang, type SlugKey } from '$lib/config/pages';
-import { redirect, type Handle, type RequestEvent } from '@sveltejs/kit';
+import { redirect, type Handle } from '@sveltejs/kit';
+import { DEFAULT_LOCALE, languages } from '$lib/i18n';
 
 export const handle: Handle = async ({ event, resolve }) => {
-	dynamicReroute(event);
+	const { pathname } = event.url;
 
-	// PERMANENT ROUTES
-	// if (event.url.pathname.startsWith('/unternehmen')) {
-	//     redirect(308, '/');
-	// }
+	const segments = pathname.split('/').filter(Boolean);
 
-	// TODO ADD TO DYNAMIC REROUTING
-	if (event.url.pathname === '/de/produkte') {
-		redirect(308, '/produkte/portalfraesmaschinen');
-	} else if (event.url.pathname === '/en/products') {
-		redirect(308, '/en/products/gantry-machines');
+	if (!pathname.includes('de/') && !pathname.includes('en/')) {
+		const acceptLang = event.request.headers.get('accept-language');
+		const browserLang = acceptLang?.split(',')[0] || '';
+		const matched = languages.find((l) => browserLang.startsWith(l.code.split('-')[0]));
+		const target = matched?.code ?? DEFAULT_LOCALE;
+		const prefix = target.split('-')[0];
+
+		redirect(307, `/${prefix}${pathname}`);
 	}
 
-	return resolve(event, {
-		filterSerializedResponseHeaders(name) {
-			return name === 'content-range';
-		}
-	});
-};
-
-function dynamicReroute(event: RequestEvent<Partial<Record<string, string>>, string | null>) {
-	// Split the pathname into segments (e.g. ['de', 'products', 'gantry-machines'])
-	const segments = event.url.pathname.split('/').filter(Boolean);
-	if (segments.length < 1) {
-		redirect(308, '/de/start');
-	}
-
-	// The first segment is the language code.
 	const lang = segments[0] as Lang;
-	// The remaining segments form the incoming slug.
 	const incomingSlug = segments.slice(1).join('/');
+
 	if (!incomingSlug) {
 		redirect(308, `/${lang}/start`);
 	}
 
-	// Helper: find the page in the unified pages object using the computed slug key.
 	const getPageKeyBySlug = (slug: string): string | null => {
-		// Tell TS this dynamic key is one of "deSlug" | "enSlug"
 		const slugKey = `${lang}Slug` as SlugKey;
 		for (const [key, page] of Object.entries(pages)) {
-			if (page[slugKey] === slug) {
-				return key;
-			}
+			if (page[slugKey] === slug) return key;
 		}
 		return null;
 	};
 
 	let pageKey = getPageKeyBySlug(incomingSlug);
-	// Optionally, try searching all pages if no match in the current language was found.
+
 	if (!pageKey) {
 		for (const [key, page] of Object.entries(pages)) {
-			// A fallback check: does the slug match any language slug?
 			if (page.deSlug === incomingSlug || page.enSlug === incomingSlug) {
 				pageKey = key;
 				break;
@@ -62,19 +44,26 @@ function dynamicReroute(event: RequestEvent<Partial<Record<string, string>>, str
 		}
 	}
 
-	if (!pageKey) {
-		// Let the request continue (or handle a 404 as desired)
-		return;
+	if (pageKey) {
+		const correctSlug = pages[pageKey][`${lang}Slug` as SlugKey];
+		if (incomingSlug !== correctSlug) {
+			redirect(308, `/${lang}/${correctSlug}`);
+		}
 	}
 
-	// Now retrieve the expected slug for the current language.
-	const slugKey = `${lang}Slug` as SlugKey;
-	const page = pages[pageKey];
-	const correctSlug = page[slugKey];
-
-	// If the incoming slug doesn't match, redirect to the correct URL.
-	if (incomingSlug !== correctSlug) {
-		const newPath = `/${lang}/${correctSlug}`;
-		redirect(308, newPath);
+	// Example of permanent custom redirects
+	if (pathname === '/de/produkte') {
+		redirect(308, '/produkte/portalfraesmaschinen');
+	} else if (pathname === '/en/products') {
+		redirect(308, '/en/products/gantry-machines');
 	}
-}
+
+	event.locals.lang = lang;
+	console.log('lang', lang);
+
+	return resolve(event, {
+		filterSerializedResponseHeaders(name) {
+			return name === 'content-range';
+		}
+	});
+};

@@ -2,7 +2,6 @@
 	import { sectionMap } from '$lib/sections';
 
 	let { data } = $props();
-	console.log(data);
 </script>
 
 {#if data.pageContent}

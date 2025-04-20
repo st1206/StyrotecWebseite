@@ -1,7 +1,8 @@
 <script lang="ts">
 	import '../app.css';
 	import SiteHeader from '$lib/layout/site-header.svelte';
-	import logo from '$lib/assets/images/Logo_schwarzeSchrift_orange.gif';
+	import SiteFooter from '$lib/layout/site-footer.svelte';
+	import { _ } from 'svelte-i18n';
 
 	let { children } = $props();
 </script>
@@ -18,7 +19,7 @@
 	<meta property="og:description" content={} />
 	<meta property="og:site_name" content={} />
 	<meta property="og:locale" content="DE_DE" /> -->
-	<link rel="shortcut icon" href={logo} />
+	<!-- <link rel="shortcut icon" href={logo} /> -->
 </svelte:head>
 
 <!-- root layout  -->
@@ -29,6 +30,6 @@
 		{@render children()}
 	</main>
 	<!-- <BottomContactForm />
-	<SiteContact />
-	<SiteFooter /> -->
+	<SiteContact /> -->
+	<SiteFooter />
 </div>

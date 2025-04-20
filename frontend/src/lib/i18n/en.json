@@ -21,90 +21,67 @@
 		"rechtliches": "Legal"
 	},
 	"nav": {
-		"produkte": "Products",
-
-		"portalfraesmaschinen": "Portal Milling Machines",
-
+		"home": "Home",
+		"gantryMachines": "Gantry Machines",
 		"fs10": "FS 10",
 		"fs15": "FS 15",
 		"fs20": "FS 20",
 		"hybrid3D": "Hybrid - 3D",
-		"vorratsmaschinen": "stock Machines",
+		"stockMachines": "Stock Machines",
+		"chipPresses": "Chip Presses",
+		"metals": "Metals",
+		"synthetics": "Plastics",
+		"styrofoam": "Styrofoam",
+		"styrofoamProcessing": "Styrofoam Processing",
+		"millingTools": "Milling Tools",
+		"hollowMillingSpindles": "Hollow Milling Spindles",
+		"suction": "Suction Systems",
+		"shredder": "Shredder",
+		"material": "Raw Material",
+		"usedMachines": "Used Machines",
+		"cncMachines": "CNC Machines",
+		"conventionalMachines": "Model Building Machines",
 
-		"spaenepressen": "Briquettpress",
+		"products": "Products",
+		"presses": "Presses",
 
-		"metalle": "Metalls",
-		"kunststoffe": "Plastics",
-		"styropor": "Styrofoam",
-
-		"styroporbearbeitung": "Styrofoam Machining",
-
-		"fräswerkzeuge": "Milling Tools",
-		"hohlfrässpindeln": "Hollow Milling Spindle",
-		"absaugungen": "Suction Systems",
-		"zerkleinerer": "Shredder",
-		"pressen": "Presses",
-		"rohmaterial": "Raw Material",
 		"kleber": "Adhesive",
-
-		"gebrauchtmaschinen": "Used Machines",
-
-		"cnc-maschinen": "CNC Machines",
-		"cnc-zubehör": "CNC Accessories",
-		"modellbaumaschinen": "Model Building Machines",
+		"cncZubehoer": "CNC Accessories",
 		"holzbearbeitungsmaschinen": "Woodworking Machines",
-
 		"dienstleistungen": "Services",
-
 		"maschinenerhaltung": "Machine Maintenance",
-
 		"spindelservice": "Spindle Service",
 		"wartungen": "Maintenance",
 		"reparaturen": "Repairs",
-		"maschinenumzüge": "Moving Machines",
-
+		"maschinenumzuege": "Moving Machines",
 		"maschinenvermarktung": "Machine Marketing",
-
 		"bewertung": "Evaluation",
 		"vermittlung": "Mediation",
 		"ankauf": "Purchase",
-
 		"maschinenmodernisierung": "Machine Modernization",
-
 		"retrofit": "Retrofit",
-		"überholung": "Overhaul",
-
-		"Branchen": "Industries",
-
+		"ueberholung": "Overhaul",
 		"branchen": "Industries",
-
 		"automobil": "Automotive",
 		"schiffsbau": "Shipbuilding",
-		"modellbau": "Modell Making",
-		"kunststoffindustrie": "Plastic Industrie",
-		"betonindustrie": "Concrete Industrie",
+		"modellbau": "Model Making",
+		"kunststoffindustrie": "Plastic Industry",
+		"betonindustrie": "Concrete Industry",
 		"werbetechnik": "Advertising Technology",
 		"aerospace": "Aerospace",
 		"kunst": "Art",
-
 		"unternehmen": "Company",
-
 		"ueberUns": "About Us",
-
 		"team": "Team",
-		"werte-mission-vission": "Philosophy",
+		"werteMissionVission": "Philosophy",
 		"historie": "History",
 		"nachhaltigkeit": "Sustainability",
-
 		"karriere": "Career",
-
 		"stellenausschreibung": "Job Openings",
-
 		"news": "News",
-
 		"anwenderstories": "Customer Stories",
 		"referenzen": "References",
-		"messen": "Messen"
+		"messen": "Exhibitions"
 	},
 
 	"sprachen": {

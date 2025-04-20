@@ -1,12 +1,13 @@
 <script lang="ts">
 	import { Icons } from '$lib/assets/icons';
 	import Button from '$lib/components/ui/button/button.svelte';
+	import { pages } from '$lib/config/pages';
 	import { menu } from '$lib/config/routes';
 	import { clickOutside, cn } from '$lib/utils';
-	import { onDestroy } from 'svelte';
-	import { backInOut } from 'svelte/easing';
+	import { locale } from 'svelte-i18n';
 	import { SvelteMap } from 'svelte/reactivity';
 	import { fade, fly } from 'svelte/transition';
+	import { _ } from 'svelte-i18n';
 
 	type MenuState = {
 		hovered: boolean;
@@ -48,24 +49,39 @@
 		}
 		return true;
 	}
+
+	const slugMap: Record<keyof typeof pages, string> = $derived.by(() => {
+		const use = $locale === 'en-EN' ? 'enSlug' : 'deSlug';
+		const prefix = $locale === 'en-EN' ? '/en/' : '/de/';
+
+		return Object.fromEntries(
+			Object.entries(pages).map(([k, p]: any) => [k, prefix + p[use]])
+		) as Record<keyof typeof pages, string>;
+	});
+
+	function getLink<K extends keyof typeof pages>(key: K): string {
+		return slugMap[key];
+	}
+
+	$inspect($locale);
 </script>
 
-<div class="absolute top-0 h-20 w-full bg-primary-foreground"></div>
+<div class="bg-primary-foreground absolute top-0 h-20 w-full"></div>
 
 <nav
 	use:clickOutside={closeAll}
 	onmouseleave={closeAll}
 	class={cn(
 		isAnyItemOpen()
-			? 'h-[450px] bg-primary-foreground/100 supports-[backdrop-filter]:bg-primary-foreground/100'
-			: 'h-20 bg-primary-foreground/95 supports-[backdrop-filter]:bg-primary-foreground/80',
+			? 'bg-primary-foreground/100 supports-[backdrop-filter]:bg-primary-foreground/100 h-[450px]'
+			: 'bg-primary-foreground/95 supports-[backdrop-filter]:bg-primary-foreground/80 h-20',
 		'fixed top-0 z-40 w-full p-2 px-8 shadow-lg backdrop-blur transition-all duration-300 ease-in-out'
 	)}
 >
 	<div class="flex h-16 items-center justify-between gap-2">
 		<!-- Logo -->
 		<a class="w-24" href="/">
-			<img src={Icons.logo} alt="Logo" />
+			<img src={Icons.logoLight} alt="Logo" />
 		</a>
 
 		<div class="hidden lg:flex">
@@ -73,15 +89,15 @@
 				<Button
 					variant="ghost"
 					class={cn(
-						i < menu.length - 1 ? 'border-r-2' : '',
+						i < menu.length - 1 ? 'border-r-2 border-white/20' : '',
 						onlyThisItemActive(item.id) ? 'bg-primary' : '',
-						'h-full -skew-x-[15deg] cursor-default text-xl uppercase text-white transition duration-300 hover:bg-primary hover:text-white'
+						'hover:bg-primary h-full -skew-x-[15deg] cursor-default text-xl uppercase text-white transition duration-300 hover:text-white'
 					)}
 					onmouseenter={() => handleMouseEnter(item.id)}
 					onmouseleave={() => handleMouseLeave(item.id)}
 				>
-					<span class="mx-8 skew-x-[15deg]">
-						{item.key}
+					<span class="mx-4 skew-x-[15deg] xl:mx-8">
+						{$_(`nav.${item.key}`)}
 					</span>
 				</Button>
 			{/each}
@@ -98,30 +114,31 @@
 			in:fly={{ y: -30, duration: 300 }}
 			out:fly={{ y: -30, duration: 200 }}
 		>
-			{#each menu as item}
-				<!-- If this item is open and has a megaMenu array -->
-				{#if itemStateMap.get(item.id)?.open && item.megaMenu}
-					{#each item.megaMenu as column, i}
-						<!-- Only insert this column if showItems is true -->
+			{#each menu as menuItem}
+				{#if itemStateMap.get(menuItem.id)?.open && menuItem.menuRoutes.length}
+					{#each menuItem.menuRoutes as route}
 						<div class="flex flex-col gap-6">
 							<a
-								class="text-3xl font-bold text-primary hover:underline"
-								onclick={closeAll}
-								href="/"
+								class="text-primary text-3xl font-bold hover:underline"
+								href={getLink(route.key)}
+								onclick={(e) => {
+									closeAll();
+								}}
 							>
-								{column.key}
+								{$_(`nav.${route.key}`)}
 							</a>
 
 							<ul class="flex flex-col gap-1">
-								{#each column.items as subitem, j}
-									<!-- Only insert the li if showChildren is true -->
+								{#each route.routeChildren as routeChild}
 									<li>
 										<a
 											class=" text-lg text-white hover:underline"
-											onclick={closeAll}
-											href={subitem.link}
+											href={getLink(routeChild.key)}
+											onclick={(e) => {
+												closeAll();
+											}}
 										>
-											{subitem.key}
+											{$_(`nav.${routeChild.key}`)}
 										</a>
 									</li>
 								{/each}

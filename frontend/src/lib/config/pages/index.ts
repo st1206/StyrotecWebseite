@@ -175,9 +175,16 @@ export const pages: Record<string, PageContent> = {
 		cmsApiSlug: 'gantry-machine-page',
 		sections: [{ sectionKey: 'test', props: { headline: 'Shredder' } }]
 	},
-	material: {
-		deSlug: 'produkte/styroporbearbeitung/material',
-		enSlug: 'products/styrofoam-processing/material',
+	rawmaterial: {
+		deSlug: 'produkte/styroporbearbeitung/material#rohmaterial',
+		enSlug: 'products/styrofoam-processing/material#raw-material',
+		cmsTypeKey: 'gantryMachinePage',
+		cmsApiSlug: 'gantry-machine-page',
+		sections: [{ sectionKey: 'test', props: { headline: 'Material' } }]
+	},
+	glue: {
+		deSlug: 'produkte/styroporbearbeitung/material#kleber',
+		enSlug: 'products/styrofoam-processing/material#glue',
 		cmsTypeKey: 'gantryMachinePage',
 		cmsApiSlug: 'gantry-machine-page',
 		sections: [{ sectionKey: 'test', props: { headline: 'Material' } }]

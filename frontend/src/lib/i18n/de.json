@@ -21,63 +21,47 @@
 		"rechtliches": "Rechtliches"
 	},
 	"nav": {
-		"produkte": "Produkte",
-
-		"portalfraesmaschinen": "Portalfräsmaschinen",
-
+		"home": "Start",
+		"gantryMachines": "Portalfräsmaschinen",
 		"fs10": "FS 10",
 		"fs15": "FS 15",
 		"fs20": "FS 20",
 		"hybrid3D": "Hybrid - 3D",
-		"vorratsmaschinen": "Vorratsmaschinen",
+		"stockMachines": "Vorratsmaschinen",
+		"chipPresses": "Spänepressen",
+		"metals": "Metalle",
+		"synthetics": "Kunststoffe",
+		"styrofoam": "Styropor",
+		"styrofoamProcessing": "Styroporbearbeitung",
+		"millingTools": "Fräswerkzeuge",
+		"hollowMillingSpindles": "Hohlfrässpindeln",
+		"suction": "Absaugungen",
+		"shredder": "Zerkleinerer",
+		"material": "Rohmaterial",
+		"usedMachines": "Gebrauchtmaschinen",
+		"cncMachines": "CNC Maschinen",
+		"conventionalMachines": "Modellbaumaschinen",
 
-		"spaenepressen": "Spänepressen",
+		"products": "Produkte",
+		"presses": "Pressen",
 
-		"metalle": "Metalle",
-		"kunststoffe": "Kunststoffe",
-		"styropor": "Styropor",
-
-		"styroporbearbeitung": "Styroporbearbeitung",
-
-		"fräswerkzeuge": "Fräswerkzeuge",
-		"hohlfrässpindeln": "Hohlfrässpindeln",
-		"absaugungen": "Absaugungen",
-		"zerkleinerer": "Zerkleinerer",
-		"pressen": "Pressen",
-		"rohmaterial": "Rohmaterial",
 		"kleber": "Kleber",
-
-		"gebrauchtmaschinen": "Gebrauchtmaschinen",
-
-		"cnc-maschinen": "CNC Maschinen",
-		"cnc-zubehör": "CNC Zubehör",
-		"modellbaumaschinen": "Modellbaumaschinen",
+		"cncZubehoer": "CNC Zubehör",
 		"holzbearbeitungsmaschinen": "Holzbearbeitungsmaschinen",
-
 		"dienstleistungen": "Dienstleistungen",
-
 		"maschinenerhaltung": "Maschinenerhaltung",
-
 		"spindelservice": "Spindelservice",
 		"wartungen": "Wartungen",
 		"reparaturen": "Reparaturen",
-		"maschinenumzüge": "Maschinenumzüge",
-
+		"maschinenumzuege": "Maschinenumzüge",
 		"maschinenvermarktung": "Maschinenvermarktung",
-
 		"bewertung": "Bewertung",
 		"vermittlung": "Vermittlung",
 		"ankauf": "Ankauf",
-
 		"maschinenmodernisierung": "Maschinenmodernisierung",
-
 		"retrofit": "Retrofit",
-		"überholung": "Überholung",
-
-		"Branchen": "Branchen",
-
+		"ueberholung": "Überholung",
 		"branchen": "Branchen",
-
 		"automobil": "Automobil",
 		"schiffsbau": "Schiffsbau",
 		"modellbau": "Modellbau",
@@ -86,22 +70,15 @@
 		"werbetechnik": "Werbetechnik",
 		"aerospace": "Aerospace",
 		"kunst": "Kunst",
-
 		"unternehmen": "Unternehmen",
-
 		"ueberUns": "Über Uns",
-
 		"team": "Team",
-		"werte-mission-vission": "Werte",
+		"werteMissionVission": "Werte",
 		"historie": "Historie",
 		"nachhaltigkeit": "Nachhaltigkeit",
-
 		"karriere": "Karriere",
-
 		"stellenausschreibung": "Stellenausschreibung",
-
 		"news": "News",
-
 		"anwenderstories": "Anwenderstories",
 		"referenzen": "Referenzen",
 		"messen": "Messen"

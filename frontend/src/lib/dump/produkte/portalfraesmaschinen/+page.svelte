@@ -31,14 +31,14 @@
 	</div>
 {/await}
 <div
-	class="relative -top-[50px] h-[100px] w-full bg-primary [clip-path:polygon(0%_0%,100%_0%,81%_100%,0%_100%)] md:h-[100px]"
+	class="bg-primary relative -top-[50px] h-[100px] w-full [clip-path:polygon(0%_0%,100%_0%,81%_100%,0%_100%)] md:h-[100px]"
 ></div>
 
-<div class="flex flex-col bg-secondary py-[30px] lg:flex-row">
+<div class="bg-secondary flex flex-col py-[30px] lg:flex-row">
 	<div class="w-[90%] lg:w-[60%]">
 		<div class="relative mb-4 md:-left-[5%] xl:-left-[20%]">
 			<h3
-				class="pl-2 text-right font-boldFont text-xl uppercase text-primary-foreground md:pl-6 md:text-3xl lg:pl-12 lg:text-5xl"
+				class="font-boldFont text-primary-foreground pl-2 text-right text-xl uppercase md:pl-6 md:text-3xl lg:pl-12 lg:text-5xl"
 			>
 				{$_(`portalfraes.titel`)}
 			</h3>
@@ -59,32 +59,32 @@
 
 <div class="bg-secondary">
 	<div
-		class="flex h-auto w-full flex-col bg-primary-foreground py-8 pl-[5%] text-center text-secondary md:py-12 md:pl-[5%] lg:flex-row lg:py-24 lg:pl-[15%] lg:text-left"
+		class="bg-primary-foreground text-secondary flex h-auto w-full flex-col py-8 pl-[5%] text-center md:py-12 md:pl-[5%] lg:flex-row lg:py-24 lg:pl-[15%] lg:text-left"
 	>
 		<div class="w-[80%] text-xl lg:w-[50%]">
-			<div class=" mb-2 font-boldFont text-xl md:text-2xl xl:text-3xl">
+			<div class=" font-boldFont mb-2 text-xl md:text-2xl xl:text-3xl">
 				<span class="text-primary">&#x2713 </span>
 				{$_(`portalfraes.beschreibung-1`)}
 			</div>
-			<div class=" mb-2 font-boldFont text-xl md:text-2xl xl:text-3xl">
+			<div class=" font-boldFont mb-2 text-xl md:text-2xl xl:text-3xl">
 				<span class="text-primary">&#x2713 </span>
 				{$_(`portalfraes.beschreibung-2`)}
 			</div>
-			<div class=" mb-2 font-boldFont text-xl md:text-2xl xl:text-3xl">
+			<div class=" font-boldFont mb-2 text-xl md:text-2xl xl:text-3xl">
 				<span class="text-primary">&#x2713 </span>
 				{$_(`portalfraes.beschreibung-3`)}
 			</div>
 		</div>
 		<div class="w-[80%] text-xl lg:w-[50%]">
-			<div class=" mb-2 font-boldFont text-xl md:text-2xl xl:text-3xl">
+			<div class=" font-boldFont mb-2 text-xl md:text-2xl xl:text-3xl">
 				<span class="text-primary">&#x2713 </span>
 				{$_(`portalfraes.beschreibung-4`)}
 			</div>
-			<div class=" mb-2 font-boldFont text-xl md:text-2xl xl:text-3xl">
+			<div class=" font-boldFont mb-2 text-xl md:text-2xl xl:text-3xl">
 				<span class="text-primary">&#x2713 </span>
 				{$_(`portalfraes.beschreibung-5`)}
 			</div>
-			<div class=" mb-2 font-boldFont text-xl md:text-2xl xl:text-3xl">
+			<div class=" font-boldFont mb-2 text-xl md:text-2xl xl:text-3xl">
 				<span class="text-primary">&#x2713 </span>
 				{$_(`portalfraes.beschreibung-6`)}
 			</div>
@@ -94,7 +94,7 @@
 
 <div>
 	<div>
-		<div class="mx-[5%] my-[100px] bg-secondary">
+		<div class="bg-secondary mx-[5%] my-[100px]">
 			<div class="flex flex-col flex-wrap justify-around gap-[5%] md:flex-row">
 				<!-- FS10 karte -->
 				<KatCard

@@ -1,10 +1,13 @@
-import { LoaderCircle, Plus, type Icon as LucideIcon } from 'lucide-svelte';
-import Logo from '$lib/assets/images/Logo_weiseSchrift_orange.png';
+import { CopyrightIcon, LoaderCircle, Plus, type Icon as LucideIcon } from 'lucide-svelte';
+import LogoLight from './logo_light.png';
+import LogoDark from './logo_dark.png';
 
 export type Icon = LucideIcon;
 
 export const Icons = {
-	logo: Logo,
+	logoLight: LogoLight,
+	logoDark: LogoDark,
 	plus: Plus,
-	spinner: LoaderCircle
+	spinner: LoaderCircle,
+	copyright: CopyrightIcon
 };

@@ -61,7 +61,6 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 
 	// Load CMS data using the page's cmsApiSlug and assign the type via cmsTypeKey.
 	const cmsData = await getCMSDataForPage(matchedPage, lang);
-	console.log(cmsData);
 
 	return {
 		lang,
