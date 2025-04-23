@@ -26,12 +26,22 @@
       "required": true
     },
     "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "subtitle": {
+      "type": "string",
+      "required": false
+    },
+    "redirectSlug": {
+      "type": "string",
+      "unique": true,
+      "required": true
     }
   }
 }

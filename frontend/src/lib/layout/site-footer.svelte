@@ -24,9 +24,9 @@
 <footer class="bg-primary-foreground text-white">
 	<div class="sm:container">
 		<div class="flex items-end justify-between gap-4 py-8">
-			<span class="font-boldFont text-lg md:text-2xl"
-				>Folge uns auf unseren Social-Media-Kanälen!</span
-			>
+			<span class="font-boldFont text-lg md:text-2xl">
+				Folge uns auf unseren Social-Media-Kanälen!
+			</span>
 			<div class="flex gap-4 pl-4">
 				<Button
 					size="icon"
@@ -91,7 +91,7 @@
 			</div>
 		</div>
 		<Separator class="w-full bg-white/20" orientation="horizontal" />
-		<div class="sm:text-md flex justify-between py-4 text-xs">
+		<div class="flex justify-between py-4 text-xs sm:text-base">
 			<div class="flex items-center gap-2">
 				<Icons.copyright class="size-4" />
 				<h1 class="font-sans">2025 StyroTec GmbH & Co. KG</h1>

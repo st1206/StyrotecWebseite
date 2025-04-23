@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_partial_components_option_accordion_items",
+  "info": {
+    "displayName": "optionAccordionItem",
+    "icon": "filter",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "optionItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "partial-components.option-item",
+      "required": true
+    }
+  }
+}

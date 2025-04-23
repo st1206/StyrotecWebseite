@@ -100,7 +100,12 @@ export default {
 				'marquee-up': 'marquee-up var(--duration, 40s) linear infinite'
 			},
 
-			//screen sizes
+			fontSize: {
+				'3xl': ['1.7rem', { lineHeight: '2.25rem' }]
+			},
+			boxShadow: {
+				primary: '5px 5px 0 var(--primary)'
+			},
 			screens: {
 				sm: '480px',
 				md: '768px',

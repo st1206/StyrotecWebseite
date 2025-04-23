@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_page_components_hero_dual_images",
+  "info": {
+    "displayName": "heroDualImage",
+    "icon": "picture",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "keyword": {
+      "type": "string",
+      "required": true
+    },
+    "basicTextImage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "page-components.basic-text-image",
+      "required": true
+    },
+    "subKeyword": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

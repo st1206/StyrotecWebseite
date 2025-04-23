@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_partial_components_variant_cards",
+  "info": {
+    "displayName": "variantCard",
+    "icon": "priceTag",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "accordionItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "partial-components.variant-accordion-item",
+      "required": true
+    }
+  }
+}

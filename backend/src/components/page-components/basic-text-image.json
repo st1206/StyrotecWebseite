@@ -25,14 +25,14 @@
       "required": true,
       "customField": "plugin::ckeditor.CKEditor"
     },
-    "thumbnail": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "files",
         "images"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      ]
     }
   }
 }

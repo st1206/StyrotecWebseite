@@ -35,7 +35,7 @@ export const menu = [
 					{ key: 'hollowMillingSpindles' },
 					{ key: 'suction' },
 					{ key: 'shredder' },
-					// { key: 'presses', link: '/produkte/spaenepressen/styropor' },
+					{ key: 'presses', link: '/produkte/spaenepressen/styropor' },
 					{ key: 'rawmaterial' },
 					{ key: 'glue' }
 				]

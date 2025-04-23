@@ -1,0 +1,64 @@
+{
+  "kind": "singleType",
+  "collectionName": "chip_presses_pages",
+  "info": {
+    "singularName": "chip-presses-page",
+    "pluralName": "chip-presses-pages",
+    "displayName": "Brikettierpressen Seite",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "heroCarousel": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.hero-carousel",
+      "required": true
+    },
+    "basicTextImage": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.basic-text-image",
+      "required": true
+    },
+    "uspList": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "partial-components.usp-list",
+      "required": true
+    },
+    "exploreMore": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.explore-more",
+      "required": true
+    }
+  }
+}

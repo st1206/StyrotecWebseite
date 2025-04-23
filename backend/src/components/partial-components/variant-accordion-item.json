@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_partial_components_variant_accordion_items",
+  "info": {
+    "displayName": "variantAccordionItem",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "accordionItemLines": {
+      "type": "component",
+      "repeatable": true,
+      "component": "partial-components.variant-accordion-item-line",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_partial_components_variant_accordion_item_lines",
+  "info": {
+    "displayName": "variantAccordionItemLine",
+    "icon": "puzzle"
+  },
+  "options": {},
+  "attributes": {
+    "key": {
+      "type": "string",
+      "required": true
+    },
+    "value": {
+      "type": "string"
+    }
+  }
+}

@@ -15,24 +15,23 @@
     "title": {
       "type": "string"
     },
-    "testdyn": {
-      "type": "dynamiczone",
-      "components": [
-        "test.test-component",
-        "test.test"
-      ]
-    },
-    "pl": {
-      "type": "dynamiczone",
-      "components": [
-        "test.jzhvglkjh",
-        "test.ljh-khj"
-      ]
-    },
-    "nbgnvb": {
+    "heroDualImage": {
       "type": "component",
-      "repeatable": true,
-      "component": "test.test"
+      "repeatable": false,
+      "component": "page-components.hero-dual-image",
+      "required": true
+    },
+    "exploreVariants": {
+      "type": "component",
+      "repeatable": false,
+      "component": "page-components.explore-variants",
+      "required": true
+    },
+    "exploreOptions": {
+      "type": "component",
+      "repeatable": false,
+      "component": "page-components.explore-options",
+      "required": true
     }
   }
 }

@@ -8,6 +8,7 @@
 	import { SvelteMap } from 'svelte/reactivity';
 	import { fade, fly } from 'svelte/transition';
 	import { _ } from 'svelte-i18n';
+	import LanguageToggle from '$lib/components/language-toggle.svelte';
 
 	type MenuState = {
 		hovered: boolean;
@@ -66,19 +67,19 @@
 	$inspect($locale);
 </script>
 
-<div class="bg-primary-foreground absolute top-0 h-20 w-full"></div>
+<div class="bg-foreground absolute top-0 h-20 w-full"></div>
 
 <nav
 	use:clickOutside={closeAll}
 	onmouseleave={closeAll}
 	class={cn(
 		isAnyItemOpen()
-			? 'bg-primary-foreground/100 supports-[backdrop-filter]:bg-primary-foreground/100 h-[450px]'
-			: 'bg-primary-foreground/95 supports-[backdrop-filter]:bg-primary-foreground/80 h-20',
+			? 'supports-[backdrop-filter]:bg-foreground/100 h-[450px]'
+			: 'supports-[backdrop-filter]:bg-foreground/90 h-20',
 		'fixed top-0 z-40 w-full p-2 px-8 shadow-lg backdrop-blur transition-all duration-300 ease-in-out'
 	)}
 >
-	<div class="flex h-16 items-center justify-between gap-2">
+	<div class="flex h-16 items-center justify-between gap-2 sm:container">
 		<!-- Logo -->
 		<a class="w-24" href="/">
 			<img src={Icons.logoLight} alt="Logo" />
@@ -91,21 +92,27 @@
 					class={cn(
 						i < menu.length - 1 ? 'border-r-2 border-white/20' : '',
 						onlyThisItemActive(item.id) ? 'bg-primary' : '',
-						'hover:bg-primary h-full -skew-x-[15deg] cursor-default text-xl uppercase text-white transition duration-300 hover:text-white'
+						'hover:bg-primary font-boldFont text-secondary h-full -skew-x-[15deg] cursor-default uppercase transition duration-300 hover:text-white'
 					)}
 					onmouseenter={() => handleMouseEnter(item.id)}
 					onmouseleave={() => handleMouseLeave(item.id)}
 				>
-					<span class="mx-4 skew-x-[15deg] xl:mx-8">
+					<span class="text-md mx-4 skew-x-[15deg] xl:mx-8 xl:text-lg">
 						{$_(`nav.${item.key}`)}
 					</span>
 				</Button>
 			{/each}
 		</div>
 
-		<Button>
-			<span class="skew-x-[15deg]">Onlineshop</span>
-		</Button>
+		<div class="flex gap-3">
+			<LanguageToggle />
+			<Button>
+				<span class="flex skew-x-[15deg] items-center gap-2">
+					<Icons.store class="size-4" />
+					Onlineshop
+				</span>
+			</Button>
+		</div>
 	</div>
 
 	{#if isAnyItemOpen()}
@@ -119,7 +126,7 @@
 					{#each menuItem.menuRoutes as route}
 						<div class="flex flex-col gap-6">
 							<a
-								class="text-primary text-3xl font-bold hover:underline"
+								class="text-primary font-boldFont text-2xl hover:underline xl:text-3xl"
 								href={getLink(route.key)}
 								onclick={(e) => {
 									closeAll();
@@ -132,7 +139,7 @@
 								{#each route.routeChildren as routeChild}
 									<li>
 										<a
-											class=" text-lg text-white hover:underline"
+											class="text-md text-white hover:underline xl:text-lg"
 											href={getLink(routeChild.key)}
 											onclick={(e) => {
 												closeAll();
@@ -156,35 +163,3 @@
 		class="fixed left-0 top-20 z-30 h-full w-full backdrop-blur-sm"
 	></div>
 {/if}
-<!-- 
-{#each item.megaMenu as column, i}
-<div
-    class="my-4 flex flex-col"
-    in:fly={{ y: -30, easing: backInOut, duration: 300, delay: 120 }}
-    out:fly={{ y: -30, easing: backInOut, duration: 200 }}
->
-    <h4>
-        <a
-            class="text-3xl font-bold text-primary hover:underline"
-            onclick={() => closeAll()}
-            href="/"
-        >
-            {column.key}
-        </a>
-    </h4>
-
-    <ul>
-        {#each column.items as subitem, i}
-            <li>
-                <a
-                    class="text-2xl text-secondary hover:text-secondary hover:underline"
-                    onclick={() => closeAll()}
-                    href={subitem.link}
-                >
-                    {subitem.key}
-                </a>
-            </li>
-        {/each}
-    </ul>
-</div>
-{/each} -->

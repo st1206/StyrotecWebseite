@@ -1,32 +1,37 @@
 <script lang="ts">
 	import { PUBLIC_BACKEND_URL } from '$env/static/public';
+	import BlurFade from '$lib/components/blur-fade.svelte';
 
 	let data = $props();
 </script>
 
-<section
-	class="bg-secondary mx-auto mb-32 mt-20 flex w-full flex-col gap-16 sm:container lg:my-36 lg:flex-row"
->
-	<div class="flex w-full flex-col items-center justify-center">
-		<div class="mb-4">
-			<h2 class="font-boldFont text-right text-3xl uppercase md:text-4xl xl:text-5xl">
-				{data.title}
-			</h2>
-			<h3 class="text-right text-2xl uppercase xl:text-3xl">
-				{data.subtitle}
-			</h3>
+<BlurFade once={true} delay={0.1} duration={0.3}>
+	<section
+		class="bg-secondary mx-auto mb-32 mt-20 flex w-full flex-col gap-16 sm:container lg:my-36 lg:flex-row"
+	>
+		<div class="flex w-full flex-col items-center justify-center">
+			<div class="mb-4">
+				<h2
+					class="font-boldFont uppercases text-right text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl"
+				>
+					{data.title}
+				</h2>
+				<h3 class="text-right text-2xl uppercase xl:text-3xl">
+					{data.subtitle}
+				</h3>
+			</div>
+			<p class="prose prose-neutral prose-sm md:prose-base xl:prose-lg text-justify">
+				{@html data.content}
+			</p>
 		</div>
-		<p class="prose lg:prose-lg xl:prose-xl">
-			{@html data.content}
-		</p>
-	</div>
-	{#if data.thumbnail}
-		<img
-			src={!PUBLIC_BACKEND_URL.includes('https')
-				? `${PUBLIC_BACKEND_URL}${data.thumbnail.formats['large']?.url || data.thumbnail.url}`
-				: data.thumbnail.url}
-			alt={data.thumbnail.alternativeText}
-			class="mx-auto h-[300px] w-4/5 object-cover shadow-[5px_5px_0_#f6a313] md:h-[300px] lg:h-[330px] lg:w-auto xl:h-[400px]"
-		/>
-	{/if}
-</section>
+		{#if data.image}
+			<img
+				src={!PUBLIC_BACKEND_URL.includes('https')
+					? `${PUBLIC_BACKEND_URL}${data.image.formats['large']?.url || data.image.url}`
+					: data.image.url}
+				alt={data.image.alternativeText}
+				class="shadow-primary mx-auto h-[300px] w-auto object-cover md:h-[300px] lg:h-[330px] xl:h-[400px]"
+			/>
+		{/if}
+	</section>
+</BlurFade>

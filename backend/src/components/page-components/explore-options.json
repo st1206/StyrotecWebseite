@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_page_components_explore_options",
+  "info": {
+    "displayName": "exploreOptions",
+    "icon": "layer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "sectionTitle": {
+      "type": "string",
+      "required": true
+    },
+    "options": {
+      "type": "component",
+      "repeatable": true,
+      "component": "partial-components.option-accordion-item",
+      "required": true
+    }
+  }
+}

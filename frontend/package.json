@@ -42,6 +42,8 @@
 		"@tailwindcss/typography": "^0.5.15",
 		"embla-carousel-autoplay": "^8.6.0",
 		"svelte-eslint-parser": "^1.1.2",
-		"svelte-i18n": "^4.0.1"
+		"svelte-i18n": "^4.0.1",
+		"svelte-inview": "^4.0.4",
+		"svelte-motion": "^0.12.2"
 	}
 }

@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_partial_components_option_items",
+  "info": {
+    "displayName": "optionItem",
+    "icon": "command",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "licenseKey": "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NDU5NzExOTksImp0aSI6ImQyOGE2YzI1LWM0MWYtNDkzZC05YzA4LTUxMjcwNzQ5ZDkxNiIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJ3aGl0ZUxhYmVsIjp0cnVlLCJsaWNlbnNlVHlwZSI6InRyaWFsIiwiZmVhdHVyZXMiOlsiKiJdLCJ2YyI6ImZiNTMwYzIyIn0.Q3GyCISvyZOUR0DhrPkNdm-S13YsHndUpvOjacfv6e3UIPniOlO7xmNT-PCo0HZF0ljrGLQZYICR7G7r0u4C4A",
+        "preset": "rich"
+      },
+      "required": true,
+      "customField": "plugin::ckeditor.CKEditor"
+    }
+  }
+}

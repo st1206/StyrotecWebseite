@@ -384,17 +384,99 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    exploreOptions: Schema.Attribute.Component<
+      'page-components.explore-options',
+      false
+    > &
+      Schema.Attribute.Required;
+    exploreVariants: Schema.Attribute.Component<
+      'page-components.explore-variants',
+      false
+    > &
+      Schema.Attribute.Required;
+    heroDualImage: Schema.Attribute.Component<
+      'page-components.hero-dual-image',
+      false
+    > &
+      Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::about.about'> &
       Schema.Attribute.Private;
-    nbgnvb: Schema.Attribute.Component<'test.test', true>;
-    pl: Schema.Attribute.DynamicZone<['test.jzhvglkjh', 'test.ljh-khj']>;
     publishedAt: Schema.Attribute.DateTime;
-    testdyn: Schema.Attribute.DynamicZone<['test.test-component', 'test.test']>;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiChipPressesPageChipPressesPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'chip_presses_pages';
+  info: {
+    description: '';
+    displayName: 'Brikettierpressen Seite';
+    pluralName: 'chip-presses-pages';
+    singularName: 'chip-presses-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    basicTextImage: Schema.Attribute.Component<
+      'page-components.basic-text-image',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    exploreMore: Schema.Attribute.Component<
+      'page-components.explore-more',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heroCarousel: Schema.Attribute.Component<
+      'page-components.hero-carousel',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::chip-presses-page.chip-presses-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    uspList: Schema.Attribute.Component<'partial-components.usp-list', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
   };
 }
 
@@ -776,6 +858,68 @@ export interface ApiFairFair extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFs10PageFs10Page extends Struct.SingleTypeSchema {
+  collectionName: 'fs10_pages';
+  info: {
+    description: '';
+    displayName: 'FS10 Seite';
+    pluralName: 'fs10-pages';
+    singularName: 'fs10-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    exploreOptions: Schema.Attribute.Component<
+      'page-components.explore-options',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    exploreVariants: Schema.Attribute.Component<
+      'page-components.explore-variants',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heroDualImage: Schema.Attribute.Component<
+      'page-components.hero-dual-image',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::fs10-page.fs10-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFs10Fs10 extends Struct.CollectionTypeSchema {
   collectionName: 'fs10s';
   info: {
@@ -813,6 +957,68 @@ export interface ApiFs10Fs10 extends Struct.CollectionTypeSchema {
     yFeedRate: Schema.Attribute.String & Schema.Attribute.Required;
     zAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
     zFeedRate: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ApiFs15PageFs15Page extends Struct.SingleTypeSchema {
+  collectionName: 'fs15_pages';
+  info: {
+    description: '';
+    displayName: 'FS15 Seite';
+    pluralName: 'fs15-pages';
+    singularName: 'fs15-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    exploreOptions: Schema.Attribute.Component<
+      'page-components.explore-options',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    exploreVariants: Schema.Attribute.Component<
+      'page-components.explore-variants',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heroDualImage: Schema.Attribute.Component<
+      'page-components.hero-dual-image',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::fs15-page.fs15-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -896,14 +1102,14 @@ export interface ApiFs20Fs20 extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiGantryMachinePageGantryMachinePage
+export interface ApiGantryMachinesPageGantryMachinesPage
   extends Struct.SingleTypeSchema {
-  collectionName: 'gantry_machine_pages';
+  collectionName: 'gantry_machines_pages';
   info: {
     description: '';
     displayName: 'Portalfraesmaschinen Seite';
-    pluralName: 'gantry-machine-pages';
-    singularName: 'gantry-machine-page';
+    pluralName: 'gantry-machines-pages';
+    singularName: 'gantry-machines-page';
   };
   options: {
     draftAndPublish: true;
@@ -950,7 +1156,7 @@ export interface ApiGantryMachinePageGantryMachinePage
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::gantry-machine-page.gantry-machine-page'
+      'api::gantry-machines-page.gantry-machines-page'
     >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -1036,12 +1242,6 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'>;
     publishedAt: Schema.Attribute.DateTime;
-    test: Schema.Attribute.Component<'test.test-component', false> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     TESTasd: Schema.Attribute.Blocks &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -1092,6 +1292,68 @@ export interface ApiMetalPressMetalPress extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     weight: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ApiMetalsPageMetalsPage extends Struct.SingleTypeSchema {
+  collectionName: 'metals_pages';
+  info: {
+    description: '';
+    displayName: 'Metalle Seite';
+    pluralName: 'metals-pages';
+    singularName: 'metals-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    exploreOptions: Schema.Attribute.Component<
+      'page-components.explore-options',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    exploreVariants: Schema.Attribute.Component<
+      'page-components.explore-variants',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heroDualImage: Schema.Attribute.Component<
+      'page-components.hero-dual-image',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::metals-page.metals-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1798,17 +2060,21 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
+      'api::chip-presses-page.chip-presses-page': ApiChipPressesPageChipPressesPage;
       'api::cnc-machine.cnc-machine': ApiCncMachineCncMachine;
       'api::conventional-machine.conventional-machine': ApiConventionalMachineConventionalMachine;
       'api::employee.employee': ApiEmployeeEmployee;
       'api::fair.fair': ApiFairFair;
+      'api::fs10-page.fs10-page': ApiFs10PageFs10Page;
       'api::fs10.fs10': ApiFs10Fs10;
+      'api::fs15-page.fs15-page': ApiFs15PageFs15Page;
       'api::fs15.fs15': ApiFs15Fs15;
       'api::fs20.fs20': ApiFs20Fs20;
-      'api::gantry-machine-page.gantry-machine-page': ApiGantryMachinePageGantryMachinePage;
+      'api::gantry-machines-page.gantry-machines-page': ApiGantryMachinesPageGantryMachinesPage;
       'api::global.global': ApiGlobalGlobal;
       'api::home.home': ApiHomeHome;
       'api::metal-press.metal-press': ApiMetalPressMetalPress;
+      'api::metals-page.metals-page': ApiMetalsPageMetalsPage;
       'api::reference.reference': ApiReferenceReference;
       'api::stock-machine.stock-machine': ApiStockMachineStockMachine;
       'plugin::content-releases.release': PluginContentReleasesRelease;
