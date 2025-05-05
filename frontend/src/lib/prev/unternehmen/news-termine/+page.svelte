@@ -2,7 +2,7 @@
 <script lang="ts">
 	import MessenCard from '$lib/components/messenCard.svelte';
 	import header from '$lib/assets/images/news/messestand.jpg';
-	import CardCarousel from '$lib/components/cardCarousel.svelte';
+	import CardCarousel from '$lib/prev/cardCarousel.svelte';
 	import { _ } from 'svelte-i18n';
 
 	let { data } = $props();
@@ -15,7 +15,7 @@
 </div>
 
 <div class="p-4 md:p-10 xl:mx-[300px] xl:p-20">
-	<h1 class="my-4 ml-3 font-boldFont text-xl uppercase lg:text-2xl xl:text-5xl">
+	<h1 class="font-boldFont my-4 ml-3 text-xl uppercase lg:text-2xl xl:text-5xl">
 		{$_('news.header-titel')}
 	</h1>
 	<p class="text-justify text-lg lg:text-xl">{$_('news.header-text')}</p>
@@ -29,7 +29,7 @@
 		<div class="text-primary">waiting for data</div>
 	{:then referenzen}
 		<div
-			class="pb-4 text-center font-boldFont text-3xl uppercase text-primary-foreground md:pb-12 md:text-4xl lg:pb-16 lg:text-5xl xl:pb-24"
+			class="font-boldFont text-primary-foreground pb-4 text-center text-3xl uppercase md:pb-12 md:text-4xl lg:pb-16 lg:text-5xl xl:pb-24"
 		>
 			{$_('news.referenzen')}
 		</div>
@@ -38,7 +38,7 @@
 				<CardCarousel {referenzen} />
 			</div>
 		{:else}
-			<div class="mt-64 text-primary">no referenzen yet</div>
+			<div class="text-primary mt-64">no referenzen yet</div>
 		{/if}
 	{:catch}
 		Server Error...
@@ -48,12 +48,12 @@
 <div class="h-[100px]" id="messen"></div>
 
 <!-- TODO: Messen -->
-<div class="h-auto bg-primary-foreground px-[5%] py-6 md:py-12 lg:py-20 xl:py-32">
+<div class="bg-primary-foreground h-auto px-[5%] py-6 md:py-12 lg:py-20 xl:py-32">
 	{#await data.messens}
 		<div>waiting for data</div>
 	{:then messen}
 		<div
-			class="pb-4 text-center font-boldFont text-3xl uppercase text-secondary md:pb-12 md:text-4xl lg:pb-16 lg:text-5xl xl:pb-24"
+			class="font-boldFont text-secondary pb-4 text-center text-3xl uppercase md:pb-12 md:text-4xl lg:pb-16 lg:text-5xl xl:pb-24"
 		>
 			{$_('news.messen')}
 		</div>

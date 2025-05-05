@@ -20,7 +20,7 @@
       "type": "string",
       "required": true
     },
-    "basicTextImage": {
+    "heroTextImage": {
       "type": "component",
       "repeatable": false,
       "component": "page-components.basic-text-image",

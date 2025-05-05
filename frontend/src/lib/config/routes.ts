@@ -1,11 +1,4 @@
-import auto from '$lib/assets/images/branchen/auto_hell.png';
-import ads from '$lib/assets/images/branchen/ads_hell.png';
-import art from '$lib/assets/images/branchen/art_hell.png';
-import beton from '$lib/assets/images/branchen/beton_hell.png';
-import kunststoff from '$lib/assets/images/branchen/kunststoff_hell.png';
-import modell from '$lib/assets/images/branchen/modell_hell.png';
-import plane from '$lib/assets/images/branchen/plane_hell.png';
-import ship from '$lib/assets/images/branchen/ship_hell.png';
+import { Icons } from '$lib/assets/icons';
 
 export type MenuRoute = typeof menu;
 
@@ -35,7 +28,7 @@ export const menu = [
 					{ key: 'hollowMillingSpindles' },
 					{ key: 'suction' },
 					{ key: 'shredder' },
-					{ key: 'presses', link: '/produkte/spaenepressen/styropor' },
+					{ key: 'presses' },
 					{ key: 'rawmaterial' },
 					{ key: 'glue' }
 				]
@@ -61,52 +54,44 @@ export const menu = [
 			{
 				key: 'maschinenerhaltung',
 				routeChildren: [
-					{ key: 'spindelservice', link: '/dienstleistungen/maschinenerhaltung/spindelservice' },
-					{ key: 'wartungen', link: '/dienstleistungen/maschinenerhaltung/wartungen' },
-					{ key: 'reparaturen', link: '/dienstleistungen/maschinenerhaltung/reparaturen' },
-					{ key: 'maschinenumzüge', link: '/dienstleistungen/maschinenerhaltung/maschinenumzüge' }
+					{ key: 'spindelservice' },
+					{ key: 'wartungen' },
+					{ key: 'reparaturen' },
+					{ key: 'maschinenumzüge' }
 				]
 			},
 			{
 				key: 'maschinenvermarktung',
 				link: '/dienstleistungen/maschinenvermarktung',
-				routeChildren: [
-					{ key: 'bewertung', link: '/dienstleistungen/maschinenvermarktung/bewertung' },
-					{ key: 'vermittlung', link: '/dienstleistungen/maschinenvermarktung/vermittlung' },
-					{ key: 'ankauf', link: '/dienstleistungen/maschinenvermarktung/ankauf' }
-				]
+				routeChildren: [{ key: 'bewertung' }, { key: 'vermittlung' }, { key: 'ankauf' }]
 			},
 			{
 				key: 'maschinenmodernisierung',
 				link: '/dienstleistungen/maschinenmodernisierung',
-				routeChildren: [
-					{ key: 'retrofit', link: '/dienstleistungen/maschinenmodernisierung/retrofit' },
-					{ key: 'überholung', link: '/dienstleistungen/maschinenmodernisierung/überholung' }
-				]
+				routeChildren: [{ key: 'retrofit' }, { key: 'überholung' }]
 			}
 		]
 	},
 	{
 		id: 3,
-		key: 'branchen',
+		key: 'industries',
 		menuRoutes: [
+			{ key: 'automobil', anchor: '#automobil', icon: Icons.automotiveIndustry },
+			{ key: 'schiffsbau', anchor: '#schiffsbau', icon: Icons.shipBuildingIndustry },
+			{ key: 'aerospace', anchor: '#aerospace', icon: Icons.aerospaceIndustry },
+			{ key: 'modellbau', anchor: '#modellbau', icon: Icons.modelMakingIndustry },
 			{
-				key: 'branchen',
-				routeChildren: [
-					{ key: 'automobil', link: '/branchen/#automobil', ImageUrl: auto },
-					{ key: 'schiffsbau', link: '/branchen/#schiffsbau', ImageUrl: ship },
-					{ key: 'aerospace', link: '/branchen/#aerospace', ImageUrl: plane },
-					{ key: 'modellbau', link: '/branchen/#modellbau', ImageUrl: modell },
-					{
-						key: 'kunststoffindustrie',
-						link: '/branchen/#kunststoffindustrie',
-						ImageUrl: kunststoff
-					},
-					{ key: 'betonindustrie', link: '/branchen/#betonindustrie', ImageUrl: beton },
-					{ key: 'werbetechnik', link: '/branchen/#werbetechnik', ImageUrl: ads },
-					{ key: 'kunst', link: '/branchen/#kunst', ImageUrl: art }
-				]
-			}
+				key: 'kunststoffindustrie',
+				anchor: '#kunststoffindustrie',
+				icon: Icons.plasticsIndustry
+			},
+			{
+				key: 'betonindustrie',
+				anchor: '#betonindustrie',
+				icon: Icons.concreteIndustry
+			},
+			{ key: 'werbetechnik', anchor: '#werbetechnik', icon: Icons.adIndustry },
+			{ key: 'kunst', anchor: '#kunst', icon: Icons.artIndustry }
 		]
 	},
 	{

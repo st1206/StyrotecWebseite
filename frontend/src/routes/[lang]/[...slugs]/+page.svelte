@@ -5,7 +5,7 @@
 </script>
 
 {#if data.pageContent}
-	{console.log(data.pageContent)}
+	{console.log('pageContent', data.pageContent)}
 	{#each data.pageContent.sections as section}
 		{@const SectionComponent = sectionMap[section.sectionKey as keyof typeof sectionMap]}
 		{#if SectionComponent}

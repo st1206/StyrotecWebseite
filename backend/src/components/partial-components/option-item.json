@@ -1,7 +1,7 @@
 {
   "collectionName": "components_partial_components_option_items",
   "info": {
-    "displayName": "optionItem",
+    "displayName": "accordionItem",
     "icon": "command",
     "description": ""
   },
@@ -27,11 +27,16 @@
       "type": "customField",
       "options": {
         "output": "HTML",
-        "licenseKey": "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NDU5NzExOTksImp0aSI6ImQyOGE2YzI1LWM0MWYtNDkzZC05YzA4LTUxMjcwNzQ5ZDkxNiIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJ3aGl0ZUxhYmVsIjp0cnVlLCJsaWNlbnNlVHlwZSI6InRyaWFsIiwiZmVhdHVyZXMiOlsiKiJdLCJ2YyI6ImZiNTMwYzIyIn0.Q3GyCISvyZOUR0DhrPkNdm-S13YsHndUpvOjacfv6e3UIPniOlO7xmNT-PCo0HZF0ljrGLQZYICR7G7r0u4C4A",
+        "licenseKey": "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYyOTc1OTksImp0aSI6ImMyMTI4NzEyLTI0NGEtNDg2My1iMDMyLTBhMDg4M2ViYjFjNyIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiNDBiMzRjNTkifQ.NEHvT9L5g2Udrb7VzeOMjkb1fWToQYc4UPOtgo1r1rRZ3qtR3A7Zbbdxy4CuL0sTdXIZatiLy0o7Jcqqs2bpkw",
         "preset": "rich"
       },
       "required": true,
       "customField": "plugin::ckeditor.CKEditor"
+    },
+    "sortOrder": {
+      "type": "integer",
+      "required": true,
+      "default": 1
     }
   }
 }

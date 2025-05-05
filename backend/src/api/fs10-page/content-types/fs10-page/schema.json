@@ -39,15 +39,17 @@
       "component": "page-components.explore-variants",
       "required": true
     },
-    "exploreOptions": {
-      "type": "component",
-      "repeatable": false,
+    "optionBlocks": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "page-components.explore-options",
+      "type": "dynamiczone",
+      "components": [
+        "partial-components.option-text-image",
+        "partial-components.option-table"
+      ],
       "required": true
     }
   }

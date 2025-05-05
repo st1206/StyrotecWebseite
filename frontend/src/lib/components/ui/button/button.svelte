@@ -4,14 +4,14 @@
 	import { type VariantProps, tv } from 'tailwind-variants';
 
 	export const buttonVariants = tv({
-		base: 'ring-offset-background focus-visible:ring-ring inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+		base: 'ring-offset-background focus-visible:ring-ring inline-flex items-center justify-center gap-2 tracking-wide whitespace-nowrap rounded-md text-md font-fontBold transition duration-200 focus-visible:outline-none  focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0',
 		variants: {
 			variant: {
 				default:
-					'bg-primary no-underline text-primary-foreground hover:bg-primary/90 flex items-center no-underline font-sans text-white transition duration-500 shadow-[3px_3px_0_transparent] -skew-x-[15deg] focus:outline-none hover:shadow-[5px_5px_0_white]',
+					'hover:scale-105 bg-primary no-underline text-primary-foreground hover:bg-primary/90 flex items-center no-underline text-white -skew-x-[15deg] focus:outline-none',
 				destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
 				outline: 'border-input bg-background hover:bg-accent hover:text-accent-foreground border',
-				secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
+				secondary: '-skew-x-[15deg] bg-secondary text-secondary-foreground hover:bg-secondary/80',
 				ghost: 'hover:bg-accent hover:text-accent-foreground',
 				link: 'text-primary underline-offset-4 hover:underline'
 			},

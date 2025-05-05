@@ -37,17 +37,6 @@
       },
       "component": "page-components.explore-variants",
       "required": true
-    },
-    "exploreOptions": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "page-components.explore-options",
-      "required": true
     }
   }
 }

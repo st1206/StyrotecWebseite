@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_page_components_page_headers",
+  "info": {
+    "displayName": "pageHeader"
+  },
+  "options": {},
+  "attributes": {
+    "headline": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

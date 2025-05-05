@@ -2,10 +2,13 @@
 	import { Icons } from '$lib/assets/icons';
 	import { Button } from '$lib/components/ui/button';
 	import { Separator } from '$lib/components/ui/separator';
+	import * as Tooltip from '$lib/components/ui/tooltip';
 	import { pages } from '$lib/config/pages';
 	import { menu } from '$lib/config/routes';
 	import { locale } from 'svelte-i18n';
 	import { _ } from 'svelte-i18n';
+
+	let { socialMediaChannels } = $props();
 
 	const slugMap: Record<keyof typeof pages, string> = $derived.by(() => {
 		const use = $locale === 'en-EN' ? 'enSlug' : 'deSlug';
@@ -22,36 +25,31 @@
 </script>
 
 <footer class="bg-primary-foreground text-white">
-	<div class="sm:container">
-		<div class="flex items-end justify-between gap-4 py-8">
-			<span class="font-boldFont text-lg md:text-2xl">
+	<div class="mx-2 sm:container sm:mx-auto">
+		<div class="flex flex-col items-center justify-between gap-4 py-8 sm:flex-row">
+			<span class="font-boldFont text-center text-lg sm:text-start sm:text-xl md:text-2xl">
 				Folge uns auf unseren Social-Media-Kanälen!
 			</span>
-			<div class="flex gap-4 pl-4">
-				<Button
-					size="icon"
-					href="https://www.instagram.com/styrotec/"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<Icons.copyright class="skew-x-[15deg]" />
-				</Button>
-				<Button
-					size="icon"
-					href="https://www.linkedin.com/company/styrotec-gmbh-co-kg/"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<Icons.copyright class="skew-x-[15deg]" />
-				</Button>
-				<Button
-					size="icon"
-					href="https://www.xing.com/companies/styrotecgmbh&cokg"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<Icons.copyright class="skew-x-[15deg]" />
-				</Button>
+			<div class="flex gap-4 px-4">
+				{#if socialMediaChannels?.length}
+					{#each socialMediaChannels as channel}
+						<Tooltip.Provider>
+							<Tooltip.Root>
+								<Tooltip.Trigger>
+									<Button size="icon" href={channel.link} target="_blank" rel="noopener noreferrer">
+										{@const IconComponent = Icons[channel.name] ?? Icons.copyright}
+										<IconComponent class="size-5 skew-x-[15deg]" />
+									</Button>
+								</Tooltip.Trigger>
+								<Tooltip.Content>
+									<p class="capitalize">
+										{channel.name}
+									</p>
+								</Tooltip.Content>
+							</Tooltip.Root>
+						</Tooltip.Provider>
+					{/each}
+				{/if}
 			</div>
 		</div>
 		<Separator class="hidden w-full bg-white/20 lg:block" orientation="horizontal" />
@@ -91,29 +89,19 @@
 			</div>
 		</div>
 		<Separator class="w-full bg-white/20" orientation="horizontal" />
-		<div class="flex justify-between py-4 text-xs sm:text-base">
+		<div
+			class="flex flex-col items-center justify-between pb-4 pt-6 text-xs sm:flex-row sm:pt-4 sm:text-base"
+		>
 			<div class="flex items-center gap-2">
 				<Icons.copyright class="size-4" />
 				<h1 class="font-sans">2025 StyroTec GmbH & Co. KG</h1>
 			</div>
 			<div class="flex items-center">
-				<Button
-					variant="link"
-					href="https://www.styrotec.de/impressum/"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="text-normal font-sans font-normal"
-				>
+				<Button variant="link" href="/impressum" f class="text-normal font-sans font-normal">
 					Impressum
 				</Button>
 				|
-				<Button
-					variant="link"
-					href="https://www.styrotec.de/datenschutz/"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="text-normal font-sans font-normal"
-				>
+				<Button variant="link" href="/datenschutz" class="text-normal font-sans font-normal">
 					Datenschutz
 				</Button>
 			</div>

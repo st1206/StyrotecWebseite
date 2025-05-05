@@ -81,7 +81,7 @@
 						link={'/produkte/portalfraesmaschinen'}
 					/>
 
-					<!-- Spänepressen card-->
+					<!-- Brikettierpressen card-->
 					<KatCard
 						titel={$_('nav.spaenepressen')}
 						text={$_(`pressen.beschreibungs-text`)}

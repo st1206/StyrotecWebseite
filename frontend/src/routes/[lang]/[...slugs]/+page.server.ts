@@ -1,33 +1,7 @@
 import { error } from '@sveltejs/kit';
-import { PUBLIC_BACKEND_URL } from '$env/static/public';
 import type { AttributesOf } from '$lib/cmsTypes/types';
-import { getRequestHeaders } from '$lib/server/utils';
 import { pages, type CMSTypeMap, type Lang, type SlugKey } from '$lib/config/pages';
-
-/**
- * Asynchronous function to fetch dynamic data from the CMS.
- * Uses `apiSlug` (cmsApiSlug) in the URL.
- */
-const loadCMSData = async <T>(
-	apiSlug: string,
-	lang: string,
-	apiParams?: string
-): Promise<AttributesOf<T>> => {
-	const res = await fetch(
-		`${PUBLIC_BACKEND_URL}/api/${apiSlug}?${apiParams || 'populate=*'}&locale=${lang}`,
-		{
-			method: 'GET',
-			headers: getRequestHeaders()
-		}
-	);
-	const response = await res.json();
-	if (res.ok) {
-		return response.data;
-	} else {
-		console.error(response.error);
-		error(500, `Error fetching CMS data for "${apiSlug}"`);
-	}
-};
+import { loadCMSData } from '$lib/server/utils';
 
 /**
  * Helper to load CMS data for a given page.
@@ -41,21 +15,26 @@ function getCMSDataForPage<K extends keyof CMSTypeMap>(
 	return loadCMSData<CMSTypeMap[K]>(page.cmsApiSlug, lang, page.cmsApiParams);
 }
 
-/**
- * The SvelteKit load function.
- */
 export const load = async <L extends Lang>({ params }: { params: { lang: L; slugs?: string } }) => {
 	const { lang, slugs } = params;
 	if (!slugs) {
+		console.error('No Slugs:', params.lang, params.slugs);
 		error(404, 'Page not found');
+	}
+
+	// Remove hash fragments (anything after '#'), and normalize
+	let cleanSlug = slugs.split('#')[0];
+	if (cleanSlug.endsWith('/')) {
+		cleanSlug = cleanSlug.slice(0, -1);
 	}
 
 	// Compute the slug key based on the current language ("deSlug" or "enSlug")
 	const slugKey = `${lang}Slug` as SlugKey;
 
 	// Look through the unified pages object to find a matching page.
-	const matchedPage = Object.values(pages).find((page) => page[slugKey] === slugs);
+	const matchedPage = Object.values(pages).find((page) => page[slugKey] === cleanSlug);
 	if (!matchedPage) {
+		console.error('Error matching page:', params.lang, params.slugs);
 		error(404, 'Page not found');
 	}
 

@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_partial_components_option_tables",
+  "info": {
+    "displayName": "table",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "tableColumns": {
+      "type": "component",
+      "repeatable": true,
+      "component": "partial-components.table-column",
+      "required": true
+    },
+    "sortOrder": {
+      "type": "integer",
+      "required": true,
+      "default": 1
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

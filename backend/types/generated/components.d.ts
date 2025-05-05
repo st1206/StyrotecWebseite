@@ -4,7 +4,7 @@ export interface PageComponentsBasicTextImage extends Struct.ComponentSchema {
   collectionName: 'components_page_components_basic_text_images';
   info: {
     description: '';
-    displayName: 'basicTextImage';
+    displayName: 'heroTextImage';
     icon: 'pencil';
   };
   attributes: {
@@ -13,7 +13,7 @@ export interface PageComponentsBasicTextImage extends Struct.ComponentSchema {
       Schema.Attribute.CustomField<
         'plugin::ckeditor.CKEditor',
         {
-          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NDU5NzExOTksImp0aSI6ImQyOGE2YzI1LWM0MWYtNDkzZC05YzA4LTUxMjcwNzQ5ZDkxNiIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJ3aGl0ZUxhYmVsIjp0cnVlLCJsaWNlbnNlVHlwZSI6InRyaWFsIiwiZmVhdHVyZXMiOlsiKiJdLCJ2YyI6ImZiNTMwYzIyIn0.Q3GyCISvyZOUR0DhrPkNdm-S13YsHndUpvOjacfv6e3UIPniOlO7xmNT-PCo0HZF0ljrGLQZYICR7G7r0u4C4A';
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYyOTc1OTksImp0aSI6ImMyMTI4NzEyLTI0NGEtNDg2My1iMDMyLTBhMDg4M2ViYjFjNyIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiNDBiMzRjNTkifQ.NEHvT9L5g2Udrb7VzeOMjkb1fWToQYc4UPOtgo1r1rRZ3qtR3A7Zbbdxy4CuL0sTdXIZatiLy0o7Jcqqs2bpkw';
           output: 'HTML';
           preset: 'rich';
         }
@@ -35,23 +35,6 @@ export interface PageComponentsExploreMore extends Struct.ComponentSchema {
   attributes: {
     previewCards: Schema.Attribute.Component<
       'partial-components.preview-card',
-      true
-    > &
-      Schema.Attribute.Required;
-    sectionTitle: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
-export interface PageComponentsExploreOptions extends Struct.ComponentSchema {
-  collectionName: 'components_page_components_explore_options';
-  info: {
-    description: '';
-    displayName: 'exploreOptions';
-    icon: 'layer';
-  };
-  attributes: {
-    options: Schema.Attribute.Component<
-      'partial-components.option-accordion-item',
       true
     > &
       Schema.Attribute.Required;
@@ -97,7 +80,7 @@ export interface PageComponentsHeroDualImage extends Struct.ComponentSchema {
     icon: 'picture';
   };
   attributes: {
-    basicTextImage: Schema.Attribute.Component<
+    heroTextImage: Schema.Attribute.Component<
       'page-components.basic-text-image',
       false
     > &
@@ -109,20 +92,164 @@ export interface PageComponentsHeroDualImage extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponentsIndustryCard extends Struct.ComponentSchema {
+  collectionName: 'components_page_components_industry_cards';
+  info: {
+    description: '';
+    displayName: 'defaultCard';
+  };
+  attributes: {
+    anchor: Schema.Attribute.String & Schema.Attribute.Required;
+    content: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYyOTc1OTksImp0aSI6ImMyMTI4NzEyLTI0NGEtNDg2My1iMDMyLTBhMDg4M2ViYjFjNyIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiNDBiMzRjNTkifQ.NEHvT9L5g2Udrb7VzeOMjkb1fWToQYc4UPOtgo1r1rRZ3qtR3A7Zbbdxy4CuL0sTdXIZatiLy0o7Jcqqs2bpkw';
+          output: 'HTML';
+          preset: 'rich';
+        }
+      >;
+    redirectButtons: Schema.Attribute.Component<
+      'partial-components.redirect-button',
+      true
+    >;
+    thumbnail: Schema.Attribute.Media<'images' | 'files'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface PageComponentsPageHeader extends Struct.ComponentSchema {
+  collectionName: 'components_page_components_page_headers';
+  info: {
+    displayName: 'pageHeader';
+  };
+  attributes: {
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    headline: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface PartialComponentsContentAccordion
+  extends Struct.ComponentSchema {
+  collectionName: 'components_partial_components_content_accordions';
+  info: {
+    description: '';
+    displayName: 'contentAccordion';
+  };
+  attributes: {
+    accordions: Schema.Attribute.Component<
+      'partial-components.option-accordion-item',
+      true
+    >;
+    sortOrder: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<1>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PartialComponentsContentHeader extends Struct.ComponentSchema {
+  collectionName: 'components_partial_components_content_headers';
+  info: {
+    description: '';
+    displayName: 'contentHeader';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYyOTc1OTksImp0aSI6ImMyMTI4NzEyLTI0NGEtNDg2My1iMDMyLTBhMDg4M2ViYjFjNyIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiNDBiMzRjNTkifQ.NEHvT9L5g2Udrb7VzeOMjkb1fWToQYc4UPOtgo1r1rRZ3qtR3A7Zbbdxy4CuL0sTdXIZatiLy0o7Jcqqs2bpkw';
+          output: 'HTML';
+          preset: 'rich';
+        }
+      >;
+    isDarkMode: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    sectionTitle: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface PartialComponentsContentImages extends Struct.ComponentSchema {
+  collectionName: 'components_partial_components_content_images';
+  info: {
+    description: '';
+    displayName: 'contentImages';
+  };
+  attributes: {
+    images: Schema.Attribute.Media<'images' | 'files', true> &
+      Schema.Attribute.Required;
+    sortOrder: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<1>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PartialComponentsContentTable extends Struct.ComponentSchema {
+  collectionName: 'components_partial_components_content_tables';
+  info: {
+    description: '';
+    displayName: 'contentTable';
+  };
+  attributes: {
+    sortOrder: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<1>;
+    tables: Schema.Attribute.Component<'partial-components.option-table', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PartialComponentsContentTextImage
+  extends Struct.ComponentSchema {
+  collectionName: 'components_partial_components_content_text_images';
+  info: {
+    description: '';
+    displayName: 'contentTextImage';
+  };
+  attributes: {
+    content: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYyOTc1OTksImp0aSI6ImMyMTI4NzEyLTI0NGEtNDg2My1iMDMyLTBhMDg4M2ViYjFjNyIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiNDBiMzRjNTkifQ.NEHvT9L5g2Udrb7VzeOMjkb1fWToQYc4UPOtgo1r1rRZ3qtR3A7Zbbdxy4CuL0sTdXIZatiLy0o7Jcqqs2bpkw';
+          output: 'HTML';
+          preset: 'rich';
+        }
+      >;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+    imagePosition: Schema.Attribute.Enumeration<
+      ['top', 'bottom', 'left', 'right']
+    > &
+      Schema.Attribute.DefaultTo<'right'>;
+    sortOrder: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<1>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface PartialComponentsOptionAccordionItem
   extends Struct.ComponentSchema {
   collectionName: 'components_partial_components_option_accordion_items';
   info: {
     description: '';
-    displayName: 'optionAccordionItem';
+    displayName: 'accordion';
     icon: 'filter';
   };
   attributes: {
-    optionItems: Schema.Attribute.Component<
+    accordionItems: Schema.Attribute.Component<
       'partial-components.option-item',
       true
     > &
       Schema.Attribute.Required;
+    sortOrder: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<1>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -131,7 +258,7 @@ export interface PartialComponentsOptionItem extends Struct.ComponentSchema {
   collectionName: 'components_partial_components_option_items';
   info: {
     description: '';
-    displayName: 'optionItem';
+    displayName: 'accordionItem';
     icon: 'command';
   };
   attributes: {
@@ -140,14 +267,54 @@ export interface PartialComponentsOptionItem extends Struct.ComponentSchema {
       Schema.Attribute.CustomField<
         'plugin::ckeditor.CKEditor',
         {
-          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NDU5NzExOTksImp0aSI6ImQyOGE2YzI1LWM0MWYtNDkzZC05YzA4LTUxMjcwNzQ5ZDkxNiIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJ3aGl0ZUxhYmVsIjp0cnVlLCJsaWNlbnNlVHlwZSI6InRyaWFsIiwiZmVhdHVyZXMiOlsiKiJdLCJ2YyI6ImZiNTMwYzIyIn0.Q3GyCISvyZOUR0DhrPkNdm-S13YsHndUpvOjacfv6e3UIPniOlO7xmNT-PCo0HZF0ljrGLQZYICR7G7r0u4C4A';
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYyOTc1OTksImp0aSI6ImMyMTI4NzEyLTI0NGEtNDg2My1iMDMyLTBhMDg4M2ViYjFjNyIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiNDBiMzRjNTkifQ.NEHvT9L5g2Udrb7VzeOMjkb1fWToQYc4UPOtgo1r1rRZ3qtR3A7Zbbdxy4CuL0sTdXIZatiLy0o7Jcqqs2bpkw';
           output: 'HTML';
           preset: 'rich';
         }
       >;
     image: Schema.Attribute.Media<'images' | 'files'>;
+    sortOrder: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<1>;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface PartialComponentsOptionTable extends Struct.ComponentSchema {
+  collectionName: 'components_partial_components_option_tables';
+  info: {
+    description: '';
+    displayName: 'table';
+  };
+  attributes: {
+    sortOrder: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<1>;
+    tableColumns: Schema.Attribute.Component<
+      'partial-components.table-column',
+      true
+    > &
+      Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface PartialComponentsOptionTextImage
+  extends Struct.ComponentSchema {
+  collectionName: 'components_partial_components_option_text_images';
+  info: {
+    description: '';
+    displayName: 'optionTextImage';
+  };
+  attributes: {
+    accordions: Schema.Attribute.Component<
+      'partial-components.option-accordion-item',
+      true
+    > &
+      Schema.Attribute.Required;
+    sectionTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    sortOrder: Schema.Attribute.Integer & Schema.Attribute.Required;
   };
 }
 
@@ -164,12 +331,14 @@ export interface PartialComponentsPreviewCard extends Struct.ComponentSchema {
       Schema.Attribute.CustomField<
         'plugin::ckeditor.CKEditor',
         {
-          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NDU5NzExOTksImp0aSI6ImQyOGE2YzI1LWM0MWYtNDkzZC05YzA4LTUxMjcwNzQ5ZDkxNiIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJ3aGl0ZUxhYmVsIjp0cnVlLCJsaWNlbnNlVHlwZSI6InRyaWFsIiwiZmVhdHVyZXMiOlsiKiJdLCJ2YyI6ImZiNTMwYzIyIn0.Q3GyCISvyZOUR0DhrPkNdm-S13YsHndUpvOjacfv6e3UIPniOlO7xmNT-PCo0HZF0ljrGLQZYICR7G7r0u4C4A';
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYyOTc1OTksImp0aSI6ImMyMTI4NzEyLTI0NGEtNDg2My1iMDMyLTBhMDg4M2ViYjFjNyIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiNDBiMzRjNTkifQ.NEHvT9L5g2Udrb7VzeOMjkb1fWToQYc4UPOtgo1r1rRZ3qtR3A7Zbbdxy4CuL0sTdXIZatiLy0o7Jcqqs2bpkw';
           output: 'HTML';
           preset: 'rich';
         }
       >;
     ctaText: Schema.Attribute.String & Schema.Attribute.Required;
+    isImageTransparent: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     redirectSlug: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
@@ -177,6 +346,47 @@ export interface PartialComponentsPreviewCard extends Struct.ComponentSchema {
     thumbnail: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface PartialComponentsRedirectButton
+  extends Struct.ComponentSchema {
+  collectionName: 'components_partial_components_redirect_buttons';
+  info: {
+    description: '';
+    displayName: 'redirectButton';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    link: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface PartialComponentsTableColumn extends Struct.ComponentSchema {
+  collectionName: 'components_partial_components_table_columns';
+  info: {
+    description: '';
+    displayName: 'tableColumn';
+  };
+  attributes: {
+    columnLabel: Schema.Attribute.String & Schema.Attribute.Required;
+    tableRows: Schema.Attribute.Component<
+      'partial-components.table-row',
+      true
+    > &
+      Schema.Attribute.Required;
+  };
+}
+
+export interface PartialComponentsTableRow extends Struct.ComponentSchema {
+  collectionName: 'components_partial_components_table_rows';
+  info: {
+    description: '';
+    displayName: 'tableRow';
+  };
+  attributes: {
+    rowLabel: Schema.Attribute.String & Schema.Attribute.Required;
+    rowValue: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -214,11 +424,12 @@ export interface PartialComponentsVariantAccordionItemLine
   extends Struct.ComponentSchema {
   collectionName: 'components_partial_components_variant_accordion_item_lines';
   info: {
+    description: '';
     displayName: 'variantAccordionItemLine';
     icon: 'puzzle';
   };
   attributes: {
-    key: Schema.Attribute.String & Schema.Attribute.Required;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
     value: Schema.Attribute.String;
   };
 }
@@ -247,13 +458,24 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'page-components.basic-text-image': PageComponentsBasicTextImage;
       'page-components.explore-more': PageComponentsExploreMore;
-      'page-components.explore-options': PageComponentsExploreOptions;
       'page-components.explore-variants': PageComponentsExploreVariants;
       'page-components.hero-carousel': PageComponentsHeroCarousel;
       'page-components.hero-dual-image': PageComponentsHeroDualImage;
+      'page-components.industry-card': PageComponentsIndustryCard;
+      'page-components.page-header': PageComponentsPageHeader;
+      'partial-components.content-accordion': PartialComponentsContentAccordion;
+      'partial-components.content-header': PartialComponentsContentHeader;
+      'partial-components.content-images': PartialComponentsContentImages;
+      'partial-components.content-table': PartialComponentsContentTable;
+      'partial-components.content-text-image': PartialComponentsContentTextImage;
       'partial-components.option-accordion-item': PartialComponentsOptionAccordionItem;
       'partial-components.option-item': PartialComponentsOptionItem;
+      'partial-components.option-table': PartialComponentsOptionTable;
+      'partial-components.option-text-image': PartialComponentsOptionTextImage;
       'partial-components.preview-card': PartialComponentsPreviewCard;
+      'partial-components.redirect-button': PartialComponentsRedirectButton;
+      'partial-components.table-column': PartialComponentsTableColumn;
+      'partial-components.table-row': PartialComponentsTableRow;
       'partial-components.usp-list': PartialComponentsUspList;
       'partial-components.variant-accordion-item': PartialComponentsVariantAccordionItem;
       'partial-components.variant-accordion-item-line': PartialComponentsVariantAccordionItemLine;

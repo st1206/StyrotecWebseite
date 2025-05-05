@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_partial_components_table_rows",
+  "info": {
+    "displayName": "tableRow",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "rowLabel": {
+      "type": "string",
+      "required": true
+    },
+    "rowValue": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

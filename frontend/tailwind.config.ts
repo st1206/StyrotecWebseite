@@ -1,9 +1,10 @@
 import typography from '@tailwindcss/typography';
+import animate from 'tailwindcss-animate';
 import type { Config } from 'tailwindcss';
 
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
-	plugins: [typography],
+	plugins: [typography, animate],
 
 	theme: {
 		container: {
@@ -104,12 +105,14 @@ export default {
 				'3xl': ['1.7rem', { lineHeight: '2.25rem' }]
 			},
 			boxShadow: {
-				primary: '5px 5px 0 var(--primary)'
+				primary: '5px 5px 0 var(--primary)',
+				foreground: '5px 5px 0 var(--foreground)'
 			},
 			screens: {
 				sm: '480px',
 				md: '768px',
 				lg: '976px',
+				navBreak: '1200px',
 				xl: '1440px'
 			}
 		}

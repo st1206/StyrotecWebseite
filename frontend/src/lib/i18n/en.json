@@ -41,6 +41,7 @@
 		"usedMachines": "Used Machines",
 		"cncMachines": "CNC Machines",
 		"conventionalMachines": "Model Building Machines",
+		"industries": "Industries",
 
 		"products": "Products",
 		"presses": "Presses",
@@ -61,7 +62,6 @@
 		"maschinenmodernisierung": "Machine Modernization",
 		"retrofit": "Retrofit",
 		"ueberholung": "Overhaul",
-		"branchen": "Industries",
 		"automobil": "Automotive",
 		"schiffsbau": "Shipbuilding",
 		"modellbau": "Model Making",

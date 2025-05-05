@@ -1,23 +1,54 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, tick } from 'svelte';
 	import { PUBLIC_BACKEND_URL } from '$env/static/public';
 	import { Button } from '$lib/components/ui/button';
 	import * as Card from '$lib/components/ui/card';
 	import { page } from '$app/state';
 	import BlurFade from '$lib/components/blur-fade.svelte';
 	import { cn } from '$lib/utils';
+	import type { ImageAsset } from '$lib/cmsTypes/image-type';
 
-	let data = $props();
+	let data: {
+		sectionTitle: string;
+		previewCards: {
+			title: string;
+			subtitle: string;
+			content: string;
+			ctaText: string;
+			redirectSlug: string;
+			isImageTransparent: boolean;
+			thumbnail: ImageAsset;
+		}[];
+	} = $props();
 
 	let hoveredIndex: number | null = $state(null);
 	let overlayRefs: Array<HTMLElement | null> = $state([]);
-	let overlayHeights: number[] = $state([]);
+	let overlayHeights = $state<number[]>([]);
+
+	// Simple object to cache heights per pathname
+	const overlayHeightsCache: Record<string, number[]> = {};
 
 	function handleMouseEnter(i: number) {
 		hoveredIndex = i;
 	}
 	function handleMouseLeave() {
 		hoveredIndex = null;
+	}
+
+	async function updateOverlayHeights() {
+		await tick();
+
+		const currentPath = page.url.pathname;
+		const heights = overlayHeightsCache[currentPath] ?? [];
+
+		overlayRefs.forEach((el, i) => {
+			if (el && (!heights[i] || heights[i] <= 0)) {
+				heights[i] = el.clientHeight;
+			}
+		});
+
+		overlayHeightsCache[currentPath] = heights;
+		overlayHeights = heights;
 	}
 
 	onMount(() => {
@@ -27,9 +58,18 @@
 			}
 		});
 	});
+
+	$effect(() => {
+		const cached = overlayHeightsCache[page.url.pathname];
+		if (cached) {
+			overlayHeights = cached;
+		} else {
+			updateOverlayHeights();
+		}
+	});
 </script>
 
-<section class="mb-32 mt-20 sm:container sm:mx-auto lg:mt-28 xl:my-36">
+<section class="mb-32 mt-20 px-4 sm:container sm:mx-auto lg:mt-28 xl:my-36">
 	<h2 class="font-boldFont mb-12 text-center text-3xl uppercase sm:text-4xl">
 		{data.sectionTitle}
 	</h2>
@@ -44,25 +84,32 @@
 					aria-hidden="true"
 				>
 					<Card.Root
-						class="group relative h-[300px] w-full 
-						overflow-hidden border-none 
-						shadow-[5px_5px_0_#f6a313] transition 
-						duration-500 
-						hover:shadow-[10px_10px_0_#f6a313]
-						focus:outline-none lg:h-[400px]
+						class="bg-muted-foreground group relative h-[300px] 
+						w-full overflow-hidden 
+						border-none 
+						shadow-[5px_5px_0_#f6a313] transition
+						duration-500
+						hover:shadow-[10px_10px_0_#f6a313] focus:outline-none lg:h-[400px]
 						"
 					>
 						{#if card.thumbnail}
 							<div
 								class="absolute z-10 h-full w-full transition duration-300 ease-in-out group-hover:backdrop-blur-sm"
 							></div>
-							<img
-								class="absolute h-full w-full object-cover"
-								src={!PUBLIC_BACKEND_URL.includes('https')
-									? `${PUBLIC_BACKEND_URL}${card.thumbnail.formats['large']?.url || card.thumbnail.url}`
-									: card.thumbnail.url}
-								alt={card.thumbnail.alternativeText}
-							/>
+							<div
+								class={cn(
+									card.isImageTransparent ? 'px-4 pb-[80px] pt-4' : '',
+									'relative h-full w-full'
+								)}
+							>
+								<img
+									class="mx-auto h-full"
+									src={!PUBLIC_BACKEND_URL.includes('https')
+										? `${PUBLIC_BACKEND_URL}${card.thumbnail.formats['large']?.url || card.thumbnail.url}`
+										: card.thumbnail.url}
+									alt={card.thumbnail.alternativeText}
+								/>
+							</div>
 						{/if}
 
 						<div
@@ -95,16 +142,18 @@
 										{card.subtitle}
 									</h4>
 								{/if}
-								<p class={cn(card.subtitle ? '' : 'mt-3', 'prose text-secondary text-justify font-sans text-xs font-medium')}>
+								<p
+									class={cn(
+										card.subtitle ? '' : 'mt-3',
+										'prose text-secondary text-justify font-sans text-xs font-medium'
+									)}
+								>
 									{@html card.content}
 								</p>
 							</Card.Content>
 
 							<Card.Footer class="bg-foreground">
-								<Button
-									href={`${page.url.pathname}/${card.redirectSlug}`}
-									class="text-md hover:shadow-[5px_5px_0_white]"
-								>
+								<Button href={`${page.url.pathname}/${card.redirectSlug}`}>
 									<span class="skew-x-[15deg]">{card.ctaText}</span>
 								</Button>
 							</Card.Footer>

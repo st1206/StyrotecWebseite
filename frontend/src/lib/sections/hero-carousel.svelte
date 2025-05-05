@@ -4,8 +4,9 @@
 	import { PUBLIC_BACKEND_URL } from '$env/static/public';
 	import type { CarouselAPI, CarouselOptions } from '$lib/components/ui/carousel/context';
 	import BlurFade from '$lib/components/blur-fade.svelte';
+	import type { ImageAsset } from '$lib/cmsTypes/image-type';
 
-	let data = $props();
+	let data: { keyphrase: string; images: ImageAsset[] } = $props();
 
 	let api = $state<CarouselAPI>();
 
@@ -56,7 +57,7 @@
 	<section class="mx-auto mt-20 lg:container lg:mt-32 lg:w-full">
 		<div class="shadow-primary relative">
 			<div
-				class="from-primary/90 via-primary/20 absolute inset-0 z-10 bg-gradient-to-r to-transparent"
+				class="from-foreground/100 via-foreground/40 absolute inset-0 z-10 bg-gradient-to-r to-transparent"
 			></div>
 
 			<div class="absolute inset-y-0 z-20 flex items-center pl-8">
@@ -67,7 +68,7 @@
 
 			<Carousel.Root
 				setApi={(emblaApi) => (api = emblaApi)}
-				plugins={[Autoplay(autoPlayOptions)]}
+				plugins={[Autoplay(autoPlayOptions) as any]}
 				opts={carouselOptions}
 			>
 				<Carousel.Content class="h-[500px] lg:h-[600px]">

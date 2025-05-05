@@ -3,8 +3,9 @@
 	import SiteHeader from '$lib/layout/site-header.svelte';
 	import SiteFooter from '$lib/layout/site-footer.svelte';
 	import { _ } from 'svelte-i18n';
+	import SiteContactForm from '$lib/layout/site-contact-form.svelte';
 
-	let { children } = $props();
+	let { data, children } = $props();
 </script>
 
 <svelte:head>
@@ -29,7 +30,7 @@
 	<main class="flex-1">
 		{@render children()}
 	</main>
-	<!-- <BottomContactForm />
-	<SiteContact /> -->
-	<SiteFooter />
+	<!-- <BottomContactForm />-->
+	<SiteContactForm contactForm={data.contactForm} />
+	<SiteFooter socialMediaChannels={data.socialMediaChannels} />
 </div>

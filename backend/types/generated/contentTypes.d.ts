@@ -369,6 +369,43 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAboutUsPageAboutUsPage extends Struct.SingleTypeSchema {
+  collectionName: 'about_us_pages';
+  info: {
+    displayName: '\u00DCber uns Seite';
+    pluralName: 'about-us-pages';
+    singularName: 'about-us-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::about-us-page.about-us-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    test: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   collectionName: 'abouts';
   info: {
@@ -384,11 +421,6 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    exploreOptions: Schema.Attribute.Component<
-      'page-components.explore-options',
-      false
-    > &
-      Schema.Attribute.Required;
     exploreVariants: Schema.Attribute.Component<
       'page-components.explore-variants',
       false
@@ -403,6 +435,14 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::about.about'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    test: Schema.Attribute.DynamicZone<
+      [
+        'partial-components.usp-list',
+        'partial-components.variant-accordion-item-line',
+        'partial-components.table-row',
+        'partial-components.table-column',
+      ]
+    >;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -428,16 +468,6 @@ export interface ApiChipPressesPageChipPressesPage
     };
   };
   attributes: {
-    basicTextImage: Schema.Attribute.Component<
-      'page-components.basic-text-image',
-      false
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -453,6 +483,16 @@ export interface ApiChipPressesPageChipPressesPage
       }>;
     heroCarousel: Schema.Attribute.Component<
       'page-components.hero-carousel',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heroTextImage: Schema.Attribute.Component<
+      'page-components.basic-text-image',
       false
     > &
       Schema.Attribute.Required &
@@ -617,106 +657,6 @@ export interface ApiCncMachineCncMachine extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiConventionalMachineConventionalMachine
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'conventional-machines';
-  info: {
-    description: '';
-    displayName: 'Konventionelle Maschinen';
-    pluralName: 'conventional-machines';
-    singularName: 'conventional-machine';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    category: Schema.Attribute.Enumeration<
-      ['milling', 'turning', 'grinding', 'sawing', 'drilling']
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    condition: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.Text &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    designation: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::conventional-machine.conventional-machine'
-    >;
-    manufacturer: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    name: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    pictures: Schema.Attribute.Media<'images', true> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID & Schema.Attribute.Required;
-    technicalData: Schema.Attribute.Text &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    yearOfManufacture: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-  };
-}
-
 export interface ApiEmployeeEmployee extends Struct.CollectionTypeSchema {
   collectionName: 'employees';
   info: {
@@ -878,16 +818,6 @@ export interface ApiFs10PageFs10Page extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    exploreOptions: Schema.Attribute.Component<
-      'page-components.explore-options',
-      false
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     exploreVariants: Schema.Attribute.Component<
       'page-components.explore-variants',
       false
@@ -913,50 +843,22 @@ export interface ApiFs10PageFs10Page extends Struct.SingleTypeSchema {
       'oneToMany',
       'api::fs10-page.fs10-page'
     >;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiFs10Fs10 extends Struct.CollectionTypeSchema {
-  collectionName: 'fs10s';
-  info: {
-    description: '';
-    displayName: 'FS10';
-    pluralName: 'fs10s';
-    singularName: 'fs10';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    aAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
-    cAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
-    controlSystem: Schema.Attribute.String & Schema.Attribute.Required;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    enclosureDimensions: Schema.Attribute.String & Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::fs10.fs10'> &
-      Schema.Attribute.Private;
-    name: Schema.Attribute.String &
+    optionBlocks: Schema.Attribute.DynamicZone<
+      [
+        'partial-components.option-text-image',
+        'partial-components.option-table',
+      ]
+    > &
       Schema.Attribute.Required &
-      Schema.Attribute.Unique;
-    pictures: Schema.Attribute.Media<'images', true> &
-      Schema.Attribute.Required;
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    xAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
-    xFeedRate: Schema.Attribute.String & Schema.Attribute.Required;
-    yAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
-    yFeedRate: Schema.Attribute.String & Schema.Attribute.Required;
-    zAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
-    zFeedRate: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -980,9 +882,11 @@ export interface ApiFs15PageFs15Page extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    exploreOptions: Schema.Attribute.Component<
-      'page-components.explore-options',
-      false
+    exploreOptions: Schema.Attribute.DynamicZone<
+      [
+        'partial-components.option-table',
+        'partial-components.option-text-image',
+      ]
     > &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -1022,86 +926,6 @@ export interface ApiFs15PageFs15Page extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiFs15Fs15 extends Struct.CollectionTypeSchema {
-  collectionName: 'fs15s';
-  info: {
-    description: '';
-    displayName: 'FS15';
-    pluralName: 'fs15s';
-    singularName: 'fs15';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    aAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
-    cAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
-    controlSystem: Schema.Attribute.String & Schema.Attribute.Required;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    enclosureDimensions: Schema.Attribute.String & Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::fs15.fs15'> &
-      Schema.Attribute.Private;
-    name: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique;
-    pictures: Schema.Attribute.Media<'images', true> &
-      Schema.Attribute.Required;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    xAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
-    xFeedRate: Schema.Attribute.String & Schema.Attribute.Required;
-    yAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
-    yFeedRate: Schema.Attribute.String & Schema.Attribute.Required;
-    zAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
-    zFeedRate: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
-export interface ApiFs20Fs20 extends Struct.CollectionTypeSchema {
-  collectionName: 'fs20s';
-  info: {
-    description: '';
-    displayName: 'FS20';
-    pluralName: 'fs20s';
-    singularName: 'fs20';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    aAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
-    cAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
-    controlSystem: Schema.Attribute.String & Schema.Attribute.Required;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    enclosureDimensions: Schema.Attribute.String & Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::fs20.fs20'> &
-      Schema.Attribute.Private;
-    name: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique;
-    pictures: Schema.Attribute.Media<'images', true> &
-      Schema.Attribute.Required;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    xAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
-    xFeedRate: Schema.Attribute.String & Schema.Attribute.Required;
-    yAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
-    yFeedRate: Schema.Attribute.String & Schema.Attribute.Required;
-    zAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
-    zFeedRate: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
 export interface ApiGantryMachinesPageGantryMachinesPage
   extends Struct.SingleTypeSchema {
   collectionName: 'gantry_machines_pages';
@@ -1120,16 +944,6 @@ export interface ApiGantryMachinesPageGantryMachinesPage
     };
   };
   attributes: {
-    basicTextImage: Schema.Attribute.Component<
-      'page-components.basic-text-image',
-      false
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1151,6 +965,16 @@ export interface ApiGantryMachinesPageGantryMachinesPage
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
+        };
+      }>;
+    heroTextImage: Schema.Attribute.Component<
+      'page-components.basic-text-image',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
         };
       }>;
     locale: Schema.Attribute.String;
@@ -1207,7 +1031,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
   collectionName: 'homes';
   info: {
     description: '';
-    displayName: 'Home';
+    displayName: 'Start';
     pluralName: 'homes';
     singularName: 'home';
   };
@@ -1220,30 +1044,19 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    asd: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    carousel: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'>;
     publishedAt: Schema.Attribute.DateTime;
-    TESTasd: Schema.Attribute.Blocks &
-      Schema.Attribute.Required &
+    slug: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    test: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1255,43 +1068,56 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiMetalPressMetalPress extends Struct.CollectionTypeSchema {
-  collectionName: 'metal-presses';
+export interface ApiIndustriesPageIndustriesPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'industries_pages';
   info: {
     description: '';
-    displayName: 'Metallpressen';
-    pluralName: 'metal-presses';
-    singularName: 'metal-press';
+    displayName: 'Branchen Seite';
+    pluralName: 'industries-pages';
+    singularName: 'industries-page';
   };
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    briquetteFormat: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    dimensions: Schema.Attribute.String & Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    defaultCards: Schema.Attribute.Component<
+      'page-components.industry-card',
+      true
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::metal-press.metal-press'
+      'api::industries-page.industries-page'
+    >;
+    pageHeader: Schema.Attribute.Component<
+      'page-components.page-header',
+      false
     > &
-      Schema.Attribute.Private;
-    motorPower: Schema.Attribute.String & Schema.Attribute.Required;
-    name: Schema.Attribute.String &
       Schema.Attribute.Required &
-      Schema.Attribute.Unique;
-    pictures: Schema.Attribute.Media<'images', true> &
-      Schema.Attribute.Required;
-    pressingForce: Schema.Attribute.String & Schema.Attribute.Required;
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID & Schema.Attribute.Required;
-    throughput: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    weight: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -1315,16 +1141,6 @@ export interface ApiMetalsPageMetalsPage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    exploreOptions: Schema.Attribute.Component<
-      'page-components.explore-options',
-      false
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     exploreVariants: Schema.Attribute.Component<
       'page-components.explore-variants',
       false
@@ -1349,6 +1165,53 @@ export interface ApiMetalsPageMetalsPage extends Struct.SingleTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::metals-page.metals-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMillingToolsPageMillingToolsPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'milling_tools_pages';
+  info: {
+    description: '';
+    displayName: 'Fraeswerkzeuge Seite';
+    pluralName: 'milling-tools-pages';
+    singularName: 'milling-tools-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    defaultContent: Schema.Attribute.DynamicZone<
+      [
+        'partial-components.content-header',
+        'partial-components.content-text-image',
+        'partial-components.content-table',
+        'partial-components.content-images',
+        'partial-components.content-accordion',
+      ]
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::milling-tools-page.milling-tools-page'
     >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -1425,128 +1288,34 @@ export interface ApiReferenceReference extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiStockMachineStockMachine
+export interface ApiSocialMediaChannelSocialMediaChannel
   extends Struct.CollectionTypeSchema {
-  collectionName: 'stock-machines';
+  collectionName: 'social_media_channels';
   info: {
     description: '';
-    displayName: 'Vorratsmaschinen';
-    pluralName: 'stock-machines';
-    singularName: 'stock-machine';
+    displayName: 'social-media-channel';
+    pluralName: 'social-media-channels';
+    singularName: 'social-media-channel';
   };
   options: {
     draftAndPublish: true;
   };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
   attributes: {
-    aAxis: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    cAxis: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    controlSystem: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    enclosureDimensions: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    feedRateX: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    feedRateY: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    feedRateZ: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    locale: Schema.Attribute.String;
+    link: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::stock-machine.stock-machine'
-    >;
-    name: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    pictures: Schema.Attribute.Media<'images', true> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
+      'api::social-media-channel.social-media-channel'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    xAxis: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    yAxis: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    zAxis: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
   };
 }
 
@@ -2059,24 +1828,22 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::about-us-page.about-us-page': ApiAboutUsPageAboutUsPage;
       'api::about.about': ApiAboutAbout;
       'api::chip-presses-page.chip-presses-page': ApiChipPressesPageChipPressesPage;
       'api::cnc-machine.cnc-machine': ApiCncMachineCncMachine;
-      'api::conventional-machine.conventional-machine': ApiConventionalMachineConventionalMachine;
       'api::employee.employee': ApiEmployeeEmployee;
       'api::fair.fair': ApiFairFair;
       'api::fs10-page.fs10-page': ApiFs10PageFs10Page;
-      'api::fs10.fs10': ApiFs10Fs10;
       'api::fs15-page.fs15-page': ApiFs15PageFs15Page;
-      'api::fs15.fs15': ApiFs15Fs15;
-      'api::fs20.fs20': ApiFs20Fs20;
       'api::gantry-machines-page.gantry-machines-page': ApiGantryMachinesPageGantryMachinesPage;
       'api::global.global': ApiGlobalGlobal;
       'api::home.home': ApiHomeHome;
-      'api::metal-press.metal-press': ApiMetalPressMetalPress;
+      'api::industries-page.industries-page': ApiIndustriesPageIndustriesPage;
       'api::metals-page.metals-page': ApiMetalsPageMetalsPage;
+      'api::milling-tools-page.milling-tools-page': ApiMillingToolsPageMillingToolsPage;
       'api::reference.reference': ApiReferenceReference;
-      'api::stock-machine.stock-machine': ApiStockMachineStockMachine;
+      'api::social-media-channel.social-media-channel': ApiSocialMediaChannelSocialMediaChannel;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

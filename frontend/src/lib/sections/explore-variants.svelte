@@ -5,20 +5,22 @@
 	import { ScrollArea } from '$lib/components/ui/scroll-area';
 	import BlurFade from '$lib/components/blur-fade.svelte';
 	import { innerWidth } from 'svelte/reactivity/window';
+	import type { ImageAsset } from '$lib/cmsTypes/image-type';
 
-	let data = $props();
+	let data: {
+		sectionTitle: string;
+		variantCards: {
+			image: ImageAsset;
+			title: string;
+			accordionItems: { title: string; accordionItemLines: { label: string; value: string }[] }[];
+		}[];
+	} = $props();
 
 	let accordionRef: HTMLDivElement | null = $state(null);
-	let accordionHeight: number | null = $state(262);
-
-	// onMount(() => {
-	// 	if (accordionRef) {
-	// 		accordionHeight = accordionRef.clientHeight;
-	// 	}
-	// });
+	let accordionHeight: number | null = $state(280);
 </script>
 
-<section class="mb-32 mt-20 px-2 sm:container sm:mx-auto lg:mt-28 xl:my-36">
+<section class="mx-2 mb-32 mt-12 sm:container sm:mx-auto lg:mt-28 xl:my-36">
 	<h2 class="font-boldFont mb-12 text-center text-3xl uppercase md:text-4xl">
 		{data.sectionTitle}
 	</h2>
@@ -38,17 +40,19 @@
 						xl:-skew-x-[10deg]
 						"
 				>
-					<div class="flex flex-col gap-8 xl:skew-x-[10deg] xl:flex-row xl:px-24">
+					<div
+						class="grid grid-cols-1 items-center gap-8 xl:skew-x-[10deg] xl:grid-cols-5 xl:px-24"
+					>
 						{#if variant.image}
 							<img
-								class="h-[350px] object-contain"
+								class="col-span-2 mx-auto h-[350px] object-contain xl:col-span-2"
 								src={!PUBLIC_BACKEND_URL.includes('https')
 									? `${PUBLIC_BACKEND_URL}${variant.image.formats['large']?.url || variant.image.url}`
 									: variant.image.url}
 								alt={variant.image.alternativeText}
 							/>
 						{/if}
-						<div class="flex w-full flex-col">
+						<div class="col-span-2 flex w-full flex-col xl:col-span-3">
 							<Card.Header class="pt-0">
 								<Card.Title class="text-center">
 									<h3 class="font-boldFont text-secondary text-3xl xl:text-4xl">{variant.title}</h3>
@@ -63,7 +67,7 @@
 											? 'auto'
 											: accordionHeight + 'px'}"
 									>
-										<Accordion.Root type="single" class="flex w-full flex-col gap-2 ">
+										<Accordion.Root type="single" class="flex w-full flex-col gap-4">
 											{#each variant.accordionItems as item, j}
 												<Accordion.Item value="item-{j + 1}">
 													<Accordion.Trigger class="text-secondary font-sans font-medium">
@@ -72,7 +76,7 @@
 													<Accordion.Content class="text-secondary bg-secondary/5">
 														{#each item.accordionItemLines as line, k}
 															<div class="flex justify-between">
-																<span>{line.key}</span>
+																<span>{line.label}</span>
 																<span>{line.value}</span>
 															</div>
 														{/each}

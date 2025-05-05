@@ -4,7 +4,7 @@
   "info": {
     "singularName": "home",
     "pluralName": "homes",
-    "displayName": "Home",
+    "displayName": "Start",
     "description": ""
   },
   "options": {
@@ -16,32 +16,15 @@
     }
   },
   "attributes": {
-    "carousel": {
-      "type": "media",
-      "multiple": true,
-      "required": true,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
+    "test": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "type": "string"
     },
-    "TESTasd": {
-      "type": "blocks",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "asd": {
+    "slug": {
       "pluginOptions": {
         "i18n": {
           "localized": true

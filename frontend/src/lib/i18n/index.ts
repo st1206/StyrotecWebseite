@@ -6,11 +6,15 @@ export const DEFAULT_LOCALE = 'de-DE';
 export const languages = [
 	{
 		code: 'de-DE',
-		label: 'Deutsch'
+		shortCode: 'de',
+		label: 'Deutsch',
+		shortLabel: 'DE'
 	},
 	{
 		code: 'en-EN',
-		label: 'English'
+		shortCode: 'en',
+		label: 'English',
+		shortLabel: 'EN'
 	}
 ];
 

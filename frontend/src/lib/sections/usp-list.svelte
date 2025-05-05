@@ -1,21 +1,28 @@
 <script lang="ts">
 	import { cn } from '$lib/utils';
 
-	let data = $props();
+	let data: { name: string }[] = $props();
+
+	let isNameLong = $state<boolean>(false);
+	$effect(() => {
+		isNameLong = data.some(({ name }: { name: string }) => name.length > 50);
+	});
 </script>
 
 <div class="bg-foreground h-16 w-full [clip-path:polygon(100%_0,100%_100%,0_100%)]"></div>
 <section class="bg-foreground w-full">
 	<div
 		class={cn(
-			false ? 'w-max' : '',
-			'container grid grid-cols-1 gap-8 gap-x-16 px-24 py-16 text-secondary lg:grid-cols-2 xl:py-24'
+			!isNameLong ? 'sm:w-max' : '',
+			'text-secondary container grid grid-cols-1 gap-y-6 py-16 lg:grid-cols-2 xl:py-24'
 		)}
 	>
 		{#each data as item, i}
-			<div class="font-boldFont flex gap-2 text-xl md:text-xl lg:text-2xl xl:text-3xl">
+			<div class="font-boldFont flex gap-2 text-xl sm:text-2xl lg:text-2xl xl:text-3xl">
 				<span class="text-primary">&#x2713; </span>
-				<p>{item.name}</p>
+				<p class="break-words sm:break-normal">
+					{item.name}
+				</p>
 			</div>
 		{/each}
 	</div>

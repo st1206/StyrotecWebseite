@@ -27,7 +27,7 @@
       "component": "page-components.hero-carousel",
       "required": true
     },
-    "basicTextImage": {
+    "heroTextImage": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {

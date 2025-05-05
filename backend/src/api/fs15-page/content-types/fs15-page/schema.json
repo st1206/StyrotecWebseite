@@ -39,14 +39,16 @@
       "required": true
     },
     "exploreOptions": {
-      "type": "component",
-      "repeatable": false,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "page-components.explore-options",
+      "type": "dynamiczone",
+      "components": [
+        "partial-components.option-table",
+        "partial-components.option-text-image"
+      ],
       "required": true
     }
   }

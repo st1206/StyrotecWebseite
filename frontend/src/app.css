@@ -8,8 +8,8 @@
 		--foreground: 36 5% 19%;
 		--card: 0 0% 100%;
 		--card-foreground: 20 14.3% 4.1%;
-		--popover: 0 0% 100%;
-		--popover-foreground: 20 14.3% 4.1%;
+		--popover: 38 57% 92%;
+		--popover-foreground: 36 5% 19%;
 
 		--primary: 38 93% 52%; /* orange */
 		--primary-foreground: 36 5% 19%; /* dunkelgrau */
@@ -19,14 +19,14 @@
 		--tertiary-foreground: 38 88% 67%; /* helleres gelb */
 
 		--muted: 60 4.8% 95.9%;
-		--muted-foreground: 25 5.3% 44.7%;
+		--muted-foreground: 36 5% 34%;
 		--accent: 60 4.8% 95.9%;
 		--accent-foreground: 24 9.8% 10%;
 		--destructive: 0 72.22% 50.59%;
 		--destructive-foreground: 60 9.1% 97.8%;
 		--border: 36 5% 19%;
 		--input: 20 5.9% 90%;
-		--ring: 24.6 95% 53.1%;
+		--ring: 38 57% 92%;
 		--radius: 0rem;
 
 		--sidebar-background: 0 0% 98%;
@@ -59,6 +59,7 @@
 
 	* {
 		@apply border-border;
+		scroll-behavior: smooth;
 	}
 	body {
 		@apply bg-secondary text-foreground;

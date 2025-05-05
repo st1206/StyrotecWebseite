@@ -27,11 +27,14 @@
       "component": "page-components.explore-variants",
       "required": true
     },
-    "exploreOptions": {
-      "type": "component",
-      "repeatable": false,
-      "component": "page-components.explore-options",
-      "required": true
+    "test": {
+      "type": "dynamiczone",
+      "components": [
+        "partial-components.usp-list",
+        "partial-components.variant-accordion-item-line",
+        "partial-components.table-row",
+        "partial-components.table-column"
+      ]
     }
   }
 }

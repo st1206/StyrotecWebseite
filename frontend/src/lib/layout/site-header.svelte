@@ -9,12 +9,18 @@
 	import { fade, fly } from 'svelte/transition';
 	import { _ } from 'svelte-i18n';
 	import LanguageToggle from '$lib/components/language-toggle.svelte';
+	import * as Tooltip from '$lib/components/ui/tooltip';
+	import BlurFade from '$lib/components/blur-fade.svelte';
+	import MobileNav from './mobile-nav.svelte';
+	import { SplineIcon } from 'lucide-svelte';
+	import AnimatedHamburger from '$lib/components/animatedHamburger.svelte';
 
 	type MenuState = {
 		hovered: boolean;
 		open: boolean;
 	};
 
+	// default open state for menu id 3
 	let itemStateMap = new SvelteMap<number, MenuState>();
 
 	function closeAll(): void {
@@ -60,11 +66,13 @@
 		) as Record<keyof typeof pages, string>;
 	});
 
-	function getLink<K extends keyof typeof pages>(key: K): string {
-		return slugMap[key];
+	function getLink<K extends keyof typeof pages>(key: K, appendage?: string): string {
+		const base = slugMap[key];
+		if (!appendage) return base;
+		return appendage.startsWith('/') ? `${base}${appendage}` : `${base}/${appendage}`;
 	}
 
-	$inspect($locale);
+	let open = $state(false);
 </script>
 
 <div class="bg-foreground absolute top-0 h-20 w-full"></div>
@@ -74,25 +82,28 @@
 	onmouseleave={closeAll}
 	class={cn(
 		isAnyItemOpen()
-			? 'supports-[backdrop-filter]:bg-foreground/100 h-[450px]'
+			? itemStateMap.get(3)?.open
+				? 'supports-[backdrop-filter]:bg-foreground/100 h-[580px]'
+				: 'supports-[backdrop-filter]:bg-foreground/100 h-[450px]'
 			: 'supports-[backdrop-filter]:bg-foreground/90 h-20',
-		'fixed top-0 z-40 w-full p-2 px-8 shadow-lg backdrop-blur transition-all duration-300 ease-in-out'
+		open ? 'supports-[backdrop-filter]:bg-foreground/100' : '',
+		'fixed top-0 z-40 w-full px-4 py-2 shadow-lg backdrop-blur transition-all duration-200 ease-in-out md:px-0'
 	)}
 >
-	<div class="flex h-16 items-center justify-between gap-2 sm:container">
+	<div class="flex h-16 items-center justify-between gap-2 md:container">
 		<!-- Logo -->
 		<a class="w-24" href="/">
 			<img src={Icons.logoLight} alt="Logo" />
 		</a>
 
-		<div class="hidden lg:flex">
+		<div class="navBreak:flex hidden">
 			{#each menu as item, i}
 				<Button
 					variant="ghost"
 					class={cn(
 						i < menu.length - 1 ? 'border-r-2 border-white/20' : '',
 						onlyThisItemActive(item.id) ? 'bg-primary' : '',
-						'hover:bg-primary font-boldFont text-secondary h-full -skew-x-[15deg] cursor-default uppercase transition duration-300 hover:text-white'
+						'font-boldFont text-secondary hover:bg-primary h-full -skew-x-[15deg] cursor-default uppercase transition duration-300 hover:text-white'
 					)}
 					onmouseenter={() => handleMouseEnter(item.id)}
 					onmouseleave={() => handleMouseLeave(item.id)}
@@ -104,14 +115,59 @@
 			{/each}
 		</div>
 
-		<div class="flex gap-3">
-			<LanguageToggle />
-			<Button>
-				<span class="flex skew-x-[15deg] items-center gap-2">
-					<Icons.store class="size-4" />
-					Onlineshop
-				</span>
+		<div class="navBreak:flex hidden gap-6">
+			<div class="flex gap-2">
+				<Tooltip.Provider>
+					<Tooltip.Root>
+						<Tooltip.Trigger>
+							<LanguageToggle />
+						</Tooltip.Trigger>
+						<Tooltip.Content>
+							<p>Sprache auswählen</p>
+						</Tooltip.Content>
+					</Tooltip.Root>
+				</Tooltip.Provider>
+				<Tooltip.Provider>
+					<Tooltip.Root>
+						<Tooltip.Trigger>
+							<Button variant="secondary" size="icon">
+								<span class="flex skew-x-[15deg] items-center gap-2">
+									<Icons.search class="size-4" />
+								</span>
+							</Button>
+						</Tooltip.Trigger>
+						<Tooltip.Content>
+							<p>Website durchsuchen...</p>
+						</Tooltip.Content>
+					</Tooltip.Root>
+				</Tooltip.Provider>
+			</div>
+			<Tooltip.Provider>
+				<Tooltip.Root>
+					<Tooltip.Trigger class="inline-flex">
+						<Button href="https://styrotec.shop/" target="_blank" rel="noopener noreferrer">
+							<span class="flex skew-x-[15deg] items-center gap-2">
+								<Icons.store class="size-4" />
+								Onlineshop
+							</span>
+						</Button>F
+					</Tooltip.Trigger>
+					<Tooltip.Content>
+						<p>Zum Onlineshop</p>
+					</Tooltip.Content>
+				</Tooltip.Root>
+			</Tooltip.Provider>
+		</div>
+		<!-- navBreak:hidden -->
+
+		<div class="absolute left-0 top-[79px] -z-10">
+			<MobileNav bind:open />
+		</div>
+		<div class="flex items-center gap-1 navBreak:hidden">
+			<Button variant="ghost" size="icon" class="hover:bg-transparent">
+				<Icons.search class="text-secondary size-6" />
 			</Button>
+			<AnimatedHamburger bind:open />
 		</div>
 	</div>
 
@@ -123,35 +179,63 @@
 		>
 			{#each menu as menuItem}
 				{#if itemStateMap.get(menuItem.id)?.open && menuItem.menuRoutes.length}
-					{#each menuItem.menuRoutes as route}
-						<div class="flex flex-col gap-6">
-							<a
-								class="text-primary font-boldFont text-2xl hover:underline xl:text-3xl"
-								href={getLink(route.key)}
-								onclick={(e) => {
-									closeAll();
-								}}
-							>
-								{$_(`nav.${route.key}`)}
-							</a>
-
-							<ul class="flex flex-col gap-1">
-								{#each route.routeChildren as routeChild}
-									<li>
-										<a
-											class="text-md text-white hover:underline xl:text-lg"
-											href={getLink(routeChild.key)}
-											onclick={(e) => {
-												closeAll();
-											}}
+					{#if menuItem.key === 'industries'}
+						<div class="flex flex-wrap justify-center gap-6">
+							{#each menuItem.menuRoutes as route, i}
+								<a
+									class="w-1/5"
+									href={getLink(menuItem.key, route.anchor)}
+									onclick={(e) => {
+										closeAll();
+									}}
+								>
+									<BlurFade delay={0.03 * i} duration={0.3}>
+										<div
+											class="text-secondary hover:shadow-primary font-boldFont bg-secondary/30 flex h-full w-full cursor-pointer
+										flex-col items-center justify-center gap-4 p-8 text-xl transition duration-300 ease-in-out xl:text-2xl"
 										>
-											{$_(`nav.${routeChild.key}`)}
-										</a>
-									</li>
-								{/each}
-							</ul>
+											{#if route.icon}
+												<route.icon class="text-secondary fill-secondary md:h-20 md:w-20" />
+											{/if}
+											<span>{$_(`nav.${route.key}`)}</span>
+										</div>
+									</BlurFade>
+								</a>
+							{/each}
 						</div>
-					{/each}
+					{:else}
+						{#each menuItem.menuRoutes as route, i}
+							<BlurFade delay={0.03 * i} duration={0.3}>
+								<div class="flex flex-col gap-6">
+									<a
+										class="font-boldFont text-primary text-2xl hover:underline xl:text-3xl"
+										href={getLink(route.key)}
+										onclick={(e) => {
+											closeAll();
+										}}
+									>
+										{$_(`nav.${route.key}`)}
+									</a>
+
+									<ul class="flex flex-col gap-1">
+										{#each route.routeChildren as routeChild}
+											<li>
+												<a
+													class="text-md text-white hover:underline xl:text-lg"
+													href={getLink(routeChild.key)}
+													onclick={(e) => {
+														closeAll();
+													}}
+												>
+													{$_(`nav.${routeChild.key}`)}
+												</a>
+											</li>
+										{/each}
+									</ul>
+								</div>
+							</BlurFade>
+						{/each}
+					{/if}
 				{/if}
 			{/each}
 		</div>

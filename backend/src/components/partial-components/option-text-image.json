@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_partial_components_option_text_images",
+  "info": {
+    "displayName": "optionTextImage",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "sectionTitle": {
+      "type": "string",
+      "required": true
+    },
+    "accordions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "partial-components.option-accordion-item",
+      "required": true
+    },
+    "sortOrder": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}

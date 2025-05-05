@@ -4,8 +4,11 @@ import type {
 	ApiFs15PageFs15Page,
 	ApiGantryMachinesPageGantryMachinesPage,
 	ApiHomeHome,
-	ApiMetalsPageMetalsPage
+	ApiIndustriesPageIndustriesPage,
+	ApiMetalsPageMetalsPage,
+	ApiMillingToolsPageMillingToolsPage
 } from '$lib/cmsTypes/contentTypes';
+import { buildPopulateQuery } from './apiParamsBuilder';
 
 // The mapping interface uses keys that match your cmsTypeKey values.
 export interface CMSTypeMap {
@@ -15,6 +18,8 @@ export interface CMSTypeMap {
 	fs15Page: ApiFs15PageFs15Page;
 	chipPressesPage: ApiChipPressesPageChipPressesPage;
 	metalsPage: ApiMetalsPageMetalsPage;
+	industriesPage: ApiIndustriesPageIndustriesPage;
+	millingToolsPage: ApiMillingToolsPageMillingToolsPage;
 }
 
 // Define the supported languages
@@ -32,46 +37,56 @@ export type PageContent = {
 	cmsApiParams?: string;
 	sections: Array<{
 		sectionKey: string;
-		props: Record<string, any>; // eslint-disable-line
+		props?: Record<string, any>; // eslint-disable-line
 	}>;
 };
 
+function withApiParams<T extends Record<string, PageContent>>(obj: T): T {
+	for (const page of Object.values(obj)) {
+		if (!page.cmsApiParams) {
+			page.cmsApiParams = buildPopulateQuery(page.sections.map((s) => s.sectionKey));
+		}
+	}
+	return obj;
+}
+
 // A unified pages object: each page is keyed by a unique page identifier.
-export const pages: Record<string, PageContent> = {
+const pagesConfig: Record<string, PageContent> = {
+	home: {
+		deSlug: 'start',
+		enSlug: 'home',
+		cmsTypeKey: 'home',
+		cmsApiSlug: 'home',
+		sections: []
+	},
+
 	gantryMachines: {
 		deSlug: 'produkte/portalfraesmaschinen',
 		enSlug: 'products/gantry-machines',
-		cmsApiParams:
-			'populate=heroCarousel.images&populate=basicTextImage.image&populate=uspList&populate=exploreMore.previewCards.thumbnail',
 		cmsTypeKey: 'gantryMachinesPage',
 		cmsApiSlug: 'gantry-machines-page',
 		sections: [
-			{ sectionKey: 'heroCarousel', props: { headline: 'Karussel' } },
-			{ sectionKey: 'basicTextImage', props: { headline: 'Basic Text Image' } },
-			{ sectionKey: 'uspList', props: { headliner: 'USP List' } },
-			{ sectionKey: 'exploreMore', props: { headliner: 'Preview Cards' } }
+			{ sectionKey: 'heroCarousel' },
+			{ sectionKey: 'heroTextImage' },
+			{ sectionKey: 'uspList' },
+			{ sectionKey: 'exploreMore' }
 		]
 	},
 
 	fs10: {
 		deSlug: 'produkte/portalfraesmaschinen/fs10',
 		enSlug: 'products/gantry-machines/fs10',
-		cmsApiParams:
-			'populate=heroDualImage.image&populate=heroDualImage.basicTextImage.image&populate=exploreVariants.variantCards.image&populate=exploreVariants.variantCards.accordionItems.accordionItemLines&populate=exploreOptions.options.optionItems.image',
 		cmsTypeKey: 'fs10Page',
 		cmsApiSlug: 'fs10-page',
 		sections: [
 			{
-				sectionKey: 'heroDualImage',
-				props: { headline: 'FS 10' }
+				sectionKey: 'heroDualImage'
 			},
 			{
-				sectionKey: 'exploreVariants',
-				props: { headline: 'Explore Variants' }
+				sectionKey: 'exploreVariants'
 			},
 			{
-				sectionKey: 'exploreOptions',
-				props: { headline: 'Explore Options' }
+				sectionKey: 'optionBlocks'
 			}
 		]
 	},
@@ -79,61 +94,74 @@ export const pages: Record<string, PageContent> = {
 	fs15: {
 		deSlug: 'produkte/portalfraesmaschinen/fs15',
 		enSlug: 'products/gantry-machines/fs15',
-		cmsApiParams:
-			'populate=heroDualImage.image&populate=heroDualImage.basicTextImage.image&populate=exploreVariants.variantCards.image&populate=exploreVariants.variantCards.accordionItems.accordionItemLines&populate=exploreOptions.options.optionItems.image',
 		cmsTypeKey: 'fs15Page',
 		cmsApiSlug: 'fs15-page',
 		sections: [
 			{
-				sectionKey: 'heroDualImage',
-				props: { headline: 'FS 15' }
+				sectionKey: 'heroDualImage'
 			},
 			{
-				sectionKey: 'exploreVariants',
-				props: { headline: 'Explore Variants' }
+				sectionKey: 'exploreVariants'
 			},
 			{
-				sectionKey: 'exploreOptions',
-				props: { headline: 'Explore Options' }
+				sectionKey: 'exploreOptions'
 			}
 		]
 	},
 
 	chipPresses: {
-		deSlug: 'produkte/spaenepressen',
+		deSlug: 'produkte/brikettierpressen',
 		enSlug: 'products/chip-presses',
 		cmsTypeKey: 'chipPressesPage',
-		cmsApiParams:
-			'populate=heroCarousel.images&populate=basicTextImage.image&populate=uspList&populate=exploreMore.previewCards.thumbnail',
 		cmsApiSlug: 'chip-presses-page',
 		sections: [
-			{ sectionKey: 'heroCarousel', props: { headline: 'Karussel' } },
-			{ sectionKey: 'basicTextImage', props: { headline: 'Basic Text Image' } },
-			{ sectionKey: 'uspList', props: { headliner: 'USP List' } },
-			{ sectionKey: 'exploreMore', props: { headliner: 'Preview Cards' } }
+			{ sectionKey: 'heroCarousel' },
+			{ sectionKey: 'heroTextImage' },
+			{ sectionKey: 'uspList' },
+			{ sectionKey: 'exploreMore' }
 		]
 	},
 
 	metals: {
-		deSlug: 'produkte/spaenepressen/metalle',
+		deSlug: 'produkte/brikettierpressen/metalle',
 		enSlug: 'products/chip-presses/metals',
 		cmsTypeKey: 'metalsPage',
-		cmsApiParams:
-			'populate=heroDualImage.image&populate=heroDualImage.basicTextImage.image&populate=exploreVariants.variantCards.image&populate=exploreVariants.variantCards.accordionItems.accordionItemLines&populate=exploreOptions.options.optionItems.image',
 		cmsApiSlug: 'metals-page',
 		sections: [
 			{
-				sectionKey: 'heroDualImage',
-				props: { headline: 'Metalle' }
+				sectionKey: 'heroDualImage'
 			},
 			{
-				sectionKey: 'exploreVariants',
-				props: { headline: 'Explore Variants' }
+				sectionKey: 'exploreVariants'
+			}
+		]
+	},
+
+	industries: {
+		deSlug: 'branchen',
+		enSlug: 'industries',
+		cmsTypeKey: 'industriesPage',
+		cmsApiSlug: 'industries-page',
+		sections: [
+			{
+				sectionKey: 'pageHeader'
 			},
 			{
-				sectionKey: 'exploreOptions',
-				props: { headline: 'Explore Options' }
+				sectionKey: 'defaultCards'
+			}
+		]
+	},
+
+	millingTools: {
+		deSlug: 'produkte/styroporbearbeitung/fraeswerkzeuge',
+		enSlug: 'products/styrofoam-processing/milling-tools',
+		cmsTypeKey: 'millingToolsPage',
+		cmsApiSlug: 'milling-tools-page',
+		sections: [
+			{
+				sectionKey: 'defaultContent'
 			}
 		]
 	}
 };
+export const pages: Record<string, PageContent> = withApiParams(pagesConfig);
