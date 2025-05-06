@@ -112,7 +112,7 @@
 
 {#if isDarkMode}
 	<div
-		class="bg-foreground mt-20 h-16 w-full [clip-path:polygon(100%_0,100%_100%,0_100%)] lg:mt-28"
+		class="bg-foreground mt-20 h-14 w-full [clip-path:polygon(100%_0,100%_100%,0_100%)] lg:mt-28"
 	></div>
 {/if}
 
@@ -150,7 +150,7 @@
 </section>
 
 {#if isDarkMode}
-	<div class="bg-foreground mb-32 h-16 w-full [clip-path:polygon(100%_0%,0%_0%,0%_100%)]"></div>
+	<div class="bg-foreground mb-32 h-14 w-full [clip-path:polygon(100%_0%,0%_0%,0%_100%)]"></div>
 {/if}
 
 {#snippet HeaderTemplate(block: ContentHeader)}
@@ -172,11 +172,16 @@
 {#snippet TableTemplate(block: ContentTable)}
 	{#each block.tables as table}
 		<div class="lg: mx-auto my-16 mt-24 h-full w-full text-center">
-			<h4
-				class={cn(isDarkMode ? 'text-secondary' : 'text-foreground', 'font-boldFont my-4 text-2xl')}
-			>
-				{table.title}
-			</h4>
+			{#if table.title}
+				<h4
+					class={cn(
+						isDarkMode ? 'text-secondary' : 'text-foreground',
+						'font-boldFont my-4 text-2xl'
+					)}
+				>
+					{table.title}
+				</h4>
+			{/if}
 			<Table.Root>
 				<Table.Header>
 					<Table.Row
@@ -233,9 +238,11 @@
 
 {#snippet AccordionTemplate(block: ContentAccordion)}
 	<div class={cn('my-16 mt-24 h-full w-full lg:mx-auto')}>
-		<!-- <h4 class="font-boldFont text-2xl">{accordion.title}</h4> -->
+		{#if block.title}
+			<h4 class="font-boldFont text-secondary my-4 text-center text-2xl">{block.title}</h4>
+		{/if}
 		<Accordion.Root type="multiple" value={['item-1']} class="flex w-full flex-col gap-4">
-			{#each block.accordions as accordionItem, i}
+			{#each block.accordions as accordion, i}
 				<Accordion.Item value={`item-${i + 1}`} class="border-none">
 					<Accordion.Trigger
 						class={cn(
@@ -245,11 +252,11 @@
 							'font-sans font-medium'
 						)}
 					>
-						<h4>{accordionItem.title}</h4>
+						<h4>{accordion.title}</h4>
 					</Accordion.Trigger>
 					<Accordion.Content class={cn(isDarkMode ? 'bg-secondary/5' : 'bg-foreground/5', 'pt-2')}>
 						<div class="grid w-full grid-cols-1 gap-4 md:grid-cols-2">
-							{#each accordionItem.accordionItems as item, k}
+							{#each accordion.accordionItems as item, k}
 								<div class="h-full" bind:this={overlayRefs[i]}>
 									<Card.Root
 										class={cn(isDarkMode ? 'bg-secondary/10' : 'bg-foreground/10', 'px-0')}
@@ -318,18 +325,23 @@
 {/snippet}
 
 {#snippet ImagesTemplate(block: ContentImages)}
-	<div class="mx-auto my-16 mt-24 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:gap-8">
-		{#each block.images as image}
-			{#if image}
-				<img
-					class="shadow-primary h-[400px] w-full object-cover"
-					src={!PUBLIC_BACKEND_URL.includes('https')
-						? `${PUBLIC_BACKEND_URL}${image.formats['large']?.url || image.url}`
-						: image.url}
-					alt={image.alternativeText}
-				/>
-			{/if}
-		{/each}
+	<div class="mx-auto my-16 mt-24">
+		{#if block.title}
+			<h4 class="font-boldFont text-secondary my-4 text-center text-2xl">{block.title}</h4>
+		{/if}
+		<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:gap-8">
+			{#each block.images as image}
+				{#if image}
+					<img
+						class="shadow-primary h-[400px] w-full object-cover"
+						src={!PUBLIC_BACKEND_URL.includes('https')
+							? `${PUBLIC_BACKEND_URL}${image.formats['large']?.url || image.url}`
+							: image.url}
+						alt={image.alternativeText}
+					/>
+				{/if}
+			{/each}
+		</div>
 	</div>
 {/snippet}
 

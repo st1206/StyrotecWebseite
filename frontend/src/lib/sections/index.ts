@@ -8,6 +8,8 @@ import ExploreOptions from './explore-options.svelte';
 import PageHeader from './page-header.svelte';
 import DefaultCards from './default-cards.svelte';
 import DefaultContent from './default-content.svelte';
+import heroMedia from './hero-media.svelte';
+import History from './history.svelte';
 
 export const sectionMap = {
 	heroCarousel: HeroCarousel,
@@ -19,5 +21,8 @@ export const sectionMap = {
 	optionBlocks: ExploreOptions,
 	pageHeader: PageHeader,
 	defaultCards: DefaultCards,
-	defaultContent: DefaultContent
+	defaultCardsTwo: DefaultCards,
+	defaultContent: DefaultContent,
+	heroMedia: heroMedia,
+	history: History
 } as const;

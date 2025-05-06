@@ -16,18 +16,6 @@
     }
   },
   "attributes": {
-    "defaultCards": {
-      "displayName": "industry-card",
-      "type": "component",
-      "repeatable": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "page-components.industry-card",
-      "required": true
-    },
     "pageHeader": {
       "type": "component",
       "repeatable": false,
@@ -38,6 +26,16 @@
       },
       "component": "page-components.page-header",
       "required": true
+    },
+    "defaultCards": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.default-cards"
     }
   }
 }

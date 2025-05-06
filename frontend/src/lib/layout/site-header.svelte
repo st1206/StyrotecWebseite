@@ -66,9 +66,11 @@
 		) as Record<keyof typeof pages, string>;
 	});
 
-	function getLink<K extends keyof typeof pages>(key: K, appendage?: string): string {
+	function getLink<K extends keyof typeof pages>(key: K, appendage?: string | null): string {
 		const base = slugMap[key];
-		if (!appendage) return base;
+		if (!appendage) {
+			return base;
+		}
 		return appendage.startsWith('/') ? `${base}${appendage}` : `${base}/${appendage}`;
 	}
 
@@ -163,7 +165,7 @@
 		<div class="absolute left-0 top-[79px] -z-10">
 			<MobileNav bind:open />
 		</div>
-		<div class="flex items-center gap-1 navBreak:hidden">
+		<div class="navBreak:hidden flex items-center gap-1">
 			<Button variant="ghost" size="icon" class="hover:bg-transparent">
 				<Icons.search class="text-secondary size-6" />
 			</Button>
@@ -185,9 +187,7 @@
 								<a
 									class="w-1/5"
 									href={getLink(menuItem.key, route.anchor)}
-									onclick={(e) => {
-										closeAll();
-									}}
+									onclick={(e) => closeAll()}
 								>
 									<BlurFade delay={0.03 * i} duration={0.3}>
 										<div
@@ -209,29 +209,29 @@
 								<div class="flex flex-col gap-6">
 									<a
 										class="font-boldFont text-primary text-2xl hover:underline xl:text-3xl"
-										href={getLink(route.key)}
-										onclick={(e) => {
-											closeAll();
-										}}
+										href={getLink(route.key, route.anchor)}
+										onclick={(e) => closeAll()}
 									>
 										{$_(`nav.${route.key}`)}
 									</a>
 
-									<ul class="flex flex-col gap-1">
-										{#each route.routeChildren as routeChild}
-											<li>
-												<a
-													class="text-md text-white hover:underline xl:text-lg"
-													href={getLink(routeChild.key)}
-													onclick={(e) => {
-														closeAll();
-													}}
-												>
-													{$_(`nav.${routeChild.key}`)}
-												</a>
-											</li>
-										{/each}
-									</ul>
+									{#if route.routeChildren?.length}
+										<ul class="flex flex-col gap-1">
+											{#each route.routeChildren as routeChild}
+												<li>
+													<a
+														class="text-md text-white hover:underline xl:text-lg"
+														href={routeChild.anchor
+															? getLink(route.key, routeChild.anchor)
+															: getLink(routeChild.key)}
+														onclick={(e) => closeAll()}
+													>
+														{$_(`nav.${routeChild.key}`)}
+													</a>
+												</li>
+											{/each}
+										</ul>
+									{/if}
 								</div>
 							</BlurFade>
 						{/each}

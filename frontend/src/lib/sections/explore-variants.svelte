@@ -16,7 +16,6 @@
 		}[];
 	} = $props();
 
-	let accordionRef: HTMLDivElement | null = $state(null);
 	let accordionHeight: number | null = $state(280);
 </script>
 
@@ -59,7 +58,7 @@
 								</Card.Title>
 							</Card.Header>
 
-							<div bind:this={accordionRef}>
+							<div>
 								<Card.Content>
 									<ScrollArea
 										class="w-full pr-2"

@@ -130,7 +130,7 @@
 						>
 							<Card.Header class="p-0">
 								<Card.Title
-									class="bg-foreground w-full [clip-path:polygon(0%_0%,50%_0%,80%_100%,0%_100%)]"
+									class="bg-foreground w-full [clip-path:polygon(0%_0%,60%_0%,80%_100%,0%_100%)]"
 								>
 									<h3 class="font-boldFont text-secondary p-5">{card.title}</h3>
 								</Card.Title>

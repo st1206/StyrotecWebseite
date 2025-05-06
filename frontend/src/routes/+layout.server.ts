@@ -3,7 +3,7 @@ import { loadCMSData } from '$lib/server/utils';
 import type { LayoutServerLoad } from './$types';
 import { superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
-import { contactFormSchema } from '$lib/schemas/contact-form-schema';
+import { contactFormSchema } from '$lib/models/contact-form-schema';
 
 export const load: LayoutServerLoad = async ({ locals: { lang } }) => {
 	const socialMediaChannels = await loadCMSData<{ name: string; link: string }>(

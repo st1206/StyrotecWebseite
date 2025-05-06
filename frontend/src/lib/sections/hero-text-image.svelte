@@ -36,7 +36,7 @@
 					? `${PUBLIC_BACKEND_URL}${data.image.formats['large']?.url || data.image.url}`
 					: data.image.url}
 				alt={data.image.alternativeText}
-				class="shadow-primary mx-auto h-[300px] w-auto object-cover md:h-[300px] lg:h-[330px] xl:h-[400px]"
+				class="shadow-primary mx-auto h-[300px] w-auto object-cover lg:h-[330px] xl:h-[400px]"
 			/>
 		{/if}
 	</section>

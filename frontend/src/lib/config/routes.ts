@@ -9,36 +9,44 @@ export const menu = [
 		menuRoutes: [
 			{
 				key: 'gantryMachines',
+				anchor: null,
 				routeChildren: [
-					{ key: 'fs10' },
-					{ key: 'fs15' },
-					{ key: 'fs20' },
-					{ key: 'hybrid3D' },
-					{ key: 'stockMachines' }
+					{ key: 'fs10', anchor: null },
+					{ key: 'fs15', anchor: null },
+					{ key: 'fs20', anchor: null },
+					{ key: 'hybrid3D', anchor: null },
+					{ key: 'stockMachines', anchor: null }
 				]
 			},
 			{
 				key: 'chipPresses',
-				routeChildren: [{ key: 'metals' }, { key: 'synthetics' }, { key: 'styrofoam' }]
+				anchor: null,
+				routeChildren: [
+					{ key: 'metals', anchor: null },
+					{ key: 'synthetics', anchor: null },
+					{ key: 'styrofoam', anchor: null }
+				]
 			},
 			{
 				key: 'styrofoamProcessing',
+				anchor: null,
 				routeChildren: [
-					{ key: 'millingTools' },
-					{ key: 'hollowMillingSpindles' },
-					{ key: 'suction' },
-					{ key: 'shredder' },
-					{ key: 'presses' },
-					{ key: 'rawmaterial' },
-					{ key: 'glue' }
+					{ key: 'millingTools', anchor: null },
+					{ key: 'hollowMillingSpindles', anchor: null },
+					{ key: 'suction', anchor: null },
+					{ key: 'shredder', anchor: null },
+					{ key: 'presses', anchor: null },
+					{ key: 'rawmaterial', anchor: null },
+					{ key: 'glue', anchor: null }
 				]
 			},
 			{
 				key: 'usedMachines',
+				anchor: null,
 				routeChildren: [
-					{ key: 'cncMachines' },
+					{ key: 'cncMachines', anchor: null },
 					// { key: 'cncComponentParts', link: '/produkte/gebrauchtmaschinen/cnc-zubehoer' },
-					{ key: 'conventionalMachines' } // ?!? Modellbaumaschinen !== Konventionelle
+					{ key: 'conventionalMachines', anchor: null } // ?!? Modellbaumaschinen !== Konventionelle
 					// {
 					// 	key: 'holzbearbeitungsmaschinen',
 					// 	link: '/produkte/gebrauchtmaschinen/modellbaumaschinen'
@@ -49,26 +57,34 @@ export const menu = [
 	},
 	{
 		id: 2,
-		key: 'dienstleistungen',
+		key: 'services',
 		menuRoutes: [
 			{
 				key: 'maschinenerhaltung',
+				anchor: null,
 				routeChildren: [
-					{ key: 'spindelservice' },
-					{ key: 'wartungen' },
-					{ key: 'reparaturen' },
-					{ key: 'maschinenumzüge' }
+					{ key: 'spindelservice', anchor: null },
+					{ key: 'wartungen', anchor: null },
+					{ key: 'reparaturen', anchor: null },
+					{ key: 'maschinenumzüge', anchor: null }
 				]
 			},
 			{
 				key: 'maschinenvermarktung',
-				link: '/dienstleistungen/maschinenvermarktung',
-				routeChildren: [{ key: 'bewertung' }, { key: 'vermittlung' }, { key: 'ankauf' }]
+				anchor: null,
+				routeChildren: [
+					{ key: 'bewertung', anchor: null },
+					{ key: 'vermittlung', anchor: null },
+					{ key: 'ankauf', anchor: null }
+				]
 			},
 			{
 				key: 'maschinenmodernisierung',
-				link: '/dienstleistungen/maschinenmodernisierung',
-				routeChildren: [{ key: 'retrofit' }, { key: 'überholung' }]
+				anchor: null,
+				routeChildren: [
+					{ key: 'retrofit', anchor: null },
+					{ key: 'überholung', anchor: null }
+				]
 			}
 		]
 	},
@@ -96,31 +112,29 @@ export const menu = [
 	},
 	{
 		id: 4,
-		key: 'unternehmen',
+		key: 'company',
 		menuRoutes: [
 			{
-				key: 'ueberUns',
+				key: 'aboutUs',
+				anchor: null,
 				routeChildren: [
-					{ key: 'team', link: '/unternehmen/ueber-uns/#team' },
-					{ key: 'werte-mission-vission', link: '/unternehmen/ueber-uns/#werte' },
-					{ key: 'historie', link: '/unternehmen/ueber-uns/#historie' },
-					{ key: 'nachhaltigkeit', link: '/unternehmen/ueber-uns/#nachhaltigkeit' }
+					{ key: 'team', anchor: '#team' },
+					{ key: 'history', anchor: '#historie' },
+					{ key: 'values', anchor: '#werte' },
+					{ key: 'sustainability', anchor: '#nachhaltigkeit' }
 				]
 			},
 			{
-				key: 'karriere',
-				link: '/unternehmen/karriere',
-				routeChildren: [
-					{ key: 'stellenausschreibung', link: '/unternehmen/karriere/#stellenausschreibung' }
-				]
+				key: 'company',
+				anchor: null,
+				routeChildren: [{ key: 'jobs', anchor: null }]
 			},
 			{
 				key: 'news',
-				link: '/unternehmen/news-termine',
+				anchor: null,
 				routeChildren: [
-					//{ key: 'anwenderstories', link: '/unternehmen/news-termine/#anwenderstories' },
-					{ key: 'referenzen', link: '/unternehmen/news-termine/#referenzen' },
-					{ key: 'messen', link: '/unternehmen/news-termine/#messen' }
+					{ key: 'references', anchor: null },
+					{ key: 'fairs', anchor: null }
 				]
 			}
 		]

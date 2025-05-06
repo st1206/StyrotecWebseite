@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_partial_components_history_entries",
+  "info": {
+    "displayName": "historyEntry",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "year": {
+      "type": "biginteger",
+      "required": true
+    }
+  }
+}

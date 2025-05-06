@@ -9,7 +9,7 @@
     "tables": {
       "type": "component",
       "repeatable": true,
-      "component": "partial-components.option-table"
+      "component": "partial-components.table"
     },
     "sortOrder": {
       "type": "integer",

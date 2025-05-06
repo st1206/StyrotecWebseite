@@ -75,7 +75,7 @@
 								{#if menuItem.key === 'industries'}
 									<div class="grid grid-cols-2 gap-4">
 										{#each menuItem.menuRoutes as route, j}
-											<BlurFade delay={0.07 * j} duration={0.2}>
+											<BlurFade once={true} delay={0.07 * j} duration={0.2}>
 												<a
 													href={getLink(menuItem.key, route.anchor)}
 													onclick={(e) => {
@@ -97,7 +97,7 @@
 								{:else}
 									<div class="flex flex-col gap-4">
 										{#each menuItem.menuRoutes as route, j}
-											<BlurFade delay={0.07 * j} duration={0.2}>
+											<BlurFade once={true} delay={0.07 * j} duration={0.2}>
 												<div class="flex flex-col gap-2">
 													<a
 														class="font-boldFont text-primary text-xl hover:underline"
@@ -112,7 +112,7 @@
 													{#if route.routeChildren?.length}
 														<ul class="flex flex-col gap-1 pl-2">
 															{#each route.routeChildren as child}
-																<BlurFade delay={0.07 * j} duration={0.2}>
+																<BlurFade once={true} delay={0.07 * j} duration={0.2}>
 																	<li>
 																		<a
 																			class="text-md text-secondary hover:underline"

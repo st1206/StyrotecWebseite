@@ -25,6 +25,24 @@ export interface PageComponentsBasicTextImage extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponentsDefaultCards extends Struct.ComponentSchema {
+  collectionName: 'components_page_components_default_cards';
+  info: {
+    description: '';
+    displayName: 'defaultCards';
+  };
+  attributes: {
+    anchor: Schema.Attribute.String;
+    cards: Schema.Attribute.Component<'partial-components.default-card', true> &
+      Schema.Attribute.Required;
+    description: Schema.Attribute.Text;
+    isDarkMode: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    sectionTitle: Schema.Attribute.String;
+  };
+}
+
 export interface PageComponentsExploreMore extends Struct.ComponentSchema {
   collectionName: 'components_page_components_explore_mores';
   info: {
@@ -92,16 +110,15 @@ export interface PageComponentsHeroDualImage extends Struct.ComponentSchema {
   };
 }
 
-export interface PageComponentsIndustryCard extends Struct.ComponentSchema {
-  collectionName: 'components_page_components_industry_cards';
+export interface PageComponentsHeroMedia extends Struct.ComponentSchema {
+  collectionName: 'components_page_components_hero_medias';
   info: {
     description: '';
-    displayName: 'defaultCard';
+    displayName: 'heroMedia';
   };
   attributes: {
-    anchor: Schema.Attribute.String & Schema.Attribute.Required;
-    content: Schema.Attribute.RichText &
-      Schema.Attribute.Required &
+    anchor: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor.CKEditor',
         {
@@ -110,12 +127,30 @@ export interface PageComponentsIndustryCard extends Struct.ComponentSchema {
           preset: 'rich';
         }
       >;
-    redirectButtons: Schema.Attribute.Component<
-      'partial-components.redirect-button',
+    imageCards: Schema.Attribute.Component<
+      'partial-components.image-card',
       true
-    >;
-    thumbnail: Schema.Attribute.Media<'images' | 'files'>;
+    > &
+      Schema.Attribute.Required;
+    media: Schema.Attribute.Media<'files' | 'videos' | 'images'> &
+      Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface PageComponentsHistory extends Struct.ComponentSchema {
+  collectionName: 'components_page_components_histories';
+  info: {
+    description: '';
+    displayName: 'history';
+  };
+  attributes: {
+    historyEntries: Schema.Attribute.Component<
+      'partial-components.history-entry',
+      true
+    > &
+      Schema.Attribute.Required;
+    sectionTitle: Schema.Attribute.String;
   };
 }
 
@@ -130,6 +165,53 @@ export interface PageComponentsPageHeader extends Struct.ComponentSchema {
   };
 }
 
+export interface PartialComponentsAccordion extends Struct.ComponentSchema {
+  collectionName: 'components_partial_components_accordions';
+  info: {
+    description: '';
+    displayName: 'accordion';
+    icon: 'filter';
+  };
+  attributes: {
+    accordionItems: Schema.Attribute.Component<
+      'partial-components.accordion-item',
+      true
+    > &
+      Schema.Attribute.Required;
+    sortOrder: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<1>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface PartialComponentsAccordionItem extends Struct.ComponentSchema {
+  collectionName: 'components_partial_components_accordion_items';
+  info: {
+    description: '';
+    displayName: 'accordionItem';
+    icon: 'command';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYyOTc1OTksImp0aSI6ImMyMTI4NzEyLTI0NGEtNDg2My1iMDMyLTBhMDg4M2ViYjFjNyIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiNDBiMzRjNTkifQ.NEHvT9L5g2Udrb7VzeOMjkb1fWToQYc4UPOtgo1r1rRZ3qtR3A7Zbbdxy4CuL0sTdXIZatiLy0o7Jcqqs2bpkw';
+          output: 'HTML';
+          preset: 'rich';
+        }
+      >;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+    sortOrder: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<1>;
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface PartialComponentsContentAccordion
   extends Struct.ComponentSchema {
   collectionName: 'components_partial_components_content_accordions';
@@ -139,9 +221,10 @@ export interface PartialComponentsContentAccordion
   };
   attributes: {
     accordions: Schema.Attribute.Component<
-      'partial-components.option-accordion-item',
+      'partial-components.accordion',
       true
-    >;
+    > &
+      Schema.Attribute.Required;
     sortOrder: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<1>;
@@ -199,7 +282,7 @@ export interface PartialComponentsContentTable extends Struct.ComponentSchema {
     sortOrder: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<1>;
-    tables: Schema.Attribute.Component<'partial-components.option-table', true>;
+    tables: Schema.Attribute.Component<'partial-components.table', true>;
     title: Schema.Attribute.String;
   };
 }
@@ -233,36 +316,15 @@ export interface PartialComponentsContentTextImage
   };
 }
 
-export interface PartialComponentsOptionAccordionItem
-  extends Struct.ComponentSchema {
-  collectionName: 'components_partial_components_option_accordion_items';
+export interface PartialComponentsDefaultCard extends Struct.ComponentSchema {
+  collectionName: 'components_partial_components_default_cards';
   info: {
     description: '';
-    displayName: 'accordion';
-    icon: 'filter';
+    displayName: 'defaultCard';
   };
   attributes: {
-    accordionItems: Schema.Attribute.Component<
-      'partial-components.option-item',
-      true
-    > &
-      Schema.Attribute.Required;
-    sortOrder: Schema.Attribute.Integer &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<1>;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
-export interface PartialComponentsOptionItem extends Struct.ComponentSchema {
-  collectionName: 'components_partial_components_option_items';
-  info: {
-    description: '';
-    displayName: 'accordionItem';
-    icon: 'command';
-  };
-  attributes: {
-    description: Schema.Attribute.RichText &
+    anchor: Schema.Attribute.String;
+    content: Schema.Attribute.RichText &
       Schema.Attribute.Required &
       Schema.Attribute.CustomField<
         'plugin::ckeditor.CKEditor',
@@ -272,49 +334,42 @@ export interface PartialComponentsOptionItem extends Struct.ComponentSchema {
           preset: 'rich';
         }
       >;
+    redirectButtons: Schema.Attribute.Component<
+      'partial-components.redirect-button',
+      true
+    >;
+    thumbnail: Schema.Attribute.Media<'images' | 'files'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface PartialComponentsHistoryEntry extends Struct.ComponentSchema {
+  collectionName: 'components_partial_components_history_entries';
+  info: {
+    description: '';
+    displayName: 'historyEntry';
+  };
+  attributes: {
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    year: Schema.Attribute.BigInteger & Schema.Attribute.Required;
+  };
+}
+
+export interface PartialComponentsImageCard extends Struct.ComponentSchema {
+  collectionName: 'components_partial_components_image_cards';
+  info: {
+    description: '';
+    displayName: 'imageCard';
+  };
+  attributes: {
+    employee: Schema.Attribute.Relation<'oneToOne', 'api::employee.employee'>;
     image: Schema.Attribute.Media<'images' | 'files'>;
     sortOrder: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<1>;
     subtitle: Schema.Attribute.String;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
-export interface PartialComponentsOptionTable extends Struct.ComponentSchema {
-  collectionName: 'components_partial_components_option_tables';
-  info: {
-    description: '';
-    displayName: 'table';
-  };
-  attributes: {
-    sortOrder: Schema.Attribute.Integer &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<1>;
-    tableColumns: Schema.Attribute.Component<
-      'partial-components.table-column',
-      true
-    > &
-      Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
-export interface PartialComponentsOptionTextImage
-  extends Struct.ComponentSchema {
-  collectionName: 'components_partial_components_option_text_images';
-  info: {
-    description: '';
-    displayName: 'optionTextImage';
-  };
-  attributes: {
-    accordions: Schema.Attribute.Component<
-      'partial-components.option-accordion-item',
-      true
-    > &
-      Schema.Attribute.Required;
-    sectionTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    sortOrder: Schema.Attribute.Integer & Schema.Attribute.Required;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -362,6 +417,25 @@ export interface PartialComponentsRedirectButton
   };
 }
 
+export interface PartialComponentsTable extends Struct.ComponentSchema {
+  collectionName: 'components_partial_components_tables';
+  info: {
+    description: '';
+    displayName: 'table';
+  };
+  attributes: {
+    sortOrder: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<1>;
+    tableColumns: Schema.Attribute.Component<
+      'partial-components.table-column',
+      true
+    > &
+      Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface PartialComponentsTableColumn extends Struct.ComponentSchema {
   collectionName: 'components_partial_components_table_columns';
   info: {
@@ -387,6 +461,23 @@ export interface PartialComponentsTableRow extends Struct.ComponentSchema {
   attributes: {
     rowLabel: Schema.Attribute.String & Schema.Attribute.Required;
     rowValue: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface PartialComponentsTextImage extends Struct.ComponentSchema {
+  collectionName: 'components_partial_components_option_text_images';
+  info: {
+    description: '';
+    displayName: 'optionTextImage';
+  };
+  attributes: {
+    accordions: Schema.Attribute.Component<
+      'partial-components.accordion-item',
+      true
+    > &
+      Schema.Attribute.Required;
+    sectionTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    sortOrder: Schema.Attribute.Integer & Schema.Attribute.Required;
   };
 }
 
@@ -457,25 +548,30 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'page-components.basic-text-image': PageComponentsBasicTextImage;
+      'page-components.default-cards': PageComponentsDefaultCards;
       'page-components.explore-more': PageComponentsExploreMore;
       'page-components.explore-variants': PageComponentsExploreVariants;
       'page-components.hero-carousel': PageComponentsHeroCarousel;
       'page-components.hero-dual-image': PageComponentsHeroDualImage;
-      'page-components.industry-card': PageComponentsIndustryCard;
+      'page-components.hero-media': PageComponentsHeroMedia;
+      'page-components.history': PageComponentsHistory;
       'page-components.page-header': PageComponentsPageHeader;
+      'partial-components.accordion': PartialComponentsAccordion;
+      'partial-components.accordion-item': PartialComponentsAccordionItem;
       'partial-components.content-accordion': PartialComponentsContentAccordion;
       'partial-components.content-header': PartialComponentsContentHeader;
       'partial-components.content-images': PartialComponentsContentImages;
       'partial-components.content-table': PartialComponentsContentTable;
       'partial-components.content-text-image': PartialComponentsContentTextImage;
-      'partial-components.option-accordion-item': PartialComponentsOptionAccordionItem;
-      'partial-components.option-item': PartialComponentsOptionItem;
-      'partial-components.option-table': PartialComponentsOptionTable;
-      'partial-components.option-text-image': PartialComponentsOptionTextImage;
+      'partial-components.default-card': PartialComponentsDefaultCard;
+      'partial-components.history-entry': PartialComponentsHistoryEntry;
+      'partial-components.image-card': PartialComponentsImageCard;
       'partial-components.preview-card': PartialComponentsPreviewCard;
       'partial-components.redirect-button': PartialComponentsRedirectButton;
+      'partial-components.table': PartialComponentsTable;
       'partial-components.table-column': PartialComponentsTableColumn;
       'partial-components.table-row': PartialComponentsTableRow;
+      'partial-components.text-image': PartialComponentsTextImage;
       'partial-components.usp-list': PartialComponentsUspList;
       'partial-components.variant-accordion-item': PartialComponentsVariantAccordionItem;
       'partial-components.variant-accordion-item-line': PartialComponentsVariantAccordionItemLine;

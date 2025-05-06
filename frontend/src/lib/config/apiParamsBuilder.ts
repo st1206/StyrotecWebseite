@@ -10,16 +10,18 @@ const populateBySection: Record<string, PopulateRule> = {
 		'exploreVariants.variantCards.image',
 		'exploreVariants.variantCards.accordionItems.accordionItemLines'
 	],
-	optionBlocks: [
-		'optionBlocks.accordions.accordionItems.image',
-		'optionBlocks.tableColumns.tableRows'
-	],
+	optionBlocks: ['optionBlocks.accordionItems.image', 'optionBlocks.tableColumns.tableRows'],
 	defaultContent: [
 		'defaultContent.tables.tableColumns.tableRows',
 		'defaultContent.accordions.accordionItems.image',
 		'defaultContent.images',
 		'defaultContent.image'
-	]
+	],
+	pageHeader: ['pageHeader'],
+	heroMedia: ['heroMedia.media', 'heroMedia.imageCards', 'heroMedia.imageCards.employee.picture'],
+	history: ['history.historyEntries'],
+	defaultCards: ['defaultCards.cards.thumbnail', 'defaultCards.cards.redirectButtons'],
+	defaultCardsTwo: ['defaultCardsTwo.cards.thumbnail', 'defaultCardsTwo.cards.redirectButtons']
 };
 
 export function buildPopulateQuery(sectionKeys: string[]): string {

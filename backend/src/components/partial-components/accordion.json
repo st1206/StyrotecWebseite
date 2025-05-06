@@ -1,5 +1,5 @@
 {
-  "collectionName": "components_partial_components_option_accordion_items",
+  "collectionName": "components_partial_components_accordions",
   "info": {
     "displayName": "accordion",
     "icon": "filter",
@@ -14,7 +14,7 @@
     "accordionItems": {
       "type": "component",
       "repeatable": true,
-      "component": "partial-components.option-item",
+      "component": "partial-components.accordion-item",
       "required": true
     },
     "sortOrder": {

@@ -1,4 +1,5 @@
 import type {
+	ApiAboutUsPageAboutUsPage,
 	ApiChipPressesPageChipPressesPage,
 	ApiFs10PageFs10Page,
 	ApiFs15PageFs15Page,
@@ -20,6 +21,7 @@ export interface CMSTypeMap {
 	metalsPage: ApiMetalsPageMetalsPage;
 	industriesPage: ApiIndustriesPageIndustriesPage;
 	millingToolsPage: ApiMillingToolsPageMillingToolsPage;
+	aboutUsPage: ApiAboutUsPageAboutUsPage;
 }
 
 // Define the supported languages
@@ -160,6 +162,27 @@ const pagesConfig: Record<string, PageContent> = {
 		sections: [
 			{
 				sectionKey: 'defaultContent'
+			}
+		]
+	},
+
+	aboutUs: {
+		deSlug: 'unternehmen/ueber-uns',
+		enSlug: 'company/about-us',
+		cmsTypeKey: 'aboutUsPage',
+		cmsApiSlug: 'about-us-page',
+		sections: [
+			{
+				sectionKey: 'heroMedia'
+			},
+			{
+				sectionKey: 'history'
+			},
+			{
+				sectionKey: 'defaultCards'
+			},
+			{
+				sectionKey: 'defaultCardsTwo'
 			}
 		]
 	}

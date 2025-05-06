@@ -369,44 +369,38 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiAboutAbout extends Struct.SingleTypeSchema {
-  collectionName: 'abouts';
+export interface ApiAboutUsPageAboutUsPage extends Struct.SingleTypeSchema {
+  collectionName: 'about_us_pages';
   info: {
-    description: 'Write about yourself and the content you create';
-    displayName: 'About';
-    pluralName: 'abouts';
-    singularName: 'about';
+    description: '';
+    displayName: '\u00DCber uns Seite';
+    pluralName: 'about-us-pages';
+    singularName: 'about-us-page';
   };
   options: {
-    draftAndPublish: false;
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    exploreVariants: Schema.Attribute.Component<
-      'page-components.explore-variants',
-      false
-    > &
-      Schema.Attribute.Required;
-    heroDualImage: Schema.Attribute.Component<
-      'page-components.hero-dual-image',
-      false
-    > &
-      Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::about.about'> &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    test: Schema.Attribute.DynamicZone<
-      [
-        'partial-components.usp-list',
-        'partial-components.variant-accordion-item-line',
-        'partial-components.table-row',
-        'partial-components.table-column',
-      ]
+    heroMedia: Schema.Attribute.Component<'page-components.hero-video', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::about-us-page.about-us-page'
     >;
-    title: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -807,10 +801,7 @@ export interface ApiFs10PageFs10Page extends Struct.SingleTypeSchema {
       'api::fs10-page.fs10-page'
     >;
     optionBlocks: Schema.Attribute.DynamicZone<
-      [
-        'partial-components.option-text-image',
-        'partial-components.option-table',
-      ]
+      ['partial-components.table', 'partial-components.accordion']
     > &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -846,10 +837,7 @@ export interface ApiFs15PageFs15Page extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     exploreOptions: Schema.Attribute.DynamicZone<
-      [
-        'partial-components.option-table',
-        'partial-components.option-text-image',
-      ]
+      ['partial-components.table', 'partial-components.accordion']
     > &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -1007,30 +995,19 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    asd: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    carousel: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'>;
     publishedAt: Schema.Attribute.DateTime;
-    TESTasd: Schema.Attribute.Blocks &
-      Schema.Attribute.Required &
+    slug: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    test: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1064,7 +1041,7 @@ export interface ApiIndustriesPageIndustriesPage
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     defaultCards: Schema.Attribute.Component<
-      'page-components.industry-card',
+      'partial-components.default-card',
       true
     > &
       Schema.Attribute.Required &
@@ -1802,7 +1779,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::about.about': ApiAboutAbout;
+      'api::about-us-page.about-us-page': ApiAboutUsPageAboutUsPage;
       'api::chip-presses-page.chip-presses-page': ApiChipPressesPageChipPressesPage;
       'api::cnc-machine.cnc-machine': ApiCncMachineCncMachine;
       'api::employee.employee': ApiEmployeeEmployee;

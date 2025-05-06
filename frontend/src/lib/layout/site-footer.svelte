@@ -94,10 +94,10 @@
 		>
 			<div class="flex items-center gap-2">
 				<Icons.copyright class="size-4" />
-				<h1 class="font-sans">2025 StyroTec GmbH & Co. KG</h1>
+				<h1 class="font-sans">2025 Styrotec GmbH & Co. KG</h1>
 			</div>
 			<div class="flex items-center">
-				<Button variant="link" href="/impressum" f class="text-normal font-sans font-normal">
+				<Button variant="link" href="/impressum" class="text-normal font-sans font-normal">
 					Impressum
 				</Button>
 				|

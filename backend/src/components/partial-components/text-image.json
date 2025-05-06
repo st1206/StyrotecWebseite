@@ -13,7 +13,7 @@
     "accordions": {
       "type": "component",
       "repeatable": true,
-      "component": "partial-components.option-accordion-item",
+      "component": "partial-components.accordion-item",
       "required": true
     },
     "sortOrder": {

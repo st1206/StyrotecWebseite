@@ -5,7 +5,7 @@
 	import { Input } from '$lib/components/ui/input';
 	import { zodClient } from 'sveltekit-superforms/adapters';
 	import { superForm } from 'sveltekit-superforms';
-	import { contactFormSchema } from '$lib/schemas/contact-form-schema';
+	import { contactFormSchema } from '$lib/models/contact-form-schema';
 	import { Textarea } from '$lib/components/ui/textarea';
 
 	let { contactForm } = $props();
@@ -17,7 +17,7 @@
 	const { form: formData, enhance } = form;
 </script>
 
-<div class="bg-foreground mt-20 h-24 w-full [clip-path:polygon(100%_0,100%_100%,0_100%)]"></div>
+<div class="bg-foreground mt-20 h-14 w-full [clip-path:polygon(100%_0,100%_100%,0_100%)]"></div>
 <section class="bg-foreground flex w-full flex-col">
 	<div class="mx-2 mb-12 mt-16 grid h-full grid-cols-1 sm:container sm:mx-auto md:grid-cols-3">
 		{#if rolfImage}

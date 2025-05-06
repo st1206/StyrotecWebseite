@@ -1,5 +1,5 @@
 {
-  "collectionName": "components_page_components_industry_cards",
+  "collectionName": "components_partial_components_default_cards",
   "info": {
     "displayName": "defaultCard",
     "description": ""
@@ -37,8 +37,7 @@
       "required": false
     },
     "anchor": {
-      "type": "string",
-      "required": true
+      "type": "string"
     }
   }
 }
