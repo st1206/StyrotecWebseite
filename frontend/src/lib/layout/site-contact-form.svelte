@@ -17,7 +17,9 @@
 	const { form: formData, enhance } = form;
 </script>
 
-<div class="bg-foreground mt-20 h-14 w-full [clip-path:polygon(100%_0,100%_100%,0_100%)]"></div>
+<div
+	class="bg-foreground mt-20 h-14 w-full translate-y-[1px] [clip-path:polygon(100%_0,100%_100%,0_100%)]"
+></div>
 <section class="bg-foreground flex w-full flex-col">
 	<div class="mx-2 mb-12 mt-16 grid h-full grid-cols-1 sm:container sm:mx-auto md:grid-cols-3">
 		{#if rolfImage}

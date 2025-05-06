@@ -8,10 +8,21 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
-		// If your environment is not supported, or you settled on a specific environment, switch out the adapter.
-		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
-		adapter: adapter()
+		adapter: adapter({
+			// optional: tweak these if you want a different output dir,
+			// gzip/brotli pre-compression, a SPA fallback, etc.
+			pages: 'build',
+			assets: 'build',
+			fallback: null, // e.g. '200.html' for SPA-style routing
+			precompress: false,
+			strict: true
+		}),
+
+		// crawl every discovered route and pre-render it
+		prerender: {
+			default: true, // the magic bit — make every page static
+			entries: ['*'] // allow SvelteKit to discover all pages it can
+		}
 	}
 };
 
