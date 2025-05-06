@@ -16,13 +16,13 @@ const config = {
 			fallback: null, // e.g. '200.html' for SPA-style routing
 			precompress: false,
 			strict: true
-		}),
+		})
 
 		// crawl every discovered route and pre-render it
-		prerender: {
-			default: true, // the magic bit — make every page static
-			entries: ['*'] // allow SvelteKit to discover all pages it can
-		}
+		// prerender: {
+		// 	default: true,
+		// 	entries: ['*']
+		// }
 	}
 };
 
