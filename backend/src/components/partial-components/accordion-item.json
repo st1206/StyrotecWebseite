@@ -18,20 +18,11 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": [
-        "images",
-        "files"
-      ]
+      "allowedTypes": ["images", "files"]
     },
     "description": {
-      "type": "customField",
-      "options": {
-        "output": "HTML",
-        "licenseKey": "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzgxMTE5OTksImp0aSI6ImE4OTQyNzM0LWFiNzQtNDVlNS05OGQ2LWNhNDFiMTNjNDk0OCIsImxpY2Vuc2VkSG9zdHMiOlsiY3JlZGlibGUtcG9lbS0zNTcyMThlZGNlLnN0cmFwaWFwcC5jb20iXSwidXNhZ2VFbmRwb2ludCI6Imh0dHBzOi8vcHJveHktZXZlbnQuY2tlZGl0b3IuY29tIiwiZGlzdHJpYnV0aW9uQ2hhbm5lbCI6WyJjbG91ZCIsImRydXBhbCJdLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiNDYxMDk3MGYifQ.fjrJPLTeKbq4zxfS48NxyRr-te3rvQjtlVoAmZTNiSv_wrYmMSRUCORB1xGXOl1X0NkVBitsdUunJsRGIc7C5g",
-        "preset": "rich"
-      },
-      "required": true,
-      "customField": "plugin::ckeditor.CKEditor"
+      "type": "text",
+      "required": true
     },
     "sortOrder": {
       "type": "integer",

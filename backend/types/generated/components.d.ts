@@ -8,16 +8,7 @@ export interface PageComponentsBasicTextImage extends Struct.ComponentSchema {
     icon: 'pencil';
   };
   attributes: {
-    content: Schema.Attribute.RichText &
-      Schema.Attribute.Required &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzgxMTE5OTksImp0aSI6ImE4OTQyNzM0LWFiNzQtNDVlNS05OGQ2LWNhNDFiMTNjNDk0OCIsImxpY2Vuc2VkSG9zdHMiOlsiY3JlZGlibGUtcG9lbS0zNTcyMThlZGNlLnN0cmFwaWFwcC5jb20iXSwidXNhZ2VFbmRwb2ludCI6Imh0dHBzOi8vcHJveHktZXZlbnQuY2tlZGl0b3IuY29tIiwiZGlzdHJpYnV0aW9uQ2hhbm5lbCI6WyJjbG91ZCIsImRydXBhbCJdLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiNDYxMDk3MGYifQ.fjrJPLTeKbq4zxfS48NxyRr-te3rvQjtlVoAmZTNiSv_wrYmMSRUCORB1xGXOl1X0NkVBitsdUunJsRGIc7C5g';
-          output: 'HTML';
-          preset: 'rich';
-        }
-      >;
+    content: Schema.Attribute.Text & Schema.Attribute.Required;
     image: Schema.Attribute.Media<'files' | 'images'> &
       Schema.Attribute.Required;
     subtitle: Schema.Attribute.String;
@@ -118,15 +109,7 @@ export interface PageComponentsHeroMedia extends Struct.ComponentSchema {
   };
   attributes: {
     anchor: Schema.Attribute.String;
-    description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzgxMTE5OTksImp0aSI6ImE4OTQyNzM0LWFiNzQtNDVlNS05OGQ2LWNhNDFiMTNjNDk0OCIsImxpY2Vuc2VkSG9zdHMiOlsiY3JlZGlibGUtcG9lbS0zNTcyMThlZGNlLnN0cmFwaWFwcC5jb20iXSwidXNhZ2VFbmRwb2ludCI6Imh0dHBzOi8vcHJveHktZXZlbnQuY2tlZGl0b3IuY29tIiwiZGlzdHJpYnV0aW9uQ2hhbm5lbCI6WyJjbG91ZCIsImRydXBhbCJdLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiNDYxMDk3MGYifQ.fjrJPLTeKbq4zxfS48NxyRr-te3rvQjtlVoAmZTNiSv_wrYmMSRUCORB1xGXOl1X0NkVBitsdUunJsRGIc7C5g';
-          output: 'HTML';
-          preset: 'rich';
-        }
-      >;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
     imageCards: Schema.Attribute.Component<
       'partial-components.image-card',
       true
@@ -193,16 +176,7 @@ export interface PartialComponentsAccordionItem extends Struct.ComponentSchema {
     icon: 'command';
   };
   attributes: {
-    description: Schema.Attribute.RichText &
-      Schema.Attribute.Required &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzgxMTE5OTksImp0aSI6ImE4OTQyNzM0LWFiNzQtNDVlNS05OGQ2LWNhNDFiMTNjNDk0OCIsImxpY2Vuc2VkSG9zdHMiOlsiY3JlZGlibGUtcG9lbS0zNTcyMThlZGNlLnN0cmFwaWFwcC5jb20iXSwidXNhZ2VFbmRwb2ludCI6Imh0dHBzOi8vcHJveHktZXZlbnQuY2tlZGl0b3IuY29tIiwiZGlzdHJpYnV0aW9uQ2hhbm5lbCI6WyJjbG91ZCIsImRydXBhbCJdLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiNDYxMDk3MGYifQ.fjrJPLTeKbq4zxfS48NxyRr-te3rvQjtlVoAmZTNiSv_wrYmMSRUCORB1xGXOl1X0NkVBitsdUunJsRGIc7C5g';
-          output: 'HTML';
-          preset: 'rich';
-        }
-      >;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
     image: Schema.Attribute.Media<'images' | 'files'>;
     sortOrder: Schema.Attribute.Integer &
       Schema.Attribute.Required &
@@ -239,16 +213,7 @@ export interface PartialComponentsContentHeader extends Struct.ComponentSchema {
     displayName: 'contentHeader';
   };
   attributes: {
-    description: Schema.Attribute.RichText &
-      Schema.Attribute.Required &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzgxMTE5OTksImp0aSI6ImE4OTQyNzM0LWFiNzQtNDVlNS05OGQ2LWNhNDFiMTNjNDk0OCIsImxpY2Vuc2VkSG9zdHMiOlsiY3JlZGlibGUtcG9lbS0zNTcyMThlZGNlLnN0cmFwaWFwcC5jb20iXSwidXNhZ2VFbmRwb2ludCI6Imh0dHBzOi8vcHJveHktZXZlbnQuY2tlZGl0b3IuY29tIiwiZGlzdHJpYnV0aW9uQ2hhbm5lbCI6WyJjbG91ZCIsImRydXBhbCJdLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiNDYxMDk3MGYifQ.fjrJPLTeKbq4zxfS48NxyRr-te3rvQjtlVoAmZTNiSv_wrYmMSRUCORB1xGXOl1X0NkVBitsdUunJsRGIc7C5g';
-          output: 'HTML';
-          preset: 'rich';
-        }
-      >;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
     isDarkMode: Schema.Attribute.Boolean &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<false>;
@@ -295,15 +260,7 @@ export interface PartialComponentsContentTextImage
     displayName: 'contentTextImage';
   };
   attributes: {
-    content: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzgxMTE5OTksImp0aSI6ImE4OTQyNzM0LWFiNzQtNDVlNS05OGQ2LWNhNDFiMTNjNDk0OCIsImxpY2Vuc2VkSG9zdHMiOlsiY3JlZGlibGUtcG9lbS0zNTcyMThlZGNlLnN0cmFwaWFwcC5jb20iXSwidXNhZ2VFbmRwb2ludCI6Imh0dHBzOi8vcHJveHktZXZlbnQuY2tlZGl0b3IuY29tIiwiZGlzdHJpYnV0aW9uQ2hhbm5lbCI6WyJjbG91ZCIsImRydXBhbCJdLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiNDYxMDk3MGYifQ.fjrJPLTeKbq4zxfS48NxyRr-te3rvQjtlVoAmZTNiSv_wrYmMSRUCORB1xGXOl1X0NkVBitsdUunJsRGIc7C5g';
-          output: 'HTML';
-          preset: 'rich';
-        }
-      >;
+    content: Schema.Attribute.Text & Schema.Attribute.Required;
     image: Schema.Attribute.Media<'images' | 'files'>;
     imagePosition: Schema.Attribute.Enumeration<
       ['top', 'bottom', 'left', 'right']
@@ -324,16 +281,7 @@ export interface PartialComponentsDefaultCard extends Struct.ComponentSchema {
   };
   attributes: {
     anchor: Schema.Attribute.String;
-    content: Schema.Attribute.RichText &
-      Schema.Attribute.Required &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzgxMTE5OTksImp0aSI6ImE4OTQyNzM0LWFiNzQtNDVlNS05OGQ2LWNhNDFiMTNjNDk0OCIsImxpY2Vuc2VkSG9zdHMiOlsiY3JlZGlibGUtcG9lbS0zNTcyMThlZGNlLnN0cmFwaWFwcC5jb20iXSwidXNhZ2VFbmRwb2ludCI6Imh0dHBzOi8vcHJveHktZXZlbnQuY2tlZGl0b3IuY29tIiwiZGlzdHJpYnV0aW9uQ2hhbm5lbCI6WyJjbG91ZCIsImRydXBhbCJdLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiNDYxMDk3MGYifQ.fjrJPLTeKbq4zxfS48NxyRr-te3rvQjtlVoAmZTNiSv_wrYmMSRUCORB1xGXOl1X0NkVBitsdUunJsRGIc7C5g';
-          output: 'HTML';
-          preset: 'rich';
-        }
-      >;
+    content: Schema.Attribute.Text & Schema.Attribute.Required;
     redirectButtons: Schema.Attribute.Component<
       'partial-components.redirect-button',
       true
