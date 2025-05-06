@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_partial_components_image_cards",
+  "info": {
+    "displayName": "imageCard",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "required": false
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "employee": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::employee.employee"
+    },
+    "sortOrder": {
+      "required": true,
+      "default": 1,
+      "type": "integer"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_partial_components_redirect_buttons",
+  "info": {
+    "displayName": "redirectButton",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "link": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

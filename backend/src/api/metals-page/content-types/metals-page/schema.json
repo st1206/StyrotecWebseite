@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "metals_pages",
+  "info": {
+    "singularName": "metals-page",
+    "pluralName": "metals-pages",
+    "displayName": "Metalle Seite",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "heroDualImage": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.hero-dual-image",
+      "required": true
+    },
+    "exploreVariants": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.explore-variants",
+      "required": true
+    }
+  }
+}

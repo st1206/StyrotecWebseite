@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_page_components_explore_mores",
+  "info": {
+    "displayName": "exploreMore",
+    "icon": "apps",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "previewCards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "partial-components.preview-card",
+      "required": true
+    },
+    "sectionTitle": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

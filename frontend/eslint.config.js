@@ -1,19 +1,28 @@
-import prettier from 'eslint-config-prettier';
+// eslint.config.js
 import js from '@eslint/js';
-import { includeIgnoreFile } from '@eslint/compat';
 import svelte from 'eslint-plugin-svelte';
 import globals from 'globals';
-import { fileURLToPath } from 'node:url';
 import ts from 'typescript-eslint';
-const gitignorePath = fileURLToPath(new URL('./.gitignore', import.meta.url));
+import svelteConfig from './svelte.config.js';
+import { globalIgnores } from 'eslint/config';
 
 export default ts.config(
-	includeIgnoreFile(gitignorePath),
+	globalIgnores([
+		'node_modules',
+		'build',
+		'.svelte-kit',
+		'package',
+		'.env',
+		'.env.*',
+		'.DS_Store',
+		'pnpm-lock.yaml',
+		'package-lock.json',
+		'yarn.lock',
+		'cmsTypes/*'
+	]),
 	js.configs.recommended,
 	...ts.configs.recommended,
-	...svelte.configs['flat/recommended'],
-	prettier,
-	...svelte.configs['flat/prettier'],
+	...svelte.configs.recommended,
 	{
 		languageOptions: {
 			globals: {
@@ -23,12 +32,44 @@ export default ts.config(
 		}
 	},
 	{
-		files: ['**/*.svelte'],
-
+		files: ['**/*.svelte', '**/*.svelte.ts', '**/*.svelte.js'],
+		// See more details at: https://typescript-eslint.io/packages/parser/
 		languageOptions: {
 			parserOptions: {
-				parser: ts.parser
+				projectService: true,
+				extraFileExtensions: ['.svelte'], // Add support for additional file extensions, such as .svelte
+				parser: ts.parser,
+				// Specify a parser for each language, if needed:
+				// parser: {
+				//   ts: ts.parser,
+				//   js: espree,    // Use espree for .js files (add: import espree from 'espree')
+				//   typescript: ts.parser
+				// },
+
+				// We recommend importing and specifying svelte.config.js.
+				// By doing so, some rules in eslint-plugin-svelte will automatically read the configuration and adjust their behavior accordingly.
+				// While certain Svelte settings may be statically loaded from svelte.config.js even if you don’t specify it,
+				// explicitly specifying it ensures better compatibility and functionality.
+				svelteConfig
 			}
+		}
+	},
+	{
+		rules: {
+			// Override or add rule settings here, such as:
+			// 'svelte/rule-name': 'error'
+			'@typescript-eslint/no-unused-vars': [
+				'error',
+				{
+					args: 'all',
+					argsIgnorePattern: '^_',
+					caughtErrors: 'all',
+					caughtErrorsIgnorePattern: '^_',
+					destructuredArrayIgnorePattern: '^_',
+					varsIgnorePattern: '^_',
+					ignoreRestSiblings: true
+				}
+			]
 		}
 	}
 );

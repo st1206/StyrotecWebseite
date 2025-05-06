@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_page_components_histories",
+  "info": {
+    "displayName": "history",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "historyEntries": {
+      "type": "component",
+      "repeatable": true,
+      "component": "partial-components.history-entry",
+      "required": true
+    },
+    "sectionTitle": {
+      "type": "string",
+      "required": false
+    }
+  }
+}

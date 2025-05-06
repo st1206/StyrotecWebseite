@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_page_components_explore_variants",
+  "info": {
+    "displayName": "exploreVariants",
+    "icon": "oneToMany",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "sectionTitle": {
+      "type": "string",
+      "required": true
+    },
+    "variantCards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "partial-components.variant-card",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_page_components_default_cards",
+  "info": {
+    "displayName": "defaultCards",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "sectionTitle": {
+      "type": "string",
+      "required": false
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "partial-components.default-card",
+      "required": true
+    },
+    "anchor": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "isDarkMode": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}

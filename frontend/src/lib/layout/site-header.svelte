@@ -1,163 +1,249 @@
 <script lang="ts">
-	import { Button, megamenu, Search } from 'svelte-5-ui-lib';
-	import { SearchOutline } from 'flowbite-svelte-icons';
-	import { uiHelpers } from 'svelte-5-ui-lib';
-	import { menu } from '$lib/config/routes';
-	import { Dropdown, DropdownUl, DropdownLi } from 'svelte-5-ui-lib';
-	import { SvelteMap } from 'svelte/reactivity';
-	import MobileNav from './mobile-nav.svelte';
-	import { page } from '$app/state';
 	import { Icons } from '$lib/assets/icons';
-	import logo from '$lib/assets/images/Logo_schwarzeSchrift_orange.gif'
-	import LanguageToggle from '$lib/components/language-toggle.svelte';
+	import Button from '$lib/components/ui/button/button.svelte';
+	import { pages } from '$lib/config/pages';
+	import { menu } from '$lib/config/routes';
+	import { clickOutside, cn } from '$lib/utils';
+	import { locale } from 'svelte-i18n';
+	import { SvelteMap } from 'svelte/reactivity';
+	import { fade, fly } from 'svelte/transition';
 	import { _ } from 'svelte-i18n';
-	import { onMount } from 'svelte';
-	import { clickOutside } from '$lib/utils';
+	import LanguageToggle from '$lib/components/language-toggle.svelte';
+	import * as Tooltip from '$lib/components/ui/tooltip';
+	import BlurFade from '$lib/components/blur-fade.svelte';
+	import MobileNav from './mobile-nav.svelte';
+	import { SplineIcon } from 'lucide-svelte';
+	import AnimatedHamburger from '$lib/components/animatedHamburger.svelte';
 
-	let activeUrl = $state(page.url.pathname);
-	$effect(() => {
-		activeUrl = page.url.pathname;
-	});
-	let dropdownA = uiHelpers();
-	let dropdownAStatus = $state(false);
-	let closeDropdownA = dropdownA.close;
-	$effect(() => {
-		dropdownAStatus = dropdownA.isOpen;
+	type MenuState = {
+		hovered: boolean;
+		open: boolean;
+	};
+
+	// default open state for menu id 3
+	let itemStateMap = new SvelteMap<number, MenuState>();
+
+	function closeAll(): void {
+		for (const [k, state] of itemStateMap.entries()) {
+			itemStateMap.set(k, { hovered: false, open: false });
+		}
+	}
+
+	function handleMouseEnter(itemId: number): void {
+		closeAll();
+		itemStateMap.set(itemId, { hovered: true, open: true });
+	}
+
+	function handleMouseLeave(itemId: number): void {
+		const current = itemStateMap.get(itemId) ?? { hovered: false, open: false };
+		itemStateMap.set(itemId, { hovered: false, open: current.open });
+	}
+
+	function isAnyItemOpen(): boolean {
+		return Array.from(itemStateMap.values()).some((state) => state.open);
+	}
+
+	function onlyThisItemActive(itemId: number): boolean {
+		const thisItem = itemStateMap.get(itemId);
+		if (!thisItem || (!thisItem.hovered && !thisItem.open)) {
+			return false;
+		}
+
+		for (const [k, st] of itemStateMap.entries()) {
+			if (k !== itemId && (st.hovered || st.open)) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	const slugMap: Record<keyof typeof pages, string> = $derived.by(() => {
+		const use = $locale === 'en-EN' ? 'enSlug' : 'deSlug';
+		const prefix = $locale === 'en-EN' ? '/en/' : '/de/';
+
+		return Object.fromEntries(
+			Object.entries(pages).map(([k, p]: any) => [k, prefix + p[use]])
+		) as Record<keyof typeof pages, string>;
 	});
 
-	let isOpenMap = $state(new SvelteMap());
-	
+	function getLink<K extends keyof typeof pages>(key: K, appendage?: string | null): string {
+		const base = slugMap[key];
+		if (!appendage) {
+			return base;
+		}
+		return appendage.startsWith('/') ? `${base}${appendage}` : `${base}/${appendage}`;
+	}
+
+	let open = $state(false);
 </script>
 
+<div class="bg-foreground absolute top-0 h-20 w-full"></div>
+
 <nav
-	class="bg-primary-foreground fixed z-50 flex w-full justify-between gap-2 p-3 shadow-[10px_10px_15px_rgba(0,0,0,0.45)]" 
+	use:clickOutside={closeAll}
+	onmouseleave={closeAll}
+	class={cn(
+		isAnyItemOpen()
+			? itemStateMap.get(3)?.open
+				? 'supports-[backdrop-filter]:bg-foreground/100 h-[580px]'
+				: 'supports-[backdrop-filter]:bg-foreground/100 h-[450px]'
+			: 'supports-[backdrop-filter]:bg-foreground/90 h-20',
+		open ? 'supports-[backdrop-filter]:bg-foreground/100' : '',
+		'fixed top-0 z-40 w-full px-4 py-2 shadow-lg backdrop-blur transition-all duration-200 ease-in-out md:px-0'
+	)}
 >
-	<!-- logo -->
-	<a class="ml-2 w-24" href="/"><img src={Icons.logo} alt="Logo" /></a>
+	<div class="flex h-16 items-center justify-between gap-2 md:container">
+		<!-- Logo -->
+		<a class="w-24" href="/">
+			<img src={Icons.logoLight} alt="Logo" />
+		</a>
 
-	<div class="flex gap-2">
-		<!-- searchbar 
-		<div class="mr-10 hidden xl:block">
-			<form>
-				<Search
-					class="h-[40px] w-[300px] pl-12 [clip-path:polygon(10%_0%,100%_0%,90%_100%,0%_100%)]"
-				></Search>
-			</form>
-		</div>
-		-->
-		<!-- menu -->
-		<div class="relative hidden lg:flex">
-			{#each menu as item}
-				<button
-					use:clickOutside={() => isOpenMap.set(item.id, false)}
-					class="hover:text-primary text-secondary uppercase font-boldFont z-20 w-[150px] text-md xl:text-xl xl:w-[200px] text-xl bg-primary-foreground rounded-lg mx-4"
-					onclick={() => {
-						const isCurrentlyOpen = isOpenMap.get(item.id) ?? false;
-						isOpenMap.forEach((_, key) => isOpenMap.set(key, false));
-						isOpenMap.set(item.id, !isCurrentlyOpen);
-					}}
+		<div class="navBreak:flex hidden">
+			{#each menu as item, i}
+				<Button
+					variant="ghost"
+					class={cn(
+						i < menu.length - 1 ? 'border-r-2 border-white/20' : '',
+						onlyThisItemActive(item.id) ? 'bg-primary' : '',
+						'font-boldFont text-secondary hover:bg-primary h-full -skew-x-[15deg] cursor-default uppercase transition duration-300 hover:text-white'
+					)}
+					onmouseenter={() => handleMouseEnter(item.id)}
+					onmouseleave={() => handleMouseLeave(item.id)}
 				>
-					{$_(`nav.${item.key}`)}
-				</button>
+					<span class="text-md mx-4 skew-x-[15deg] xl:mx-8 xl:text-lg">
+						{$_(`nav.${item.key}`)}
+					</span>
+				</Button>
+			{/each}
+		</div>
 
-				{#if isOpenMap.get(item.id)}
-					
-					{#if item.megaMenu}
-						<!-- Mega Menü ab hier-->
-						<div
-							
-							class="bg-primary-foreground fixed left-0 top-[60px] flex h-full w-full justify-around gap-8 bg-opacity-90 p-2 pt-10 backdrop-blur-sm"
-						>
-							<button
-								class="hover:bg-primary bg-secondary fixed right-6 px-2"
-								onclick={() => isOpenMap.set(item.id, false)}
-							>
-								✕
-							</button>
-							{#each item.megaMenu as column}
-								<!-- nur für Branchen wegen Bilder -->
-								{#if column.key == 'branchen'}
-									<div class="flex w-[70%] flex-row flex-wrap justify-between gap-10 py-[100px]">
-										{#each column.items as item}
-											<a href={item.link} class="text-primary text-2xl h-auto w-[20%]">
-												<h2 class="text-center">{$_(`nav.${item.key}`) ?? item.key}</h2>
-												<img src={item.ImageUrl} alt="logo" class=" rounded-lg" />
-											</a>
-										{/each}
-									</div>
-								{:else}
-									<!-- Rest ohne Bilder -->
-									<div class="mega-menu-column mt-36">
-										<h4>
-											<a
-												class="text-primary text-3xl font-bold hover:underline"
-												onclick={() =>
-													isOpenMap.forEach((value, key) => {
-														isOpenMap.set(key, false);
-													})}
-												href={column.link}
-											>
-												{$_(`nav.${column.key}`) ?? column.key}
-											</a>
-										</h4>
-										<ul>
-											{#each column.items as subitem}
+		<div class="navBreak:flex hidden gap-6">
+			<div class="flex gap-2">
+				<Tooltip.Provider>
+					<Tooltip.Root>
+						<Tooltip.Trigger>
+							<LanguageToggle />
+						</Tooltip.Trigger>
+						<Tooltip.Content>
+							<p>Sprache auswählen</p>
+						</Tooltip.Content>
+					</Tooltip.Root>
+				</Tooltip.Provider>
+				<Tooltip.Provider>
+					<Tooltip.Root>
+						<Tooltip.Trigger>
+							<Button variant="secondary" size="icon">
+								<span class="flex skew-x-[15deg] items-center gap-2">
+									<Icons.search class="size-4" />
+								</span>
+							</Button>
+						</Tooltip.Trigger>
+						<Tooltip.Content>
+							<p>Website durchsuchen...</p>
+						</Tooltip.Content>
+					</Tooltip.Root>
+				</Tooltip.Provider>
+			</div>
+			<Tooltip.Provider>
+				<Tooltip.Root>
+					<Tooltip.Trigger class="inline-flex">
+						<Button href="https://styrotec.shop/" target="_blank" rel="noopener noreferrer">
+							<span class="flex skew-x-[15deg] items-center gap-2">
+								<Icons.store class="size-4" />
+								Onlineshop
+							</span>
+						</Button>F
+					</Tooltip.Trigger>
+					<Tooltip.Content>
+						<p>Zum Onlineshop</p>
+					</Tooltip.Content>
+				</Tooltip.Root>
+			</Tooltip.Provider>
+		</div>
+		<!-- navBreak:hidden -->
+
+		<div class="absolute left-0 top-[79px] -z-10">
+			<MobileNav bind:open />
+		</div>
+		<div class="navBreak:hidden flex items-center gap-1">
+			<Button variant="ghost" size="icon" class="hover:bg-transparent">
+				<Icons.search class="text-secondary size-6" />
+			</Button>
+			<AnimatedHamburger bind:open />
+		</div>
+	</div>
+
+	{#if isAnyItemOpen()}
+		<div
+			class="container mt-16 flex justify-around"
+			in:fly={{ y: -30, duration: 300 }}
+			out:fly={{ y: -30, duration: 200 }}
+		>
+			{#each menu as menuItem}
+				{#if itemStateMap.get(menuItem.id)?.open && menuItem.menuRoutes.length}
+					{#if menuItem.key === 'industries'}
+						<div class="flex flex-wrap justify-center gap-6">
+							{#each menuItem.menuRoutes as route, i}
+								<a
+									class="w-1/5"
+									href={getLink(menuItem.key, route.anchor)}
+									onclick={(e) => closeAll()}
+								>
+									<BlurFade delay={0.03 * i} duration={0.3}>
+										<div
+											class="text-secondary hover:shadow-primary font-boldFont bg-secondary/30 flex h-full w-full cursor-pointer
+										flex-col items-center justify-center gap-4 p-8 text-xl transition duration-300 ease-in-out xl:text-2xl"
+										>
+											{#if route.icon}
+												<route.icon class="text-secondary fill-secondary md:h-20 md:w-20" />
+											{/if}
+											<span>{$_(`nav.${route.key}`)}</span>
+										</div>
+									</BlurFade>
+								</a>
+							{/each}
+						</div>
+					{:else}
+						{#each menuItem.menuRoutes as route, i}
+							<BlurFade delay={0.03 * i} duration={0.3}>
+								<div class="flex flex-col gap-6">
+									<a
+										class="font-boldFont text-primary text-2xl hover:underline xl:text-3xl"
+										href={getLink(route.key, route.anchor)}
+										onclick={(e) => closeAll()}
+									>
+										{$_(`nav.${route.key}`)}
+									</a>
+
+									{#if route.routeChildren?.length}
+										<ul class="flex flex-col gap-1">
+											{#each route.routeChildren as routeChild}
 												<li>
 													<a
-														class="text-secondary hover:text-secondary text-2xl hover:underline"
-														onclick={() =>
-															isOpenMap.forEach((value, key) => {
-																isOpenMap.set(key, false);
-															})}
-														href={subitem.link}
+														class="text-md text-white hover:underline xl:text-lg"
+														href={routeChild.anchor
+															? getLink(route.key, routeChild.anchor)
+															: getLink(routeChild.key)}
+														onclick={(e) => closeAll()}
 													>
-														{$_(`nav.${subitem.key}`) ?? subitem.key}
+														{$_(`nav.${routeChild.key}`)}
 													</a>
 												</li>
 											{/each}
 										</ul>
-									</div>
-								{/if}
-							{/each}
-						</div>
+									{/if}
+								</div>
+							</BlurFade>
+						{/each}
 					{/if}
 				{/if}
 			{/each}
 		</div>
-	</div>
-	<Button size="sm" class="bg-primary text-secondary text-xl" href="https://styrotec.shop/" target="_blank"> Onlineshop</Button>
-	<div class="flex gap-4">
-		<!-- language toggle -->
-		<LanguageToggle />
-		<div>&#128270</div>
-		<!-- mobile menu -->
-		<div class="lg:hidden">
-			<MobileNav />
-		</div>
-	</div>
-
-	
+	{/if}
 </nav>
-
-<style>
-	.mega-menu-column {
-		min-width: 150px;
-		padding-left: 3%;
-	}
-
-	.mega-menu-column h4 {
-		color: #f6edde;
-		font-size: 2rem;
-		margin-bottom: 0.5rem;
-	}
-
-	.mega-menu-column ul {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-	}
-
-	.mega-menu-column ul li {
-		margin-bottom: 0.5rem;
-	}
-</style>
+{#if isAnyItemOpen()}
+	<div
+		transition:fade={{ duration: 300 }}
+		class="fixed left-0 top-20 z-30 h-full w-full backdrop-blur-sm"
+	></div>
+{/if}

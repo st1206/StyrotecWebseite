@@ -1,0 +1,65 @@
+{
+  "kind": "singleType",
+  "collectionName": "gantry_machines_pages",
+  "info": {
+    "singularName": "gantry-machines-page",
+    "pluralName": "gantry-machines-pages",
+    "displayName": "Portalfraesmaschinen Seite",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "heroCarousel": {
+      "displayName": "Karussel",
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "page-components.hero-carousel",
+      "required": true
+    },
+    "heroTextImage": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.basic-text-image",
+      "required": true
+    },
+    "uspList": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "partial-components.usp-list",
+      "required": true
+    },
+    "exploreMore": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.explore-more",
+      "required": true
+    }
+  }
+}

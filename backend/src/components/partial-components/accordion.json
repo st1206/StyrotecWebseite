@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_partial_components_accordions",
+  "info": {
+    "displayName": "accordion",
+    "icon": "filter",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "accordionItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "partial-components.accordion-item",
+      "required": true
+    },
+    "sortOrder": {
+      "type": "integer",
+      "required": true,
+      "default": 1
+    }
+  }
+}

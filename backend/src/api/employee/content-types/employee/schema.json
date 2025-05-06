@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "employees",
+  "info": {
+    "singularName": "employee",
+    "pluralName": "employees",
+    "displayName": "Mitarbeiter",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "unique": true,
+      "required": true,
+      "pluginOptions": {}
+    },
+    "picture": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {}
+    },
+    "tel": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "email": {
+      "type": "email",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "position": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {}
+    }
+  }
+}

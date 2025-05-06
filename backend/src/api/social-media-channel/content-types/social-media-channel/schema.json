@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "social_media_channels",
+  "info": {
+    "singularName": "social-media-channel",
+    "pluralName": "social-media-channels",
+    "displayName": "social-media-channel",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}
