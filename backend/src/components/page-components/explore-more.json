@@ -7,14 +7,14 @@
   },
   "options": {},
   "attributes": {
+    "sectionTitle": {
+      "type": "string",
+      "required": true
+    },
     "previewCards": {
       "type": "component",
       "repeatable": true,
       "component": "partial-components.preview-card",
-      "required": true
-    },
-    "sectionTitle": {
-      "type": "string",
       "required": true
     }
   }

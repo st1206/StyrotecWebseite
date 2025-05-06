@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-05-06T11:49:34.848Z"
+    "x-generation-date": "2025-05-06T21:27:31.774Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -7491,6 +7491,23 @@
           "id": {
             "type": "number"
           },
+          "title": {
+            "type": "string"
+          },
+          "subtitle": {
+            "type": "string"
+          },
+          "employee": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "documentId": {
+                "type": "string"
+              }
+            }
+          },
           "image": {
             "type": "object",
             "properties": {
@@ -7620,23 +7637,6 @@
               }
             }
           },
-          "title": {
-            "type": "string"
-          },
-          "subtitle": {
-            "type": "string"
-          },
-          "employee": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "number"
-              },
-              "documentId": {
-                "type": "string"
-              }
-            }
-          },
           "sortOrder": {
             "type": "integer"
           }
@@ -7647,15 +7647,6 @@
         "properties": {
           "id": {
             "type": "number"
-          },
-          "title": {
-            "type": "string"
-          },
-          "imageCards": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PartialComponentsImageCardComponent"
-            }
           },
           "media": {
             "type": "object",
@@ -7786,11 +7777,20 @@
               }
             }
           },
+          "title": {
+            "type": "string"
+          },
           "description": {
             "type": "string"
           },
           "anchor": {
             "type": "string"
+          },
+          "imageCards": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartialComponentsImageCardComponent"
+            }
           }
         }
       },
@@ -7819,14 +7819,14 @@
           "id": {
             "type": "number"
           },
+          "sectionTitle": {
+            "type": "string"
+          },
           "historyEntries": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PartialComponentsHistoryEntryComponent"
             }
-          },
-          "sectionTitle": {
-            "type": "string"
           }
         }
       },
@@ -7849,6 +7849,21 @@
         "properties": {
           "id": {
             "type": "number"
+          },
+          "title": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "redirectButtons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartialComponentsRedirectButtonComponent"
+            }
+          },
+          "anchor": {
+            "type": "string"
           },
           "thumbnail": {
             "type": "object",
@@ -7978,21 +7993,6 @@
                 }
               }
             }
-          },
-          "title": {
-            "type": "string"
-          },
-          "content": {
-            "type": "string"
-          },
-          "redirectButtons": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PartialComponentsRedirectButtonComponent"
-            }
-          },
-          "anchor": {
-            "type": "string"
           }
         }
       },
@@ -8005,6 +8005,9 @@
           "sectionTitle": {
             "type": "string"
           },
+          "description": {
+            "type": "string"
+          },
           "cards": {
             "type": "array",
             "items": {
@@ -8012,9 +8015,6 @@
             }
           },
           "anchor": {
-            "type": "string"
-          },
-          "description": {
             "type": "string"
           },
           "isDarkMode": {
@@ -8274,6 +8274,9 @@
           "id": {
             "type": "number"
           },
+          "keyphrase": {
+            "type": "string"
+          },
           "images": {
             "type": "array",
             "items": {
@@ -8405,9 +8408,6 @@
                 }
               }
             }
-          },
-          "keyphrase": {
-            "type": "string"
           }
         }
       },
@@ -8577,10 +8577,16 @@
           "title": {
             "type": "string"
           },
+          "subtitle": {
+            "type": "string"
+          },
           "content": {
             "type": "string"
           },
           "ctaText": {
+            "type": "string"
+          },
+          "redirectSlug": {
             "type": "string"
           },
           "thumbnail": {
@@ -8712,12 +8718,6 @@
               }
             }
           },
-          "subtitle": {
-            "type": "string"
-          },
-          "redirectSlug": {
-            "type": "string"
-          },
           "isImageTransparent": {
             "type": "boolean"
           }
@@ -8729,14 +8729,14 @@
           "id": {
             "type": "number"
           },
+          "sectionTitle": {
+            "type": "string"
+          },
           "previewCards": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PartialComponentsPreviewCardComponent"
             }
-          },
-          "sectionTitle": {
-            "type": "string"
           }
         }
       },
@@ -12565,6 +12565,15 @@
           "id": {
             "type": "number"
           },
+          "keyword": {
+            "type": "string"
+          },
+          "subKeyword": {
+            "type": "string"
+          },
+          "heroTextImage": {
+            "$ref": "#/components/schemas/PageComponentsBasicTextImageComponent"
+          },
           "image": {
             "type": "object",
             "properties": {
@@ -12693,15 +12702,6 @@
                 }
               }
             }
-          },
-          "keyword": {
-            "type": "string"
-          },
-          "heroTextImage": {
-            "$ref": "#/components/schemas/PageComponentsBasicTextImageComponent"
-          },
-          "subKeyword": {
-            "type": "string"
           }
         }
       },
@@ -12745,6 +12745,12 @@
           "title": {
             "type": "string"
           },
+          "accordionItems": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartialComponentsVariantAccordionItemComponent"
+            }
+          },
           "image": {
             "type": "object",
             "properties": {
@@ -12872,12 +12878,6 @@
                   }
                 }
               }
-            }
-          },
-          "accordionItems": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PartialComponentsVariantAccordionItemComponent"
             }
           }
         }
@@ -12919,14 +12919,14 @@
           "id": {
             "type": "number"
           },
+          "columnLabel": {
+            "type": "string"
+          },
           "tableRows": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PartialComponentsTableRowComponent"
             }
-          },
-          "columnLabel": {
-            "type": "string"
           }
         }
       },
@@ -12936,6 +12936,9 @@
           "id": {
             "type": "number"
           },
+          "title": {
+            "type": "string"
+          },
           "tableColumns": {
             "type": "array",
             "items": {
@@ -12944,9 +12947,6 @@
           },
           "sortOrder": {
             "type": "integer"
-          },
-          "title": {
-            "type": "string"
           }
         }
       },
@@ -12960,6 +12960,9 @@
             "type": "string"
           },
           "subtitle": {
+            "type": "string"
+          },
+          "description": {
             "type": "string"
           },
           "image": {
@@ -13090,9 +13093,6 @@
                 }
               }
             }
-          },
-          "description": {
-            "type": "string"
           },
           "sortOrder": {
             "type": "integer"
@@ -15816,6 +15816,12 @@
               "partial-components.content-text-image"
             ]
           },
+          "title": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
           "image": {
             "type": "object",
             "properties": {
@@ -15945,12 +15951,6 @@
               }
             }
           },
-          "title": {
-            "type": "string"
-          },
-          "content": {
-            "type": "string"
-          },
           "imagePosition": {
             "type": "string",
             "enum": [
@@ -15977,6 +15977,9 @@
               "partial-components.content-table"
             ]
           },
+          "title": {
+            "type": "string"
+          },
           "tables": {
             "type": "array",
             "items": {
@@ -15985,9 +15988,6 @@
           },
           "sortOrder": {
             "type": "integer"
-          },
-          "title": {
-            "type": "string"
           }
         }
       },
@@ -16002,6 +16002,9 @@
             "enum": [
               "partial-components.content-images"
             ]
+          },
+          "title": {
+            "type": "string"
           },
           "images": {
             "type": "array",
@@ -16137,9 +16140,6 @@
           },
           "sortOrder": {
             "type": "integer"
-          },
-          "title": {
-            "type": "string"
           }
         }
       },
@@ -16155,9 +16155,6 @@
               "partial-components.content-accordion"
             ]
           },
-          "sortOrder": {
-            "type": "integer"
-          },
           "title": {
             "type": "string"
           },
@@ -16166,6 +16163,9 @@
             "items": {
               "$ref": "#/components/schemas/PartialComponentsAccordionComponent"
             }
+          },
+          "sortOrder": {
+            "type": "integer"
           }
         }
       },

@@ -6,12 +6,6 @@
   },
   "options": {},
   "attributes": {
-    "thumbnail": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": ["images", "files"]
-    },
     "title": {
       "type": "string",
       "required": true
@@ -29,6 +23,12 @@
     },
     "anchor": {
       "type": "string"
+    },
+    "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images", "files"]
     }
   }
 }

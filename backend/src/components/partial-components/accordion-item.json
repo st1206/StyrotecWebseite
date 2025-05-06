@@ -14,15 +14,15 @@
     "subtitle": {
       "type": "string"
     },
+    "description": {
+      "type": "text",
+      "required": true
+    },
     "image": {
       "type": "media",
       "multiple": false,
       "required": false,
       "allowedTypes": ["images", "files"]
-    },
-    "description": {
-      "type": "text",
-      "required": true
     },
     "sortOrder": {
       "type": "integer",

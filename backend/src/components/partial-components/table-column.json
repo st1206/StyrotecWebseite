@@ -6,14 +6,14 @@
   },
   "options": {},
   "attributes": {
+    "columnLabel": {
+      "type": "string",
+      "required": true
+    },
     "tableRows": {
       "type": "component",
       "repeatable": true,
       "component": "partial-components.table-row",
-      "required": true
-    },
-    "columnLabel": {
-      "type": "string",
       "required": true
     }
   }

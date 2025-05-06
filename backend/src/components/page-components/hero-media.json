@@ -6,21 +6,15 @@
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
-    },
-    "imageCards": {
-      "type": "component",
-      "repeatable": true,
-      "component": "partial-components.image-card",
-      "required": true
-    },
     "media": {
       "type": "media",
       "multiple": false,
       "required": true,
       "allowedTypes": ["files", "videos", "images"]
+    },
+    "title": {
+      "type": "string",
+      "required": true
     },
     "description": {
       "type": "text",
@@ -29,6 +23,12 @@
     "anchor": {
       "type": "string",
       "required": false
+    },
+    "imageCards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "partial-components.image-card",
+      "required": true
     }
   }
 }

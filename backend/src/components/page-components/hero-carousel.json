@@ -7,17 +7,15 @@
   },
   "options": {},
   "attributes": {
+    "keyphrase": {
+      "type": "string",
+      "required": true
+    },
     "images": {
       "type": "media",
       "multiple": true,
       "required": true,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "keyphrase": {
-      "type": "string",
-      "required": true
+      "allowedTypes": ["images"]
     }
   }
 }

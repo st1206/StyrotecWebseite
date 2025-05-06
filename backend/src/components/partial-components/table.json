@@ -6,6 +6,10 @@
   },
   "options": {},
   "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
     "tableColumns": {
       "type": "component",
       "repeatable": true,
@@ -16,10 +20,6 @@
       "type": "integer",
       "required": true,
       "default": 1
-    },
-    "title": {
-      "type": "string",
-      "required": true
     }
   }
 }

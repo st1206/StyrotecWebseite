@@ -7,16 +7,11 @@
   },
   "options": {},
   "attributes": {
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images",
-        "files"
-      ]
-    },
     "keyword": {
+      "type": "string",
+      "required": true
+    },
+    "subKeyword": {
       "type": "string",
       "required": true
     },
@@ -26,9 +21,11 @@
       "component": "page-components.basic-text-image",
       "required": true
     },
-    "subKeyword": {
-      "type": "string",
-      "required": true
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images", "files"]
     }
   }
 }

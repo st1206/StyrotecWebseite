@@ -10,6 +10,9 @@
       "type": "string",
       "required": false
     },
+    "description": {
+      "type": "text"
+    },
     "cards": {
       "type": "component",
       "repeatable": true,
@@ -18,9 +21,6 @@
     },
     "anchor": {
       "type": "string"
-    },
-    "description": {
-      "type": "text"
     },
     "isDarkMode": {
       "type": "boolean",
