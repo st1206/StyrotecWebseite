@@ -24,7 +24,7 @@
 
 {#if data.isDarkMode}
 	<div
-		class="bg-foreground mt-20 h-14 w-full [clip-path:polygon(100%_0,100%_100%,0_100%)] lg:mt-28"
+		class="bg-foreground mt-20 h-14 w-full translate-y-[1px] [clip-path:polygon(100%_0,100%_100%,0_100%)] lg:mt-28"
 	></div>
 {/if}
 
@@ -33,25 +33,27 @@
 	class={cn(data.isDarkMode ? 'bg-foreground py-8 pb-12' : 'my-16 sm:my-24', 'scroll-mt-32')}
 >
 	<div class="mx-3 sm:container sm:mx-auto lg:w-full">
-		<!-- Heading -->
-		<div class="mb-12">
-			<h2
-				class={cn(
-					data.isDarkMode ? 'text-secondary' : 'text-foreground',
-					'font-boldFont text-center text-4xl uppercase'
-				)}
-			>
-				{data.sectionTitle}
-			</h2>
-			<p
-				class={cn(
-					data.isDarkMode ? 'text-secondary' : 'text-foreground',
-					'prose prose-neutral prose-sm lg:prose-base xl:prose-lg mx-auto mt-2 max-w-5xl text-center'
-				)}
-			>
-				{@html data.description}
-			</p>
-		</div>
+		{#if data.sectionTitle}
+			<!-- Heading -->
+			<div class="mb-16">
+				<h2
+					class={cn(
+						data.isDarkMode ? 'text-secondary' : 'text-foreground',
+						'font-boldFont text-center text-4xl uppercase'
+					)}
+				>
+					{data.sectionTitle}
+				</h2>
+				<p
+					class={cn(
+						data.isDarkMode ? 'text-secondary' : 'text-foreground',
+						'prose prose-neutral prose-sm lg:prose-base xl:prose-lg mx-auto mt-2 max-w-5xl text-center'
+					)}
+				>
+					{@html data.description}
+				</p>
+			</div>
+		{/if}
 		<div class="grid grid-cols-4 justify-center gap-8">
 			{#each data.cards as card, i}
 				<div
@@ -106,5 +108,7 @@
 </section>
 
 {#if data.isDarkMode}
-	<div class="bg-foreground mb-32 h-14 w-full [clip-path:polygon(100%_0%,0%_0%,0%_100%)]"></div>
+	<div
+		class="bg-foreground mb-32 h-14 w-full -translate-y-[1px] [clip-path:polygon(100%_0%,0%_0%,0%_100%)]"
+	></div>
 {/if}

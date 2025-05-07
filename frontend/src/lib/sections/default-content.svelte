@@ -112,7 +112,7 @@
 
 {#if isDarkMode}
 	<div
-		class="bg-foreground mt-20 h-14 w-full [clip-path:polygon(100%_0,100%_100%,0_100%)] lg:mt-28"
+		class="bg-foreground mt-20 h-14 w-full translate-y-[1px] [clip-path:polygon(100%_0,100%_100%,0_100%)] lg:mt-28"
 	></div>
 {/if}
 
@@ -150,7 +150,9 @@
 </section>
 
 {#if isDarkMode}
-	<div class="bg-foreground mb-32 h-14 w-full [clip-path:polygon(100%_0%,0%_0%,0%_100%)]"></div>
+	<div
+		class="bg-foreground mb-32 h-14 w-full -translate-y-[1px] [clip-path:polygon(100%_0%,0%_0%,0%_100%)]"
+	></div>
 {/if}
 
 {#snippet HeaderTemplate(block: ContentHeader)}

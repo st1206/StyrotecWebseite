@@ -140,6 +140,6 @@
 			{/each}
 		</div>
 
-		<div class="h-[100px]"></div>
+		<div class="h-[200px]"></div>
 	</ScrollArea>
 </div>

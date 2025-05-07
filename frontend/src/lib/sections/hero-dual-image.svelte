@@ -61,7 +61,7 @@
 			<div
 				class={cn(
 					data.heroTextImage.image ? 'absolute left-0 h-[410px] lg:w-3/5' : 'py-16 lg:w-full',
-					'flex w-full flex-col items-center justify-center px-2 sm:px-8'
+					'flex w-full flex-col items-center justify-center px-4 sm:px-8'
 				)}
 			>
 				<div class="mb-4">

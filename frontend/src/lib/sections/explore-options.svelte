@@ -76,7 +76,7 @@
 </script>
 
 <div
-	class="bg-foreground mt-20 h-14 w-full [clip-path:polygon(100%_0,100%_100%,0_100%)] lg:mt-28"
+	class="bg-foreground mt-20 h-14 w-full translate-y-[1px] [clip-path:polygon(100%_0,100%_100%,0_100%)] lg:mt-28"
 ></div>
 
 <section class="bg-foreground w-full pb-16 pt-8 sm:mx-auto">
@@ -121,7 +121,7 @@
 																item.title?.length > 15
 																	? '[clip-path:polygon(0%_0%,70%_0%,100%_100%,0%_100%)]'
 																	: '[clip-path:polygon(0%_0%,60%_0%,80%_100%,0%_100%)]',
-																'bg-secondary/10 w-full '
+																'bg-secondary/10 w-full'
 															)}
 														>
 															<h3 class="font-boldFont text-secondary p-4">{item.title}</h3>
@@ -197,4 +197,6 @@
 	{/if}
 </section>
 
-<div class="bg-foreground mb-32 h-14 w-full [clip-path:polygon(100%_0%,0%_0%,0%_100%)]"></div>
+<div
+	class="bg-foreground mb-32 h-14 w-full -translate-y-[1px] [clip-path:polygon(100%_0%,0%_0%,0%_100%)]"
+></div>

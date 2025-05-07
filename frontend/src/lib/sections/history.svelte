@@ -48,14 +48,14 @@
 			</h2>
 		{/if}
 
-		{#each data.historyEntries as item, i (item.year)}
+		{#each data.historyEntries as item, i}
 			<!-- ************* MOBILE (< sm) LAYOUT ************* -->
 			<!-- Card column -->
 			<div class="flex w-full items-center gap-8 md:hidden">
 				<div class="flex flex-col items-center">
 					<div
 						class="bg-primary w-1"
-						style={`height: ${(innerWidth?.current ?? 0) < 480 ? 'auto' : ((cardHeights[i] ?? 0) - 48) / 2 + 'px'}`}
+						style={`height: ${(innerWidth?.current ?? 0) > 768 ? 'auto' : ((cardHeights[i] ?? 0) - 48) / 2 + 'px'}`}
 					></div>
 					<div
 						class="bg-primary z-10 flex min-h-12 min-w-12 items-center justify-center rounded-full"
@@ -64,7 +64,7 @@
 					</div>
 					<div
 						class="bg-primary w-1"
-						style={`height: ${(innerWidth?.current ?? 0) < 480 ? 'auto' : ((cardHeights[i] ?? 0) - 48) / 2 + 'px'}`}
+						style={`height: ${(innerWidth?.current ?? 0) > 768 ? 'auto' : ((cardHeights[i] ?? 0) - 48) / 2 + 'px'}`}
 					></div>
 				</div>
 				<div
