@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -9,20 +9,15 @@ const config = {
 
 	kit: {
 		adapter: adapter({
-			// optional: tweak these if you want a different output dir,
-			// gzip/brotli pre-compression, a SPA fallback, etc.
 			pages: 'build',
 			assets: 'build',
-			fallback: null, // e.g. '200.html' for SPA-style routing
+			fallback: 'index.html',
 			precompress: false,
 			strict: true
-		})
-
-		// crawl every discovered route and pre-render it
-		// prerender: {
-		// 	default: true,
-		// 	entries: ['*']
-		// }
+		}),
+		prerender: {
+			entries: ['*'] // include all discoverable routes
+		}
 	}
 };
 

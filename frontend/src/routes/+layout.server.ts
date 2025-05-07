@@ -5,7 +5,7 @@ import { superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
 import { contactFormSchema } from '$lib/models/contact-form-schema';
 
-export const prerender = true;
+export const prerender = 'auto';
 
 export const load: LayoutServerLoad = async ({ locals: { lang } }) => {
 	const socialMediaChannels = await loadCMSData<{ name: string; link: string }>(
