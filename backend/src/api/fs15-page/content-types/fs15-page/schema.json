@@ -46,8 +46,8 @@
       },
       "type": "dynamiczone",
       "components": [
-        "partial-components.table",
-        "partial-components.accordion"
+        "partial-components.accordion",
+        "partial-components.table"
       ],
       "required": true
     }

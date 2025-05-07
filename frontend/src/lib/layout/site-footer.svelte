@@ -8,7 +8,8 @@
 	import { locale } from 'svelte-i18n';
 	import { _ } from 'svelte-i18n';
 
-	let { socialMediaChannels } = $props();
+	let { socialMediaChannels }: { socialMediaChannels: { name: string; externalLink: string }[] } =
+		$props();
 
 	const slugMap: Record<keyof typeof pages, string> = $derived.by(() => {
 		const use = $locale === 'en-EN' ? 'enSlug' : 'deSlug';
@@ -36,7 +37,12 @@
 						<Tooltip.Provider>
 							<Tooltip.Root>
 								<Tooltip.Trigger>
-									<Button size="icon" href={channel.link} target="_blank" rel="noopener noreferrer">
+									<Button
+										size="icon"
+										href={channel.externalLink}
+										target="_blank"
+										rel="noopener noreferrer"
+									>
 										{@const IconComponent = Icons[channel.name] ?? Icons.copyright}
 										<IconComponent class="size-5 skew-x-[15deg]" />
 									</Button>

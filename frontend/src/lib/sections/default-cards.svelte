@@ -12,7 +12,7 @@
 			content: string;
 			redirectButtons: {
 				label: string;
-				link: string;
+				redirectSlug: string;
 			}[];
 			thumbnail: ImageAsset;
 			anchor: string;
@@ -90,7 +90,7 @@
 						{#if card.redirectButtons.length}
 							<div class="mt-8 flex gap-4">
 								{#each card.redirectButtons as button}
-									<Button href={button.link}>
+									<Button href={button.redirectSlug}>
 										<span class="skew-x-[15deg]">{button.label}</span>
 									</Button>
 								{/each}

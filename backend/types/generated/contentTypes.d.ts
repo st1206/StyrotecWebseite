@@ -795,7 +795,7 @@ export interface ApiFs10PageFs10Page extends Struct.SingleTypeSchema {
       'api::fs10-page.fs10-page'
     >;
     optionBlocks: Schema.Attribute.DynamicZone<
-      ['partial-components.table', 'partial-components.accordion']
+      ['partial-components.accordion', 'partial-components.table']
     > &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -831,7 +831,7 @@ export interface ApiFs15PageFs15Page extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     exploreOptions: Schema.Attribute.DynamicZone<
-      ['partial-components.table', 'partial-components.accordion']
+      ['partial-components.accordion', 'partial-components.table']
     > &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -1237,7 +1237,7 @@ export interface ApiSocialMediaChannelSocialMediaChannel
   collectionName: 'social_media_channels';
   info: {
     description: '';
-    displayName: 'social-media-channel';
+    displayName: 'Social-Media-Kan\u00E4le';
     pluralName: 'social-media-channels';
     singularName: 'social-media-channel';
   };
@@ -1248,7 +1248,7 @@ export interface ApiSocialMediaChannelSocialMediaChannel
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    link: Schema.Attribute.String;
+    externalLink: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

@@ -77,7 +77,7 @@ export interface PageComponentsHeroCarousel extends Struct.ComponentSchema {
   };
   attributes: {
     images: Schema.Attribute.Media<'images', true> & Schema.Attribute.Required;
-    keyphrase: Schema.Attribute.String & Schema.Attribute.Required;
+    keyword: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -352,7 +352,7 @@ export interface PartialComponentsRedirectButton
   };
   attributes: {
     label: Schema.Attribute.String & Schema.Attribute.Required;
-    link: Schema.Attribute.String & Schema.Attribute.Required;
+    redirectSlug: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 

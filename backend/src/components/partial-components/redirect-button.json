@@ -10,7 +10,7 @@
       "type": "string",
       "required": true
     },
-    "link": {
+    "redirectSlug": {
       "type": "string",
       "required": true
     }

@@ -6,7 +6,7 @@
 	import BlurFade from '$lib/components/blur-fade.svelte';
 	import type { ImageAsset } from '$lib/cmsTypes/image-type';
 
-	let data: { keyphrase: string; images: ImageAsset[] } = $props();
+	let data: { keyword: string; images: ImageAsset[] } = $props();
 
 	let api = $state<CarouselAPI>();
 
@@ -62,7 +62,7 @@
 
 			<div class="absolute inset-y-0 z-20 flex items-center pl-8">
 				<h1 class="font-boldFont text-4xl text-white drop-shadow-md lg:text-5xl">
-					{@html data.keyphrase}
+					{@html data.keyword}
 				</h1>
 			</div>
 

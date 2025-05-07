@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-05-06T21:27:31.774Z"
+    "x-generation-date": "2025-05-07T00:12:24.231Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -7839,7 +7839,7 @@
           "label": {
             "type": "string"
           },
-          "link": {
+          "redirectSlug": {
             "type": "string"
           }
         }
@@ -8274,7 +8274,7 @@
           "id": {
             "type": "number"
           },
-          "keyphrase": {
+          "keyword": {
             "type": "string"
           },
           "images": {
@@ -12307,18 +12307,18 @@
                 "items": {
                   "anyOf": [
                     {
-                      "$ref": "#/components/schemas/PartialComponentsTableComponent"
+                      "$ref": "#/components/schemas/PartialComponentsAccordionComponent"
                     },
                     {
-                      "$ref": "#/components/schemas/PartialComponentsAccordionComponent"
+                      "$ref": "#/components/schemas/PartialComponentsTableComponent"
                     }
                   ]
                 },
                 "discriminator": {
                   "propertyName": "__component",
                   "mapping": {
-                    "partial-components.table": "#/components/schemas/PartialComponentsTableComponent",
-                    "partial-components.accordion": "#/components/schemas/PartialComponentsAccordionComponent"
+                    "partial-components.accordion": "#/components/schemas/PartialComponentsAccordionComponent",
+                    "partial-components.table": "#/components/schemas/PartialComponentsTableComponent"
                   }
                 }
               },
@@ -12403,18 +12403,18 @@
             "items": {
               "anyOf": [
                 {
-                  "$ref": "#/components/schemas/PartialComponentsTableComponent"
+                  "$ref": "#/components/schemas/PartialComponentsAccordionComponent"
                 },
                 {
-                  "$ref": "#/components/schemas/PartialComponentsAccordionComponent"
+                  "$ref": "#/components/schemas/PartialComponentsTableComponent"
                 }
               ]
             },
             "discriminator": {
               "propertyName": "__component",
               "mapping": {
-                "partial-components.table": "#/components/schemas/PartialComponentsTableComponent",
-                "partial-components.accordion": "#/components/schemas/PartialComponentsAccordionComponent"
+                "partial-components.accordion": "#/components/schemas/PartialComponentsAccordionComponent",
+                "partial-components.table": "#/components/schemas/PartialComponentsTableComponent"
               }
             }
           },
@@ -12477,18 +12477,18 @@
                   "items": {
                     "anyOf": [
                       {
-                        "$ref": "#/components/schemas/PartialComponentsTableComponent"
+                        "$ref": "#/components/schemas/PartialComponentsAccordionComponent"
                       },
                       {
-                        "$ref": "#/components/schemas/PartialComponentsAccordionComponent"
+                        "$ref": "#/components/schemas/PartialComponentsTableComponent"
                       }
                     ]
                   },
                   "discriminator": {
                     "propertyName": "__component",
                     "mapping": {
-                      "partial-components.table": "#/components/schemas/PartialComponentsTableComponent",
-                      "partial-components.accordion": "#/components/schemas/PartialComponentsAccordionComponent"
+                      "partial-components.accordion": "#/components/schemas/PartialComponentsAccordionComponent",
+                      "partial-components.table": "#/components/schemas/PartialComponentsTableComponent"
                     }
                   }
                 },
@@ -12899,57 +12899,6 @@
           }
         }
       },
-      "PartialComponentsTableRowComponent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "rowLabel": {
-            "type": "string"
-          },
-          "rowValue": {
-            "type": "string"
-          }
-        }
-      },
-      "PartialComponentsTableColumnComponent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "columnLabel": {
-            "type": "string"
-          },
-          "tableRows": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PartialComponentsTableRowComponent"
-            }
-          }
-        }
-      },
-      "PartialComponentsTableComponent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "title": {
-            "type": "string"
-          },
-          "tableColumns": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PartialComponentsTableColumnComponent"
-            }
-          },
-          "sortOrder": {
-            "type": "integer"
-          }
-        }
-      },
       "PartialComponentsAccordionItemComponent": {
         "type": "object",
         "properties": {
@@ -13119,6 +13068,57 @@
           }
         }
       },
+      "PartialComponentsTableRowComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "rowLabel": {
+            "type": "string"
+          },
+          "rowValue": {
+            "type": "string"
+          }
+        }
+      },
+      "PartialComponentsTableColumnComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "columnLabel": {
+            "type": "string"
+          },
+          "tableRows": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartialComponentsTableRowComponent"
+            }
+          }
+        }
+      },
+      "PartialComponentsTableComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "title": {
+            "type": "string"
+          },
+          "tableColumns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartialComponentsTableColumnComponent"
+            }
+          },
+          "sortOrder": {
+            "type": "integer"
+          }
+        }
+      },
       "Fs15PageRequest": {
         "type": "object",
         "required": [
@@ -13144,18 +13144,18 @@
                 "items": {
                   "anyOf": [
                     {
-                      "$ref": "#/components/schemas/PartialComponentsTableComponent"
+                      "$ref": "#/components/schemas/PartialComponentsAccordionComponent"
                     },
                     {
-                      "$ref": "#/components/schemas/PartialComponentsAccordionComponent"
+                      "$ref": "#/components/schemas/PartialComponentsTableComponent"
                     }
                   ]
                 },
                 "discriminator": {
                   "propertyName": "__component",
                   "mapping": {
-                    "partial-components.table": "#/components/schemas/PartialComponentsTableComponent",
-                    "partial-components.accordion": "#/components/schemas/PartialComponentsAccordionComponent"
+                    "partial-components.accordion": "#/components/schemas/PartialComponentsAccordionComponent",
+                    "partial-components.table": "#/components/schemas/PartialComponentsTableComponent"
                   }
                 }
               },
@@ -13240,18 +13240,18 @@
             "items": {
               "anyOf": [
                 {
-                  "$ref": "#/components/schemas/PartialComponentsTableComponent"
+                  "$ref": "#/components/schemas/PartialComponentsAccordionComponent"
                 },
                 {
-                  "$ref": "#/components/schemas/PartialComponentsAccordionComponent"
+                  "$ref": "#/components/schemas/PartialComponentsTableComponent"
                 }
               ]
             },
             "discriminator": {
               "propertyName": "__component",
               "mapping": {
-                "partial-components.table": "#/components/schemas/PartialComponentsTableComponent",
-                "partial-components.accordion": "#/components/schemas/PartialComponentsAccordionComponent"
+                "partial-components.accordion": "#/components/schemas/PartialComponentsAccordionComponent",
+                "partial-components.table": "#/components/schemas/PartialComponentsTableComponent"
               }
             }
           },
@@ -13314,18 +13314,18 @@
                   "items": {
                     "anyOf": [
                       {
-                        "$ref": "#/components/schemas/PartialComponentsTableComponent"
+                        "$ref": "#/components/schemas/PartialComponentsAccordionComponent"
                       },
                       {
-                        "$ref": "#/components/schemas/PartialComponentsAccordionComponent"
+                        "$ref": "#/components/schemas/PartialComponentsTableComponent"
                       }
                     ]
                   },
                   "discriminator": {
                     "propertyName": "__component",
                     "mapping": {
-                      "partial-components.table": "#/components/schemas/PartialComponentsTableComponent",
-                      "partial-components.accordion": "#/components/schemas/PartialComponentsAccordionComponent"
+                      "partial-components.accordion": "#/components/schemas/PartialComponentsAccordionComponent",
+                      "partial-components.table": "#/components/schemas/PartialComponentsTableComponent"
                     }
                   }
                 },
@@ -17181,7 +17181,7 @@
               "name": {
                 "type": "string"
               },
-              "link": {
+              "externalLink": {
                 "type": "string"
               },
               "locale": {
@@ -17252,7 +17252,7 @@
           "name": {
             "type": "string"
           },
-          "link": {
+          "externalLink": {
             "type": "string"
           },
           "createdAt": {
@@ -17558,7 +17558,7 @@
                 "name": {
                   "type": "string"
                 },
-                "link": {
+                "externalLink": {
                   "type": "string"
                 },
                 "createdAt": {
