@@ -95,31 +95,31 @@ const pagesConfig: Record<string, PageContent> = {
 		]
 	},
 
-	fs15: {
-		deSlug: 'produkte/portalfraesmaschinen/fs15',
-		enSlug: 'products/gantry-machines/fs15',
-		cmsTypeKey: 'fs15Page',
-		cmsApiSlug: 'fs15-page',
-		sections: [
-			{
-				sectionKey: 'heroDualImage'
-			},
-			{
-				sectionKey: 'exploreVariants'
-			},
-			{
-				sectionKey: 'exploreOptions'
-			}
-		]
-	},
+	// fs15: {
+	// 	deSlug: 'produkte/portalfraesmaschinen/fs15',
+	// 	enSlug: 'products/gantry-machines/fs15',
+	// 	cmsTypeKey: 'fs15Page',
+	// 	cmsApiSlug: 'fs15-page',
+	// 	sections: [
+	// 		{
+	// 			sectionKey: 'heroDualImage'
+	// 		},
+	// 		{
+	// 			sectionKey: 'exploreVariants'
+	// 		},
+	// 		{
+	// 			sectionKey: 'exploreOptions'
+	// 		}
+	// 	]
+	// },
 
-	fs20: {
-		deSlug: 'produkte/portalfraesmaschinen/fs20',
-		enSlug: 'products/gantry-machines/fs20',
-		cmsTypeKey: 'fs20Page',
-		cmsApiSlug: 'fs20-page',
-		sections: [{ sectionKey: 'heroDualImage' }]
-	},
+	// fs20: {
+	// 	deSlug: 'produkte/portalfraesmaschinen/fs20',
+	// 	enSlug: 'products/gantry-machines/fs20',
+	// 	cmsTypeKey: 'fs20Page',
+	// 	cmsApiSlug: 'fs20-page',
+	// 	sections: [{ sectionKey: 'heroDualImage' }]
+	// },
 
 	// chipPresses: {
 	// 	deSlug: 'produkte/brikettierpressen',
