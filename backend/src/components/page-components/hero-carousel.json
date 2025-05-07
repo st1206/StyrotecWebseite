@@ -7,7 +7,7 @@
   },
   "options": {},
   "attributes": {
-    "keyword": {
+    "keyphrase": {
       "type": "string",
       "required": true
     },

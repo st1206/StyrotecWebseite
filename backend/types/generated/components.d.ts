@@ -77,7 +77,7 @@ export interface PageComponentsHeroCarousel extends Struct.ComponentSchema {
   };
   attributes: {
     images: Schema.Attribute.Media<'images', true> & Schema.Attribute.Required;
-    keyword: Schema.Attribute.String & Schema.Attribute.Required;
+    keyphrase: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
