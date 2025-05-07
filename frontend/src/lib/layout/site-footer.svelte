@@ -103,11 +103,11 @@
 				<h1 class="font-sans">2025 Styrotec GmbH & Co. KG</h1>
 			</div>
 			<div class="flex items-center">
-				<Button variant="link" href="/impressum" class="text-normal font-sans font-normal">
+				<Button variant="link" href="/" class="text-normal font-sans font-normal">
 					Impressum
 				</Button>
 				|
-				<Button variant="link" href="/datenschutz" class="text-normal font-sans font-normal">
+				<Button variant="link" href="/" class="text-normal font-sans font-normal">
 					Datenschutz
 				</Button>
 			</div>
