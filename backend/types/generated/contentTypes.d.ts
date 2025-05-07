@@ -795,7 +795,7 @@ export interface ApiFs10PageFs10Page extends Struct.SingleTypeSchema {
       'api::fs10-page.fs10-page'
     >;
     optionBlocks: Schema.Attribute.DynamicZone<
-      ['partial-components.table', 'partial-components.accordion']
+      ['partial-components.accordion', 'partial-components.table']
     > &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -803,67 +803,6 @@ export interface ApiFs10PageFs10Page extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiFs15PageFs15Page extends Struct.SingleTypeSchema {
-  collectionName: 'fs15_pages';
-  info: {
-    description: '';
-    displayName: 'FS15 Seite';
-    pluralName: 'fs15-pages';
-    singularName: 'fs15-page';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    exploreOptions: Schema.Attribute.DynamicZone<
-      ['partial-components.table', 'partial-components.accordion']
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    exploreVariants: Schema.Attribute.Component<
-      'page-components.explore-variants',
-      false
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    heroDualImage: Schema.Attribute.Component<
-      'page-components.hero-dual-image',
-      false
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::fs15-page.fs15-page'
-    >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1237,7 +1176,7 @@ export interface ApiSocialMediaChannelSocialMediaChannel
   collectionName: 'social_media_channels';
   info: {
     description: '';
-    displayName: 'social-media-channel';
+    displayName: 'Social-Media-Kan\u00E4le';
     pluralName: 'social-media-channels';
     singularName: 'social-media-channel';
   };
@@ -1248,7 +1187,7 @@ export interface ApiSocialMediaChannelSocialMediaChannel
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    link: Schema.Attribute.String;
+    externalLink: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1778,7 +1717,6 @@ declare module '@strapi/strapi' {
       'api::employee.employee': ApiEmployeeEmployee;
       'api::fair.fair': ApiFairFair;
       'api::fs10-page.fs10-page': ApiFs10PageFs10Page;
-      'api::fs15-page.fs15-page': ApiFs15PageFs15Page;
       'api::gantry-machines-page.gantry-machines-page': ApiGantryMachinesPageGantryMachinesPage;
       'api::global.global': ApiGlobalGlobal;
       'api::home.home': ApiHomeHome;

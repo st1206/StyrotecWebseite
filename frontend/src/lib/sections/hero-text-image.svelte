@@ -22,9 +22,11 @@
 				>
 					{data.title}
 				</h2>
-				<h3 class="text-right text-2xl uppercase xl:text-3xl">
-					{data.subtitle}
-				</h3>
+				{#if data.subtitle}
+					<h3 class="text-right text-2xl uppercase xl:text-3xl">
+						{data.subtitle}
+					</h3>
+				{/if}
 			</div>
 			<p class="prose prose-neutral prose-sm md:prose-base xl:prose-lg text-justify">
 				{@html data.content}

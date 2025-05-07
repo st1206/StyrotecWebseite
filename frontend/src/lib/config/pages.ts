@@ -3,6 +3,7 @@ import type {
 	ApiChipPressesPageChipPressesPage,
 	ApiFs10PageFs10Page,
 	ApiFs15PageFs15Page,
+	ApiFs20PageFs20Page,
 	ApiGantryMachinesPageGantryMachinesPage,
 	ApiHomeHome,
 	ApiIndustriesPageIndustriesPage,
@@ -17,6 +18,7 @@ export interface CMSTypeMap {
 	gantryMachinesPage: ApiGantryMachinesPageGantryMachinesPage;
 	fs10Page: ApiFs10PageFs10Page;
 	fs15Page: ApiFs15PageFs15Page;
+	fs20Page: ApiFs20PageFs20Page;
 	chipPressesPage: ApiChipPressesPageChipPressesPage;
 	metalsPage: ApiMetalsPageMetalsPage;
 	industriesPage: ApiIndustriesPageIndustriesPage;
@@ -93,51 +95,59 @@ const pagesConfig: Record<string, PageContent> = {
 		]
 	},
 
-	fs15: {
-		deSlug: 'produkte/portalfraesmaschinen/fs15',
-		enSlug: 'products/gantry-machines/fs15',
-		cmsTypeKey: 'fs15Page',
-		cmsApiSlug: 'fs15-page',
-		sections: [
-			{
-				sectionKey: 'heroDualImage'
-			},
-			{
-				sectionKey: 'exploreVariants'
-			},
-			{
-				sectionKey: 'exploreOptions'
-			}
-		]
-	},
+	// fs15: {
+	// 	deSlug: 'produkte/portalfraesmaschinen/fs15',
+	// 	enSlug: 'products/gantry-machines/fs15',
+	// 	cmsTypeKey: 'fs15Page',
+	// 	cmsApiSlug: 'fs15-page',
+	// 	sections: [
+	// 		{
+	// 			sectionKey: 'heroDualImage'
+	// 		},
+	// 		{
+	// 			sectionKey: 'exploreVariants'
+	// 		},
+	// 		{
+	// 			sectionKey: 'exploreOptions'
+	// 		}
+	// 	]
+	// },
 
-	chipPresses: {
-		deSlug: 'produkte/brikettierpressen',
-		enSlug: 'products/chip-presses',
-		cmsTypeKey: 'chipPressesPage',
-		cmsApiSlug: 'chip-presses-page',
-		sections: [
-			{ sectionKey: 'heroCarousel' },
-			{ sectionKey: 'heroTextImage' },
-			{ sectionKey: 'uspList' },
-			{ sectionKey: 'exploreMore' }
-		]
-	},
+	// fs20: {
+	// 	deSlug: 'produkte/portalfraesmaschinen/fs20',
+	// 	enSlug: 'products/gantry-machines/fs20',
+	// 	cmsTypeKey: 'fs20Page',
+	// 	cmsApiSlug: 'fs20-page',
+	// 	sections: [{ sectionKey: 'heroDualImage' }]
+	// },
 
-	metals: {
-		deSlug: 'produkte/brikettierpressen/metalle',
-		enSlug: 'products/chip-presses/metals',
-		cmsTypeKey: 'metalsPage',
-		cmsApiSlug: 'metals-page',
-		sections: [
-			{
-				sectionKey: 'heroDualImage'
-			},
-			{
-				sectionKey: 'exploreVariants'
-			}
-		]
-	},
+	// chipPresses: {
+	// 	deSlug: 'produkte/brikettierpressen',
+	// 	enSlug: 'products/chip-presses',
+	// 	cmsTypeKey: 'chipPressesPage',
+	// 	cmsApiSlug: 'chip-presses-page',
+	// 	sections: [
+	// 		{ sectionKey: 'heroCarousel' },
+	// 		{ sectionKey: 'heroTextImage' },
+	// 		{ sectionKey: 'uspList' },
+	// 		{ sectionKey: 'exploreMore' }
+	// 	]
+	// },
+
+	// metals: {
+	// 	deSlug: 'produkte/brikettierpressen/metalle',
+	// 	enSlug: 'products/chip-presses/metals',
+	// 	cmsTypeKey: 'metalsPage',
+	// 	cmsApiSlug: 'metals-page',
+	// 	sections: [
+	// 		{
+	// 			sectionKey: 'heroDualImage'
+	// 		},
+	// 		{
+	// 			sectionKey: 'exploreVariants'
+	// 		}
+	// 	]
+	// },
 
 	industries: {
 		deSlug: 'branchen',
@@ -154,17 +164,17 @@ const pagesConfig: Record<string, PageContent> = {
 		]
 	},
 
-	millingTools: {
-		deSlug: 'produkte/styroporbearbeitung/fraeswerkzeuge',
-		enSlug: 'products/styrofoam-processing/milling-tools',
-		cmsTypeKey: 'millingToolsPage',
-		cmsApiSlug: 'milling-tools-page',
-		sections: [
-			{
-				sectionKey: 'defaultContent'
-			}
-		]
-	},
+	// millingTools: {
+	// 	deSlug: 'produkte/styroporbearbeitung/fraeswerkzeuge',
+	// 	enSlug: 'products/styrofoam-processing/milling-tools',
+	// 	cmsTypeKey: 'millingToolsPage',
+	// 	cmsApiSlug: 'milling-tools-page',
+	// 	sections: [
+	// 		{
+	// 			sectionKey: 'defaultContent'
+	// 		}
+	// 	]
+	// },
 
 	aboutUs: {
 		deSlug: 'unternehmen/ueber-uns',

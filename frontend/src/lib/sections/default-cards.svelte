@@ -2,7 +2,7 @@
 	import { PUBLIC_BACKEND_URL } from '$env/static/public';
 	import type { ImageAsset } from '$lib/cmsTypes/image-type';
 	import { Button } from '$lib/components/ui/button';
-	import { cn } from '$lib/utils';
+	import { cn, getRedirectLink } from '$lib/utils';
 
 	let data: {
 		sectionTitle: string;
@@ -12,7 +12,7 @@
 			content: string;
 			redirectButtons: {
 				label: string;
-				link: string;
+				redirectSlug: string;
 			}[];
 			thumbnail: ImageAsset;
 			anchor: string;
@@ -65,9 +65,9 @@
 					)}
 				>
 					{#if card.thumbnail}
-						<div class="max-h-content w-full md:w-3/5">
+						<div class="max-h-content w-full">
 							<img
-								class="h-full w-full object-cover"
+								class="h-full object-cover lg:max-w-[600px] xl:max-w-[800px]"
 								src={!PUBLIC_BACKEND_URL.includes('https')
 									? `${PUBLIC_BACKEND_URL}${card.thumbnail.url}`
 									: card.thumbnail.url}
@@ -75,22 +75,24 @@
 							/>
 						</div>
 					{/if}
-					<div class={cn(card.thumbnail ? 'w-full md:w-2/5' : 'w-full', 'p-10')}>
+					<div
+						class={cn(card.thumbnail ? 'w-full' : 'w-full', 'flex flex-col justify-between p-10')}
+					>
 						<div>
-							<h3 class="font-boldFont text-lg sm:text-3xl">{card.title}</h3>
+							<h3 class="font-boldFont text-lg sm:text-3xl xl:text-4xl">{card.title}</h3>
 							<div
 								class={cn(
 									data.isDarkMode ? 'text-secondary/90' : 'text-secondary/80',
-									'prose prose-neutral prose-sm  mt-2'
+									'prose prose-neutral prose-sm xl:prose-lg mt-2'
 								)}
 							>
 								{@html card.content}
 							</div>
 						</div>
 						{#if card.redirectButtons.length}
-							<div class="mt-8 flex gap-4">
+							<div class="mt-6 flex gap-4">
 								{#each card.redirectButtons as button}
-									<Button href={button.link}>
+									<Button href={getRedirectLink(button.redirectSlug)}>
 										<span class="skew-x-[15deg]">{button.label}</span>
 									</Button>
 								{/each}

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-05-06T01:01:49.835Z"
+    "x-generation-date": "2025-05-07T20:51:55.554Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -2523,329 +2523,6 @@
         ],
         "parameters": [],
         "operationId": "delete/fs10-page"
-      }
-    },
-    "/fs15-page": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Fs15PageResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "tags": [
-          "Fs15-page"
-        ],
-        "parameters": [
-          {
-            "name": "sort",
-            "in": "query",
-            "description": "Sort by attributes ascending (asc) or descending (desc)",
-            "deprecated": false,
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "pagination[withCount]",
-            "in": "query",
-            "description": "Return page/pageSize (default: true)",
-            "deprecated": false,
-            "required": false,
-            "schema": {
-              "type": "boolean"
-            }
-          },
-          {
-            "name": "pagination[page]",
-            "in": "query",
-            "description": "Page number (default: 0)",
-            "deprecated": false,
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "pagination[pageSize]",
-            "in": "query",
-            "description": "Page size (default: 25)",
-            "deprecated": false,
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "pagination[start]",
-            "in": "query",
-            "description": "Offset value (default: 0)",
-            "deprecated": false,
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "pagination[limit]",
-            "in": "query",
-            "description": "Number of entities to return (default: 25)",
-            "deprecated": false,
-            "required": false,
-            "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "fields",
-            "in": "query",
-            "description": "Fields to return (ex: title,author)",
-            "deprecated": false,
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "populate",
-            "in": "query",
-            "description": "Relations to return",
-            "deprecated": false,
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "filters",
-            "in": "query",
-            "description": "Filters to apply",
-            "deprecated": false,
-            "required": false,
-            "schema": {
-              "type": "object",
-              "additionalProperties": true
-            },
-            "style": "deepObject"
-          },
-          {
-            "name": "locale",
-            "in": "query",
-            "description": "Locale to apply",
-            "deprecated": false,
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "operationId": "get/fs15-page"
-      },
-      "put": {
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Fs15PageResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "tags": [
-          "Fs15-page"
-        ],
-        "parameters": [],
-        "operationId": "put/fs15-page",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Fs15PageRequest"
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "integer",
-                  "format": "int64"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "tags": [
-          "Fs15-page"
-        ],
-        "parameters": [],
-        "operationId": "delete/fs15-page"
       }
     },
     "/gantry-machines-page": {
@@ -7491,6 +7168,23 @@
           "id": {
             "type": "number"
           },
+          "title": {
+            "type": "string"
+          },
+          "subtitle": {
+            "type": "string"
+          },
+          "employee": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "documentId": {
+                "type": "string"
+              }
+            }
+          },
           "image": {
             "type": "object",
             "properties": {
@@ -7620,23 +7314,6 @@
               }
             }
           },
-          "title": {
-            "type": "string"
-          },
-          "subtitle": {
-            "type": "string"
-          },
-          "employee": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "number"
-              },
-              "documentId": {
-                "type": "string"
-              }
-            }
-          },
           "sortOrder": {
             "type": "integer"
           }
@@ -7647,15 +7324,6 @@
         "properties": {
           "id": {
             "type": "number"
-          },
-          "title": {
-            "type": "string"
-          },
-          "imageCards": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PartialComponentsImageCardComponent"
-            }
           },
           "media": {
             "type": "object",
@@ -7786,11 +7454,20 @@
               }
             }
           },
+          "title": {
+            "type": "string"
+          },
           "description": {
             "type": "string"
           },
           "anchor": {
             "type": "string"
+          },
+          "imageCards": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartialComponentsImageCardComponent"
+            }
           }
         }
       },
@@ -7819,14 +7496,14 @@
           "id": {
             "type": "number"
           },
+          "sectionTitle": {
+            "type": "string"
+          },
           "historyEntries": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PartialComponentsHistoryEntryComponent"
             }
-          },
-          "sectionTitle": {
-            "type": "string"
           }
         }
       },
@@ -7839,7 +7516,7 @@
           "label": {
             "type": "string"
           },
-          "link": {
+          "redirectSlug": {
             "type": "string"
           }
         }
@@ -7849,6 +7526,21 @@
         "properties": {
           "id": {
             "type": "number"
+          },
+          "title": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "redirectButtons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartialComponentsRedirectButtonComponent"
+            }
+          },
+          "anchor": {
+            "type": "string"
           },
           "thumbnail": {
             "type": "object",
@@ -7978,21 +7670,6 @@
                 }
               }
             }
-          },
-          "title": {
-            "type": "string"
-          },
-          "content": {
-            "type": "string"
-          },
-          "redirectButtons": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PartialComponentsRedirectButtonComponent"
-            }
-          },
-          "anchor": {
-            "type": "string"
           }
         }
       },
@@ -8005,6 +7682,9 @@
           "sectionTitle": {
             "type": "string"
           },
+          "description": {
+            "type": "string"
+          },
           "cards": {
             "type": "array",
             "items": {
@@ -8012,9 +7692,6 @@
             }
           },
           "anchor": {
-            "type": "string"
-          },
-          "description": {
             "type": "string"
           },
           "isDarkMode": {
@@ -8274,6 +7951,9 @@
           "id": {
             "type": "number"
           },
+          "keyphrase": {
+            "type": "string"
+          },
           "images": {
             "type": "array",
             "items": {
@@ -8405,9 +8085,6 @@
                 }
               }
             }
-          },
-          "keyphrase": {
-            "type": "string"
           }
         }
       },
@@ -8577,10 +8254,16 @@
           "title": {
             "type": "string"
           },
+          "subtitle": {
+            "type": "string"
+          },
           "content": {
             "type": "string"
           },
           "ctaText": {
+            "type": "string"
+          },
+          "redirectSlug": {
             "type": "string"
           },
           "thumbnail": {
@@ -8712,12 +8395,6 @@
               }
             }
           },
-          "subtitle": {
-            "type": "string"
-          },
-          "redirectSlug": {
-            "type": "string"
-          },
           "isImageTransparent": {
             "type": "boolean"
           }
@@ -8729,14 +8406,14 @@
           "id": {
             "type": "number"
           },
+          "sectionTitle": {
+            "type": "string"
+          },
           "previewCards": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/PartialComponentsPreviewCardComponent"
             }
-          },
-          "sectionTitle": {
-            "type": "string"
           }
         }
       },
@@ -12307,18 +11984,18 @@
                 "items": {
                   "anyOf": [
                     {
-                      "$ref": "#/components/schemas/PartialComponentsTableComponent"
+                      "$ref": "#/components/schemas/PartialComponentsAccordionComponent"
                     },
                     {
-                      "$ref": "#/components/schemas/PartialComponentsAccordionComponent"
+                      "$ref": "#/components/schemas/PartialComponentsTableComponent"
                     }
                   ]
                 },
                 "discriminator": {
                   "propertyName": "__component",
                   "mapping": {
-                    "partial-components.table": "#/components/schemas/PartialComponentsTableComponent",
-                    "partial-components.accordion": "#/components/schemas/PartialComponentsAccordionComponent"
+                    "partial-components.accordion": "#/components/schemas/PartialComponentsAccordionComponent",
+                    "partial-components.table": "#/components/schemas/PartialComponentsTableComponent"
                   }
                 }
               },
@@ -12403,18 +12080,18 @@
             "items": {
               "anyOf": [
                 {
-                  "$ref": "#/components/schemas/PartialComponentsTableComponent"
+                  "$ref": "#/components/schemas/PartialComponentsAccordionComponent"
                 },
                 {
-                  "$ref": "#/components/schemas/PartialComponentsAccordionComponent"
+                  "$ref": "#/components/schemas/PartialComponentsTableComponent"
                 }
               ]
             },
             "discriminator": {
               "propertyName": "__component",
               "mapping": {
-                "partial-components.table": "#/components/schemas/PartialComponentsTableComponent",
-                "partial-components.accordion": "#/components/schemas/PartialComponentsAccordionComponent"
+                "partial-components.accordion": "#/components/schemas/PartialComponentsAccordionComponent",
+                "partial-components.table": "#/components/schemas/PartialComponentsTableComponent"
               }
             }
           },
@@ -12477,18 +12154,18 @@
                   "items": {
                     "anyOf": [
                       {
-                        "$ref": "#/components/schemas/PartialComponentsTableComponent"
+                        "$ref": "#/components/schemas/PartialComponentsAccordionComponent"
                       },
                       {
-                        "$ref": "#/components/schemas/PartialComponentsAccordionComponent"
+                        "$ref": "#/components/schemas/PartialComponentsTableComponent"
                       }
                     ]
                   },
                   "discriminator": {
                     "propertyName": "__component",
                     "mapping": {
-                      "partial-components.table": "#/components/schemas/PartialComponentsTableComponent",
-                      "partial-components.accordion": "#/components/schemas/PartialComponentsAccordionComponent"
+                      "partial-components.accordion": "#/components/schemas/PartialComponentsAccordionComponent",
+                      "partial-components.table": "#/components/schemas/PartialComponentsTableComponent"
                     }
                   }
                 },
@@ -12565,6 +12242,15 @@
           "id": {
             "type": "number"
           },
+          "keyword": {
+            "type": "string"
+          },
+          "subKeyword": {
+            "type": "string"
+          },
+          "heroTextImage": {
+            "$ref": "#/components/schemas/PageComponentsBasicTextImageComponent"
+          },
           "image": {
             "type": "object",
             "properties": {
@@ -12693,15 +12379,6 @@
                 }
               }
             }
-          },
-          "keyword": {
-            "type": "string"
-          },
-          "heroTextImage": {
-            "$ref": "#/components/schemas/PageComponentsBasicTextImageComponent"
-          },
-          "subKeyword": {
-            "type": "string"
           }
         }
       },
@@ -12745,6 +12422,12 @@
           "title": {
             "type": "string"
           },
+          "accordionItems": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartialComponentsVariantAccordionItemComponent"
+            }
+          },
           "image": {
             "type": "object",
             "properties": {
@@ -12872,12 +12555,6 @@
                   }
                 }
               }
-            }
-          },
-          "accordionItems": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PartialComponentsVariantAccordionItemComponent"
             }
           }
         }
@@ -12899,57 +12576,6 @@
           }
         }
       },
-      "PartialComponentsTableRowComponent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "rowLabel": {
-            "type": "string"
-          },
-          "rowValue": {
-            "type": "string"
-          }
-        }
-      },
-      "PartialComponentsTableColumnComponent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "tableRows": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PartialComponentsTableRowComponent"
-            }
-          },
-          "columnLabel": {
-            "type": "string"
-          }
-        }
-      },
-      "PartialComponentsTableComponent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "tableColumns": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PartialComponentsTableColumnComponent"
-            }
-          },
-          "sortOrder": {
-            "type": "integer"
-          },
-          "title": {
-            "type": "string"
-          }
-        }
-      },
       "PartialComponentsAccordionItemComponent": {
         "type": "object",
         "properties": {
@@ -12960,6 +12586,9 @@
             "type": "string"
           },
           "subtitle": {
+            "type": "string"
+          },
+          "description": {
             "type": "string"
           },
           "image": {
@@ -13090,9 +12719,6 @@
                 }
               }
             }
-          },
-          "description": {
-            "type": "string"
           },
           "sortOrder": {
             "type": "integer"
@@ -13119,280 +12745,54 @@
           }
         }
       },
-      "Fs15PageRequest": {
+      "PartialComponentsTableRowComponent": {
         "type": "object",
-        "required": [
-          "data"
-        ],
-        "properties": {
-          "data": {
-            "required": [
-              "heroDualImage",
-              "exploreVariants",
-              "exploreOptions"
-            ],
-            "type": "object",
-            "properties": {
-              "heroDualImage": {
-                "$ref": "#/components/schemas/PageComponentsHeroDualImageComponent"
-              },
-              "exploreVariants": {
-                "$ref": "#/components/schemas/PageComponentsExploreVariantsComponent"
-              },
-              "exploreOptions": {
-                "type": "array",
-                "items": {
-                  "anyOf": [
-                    {
-                      "$ref": "#/components/schemas/PartialComponentsTableComponent"
-                    },
-                    {
-                      "$ref": "#/components/schemas/PartialComponentsAccordionComponent"
-                    }
-                  ]
-                },
-                "discriminator": {
-                  "propertyName": "__component",
-                  "mapping": {
-                    "partial-components.table": "#/components/schemas/PartialComponentsTableComponent",
-                    "partial-components.accordion": "#/components/schemas/PartialComponentsAccordionComponent"
-                  }
-                }
-              },
-              "locale": {
-                "type": "string"
-              },
-              "localizations": {
-                "type": "array",
-                "items": {
-                  "oneOf": [
-                    {
-                      "type": "integer"
-                    },
-                    {
-                      "type": "string"
-                    }
-                  ],
-                  "example": "string or id"
-                }
-              }
-            }
-          }
-        }
-      },
-      "Fs15PageListResponse": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Fs15Page"
-            }
-          },
-          "meta": {
-            "type": "object",
-            "properties": {
-              "pagination": {
-                "type": "object",
-                "properties": {
-                  "page": {
-                    "type": "integer"
-                  },
-                  "pageSize": {
-                    "type": "integer",
-                    "minimum": 25
-                  },
-                  "pageCount": {
-                    "type": "integer",
-                    "maximum": 1
-                  },
-                  "total": {
-                    "type": "integer"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "Fs15Page": {
-        "type": "object",
-        "required": [
-          "heroDualImage",
-          "exploreVariants",
-          "exploreOptions"
-        ],
         "properties": {
           "id": {
             "type": "number"
           },
-          "documentId": {
+          "rowLabel": {
             "type": "string"
           },
-          "heroDualImage": {
-            "$ref": "#/components/schemas/PageComponentsHeroDualImageComponent"
+          "rowValue": {
+            "type": "string"
+          }
+        }
+      },
+      "PartialComponentsTableColumnComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
           },
-          "exploreVariants": {
-            "$ref": "#/components/schemas/PageComponentsExploreVariantsComponent"
-          },
-          "exploreOptions": {
-            "type": "array",
-            "items": {
-              "anyOf": [
-                {
-                  "$ref": "#/components/schemas/PartialComponentsTableComponent"
-                },
-                {
-                  "$ref": "#/components/schemas/PartialComponentsAccordionComponent"
-                }
-              ]
-            },
-            "discriminator": {
-              "propertyName": "__component",
-              "mapping": {
-                "partial-components.table": "#/components/schemas/PartialComponentsTableComponent",
-                "partial-components.accordion": "#/components/schemas/PartialComponentsAccordionComponent"
-              }
-            }
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "publishedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "createdBy": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "number"
-              },
-              "documentId": {
-                "type": "string"
-              }
-            }
-          },
-          "updatedBy": {
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "number"
-              },
-              "documentId": {
-                "type": "string"
-              }
-            }
-          },
-          "locale": {
+          "columnLabel": {
             "type": "string"
           },
-          "localizations": {
+          "tableRows": {
             "type": "array",
             "items": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "number"
-                },
-                "documentId": {
-                  "type": "string"
-                },
-                "heroDualImage": {
-                  "$ref": "#/components/schemas/PageComponentsHeroDualImageComponent"
-                },
-                "exploreVariants": {
-                  "$ref": "#/components/schemas/PageComponentsExploreVariantsComponent"
-                },
-                "exploreOptions": {
-                  "type": "array",
-                  "items": {
-                    "anyOf": [
-                      {
-                        "$ref": "#/components/schemas/PartialComponentsTableComponent"
-                      },
-                      {
-                        "$ref": "#/components/schemas/PartialComponentsAccordionComponent"
-                      }
-                    ]
-                  },
-                  "discriminator": {
-                    "propertyName": "__component",
-                    "mapping": {
-                      "partial-components.table": "#/components/schemas/PartialComponentsTableComponent",
-                      "partial-components.accordion": "#/components/schemas/PartialComponentsAccordionComponent"
-                    }
-                  }
-                },
-                "createdAt": {
-                  "type": "string",
-                  "format": "date-time"
-                },
-                "updatedAt": {
-                  "type": "string",
-                  "format": "date-time"
-                },
-                "publishedAt": {
-                  "type": "string",
-                  "format": "date-time"
-                },
-                "createdBy": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "number"
-                    },
-                    "documentId": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "updatedBy": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "number"
-                    },
-                    "documentId": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "locale": {
-                  "type": "string"
-                },
-                "localizations": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "number"
-                      },
-                      "documentId": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                }
-              }
+              "$ref": "#/components/schemas/PartialComponentsTableRowComponent"
             }
           }
         }
       },
-      "Fs15PageResponse": {
+      "PartialComponentsTableComponent": {
         "type": "object",
         "properties": {
-          "data": {
-            "$ref": "#/components/schemas/Fs15Page"
+          "id": {
+            "type": "number"
           },
-          "meta": {
-            "type": "object"
+          "title": {
+            "type": "string"
+          },
+          "tableColumns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PartialComponentsTableColumnComponent"
+            }
+          },
+          "sortOrder": {
+            "type": "integer"
           }
         }
       },
@@ -15816,6 +15216,12 @@
               "partial-components.content-text-image"
             ]
           },
+          "title": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
           "image": {
             "type": "object",
             "properties": {
@@ -15945,12 +15351,6 @@
               }
             }
           },
-          "title": {
-            "type": "string"
-          },
-          "content": {
-            "type": "string"
-          },
           "imagePosition": {
             "type": "string",
             "enum": [
@@ -15977,6 +15377,9 @@
               "partial-components.content-table"
             ]
           },
+          "title": {
+            "type": "string"
+          },
           "tables": {
             "type": "array",
             "items": {
@@ -15985,9 +15388,6 @@
           },
           "sortOrder": {
             "type": "integer"
-          },
-          "title": {
-            "type": "string"
           }
         }
       },
@@ -16002,6 +15402,9 @@
             "enum": [
               "partial-components.content-images"
             ]
+          },
+          "title": {
+            "type": "string"
           },
           "images": {
             "type": "array",
@@ -16137,9 +15540,6 @@
           },
           "sortOrder": {
             "type": "integer"
-          },
-          "title": {
-            "type": "string"
           }
         }
       },
@@ -16155,9 +15555,6 @@
               "partial-components.content-accordion"
             ]
           },
-          "sortOrder": {
-            "type": "integer"
-          },
           "title": {
             "type": "string"
           },
@@ -16166,6 +15563,9 @@
             "items": {
               "$ref": "#/components/schemas/PartialComponentsAccordionComponent"
             }
+          },
+          "sortOrder": {
+            "type": "integer"
           }
         }
       },
@@ -17181,7 +16581,7 @@
               "name": {
                 "type": "string"
               },
-              "link": {
+              "externalLink": {
                 "type": "string"
               },
               "locale": {
@@ -17252,7 +16652,7 @@
           "name": {
             "type": "string"
           },
-          "link": {
+          "externalLink": {
             "type": "string"
           },
           "createdAt": {
@@ -17558,7 +16958,7 @@
                 "name": {
                   "type": "string"
                 },
-                "link": {
+                "externalLink": {
                   "type": "string"
                 },
                 "createdAt": {

@@ -3,6 +3,8 @@ import { twMerge } from 'tailwind-merge';
 import { DateFormatter } from '@internationalized/date';
 import type { SvelteComponent } from 'svelte';
 import { Icons } from './assets/icons';
+import { locale } from 'svelte-i18n';
+import { get } from 'svelte/store';
 
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
@@ -38,4 +40,9 @@ export function clickOutside(node: HTMLElement, callback: () => void) {
 			document.removeEventListener('click', handleClick);
 		}
 	};
+}
+
+export function getRedirectLink(slug: string): string {
+	const lang = get(locale)?.split('-')[0];
+	return `/${lang}/${slug}`;
 }

@@ -8,20 +8,29 @@ export interface PageComponentsBasicTextImage extends Struct.ComponentSchema {
     icon: 'pencil';
   };
   attributes: {
-    content: Schema.Attribute.RichText &
-      Schema.Attribute.Required &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYyOTc1OTksImp0aSI6ImMyMTI4NzEyLTI0NGEtNDg2My1iMDMyLTBhMDg4M2ViYjFjNyIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiNDBiMzRjNTkifQ.NEHvT9L5g2Udrb7VzeOMjkb1fWToQYc4UPOtgo1r1rRZ3qtR3A7Zbbdxy4CuL0sTdXIZatiLy0o7Jcqqs2bpkw';
-          output: 'HTML';
-          preset: 'rich';
-        }
-      >;
+    content: Schema.Attribute.Text & Schema.Attribute.Required;
     image: Schema.Attribute.Media<'files' | 'images'> &
       Schema.Attribute.Required;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface PageComponentsDefaultCards extends Struct.ComponentSchema {
+  collectionName: 'components_page_components_default_cards';
+  info: {
+    description: '';
+    displayName: 'defaultCards';
+  };
+  attributes: {
+    anchor: Schema.Attribute.String;
+    cards: Schema.Attribute.Component<'partial-components.default-card', true> &
+      Schema.Attribute.Required;
+    description: Schema.Attribute.Text;
+    isDarkMode: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    sectionTitle: Schema.Attribute.String;
   };
 }
 
@@ -92,22 +101,38 @@ export interface PageComponentsHeroDualImage extends Struct.ComponentSchema {
   };
 }
 
-export interface PageComponentsheroMedia extends Struct.ComponentSchema {
+export interface PageComponentsHeroMedia extends Struct.ComponentSchema {
   collectionName: 'components_page_components_hero_medias';
   info: {
     description: '';
     displayName: 'heroMedia';
   };
   attributes: {
-    description: Schema.Attribute.String & Schema.Attribute.Required;
+    anchor: Schema.Attribute.String;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
     imageCards: Schema.Attribute.Component<
       'partial-components.image-card',
       true
-    > &
+    >;
+    media: Schema.Attribute.Media<'files' | 'videos' | 'images'> &
       Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
-    video: Schema.Attribute.Media<'files' | 'videos' | 'images'> &
+  };
+}
+
+export interface PageComponentsHistory extends Struct.ComponentSchema {
+  collectionName: 'components_page_components_histories';
+  info: {
+    description: '';
+    displayName: 'history';
+  };
+  attributes: {
+    historyEntries: Schema.Attribute.Component<
+      'partial-components.history-entry',
+      true
+    > &
       Schema.Attribute.Required;
+    sectionTitle: Schema.Attribute.String;
   };
 }
 
@@ -150,16 +175,7 @@ export interface PartialComponentsAccordionItem extends Struct.ComponentSchema {
     icon: 'command';
   };
   attributes: {
-    description: Schema.Attribute.RichText &
-      Schema.Attribute.Required &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYyOTc1OTksImp0aSI6ImMyMTI4NzEyLTI0NGEtNDg2My1iMDMyLTBhMDg4M2ViYjFjNyIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiNDBiMzRjNTkifQ.NEHvT9L5g2Udrb7VzeOMjkb1fWToQYc4UPOtgo1r1rRZ3qtR3A7Zbbdxy4CuL0sTdXIZatiLy0o7Jcqqs2bpkw';
-          output: 'HTML';
-          preset: 'rich';
-        }
-      >;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
     image: Schema.Attribute.Media<'images' | 'files'>;
     sortOrder: Schema.Attribute.Integer &
       Schema.Attribute.Required &
@@ -178,9 +194,10 @@ export interface PartialComponentsContentAccordion
   };
   attributes: {
     accordions: Schema.Attribute.Component<
-      'partial-components.accordion-item',
+      'partial-components.accordion',
       true
-    >;
+    > &
+      Schema.Attribute.Required;
     sortOrder: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<1>;
@@ -195,16 +212,7 @@ export interface PartialComponentsContentHeader extends Struct.ComponentSchema {
     displayName: 'contentHeader';
   };
   attributes: {
-    description: Schema.Attribute.RichText &
-      Schema.Attribute.Required &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYyOTc1OTksImp0aSI6ImMyMTI4NzEyLTI0NGEtNDg2My1iMDMyLTBhMDg4M2ViYjFjNyIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiNDBiMzRjNTkifQ.NEHvT9L5g2Udrb7VzeOMjkb1fWToQYc4UPOtgo1r1rRZ3qtR3A7Zbbdxy4CuL0sTdXIZatiLy0o7Jcqqs2bpkw';
-          output: 'HTML';
-          preset: 'rich';
-        }
-      >;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
     isDarkMode: Schema.Attribute.Boolean &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<false>;
@@ -251,15 +259,7 @@ export interface PartialComponentsContentTextImage
     displayName: 'contentTextImage';
   };
   attributes: {
-    content: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYyOTc1OTksImp0aSI6ImMyMTI4NzEyLTI0NGEtNDg2My1iMDMyLTBhMDg4M2ViYjFjNyIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiNDBiMzRjNTkifQ.NEHvT9L5g2Udrb7VzeOMjkb1fWToQYc4UPOtgo1r1rRZ3qtR3A7Zbbdxy4CuL0sTdXIZatiLy0o7Jcqqs2bpkw';
-          output: 'HTML';
-          preset: 'rich';
-        }
-      >;
+    content: Schema.Attribute.Text & Schema.Attribute.Required;
     image: Schema.Attribute.Media<'images' | 'files'>;
     imagePosition: Schema.Attribute.Enumeration<
       ['top', 'bottom', 'left', 'right']
@@ -279,23 +279,27 @@ export interface PartialComponentsDefaultCard extends Struct.ComponentSchema {
     displayName: 'defaultCard';
   };
   attributes: {
-    anchor: Schema.Attribute.String & Schema.Attribute.Required;
-    content: Schema.Attribute.RichText &
-      Schema.Attribute.Required &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYyOTc1OTksImp0aSI6ImMyMTI4NzEyLTI0NGEtNDg2My1iMDMyLTBhMDg4M2ViYjFjNyIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiNDBiMzRjNTkifQ.NEHvT9L5g2Udrb7VzeOMjkb1fWToQYc4UPOtgo1r1rRZ3qtR3A7Zbbdxy4CuL0sTdXIZatiLy0o7Jcqqs2bpkw';
-          output: 'HTML';
-          preset: 'rich';
-        }
-      >;
+    anchor: Schema.Attribute.String;
+    content: Schema.Attribute.Text & Schema.Attribute.Required;
     redirectButtons: Schema.Attribute.Component<
       'partial-components.redirect-button',
       true
     >;
     thumbnail: Schema.Attribute.Media<'images' | 'files'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface PartialComponentsHistoryEntry extends Struct.ComponentSchema {
+  collectionName: 'components_partial_components_history_entries';
+  info: {
+    description: '';
+    displayName: 'historyEntry';
+  };
+  attributes: {
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    year: Schema.Attribute.BigInteger & Schema.Attribute.Required;
   };
 }
 
@@ -306,10 +310,13 @@ export interface PartialComponentsImageCard extends Struct.ComponentSchema {
     displayName: 'imageCard';
   };
   attributes: {
-    image: Schema.Attribute.Media<'images' | 'files'> &
-      Schema.Attribute.Required;
+    employee: Schema.Attribute.Relation<'oneToOne', 'api::employee.employee'>;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+    sortOrder: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<1>;
     subtitle: Schema.Attribute.String;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -321,16 +328,7 @@ export interface PartialComponentsPreviewCard extends Struct.ComponentSchema {
     icon: 'cursor';
   };
   attributes: {
-    content: Schema.Attribute.RichText &
-      Schema.Attribute.Required &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYyOTc1OTksImp0aSI6ImMyMTI4NzEyLTI0NGEtNDg2My1iMDMyLTBhMDg4M2ViYjFjNyIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiNDBiMzRjNTkifQ.NEHvT9L5g2Udrb7VzeOMjkb1fWToQYc4UPOtgo1r1rRZ3qtR3A7Zbbdxy4CuL0sTdXIZatiLy0o7Jcqqs2bpkw';
-          output: 'HTML';
-          preset: 'rich';
-        }
-      >;
+    content: Schema.Attribute.Text & Schema.Attribute.Required;
     ctaText: Schema.Attribute.String & Schema.Attribute.Required;
     isImageTransparent: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
@@ -353,7 +351,7 @@ export interface PartialComponentsRedirectButton
   };
   attributes: {
     label: Schema.Attribute.String & Schema.Attribute.Required;
-    link: Schema.Attribute.String & Schema.Attribute.Required;
+    redirectSlug: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -488,11 +486,13 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'page-components.basic-text-image': PageComponentsBasicTextImage;
+      'page-components.default-cards': PageComponentsDefaultCards;
       'page-components.explore-more': PageComponentsExploreMore;
       'page-components.explore-variants': PageComponentsExploreVariants;
       'page-components.hero-carousel': PageComponentsHeroCarousel;
       'page-components.hero-dual-image': PageComponentsHeroDualImage;
-      'page-components.hero-video': PageComponentsheroMedia;
+      'page-components.hero-media': PageComponentsHeroMedia;
+      'page-components.history': PageComponentsHistory;
       'page-components.page-header': PageComponentsPageHeader;
       'partial-components.accordion': PartialComponentsAccordion;
       'partial-components.accordion-item': PartialComponentsAccordionItem;
@@ -502,6 +502,7 @@ declare module '@strapi/strapi' {
       'partial-components.content-table': PartialComponentsContentTable;
       'partial-components.content-text-image': PartialComponentsContentTextImage;
       'partial-components.default-card': PartialComponentsDefaultCard;
+      'partial-components.history-entry': PartialComponentsHistoryEntry;
       'partial-components.image-card': PartialComponentsImageCard;
       'partial-components.preview-card': PartialComponentsPreviewCard;
       'partial-components.redirect-button': PartialComponentsRedirectButton;

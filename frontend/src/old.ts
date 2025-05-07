@@ -17,7 +17,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 		const target = matched?.code ?? DEFAULT_LOCALE; // e.g. “de-DE”
 		const prefix = target.split('-')[0] as Lang; // “de” | “en”
 
-		redirect(307, `/${prefix}${pathname}`); // ⟵ EARLY EXIT
+		redirect(308, `/${prefix}${pathname}`); // ⟵ EARLY EXIT
 	}
 
 	/* ───────────── Step2: redirect “/de” → “/de/start” etc. ───────────── */

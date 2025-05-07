@@ -8,16 +8,7 @@ export interface PageComponentsBasicTextImage extends Struct.ComponentSchema {
     icon: 'pencil';
   };
   attributes: {
-    content: Schema.Attribute.RichText &
-      Schema.Attribute.Required &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYyOTc1OTksImp0aSI6ImMyMTI4NzEyLTI0NGEtNDg2My1iMDMyLTBhMDg4M2ViYjFjNyIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiNDBiMzRjNTkifQ.NEHvT9L5g2Udrb7VzeOMjkb1fWToQYc4UPOtgo1r1rRZ3qtR3A7Zbbdxy4CuL0sTdXIZatiLy0o7Jcqqs2bpkw';
-          output: 'HTML';
-          preset: 'rich';
-        }
-      >;
+    content: Schema.Attribute.Text & Schema.Attribute.Required;
     image: Schema.Attribute.Media<'files' | 'images'> &
       Schema.Attribute.Required;
     subtitle: Schema.Attribute.String;
@@ -118,20 +109,11 @@ export interface PageComponentsHeroMedia extends Struct.ComponentSchema {
   };
   attributes: {
     anchor: Schema.Attribute.String;
-    description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYyOTc1OTksImp0aSI6ImMyMTI4NzEyLTI0NGEtNDg2My1iMDMyLTBhMDg4M2ViYjFjNyIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiNDBiMzRjNTkifQ.NEHvT9L5g2Udrb7VzeOMjkb1fWToQYc4UPOtgo1r1rRZ3qtR3A7Zbbdxy4CuL0sTdXIZatiLy0o7Jcqqs2bpkw';
-          output: 'HTML';
-          preset: 'rich';
-        }
-      >;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
     imageCards: Schema.Attribute.Component<
       'partial-components.image-card',
       true
-    > &
-      Schema.Attribute.Required;
+    >;
     media: Schema.Attribute.Media<'files' | 'videos' | 'images'> &
       Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
@@ -193,16 +175,7 @@ export interface PartialComponentsAccordionItem extends Struct.ComponentSchema {
     icon: 'command';
   };
   attributes: {
-    description: Schema.Attribute.RichText &
-      Schema.Attribute.Required &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYyOTc1OTksImp0aSI6ImMyMTI4NzEyLTI0NGEtNDg2My1iMDMyLTBhMDg4M2ViYjFjNyIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiNDBiMzRjNTkifQ.NEHvT9L5g2Udrb7VzeOMjkb1fWToQYc4UPOtgo1r1rRZ3qtR3A7Zbbdxy4CuL0sTdXIZatiLy0o7Jcqqs2bpkw';
-          output: 'HTML';
-          preset: 'rich';
-        }
-      >;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
     image: Schema.Attribute.Media<'images' | 'files'>;
     sortOrder: Schema.Attribute.Integer &
       Schema.Attribute.Required &
@@ -239,16 +212,7 @@ export interface PartialComponentsContentHeader extends Struct.ComponentSchema {
     displayName: 'contentHeader';
   };
   attributes: {
-    description: Schema.Attribute.RichText &
-      Schema.Attribute.Required &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYyOTc1OTksImp0aSI6ImMyMTI4NzEyLTI0NGEtNDg2My1iMDMyLTBhMDg4M2ViYjFjNyIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiNDBiMzRjNTkifQ.NEHvT9L5g2Udrb7VzeOMjkb1fWToQYc4UPOtgo1r1rRZ3qtR3A7Zbbdxy4CuL0sTdXIZatiLy0o7Jcqqs2bpkw';
-          output: 'HTML';
-          preset: 'rich';
-        }
-      >;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
     isDarkMode: Schema.Attribute.Boolean &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<false>;
@@ -295,15 +259,7 @@ export interface PartialComponentsContentTextImage
     displayName: 'contentTextImage';
   };
   attributes: {
-    content: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYyOTc1OTksImp0aSI6ImMyMTI4NzEyLTI0NGEtNDg2My1iMDMyLTBhMDg4M2ViYjFjNyIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiNDBiMzRjNTkifQ.NEHvT9L5g2Udrb7VzeOMjkb1fWToQYc4UPOtgo1r1rRZ3qtR3A7Zbbdxy4CuL0sTdXIZatiLy0o7Jcqqs2bpkw';
-          output: 'HTML';
-          preset: 'rich';
-        }
-      >;
+    content: Schema.Attribute.Text & Schema.Attribute.Required;
     image: Schema.Attribute.Media<'images' | 'files'>;
     imagePosition: Schema.Attribute.Enumeration<
       ['top', 'bottom', 'left', 'right']
@@ -324,16 +280,7 @@ export interface PartialComponentsDefaultCard extends Struct.ComponentSchema {
   };
   attributes: {
     anchor: Schema.Attribute.String;
-    content: Schema.Attribute.RichText &
-      Schema.Attribute.Required &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYyOTc1OTksImp0aSI6ImMyMTI4NzEyLTI0NGEtNDg2My1iMDMyLTBhMDg4M2ViYjFjNyIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiNDBiMzRjNTkifQ.NEHvT9L5g2Udrb7VzeOMjkb1fWToQYc4UPOtgo1r1rRZ3qtR3A7Zbbdxy4CuL0sTdXIZatiLy0o7Jcqqs2bpkw';
-          output: 'HTML';
-          preset: 'rich';
-        }
-      >;
+    content: Schema.Attribute.Text & Schema.Attribute.Required;
     redirectButtons: Schema.Attribute.Component<
       'partial-components.redirect-button',
       true
@@ -381,16 +328,7 @@ export interface PartialComponentsPreviewCard extends Struct.ComponentSchema {
     icon: 'cursor';
   };
   attributes: {
-    content: Schema.Attribute.RichText &
-      Schema.Attribute.Required &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYyOTc1OTksImp0aSI6ImMyMTI4NzEyLTI0NGEtNDg2My1iMDMyLTBhMDg4M2ViYjFjNyIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiNDBiMzRjNTkifQ.NEHvT9L5g2Udrb7VzeOMjkb1fWToQYc4UPOtgo1r1rRZ3qtR3A7Zbbdxy4CuL0sTdXIZatiLy0o7Jcqqs2bpkw';
-          output: 'HTML';
-          preset: 'rich';
-        }
-      >;
+    content: Schema.Attribute.Text & Schema.Attribute.Required;
     ctaText: Schema.Attribute.String & Schema.Attribute.Required;
     isImageTransparent: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
@@ -413,7 +351,7 @@ export interface PartialComponentsRedirectButton
   };
   attributes: {
     label: Schema.Attribute.String & Schema.Attribute.Required;
-    link: Schema.Attribute.String & Schema.Attribute.Required;
+    redirectSlug: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 

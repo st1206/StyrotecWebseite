@@ -5,7 +5,7 @@
 	import * as Card from '$lib/components/ui/card';
 	import { page } from '$app/state';
 	import BlurFade from '$lib/components/blur-fade.svelte';
-	import { cn } from '$lib/utils';
+	import { cn, getRedirectLink } from '$lib/utils';
 	import type { ImageAsset } from '$lib/cmsTypes/image-type';
 
 	let data: {
@@ -153,7 +153,7 @@
 							</Card.Content>
 
 							<Card.Footer class="bg-foreground">
-								<Button href={`${page.url.pathname}/${card.redirectSlug}`}>
+								<Button href={getRedirectLink(card.redirectSlug)}>
 									<span class="skew-x-[15deg]">{card.ctaText}</span>
 								</Button>
 							</Card.Footer>

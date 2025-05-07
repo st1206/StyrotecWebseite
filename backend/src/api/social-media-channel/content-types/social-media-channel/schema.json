@@ -4,7 +4,7 @@
   "info": {
     "singularName": "social-media-channel",
     "pluralName": "social-media-channels",
-    "displayName": "social-media-channel",
+    "displayName": "Social-Media-Kanäle",
     "description": ""
   },
   "options": {
@@ -15,7 +15,7 @@
     "name": {
       "type": "string"
     },
-    "link": {
+    "externalLink": {
       "type": "string"
     }
   }
