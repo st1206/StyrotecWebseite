@@ -1,4 +1,6 @@
 import {
+	ChevronLeft,
+	ChevronRight,
 	CopyrightIcon,
 	Globe,
 	Instagram,
@@ -48,5 +50,7 @@ export const Icons = {
 	linkedIn: Linkedin,
 	youtube: Youtube,
 	X: X,
-	menu: Menu
+	menu: Menu,
+	chevronLeft: ChevronLeft,
+	chevronRight: ChevronRight
 };

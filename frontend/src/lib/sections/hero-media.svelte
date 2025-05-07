@@ -14,7 +14,7 @@
 	let data: {
 		title: string;
 		description: string;
-		media: { name: string; url: string; size: number } | ImageAsset;
+		media: { name: string; url: string; size: number; mime: string } | ImageAsset;
 		imageCards: ImageCard[];
 		anchor: string;
 	} = $props();
@@ -31,20 +31,30 @@
 
 <section id={data.anchor} class="mt-20 scroll-mt-32 lg:container lg:mx-auto lg:mt-32 lg:w-full">
 	<div class="bg-foreground lg:shadow-primary">
-		<video
-			autoplay
-			loop
-			muted
-			class="w-full object-cover [clip-path:polygon(0%_0%,100%_0%,100%_90%,0%_100%)]"
-		>
-			<source
+		{#if data.media.mime === 'video/mp4'}
+			<video
+				autoplay
+				loop
+				muted
+				class="max-h-[750px] w-full object-cover object-top [clip-path:polygon(0%_0%,100%_0%,100%_90%,0%_100%)]"
+			>
+				<source
+					src={!PUBLIC_BACKEND_URL.includes('https')
+						? `${PUBLIC_BACKEND_URL}${data.media.url}`
+						: data.media.url}
+					type="video/mp4"
+				/>
+				Your browser does not support the video tag.
+			</video>
+		{:else if data.media.mime === 'image/png'}
+			<img
 				src={!PUBLIC_BACKEND_URL.includes('https')
 					? `${PUBLIC_BACKEND_URL}${data.media.url}`
 					: data.media.url}
-				type="video/mp4"
+				alt="hero"
+				class="max-w- max-h-[750px] w-full object-cover object-top [clip-path:polygon(0%_0%,100%_0%,100%_90%,0%_100%)]"
 			/>
-			Your browser does not support the video tag.
-		</video>
+		{/if}
 
 		<div class="p-8">
 			<div class="space-y-4 text-center">
@@ -64,7 +74,7 @@
 									? `${PUBLIC_BACKEND_URL}${card.image.formats['large']?.url || card.image.url}`
 									: card.image.url}
 								alt={card.image.alternativeText}
-								class="mx-auto h-[300px] w-auto object-cover lg:h-[330px] xl:h-[400px]"
+								class="mx-auto h-[300px] w-auto object-cover object-top lg:h-[330px] xl:h-[400px]"
 							/>
 						{:else}
 							<img
@@ -72,7 +82,7 @@
 									? `${PUBLIC_BACKEND_URL}${card.employee.picture.formats['large']?.url || card.employee.picture.url}`
 									: card.employee.picture.url}
 								alt={card.employee.picture.alternativeText}
-								class="h-[300px] w-full object-cover lg:h-[330px] xl:h-[400px]"
+								class="h-[300px] w-full object-cover object-top lg:h-[330px] xl:h-[400px]"
 							/>
 						{/if}
 						<div

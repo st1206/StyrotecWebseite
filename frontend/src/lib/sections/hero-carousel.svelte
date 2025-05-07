@@ -5,6 +5,7 @@
 	import type { CarouselAPI, CarouselOptions } from '$lib/components/ui/carousel/context';
 	import BlurFade from '$lib/components/blur-fade.svelte';
 	import type { ImageAsset } from '$lib/cmsTypes/image-type';
+	import { Icons } from '$lib/assets/icons';
 
 	let data: { keyphrase: string; images: ImageAsset[] } = $props();
 
@@ -39,17 +40,27 @@
 		}
 	});
 
-	// Function to change the slide.
+	function goToPreviousSlide() {
+		if (api) {
+			api.scrollPrev();
+		}
+	}
+
+	function goToNextSlide() {
+		if (api) {
+			api.scrollNext();
+		}
+	}
+
 	function goToSlide(slide: number) {
 		current = slide;
 		api?.scrollTo(slide - 1);
 	}
 
-	// Helper function to compute the CSS classes for each dot.
 	function getDotClass(slide: number) {
 		return slide === current
-			? 'w-3 h-3 rounded-full bg-primary transition focus:outline-none'
-			: 'w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-500 transition focus:outline-none';
+			? 'w-2 h-2 bg-primary transition focus:outline-none'
+			: 'w-2 h-2 bg-secondary/70 hover:bg-secondary transition focus:outline-none';
 	}
 </script>
 
@@ -86,9 +97,12 @@
 				</Carousel.Content>
 			</Carousel.Root>
 
-			<div class="absolute bottom-5 right-10 z-40 flex flex-col items-center">
-				<!-- Dot Navigation -->
-				<div class="flex space-x-2">
+			<div class="absolute bottom-5 left-10 z-40 flex gap-1 items-center">
+				<button type="button" aria-label="Go to previous slide" onclick={goToPreviousSlide}>
+					<Icons.chevronLeft class="text-secondary/70 hover:text-secondary size-5 transition" />
+				</button>
+				<div class="flex items-center space-x-2">
+					<!-- Dot Navigation -->
 					{#each Array.from({ length: count }, (_, i) => i + 1) as slide (slide)}
 						<button
 							type="button"
@@ -98,6 +112,9 @@
 						></button>
 					{/each}
 				</div>
+				<button type="button" aria-label="Go to next slide" onclick={goToNextSlide}>
+					<Icons.chevronRight class="text-secondary/70 hover:text-secondary size-5 transition" />
+				</button>
 			</div>
 		</div>
 	</section>

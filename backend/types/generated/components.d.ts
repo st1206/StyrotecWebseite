@@ -113,8 +113,7 @@ export interface PageComponentsHeroMedia extends Struct.ComponentSchema {
     imageCards: Schema.Attribute.Component<
       'partial-components.image-card',
       true
-    > &
-      Schema.Attribute.Required;
+    >;
     media: Schema.Attribute.Media<'files' | 'videos' | 'images'> &
       Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;

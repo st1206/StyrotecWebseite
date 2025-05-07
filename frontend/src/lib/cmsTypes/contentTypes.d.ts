@@ -389,7 +389,34 @@ export interface ApiAboutUsPageAboutUsPage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    heroMedia: Schema.Attribute.Component<'page-components.hero-video', false> &
+    defaultCards: Schema.Attribute.Component<
+      'page-components.default-cards',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    defaultCardsTwo: Schema.Attribute.Component<
+      'page-components.default-cards',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heroMedia: Schema.Attribute.Component<'page-components.hero-media', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    history: Schema.Attribute.Component<'page-components.history', false> &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -625,57 +652,24 @@ export interface ApiEmployeeEmployee extends Struct.CollectionTypeSchema {
   options: {
     draftAndPublish: true;
   };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    email: Schema.Attribute.Email &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    locale: Schema.Attribute.String;
+    email: Schema.Attribute.Email & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::employee.employee'
-    >;
+    > &
+      Schema.Attribute.Private;
     name: Schema.Attribute.String &
       Schema.Attribute.Required &
-      Schema.Attribute.Unique &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    picture: Schema.Attribute.Media<'images'> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    position: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+      Schema.Attribute.Unique;
+    picture: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    position: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    tel: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
+    tel: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -801,7 +795,7 @@ export interface ApiFs10PageFs10Page extends Struct.SingleTypeSchema {
       'api::fs10-page.fs10-page'
     >;
     optionBlocks: Schema.Attribute.DynamicZone<
-      ['partial-components.table', 'partial-components.accordion']
+      ['partial-components.accordion', 'partial-components.table']
     > &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -837,7 +831,7 @@ export interface ApiFs15PageFs15Page extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     exploreOptions: Schema.Attribute.DynamicZone<
-      ['partial-components.table', 'partial-components.accordion']
+      ['partial-components.accordion', 'partial-components.table']
     > &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -869,6 +863,47 @@ export interface ApiFs15PageFs15Page extends Struct.SingleTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::fs15-page.fs15-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFs20PageFs20Page extends Struct.SingleTypeSchema {
+  collectionName: 'fs20_pages';
+  info: {
+    displayName: 'FS20 Seite';
+    pluralName: 'fs20-pages';
+    singularName: 'fs20-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroDualImage: Schema.Attribute.Component<
+      'page-components.hero-dual-image',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::fs20-page.fs20-page'
     >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -1041,10 +1076,9 @@ export interface ApiIndustriesPageIndustriesPage
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     defaultCards: Schema.Attribute.Component<
-      'partial-components.default-card',
-      true
+      'page-components.default-cards',
+      false
     > &
-      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1244,7 +1278,7 @@ export interface ApiSocialMediaChannelSocialMediaChannel
   collectionName: 'social_media_channels';
   info: {
     description: '';
-    displayName: 'social-media-channel';
+    displayName: 'Social-Media-Kan\u00E4le';
     pluralName: 'social-media-channels';
     singularName: 'social-media-channel';
   };
@@ -1255,7 +1289,7 @@ export interface ApiSocialMediaChannelSocialMediaChannel
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    link: Schema.Attribute.String;
+    externalLink: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1786,6 +1820,7 @@ declare module '@strapi/strapi' {
       'api::fair.fair': ApiFairFair;
       'api::fs10-page.fs10-page': ApiFs10PageFs10Page;
       'api::fs15-page.fs15-page': ApiFs15PageFs15Page;
+      'api::fs20-page.fs20-page': ApiFs20PageFs20Page;
       'api::gantry-machines-page.gantry-machines-page': ApiGantryMachinesPageGantryMachinesPage;
       'api::global.global': ApiGlobalGlobal;
       'api::home.home': ApiHomeHome;

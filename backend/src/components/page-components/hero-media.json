@@ -28,7 +28,7 @@
       "type": "component",
       "repeatable": true,
       "component": "partial-components.image-card",
-      "required": true
+      "required": false
     }
   }
 }

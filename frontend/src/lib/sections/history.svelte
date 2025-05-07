@@ -41,10 +41,12 @@
 
 <section id="historie" class="my-20 scroll-mt-24 px-4 lg:container lg:mx-auto lg:my-32 lg:w-full">
 	<div class="mx-auto w-full max-w-6xl">
-		<!-- Heading -->
-		<h2 class="font-boldFont text-foreground mb-16 text-center text-4xl uppercase">
-			{data.sectionTitle}
-		</h2>
+		{#if data.sectionTitle}
+			<!-- Heading -->
+			<h2 class="font-boldFont text-foreground mb-16 text-center text-4xl uppercase">
+				{data.sectionTitle}
+			</h2>
+		{/if}
 
 		{#each data.historyEntries as item, i (item.year)}
 			<!-- ************* MOBILE (< sm) LAYOUT ************* -->
