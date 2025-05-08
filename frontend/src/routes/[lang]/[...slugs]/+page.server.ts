@@ -7,6 +7,7 @@ import { zod } from 'sveltekit-superforms/adapters';
 import { superValidate } from 'sveltekit-superforms';
 import { message } from 'sveltekit-superforms';
 import nodemailer from 'nodemailer';
+import { EMAIL_ADRESS, EMAIL_HOST, EMAIL_PASSWORD } from '$env/static/private';
 
 /**
  * Helper to load CMS data for a given page.
@@ -68,17 +69,17 @@ export const actions: Actions = {
 		console.log(form);
 
 		const transporter = nodemailer.createTransport({
-			host: 'mail.febas.net',
+			host: EMAIL_HOST,
 			port: 587,
 			secure: false, // true für Port 465, false für andere Ports
 			auth: {
-				user: 'info@cleberalves.net',
-				pass: 'ekEcsutEmJash4'
+				user: EMAIL_ADRESS,
+				pass: EMAIL_PASSWORD
 			}
 		});
 
 		const mailOptions = {
-			from: 'info@cleberalves.net',
+			from: EMAIL_ADRESS,
 			to: form.data.email,
 			subject: form.data.name,
 			text: form.data.message,
