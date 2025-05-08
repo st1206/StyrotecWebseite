@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Separator } from '$lib/components/ui/separator';
-	import rolfImage from '$lib/assets/images/rolf_schreibtisch.jpg';
+	import rolfImage from '$lib/assets/images/rolf_schreibtisch-min.jpg';
 	import * as Form from '$lib/components/ui/form';
 	import { Input } from '$lib/components/ui/input';
 	import { zodClient } from 'sveltekit-superforms/adapters';
