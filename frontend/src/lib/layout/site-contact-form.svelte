@@ -38,7 +38,7 @@
 						<Form.Control>
 							{#snippet children({ props })}
 								<Form.Label>Name</Form.Label>
-								<Input {...props} bind:value={$formData.email} />
+								<Input {...props} bind:value={$formData.name} />
 							{/snippet}
 						</Form.Control>
 						<Form.Description />
@@ -48,7 +48,7 @@
 						<Form.Control>
 							{#snippet children({ props })}
 								<Form.Label>Firma</Form.Label>
-								<Input {...props} bind:value={$formData.email} />
+								<Input {...props} bind:value={$formData.company} />
 							{/snippet}
 						</Form.Control>
 						<Form.Description />
@@ -70,7 +70,7 @@
 						<Form.Control>
 							{#snippet children({ props })}
 								<Form.Label>Telefonnummer</Form.Label>
-								<Input {...props} bind:value={$formData.email} />
+								<Input {...props} bind:value={$formData.tel} />
 							{/snippet}
 						</Form.Control>
 						<Form.Description />
@@ -81,7 +81,7 @@
 					<Form.Control>
 						{#snippet children({ props })}
 							<Form.Label>Ihre Nachricht</Form.Label>
-							<Textarea {...props} bind:value={$formData.email} />
+							<Textarea {...props} bind:value={$formData.message} />
 						{/snippet}
 					</Form.Control>
 					<Form.Description />

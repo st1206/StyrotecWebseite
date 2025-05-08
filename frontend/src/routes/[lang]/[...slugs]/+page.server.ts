@@ -1,7 +1,12 @@
-import { error } from '@sveltejs/kit';
+import { error, fail, type Actions } from '@sveltejs/kit';
 import type { AttributesOf } from '$lib/cmsTypes/types';
 import { pages, type CMSTypeMap, type Lang, type SlugKey } from '$lib/config/pages';
 import { loadCMSData } from '$lib/server/utils';
+import { contactFormSchema } from '$lib/models/contact-form-schema';
+import { zod } from 'sveltekit-superforms/adapters';
+import { superValidate } from 'sveltekit-superforms';
+import { message } from 'sveltekit-superforms';
+import nodemailer from 'nodemailer';
 
 /**
  * Helper to load CMS data for a given page.
@@ -48,4 +53,47 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 			cmsData
 		}
 	};
+};
+
+export const actions: Actions = {
+	default: async ({ request }) => {
+		const form = await superValidate(request, zod(contactFormSchema));
+
+		if (!form.valid) {
+			return fail(400, {
+				form
+			});
+		}
+
+		console.log(form);
+
+		const transporter = nodemailer.createTransport({
+			host: 'mail.febas.net',
+			port: 587,
+			secure: false, // true für Port 465, false für andere Ports
+			auth: {
+				user: 'info@cleberalves.net',
+				pass: 'ekEcsutEmJash4'
+			}
+		});
+
+		const mailOptions = {
+			from: 'info@cleberalves.net',
+			to: form.data.email,
+			subject: form.data.name,
+			text: form.data.message,
+			html: form.data.message
+		};
+
+		transporter.sendMail(mailOptions, (error, info) => {
+			if (error) {
+				console.error(error);
+				return message(form, 'No spam please', {
+					status: 403
+				});
+			}
+			console.log('E-Mail gesendet: ' + info.response);
+			return message(form, 'success');
+		});
+	}
 };
