@@ -18,12 +18,12 @@
 </script>
 
 <div
-	class="bg-foreground mt-20 h-14 w-full translate-y-[1px] [clip-path:polygon(100%_0,100%_100%,0_100%)]"
+	class="bg-foreground mt-20 h-14 w-full translate-y-[1px] [clip-path:polygon(100%_0,100%_100%,0_100%)] print:hidden"
 ></div>
-<section class="bg-foreground flex w-full flex-col">
+<section class="bg-foreground flex w-full flex-col" id="contact-form">
 	<div class="mx-2 mb-12 mt-16 grid h-full grid-cols-1 sm:container sm:mx-auto md:grid-cols-3">
 		{#if rolfImage}
-			<div class="col-span-1">
+			<div class="col-span-1 print:hidden">
 				<img class="h-full w-full object-cover" src={rolfImage} alt="Rolf" />
 			</div>
 		{/if}
@@ -32,12 +32,12 @@
 			<h2 class="font-boldFont text-4xl">Rolf Röhm</h2>
 			<h3 class="text-primary">Vertrieb</h3>
 
-			<form method="POST" use:enhance class="mt-8 flex flex-col gap-2">
+			<form method="POST" use:enhance class="mt-8 flex flex-col gap-2 print:hidden">
 				<div class="flex w-full flex-col gap-4 sm:flex-row">
 					<Form.Field {form} name="name" class="w-full">
 						<Form.Control>
 							{#snippet children({ props })}
-								<Form.Label>Name</Form.Label>
+								<Form.Label>Name*</Form.Label>
 								<Input {...props} bind:value={$formData.name} />
 							{/snippet}
 						</Form.Control>
@@ -59,7 +59,7 @@
 					<Form.Field {form} name="email" class="w-full">
 						<Form.Control>
 							{#snippet children({ props })}
-								<Form.Label>Email</Form.Label>
+								<Form.Label>Email*</Form.Label>
 								<Input {...props} bind:value={$formData.email} />
 							{/snippet}
 						</Form.Control>
@@ -80,7 +80,7 @@
 				<Form.Field {form} name="message" class="w-full">
 					<Form.Control>
 						{#snippet children({ props })}
-							<Form.Label>Ihre Nachricht</Form.Label>
+							<Form.Label>Ihre Nachricht*</Form.Label>
 							<Textarea {...props} bind:value={$formData.message} />
 						{/snippet}
 					</Form.Control>

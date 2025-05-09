@@ -10,6 +10,7 @@
 
 	let data: {
 		sectionTitle: string;
+		description: string;
 		previewCards: {
 			title: string;
 			subtitle: string;
@@ -70,9 +71,19 @@
 </script>
 
 <section class="mb-32 mt-20 px-4 sm:container sm:mx-auto lg:mt-28 xl:my-36">
-	<h2 class="font-boldFont mb-12 text-center text-3xl uppercase sm:text-4xl">
-		{data.sectionTitle}
-	</h2>
+	{#if data.sectionTitle}
+		<!-- Heading -->
+		<div class="mb-16">
+			<h2 class="font-boldFont text-center text-3xl uppercase sm:text-4xl">
+				{data.sectionTitle}
+			</h2>
+			<p
+				class="prose prose-neutral prose-sm lg:prose-base xl:prose-lg mx-auto mt-2 max-w-5xl text-center"
+			>
+				{@html data.description}
+			</p>
+		</div>
+	{/if}
 
 	<div class="grid grid-cols-1 gap-8 lg:grid-cols-2 xl:grid-cols-3">
 		{#each data.previewCards as card, i}

@@ -12,6 +12,7 @@
 	import type { ImageAsset } from '$lib/cmsTypes/image-type';
 
 	type Accordion = {
+		sectionTitle: string;
 		title: string;
 		accordionItems: {
 			title: string;
@@ -81,9 +82,11 @@
 
 <section class="bg-foreground w-full pb-16 pt-8 sm:mx-auto">
 	{#if sortedBlocks?.length}
-		<h3 class="font-boldFont text-secondary mb-12 text-center text-3xl uppercase md:text-4xl">
-			{(sortedBlocks[0] as Accordion).title}
-		</h3>
+		{#if (sortedBlocks[0] as Accordion).sectionTitle}
+			<h3 class="font-boldFont text-secondary mb-12 text-center text-3xl uppercase md:text-4xl">
+				{(sortedBlocks[0] as Accordion).sectionTitle}
+			</h3>
+		{/if}
 
 		<div class="flex flex-col gap-20 px-2 sm:container xl:px-48">
 			<Accordion.Root

@@ -89,7 +89,7 @@
 				: 'supports-[backdrop-filter]:bg-foreground/100 h-[450px]'
 			: 'supports-[backdrop-filter]:bg-foreground/90 h-20',
 		open ? 'supports-[backdrop-filter]:bg-foreground/100' : '',
-		'fixed top-0 z-40 w-full px-4 py-2 shadow-lg backdrop-blur transition-all duration-200 ease-in-out md:px-0'
+		'fixed top-0 z-40 w-full px-4 py-2 shadow-lg backdrop-blur transition-all duration-200 ease-in-out md:px-0 print:static'
 	)}
 >
 	<div class="flex h-16 items-center justify-between gap-2 md:container">
@@ -98,14 +98,15 @@
 			<img src={Icons.logoLight} alt="Logo" />
 		</a>
 
-		<div class="navBreak:flex hidden">
+		<div class="navBreak:flex hidden print:hidden">
 			{#each menu as item, i}
 				<Button
+					href={getLink(item.key)}
 					variant="ghost"
 					class={cn(
 						i < menu.length - 1 ? 'border-r-2 border-white/20' : '',
 						onlyThisItemActive(item.id) ? 'bg-primary' : '',
-						'font-boldFont text-secondary hover:bg-primary h-full -skew-x-[15deg] cursor-default uppercase transition duration-300 hover:text-white'
+						'font-boldFont text-secondary hover:bg-primary h-full -skew-x-[15deg] cursor-pointer uppercase transition duration-300 hover:text-white'
 					)}
 					onmouseenter={() => handleMouseEnter(item.id)}
 					onmouseleave={() => handleMouseLeave(item.id)}
@@ -117,7 +118,7 @@
 			{/each}
 		</div>
 
-		<div class="navBreak:flex hidden gap-6">
+		<div class="navBreak:flex hidden gap-6 print:hidden">
 			<div class="flex gap-2">
 				<Tooltip.Provider>
 					<Tooltip.Root>
@@ -162,10 +163,10 @@
 		</div>
 		<!-- navBreak:hidden -->
 
-		<div class="absolute left-0 top-[79px] -z-10">
+		<div class="absolute left-0 top-[79px] -z-10 print:hidden">
 			<MobileNav bind:open />
 		</div>
-		<div class="navBreak:hidden flex items-center gap-1">
+		<div class="navBreak:hidden flex items-center gap-1 print:hidden">
 			<Button variant="ghost" size="icon" class="hover:bg-transparent">
 				<Icons.search class="text-secondary size-6" />
 			</Button>
@@ -175,7 +176,7 @@
 
 	{#if isAnyItemOpen()}
 		<div
-			class="container mt-16 flex justify-around"
+			class="container mt-16 flex justify-around print:hidden"
 			in:fly={{ y: -30, duration: 300 }}
 			out:fly={{ y: -30, duration: 200 }}
 		>

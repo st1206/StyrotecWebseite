@@ -521,61 +521,19 @@ export interface ApiCncMachineCncMachine extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    aAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
-    additionalEquipment: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    airBlast: Schema.Attribute.String & Schema.Attribute.Required;
-    axisAccelerationXYZ: Schema.Attribute.String & Schema.Attribute.Required;
-    cAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
-    clampingSurface: Schema.Attribute.String & Schema.Attribute.Required;
-    condition: Schema.Attribute.Enumeration<
-      [
-        'gebraucht',
-        'gebraucht, gut',
-        'gebraucht, sehr gut',
-        '\u00FCberholt',
-        'neu',
-      ]
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    connectedLoad: Schema.Attribute.String & Schema.Attribute.Required;
     contactPerson: Schema.Attribute.Relation<
       'oneToOne',
       'api::employee.employee'
     > &
       Schema.Attribute.Required;
-    controlSystem: Schema.Attribute.String & Schema.Attribute.Required;
-    coolantSupply: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    designation: Schema.Attribute.String &
+    description: Schema.Attribute.Blocks &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
-        };
-      }>;
-    internalId: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
         };
       }>;
     locale: Schema.Attribute.String;
@@ -583,36 +541,6 @@ export interface ApiCncMachineCncMachine extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::cnc-machine.cnc-machine'
     >;
-    location: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    mainFuse: Schema.Attribute.String & Schema.Attribute.Required;
-    manufacturer: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    millingHead: Schema.Attribute.String & Schema.Attribute.Required;
-    modelType: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    name: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     pictures: Schema.Attribute.Media<'images', true> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -620,24 +548,74 @@ export interface ApiCncMachineCncMachine extends Struct.CollectionTypeSchema {
           localized: false;
         };
       }>;
+    productDataSheet: Schema.Attribute.Component<
+      'partial-components.machine-data-sheet',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID & Schema.Attribute.Required;
-    spaceRequirement: Schema.Attribute.String & Schema.Attribute.Required;
-    spindlePower: Schema.Attribute.String;
-    spindleSpeed: Schema.Attribute.String & Schema.Attribute.Required;
-    toolClampingSystem: Schema.Attribute.String & Schema.Attribute.Required;
-    toolHolder: Schema.Attribute.String & Schema.Attribute.Required;
-    torque: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    weight: Schema.Attribute.String & Schema.Attribute.Required;
-    xAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
-    xyFeedRate: Schema.Attribute.String & Schema.Attribute.Required;
-    yAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
-    yearOfManufacture: Schema.Attribute.String & Schema.Attribute.Required;
-    zAxisTravel: Schema.Attribute.String & Schema.Attribute.Required;
-    zFeedRate: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ApiCncMachinesPageCncMachinesPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'cnc_machines_pages';
+  info: {
+    description: '';
+    displayName: 'CNC-Maschinen Seite';
+    pluralName: 'cnc-machines-pages';
+    singularName: 'cnc-machines-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    collectionTypeCards: Schema.Attribute.Component<
+      'page-components.collection-type-cards',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroDualImage: Schema.Attribute.Component<
+      'page-components.hero-dual-image',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::cnc-machines-page.cnc-machines-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -810,108 +788,6 @@ export interface ApiFs10PageFs10Page extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiFs15PageFs15Page extends Struct.SingleTypeSchema {
-  collectionName: 'fs15_pages';
-  info: {
-    description: '';
-    displayName: 'FS15 Seite';
-    pluralName: 'fs15-pages';
-    singularName: 'fs15-page';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    exploreOptions: Schema.Attribute.DynamicZone<
-      ['partial-components.accordion', 'partial-components.table']
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    exploreVariants: Schema.Attribute.Component<
-      'page-components.explore-variants',
-      false
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    heroDualImage: Schema.Attribute.Component<
-      'page-components.hero-dual-image',
-      false
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::fs15-page.fs15-page'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiFs20PageFs20Page extends Struct.SingleTypeSchema {
-  collectionName: 'fs20_pages';
-  info: {
-    displayName: 'FS20 Seite';
-    pluralName: 'fs20-pages';
-    singularName: 'fs20-page';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    heroDualImage: Schema.Attribute.Component<
-      'page-components.hero-dual-image',
-      false
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::fs20-page.fs20-page'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiGantryMachinesPageGantryMachinesPage
   extends Struct.SingleTypeSchema {
   collectionName: 'gantry_machines_pages';
@@ -1035,6 +911,12 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'>;
+    markdown: Schema.Attribute.RichText &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
@@ -1079,6 +961,7 @@ export interface ApiIndustriesPageIndustriesPage
       'page-components.default-cards',
       false
     > &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1297,6 +1180,99 @@ export interface ApiSocialMediaChannelSocialMediaChannel
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiUsedMachinesDetailsPageUsedMachinesDetailsPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'used_machines_details_pages';
+  info: {
+    description: '';
+    displayName: 'Gebrauchtmaschinen-Details Seite';
+    pluralName: 'used-machines-details-pages';
+    singularName: 'used-machines-details-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    componentKey: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::used-machines-details-page.used-machines-details-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiUsedMachinesPageUsedMachinesPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'used_machines_pages';
+  info: {
+    description: '';
+    displayName: 'Gebrauchtmaschinen Seite';
+    pluralName: 'used-machines-pages';
+    singularName: 'used-machines-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    exploreMore: Schema.Attribute.Component<
+      'page-components.explore-more',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heroCarousel: Schema.Attribute.Component<
+      'page-components.hero-carousel',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::used-machines-page.used-machines-page'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1816,11 +1792,10 @@ declare module '@strapi/strapi' {
       'api::about-us-page.about-us-page': ApiAboutUsPageAboutUsPage;
       'api::chip-presses-page.chip-presses-page': ApiChipPressesPageChipPressesPage;
       'api::cnc-machine.cnc-machine': ApiCncMachineCncMachine;
+      'api::cnc-machines-page.cnc-machines-page': ApiCncMachinesPageCncMachinesPage;
       'api::employee.employee': ApiEmployeeEmployee;
       'api::fair.fair': ApiFairFair;
       'api::fs10-page.fs10-page': ApiFs10PageFs10Page;
-      'api::fs15-page.fs15-page': ApiFs15PageFs15Page;
-      'api::fs20-page.fs20-page': ApiFs20PageFs20Page;
       'api::gantry-machines-page.gantry-machines-page': ApiGantryMachinesPageGantryMachinesPage;
       'api::global.global': ApiGlobalGlobal;
       'api::home.home': ApiHomeHome;
@@ -1829,6 +1804,8 @@ declare module '@strapi/strapi' {
       'api::milling-tools-page.milling-tools-page': ApiMillingToolsPageMillingToolsPage;
       'api::reference.reference': ApiReferenceReference;
       'api::social-media-channel.social-media-channel': ApiSocialMediaChannelSocialMediaChannel;
+      'api::used-machines-details-page.used-machines-details-page': ApiUsedMachinesDetailsPageUsedMachinesDetailsPage;
+      'api::used-machines-page.used-machines-page': ApiUsedMachinesPageUsedMachinesPage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

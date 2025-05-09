@@ -77,3 +77,17 @@
 		-moz-osx-font-smoothing: grayscale;
 	}
 }
+
+@media print {
+	body {
+		-webkit-print-color-adjust: exact; /* Safari/Chrome */
+		print-color-adjust: exact; /* Firefox/others */
+	}
+
+	img {
+		visibility: visible;
+		display: inline-block;
+		max-width: 100%;
+		height: auto;
+	}
+}

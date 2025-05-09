@@ -10,6 +10,8 @@ import DefaultCards from './default-cards.svelte';
 import DefaultContent from './default-content.svelte';
 import heroMedia from './hero-media.svelte';
 import History from './history.svelte';
+import CollectionTypeCards from './collection-type-cards.svelte';
+import UsedMachineDetails from '$lib/templates/used-machine-details.svelte';
 
 export const sectionMap = {
 	heroCarousel: HeroCarousel,
@@ -24,5 +26,7 @@ export const sectionMap = {
 	defaultCardsTwo: DefaultCards,
 	defaultContent: DefaultContent,
 	heroMedia: heroMedia,
-	history: History
+	history: History,
+	collectionTypeCards: CollectionTypeCards,
+	usedMachineDetails: UsedMachineDetails
 } as const;

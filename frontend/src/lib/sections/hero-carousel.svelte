@@ -7,7 +7,7 @@
 	import type { ImageAsset } from '$lib/cmsTypes/image-type';
 	import { Icons } from '$lib/assets/icons';
 
-	let data: { keyphrase: string; images: ImageAsset[] } = $props();
+	let data: { keyphrase?: string; images: ImageAsset[] } = $props();
 
 	let api = $state<CarouselAPI>();
 
@@ -67,15 +67,17 @@
 <BlurFade once={true} delay={0} duration={0.3}>
 	<section class="mx-auto mt-20 lg:container lg:mt-32 lg:w-full">
 		<div class="shadow-primary relative">
-			<div
-				class="from-foreground/100 via-foreground/40 absolute inset-0 z-10 bg-gradient-to-r to-transparent"
-			></div>
+			{#if data.keyphrase}
+				<div
+					class="from-foreground/100 via-foreground/40 absolute inset-0 z-10 bg-gradient-to-r to-transparent"
+				></div>
 
-			<div class="absolute inset-y-0 z-20 flex items-center pl-8">
-				<h1 class="font-boldFont text-4xl text-white drop-shadow-md lg:text-5xl">
-					{@html data.keyphrase}
-				</h1>
-			</div>
+				<div class="absolute inset-y-0 z-20 flex items-center pl-8">
+					<h1 class="font-boldFont text-4xl text-white drop-shadow-md lg:text-5xl">
+						{@html data.keyphrase}
+					</h1>
+				</div>
+			{/if}
 
 			<Carousel.Root
 				setApi={(emblaApi) => (api = emblaApi)}
@@ -97,7 +99,7 @@
 				</Carousel.Content>
 			</Carousel.Root>
 
-			<div class="absolute bottom-5 left-10 z-40 flex gap-1 items-center">
+			<div class="absolute bottom-5 left-10 z-40 flex items-center gap-1">
 				<button type="button" aria-label="Go to previous slide" onclick={goToPreviousSlide}>
 					<Icons.chevronLeft class="text-secondary/70 hover:text-secondary size-5 transition" />
 				</button>

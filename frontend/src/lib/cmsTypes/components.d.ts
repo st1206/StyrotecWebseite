@@ -9,10 +9,21 @@ export interface PageComponentsBasicTextImage extends Struct.ComponentSchema {
   };
   attributes: {
     content: Schema.Attribute.Text & Schema.Attribute.Required;
-    image: Schema.Attribute.Media<'files' | 'images'> &
-      Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'files' | 'images'>;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface PageComponentsCollectionTypeCards
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_components_collection_type_cards';
+  info: {
+    description: '';
+    displayName: 'collectionTypeCards';
+  };
+  attributes: {
+    collectionApiSlug: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -42,6 +53,7 @@ export interface PageComponentsExploreMore extends Struct.ComponentSchema {
     icon: 'apps';
   };
   attributes: {
+    description: Schema.Attribute.Text;
     previewCards: Schema.Attribute.Component<
       'partial-components.preview-card',
       true
@@ -77,7 +89,7 @@ export interface PageComponentsHeroCarousel extends Struct.ComponentSchema {
   };
   attributes: {
     images: Schema.Attribute.Media<'images', true> & Schema.Attribute.Required;
-    keyphrase: Schema.Attribute.String & Schema.Attribute.Required;
+    keyphrase: Schema.Attribute.String;
   };
 }
 
@@ -97,7 +109,7 @@ export interface PageComponentsHeroDualImage extends Struct.ComponentSchema {
     image: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     keyword: Schema.Attribute.String & Schema.Attribute.Required;
-    subKeyword: Schema.Attribute.String & Schema.Attribute.Required;
+    subKeyword: Schema.Attribute.String;
   };
 }
 
@@ -160,6 +172,7 @@ export interface PartialComponentsAccordion extends Struct.ComponentSchema {
       true
     > &
       Schema.Attribute.Required;
+    sectionTitle: Schema.Attribute.String;
     sortOrder: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<1>;
@@ -280,7 +293,7 @@ export interface PartialComponentsDefaultCard extends Struct.ComponentSchema {
   };
   attributes: {
     anchor: Schema.Attribute.String;
-    content: Schema.Attribute.Text & Schema.Attribute.Required;
+    content: Schema.Attribute.Text;
     redirectButtons: Schema.Attribute.Component<
       'partial-components.redirect-button',
       true
@@ -317,6 +330,33 @@ export interface PartialComponentsImageCard extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<1>;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface PartialComponentsMachineDataSheet
+  extends Struct.ComponentSchema {
+  collectionName: 'components_partial_components_machine_data_sheets';
+  info: {
+    description: '';
+    displayName: 'productDataSheet';
+  };
+  attributes: {
+    condition: Schema.Attribute.Enumeration<
+      [
+        'gebraucht,',
+        'gebraucht, gut,',
+        'gebraucht, sehr gut,',
+        '\u00FCberholt,',
+        'neu',
+      ]
+    >;
+    designation: Schema.Attribute.String & Schema.Attribute.Required;
+    internalId: Schema.Attribute.String & Schema.Attribute.Required;
+    location: Schema.Attribute.String & Schema.Attribute.Required;
+    manufacturer: Schema.Attribute.String & Schema.Attribute.Required;
+    modelType: Schema.Attribute.String & Schema.Attribute.Required;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    yearOfManufacture: Schema.Attribute.Integer & Schema.Attribute.Required;
   };
 }
 
@@ -486,6 +526,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'page-components.basic-text-image': PageComponentsBasicTextImage;
+      'page-components.collection-type-cards': PageComponentsCollectionTypeCards;
       'page-components.default-cards': PageComponentsDefaultCards;
       'page-components.explore-more': PageComponentsExploreMore;
       'page-components.explore-variants': PageComponentsExploreVariants;
@@ -504,6 +545,7 @@ declare module '@strapi/strapi' {
       'partial-components.default-card': PartialComponentsDefaultCard;
       'partial-components.history-entry': PartialComponentsHistoryEntry;
       'partial-components.image-card': PartialComponentsImageCard;
+      'partial-components.machine-data-sheet': PartialComponentsMachineDataSheet;
       'partial-components.preview-card': PartialComponentsPreviewCard;
       'partial-components.redirect-button': PartialComponentsRedirectButton;
       'partial-components.table': PartialComponentsTable;

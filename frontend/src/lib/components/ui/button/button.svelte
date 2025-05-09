@@ -10,7 +10,8 @@
 				default:
 					'hover:scale-105 bg-primary no-underline text-primary-foreground hover:bg-primary/90 flex items-center no-underline text-white -skew-x-[15deg] focus:outline-none',
 				destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
-				outline: 'border-input bg-background hover:bg-accent hover:text-accent-foreground border',
+				outline:
+					'border-input bg-foreground/5 -skew-x-[15deg] hover:bg-foreground/15 hover:text-accent-foreground border',
 				secondary: '-skew-x-[15deg] bg-secondary text-secondary-foreground hover:bg-secondary/80',
 				ghost: 'hover:bg-accent hover:text-accent-foreground',
 				link: 'text-primary underline-offset-4 hover:underline'

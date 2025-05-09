@@ -1,14 +1,15 @@
 import type {
 	ApiAboutUsPageAboutUsPage,
 	ApiChipPressesPageChipPressesPage,
+	ApiCncMachinesPageCncMachinesPage,
 	ApiFs10PageFs10Page,
-	ApiFs15PageFs15Page,
-	ApiFs20PageFs20Page,
 	ApiGantryMachinesPageGantryMachinesPage,
 	ApiHomeHome,
 	ApiIndustriesPageIndustriesPage,
 	ApiMetalsPageMetalsPage,
-	ApiMillingToolsPageMillingToolsPage
+	ApiMillingToolsPageMillingToolsPage,
+	ApiUsedMachinesDetailsPageUsedMachinesDetailsPage,
+	ApiUsedMachinesPageUsedMachinesPage
 } from '$lib/cmsTypes/contentTypes';
 import { buildPopulateQuery } from './apiParamsBuilder';
 
@@ -17,13 +18,14 @@ export interface CMSTypeMap {
 	home: ApiHomeHome;
 	gantryMachinesPage: ApiGantryMachinesPageGantryMachinesPage;
 	fs10Page: ApiFs10PageFs10Page;
-	fs15Page: ApiFs15PageFs15Page;
-	fs20Page: ApiFs20PageFs20Page;
 	chipPressesPage: ApiChipPressesPageChipPressesPage;
 	metalsPage: ApiMetalsPageMetalsPage;
 	industriesPage: ApiIndustriesPageIndustriesPage;
 	millingToolsPage: ApiMillingToolsPageMillingToolsPage;
 	aboutUsPage: ApiAboutUsPageAboutUsPage;
+	usedMachinesPage: ApiUsedMachinesPageUsedMachinesPage;
+	cncMillsPage: ApiCncMachinesPageCncMachinesPage;
+	usedMachinesDetailsPage: ApiUsedMachinesDetailsPageUsedMachinesDetailsPage;
 }
 
 // Define the supported languages
@@ -193,6 +195,48 @@ const pagesConfig: Record<string, PageContent> = {
 			},
 			{
 				sectionKey: 'defaultCardsTwo'
+			}
+		]
+	},
+
+	usedMachines: {
+		deSlug: 'produkte/gebrauchtmaschinen',
+		enSlug: 'products/used-machines',
+		cmsTypeKey: 'usedMachinesPage',
+		cmsApiSlug: 'used-machines-page',
+		sections: [
+			{
+				sectionKey: 'heroCarousel'
+			},
+			{
+				sectionKey: 'exploreMore'
+			}
+		]
+	},
+
+	usedMachinesDetails: {
+		deSlug: 'produkte/gebrauchtmaschinen/{slug}/{id}',
+		enSlug: 'products/used-machines/{slug}/{id}',
+		cmsTypeKey: 'usedMachinesDetailsPage',
+		cmsApiSlug: 'used-machines-details-page',
+		sections: [
+			{
+				sectionKey: 'usedMachineDetails'
+			}
+		]
+	},
+
+	cncMachines: {
+		deSlug: 'produkte/gebrauchtmaschinen/cnc-fraesen',
+		enSlug: 'products/gebrauchtmaschinen/cnc-machines',
+		cmsTypeKey: 'cncMillsPage',
+		cmsApiSlug: 'cnc-machines-page',
+		sections: [
+			{
+				sectionKey: 'heroDualImage'
+			},
+			{
+				sectionKey: 'collectionTypeCards'
 			}
 		]
 	}

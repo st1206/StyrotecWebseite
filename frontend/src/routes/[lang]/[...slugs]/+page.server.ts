@@ -9,11 +9,6 @@ import { message } from 'sveltekit-superforms';
 import nodemailer from 'nodemailer';
 import { EMAIL_ADRESS, EMAIL_HOST, EMAIL_PASSWORD } from '$env/static/private';
 
-/**
- * Helper to load CMS data for a given page.
- * Uses the page’s `cmsApiSlug` to perform the fetch,
- * and uses `cmsTypeKey` to assign the return type via CMSTypeMap.
- */
 function getCMSDataForPage<K extends keyof CMSTypeMap>(
 	page: { cmsApiSlug: string; cmsApiParams?: string; cmsTypeKey: K },
 	lang: string
@@ -21,31 +16,90 @@ function getCMSDataForPage<K extends keyof CMSTypeMap>(
 	return loadCMSData<CMSTypeMap[K]>(page.cmsApiSlug, lang, page.cmsApiParams);
 }
 
+function getCMSDataForCollection<T>(
+	collection: { cmsApiSlug: string; cmsApiParams?: string },
+	lang: string
+): Promise<AttributesOf<T>[]> {
+	return loadCMSData<T[]>(collection.cmsApiSlug, lang, collection.cmsApiParams);
+}
+
 export const load = async <L extends Lang>({ params }: { params: { lang: L; slugs?: string } }) => {
 	const { lang, slugs } = params;
-	if (!slugs) {
-		console.error('No Slugs:', params.lang, params.slugs);
-		error(404, 'Page not found');
-	}
+	if (!slugs) error(404, 'Page not found');
 
-	// Remove hash fragments (anything after '#'), and normalize
-	let cleanSlug = slugs.split('#')[0];
-	if (cleanSlug.endsWith('/')) {
-		cleanSlug = cleanSlug.slice(0, -1);
-	}
-
-	// Compute the slug key based on the current language ("deSlug" or "enSlug")
+	const slugParts = slugs.split('/').filter(Boolean); // ['gebrauchtmaschinen', 'cnc-fraesen', '42']
 	const slugKey = `${lang}Slug` as SlugKey;
 
-	// Look through the unified pages object to find a matching page.
-	const matchedPage = Object.values(pages).find((page) => page[slugKey] === cleanSlug);
-	if (!matchedPage) {
-		console.error('Error matching page:', params.lang, params.slugs);
-		error(404, 'Page not found');
-	}
+	let matchedPage;
+	let cmsData;
 
-	// Load CMS data using the page's cmsApiSlug and assign the type via cmsTypeKey.
-	const cmsData = await getCMSDataForPage(matchedPage, lang);
+	if (slugParts.length === 4 && !slugParts.some((part) => part.startsWith('.'))) {
+		// 1. Match the detail page
+		const [prefix, categorySlug, subCategorySlug, id] = slugParts;
+		matchedPage = Object.values(pages).find((page) =>
+			page[slugKey]?.startsWith(`${prefix}/${categorySlug}/{`)
+		);
+
+		if (!matchedPage) {
+			console.error(`Detail page config not found for ${slugParts}`);
+			error(404, `Detail page config not found for ${slugParts}`);
+		}
+
+		cmsData = await getCMSDataForPage(matchedPage, lang);
+
+		// 2. Match the category page (like "cncMachines")
+		const categoryPage = Object.values(pages).find(
+			(page) => page[slugKey] === `${prefix}/${categorySlug}/${subCategorySlug}`
+		);
+
+		if (!categoryPage) {
+			console.error(`Category page not found for ${matchedPage.cmsApiSlug}`);
+			error(404, `Category page not found for ${matchedPage.cmsApiSlug}`);
+		}
+
+		// 3. Use its enSlug to query the right collection data
+		const collectionApiSlug = categoryPage.enSlug.split('/').pop();
+
+		const collectionItems = await getCMSDataForCollection(
+			{
+				cmsApiSlug: collectionApiSlug!,
+				cmsApiParams: `filters[slug][$eq]=${id}&populate=*`
+			},
+			lang
+		);
+
+		if (!collectionItems.length) {
+			console.error('Detail entry not found');
+			error(404, 'Detail entry not found');
+		}
+
+		cmsData = {
+			...cmsData,
+			// @ts-expect-error componentKey only available in this edgecase
+			[cmsData.componentKey]: collectionItems[0]
+		};
+	} else {
+		// handle regular pages (e.g., gebrauchtmaschinen/cnc-fraesen)
+		const cleanSlug = slugs.replace(/\/$/, '').split('#')[0];
+
+		matchedPage = Object.values(pages).find((page) => page[slugKey] === cleanSlug);
+
+		if (!matchedPage) {
+			console.error(`Page not found for ${cleanSlug}`);
+			error(404, 'Page not found');
+		}
+
+		cmsData = await getCMSDataForPage(matchedPage, lang);
+
+		if ('collectionTypeCards' in cmsData && cmsData.collectionTypeCards) {
+			cmsData.collectionTypeCards = await getCMSDataForCollection(
+				{
+					cmsApiSlug: cmsData.collectionTypeCards.collectionApiSlug
+				},
+				lang
+			);
+		}
+	}
 
 	return {
 		lang,

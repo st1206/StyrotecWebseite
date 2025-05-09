@@ -21,7 +21,8 @@ const populateBySection: Record<string, PopulateRule> = {
 	heroMedia: ['heroMedia.media', 'heroMedia.imageCards', 'heroMedia.imageCards.employee.picture'],
 	history: ['history.historyEntries'],
 	defaultCards: ['defaultCards.cards.thumbnail', 'defaultCards.cards.redirectButtons'],
-	defaultCardsTwo: ['defaultCardsTwo.cards.thumbnail', 'defaultCardsTwo.cards.redirectButtons']
+	defaultCardsTwo: ['defaultCardsTwo.cards.thumbnail', 'defaultCardsTwo.cards.redirectButtons'],
+	collectionTypeCards: ['collectionTypeCards']
 };
 
 export function buildPopulateQuery(sectionKeys: string[]): string {

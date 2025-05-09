@@ -37,22 +37,24 @@
 				alt="FS10 Titelbild"
 				class="shadow-foreground bg-secondary z-20 h-[300px] w-full object-cover lg:h-[600px]"
 			/>
-			<BlurFade once={true} delay={0.2} duration={0.3}>
-				<div
-					class={cn(
-						data.heroTextImage.image ? 'bg-foreground' : 'bg-foreground/95',
-						'absolute bottom-0 right-0 hidden h-[200px] w-2/5 [clip-path:polygon(50%_50%,100%_0%,100%_100%,0%_100%)] lg:block'
-					)}
-				>
-					{#if data.heroTextImage.image}
-						<h2
-							class="font-boldFont text-secondary absolute bottom-12 right-10 text-3xl xl:text-4xl"
-						>
-							{data.subKeyword}
-						</h2>
-					{/if}
-				</div>
-			</BlurFade>
+			{#if data.subKeyword}
+				<BlurFade once={true} delay={0.2} duration={0.3}>
+					<div
+						class={cn(
+							data.heroTextImage.image ? 'bg-foreground' : 'bg-foreground/95',
+							'absolute bottom-0 right-0 hidden h-[200px] w-2/5 [clip-path:polygon(50%_50%,100%_0%,100%_100%,0%_100%)] lg:block'
+						)}
+					>
+						{#if data.heroTextImage.image}
+							<h2
+								class="font-boldFont text-secondary absolute bottom-12 right-10 text-3xl xl:text-4xl"
+							>
+								{data.subKeyword}
+							</h2>
+						{/if}
+					</div>
+				</BlurFade>
+			{/if}
 		</div>
 	</BlurFade>
 
@@ -60,7 +62,7 @@
 		<BlurFade once={true} delay={0.3} duration={0.3}>
 			<div
 				class={cn(
-					data.heroTextImage.image ? 'absolute left-0 h-[410px] lg:w-3/5' : 'py-16 lg:w-full',
+					data.heroTextImage.image ? 'absolute left-0 h-[410px] lg:w-3/5' : 'px-16 pt-16 lg:w-full',
 					'flex w-full flex-col items-center justify-center px-4 sm:px-8'
 				)}
 			>
@@ -116,5 +118,7 @@
 			</BlurFade>
 		{/if}
 	</div>
-	<div class="h-[410px]"></div>
+	{#if data.heroTextImage.image}
+		<div class="h-[410px]"></div>
+	{/if}
 </section>

@@ -27,9 +27,9 @@
 					rowValue: string;
 				}[];
 			}[];
-			sortOrder: number;
+			sortOrder?: number;
 		}[];
-		sortOrder: number;
+		sortOrder?: number;
 	};
 
 	type ContentAccordion = {
@@ -41,17 +41,17 @@
 				subtitle: string;
 				description: string;
 				image: ImageAsset;
-				sortOrder: number;
+				sortOrder?: number;
 			}[];
-			sortOrder: number;
+			sortOrder?: number;
 		}[];
-		sortOrder: number;
+		sortOrder?: number;
 	};
 
 	type ContentImages = {
-		title: string;
+		title?: string;
 		images: ImageAsset[];
-		sortOrder: number;
+		sortOrder?: number;
 	};
 
 	type ContentTextImage = {
@@ -59,10 +59,10 @@
 		content: string;
 		image: ImageAsset;
 		imagePosition: 'top' | 'right' | 'bottom' | 'left';
-		sortOrder: number;
+		sortOrder?: number;
 	};
 
-	type ComponentData = { __component: string; sortOrder: number } & (
+	type ComponentData = { __component: string; sortOrder?: number } & (
 		| ContentHeader
 		| ContentTable
 		| ContentAccordion
@@ -327,11 +327,11 @@
 {/snippet}
 
 {#snippet ImagesTemplate(block: ContentImages)}
-	<div class="mx-auto my-16 mt-24">
+	<div class="mx-auto my-16">
 		{#if block.title}
-			<h4 class="font-boldFont text-secondary my-4 text-center text-2xl">{block.title}</h4>
+			<h4 class="font-boldFont my-4 text-center text-2xl">{block.title}</h4>
 		{/if}
-		<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:gap-8">
+		<div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 xl:gap-8">
 			{#each block.images as image}
 				{#if image}
 					<img
