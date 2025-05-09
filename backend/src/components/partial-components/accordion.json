@@ -21,6 +21,10 @@
       "type": "integer",
       "required": true,
       "default": 1
+    },
+    "sectionTitle": {
+      "type": "string",
+      "required": false
     }
   }
 }

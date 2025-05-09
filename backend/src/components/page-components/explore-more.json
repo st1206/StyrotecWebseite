@@ -16,6 +16,9 @@
       "repeatable": true,
       "component": "partial-components.preview-card",
       "required": true
+    },
+    "description": {
+      "type": "text"
     }
   }
 }

@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_page_components_collection_type_cards",
+  "info": {
+    "displayName": "collectionTypeCards",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "collectionApiSlug": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

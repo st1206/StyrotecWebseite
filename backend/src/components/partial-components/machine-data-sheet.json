@@ -1,0 +1,48 @@
+{
+  "collectionName": "components_partial_components_machine_data_sheets",
+  "info": {
+    "displayName": "productDataSheet",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "internalId": {
+      "type": "string",
+      "required": true
+    },
+    "designation": {
+      "type": "string",
+      "required": true
+    },
+    "manufacturer": {
+      "type": "string",
+      "required": true
+    },
+    "yearOfManufacture": {
+      "type": "integer",
+      "required": true
+    },
+    "condition": {
+      "type": "enumeration",
+      "enum": [
+        "gebraucht",
+        "gebraucht, gut",
+        "gebraucht, sehr gut",
+        "überholt",
+        "neu"
+      ]
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "modelType": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

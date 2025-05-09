@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "industries_pages",
+  "collectionName": "cnc_machines_pages",
   "info": {
-    "singularName": "industries-page",
-    "pluralName": "industries-pages",
-    "displayName": "Branchen Seite",
+    "singularName": "cnc-machines-page",
+    "pluralName": "cnc-machines-pages",
+    "displayName": "CNC-Maschinen Seite",
     "description": ""
   },
   "options": {
@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "pageHeader": {
+    "heroDualImage": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
@@ -24,10 +24,10 @@
           "localized": true
         }
       },
-      "component": "page-components.page-header",
+      "component": "page-components.hero-dual-image",
       "required": true
     },
-    "defaultCards": {
+    "collectionTypeCards": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
@@ -35,7 +35,7 @@
           "localized": true
         }
       },
-      "component": "page-components.default-cards",
+      "component": "page-components.collection-type-cards",
       "required": true
     }
   }

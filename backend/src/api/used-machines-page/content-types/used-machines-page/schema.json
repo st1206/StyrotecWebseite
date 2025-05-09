@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "industries_pages",
+  "collectionName": "used_machines_pages",
   "info": {
-    "singularName": "industries-page",
-    "pluralName": "industries-pages",
-    "displayName": "Branchen Seite",
+    "singularName": "used-machines-page",
+    "pluralName": "used-machines-pages",
+    "displayName": "Gebrauchtmaschinen Seite",
     "description": ""
   },
   "options": {
@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "pageHeader": {
+    "heroCarousel": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
@@ -24,10 +24,10 @@
           "localized": true
         }
       },
-      "component": "page-components.page-header",
+      "component": "page-components.hero-carousel",
       "required": true
     },
-    "defaultCards": {
+    "exploreMore": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
@@ -35,7 +35,7 @@
           "localized": true
         }
       },
-      "component": "page-components.default-cards",
+      "component": "page-components.explore-more",
       "required": true
     }
   }

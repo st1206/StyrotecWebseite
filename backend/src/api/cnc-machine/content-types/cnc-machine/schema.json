@@ -16,174 +16,6 @@
     }
   },
   "attributes": {
-    "name": {
-      "type": "string",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "description": {
-      "type": "text",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "designation": {
-      "type": "string",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "manufacturer": {
-      "type": "string",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "modelType": {
-      "type": "string",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "yearOfManufacture": {
-      "type": "string",
-      "required": true
-    },
-    "condition": {
-      "type": "enumeration",
-      "enum": [
-        "gebraucht",
-        "gebraucht, gut",
-        "gebraucht, sehr gut",
-        "überholt",
-        "neu"
-      ],
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "location": {
-      "type": "string",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "xAxisTravel": {
-      "type": "string",
-      "required": true
-    },
-    "yAxisTravel": {
-      "type": "string",
-      "required": true
-    },
-    "zAxisTravel": {
-      "type": "string",
-      "required": true
-    },
-    "aAxisTravel": {
-      "type": "string",
-      "required": true
-    },
-    "cAxisTravel": {
-      "type": "string",
-      "required": true
-    },
-    "controlSystem": {
-      "type": "string",
-      "required": true
-    },
-    "clampingSurface": {
-      "type": "string",
-      "required": true
-    },
-    "millingHead": {
-      "type": "string",
-      "required": true
-    },
-    "spindlePower": {
-      "type": "string"
-    },
-    "spindleSpeed": {
-      "type": "string",
-      "required": true
-    },
-    "torque": {
-      "type": "string",
-      "required": true
-    },
-    "toolHolder": {
-      "type": "string",
-      "required": true
-    },
-    "toolClampingSystem": {
-      "type": "string",
-      "required": true
-    },
-    "coolantSupply": {
-      "type": "string",
-      "required": true
-    },
-    "airBlast": {
-      "type": "string",
-      "required": true
-    },
-    "xyFeedRate": {
-      "type": "string",
-      "required": true
-    },
-    "zFeedRate": {
-      "type": "string",
-      "required": true
-    },
-    "axisAccelerationXYZ": {
-      "type": "string",
-      "required": true
-    },
-    "connectedLoad": {
-      "type": "string",
-      "required": true
-    },
-    "mainFuse": {
-      "type": "string",
-      "required": true
-    },
-    "spaceRequirement": {
-      "type": "string",
-      "required": true
-    },
-    "weight": {
-      "type": "string",
-      "required": true
-    },
-    "additionalEquipment": {
-      "type": "text",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "contactPerson": {
       "type": "relation",
       "relation": "oneToOne",
@@ -203,17 +35,28 @@
         }
       }
     },
-    "internalId": {
-      "type": "string",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
     "slug": {
       "type": "uid",
+      "required": true
+    },
+    "productDataSheet": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "partial-components.machine-data-sheet",
+      "required": true
+    },
+    "description": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "blocks",
       "required": true
     }
   }

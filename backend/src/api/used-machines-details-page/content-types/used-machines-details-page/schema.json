@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "used_machines_details_pages",
+  "info": {
+    "singularName": "used-machines-details-page",
+    "pluralName": "used-machines-details-pages",
+    "displayName": "Gebrauchtmaschinen-Details Seite",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "componentKey": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    }
+  }
+}

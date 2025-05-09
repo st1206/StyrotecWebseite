@@ -13,7 +13,7 @@
     },
     "subKeyword": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "heroTextImage": {
       "type": "component",
@@ -25,7 +25,10 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": ["images", "files"]
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
     }
   }
 }

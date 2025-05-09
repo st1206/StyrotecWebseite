@@ -9,8 +9,8 @@ export default () => ({
             query: {
               type: "page",
               slug: "{slug}",
-              test: 'YO',
-              locale: '{locale}',
+              test: "YO",
+              locale: "{locale}",
             },
           },
           published: {

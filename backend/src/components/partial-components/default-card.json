@@ -12,7 +12,7 @@
     },
     "content": {
       "type": "text",
-      "required": true
+      "required": false
     },
     "redirectButtons": {
       "displayName": "redirectButton",
@@ -28,7 +28,10 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images", "files"]
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
     }
   }
 }
