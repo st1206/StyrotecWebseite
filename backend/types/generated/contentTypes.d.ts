@@ -619,6 +619,71 @@ export interface ApiCncMachinesPageCncMachinesPage
   };
 }
 
+export interface ApiCncMillCncMill extends Struct.CollectionTypeSchema {
+  collectionName: 'cnc_mills';
+  info: {
+    description: '';
+    displayName: 'CNC-Fr\u00E4sen';
+    pluralName: 'cnc-mills';
+    singularName: 'cnc-mill';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    contactPerson: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::employee.employee'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::cnc-mill.cnc-mill'
+    >;
+    pictures: Schema.Attribute.Media<'images' | 'files', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    productDataSheet: Schema.Attribute.Component<
+      'partial-components.machine-data-sheet',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEmployeeEmployee extends Struct.CollectionTypeSchema {
   collectionName: 'employees';
   info: {
@@ -1793,6 +1858,7 @@ declare module '@strapi/strapi' {
       'api::chip-presses-page.chip-presses-page': ApiChipPressesPageChipPressesPage;
       'api::cnc-machine.cnc-machine': ApiCncMachineCncMachine;
       'api::cnc-machines-page.cnc-machines-page': ApiCncMachinesPageCncMachinesPage;
+      'api::cnc-mill.cnc-mill': ApiCncMillCncMill;
       'api::employee.employee': ApiEmployeeEmployee;
       'api::fair.fair': ApiFairFair;
       'api::fs10-page.fs10-page': ApiFs10PageFs10Page;

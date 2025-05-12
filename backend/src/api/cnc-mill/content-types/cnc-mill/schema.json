@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "cnc-machines",
+  "collectionName": "cnc_mills_pages",
   "info": {
-    "singularName": "cnc-machine",
-    "pluralName": "cnc-machines",
-    "displayName": "CNC-Maschinen",
+    "singularName": "cnc-mills-page",
+    "pluralName": "cnc-mills-pages",
+    "displayName": "CNC-Fräsen",
     "description": ""
   },
   "options": {
@@ -16,28 +16,40 @@
     }
   },
   "attributes": {
+    "description": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "richtext"
+    },
+    "slug": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "uid",
+      "required": true
+    },
     "contactPerson": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::employee.employee",
-      "required": true
+      "target": "api::employee.employee"
     },
     "pictures": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
       "type": "media",
       "multiple": true,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ],
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       }
-    },
-    "slug": {
-      "type": "uid",
-      "required": true
     },
     "productDataSheet": {
       "type": "component",
@@ -48,15 +60,6 @@
         }
       },
       "component": "partial-components.machine-data-sheet",
-      "required": true
-    },
-    "description": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "blocks",
       "required": true
     }
   }

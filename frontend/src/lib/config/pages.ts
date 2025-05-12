@@ -226,11 +226,11 @@ const pagesConfig: Record<string, PageContent> = {
 		]
 	},
 
-	cncMachines: {
+	cncMills: {
 		deSlug: 'produkte/gebrauchtmaschinen/cnc-fraesen',
-		enSlug: 'products/gebrauchtmaschinen/cnc-machines',
+		enSlug: 'products/gebrauchtmaschinen/cnc-mills',
 		cmsTypeKey: 'cncMillsPage',
-		cmsApiSlug: 'cnc-machines-page',
+		cmsApiSlug: 'cnc-mills-page',
 		sections: [
 			{
 				sectionKey: 'heroDualImage'
