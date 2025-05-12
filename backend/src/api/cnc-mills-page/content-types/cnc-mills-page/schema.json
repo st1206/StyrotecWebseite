@@ -1,10 +1,10 @@
 {
-  "kind": "collectionType",
+  "kind": "singleType",
   "collectionName": "cnc_mills_pages",
   "info": {
     "singularName": "cnc-mills-page",
     "pluralName": "cnc-mills-pages",
-    "displayName": "CNC-Fräsen",
+    "displayName": "CNC-Maschinen Seite",
     "description": ""
   },
   "options": {
@@ -16,42 +16,7 @@
     }
   },
   "attributes": {
-    "description": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "richtext"
-    },
-    "slug": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "uid",
-      "required": true
-    },
-    "contactPerson": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::employee.employee"
-    },
-    "pictures": {
-      "allowedTypes": [
-        "images",
-        "files"
-      ],
-      "type": "media",
-      "multiple": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "productDataSheet": {
+    "heroDualImage": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
@@ -59,7 +24,18 @@
           "localized": true
         }
       },
-      "component": "partial-components.machine-data-sheet",
+      "component": "page-components.hero-dual-image",
+      "required": true
+    },
+    "collectionTypeCards": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.collection-type-cards",
       "required": true
     }
   }

@@ -1,5 +1,5 @@
 /**
- * cnc-mill router
+ * cnc-machines-page router
  */
 
 import { factories } from '@strapi/strapi';

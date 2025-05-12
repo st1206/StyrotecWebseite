@@ -1,5 +1,5 @@
 /**
- * cnc-mill service
+ * cnc-machines-page service
  */
 
 import { factories } from '@strapi/strapi';

@@ -1,5 +1,5 @@
 /**
- * cnc-mill controller
+ * cnc-machines-page controller
  */
 
 import { factories } from '@strapi/strapi'
