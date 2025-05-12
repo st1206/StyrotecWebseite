@@ -343,10 +343,10 @@ export interface PartialComponentsMachineDataSheet
   attributes: {
     condition: Schema.Attribute.Enumeration<
       [
-        'gebraucht,',
-        'gebraucht, gut,',
-        'gebraucht, sehr gut,',
-        '\u00FCberholt,',
+        'gebraucht',
+        'gebraucht, gut',
+        'gebraucht, sehr gut',
+        '\u00FCberholt',
         'neu',
       ]
     >;

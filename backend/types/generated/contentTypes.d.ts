@@ -504,123 +504,8 @@ export interface ApiChipPressesPageChipPressesPage
   };
 }
 
-export interface ApiCncMachineCncMachine extends Struct.CollectionTypeSchema {
-  collectionName: 'cnc-machines';
-  info: {
-    description: '';
-    displayName: 'CNC-Maschinen';
-    pluralName: 'cnc-machines';
-    singularName: 'cnc-machine';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    contactPerson: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::employee.employee'
-    > &
-      Schema.Attribute.Required;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.Blocks &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::cnc-machine.cnc-machine'
-    >;
-    pictures: Schema.Attribute.Media<'images', true> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    productDataSheet: Schema.Attribute.Component<
-      'partial-components.machine-data-sheet',
-      false
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID & Schema.Attribute.Required;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiCncMachinesPageCncMachinesPage
-  extends Struct.SingleTypeSchema {
-  collectionName: 'cnc_machines_pages';
-  info: {
-    description: '';
-    displayName: 'CNC-Maschinen Seite';
-    pluralName: 'cnc-machines-pages';
-    singularName: 'cnc-machines-page';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    collectionTypeCards: Schema.Attribute.Component<
-      'page-components.collection-type-cards',
-      false
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    heroDualImage: Schema.Attribute.Component<
-      'page-components.hero-dual-image',
-      false
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::cnc-machines-page.cnc-machines-page'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiCncMillCncMill extends Struct.CollectionTypeSchema {
-  collectionName: 'cnc_mills';
+  collectionName: 'cnc_mill';
   info: {
     description: '';
     displayName: 'CNC-Fr\u00E4sen';
@@ -678,6 +563,58 @@ export interface ApiCncMillCncMill extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCncMillsPageCncMillsPage extends Struct.SingleTypeSchema {
+  collectionName: 'cnc_mills_pages';
+  info: {
+    description: '';
+    displayName: 'CNC-Fr\u00E4sen Seite';
+    pluralName: 'cnc-mills-pages';
+    singularName: 'cnc-mills-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    collectionTypeCards: Schema.Attribute.Component<
+      'page-components.collection-type-cards',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroDualImage: Schema.Attribute.Component<
+      'page-components.hero-dual-image',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::cnc-mills-page.cnc-mills-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1856,9 +1793,8 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about-us-page.about-us-page': ApiAboutUsPageAboutUsPage;
       'api::chip-presses-page.chip-presses-page': ApiChipPressesPageChipPressesPage;
-      'api::cnc-machine.cnc-machine': ApiCncMachineCncMachine;
-      'api::cnc-machines-page.cnc-machines-page': ApiCncMachinesPageCncMachinesPage;
       'api::cnc-mill.cnc-mill': ApiCncMillCncMill;
+      'api::cnc-mills-page.cnc-mills-page': ApiCncMillsPageCncMillsPage;
       'api::employee.employee': ApiEmployeeEmployee;
       'api::fair.fair': ApiFairFair;
       'api::fs10-page.fs10-page': ApiFs10PageFs10Page;
