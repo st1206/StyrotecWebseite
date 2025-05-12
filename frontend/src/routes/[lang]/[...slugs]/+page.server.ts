@@ -75,7 +75,6 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 
 		cmsData = {
 			...cmsData,
-			// @ts-expect-error componentKey only available in this edgecase
 			[cmsData.componentKey]: collectionItems[0]
 		};
 	} else {

@@ -76,7 +76,7 @@
 		</Button>
 		<Button
 			class="hidden w-[150px] text-center print:block"
-			href={`mailto:${data.contactPerson.email}`}
+			href={`mailto:${data.contactPerson?.email || ''}`}
 		>
 			<span class="skew-x-[15deg]">{$_('request_now')}</span>
 		</Button>

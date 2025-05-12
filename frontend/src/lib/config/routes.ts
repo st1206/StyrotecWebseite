@@ -44,7 +44,7 @@ export const menu = [
 				key: 'usedMachines',
 				anchor: null,
 				routeChildren: [
-					{ key: 'cncMachines', anchor: null },
+					{ key: 'cncMills', anchor: null },
 					// { key: 'cncComponentParts', link: '/produkte/gebrauchtmaschinen/cnc-zubehoer' },
 					{ key: 'conventionalMachines', anchor: null } // ?!? Modellbaumaschinen !== Konventionelle
 					// {

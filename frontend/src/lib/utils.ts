@@ -5,6 +5,7 @@ import type { SvelteComponent } from 'svelte';
 import { Icons } from './assets/icons';
 import { locale } from 'svelte-i18n';
 import { get } from 'svelte/store';
+import { error } from '@sveltejs/kit';
 
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
@@ -79,6 +80,9 @@ export type StrapiRichTextNode = {
 };
 
 export function resolveRichText(nodes: StrapiRichTextNode[]) {
+	if (!nodes.length) {
+		error(500, 'Unable to process nodes');
+	}
 	return nodes.map((c) => resolveRichTextNode(c)).join('');
 }
 

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-05-12T15:56:15.254Z"
+    "x-generation-date": "2025-05-12T16:41:22.120Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -9398,6 +9398,7 @@
           "data": {
             "required": [
               "productDataSheet",
+              "description",
               "slug"
             ],
             "type": "object",
@@ -9405,9 +9406,7 @@
               "productDataSheet": {
                 "$ref": "#/components/schemas/PartialComponentsMachineDataSheetComponent"
               },
-              "description": {
-                "type": "string"
-              },
+              "description": {},
               "pictures": {
                 "type": "array",
                 "items": {
@@ -9496,6 +9495,7 @@
         "type": "object",
         "required": [
           "productDataSheet",
+          "description",
           "slug"
         ],
         "properties": {
@@ -9508,9 +9508,7 @@
           "productDataSheet": {
             "$ref": "#/components/schemas/PartialComponentsMachineDataSheetComponent"
           },
-          "description": {
-            "type": "string"
-          },
+          "description": {},
           "pictures": {
             "type": "array",
             "items": {
@@ -10370,9 +10368,7 @@
                 "productDataSheet": {
                   "$ref": "#/components/schemas/PartialComponentsMachineDataSheetComponent"
                 },
-                "description": {
-                  "type": "string"
-                },
+                "description": {},
                 "pictures": {
                   "type": "array",
                   "items": {

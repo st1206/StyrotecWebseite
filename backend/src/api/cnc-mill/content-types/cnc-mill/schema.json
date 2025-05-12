@@ -33,12 +33,17 @@
           "localized": true
         }
       },
-      "type": "richtext"
+      "type": "blocks",
+      "required": true
     },
     "pictures": {
-      "allowedTypes": ["images", "files"],
       "type": "media",
       "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
       "pluginOptions": {
         "i18n": {
           "localized": true
