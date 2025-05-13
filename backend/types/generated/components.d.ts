@@ -379,7 +379,7 @@ export interface PartialComponentsProductDataSheet
     manufacturer: Schema.Attribute.String & Schema.Attribute.Required;
     modelType: Schema.Attribute.String & Schema.Attribute.Required;
     name: Schema.Attribute.String & Schema.Attribute.Required;
-    yearOfManufacture: Schema.Attribute.Integer & Schema.Attribute.Required;
+    yearOfManufacture: Schema.Attribute.BigInteger & Schema.Attribute.Required;
   };
 }
 
