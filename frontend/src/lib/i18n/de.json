@@ -1,24 +1,15 @@
 {
-	"home": {
-		"title": "Startseite",
-		"description": "Willkommen auf der Startseite"
-	},
-	"about": {
-		"title": "Über uns",
-		"description": "Erfahren Sie mehr über uns"
-	},
-	"contact": {
-		"title": "Kontakt",
-		"description": "Kontaktieren Sie uns",
-		"land": "Deutschland",
-		"info": "Info/Durchwahl",
-		"Projektmanager": "Projekt Manager",
-		"Vertrieb": "Vertrieb",
-		"weiter": "Weiter zum Kontakt"
-	},
 	"legal": {
 		"privacy": "Datenschutz",
 		"rechtliches": "Rechtliches"
+	},
+	"sprachen": {
+		"local": "DE"
+	},
+	"button": {
+		"learnMore": "Mehr erfahren",
+		"print": "Herunterladen",
+		"requestNow": "Jetzt anfordern!"
 	},
 	"nav": {
 		"home": "Start",
@@ -37,9 +28,9 @@
 		"hollowMillingSpindles": "Hohlfrässpindeln",
 		"suction": "Absaugungen",
 		"shredder": "Zerkleinerer",
-		"material": "Rohmaterial",
+		"rawmaterial": "Rohmaterial",
 		"usedMachines": "Gebrauchtmaschinen",
-		"cncMachines": "CNC Maschinen",
+		"cncMills": "CNC-Fräsen",
 		"conventionalMachines": "Modellbaumaschinen",
 		"industries": "Branchen",
 		"products": "Produkte",
@@ -52,41 +43,71 @@
 		"history": "Historie",
 		"sustainability": "Nachhaltigkeit",
 
-		"kleber": "Kleber",
-		"cncZubehoer": "CNC Zubehör",
-		"holzbearbeitungsmaschinen": "Holzbearbeitungsmaschinen",
-		"maschinenerhaltung": "Maschinenerhaltung",
-		"spindelservice": "Spindelservice",
-		"wartungen": "Wartungen",
-		"reparaturen": "Reparaturen",
-		"maschinenumzuege": "Maschinenumzüge",
-		"maschinenvermarktung": "Maschinenvermarktung",
-		"bewertung": "Bewertung",
-		"vermittlung": "Vermittlung",
-		"ankauf": "Ankauf",
-		"maschinenmodernisierung": "Maschinenmodernisierung",
+		"adhesives": "Kleber",
+		"cncAccessories": "CNC Zubehör",
+		"woodworkingMachines": "Holzbearbeitungsmaschinen",
+		"machineMaintenance": "Maschinenerhaltung",
+		"spindleService": "Spindelservice",
+		"maintenance": "Wartungen",
+		"repairs": "Reparaturen",
+		"machineRelocation": "Maschinenumzüge",
+		"machineMarketing": "Maschinenvermarktung",
+		"evaluation": "Bewertung",
+		"mediation": "Vermittlung",
+		"purchase": "Ankauf",
+		"machineModernization": "Maschinenmodernisierung",
 		"retrofit": "Retrofit",
-		"ueberholung": "Überholung",
-		"automobil": "Automobil",
-		"schiffsbau": "Schiffsbau",
-		"modellbau": "Modellbau",
-		"kunststoffindustrie": "Kunststoffindustrie",
-		"betonindustrie": "Betonindustrie",
-		"werbetechnik": "Werbetechnik",
+		"overhaul": "Überholung",
+		"automobile": "Automobil",
+		"shipbuilding": "Schiffsbau",
+		"modelmaking": "Modellbau",
+		"plasticIndustry": "Kunststoffindustrie",
+		"concreteIndustry": "Betonindustrie",
+		"advertisingTechnology": "Werbetechnik",
 		"aerospace": "Aerospace",
-		"kunst": "Kunst",
-
-		"karriere": "Karriere",
-		"stellenausschreibung": "Stellenausschreibung",
+		"art": "Kunst",
+		"career": "Karriere",
+		"jobPosting": "Stellenausschreibung",
 		"news": "News",
-		"anwenderstories": "Anwenderstories",
-		"referenzen": "Referenzen",
-		"messen": "Messen"
+		"userStories": "Anwenderstories",
+		"references": "Referenzen",
+		"fairs": "Messen"
 	},
 
-	"sprachen": {
-		"local": "DE"
+	"productDataSheet": {
+		"designation": "Bezeichnung",
+		"modelType": "Modeltyp",
+		"manufacturer": "Hersteller",
+		"yearOfManufacture": "Baujahr",
+		"condition": "Zustand",
+		"location": "Standort",
+
+		"gebraucht": "gebraucht",
+		"gebraucht, gut": "gebraucht, gut",
+		"gebraucht, sehr gut": "gebraucht, sehr gut",
+		"überholt": "überholt",
+		"voll funktionsfähig": "voll funktionsfähig",
+		"neu": "neu"
 	},
+
+	"home": {
+		"title": "Startseite",
+		"description": "Willkommen auf der Startseite"
+	},
+	"about": {
+		"title": "Über uns",
+		"description": "Erfahren Sie mehr über uns"
+	},
+	"contact": {
+		"title": "Kontakt",
+		"description": "Kontaktieren Sie uns",
+		"land": "Deutschland",
+		"info": "Info/Durchwahl",
+		"Projektmanager": "Projekt Manager",
+		"Vertrieb": "Vertrieb",
+		"weiter": "Weiter zum Kontakt"
+	},
+
 	"homepage": {
 		"einführung-titel": "Präzision in Styropor & mehr - Willkommen bei Styrotec",
 		"einführung-text": "Wie unser Name schon verrät, sind wir Experten im Bereich Styropor - doch das ist längst nicht alles. Bei Styrotec bieten wir ein umfassendes Sortiment an Produkten und Dienstleistungen für den Modellbau. Von Ersatzteilen über kleine konventionelle Maschinen bis hin zu großen CNC-Systemen - wir liefern alles, was Sie für präzise und effiziente Fertigung benötigen.",

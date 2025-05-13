@@ -11,7 +11,7 @@
 				thumbnail: entry.pictures ? entry.pictures[0] : entry.images ? entry.images[0] : null,
 				redirectButtons: [
 					{
-						label: $_(`button.learn_more`),
+						label: $_(`button.learnMore`),
 						redirectSlug: `${page.url.pathname.split('de/')[1]}/${entry.slug}`
 					}
 				]

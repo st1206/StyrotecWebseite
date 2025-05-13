@@ -24,7 +24,7 @@
           "localized": true
         }
       },
-      "component": "partial-components.machine-data-sheet",
+      "component": "partial-components.product-data-sheet",
       "required": true
     },
     "description": {

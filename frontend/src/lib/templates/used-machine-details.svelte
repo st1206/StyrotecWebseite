@@ -39,27 +39,27 @@
 			value: data.productDataSheet.internalId
 		},
 		{
-			label: $_('designation'),
+			label: $_('productDataSheet.designation'),
 			value: data.productDataSheet.designation
 		},
 		{
-			label: $_('modelType'),
+			label: $_('productDataSheet.modelType'),
 			value: data.productDataSheet.modelType
 		},
 		{
-			label: $_('manufacturer'),
+			label: $_('productDataSheet.manufacturer'),
 			value: data.productDataSheet.manufacturer
 		},
 		{
-			label: $_('yearOfManufacture'),
+			label: $_('productDataSheet.yearOfManufacture'),
 			value: data.productDataSheet.yearOfManufacture
 		},
 		{
-			label: $_('condition'),
-			value: data.productDataSheet.condition
+			label: $_('productDataSheet.condition'),
+			value: $_(`productDataSheet.${data.productDataSheet.condition}`)
 		},
 		{
-			label: $_('location'),
+			label: $_('productDataSheet.location'),
 			value: data.productDataSheet.location
 		}
 	];
@@ -68,17 +68,18 @@
 <div class="flex flex-col items-end justify-between sm:container md:flex-row print:items-center">
 	<PageHeader {...pageHeaderProps} />
 	<div class="mx-auto my-6 flex gap-2 md:m-4 md:mt-28">
-		<Button variant="outline" class="w-[100px] print:hidden " onclick={() => window.print()}>
-			<span class="skew-x-[15deg]">{$_('print')}</span>
+		<Button size="sm" variant="outline" class="print:hidden" onclick={() => window.print()}>
+			<span class="skew-x-[15deg]">{$_('button.print')}</span>
 		</Button>
-		<Button class="w-[150px] print:hidden" href={`${page.url.pathname}#contact-form`}>
-			<span class="skew-x-[15deg]">{$_('request_now')}</span>
+		<Button size="sm" class="w-[150px] print:hidden" href={`${page.url.pathname}#contact-form`}>
+			<span class="skew-x-[15deg]">{$_('button.requestNow')}</span>
 		</Button>
 		<Button
-			class="hidden w-[150px] text-center print:block"
+			size="sm"
+			class="hidden w-[150px] items-center text-center print:flex"
 			href={`mailto:${data.contactPerson?.email || ''}`}
 		>
-			<span class="skew-x-[15deg]">{$_('request_now')}</span>
+			<span class="skew-x-[15deg]">{$_('button.requestNow')}</span>
 		</Button>
 	</div>
 </div>

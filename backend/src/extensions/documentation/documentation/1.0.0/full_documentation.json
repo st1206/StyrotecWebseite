@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-05-12T16:41:22.120Z"
+    "x-generation-date": "2025-05-13T10:02:53.156Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -9404,7 +9404,7 @@
             "type": "object",
             "properties": {
               "productDataSheet": {
-                "$ref": "#/components/schemas/PartialComponentsMachineDataSheetComponent"
+                "$ref": "#/components/schemas/PartialComponentsProductDataSheetComponent"
               },
               "description": {},
               "pictures": {
@@ -9506,7 +9506,7 @@
             "type": "string"
           },
           "productDataSheet": {
-            "$ref": "#/components/schemas/PartialComponentsMachineDataSheetComponent"
+            "$ref": "#/components/schemas/PartialComponentsProductDataSheetComponent"
           },
           "description": {},
           "pictures": {
@@ -10366,7 +10366,7 @@
                   "type": "string"
                 },
                 "productDataSheet": {
-                  "$ref": "#/components/schemas/PartialComponentsMachineDataSheetComponent"
+                  "$ref": "#/components/schemas/PartialComponentsProductDataSheetComponent"
                 },
                 "description": {},
                 "pictures": {
@@ -10582,7 +10582,7 @@
           }
         }
       },
-      "PartialComponentsMachineDataSheetComponent": {
+      "PartialComponentsProductDataSheetComponent": {
         "type": "object",
         "properties": {
           "id": {
@@ -10607,6 +10607,7 @@
               "gebraucht, gut",
               "gebraucht, sehr gut",
               "überholt",
+              "voll funktionsfähig",
               "neu"
             ]
           },

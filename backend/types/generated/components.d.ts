@@ -333,33 +333,6 @@ export interface PartialComponentsImageCard extends Struct.ComponentSchema {
   };
 }
 
-export interface PartialComponentsMachineDataSheet
-  extends Struct.ComponentSchema {
-  collectionName: 'components_partial_components_machine_data_sheets';
-  info: {
-    description: '';
-    displayName: 'productDataSheet';
-  };
-  attributes: {
-    condition: Schema.Attribute.Enumeration<
-      [
-        'gebraucht',
-        'gebraucht, gut',
-        'gebraucht, sehr gut',
-        '\u00FCberholt',
-        'neu',
-      ]
-    >;
-    designation: Schema.Attribute.String & Schema.Attribute.Required;
-    internalId: Schema.Attribute.String & Schema.Attribute.Required;
-    location: Schema.Attribute.String & Schema.Attribute.Required;
-    manufacturer: Schema.Attribute.String & Schema.Attribute.Required;
-    modelType: Schema.Attribute.String & Schema.Attribute.Required;
-    name: Schema.Attribute.String & Schema.Attribute.Required;
-    yearOfManufacture: Schema.Attribute.Integer & Schema.Attribute.Required;
-  };
-}
-
 export interface PartialComponentsPreviewCard extends Struct.ComponentSchema {
   collectionName: 'components_partial_components_preview_cards';
   info: {
@@ -379,6 +352,34 @@ export interface PartialComponentsPreviewCard extends Struct.ComponentSchema {
     thumbnail: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface PartialComponentsProductDataSheet
+  extends Struct.ComponentSchema {
+  collectionName: 'components_partial_components_machine_data_sheets';
+  info: {
+    description: '';
+    displayName: 'productDataSheet';
+  };
+  attributes: {
+    condition: Schema.Attribute.Enumeration<
+      [
+        'gebraucht',
+        'gebraucht, gut',
+        'gebraucht, sehr gut',
+        '\u00FCberholt',
+        'voll funktionsf\u00E4hig',
+        'neu',
+      ]
+    >;
+    designation: Schema.Attribute.String & Schema.Attribute.Required;
+    internalId: Schema.Attribute.String & Schema.Attribute.Required;
+    location: Schema.Attribute.String & Schema.Attribute.Required;
+    manufacturer: Schema.Attribute.String & Schema.Attribute.Required;
+    modelType: Schema.Attribute.String & Schema.Attribute.Required;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    yearOfManufacture: Schema.Attribute.Integer & Schema.Attribute.Required;
   };
 }
 
@@ -545,8 +546,8 @@ declare module '@strapi/strapi' {
       'partial-components.default-card': PartialComponentsDefaultCard;
       'partial-components.history-entry': PartialComponentsHistoryEntry;
       'partial-components.image-card': PartialComponentsImageCard;
-      'partial-components.machine-data-sheet': PartialComponentsMachineDataSheet;
       'partial-components.preview-card': PartialComponentsPreviewCard;
+      'partial-components.product-data-sheet': PartialComponentsProductDataSheet;
       'partial-components.redirect-button': PartialComponentsRedirectButton;
       'partial-components.table': PartialComponentsTable;
       'partial-components.table-column': PartialComponentsTableColumn;

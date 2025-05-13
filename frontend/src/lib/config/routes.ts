@@ -37,7 +37,7 @@ export const menu = [
 					{ key: 'shredder', anchor: null },
 					{ key: 'presses', anchor: null },
 					{ key: 'rawmaterial', anchor: null },
-					{ key: 'glue', anchor: null }
+					{ key: 'adhesives', anchor: null }
 				]
 			},
 			{
@@ -60,30 +60,30 @@ export const menu = [
 		key: 'services',
 		menuRoutes: [
 			{
-				key: 'maschinenerhaltung',
+				key: 'machineMaintenance',
 				anchor: null,
 				routeChildren: [
-					{ key: 'spindelservice', anchor: null },
-					{ key: 'wartungen', anchor: null },
-					{ key: 'reparaturen', anchor: null },
-					{ key: 'maschinenumzüge', anchor: null }
+					{ key: 'spindleService', anchor: null },
+					{ key: 'maintenance', anchor: null },
+					{ key: 'repairs', anchor: null },
+					{ key: 'machineRelocation', anchor: null }
 				]
 			},
 			{
-				key: 'maschinenvermarktung',
+				key: 'machineMarketing',
 				anchor: null,
 				routeChildren: [
-					{ key: 'bewertung', anchor: null },
-					{ key: 'vermittlung', anchor: null },
-					{ key: 'ankauf', anchor: null }
+					{ key: 'evaluation', anchor: null },
+					{ key: 'mediation', anchor: null },
+					{ key: 'purchase', anchor: null }
 				]
 			},
 			{
-				key: 'maschinenmodernisierung',
+				key: 'machineModernization',
 				anchor: null,
 				routeChildren: [
 					{ key: 'retrofit', anchor: null },
-					{ key: 'überholung', anchor: null }
+					{ key: 'overhaul', anchor: null }
 				]
 			}
 		]
@@ -92,22 +92,14 @@ export const menu = [
 		id: 3,
 		key: 'industries',
 		menuRoutes: [
-			{ key: 'automobil', anchor: '#automobil', icon: Icons.automotiveIndustry },
-			{ key: 'schiffsbau', anchor: '#schiffsbau', icon: Icons.shipBuildingIndustry },
+			{ key: 'automotive', anchor: '#automobil', icon: Icons.automotiveIndustry },
+			{ key: 'shipbuilding', anchor: '#schiffsbau', icon: Icons.shipBuildingIndustry },
 			{ key: 'aerospace', anchor: '#aerospace', icon: Icons.aerospaceIndustry },
-			{ key: 'modellbau', anchor: '#modellbau', icon: Icons.modelMakingIndustry },
-			{
-				key: 'kunststoffindustrie',
-				anchor: '#kunststoffindustrie',
-				icon: Icons.plasticsIndustry
-			},
-			{
-				key: 'betonindustrie',
-				anchor: '#betonindustrie',
-				icon: Icons.concreteIndustry
-			},
-			{ key: 'werbetechnik', anchor: '#werbetechnik', icon: Icons.adIndustry },
-			{ key: 'kunst', anchor: '#kunst', icon: Icons.artIndustry }
+			{ key: 'modelMaking', anchor: '#modellbau', icon: Icons.modelMakingIndustry },
+			{ key: 'plasticIndustry', anchor: '#kunststoffindustrie', icon: Icons.plasticsIndustry },
+			{ key: 'concreteIndustry', anchor: '#betonindustrie', icon: Icons.concreteIndustry },
+			{ key: 'advertisingTechnology', anchor: '#werbetechnik', icon: Icons.adIndustry },
+			{ key: 'art', anchor: '#kunst', icon: Icons.artIndustry }
 		]
 	},
 	{
@@ -125,9 +117,9 @@ export const menu = [
 				]
 			},
 			{
-				key: 'company',
+				key: 'career',
 				anchor: null,
-				routeChildren: [{ key: 'jobs', anchor: null }]
+				routeChildren: [{ key: 'jobPosting', anchor: null }]
 			},
 			{
 				key: 'news',

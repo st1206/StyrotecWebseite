@@ -1,24 +1,15 @@
 {
-	"home": {
-		"title": "Homepage",
-		"description": "Welcome to the homepage"
-	},
-	"about": {
-		"title": "About us",
-		"description": "Learn more about us"
-	},
-	"contact": {
-		"title": "Contact",
-		"description": "Contact us",
-		"land": "Germany",
-		"info": "Info/Extension",
-		"Projektmanager": "Project Manager",
-		"Vertrieb": "Distribution",
-		"weiter": "Go to Contact"
-	},
 	"legal": {
 		"privacy": "Privacy Policy",
 		"rechtliches": "Legal"
+	},
+	"sprachen": {
+		"local": "EN"
+	},
+	"button": {
+		"learnMore": "Learn more",
+		"print": "Download",
+		"requestNow": "Request Now!"
 	},
 	"nav": {
 		"home": "Home",
@@ -37,9 +28,9 @@
 		"hollowMillingSpindles": "Hollow Milling Spindles",
 		"suction": "Suction Systems",
 		"shredder": "Shredder",
-		"material": "Raw Material",
+		"rawmaterial": "Raw Material",
 		"usedMachines": "Used Machines",
-		"cncMachines": "CNC Machines",
+		"cncMills": "CNC-Fräsen",
 		"conventionalMachines": "Model Building Machines",
 		"industries": "Industries",
 		"products": "Products",
@@ -52,40 +43,69 @@
 		"history": "History",
 		"sustainability": "Sustainability",
 
-		"kleber": "Adhesive",
-		"cncZubehoer": "CNC Accessories",
-		"holzbearbeitungsmaschinen": "Woodworking Machines",
-		"maschinenerhaltung": "Machine Maintenance",
-		"spindelservice": "Spindle Service",
-		"wartungen": "Maintenance",
-		"reparaturen": "Repairs",
-		"maschinenumzuege": "Moving Machines",
-		"maschinenvermarktung": "Machine Marketing",
-		"bewertung": "Evaluation",
-		"vermittlung": "Mediation",
-		"ankauf": "Purchase",
-		"maschinenmodernisierung": "Machine Modernization",
+		"adhesives": "Adhesives",
+		"cncAccessories": "CNC Accessories",
+		"woodworkingMachines": "Woodworking Machines",
+		"machineMaintenance": "Machine Maintenance",
+		"spindleService": "Spindle Service",
+		"maintenance": "Maintenance",
+		"repairs": "Repairs",
+		"machineRelocation": "Moving Machines",
+		"machineMarketing": "Machine Marketing",
+		"evaluation": "Evaluation",
+		"mediation": "Mediation",
+		"purchase": "Purchase",
+		"machineModernization": "Machine Modernization",
 		"retrofit": "Retrofit",
-		"ueberholung": "Overhaul",
-		"automobil": "Automotive",
-		"schiffsbau": "Shipbuilding",
-		"modellbau": "Model Making",
-		"kunststoffindustrie": "Plastic Industry",
-		"betonindustrie": "Concrete Industry",
-		"werbetechnik": "Advertising Technology",
+		"overhaul": "Overhaul",
+		"automotive": "Automotive",
+		"shipbuilding": "Shipbuilding",
+		"modelMaking": "Model Making",
+		"plasticIndustry": "Plastic Industry",
+		"concreteIndustry": "Concrete Industry",
+		"advertisingTechnology": "Advertising Technology",
 		"aerospace": "Aerospace",
-		"kunst": "Art",
-
-		"karriere": "Career",
-		"stellenausschreibung": "Job Openings",
+		"art": "Art",
+		"career": "Career",
+		"jobPosting": "Job Openings",
 		"news": "News",
-		"anwenderstories": "Customer Stories",
-		"referenzen": "References",
-		"messen": "Exhibitions"
+		"userStories": "Customer Stories",
+		"references": "References",
+		"fairs": "Trade Shows"
 	},
 
-	"sprachen": {
-		"local": "EN"
+	"productDataSheet": {
+		"designation": "Designation",
+		"modelType": "Model Type",
+		"manufacturer": "Manufacturer",
+		"yearOfManufacture": "Year of Manufacturing",
+		"condition": "Condition",
+		"location": "Location",
+
+		"gebraucht": "used",
+		"gebraucht, gut": "used, good condition",
+		"gebraucht, sehr gut": "used, very good condition",
+		"überholt": "refurbished",
+		"voll funktionsfähig": "fully functional",
+		"neu": "new"
+	},
+
+	"home": {
+		"title": "Homepage",
+		"description": "Welcome to the homepage"
+	},
+	"about": {
+		"title": "About us",
+		"description": "Learn more about us"
+	},
+	"contact": {
+		"title": "Contact",
+		"description": "Contact us",
+		"land": "Germany",
+		"info": "Info/Extension",
+		"Projektmanager": "Project Manager",
+		"Vertrieb": "Distribution",
+		"weiter": "Go to Contact"
 	},
 	"homepage": {
 		"einführung-titel": "Precision in Styrofoam & More - Welcome to Styrotec",

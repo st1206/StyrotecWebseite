@@ -547,7 +547,7 @@ export interface ApiCncMillCncMill extends Struct.CollectionTypeSchema {
         };
       }>;
     productDataSheet: Schema.Attribute.Component<
-      'partial-components.machine-data-sheet',
+      'partial-components.product-data-sheet',
       false
     > &
       Schema.Attribute.Required &
