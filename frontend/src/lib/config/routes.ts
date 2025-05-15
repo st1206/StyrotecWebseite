@@ -19,7 +19,7 @@ export const menu = [
 				]
 			},
 			{
-				key: 'chipPresses',
+				key: 'briquettPress',
 				anchor: null,
 				routeChildren: [
 					{ key: 'metals', anchor: null },

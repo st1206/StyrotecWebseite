@@ -1,7 +1,7 @@
 import type {
 	ApiAboutUsPageAboutUsPage,
-	ApiChipPressesPageChipPressesPage,
-	ApiCncMachinesPageCncMachinesPage,
+	ApiBriquettingPressPageBriquettingPressPage,
+	ApiCncMillsPageCncMillsPage,
 	ApiFs10PageFs10Page,
 	ApiGantryMachinesPageGantryMachinesPage,
 	ApiHomeHome,
@@ -16,15 +16,15 @@ import { buildPopulateQuery } from './apiParamsBuilder';
 // The mapping interface uses keys that match your cmsTypeKey values.
 export interface CMSTypeMap {
 	home: ApiHomeHome;
+	briquettpressPage: ApiBriquettingPressPageBriquettingPressPage;
 	gantryMachinesPage: ApiGantryMachinesPageGantryMachinesPage;
 	fs10Page: ApiFs10PageFs10Page;
-	chipPressesPage: ApiChipPressesPageChipPressesPage;
 	metalsPage: ApiMetalsPageMetalsPage;
 	industriesPage: ApiIndustriesPageIndustriesPage;
 	millingToolsPage: ApiMillingToolsPageMillingToolsPage;
 	aboutUsPage: ApiAboutUsPageAboutUsPage;
 	usedMachinesPage: ApiUsedMachinesPageUsedMachinesPage;
-	cncMillsPage: ApiCncMachinesPageCncMachinesPage;
+	cncMillsPage: ApiCncMillsPageCncMillsPage;
 	usedMachinesDetailsPage: ApiUsedMachinesDetailsPageUsedMachinesDetailsPage;
 }
 
@@ -65,7 +65,18 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'home',
 		sections: []
 	},
-
+	briquettPress: {
+		deSlug: 'produkte/brikettierpressen',
+		enSlug: 'products/briquetting-press',
+		cmsTypeKey: 'briquettpressPage',
+		cmsApiSlug: 'briquett-press-page',
+		sections: [
+			{ sectionKey: 'heroCarousel' },
+			{ sectionKey: 'heroTextImage' },
+			{ sectionKey: 'uspList' },
+			{ sectionKey: 'exploreMore' }
+		]
+	},
 	gantryMachines: {
 		deSlug: 'produkte/portalfraesmaschinen',
 		enSlug: 'products/gantry-machines',

@@ -434,14 +434,14 @@ export interface ApiAboutUsPageAboutUsPage extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiChipPressesPageChipPressesPage
+export interface ApiBriquettingPressPageBriquettingPressPage
   extends Struct.SingleTypeSchema {
-  collectionName: 'chip_presses_pages';
+  collectionName: 'briquetting_press_pages';
   info: {
     description: '';
     displayName: 'Brikettierpressen Seite';
-    pluralName: 'chip-presses-pages';
-    singularName: 'chip-presses-page';
+    pluralName: 'briquetting-press-pages';
+    singularName: 'briquetting-press-page';
   };
   options: {
     draftAndPublish: true;
@@ -488,7 +488,7 @@ export interface ApiChipPressesPageChipPressesPage
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::chip-presses-page.chip-presses-page'
+      'api::briquetting-press-page.briquetting-press-page'
     >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -1793,7 +1793,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about-us-page.about-us-page': ApiAboutUsPageAboutUsPage;
-      'api::chip-presses-page.chip-presses-page': ApiChipPressesPageChipPressesPage;
+      'api::briquetting-press-page.briquetting-press-page': ApiBriquettingPressPageBriquettingPressPage;
       'api::cnc-mill.cnc-mill': ApiCncMillCncMill;
       'api::cnc-mills-page.cnc-mills-page': ApiCncMillsPageCncMillsPage;
       'api::employee.employee': ApiEmployeeEmployee;

@@ -1,9 +1,9 @@
 {
   "kind": "singleType",
-  "collectionName": "chip_presses_pages",
+  "collectionName": "briquetting_press_pages",
   "info": {
-    "singularName": "chip-presses-page",
-    "pluralName": "chip-presses-pages",
+    "singularName": "briquetting-press-page",
+    "pluralName": "briquetting-press-pages",
     "displayName": "Brikettierpressen Seite",
     "description": ""
   },
@@ -46,8 +46,8 @@
           "localized": true
         }
       },
-      "component": "partial-components.usp-list",
-      "required": true
+      "required": true,
+      "component": "partial-components.usp-list"
     },
     "exploreMore": {
       "type": "component",
