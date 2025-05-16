@@ -11,7 +11,8 @@ import DefaultContent from './default-content.svelte';
 import heroMedia from './hero-media.svelte';
 import History from './history.svelte';
 import CollectionTypeCards from './collection-type-cards.svelte';
-import UsedMachineDetails from '$lib/templates/used-machine-details.svelte';
+import UsedMachineDetails from '$lib/templates/static-pages/used-machine-details.svelte';
+import ContactForm from './contact-form.svelte';
 
 export const sectionMap = {
 	heroCarousel: HeroCarousel,
@@ -28,5 +29,6 @@ export const sectionMap = {
 	heroMedia: heroMedia,
 	history: History,
 	collectionTypeCards: CollectionTypeCards,
-	usedMachineDetails: UsedMachineDetails
+	usedMachineDetails: UsedMachineDetails,
+	contactForm: ContactForm
 } as const;

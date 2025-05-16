@@ -452,6 +452,16 @@ export interface ApiBriquettingPressPageBriquettingPressPage
     };
   };
   attributes: {
+    contactForm: Schema.Attribute.Component<
+      'page-components.contact-form',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -597,6 +607,16 @@ export interface ApiCncMillsPageCncMillsPage extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
+    contactForm: Schema.Attribute.Component<
+      'page-components.contact-form',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -634,6 +654,8 @@ export interface ApiEmployeeEmployee extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    contactPicture: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -809,6 +831,16 @@ export interface ApiGantryMachinesPageGantryMachinesPage
     };
   };
   attributes: {
+    contactForm: Schema.Attribute.Component<
+      'page-components.contact-form',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1009,6 +1041,16 @@ export interface ApiMetalsPageMetalsPage extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
+    contactForm: Schema.Attribute.Component<
+      'page-components.contact-form',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1248,6 +1290,16 @@ export interface ApiUsedMachinesPageUsedMachinesPage
     };
   };
   attributes: {
+    contactForm: Schema.Attribute.Component<
+      'page-components.contact-form',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

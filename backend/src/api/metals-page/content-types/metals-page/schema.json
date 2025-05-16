@@ -37,6 +37,17 @@
       },
       "component": "page-components.explore-variants",
       "required": true
+    },
+    "contactForm": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.contact-form",
+      "required": true
     }
   }
 }

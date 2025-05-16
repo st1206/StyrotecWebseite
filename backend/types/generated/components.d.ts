@@ -27,6 +27,17 @@ export interface PageComponentsCollectionTypeCards
   };
 }
 
+export interface PageComponentsContactForm extends Struct.ComponentSchema {
+  collectionName: 'components_page_components_contact_forms';
+  info: {
+    description: '';
+    displayName: 'contactForm';
+  };
+  attributes: {
+    employee: Schema.Attribute.Relation<'oneToOne', 'api::employee.employee'>;
+  };
+}
+
 export interface PageComponentsDefaultCards extends Struct.ComponentSchema {
   collectionName: 'components_page_components_default_cards';
   info: {
@@ -528,6 +539,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'page-components.basic-text-image': PageComponentsBasicTextImage;
       'page-components.collection-type-cards': PageComponentsCollectionTypeCards;
+      'page-components.contact-form': PageComponentsContactForm;
       'page-components.default-cards': PageComponentsDefaultCards;
       'page-components.explore-more': PageComponentsExploreMore;
       'page-components.explore-variants': PageComponentsExploreVariants;

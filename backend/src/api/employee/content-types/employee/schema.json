@@ -41,6 +41,15 @@
       "type": "string",
       "required": true,
       "pluginOptions": {}
+    },
+    "contactPicture": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
     }
   }
 }

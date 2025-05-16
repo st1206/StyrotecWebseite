@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_page_components_contact_forms",
+  "info": {
+    "displayName": "contactForm",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "employee": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::employee.employee"
+    }
+  }
+}

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-05-13T10:54:57.881Z"
+    "x-generation-date": "2025-05-16T11:33:20.842Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -361,7 +361,7 @@
         "operationId": "delete/about-us-page"
       }
     },
-    "/chip-presses-page": {
+    "/briquetting-press-page": {
       "get": {
         "responses": {
           "200": {
@@ -369,7 +369,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ChipPressesPageResponse"
+                  "$ref": "#/components/schemas/BriquettingPressPageResponse"
                 }
               }
             }
@@ -426,7 +426,7 @@
           }
         },
         "tags": [
-          "Chip-presses-page"
+          "Briquetting-press-page"
         ],
         "parameters": [
           {
@@ -532,7 +532,7 @@
             }
           }
         ],
-        "operationId": "get/chip-presses-page"
+        "operationId": "get/briquetting-press-page"
       },
       "put": {
         "responses": {
@@ -541,7 +541,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ChipPressesPageResponse"
+                  "$ref": "#/components/schemas/BriquettingPressPageResponse"
                 }
               }
             }
@@ -598,16 +598,16 @@
           }
         },
         "tags": [
-          "Chip-presses-page"
+          "Briquetting-press-page"
         ],
         "parameters": [],
-        "operationId": "put/chip-presses-page",
+        "operationId": "put/briquetting-press-page",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ChipPressesPageRequest"
+                "$ref": "#/components/schemas/BriquettingPressPageRequest"
               }
             }
           }
@@ -678,10 +678,10 @@
           }
         },
         "tags": [
-          "Chip-presses-page"
+          "Briquetting-press-page"
         ],
         "parameters": [],
-        "operationId": "delete/chip-presses-page"
+        "operationId": "delete/briquetting-press-page"
       }
     },
     "/cnc-mills": {
@@ -8668,7 +8668,7 @@
           }
         }
       },
-      "ChipPressesPageRequest": {
+      "BriquettingPressPageRequest": {
         "type": "object",
         "required": [
           "data"
@@ -8679,7 +8679,8 @@
               "heroCarousel",
               "heroTextImage",
               "uspList",
-              "exploreMore"
+              "exploreMore",
+              "contactForm"
             ],
             "type": "object",
             "properties": {
@@ -8697,6 +8698,9 @@
               },
               "exploreMore": {
                 "$ref": "#/components/schemas/PageComponentsExploreMoreComponent"
+              },
+              "contactForm": {
+                "$ref": "#/components/schemas/PageComponentsContactFormComponent"
               },
               "locale": {
                 "type": "string"
@@ -8719,13 +8723,13 @@
           }
         }
       },
-      "ChipPressesPageListResponse": {
+      "BriquettingPressPageListResponse": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ChipPressesPage"
+              "$ref": "#/components/schemas/BriquettingPressPage"
             }
           },
           "meta": {
@@ -8754,13 +8758,14 @@
           }
         }
       },
-      "ChipPressesPage": {
+      "BriquettingPressPage": {
         "type": "object",
         "required": [
           "heroCarousel",
           "heroTextImage",
           "uspList",
-          "exploreMore"
+          "exploreMore",
+          "contactForm"
         ],
         "properties": {
           "id": {
@@ -8783,6 +8788,9 @@
           },
           "exploreMore": {
             "$ref": "#/components/schemas/PageComponentsExploreMoreComponent"
+          },
+          "contactForm": {
+            "$ref": "#/components/schemas/PageComponentsContactFormComponent"
           },
           "createdAt": {
             "type": "string",
@@ -8847,6 +8855,9 @@
                 "exploreMore": {
                   "$ref": "#/components/schemas/PageComponentsExploreMoreComponent"
                 },
+                "contactForm": {
+                  "$ref": "#/components/schemas/PageComponentsContactFormComponent"
+                },
                 "createdAt": {
                   "type": "string",
                   "format": "date-time"
@@ -8903,11 +8914,11 @@
           }
         }
       },
-      "ChipPressesPageResponse": {
+      "BriquettingPressPageResponse": {
         "type": "object",
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/ChipPressesPage"
+            "$ref": "#/components/schemas/BriquettingPressPage"
           },
           "meta": {
             "type": "object"
@@ -9386,6 +9397,25 @@
           },
           "description": {
             "type": "string"
+          }
+        }
+      },
+      "PageComponentsContactFormComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "employee": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "documentId": {
+                "type": "string"
+              }
+            }
           }
         }
       },
@@ -10264,6 +10294,135 @@
               "position": {
                 "type": "string"
               },
+              "contactPicture": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "documentId": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "alternativeText": {
+                    "type": "string"
+                  },
+                  "caption": {
+                    "type": "string"
+                  },
+                  "width": {
+                    "type": "integer"
+                  },
+                  "height": {
+                    "type": "integer"
+                  },
+                  "formats": {},
+                  "hash": {
+                    "type": "string"
+                  },
+                  "ext": {
+                    "type": "string"
+                  },
+                  "mime": {
+                    "type": "string"
+                  },
+                  "size": {
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "previewUrl": {
+                    "type": "string"
+                  },
+                  "provider": {
+                    "type": "string"
+                  },
+                  "provider_metadata": {},
+                  "related": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number"
+                        },
+                        "documentId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "folder": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number"
+                      },
+                      "documentId": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "folderPath": {
+                    "type": "string"
+                  },
+                  "createdAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "updatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "publishedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "createdBy": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number"
+                      },
+                      "documentId": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "updatedBy": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number"
+                      },
+                      "documentId": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "locale": {
+                    "type": "string"
+                  },
+                  "localizations": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number"
+                        },
+                        "documentId": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
               "createdAt": {
                 "type": "string",
                 "format": "date-time"
@@ -10633,7 +10792,8 @@
           "data": {
             "required": [
               "heroDualImage",
-              "collectionTypeCards"
+              "collectionTypeCards",
+              "contactForm"
             ],
             "type": "object",
             "properties": {
@@ -10642,6 +10802,9 @@
               },
               "collectionTypeCards": {
                 "$ref": "#/components/schemas/PageComponentsCollectionTypeCardsComponent"
+              },
+              "contactForm": {
+                "$ref": "#/components/schemas/PageComponentsContactFormComponent"
               },
               "locale": {
                 "type": "string"
@@ -10703,7 +10866,8 @@
         "type": "object",
         "required": [
           "heroDualImage",
-          "collectionTypeCards"
+          "collectionTypeCards",
+          "contactForm"
         ],
         "properties": {
           "id": {
@@ -10717,6 +10881,9 @@
           },
           "collectionTypeCards": {
             "$ref": "#/components/schemas/PageComponentsCollectionTypeCardsComponent"
+          },
+          "contactForm": {
+            "$ref": "#/components/schemas/PageComponentsContactFormComponent"
           },
           "createdAt": {
             "type": "string",
@@ -10771,6 +10938,9 @@
                 },
                 "collectionTypeCards": {
                   "$ref": "#/components/schemas/PageComponentsCollectionTypeCardsComponent"
+                },
+                "contactForm": {
+                  "$ref": "#/components/schemas/PageComponentsContactFormComponent"
                 },
                 "createdAt": {
                   "type": "string",
@@ -11008,7 +11178,8 @@
               "picture",
               "tel",
               "email",
-              "position"
+              "position",
+              "contactPicture"
             ],
             "type": "object",
             "properties": {
@@ -11035,6 +11206,17 @@
               },
               "position": {
                 "type": "string"
+              },
+              "contactPicture": {
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "example": "string or id"
               },
               "locale": {
                 "type": "string"
@@ -11099,7 +11281,8 @@
           "picture",
           "tel",
           "email",
-          "position"
+          "position",
+          "contactPicture"
         ],
         "properties": {
           "id": {
@@ -11719,6 +11902,135 @@
           "position": {
             "type": "string"
           },
+          "contactPicture": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "documentId": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "alternativeText": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "formats": {},
+              "hash": {
+                "type": "string"
+              },
+              "ext": {
+                "type": "string"
+              },
+              "mime": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number",
+                "format": "float"
+              },
+              "url": {
+                "type": "string"
+              },
+              "previewUrl": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "provider_metadata": {},
+              "related": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "documentId": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "folder": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "documentId": {
+                    "type": "string"
+                  }
+                }
+              },
+              "folderPath": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "updatedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "publishedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "createdBy": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "documentId": {
+                    "type": "string"
+                  }
+                }
+              },
+              "updatedBy": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "documentId": {
+                    "type": "string"
+                  }
+                }
+              },
+              "locale": {
+                "type": "string"
+              },
+              "localizations": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "documentId": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -11908,6 +12220,135 @@
                 },
                 "position": {
                   "type": "string"
+                },
+                "contactPicture": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "documentId": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "alternativeText": {
+                      "type": "string"
+                    },
+                    "caption": {
+                      "type": "string"
+                    },
+                    "width": {
+                      "type": "integer"
+                    },
+                    "height": {
+                      "type": "integer"
+                    },
+                    "formats": {},
+                    "hash": {
+                      "type": "string"
+                    },
+                    "ext": {
+                      "type": "string"
+                    },
+                    "mime": {
+                      "type": "string"
+                    },
+                    "size": {
+                      "type": "number",
+                      "format": "float"
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "previewUrl": {
+                      "type": "string"
+                    },
+                    "provider": {
+                      "type": "string"
+                    },
+                    "provider_metadata": {},
+                    "related": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number"
+                          },
+                          "documentId": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "folder": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number"
+                        },
+                        "documentId": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "folderPath": {
+                      "type": "string"
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "publishedAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "createdBy": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number"
+                        },
+                        "documentId": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "updatedBy": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number"
+                        },
+                        "documentId": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "locale": {
+                      "type": "string"
+                    },
+                    "localizations": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number"
+                          },
+                          "documentId": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
                 },
                 "createdAt": {
                   "type": "string",
@@ -13695,7 +14136,8 @@
               "heroCarousel",
               "heroTextImage",
               "uspList",
-              "exploreMore"
+              "exploreMore",
+              "contactForm"
             ],
             "type": "object",
             "properties": {
@@ -13713,6 +14155,9 @@
               },
               "exploreMore": {
                 "$ref": "#/components/schemas/PageComponentsExploreMoreComponent"
+              },
+              "contactForm": {
+                "$ref": "#/components/schemas/PageComponentsContactFormComponent"
               },
               "locale": {
                 "type": "string"
@@ -13776,7 +14221,8 @@
           "heroCarousel",
           "heroTextImage",
           "uspList",
-          "exploreMore"
+          "exploreMore",
+          "contactForm"
         ],
         "properties": {
           "id": {
@@ -13799,6 +14245,9 @@
           },
           "exploreMore": {
             "$ref": "#/components/schemas/PageComponentsExploreMoreComponent"
+          },
+          "contactForm": {
+            "$ref": "#/components/schemas/PageComponentsContactFormComponent"
           },
           "createdAt": {
             "type": "string",
@@ -13862,6 +14311,9 @@
                 },
                 "exploreMore": {
                   "$ref": "#/components/schemas/PageComponentsExploreMoreComponent"
+                },
+                "contactForm": {
+                  "$ref": "#/components/schemas/PageComponentsContactFormComponent"
                 },
                 "createdAt": {
                   "type": "string",
@@ -15589,7 +16041,8 @@
           "data": {
             "required": [
               "heroDualImage",
-              "exploreVariants"
+              "exploreVariants",
+              "contactForm"
             ],
             "type": "object",
             "properties": {
@@ -15598,6 +16051,9 @@
               },
               "exploreVariants": {
                 "$ref": "#/components/schemas/PageComponentsExploreVariantsComponent"
+              },
+              "contactForm": {
+                "$ref": "#/components/schemas/PageComponentsContactFormComponent"
               },
               "locale": {
                 "type": "string"
@@ -15659,7 +16115,8 @@
         "type": "object",
         "required": [
           "heroDualImage",
-          "exploreVariants"
+          "exploreVariants",
+          "contactForm"
         ],
         "properties": {
           "id": {
@@ -15673,6 +16130,9 @@
           },
           "exploreVariants": {
             "$ref": "#/components/schemas/PageComponentsExploreVariantsComponent"
+          },
+          "contactForm": {
+            "$ref": "#/components/schemas/PageComponentsContactFormComponent"
           },
           "createdAt": {
             "type": "string",
@@ -15727,6 +16187,9 @@
                 },
                 "exploreVariants": {
                   "$ref": "#/components/schemas/PageComponentsExploreVariantsComponent"
+                },
+                "contactForm": {
+                  "$ref": "#/components/schemas/PageComponentsContactFormComponent"
                 },
                 "createdAt": {
                   "type": "string",
@@ -18392,7 +18855,8 @@
           "data": {
             "required": [
               "heroCarousel",
-              "exploreMore"
+              "exploreMore",
+              "contactForm"
             ],
             "type": "object",
             "properties": {
@@ -18401,6 +18865,9 @@
               },
               "exploreMore": {
                 "$ref": "#/components/schemas/PageComponentsExploreMoreComponent"
+              },
+              "contactForm": {
+                "$ref": "#/components/schemas/PageComponentsContactFormComponent"
               },
               "locale": {
                 "type": "string"
@@ -18462,7 +18929,8 @@
         "type": "object",
         "required": [
           "heroCarousel",
-          "exploreMore"
+          "exploreMore",
+          "contactForm"
         ],
         "properties": {
           "id": {
@@ -18476,6 +18944,9 @@
           },
           "exploreMore": {
             "$ref": "#/components/schemas/PageComponentsExploreMoreComponent"
+          },
+          "contactForm": {
+            "$ref": "#/components/schemas/PageComponentsContactFormComponent"
           },
           "createdAt": {
             "type": "string",
@@ -18530,6 +19001,9 @@
                 },
                 "exploreMore": {
                   "$ref": "#/components/schemas/PageComponentsExploreMoreComponent"
+                },
+                "contactForm": {
+                  "$ref": "#/components/schemas/PageComponentsContactFormComponent"
                 },
                 "createdAt": {
                   "type": "string",

@@ -11,8 +11,10 @@
 	import BlurFade from '$lib/components/blur-fade.svelte';
 	import { Button } from '$lib/components/ui/button';
 	import { page } from '$app/state';
+	import ContactForm from '$lib/sections/contact-form.svelte';
 
 	let data: {
+		contactForm: any;
 		contactPerson: Employee;
 		description: StrapiRichTextNode[];
 		productDataSheet: ProductDataSheet;
@@ -118,3 +120,5 @@
 </section>
 
 <DefaultContent {...contentImages} />
+
+<ContactForm contactForm={data.contactForm} />

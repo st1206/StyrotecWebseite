@@ -8,6 +8,7 @@ import { superValidate } from 'sveltekit-superforms';
 import { message } from 'sveltekit-superforms';
 import nodemailer from 'nodemailer';
 import { EMAIL_ADRESS, EMAIL_HOST, EMAIL_PASSWORD } from '$env/static/private';
+import { getContactFormTemplate, getContactFormText } from '$lib/templates/email';
 
 function getCMSDataForPage<K extends keyof CMSTypeMap>(
 	page: { cmsApiSlug: string; cmsApiParams?: string; cmsTypeKey: K },
@@ -75,6 +76,7 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 
 		cmsData = {
 			...cmsData,
+			//@ts-expect-error tbd.
 			[cmsData.componentKey]: collectionItems[0]
 		};
 	} else {
@@ -104,7 +106,8 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 		lang,
 		pageContent: {
 			...matchedPage,
-			cmsData
+			cmsData,
+			contactFormBuilder: await superValidate(zod(contactFormSchema))
 		}
 	};
 };
@@ -119,35 +122,41 @@ export const actions: Actions = {
 			});
 		}
 
-		console.log(form);
-
-		const transporter = nodemailer.createTransport({
+		const transportData = {
 			host: EMAIL_HOST,
 			port: 587,
-			secure: false, // true für Port 465, false für andere Ports
+			secure: false, // A new SMTP connection is created for every message
 			auth: {
 				user: EMAIL_ADRESS,
 				pass: EMAIL_PASSWORD
 			}
-		});
-
-		const mailOptions = {
-			from: EMAIL_ADRESS,
-			to: form.data.email,
-			subject: form.data.name,
-			text: form.data.message,
-			html: form.data.message
 		};
 
-		transporter.sendMail(mailOptions, (error, info) => {
+		const transporter = nodemailer.createTransport(transportData);
+
+		transporter.verify((error, _success) => {
 			if (error) {
 				console.error(error);
-				return message(form, 'No spam please', {
-					status: 403
+			} else {
+				const mailOptions = {
+					from: EMAIL_ADRESS,
+					to: form.data.mailToContactPerson,
+					subject: 'Kontaktanfrage',
+					text: getContactFormText(form.data),
+					html: getContactFormTemplate(form.data)
+				};
+
+				transporter.sendMail(mailOptions, (error, info) => {
+					if (error) {
+						console.error(error);
+						return message(form, 'No spam please', {
+							status: 403
+						});
+					}
+					console.log('E-Mail gesendet: ' + info.response);
+					return message(form, 'success');
 				});
 			}
-			console.log('E-Mail gesendet: ' + info.response);
-			return message(form, 'success');
 		});
 	}
 };

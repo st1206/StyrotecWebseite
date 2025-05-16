@@ -5,12 +5,14 @@
 </script>
 
 {#if data.pageContent}
+	{console.log(data)}
 	{#each data.pageContent.sections as section}
 		{@const SectionComponent = sectionMap[section.sectionKey as keyof typeof sectionMap]}
 		{#if SectionComponent}
 			<SectionComponent
 				{...data.pageContent.cmsData[section.sectionKey as keyof typeof data.pageContent.cmsData]}
 				{...section.props}
+				contactFormBuilder={data.pageContent.contactFormBuilder}
 			/>
 		{:else}
 			<p>Section {section.sectionKey} not found</p>
