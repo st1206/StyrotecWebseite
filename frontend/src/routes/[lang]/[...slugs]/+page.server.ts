@@ -143,7 +143,8 @@ export const actions: Actions = {
 					to: form.data.mailToContactPerson,
 					subject: 'Kontaktanfrage',
 					text: getContactFormText(form.data),
-					html: getContactFormTemplate(form.data)
+					html: getContactFormTemplate(form.data),
+					replyTo: form.data.email
 				};
 
 				transporter.sendMail(mailOptions, (error, info) => {
