@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-05-16T11:33:20.842Z"
+    "x-generation-date": "2025-05-17T11:15:31.029Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -13441,7 +13441,8 @@
             "required": [
               "heroDualImage",
               "exploreVariants",
-              "optionBlocks"
+              "optionBlocks",
+              "contactForm"
             ],
             "type": "object",
             "properties": {
@@ -13470,6 +13471,9 @@
                     "partial-components.table": "#/components/schemas/PartialComponentsTableComponent"
                   }
                 }
+              },
+              "contactForm": {
+                "$ref": "#/components/schemas/PageComponentsContactFormComponent"
               },
               "locale": {
                 "type": "string"
@@ -13532,7 +13536,8 @@
         "required": [
           "heroDualImage",
           "exploreVariants",
-          "optionBlocks"
+          "optionBlocks",
+          "contactForm"
         ],
         "properties": {
           "id": {
@@ -13566,6 +13571,9 @@
                 "partial-components.table": "#/components/schemas/PartialComponentsTableComponent"
               }
             }
+          },
+          "contactForm": {
+            "$ref": "#/components/schemas/PageComponentsContactFormComponent"
           },
           "createdAt": {
             "type": "string",
@@ -13640,6 +13648,9 @@
                       "partial-components.table": "#/components/schemas/PartialComponentsTableComponent"
                     }
                   }
+                },
+                "contactForm": {
+                  "$ref": "#/components/schemas/PageComponentsContactFormComponent"
                 },
                 "createdAt": {
                   "type": "string",

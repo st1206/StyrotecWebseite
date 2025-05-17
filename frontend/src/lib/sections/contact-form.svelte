@@ -102,9 +102,6 @@
 							/>
 						{/snippet}
 					</Form.Control>
-					<Form.Description>
-						Formatierung mit Enter für neue Zeilen wird beibehalten
-					</Form.Description>
 					<Form.FieldErrors />
 				</Form.Field>
 				<div class="hidden">

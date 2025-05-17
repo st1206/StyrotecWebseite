@@ -61,7 +61,7 @@
 		<Separator class="hidden w-full bg-white/20 lg:block" orientation="horizontal" />
 		<div class=" flex w-full items-center justify-center py-16 lg:justify-between">
 			<div class="flex w-max flex-col gap-8">
-				<img src={Icons.logoLight} alt="Logo" class="mx-auto h-20 w-max lg:mx-0" />
+				<img src={Icons.logoLight} alt="Logo" class="mx-auto h-20 w-max lg:mx-0 lg:h-28" />
 				<div class="flex gap-6">
 					<div class="flex flex-col gap-1">
 						<span class="mx-auto font-sans font-medium lg:mx-0">Email</span>
