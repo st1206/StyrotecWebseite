@@ -1,15 +1,5 @@
-import { readFileSync } from 'fs';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
-
-const currentFileUrl = fileURLToPath(import.meta.url);
-
-// TEMPLATE FILES
-const contactFormTemplatePath = join(dirname(currentFileUrl), 'contact-form-template.html');
-const contactFormTemplate = readFileSync(contactFormTemplatePath, 'utf8');
-
-const contactFormTextPath = join(dirname(currentFileUrl), 'contact-form-template.txt');
-const contactFormText = readFileSync(contactFormTextPath, 'utf8');
+import contactFormTemplate from './contact-form-template.html?raw';
+import contactFormText from './contact-form-template.txt?raw';
 
 // ENHANCED REPLACEMENT FUNCTION FOR HTML
 function fillHtmlTemplate(
