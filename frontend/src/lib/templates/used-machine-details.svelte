@@ -3,7 +3,6 @@
 	import Separator from '$lib/components/ui/separator/separator.svelte';
 	import type { Employee } from '$lib/models/employee';
 	import type { ProductDataSheet } from '$lib/models/productDataSheet';
-	import DefaultContent from '$lib/sections/default-content.svelte';
 	import PageHeader from '$lib/sections/page-header.svelte';
 	import { resolveRichText, type StrapiRichTextNode } from '$lib/utils';
 	import { _ } from 'svelte-i18n';
@@ -11,10 +10,11 @@
 	import BlurFade from '$lib/components/blur-fade.svelte';
 	import { Button } from '$lib/components/ui/button';
 	import { page } from '$app/state';
+	import { PUBLIC_BACKEND_URL } from '$env/static/public';
 	import ContactForm from '$lib/sections/contact-form.svelte';
 
 	let data: {
-		contactForm: any;
+		contactFormBuilder: any;
 		contactPerson: Employee;
 		description: StrapiRichTextNode[];
 		productDataSheet: ProductDataSheet;
@@ -31,7 +31,7 @@
 	}[] = [
 		{
 			__component: 'partial-components.content-images',
-			images: data.pictures
+			images: data.productDataSheet.pictures
 		}
 	];
 
@@ -65,6 +65,8 @@
 			value: data.productDataSheet.location
 		}
 	];
+
+	$inspect(data);
 </script>
 
 <div class="flex flex-col items-end justify-between sm:container md:flex-row print:items-center">
@@ -86,39 +88,64 @@
 	</div>
 </div>
 
-<section class="px-4 sm:container sm:mx-auto">
-	<Separator class="bg-primary w-full" />
+<section class="mb-20 px-4 sm:container sm:mx-auto">
+	<Separator class="bg-primary" />
 
-	<BlurFade once={true} delay={0.2} duration={0.2}>
-		<div class="my-6">
-			<Table.Root>
-				<Table.Body>
-					{#each tableRows as row, idx}
-						<Table.Row class="bg-foreground/5 hover:bg-foreground/20 border-foreground/20">
-							<Table.Cell class="bg-foreground/5 w-[100px] sm:w-[150px]">
-								{row?.label}
-							</Table.Cell>
-							<Table.Cell class="min-w-[100px] text-center font-medium">
-								{row?.value}
-							</Table.Cell>
-						</Table.Row>
-					{/each}
-				</Table.Body>
-			</Table.Root>
+	<div class="grid grid-cols-1 gap-16 lg:grid-cols-3">
+		<div class="col-span-1 lg:col-span-2">
+			<BlurFade once={true} delay={0.2} duration={0.2}>
+				<div class="my-6">
+					<Table.Root>
+						<Table.Body>
+							{#each tableRows as row, idx}
+								<Table.Row class="bg-foreground/5 hover:bg-foreground/20 border-foreground/20">
+									<Table.Cell class="bg-foreground/5 w-[100px] sm:w-[150px]">
+										{row?.label}
+									</Table.Cell>
+									<Table.Cell class="min-w-[100px] text-center font-medium">
+										{row?.value}
+									</Table.Cell>
+								</Table.Row>
+							{/each}
+						</Table.Body>
+					</Table.Root>
+				</div>
+			</BlurFade>
+
+			<BlurFade once={true} delay={0.25} duration={0.2}>
+				{#if data.description}
+					<Separator class="bg-primary" />
+					<p
+						class="prose prose-neutral marker:text-primary prose-sm md:prose-base lg:prose-lg my-6 max-w-7xl"
+					>
+						{@html resolveRichText(data.description)}
+					</p>
+				{/if}
+			</BlurFade>
+			<Separator class="bg-primary mt-6 lg:hidden" />
 		</div>
-	</BlurFade>
-
-	<BlurFade once={true} delay={0.25} duration={0.2}>
-		{#if data.description}
-			<Separator class="bg-primary w-full" />
-			<p class="prose prose-neutral marker:text-primary prose-sm md:prose-base xl:prose-lg my-6">
-				{@html resolveRichText(data.description)}
-			</p>
-		{/if}
-	</BlurFade>
-	<Separator class="bg-primary my-6 w-full" />
+		<div class="lg:mt-6">
+			<BlurFade once={true} delay={0.3} duration={0.2}>
+				{#if contentImages}
+					{#each contentImages as item}
+						<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-1">
+							{#each item.images as image}
+								{#if image}
+									<img
+										class="shadow-primary w-full object-cover"
+										src={!PUBLIC_BACKEND_URL.includes('https')
+											? `${PUBLIC_BACKEND_URL}${image.formats['large']?.url || image.url}`
+											: image.url}
+										alt={image.alternativeText}
+									/>
+								{/if}
+							{/each}
+						</div>
+					{/each}
+				{/if}
+			</BlurFade>
+		</div>
+	</div>
 </section>
 
-<DefaultContent {...contentImages} />
-
-<ContactForm contactForm={data.contactForm} />
+<ContactForm contactForm={data.contactFormBuilder} employee={data.contactPerson} />

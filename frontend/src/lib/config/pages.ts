@@ -171,8 +171,7 @@ const pagesConfig: Record<string, PageContent> = {
 		sections: [
 			{
 				sectionKey: 'usedMachineDetails'
-			},
-			{ sectionKey: 'contactForm' }
+			}
 		]
 	},
 

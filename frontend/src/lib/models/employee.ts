@@ -6,4 +6,5 @@ export interface Employee {
 	tel: number;
 	position: string;
 	picture: ImageAsset;
+	contactPicture: ImageAsset;
 }

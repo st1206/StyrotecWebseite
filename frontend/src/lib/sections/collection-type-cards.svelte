@@ -7,7 +7,10 @@
 	const collectionTypeData = {
 		cards: Object.values(data).map((entry: any) => {
 			return {
-				title: entry.productDataSheet.name ? entry.productDataSheet.name : entry.title,
+				title:
+					entry.productDataSheet && entry.productDataSheet.name
+						? entry.productDataSheet.name
+						: entry.title,
 				thumbnail: entry.pictures ? entry.pictures[0] : entry.images ? entry.images[0] : null,
 				redirectButtons: [
 					{

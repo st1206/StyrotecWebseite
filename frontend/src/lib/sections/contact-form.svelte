@@ -10,10 +10,16 @@
 	import { onMount } from 'svelte';
 	import { page } from '$app/state';
 	import { _ } from 'svelte-i18n';
+	import type { Employee } from '$lib/models/employee';
 
-	let data = $props();
+	let data: {
+		contactForm: any;
+		employee: Employee;
+	} = $props();
 
-	const form = superForm(data.contactFormBuilder, {
+	$inspect('data', data);
+
+	const form = superForm(data.contactForm, {
 		validators: zodClient(contactFormSchema)
 	});
 
@@ -22,7 +28,6 @@
 	onMount(() => {
 		const originUrl = page.url.pathname;
 		formData.set({ ...$formData, originUrl, mailToContactPerson: data.employee.email });
-		console.log($formData);
 	});
 </script>
 
@@ -34,7 +39,7 @@
 		<div
 			class="bg-secondary/10 text-secondary mb-12 mt-16 grid h-full grid-cols-1 gap-x-8 p-8 md:grid-cols-5 lg:gap-x-12 xl:grid-cols-6"
 		>
-			<h5 class="font-boldFont col-span-1 mb-6 md:col-span-5 text-4xl">
+			<h5 class="font-boldFont col-span-1 mb-6 text-4xl md:col-span-5">
 				{$_('contactForm')}
 			</h5>
 

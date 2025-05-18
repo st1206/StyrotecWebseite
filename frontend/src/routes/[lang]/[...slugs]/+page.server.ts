@@ -64,7 +64,7 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 		const collectionItems = await getCMSDataForCollection(
 			{
 				cmsApiSlug: collectionApiSlug!,
-				cmsApiParams: `filters[slug][$eq]=${id}&populate=*`
+				cmsApiParams: `filters[slug][$eq]=${id}&populate=${'productDataSheet.pictures'}&populate=contactPerson.picture&populate=contactPerson.contactPicture`
 			},
 			lang
 		);

@@ -1,3 +1,5 @@
+import type { ImageAsset } from '$lib/cmsTypes/image-type';
+
 export type ProductDataSheet = {
 	internalId: string;
 	name: string;
@@ -7,4 +9,5 @@ export type ProductDataSheet = {
 	yearOfManufacture: string;
 	condition: 'neu' | 'überholt' | 'gebraucht, sehr gut' | 'gebraucht, gut' | 'gebraucht';
 	location: string;
+	pictures: ImageAsset[];
 };

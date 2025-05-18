@@ -550,12 +550,6 @@ export interface ApiCncMillCncMill extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::cnc-mill.cnc-mill'
     >;
-    pictures: Schema.Attribute.Media<'images' | 'files', true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     productDataSheet: Schema.Attribute.Component<
       'partial-components.product-data-sheet',
       false
