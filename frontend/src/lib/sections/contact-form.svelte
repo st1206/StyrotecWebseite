@@ -17,8 +17,6 @@
 		employee: Employee;
 	} = $props();
 
-	$inspect('data', data);
-
 	const form = superForm(data.contactForm, {
 		validators: zodClient(contactFormSchema)
 	});

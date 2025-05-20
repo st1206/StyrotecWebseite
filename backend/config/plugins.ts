@@ -1,4 +1,4 @@
-export default () => ({
+export default ({ env }) => ({
   "preview-button": {
     config: {
       contentTypes: [
@@ -18,6 +18,14 @@ export default () => ({
           },
         },
       ],
+    },
+  },
+  "strapi-algolia": {
+    enabled: true,
+    config: {
+      apiKey: env("ALGOLIA_API_KEY"),
+      applicationId: env("ALGOLIA_APP_ID"),
+      contentTypes: [],
     },
   },
 });

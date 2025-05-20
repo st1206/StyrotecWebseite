@@ -12,7 +12,7 @@
 			<SectionComponent
 				{...data.pageContent.cmsData[section.sectionKey as keyof typeof data.pageContent.cmsData]}
 				{...section.props}
-				contactFormBuilder={data.pageContent.contactFormBuilder}
+				contactForm={data.pageContent.contactFormBuilder}
 			/>
 		{:else}
 			<p>Section {section.sectionKey} not found</p>

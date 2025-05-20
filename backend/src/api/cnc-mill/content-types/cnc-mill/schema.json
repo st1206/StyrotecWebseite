@@ -49,6 +49,20 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::employee.employee"
+    },
+    "pictures": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

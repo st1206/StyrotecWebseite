@@ -12,8 +12,8 @@
 	import * as Tooltip from '$lib/components/ui/tooltip';
 	import BlurFade from '$lib/components/blur-fade.svelte';
 	import MobileNav from './mobile-nav.svelte';
-	import { SplineIcon } from 'lucide-svelte';
 	import AnimatedHamburger from '$lib/components/animatedHamburger.svelte';
+	import SearchPanel from '$lib/components/search-panel.svelte';
 
 	type MenuState = {
 		hovered: boolean;
@@ -21,7 +21,9 @@
 	};
 
 	// default open state for menu id 3
-	let itemStateMap = new SvelteMap<number, MenuState>();
+	let itemStateMap = $state(
+		new SvelteMap<number, MenuState>([[99, { hovered: false, open: false }]])
+	);
 
 	function closeAll(): void {
 		for (const [k, state] of itemStateMap.entries()) {
@@ -74,7 +76,12 @@
 		return appendage.startsWith('/') ? `${base}${appendage}` : `${base}/${appendage}`;
 	}
 
-	let open = $state(false);
+	let isNavPanelOpen = $state(false);
+
+	function handleSearchPanelOpen() {
+		itemStateMap.set(99, { hovered: true, open: true });
+		console.log('state', itemStateMap);
+	}
 </script>
 
 <div class="bg-foreground absolute top-0 h-20 w-full"></div>
@@ -88,7 +95,7 @@
 				? 'supports-[backdrop-filter]:bg-foreground/100 h-[580px]'
 				: 'supports-[backdrop-filter]:bg-foreground/100 h-[450px]'
 			: 'supports-[backdrop-filter]:bg-foreground/90 h-20',
-		open ? 'supports-[backdrop-filter]:bg-foreground/100' : '',
+		isNavPanelOpen ? 'supports-[backdrop-filter]:bg-foreground/100' : '',
 		'fixed top-0 z-40 w-full px-4 py-2 shadow-lg backdrop-blur transition-all duration-200 ease-in-out md:px-0 print:static'
 	)}
 >
@@ -133,7 +140,7 @@
 				<Tooltip.Provider>
 					<Tooltip.Root>
 						<Tooltip.Trigger>
-							<Button variant="secondary" size="icon">
+							<Button onclick={handleSearchPanelOpen} variant="secondary" size="icon">
 								<span class="flex skew-x-[15deg] items-center gap-2">
 									<Icons.search class="size-4" />
 								</span>
@@ -164,13 +171,18 @@
 		<!-- navBreak:hidden -->
 
 		<div class="absolute left-0 top-[79px] -z-10 print:hidden">
-			<MobileNav bind:open />
+			<MobileNav bind:open={isNavPanelOpen} />
 		</div>
 		<div class="navBreak:hidden flex items-center gap-1 print:hidden">
-			<Button variant="ghost" size="icon" class="hover:bg-transparent">
+			<Button
+				onclick={handleSearchPanelOpen}
+				variant="ghost"
+				size="icon"
+				class="hover:bg-transparent"
+			>
 				<Icons.search class="text-secondary size-6" />
 			</Button>
-			<AnimatedHamburger bind:open />
+			<AnimatedHamburger bind:open={isNavPanelOpen} />
 		</div>
 	</div>
 
@@ -180,68 +192,76 @@
 			in:fly={{ y: -30, duration: 300 }}
 			out:fly={{ y: -30, duration: 200 }}
 		>
-			{#each menu as menuItem}
-				{#if itemStateMap.get(menuItem.id)?.open && menuItem.menuRoutes.length}
-					{#if menuItem.key === 'industries'}
-						<div class="flex flex-wrap justify-center gap-6">
-							{#each menuItem.menuRoutes as route, i}
-								<a
-									class="w-1/5"
-									href={getLink(menuItem.key, route.anchor)}
-									onclick={(e) => closeAll()}
-								>
-									<BlurFade delay={0.03 * i} duration={0.3}>
-										<div
-											class="text-secondary hover:shadow-primary font-boldFont bg-secondary/30 flex h-full w-full cursor-pointer
-										flex-col items-center justify-center gap-4 p-8 text-xl transition duration-300 ease-in-out xl:text-2xl"
-										>
-											{#if route.icon}
-												<route.icon class="text-secondary fill-secondary md:h-20 md:w-20" />
-											{/if}
-											<span>{$_(`nav.${route.key}`)}</span>
-										</div>
-									</BlurFade>
-								</a>
-							{/each}
-						</div>
-					{:else}
-						{#each menuItem.menuRoutes as route, i}
-							<BlurFade delay={0.03 * i} duration={0.3}>
-								<div class="flex flex-col gap-6">
+			{#if itemStateMap.get(99)?.open}
+				<!-- search panel -->
+				<SearchPanel bind:itemStateMap />
+			{:else}
+				<!-- regular nav panel -->
+				{#each menu as menuItem}
+					{#if itemStateMap.get(menuItem.id)?.open && menuItem.menuRoutes.length}
+						{#if menuItem.key === 'industries'}
+							<div class="flex flex-wrap justify-center gap-6">
+								{#each menuItem.menuRoutes as route, i}
 									<a
-										class="font-boldFont text-primary text-2xl hover:underline xl:text-3xl"
-										href={getLink(route.key, route.anchor)}
+										class="w-1/5"
+										href={getLink(menuItem.key, route.anchor)}
 										onclick={(e) => closeAll()}
 									>
-										{$_(`nav.${route.key}`)}
+										<BlurFade delay={0.03 * i} duration={0.3}>
+											<div
+												class="text-secondary hover:shadow-primary font-boldFont bg-secondary/30 flex h-full w-full cursor-pointer
+										flex-col items-center justify-center gap-4 p-8 text-xl transition duration-300 ease-in-out xl:text-2xl"
+											>
+												{#if route.icon}
+													<route.icon class="text-secondary fill-secondary md:h-20 md:w-20" />
+												{/if}
+												<span>{$_(`nav.${route.key}`)}</span>
+											</div>
+										</BlurFade>
 									</a>
+								{/each}
+							</div>
+						{:else}
+							{#each menuItem.menuRoutes as route, i}
+								<BlurFade delay={0.03 * i} duration={0.3}>
+									<div class="flex flex-col gap-6">
+										<a
+											class="font-boldFont text-primary text-2xl hover:underline xl:text-3xl"
+											href={getLink(route.key, route.anchor)}
+											onclick={(e) => closeAll()}
+										>
+											{$_(`nav.${route.key}`)}
+										</a>
 
-									{#if route.routeChildren?.length}
-										<ul class="flex flex-col gap-1">
-											{#each route.routeChildren as routeChild}
-												<li>
-													<a
-														class="text-md text-white hover:underline xl:text-lg"
-														href={routeChild.anchor
-															? getLink(route.key, routeChild.anchor)
-															: getLink(routeChild.key)}
-														onclick={(e) => closeAll()}
-													>
-														{$_(`nav.${routeChild.key}`)}
-													</a>
-												</li>
-											{/each}
-										</ul>
-									{/if}
-								</div>
-							</BlurFade>
-						{/each}
+										{#if route.routeChildren?.length}
+											<ul class="flex flex-col gap-1">
+												{#each route.routeChildren as routeChild}
+													<li>
+														<a
+															class="text-md text-white hover:underline xl:text-lg"
+															href={routeChild.anchor
+																? getLink(route.key, routeChild.anchor)
+																: getLink(routeChild.key)}
+															onclick={(e) => closeAll()}
+														>
+															{$_(`nav.${routeChild.key}`)}
+														</a>
+													</li>
+												{/each}
+											</ul>
+										{/if}
+									</div>
+								</BlurFade>
+							{/each}
+						{/if}
 					{/if}
-				{/if}
-			{/each}
+				{/each}
+			{/if}
 		</div>
 	{/if}
 </nav>
+
+<!-- blurry background -->
 {#if isAnyItemOpen()}
 	<div
 		transition:fade={{ duration: 300 }}

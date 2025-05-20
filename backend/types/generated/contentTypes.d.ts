@@ -550,6 +550,13 @@ export interface ApiCncMillCncMill extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::cnc-mill.cnc-mill'
     >;
+    pictures: Schema.Attribute.Media<'images' | 'files', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     productDataSheet: Schema.Attribute.Component<
       'partial-components.product-data-sheet',
       false
@@ -1131,6 +1138,12 @@ export interface ApiMillingToolsPageMillingToolsPage
       'api::milling-tools-page.milling-tools-page'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    TEST: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

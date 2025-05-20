@@ -57,81 +57,83 @@
 		{/if}
 		<div class={cn('grid grid-cols-6 justify-center gap-16')}>
 			{#each data.cards as card, i}
-				<div
-					id={card.anchor}
-					class={cn(
-						data.isDarkMode ? 'bg-secondary/10 text-secondary' : 'bg-foreground text-secondary',
-						i % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row',
-						card.thumbnail && !card.content ? 'md:col-span-3 xl:col-span-2' : '',
-						!card.thumbnail && card.content && data.cards.length > 1 ? 'md:col-span-3' : '',
-						data.cards.length > 1 &&
-							i + 1 === data.cards.length &&
-							!card.thumbnail &&
-							data.cards.length % 2 !== 0
-							? 'md:col-start-3'
-							: '',
-						'shadow-primary relative col-span-6 mx-auto flex scroll-mt-24 flex-col gap-4 transition duration-300 ease-in-out'
-					)}
-				>
-					<BlurFade once={true} delay={i * 0.1} duration={0.2}>
-						{#if card.thumbnail}
-							<div class="max-h-content w-full">
-								<img
-									class="h-full w-full object-cover lg:max-w-[600px] xl:max-w-[800px]"
-									src={!PUBLIC_BACKEND_URL.includes('https')
-										? `${PUBLIC_BACKEND_URL}${card.thumbnail.url}`
-										: card.thumbnail.url}
-									alt={card.thumbnail.alternativeText}
-								/>
-							</div>
-						{/if}
-						{#if !card.content}
-							<div
-								class="bg-foreground/90 absolute bottom-0 flex w-full items-center justify-between p-2 px-4"
-							>
-								<h4 class="text-secondary font-boldFont text-2xl lg:text-3xl">
-									{card.title}
-								</h4>
-								{#if card.redirectButtons.length}
-									{#each card.redirectButtons as button}
-										<Button size="sm" href={getRedirectLink(button.redirectSlug)}>
-											<span class="skew-x-[15deg]">{button.label}</span>
-										</Button>
-									{/each}
-								{/if}
-							</div>
-						{/if}
-						{#if card.content}
-							<div
-								class={cn(
-									card.thumbnail ? 'w-full' : 'w-full',
-									'flex flex-col justify-between p-10'
-								)}
-							>
-								<div>
-									<h3 class="font-boldFont text-lg sm:text-3xl xl:text-4xl">{card.title}</h3>
-									<div
-										class={cn(
-											data.isDarkMode ? 'text-secondary/90' : 'text-secondary/80',
-											'prose prose-neutral prose-sm xl:prose-lg mt-2'
-										)}
-									>
-										{@html card.content}
-									</div>
+				{#if card}
+					<div
+						id={card.anchor}
+						class={cn(
+							data.isDarkMode ? 'bg-secondary/10 text-secondary' : 'bg-foreground text-secondary',
+							i % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row',
+							card.thumbnail && !card.content ? 'md:col-span-3 xl:col-span-2' : '',
+							!card.thumbnail && card.content && data.cards.length > 1 ? 'md:col-span-3' : '',
+							data.cards.length > 1 &&
+								i + 1 === data.cards.length &&
+								!card.thumbnail &&
+								data.cards.length % 2 !== 0
+								? 'md:col-start-3'
+								: '',
+							'shadow-primary relative col-span-6 mx-auto flex scroll-mt-24 flex-col gap-4 transition duration-300 ease-in-out'
+						)}
+					>
+						<BlurFade once={true} delay={i * 0.1} duration={0.2}>
+							{#if card.thumbnail}
+								<div class="max-h-content w-full">
+									<img
+										class="h-full w-full object-cover lg:max-w-[600px] xl:max-w-[800px]"
+										src={!PUBLIC_BACKEND_URL.includes('https')
+											? `${PUBLIC_BACKEND_URL}${card.thumbnail.url}`
+											: card.thumbnail.url}
+										alt={card.thumbnail.alternativeText}
+									/>
 								</div>
-								{#if card.redirectButtons.length}
-									<div class="mt-6 flex gap-4">
+							{/if}
+							{#if !card.content}
+								<div
+									class="bg-foreground/90 absolute bottom-0 flex w-full items-center justify-between p-2 px-4"
+								>
+									<h4 class="text-secondary font-boldFont text-2xl lg:text-3xl">
+										{card.title}
+									</h4>
+									{#if card.redirectButtons.length}
 										{#each card.redirectButtons as button}
-											<Button href={getRedirectLink(button.redirectSlug)}>
+											<Button size="sm" href={getRedirectLink(button.redirectSlug)}>
 												<span class="skew-x-[15deg]">{button.label}</span>
 											</Button>
 										{/each}
+									{/if}
+								</div>
+							{/if}
+							{#if card.content}
+								<div
+									class={cn(
+										card.thumbnail ? 'w-full' : 'w-full',
+										'flex flex-col justify-between p-10'
+									)}
+								>
+									<div>
+										<h3 class="font-boldFont text-lg sm:text-3xl xl:text-4xl">{card.title}</h3>
+										<div
+											class={cn(
+												data.isDarkMode ? 'text-secondary/90' : 'text-secondary/80',
+												'prose prose-neutral prose-sm xl:prose-lg mt-2'
+											)}
+										>
+											{@html card.content}
+										</div>
 									</div>
-								{/if}
-							</div>
-						{/if}
-					</BlurFade>
-				</div>
+									{#if card.redirectButtons.length}
+										<div class="mt-6 flex gap-4">
+											{#each card.redirectButtons as button}
+												<Button href={getRedirectLink(button.redirectSlug)}>
+													<span class="skew-x-[15deg]">{button.label}</span>
+												</Button>
+											{/each}
+										</div>
+									{/if}
+								</div>
+							{/if}
+						</BlurFade>
+					</div>
+				{/if}
 			{/each}
 		</div>
 	</div>

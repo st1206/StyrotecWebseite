@@ -44,15 +44,6 @@
     "modelType": {
       "type": "string",
       "required": true
-    },
-    "pictures": {
-      "allowedTypes": [
-        "images",
-        "files"
-      ],
-      "type": "media",
-      "multiple": true,
-      "required": false
     }
   }
 }

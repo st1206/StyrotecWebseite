@@ -14,7 +14,7 @@
 	import ContactForm from '$lib/sections/contact-form.svelte';
 
 	let data: {
-		contactFormBuilder: any;
+		contactForm: any;
 		contactPerson: Employee;
 		description: StrapiRichTextNode[];
 		productDataSheet: ProductDataSheet;
@@ -31,7 +31,7 @@
 	}[] = [
 		{
 			__component: 'partial-components.content-images',
-			images: data.productDataSheet.pictures
+			images: data.pictures
 		}
 	];
 
@@ -65,8 +65,6 @@
 			value: data.productDataSheet.location
 		}
 	];
-
-	$inspect(data);
 </script>
 
 <div class="flex flex-col items-end justify-between sm:container md:flex-row print:items-center">
@@ -148,4 +146,4 @@
 	</div>
 </section>
 
-<ContactForm contactForm={data.contactFormBuilder} employee={data.contactPerson} />
+<ContactForm contactForm={data.contactForm} employee={data.contactPerson} />
