@@ -1236,6 +1236,85 @@ export interface ApiSocialMediaChannelSocialMediaChannel
   };
 }
 
+export interface ApiStyrofoamProcessingPageStyrofoamProcessingPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'styrofoam_processing_pages';
+  info: {
+    description: '';
+    displayName: 'Styroporbearbeitung Seite';
+    pluralName: 'styrofoam-processing-pages';
+    singularName: 'styrofoam-processing-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    contactForm: Schema.Attribute.Component<
+      'page-components.contact-form',
+      true
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    exploreMore: Schema.Attribute.Component<
+      'page-components.explore-more',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heroCarousel: Schema.Attribute.Component<
+      'page-components.hero-carousel',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heroTextImage: Schema.Attribute.Component<
+      'page-components.basic-text-image',
+      false
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::styrofoam-processing-page.styrofoam-processing-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    uspList: Schema.Attribute.Component<'partial-components.usp-list', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+  };
+}
+
 export interface ApiUsedMachinesDetailsPageUsedMachinesDetailsPage
   extends Struct.SingleTypeSchema {
   collectionName: 'used_machines_details_pages';
@@ -1863,6 +1942,7 @@ declare module '@strapi/strapi' {
       'api::milling-tools-page.milling-tools-page': ApiMillingToolsPageMillingToolsPage;
       'api::reference.reference': ApiReferenceReference;
       'api::social-media-channel.social-media-channel': ApiSocialMediaChannelSocialMediaChannel;
+      'api::styrofoam-processing-page.styrofoam-processing-page': ApiStyrofoamProcessingPageStyrofoamProcessingPage;
       'api::used-machines-details-page.used-machines-details-page': ApiUsedMachinesDetailsPageUsedMachinesDetailsPage;
       'api::used-machines-page.used-machines-page': ApiUsedMachinesPageUsedMachinesPage;
       'plugin::content-releases.release': PluginContentReleasesRelease;

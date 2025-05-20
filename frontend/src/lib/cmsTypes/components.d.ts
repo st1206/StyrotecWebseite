@@ -27,6 +27,17 @@ export interface PageComponentsCollectionTypeCards
   };
 }
 
+export interface PageComponentsContactForm extends Struct.ComponentSchema {
+  collectionName: 'components_page_components_contact_forms';
+  info: {
+    description: '';
+    displayName: 'contactForm';
+  };
+  attributes: {
+    employee: Schema.Attribute.Relation<'oneToOne', 'api::employee.employee'>;
+  };
+}
+
 export interface PageComponentsDefaultCards extends Struct.ComponentSchema {
   collectionName: 'components_page_components_default_cards';
   info: {
@@ -36,11 +47,11 @@ export interface PageComponentsDefaultCards extends Struct.ComponentSchema {
   attributes: {
     anchor: Schema.Attribute.String;
     cards: Schema.Attribute.Component<'partial-components.default-card', true> &
-    Schema.Attribute.Required;
+      Schema.Attribute.Required;
     description: Schema.Attribute.Text;
     isDarkMode: Schema.Attribute.Boolean &
-    Schema.Attribute.Required &
-    Schema.Attribute.DefaultTo<false>;
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
     sectionTitle: Schema.Attribute.String;
   };
 }
@@ -58,7 +69,7 @@ export interface PageComponentsExploreMore extends Struct.ComponentSchema {
       'partial-components.preview-card',
       true
     > &
-    Schema.Attribute.Required;
+      Schema.Attribute.Required;
     sectionTitle: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -76,7 +87,7 @@ export interface PageComponentsExploreVariants extends Struct.ComponentSchema {
       'partial-components.variant-card',
       true
     > &
-    Schema.Attribute.Required;
+      Schema.Attribute.Required;
   };
 }
 
@@ -105,9 +116,9 @@ export interface PageComponentsHeroDualImage extends Struct.ComponentSchema {
       'page-components.basic-text-image',
       false
     > &
-    Schema.Attribute.Required;
+      Schema.Attribute.Required;
     image: Schema.Attribute.Media<'images' | 'files'> &
-    Schema.Attribute.Required;
+      Schema.Attribute.Required;
     keyword: Schema.Attribute.String & Schema.Attribute.Required;
     subKeyword: Schema.Attribute.String;
   };
@@ -127,7 +138,7 @@ export interface PageComponentsHeroMedia extends Struct.ComponentSchema {
       true
     >;
     media: Schema.Attribute.Media<'files' | 'videos' | 'images'> &
-    Schema.Attribute.Required;
+      Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -143,7 +154,7 @@ export interface PageComponentsHistory extends Struct.ComponentSchema {
       'partial-components.history-entry',
       true
     > &
-    Schema.Attribute.Required;
+      Schema.Attribute.Required;
     sectionTitle: Schema.Attribute.String;
   };
 }
@@ -171,11 +182,11 @@ export interface PartialComponentsAccordion extends Struct.ComponentSchema {
       'partial-components.accordion-item',
       true
     > &
-    Schema.Attribute.Required;
+      Schema.Attribute.Required;
     sectionTitle: Schema.Attribute.String;
     sortOrder: Schema.Attribute.Integer &
-    Schema.Attribute.Required &
-    Schema.Attribute.DefaultTo<1>;
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<1>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -191,8 +202,8 @@ export interface PartialComponentsAccordionItem extends Struct.ComponentSchema {
     description: Schema.Attribute.Text & Schema.Attribute.Required;
     image: Schema.Attribute.Media<'images' | 'files'>;
     sortOrder: Schema.Attribute.Integer &
-    Schema.Attribute.Required &
-    Schema.Attribute.DefaultTo<1>;
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<1>;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
@@ -210,10 +221,10 @@ export interface PartialComponentsContentAccordion
       'partial-components.accordion',
       true
     > &
-    Schema.Attribute.Required;
+      Schema.Attribute.Required;
     sortOrder: Schema.Attribute.Integer &
-    Schema.Attribute.Required &
-    Schema.Attribute.DefaultTo<1>;
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<1>;
     title: Schema.Attribute.String;
   };
 }
@@ -227,8 +238,8 @@ export interface PartialComponentsContentHeader extends Struct.ComponentSchema {
   attributes: {
     description: Schema.Attribute.Text & Schema.Attribute.Required;
     isDarkMode: Schema.Attribute.Boolean &
-    Schema.Attribute.Required &
-    Schema.Attribute.DefaultTo<false>;
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
     sectionTitle: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -241,10 +252,10 @@ export interface PartialComponentsContentImages extends Struct.ComponentSchema {
   };
   attributes: {
     images: Schema.Attribute.Media<'images' | 'files', true> &
-    Schema.Attribute.Required;
+      Schema.Attribute.Required;
     sortOrder: Schema.Attribute.Integer &
-    Schema.Attribute.Required &
-    Schema.Attribute.DefaultTo<1>;
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<1>;
     title: Schema.Attribute.String;
   };
 }
@@ -257,8 +268,8 @@ export interface PartialComponentsContentTable extends Struct.ComponentSchema {
   };
   attributes: {
     sortOrder: Schema.Attribute.Integer &
-    Schema.Attribute.Required &
-    Schema.Attribute.DefaultTo<1>;
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<1>;
     tables: Schema.Attribute.Component<'partial-components.table', true>;
     title: Schema.Attribute.String;
   };
@@ -277,10 +288,10 @@ export interface PartialComponentsContentTextImage
     imagePosition: Schema.Attribute.Enumeration<
       ['top', 'bottom', 'left', 'right']
     > &
-    Schema.Attribute.DefaultTo<'right'>;
+      Schema.Attribute.DefaultTo<'right'>;
     sortOrder: Schema.Attribute.Integer &
-    Schema.Attribute.Required &
-    Schema.Attribute.DefaultTo<1>;
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<1>;
     title: Schema.Attribute.String;
   };
 }
@@ -326,8 +337,8 @@ export interface PartialComponentsImageCard extends Struct.ComponentSchema {
     employee: Schema.Attribute.Relation<'oneToOne', 'api::employee.employee'>;
     image: Schema.Attribute.Media<'images' | 'files'>;
     sortOrder: Schema.Attribute.Integer &
-    Schema.Attribute.Required &
-    Schema.Attribute.DefaultTo<1>;
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<1>;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
@@ -344,13 +355,13 @@ export interface PartialComponentsPreviewCard extends Struct.ComponentSchema {
     content: Schema.Attribute.Text & Schema.Attribute.Required;
     ctaText: Schema.Attribute.String & Schema.Attribute.Required;
     isImageTransparent: Schema.Attribute.Boolean &
-    Schema.Attribute.DefaultTo<false>;
+      Schema.Attribute.DefaultTo<false>;
     redirectSlug: Schema.Attribute.String &
-    Schema.Attribute.Required &
-    Schema.Attribute.Unique;
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
     subtitle: Schema.Attribute.String;
     thumbnail: Schema.Attribute.Media<'images' | 'files'> &
-    Schema.Attribute.Required;
+      Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -379,6 +390,7 @@ export interface PartialComponentsProductDataSheet
     manufacturer: Schema.Attribute.String & Schema.Attribute.Required;
     modelType: Schema.Attribute.String & Schema.Attribute.Required;
     name: Schema.Attribute.String & Schema.Attribute.Required;
+    pictures: Schema.Attribute.Media<'images' | 'files', true>;
     yearOfManufacture: Schema.Attribute.BigInteger & Schema.Attribute.Required;
   };
 }
@@ -404,13 +416,13 @@ export interface PartialComponentsTable extends Struct.ComponentSchema {
   };
   attributes: {
     sortOrder: Schema.Attribute.Integer &
-    Schema.Attribute.Required &
-    Schema.Attribute.DefaultTo<1>;
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<1>;
     tableColumns: Schema.Attribute.Component<
       'partial-components.table-column',
       true
     > &
-    Schema.Attribute.Required;
+      Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -427,7 +439,7 @@ export interface PartialComponentsTableColumn extends Struct.ComponentSchema {
       'partial-components.table-row',
       true
     > &
-    Schema.Attribute.Required;
+      Schema.Attribute.Required;
   };
 }
 
@@ -454,7 +466,7 @@ export interface PartialComponentsTextImage extends Struct.ComponentSchema {
       'partial-components.accordion-item',
       true
     > &
-    Schema.Attribute.Required;
+      Schema.Attribute.Required;
     sectionTitle: Schema.Attribute.String & Schema.Attribute.Required;
     sortOrder: Schema.Attribute.Integer & Schema.Attribute.Required;
   };
@@ -485,7 +497,7 @@ export interface PartialComponentsVariantAccordionItem
       'partial-components.variant-accordion-item-line',
       true
     > &
-    Schema.Attribute.Required;
+      Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -516,9 +528,9 @@ export interface PartialComponentsVariantCard extends Struct.ComponentSchema {
       'partial-components.variant-accordion-item',
       true
     > &
-    Schema.Attribute.Required;
+      Schema.Attribute.Required;
     image: Schema.Attribute.Media<'images' | 'files'> &
-    Schema.Attribute.Required;
+      Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -528,6 +540,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'page-components.basic-text-image': PageComponentsBasicTextImage;
       'page-components.collection-type-cards': PageComponentsCollectionTypeCards;
+      'page-components.contact-form': PageComponentsContactForm;
       'page-components.default-cards': PageComponentsDefaultCards;
       'page-components.explore-more': PageComponentsExploreMore;
       'page-components.explore-variants': PageComponentsExploreVariants;

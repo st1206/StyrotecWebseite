@@ -1,0 +1,74 @@
+{
+  "kind": "singleType",
+  "collectionName": "styrofoam_processing_pages",
+  "info": {
+    "singularName": "styrofoam-processing-page",
+    "pluralName": "styrofoam-processing-pages",
+    "displayName": "Styroporbearbeitung Seite",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "uspList": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "partial-components.usp-list",
+      "required": true
+    },
+    "exploreMore": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.explore-more",
+      "required": true
+    },
+    "contactForm": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.contact-form",
+      "required": true
+    },
+    "heroCarousel": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.hero-carousel",
+      "required": true
+    },
+    "heroTextImage": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.basic-text-image"
+    }
+  }
+}

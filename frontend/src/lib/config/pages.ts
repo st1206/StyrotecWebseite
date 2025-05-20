@@ -8,6 +8,7 @@ import type {
 	ApiIndustriesPageIndustriesPage,
 	ApiMetalsPageMetalsPage,
 	ApiMillingToolsPageMillingToolsPage,
+	ApiStyrofoamProcessingPageStyrofoamProcessingPage,
 	ApiUsedMachinesDetailsPageUsedMachinesDetailsPage,
 	ApiUsedMachinesPageUsedMachinesPage
 } from '$lib/cmsTypes/contentTypes';
@@ -17,6 +18,7 @@ import { buildPopulateQuery } from './apiParamsBuilder';
 export interface CMSTypeMap {
 	home: ApiHomeHome;
 	briquettpressPage: ApiBriquettingPressPageBriquettingPressPage;
+	styorofoamProcessingPage: ApiStyrofoamProcessingPageStyrofoamProcessingPage
 	gantryMachinesPage: ApiGantryMachinesPageGantryMachinesPage;
 	fs10Page: ApiFs10PageFs10Page;
 	metalsPage: ApiMetalsPageMetalsPage;
@@ -70,6 +72,19 @@ const pagesConfig: Record<string, PageContent> = {
 		enSlug: 'products/briquetting-press',
 		cmsTypeKey: 'briquettpressPage',
 		cmsApiSlug: 'briquett-press-page',
+		sections: [
+			{ sectionKey: 'heroCarousel' },
+			{ sectionKey: 'heroTextImage' },
+			{ sectionKey: 'uspList' },
+			{ sectionKey: 'exploreMore' },
+			{ sectionKey: 'contactForm' }
+		]
+	},
+	styrofoamProcessing: {
+		deSlug: 'produkte/styroporbearbeitung',
+		enSlug: 'products/styrofoam-processing',
+		cmsTypeKey: 'styorofoamProcessingPage',
+		cmsApiSlug: 'styrofoam-processing-page',
 		sections: [
 			{ sectionKey: 'heroCarousel' },
 			{ sectionKey: 'heroTextImage' },

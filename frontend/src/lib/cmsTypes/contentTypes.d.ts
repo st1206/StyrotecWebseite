@@ -452,6 +452,16 @@ export interface ApiBriquettingPressPageBriquettingPressPage
     };
   };
   attributes: {
+    contactForm: Schema.Attribute.Component<
+      'page-components.contact-form',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -540,12 +550,6 @@ export interface ApiCncMillCncMill extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::cnc-mill.cnc-mill'
     >;
-    pictures: Schema.Attribute.Media<'images' | 'files', true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     productDataSheet: Schema.Attribute.Component<
       'partial-components.product-data-sheet',
       false
@@ -597,6 +601,16 @@ export interface ApiCncMillsPageCncMillsPage extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
+    contactForm: Schema.Attribute.Component<
+      'page-components.contact-form',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -634,6 +648,8 @@ export interface ApiEmployeeEmployee extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    contactPicture: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -747,6 +763,16 @@ export interface ApiFs10PageFs10Page extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
+    contactForm: Schema.Attribute.Component<
+      'page-components.contact-form',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -809,6 +835,16 @@ export interface ApiGantryMachinesPageGantryMachinesPage
     };
   };
   attributes: {
+    contactForm: Schema.Attribute.Component<
+      'page-components.contact-form',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1009,6 +1045,16 @@ export interface ApiMetalsPageMetalsPage extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
+    contactForm: Schema.Attribute.Component<
+      'page-components.contact-form',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1190,6 +1236,86 @@ export interface ApiSocialMediaChannelSocialMediaChannel
   };
 }
 
+export interface ApiStyrofoamProcessingPageStyrofoamProcessingPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'styrofoam_processing_pages';
+  info: {
+    description: '';
+    displayName: 'Styroporbearbeitung';
+    pluralName: 'styrofoam-processing-pages';
+    singularName: 'styrofoam-processing-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    ContactForm: Schema.Attribute.Component<
+      'page-components.contact-form',
+      true
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    exploreMore: Schema.Attribute.Component<
+      'page-components.explore-more',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    HeroCarousel: Schema.Attribute.Component<
+      'page-components.hero-carousel',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::styrofoam-processing-page.styrofoam-processing-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    TextImage: Schema.Attribute.Component<
+      'page-components.basic-text-image',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    UspList: Schema.Attribute.Component<'partial-components.usp-list', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+  };
+}
+
 export interface ApiUsedMachinesDetailsPageUsedMachinesDetailsPage
   extends Struct.SingleTypeSchema {
   collectionName: 'used_machines_details_pages';
@@ -1248,6 +1374,16 @@ export interface ApiUsedMachinesPageUsedMachinesPage
     };
   };
   attributes: {
+    contactForm: Schema.Attribute.Component<
+      'page-components.contact-form',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1807,6 +1943,7 @@ declare module '@strapi/strapi' {
       'api::milling-tools-page.milling-tools-page': ApiMillingToolsPageMillingToolsPage;
       'api::reference.reference': ApiReferenceReference;
       'api::social-media-channel.social-media-channel': ApiSocialMediaChannelSocialMediaChannel;
+      'api::styrofoam-processing-page.styrofoam-processing-page': ApiStyrofoamProcessingPageStyrofoamProcessingPage;
       'api::used-machines-details-page.used-machines-details-page': ApiUsedMachinesDetailsPageUsedMachinesDetailsPage;
       'api::used-machines-page.used-machines-page': ApiUsedMachinesPageUsedMachinesPage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
