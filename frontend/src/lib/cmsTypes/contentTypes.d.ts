@@ -550,6 +550,13 @@ export interface ApiCncMillCncMill extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::cnc-mill.cnc-mill'
     >;
+    pictures: Schema.Attribute.Media<'images' | 'files', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     productDataSheet: Schema.Attribute.Component<
       'partial-components.product-data-sheet',
       false
@@ -884,6 +891,13 @@ export interface ApiGantryMachinesPageGantryMachinesPage
       'api::gantry-machines-page.gantry-machines-page'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'page-components.seo', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1131,6 +1145,12 @@ export interface ApiMillingToolsPageMillingToolsPage
       'api::milling-tools-page.milling-tools-page'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    TEST: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1241,7 +1261,7 @@ export interface ApiStyrofoamProcessingPageStyrofoamProcessingPage
   collectionName: 'styrofoam_processing_pages';
   info: {
     description: '';
-    displayName: 'Styroporbearbeitung';
+    displayName: 'Styroporbearbeitung Seite';
     pluralName: 'styrofoam-processing-pages';
     singularName: 'styrofoam-processing-page';
   };
@@ -1254,7 +1274,7 @@ export interface ApiStyrofoamProcessingPageStyrofoamProcessingPage
     };
   };
   attributes: {
-    ContactForm: Schema.Attribute.Component<
+    contactForm: Schema.Attribute.Component<
       'page-components.contact-form',
       true
     > &
@@ -1277,11 +1297,20 @@ export interface ApiStyrofoamProcessingPageStyrofoamProcessingPage
           localized: true;
         };
       }>;
-    HeroCarousel: Schema.Attribute.Component<
+    heroCarousel: Schema.Attribute.Component<
       'page-components.hero-carousel',
       false
     > &
       Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heroTextImage: Schema.Attribute.Component<
+      'page-components.basic-text-image',
+      false
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1293,20 +1322,10 @@ export interface ApiStyrofoamProcessingPageStyrofoamProcessingPage
       'api::styrofoam-processing-page.styrofoam-processing-page'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    TextImage: Schema.Attribute.Component<
-      'page-components.basic-text-image',
-      false
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    UspList: Schema.Attribute.Component<'partial-components.usp-list', true> &
+    uspList: Schema.Attribute.Component<'partial-components.usp-list', true> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

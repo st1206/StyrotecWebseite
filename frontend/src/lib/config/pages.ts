@@ -18,7 +18,7 @@ import { buildPopulateQuery } from './apiParamsBuilder';
 export interface CMSTypeMap {
 	home: ApiHomeHome;
 	briquettpressPage: ApiBriquettingPressPageBriquettingPressPage;
-	styorofoamProcessingPage: ApiStyrofoamProcessingPageStyrofoamProcessingPage
+	styorofoamProcessingPage: ApiStyrofoamProcessingPageStyrofoamProcessingPage;
 	gantryMachinesPage: ApiGantryMachinesPageGantryMachinesPage;
 	fs10Page: ApiFs10PageFs10Page;
 	metalsPage: ApiMetalsPageMetalsPage;
@@ -103,7 +103,8 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'heroTextImage' },
 			{ sectionKey: 'uspList' },
 			{ sectionKey: 'exploreMore' },
-			{ sectionKey: 'contactForm' }
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
 		]
 	},
 

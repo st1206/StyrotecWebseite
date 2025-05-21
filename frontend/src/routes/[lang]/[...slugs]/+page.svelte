@@ -1,8 +1,32 @@
 <script lang="ts">
+	import { page } from '$app/state';
+	import { siteData } from '$lib/config/metadata.js';
 	import { sectionMap } from '$lib/sections';
+	import { locale } from 'svelte-i18n';
 
 	let { data } = $props();
+
+	type SEOObject = {
+		pageTitle: string;
+		pageDescription: string;
+		keywords: string;
+	};
+
+	const seoData: SEOObject = $state(
+		data.pageContent.cmsData['seo' as keyof typeof data.pageContent.cmsData]
+	);
 </script>
+
+<svelte:head>
+	<title>{seoData.pageTitle}</title>
+	<meta name="description" content={seoData.pageDescription} />
+	<meta property="og:title" content={seoData.pageTitle} />
+	<meta property="og:description" content={seoData.pageDescription} />
+	<meta property="og:url" content={page.url.pathname} />
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content={siteData.siteName} />
+	<meta property="og:locale" content={$locale} />
+</svelte:head>
 
 {#if data.pageContent}
 	{console.log(data)}
@@ -14,7 +38,7 @@
 				{...section.props}
 				contactForm={data.pageContent.contactFormBuilder}
 			/>
-		{:else}
+		{:else if section.sectionKey !== 'seo'}
 			<p>Section {section.sectionKey} not found</p>
 		{/if}
 	{/each}

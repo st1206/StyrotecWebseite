@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-05-20T22:06:37.113Z"
+    "x-generation-date": "2025-05-21T15:11:58.362Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -14473,7 +14473,8 @@
               "heroTextImage",
               "uspList",
               "exploreMore",
-              "contactForm"
+              "contactForm",
+              "seo"
             ],
             "type": "object",
             "properties": {
@@ -14494,6 +14495,9 @@
               },
               "contactForm": {
                 "$ref": "#/components/schemas/PageComponentsContactFormComponent"
+              },
+              "seo": {
+                "$ref": "#/components/schemas/PageComponentsSeoComponent"
               },
               "locale": {
                 "type": "string"
@@ -14558,7 +14562,8 @@
           "heroTextImage",
           "uspList",
           "exploreMore",
-          "contactForm"
+          "contactForm",
+          "seo"
         ],
         "properties": {
           "id": {
@@ -14584,6 +14589,9 @@
           },
           "contactForm": {
             "$ref": "#/components/schemas/PageComponentsContactFormComponent"
+          },
+          "seo": {
+            "$ref": "#/components/schemas/PageComponentsSeoComponent"
           },
           "createdAt": {
             "type": "string",
@@ -14651,6 +14659,9 @@
                 "contactForm": {
                   "$ref": "#/components/schemas/PageComponentsContactFormComponent"
                 },
+                "seo": {
+                  "$ref": "#/components/schemas/PageComponentsSeoComponent"
+                },
                 "createdAt": {
                   "type": "string",
                   "format": "date-time"
@@ -14715,6 +14726,23 @@
           },
           "meta": {
             "type": "object"
+          }
+        }
+      },
+      "PageComponentsSeoComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "pageTitle": {
+            "type": "string"
+          },
+          "pageDescription": {
+            "type": "string"
+          },
+          "keywords": {
+            "type": "string"
           }
         }
       },

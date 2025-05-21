@@ -170,6 +170,19 @@ export interface PageComponentsPageHeader extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponentsSeo extends Struct.ComponentSchema {
+  collectionName: 'components_page_components_seos';
+  info: {
+    description: '';
+    displayName: 'seo';
+  };
+  attributes: {
+    keywords: Schema.Attribute.Text;
+    pagedescription: Schema.Attribute.Text & Schema.Attribute.Required;
+    pagetitle: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface PartialComponentsAccordion extends Struct.ComponentSchema {
   collectionName: 'components_partial_components_accordions';
   info: {
@@ -390,7 +403,6 @@ export interface PartialComponentsProductDataSheet
     manufacturer: Schema.Attribute.String & Schema.Attribute.Required;
     modelType: Schema.Attribute.String & Schema.Attribute.Required;
     name: Schema.Attribute.String & Schema.Attribute.Required;
-    pictures: Schema.Attribute.Media<'images' | 'files', true>;
     yearOfManufacture: Schema.Attribute.BigInteger & Schema.Attribute.Required;
   };
 }
@@ -549,6 +561,7 @@ declare module '@strapi/strapi' {
       'page-components.hero-media': PageComponentsHeroMedia;
       'page-components.history': PageComponentsHistory;
       'page-components.page-header': PageComponentsPageHeader;
+      'page-components.seo': PageComponentsSeo;
       'partial-components.accordion': PartialComponentsAccordion;
       'partial-components.accordion-item': PartialComponentsAccordionItem;
       'partial-components.content-accordion': PartialComponentsContentAccordion;

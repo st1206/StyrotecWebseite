@@ -309,6 +309,9 @@ export default {
             delete record.createdBy;
             delete record.updatedBy;
             delete record.localizations;
+            if (record.seo) {
+              delete record.seo.keywords;
+            }
 
             let objectIDValue: string | undefined;
             if (ctKindForTransform === "singleType") {
