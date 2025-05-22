@@ -61,6 +61,10 @@
         "Sonstige Maschinen"
       ],
       "required": true
+    },
+    "weight": {
+      "type": "string",
+      "required": true
     }
   }
 }

@@ -296,7 +296,7 @@ export interface PartialComponentsContentTextImage
     displayName: 'contentTextImage';
   };
   attributes: {
-    content: Schema.Attribute.Text & Schema.Attribute.Required;
+    content: Schema.Attribute.Blocks;
     image: Schema.Attribute.Media<'images' | 'files'>;
     imagePosition: Schema.Attribute.Enumeration<
       ['top', 'bottom', 'left', 'right']
@@ -416,6 +416,7 @@ export interface PartialComponentsProductDataSheet
     manufacturer: Schema.Attribute.String & Schema.Attribute.Required;
     modelType: Schema.Attribute.String & Schema.Attribute.Required;
     name: Schema.Attribute.String & Schema.Attribute.Required;
+    weight: Schema.Attribute.String & Schema.Attribute.Required;
     yearOfManufacture: Schema.Attribute.BigInteger & Schema.Attribute.Required;
   };
 }

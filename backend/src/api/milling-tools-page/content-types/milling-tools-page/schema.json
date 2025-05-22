@@ -30,14 +30,6 @@
         "partial-components.content-images",
         "partial-components.content-accordion"
       ]
-    },
-    "TEST": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
     }
   }
 }

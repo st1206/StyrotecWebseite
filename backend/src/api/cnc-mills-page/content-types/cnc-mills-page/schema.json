@@ -48,6 +48,17 @@
       },
       "component": "page-components.contact-form",
       "required": true
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.seo",
+      "required": true
     }
   }
 }

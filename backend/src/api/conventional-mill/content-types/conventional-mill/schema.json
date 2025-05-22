@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "cnc_mills",
+  "collectionName": "conventional_mills",
   "info": {
-    "singularName": "cnc-mill",
-    "pluralName": "cnc-mills",
-    "displayName": "CNC-Fräsen",
+    "singularName": "conventional-mill",
+    "pluralName": "conventional-mills",
+    "displayName": "Konventionelle Fräsen",
     "description": ""
   },
   "options": {
@@ -34,7 +34,7 @@
         }
       },
       "type": "blocks",
-      "required": true
+      "required": false
     },
     "slug": {
       "pluginOptions": {
@@ -53,7 +53,7 @@
     "pictures": {
       "type": "media",
       "multiple": true,
-      "required": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files"
@@ -64,7 +64,15 @@
         }
       }
     },
-    "numberOfAxes": {
+    "spindleSpeed": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "machineSerialNumber": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -72,16 +80,7 @@
       },
       "type": "integer"
     },
-    "travelX": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string",
-      "required": false
-    },
-    "travelY": {
+    "tableHolder": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -89,7 +88,7 @@
       },
       "type": "string"
     },
-    "travelZ": {
+    "tableSize": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -97,71 +96,7 @@
       },
       "type": "string"
     },
-    "travelA": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
-    },
-    "travelC": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
-    },
-    "controlSystem": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
-    },
-    "spindleHours": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
-    },
-    "machineHours": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
-    },
-    "clampingSurface": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
-    },
-    "millingSpindle": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
-    },
-    "toolHolder": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
-    },
-    "type": {
+    "power": {
       "pluginOptions": {
         "i18n": {
           "localized": true
