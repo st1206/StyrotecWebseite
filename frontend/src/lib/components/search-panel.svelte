@@ -4,8 +4,9 @@
 	import { PUBLIC_ALGOLIA_SEARCH_KEY, PUBLIC_ALGOLIA_APP_ID } from '$env/static/public';
 	import { ScrollArea } from '$lib/components/ui/scroll-area';
 	import { Button } from '$lib/components/ui/button';
-	import { pages, type PageContent } from '$lib/config/pages'; // Ensure this path is correct
-	import { _, locale as i18nLocaleStore } from 'svelte-i18n'; // Renamed to avoid conflict
+	import { pages, type PageContent } from '$lib/config/pages';
+	import { _, locale as i18nLocaleStore } from 'svelte-i18n';
+	import { innerHeight } from 'svelte/reactivity/window';
 
 	// --- Props and State ---
 	let { itemStateMap = $bindable() } = $props();
@@ -189,11 +190,12 @@
 <div class="mt-8 w-full">
 	<div class="flex w-full justify-end">
 		<Button
+			variant="secondary"
 			class="mr-2"
 			size="icon"
 			onclick={() => itemStateMap.set(99, { hovered: false, open: false })}
 		>
-			<Icons.X class="text-secondary" />
+			<Icons.X />
 		</Button>
 	</div>
 
@@ -214,7 +216,7 @@
 		</div>
 	</div>
 
-	<div class="mt-28 max-h-[70vh] pr-2">
+	<div class="my-28 max-h-[70vh] pr-2">
 		{#if searchValue.trim() !== '' && !isLoading && algoliaResponseResults.length === 0}
 			<div class="text-secondary text-center text-lg">
 				Keine Ergebnisse für "{searchValue}" gefunden.
@@ -222,7 +224,7 @@
 		{/if}
 
 		{#if algoliaResponseResults.length > 0}
-			<ScrollArea class="h-full overflow-y-auto">
+			<ScrollArea style="height: {(innerHeight?.current ?? 0) - 300}px">
 				<div class="space-y-8">
 					{#each algoliaResponseResults as indexResult (indexResult.index)}
 						<section class="bg-secondary/10 rounded-lg p-4 shadow md:p-6">
@@ -238,7 +240,7 @@
 										<h3 class="text-accent mb-1 text-lg font-medium md:text-xl">
 											{getDisplayTitle(hit, indexResult.index)}
 										</h3>
-										{@html `<p class="text-secondary/80 text-sm md:text-base mb-2">${getDisplayDescription(hit, indexResult.index)}</p>`}
+										{@html `<p class="text-secondary/80 text-sm md:text-base mb-2 line-clamp-2">${getDisplayDescription(hit, indexResult.index)}</p>`}
 										{#if link !== '#'}
 											<Button
 												variant="link"

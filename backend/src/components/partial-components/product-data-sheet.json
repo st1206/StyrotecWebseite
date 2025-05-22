@@ -44,6 +44,23 @@
     "modelType": {
       "type": "string",
       "required": true
+    },
+    "dimensions": {
+      "type": "string",
+      "required": true
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "CNC-Fräsmaschinen",
+        "Konventionelle Fräsmaschinen",
+        "Sägen",
+        "Schleifmaschinen",
+        "Drehmaschinen",
+        "Bohrmaschinen",
+        "Sonstige Maschinen"
+      ],
+      "required": true
     }
   }
 }

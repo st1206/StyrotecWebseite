@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-05-21T15:11:58.362Z"
+    "x-generation-date": "2025-05-22T16:08:27.979Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -9789,6 +9789,45 @@
                   "example": "string or id"
                 }
               },
+              "numberOfAxes": {
+                "type": "integer"
+              },
+              "travelX": {
+                "type": "string"
+              },
+              "travelY": {
+                "type": "string"
+              },
+              "travelZ": {
+                "type": "string"
+              },
+              "travelA": {
+                "type": "string"
+              },
+              "travelC": {
+                "type": "string"
+              },
+              "controlSystem": {
+                "type": "string"
+              },
+              "spindleHours": {
+                "type": "string"
+              },
+              "machineHours": {
+                "type": "string"
+              },
+              "clampingSurface": {
+                "type": "string"
+              },
+              "millingSpindle": {
+                "type": "string"
+              },
+              "toolHolder": {
+                "type": "string"
+              },
+              "weight": {
+                "type": "string"
+              },
               "locale": {
                 "type": "string"
               },
@@ -10801,6 +10840,45 @@
               }
             }
           },
+          "numberOfAxes": {
+            "type": "integer"
+          },
+          "travelX": {
+            "type": "string"
+          },
+          "travelY": {
+            "type": "string"
+          },
+          "travelZ": {
+            "type": "string"
+          },
+          "travelA": {
+            "type": "string"
+          },
+          "travelC": {
+            "type": "string"
+          },
+          "controlSystem": {
+            "type": "string"
+          },
+          "spindleHours": {
+            "type": "string"
+          },
+          "machineHours": {
+            "type": "string"
+          },
+          "clampingSurface": {
+            "type": "string"
+          },
+          "millingSpindle": {
+            "type": "string"
+          },
+          "toolHolder": {
+            "type": "string"
+          },
+          "weight": {
+            "type": "string"
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -10999,6 +11077,45 @@
                     }
                   }
                 },
+                "numberOfAxes": {
+                  "type": "integer"
+                },
+                "travelX": {
+                  "type": "string"
+                },
+                "travelY": {
+                  "type": "string"
+                },
+                "travelZ": {
+                  "type": "string"
+                },
+                "travelA": {
+                  "type": "string"
+                },
+                "travelC": {
+                  "type": "string"
+                },
+                "controlSystem": {
+                  "type": "string"
+                },
+                "spindleHours": {
+                  "type": "string"
+                },
+                "machineHours": {
+                  "type": "string"
+                },
+                "clampingSurface": {
+                  "type": "string"
+                },
+                "millingSpindle": {
+                  "type": "string"
+                },
+                "toolHolder": {
+                  "type": "string"
+                },
+                "weight": {
+                  "type": "string"
+                },
                 "createdAt": {
                   "type": "string",
                   "format": "date-time"
@@ -11105,6 +11222,21 @@
           },
           "modelType": {
             "type": "string"
+          },
+          "dimensions": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "CNC-Fräsmaschinen",
+              "Konventionelle Fräsmaschinen",
+              "Sägen",
+              "Schleifmaschinen",
+              "Drehmaschinen",
+              "Bohrmaschinen",
+              "Sonstige Maschinen"
+            ]
           }
         }
       },
