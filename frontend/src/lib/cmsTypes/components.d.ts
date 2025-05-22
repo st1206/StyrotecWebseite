@@ -178,8 +178,8 @@ export interface PageComponentsSeo extends Struct.ComponentSchema {
   };
   attributes: {
     keywords: Schema.Attribute.Text;
-    pagedescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    pagetitle: Schema.Attribute.String & Schema.Attribute.Required;
+    pageDescription: Schema.Attribute.Text & Schema.Attribute.Required;
+    pageTitle: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -296,7 +296,7 @@ export interface PartialComponentsContentTextImage
     displayName: 'contentTextImage';
   };
   attributes: {
-    content: Schema.Attribute.Text & Schema.Attribute.Required;
+    content: Schema.Attribute.Blocks;
     image: Schema.Attribute.Media<'images' | 'files'>;
     imagePosition: Schema.Attribute.Enumeration<
       ['top', 'bottom', 'left', 'right']
@@ -387,6 +387,18 @@ export interface PartialComponentsProductDataSheet
     displayName: 'productDataSheet';
   };
   attributes: {
+    category: Schema.Attribute.Enumeration<
+      [
+        'CNC-Fr\u00E4smaschinen',
+        'Konventionelle Fr\u00E4smaschinen',
+        'S\u00E4gen',
+        'Schleifmaschinen',
+        'Drehmaschinen',
+        'Bohrmaschinen',
+        'Sonstige Maschinen',
+      ]
+    > &
+      Schema.Attribute.Required;
     condition: Schema.Attribute.Enumeration<
       [
         'gebraucht',
@@ -398,11 +410,13 @@ export interface PartialComponentsProductDataSheet
       ]
     >;
     designation: Schema.Attribute.String & Schema.Attribute.Required;
+    dimensions: Schema.Attribute.String & Schema.Attribute.Required;
     internalId: Schema.Attribute.String & Schema.Attribute.Required;
     location: Schema.Attribute.String & Schema.Attribute.Required;
     manufacturer: Schema.Attribute.String & Schema.Attribute.Required;
     modelType: Schema.Attribute.String & Schema.Attribute.Required;
     name: Schema.Attribute.String & Schema.Attribute.Required;
+    weight: Schema.Attribute.String & Schema.Attribute.Required;
     yearOfManufacture: Schema.Attribute.BigInteger & Schema.Attribute.Required;
   };
 }
