@@ -18,7 +18,7 @@
 			<div
 				class={cn(
 					data.keyword.length <= 5 ? 'w-2/5' : 'w-3/5',
-					'bg-foreground/95 absolute h-[130px] [clip-path:polygon(0%_0%,100%_0%,50%_50%,0%_100%)] lg:h-[200px]'
+					'bg-foreground/95 hidden md:block absolute h-[130px] [clip-path:polygon(0%_0%,100%_0%,50%_50%,0%_100%)] lg:h-[200px]'
 				)}
 			>
 				<h1

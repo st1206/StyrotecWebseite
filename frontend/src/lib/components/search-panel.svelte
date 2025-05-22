@@ -7,6 +7,8 @@
 	import { pages, type PageContent } from '$lib/config/pages';
 	import { _, locale as i18nLocaleStore } from 'svelte-i18n';
 	import { innerHeight } from 'svelte/reactivity/window';
+	import { usedMachinesCategoriesMap } from '$lib/models/used-machines-categories';
+	import { algoliaSearchIndexes } from '$lib/config/metadata';
 
 	// --- Props and State ---
 	let { itemStateMap = $bindable() } = $props();
@@ -21,9 +23,6 @@
 
 	// --- Algolia Setup ---
 	const client = liteClient(PUBLIC_ALGOLIA_APP_ID, PUBLIC_ALGOLIA_SEARCH_KEY);
-	// Ensure 'cnc_mill' and other collection type indexes are configured in Algolia
-	// to include 'category' and 'slug' fields in their hits.
-	const indexes = ['pages', 'cnc_mill'];
 
 	// --- Utility Functions ---
 	function debounce(fn: (...args: any[]) => void, delay: number) {
@@ -103,7 +102,6 @@
 	}
 
 	function getLinkForHit(hit: any, indexName: string): string {
-		// Use the svelte-i18n store value directly
 		const currentSvelteLocale = $i18nLocaleStore;
 		const currentAppLocale = currentSvelteLocale === 'en-EN' ? 'en' : 'de';
 		const localePrefix = currentSvelteLocale === 'en-EN' ? '/en/' : '/de/';
@@ -122,21 +120,42 @@
 				return `${localePrefix}${slug}`;
 			}
 		} else {
-			// Logic for collection types (e.g., 'cnc_mill', etc.)
-			const categoryKey = (hit.category as keyof typeof pages) || 'cncMills'; // e.g., "cncMills"
-			const itemSlug = hit.slug as string; // e.g., "my-specific-cnc-mill"
+			// Adjusted to use usedMachinesCategoriesMap
+			let resolvedPageKey: keyof typeof pages | undefined = undefined;
+			const categoryFromHit = hit.productDataSheet?.category as string;
+			const itemSlug = hit.slug as string;
 
-			if (categoryKey && itemSlug && pages[categoryKey]) {
-				const categoryPageConfig = pages[categoryKey];
-				const baseSlug =
-					currentAppLocale === 'en' ? categoryPageConfig.enSlug : categoryPageConfig.deSlug;
+			if (categoryFromHit && usedMachinesCategoriesMap.has(categoryFromHit)) {
+				// The category from the hit (German name) is a key in our map.
+				// Get the corresponding key from the map.
 
-				// Ensure baseSlug doesn't end with a slash and itemSlug doesn't start with one
-				// to prevent double slashes, though typically slugs shouldn't have them.
-				const cleanBaseSlug = baseSlug.endsWith('/') ? baseSlug.slice(0, -1) : baseSlug;
-				const cleanItemSlug = itemSlug.startsWith('/') ? itemSlug.slice(1) : itemSlug;
+				resolvedPageKey = usedMachinesCategoriesMap.get(categoryFromHit) as keyof typeof pages;
+			} else {
+				// Category from hit is truthy but NOT in usedMachinesCategoriesMap.
+				console.warn(
+					`Search item with ID ${hit.objectID} in index ${indexName} has category '${categoryFromHit}', which is not a recognized category key in usedMachinesCategoriesMap. Cannot determine page link for this item through category mapping.`
+				);
+			}
 
-				return `${localePrefix}${cleanBaseSlug}/${cleanItemSlug}`;
+			if (resolvedPageKey && itemSlug && pages[resolvedPageKey]) {
+				const categoryPageConfig = pages[resolvedPageKey];
+				if (categoryPageConfig) {
+					const baseSlug =
+						currentAppLocale === 'en' ? categoryPageConfig.enSlug : categoryPageConfig.deSlug;
+
+					const cleanBaseSlug = baseSlug.endsWith('/') ? baseSlug.slice(0, -1) : baseSlug;
+					const cleanItemSlug = itemSlug.startsWith('/') ? itemSlug.slice(1) : itemSlug;
+
+					return `${localePrefix}${cleanBaseSlug}/${cleanItemSlug}`;
+				} else {
+					console.warn(
+						`Configuration error: No page config found in 'pages' for resolved category key '${String(resolvedPageKey)}' from item ID ${hit.objectID}, index ${indexName}.`
+					);
+				}
+			} else if (resolvedPageKey && itemSlug && !pages[resolvedPageKey]) {
+				console.warn(
+					`Configuration error: Page config for category key '${String(resolvedPageKey)}' not found in 'pages' for item ID ${hit.objectID}, index ${indexName}.`
+				);
 			}
 		}
 		return '#'; // Fallback
@@ -146,7 +165,7 @@
 	async function performSearch(query: string) {
 		try {
 			const response = (await client.search({
-				requests: indexes.map((idxName) => ({
+				requests: algoliaSearchIndexes.map((idxName) => ({
 					indexName: idxName,
 					query,
 					hitsPerPage: 10
@@ -225,7 +244,7 @@
 
 		{#if algoliaResponseResults.length > 0}
 			<ScrollArea style="height: {(innerHeight?.current ?? 0) - 300}px">
-				<div class="space-y-8">
+				<div class="mt-6 space-y-8">
 					{#each algoliaResponseResults as indexResult (indexResult.index)}
 						<section class="bg-secondary/10 rounded-lg p-4 shadow md:p-6">
 							<h2

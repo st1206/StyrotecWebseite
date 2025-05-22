@@ -7,4 +7,6 @@ export type ProductDataSheet = {
 	yearOfManufacture: string;
 	condition: 'neu' | 'überholt' | 'gebraucht, sehr gut' | 'gebraucht, gut' | 'gebraucht';
 	location: string;
+	dimensions: string;
+	weight: string;
 };

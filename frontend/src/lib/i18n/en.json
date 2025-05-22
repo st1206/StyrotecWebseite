@@ -1,7 +1,7 @@
 {
 	"legal": {
-		"privacy": "Privacy Policy",
-		"rechtliches": "Legal"
+		"privacyPolicy": "Privacy Policy",
+		"legalNotice": "Legal Notice"
 	},
 	"sprachen": {
 		"local": "EN"
@@ -9,7 +9,8 @@
 	"button": {
 		"learnMore": "Learn more",
 		"print": "Download",
-		"requestNow": "Request Now!"
+		"requestNow": "Request Now!",
+		"send": "send"
 	},
 	"nav": {
 		"home": "Home",
@@ -74,6 +75,18 @@
 		"fairs": "Trade Shows"
 	},
 
+	"followUs": "Follow us on our Socials!",
+	"contactForm": "Contact Form",
+
+	"name": "Name",
+	"email": "E-Mail",
+	"yourEmail": "Your E-Mail",
+	"phone": "Phone",
+	"company": "Company",
+	"yourMessage": "Your Message",
+
+	"yourContact": "Your contact person:",
+
 	"productDataSheet": {
 		"designation": "Designation",
 		"modelType": "Model Type",
@@ -81,6 +94,8 @@
 		"yearOfManufacture": "Year of Manufacturing",
 		"condition": "Condition",
 		"location": "Location",
+		"dimensions": "Dimensions",
+		"weight": "Weight",
 
 		"gebraucht": "used",
 		"gebraucht, gut": "used, good condition",
@@ -90,7 +105,40 @@
 		"neu": "new"
 	},
 
-	"contactForm": "Contact Form",
+	"numberOfAxes": "Number of Axes",
+	"travelX": "Travel X",
+	"travelY": "Travel Y",
+	"travelZ": "Travel Z",
+	"travelA": "Travel A",
+	"travelC": "Travel C",
+	"controlSystem": "Control System",
+
+	"spindleSpeed": "Spindle Speed",
+	"spindleHours": "Spindle Hours",
+	"machineHours": "Machine Hours",
+	"clampingSurface": "Clamping Surface",
+	"millingSpindle": "Milling Spindle",
+	"toolHolder": "Tool Holder",
+	"tableSize": "Table Size",
+	"machineSerialNumber": "Machine Serial Number",
+	"overhang": "Overhang",
+	"power": "Power",
+	"centerDistance": "Center Distance",
+	"centerHeight": "Center Height",
+	"cuttingWidth": "Cutting Width",
+	"maxCuttingHeight": "Max Cutting Height",
+	"rollerDiameter": "Roller Diameter",
+	"grindingArea": "Grinding Area",
+	"type": "Type",
+
+	"pages": "Pages",
+	"cnc_mills": "CNC Mills",
+	"conventional_mills": "Conventional Mills",
+	"drilling_machines": "Drilling Machines",
+	"lathes": "Lathes",
+	"saws": "Saws",
+	"grinding_machines": "Grinding Machines",
+	"other_machines": "Other Machines",
 
 	"home": {
 		"title": "Homepage",

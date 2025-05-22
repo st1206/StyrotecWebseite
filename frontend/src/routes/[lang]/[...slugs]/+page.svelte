@@ -18,11 +18,14 @@
 </script>
 
 <svelte:head>
-	<title>{seoData.pageTitle}</title>
-	<meta name="description" content={seoData.pageDescription} />
-	<meta property="og:title" content={seoData.pageTitle} />
-	<meta property="og:description" content={seoData.pageDescription} />
-	<meta property="og:url" content={page.url.pathname} />
+	<title>{seoData ? seoData.pageTitle : siteData.siteName}</title>
+	<meta name="description" content={seoData ? seoData.pageDescription : siteData.siteDescription} />
+	<meta property="og:title" content={seoData ? seoData.pageTitle : siteData.siteName} />
+	<meta
+		property="og:description"
+		content={seoData ? seoData.pageDescription : siteData.siteDescription}
+	/>
+	<meta property="og:url" content={`https://styrotec.de/${page.url.pathname}`} />
 	<meta property="og:type" content="website" />
 	<meta property="og:site_name" content={siteData.siteName} />
 	<meta property="og:locale" content={$locale} />

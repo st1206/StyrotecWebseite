@@ -2,13 +2,16 @@ import {
 	ChevronLeft,
 	ChevronRight,
 	CopyrightIcon,
+	Download,
 	Globe,
 	Instagram,
 	Linkedin,
 	LoaderCircle,
+	Mail,
 	Menu,
 	Plus,
 	Search,
+	Send,
 	ShoppingBag,
 	Store,
 	X,
@@ -52,5 +55,8 @@ export const Icons = {
 	X: X,
 	menu: Menu,
 	chevronLeft: ChevronLeft,
-	chevronRight: ChevronRight
+	chevronRight: ChevronRight,
+	download: Download,
+	mail: Mail,
+	send: Send
 };

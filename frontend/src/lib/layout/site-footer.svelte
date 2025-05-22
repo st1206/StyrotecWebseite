@@ -29,7 +29,7 @@
 	<div class="mx-2 sm:container sm:mx-auto">
 		<div class="flex flex-col items-center justify-between gap-4 py-8 sm:flex-row print:hidden">
 			<span class="font-boldFont text-center text-lg sm:text-start sm:text-xl md:text-2xl">
-				Folge uns auf unseren Social-Media-Kanälen!
+				{$_('followUs')}
 			</span>
 			<div class="flex gap-4 px-4">
 				{#if socialMediaChannels?.length}
@@ -64,11 +64,11 @@
 				<img src={Icons.logoLight} alt="Logo" class="mx-auto h-20 w-max lg:mx-0 lg:h-28" />
 				<div class="flex gap-6">
 					<div class="flex flex-col gap-1">
-						<span class="mx-auto font-sans font-medium lg:mx-0">Email</span>
+						<span class="mx-auto font-sans font-medium lg:mx-0">{$_('email')}</span>
 						<span class="font-sans">info@styrotec.com</span>
 					</div>
 					<div class="flex flex-col gap-1">
-						<span class="mx-auto items-center font-sans font-medium lg:mx-0">Telefonnummer</span>
+						<span class="mx-auto items-center font-sans font-medium lg:mx-0">{$_('phone')}</span>
 						<span class="font-sans">+49 751 56050-20</span>
 					</div>
 				</div>
@@ -103,10 +103,12 @@
 				<h1 class="font-sans">2025 Styrotec GmbH & Co. KG</h1>
 			</div>
 			<div class="flex items-center print:hidden">
-				<Button variant="link" href="/" class="text-normal font-sans font-normal">Impressum</Button>
+				<Button variant="link" href="/" class="text-normal font-sans font-normal">
+					{$_('legal.legalNotice')}
+				</Button>
 				|
 				<Button variant="link" href="/" class="text-normal font-sans font-normal">
-					Datenschutz
+					{$_('legal.privacyPolicy')}
 				</Button>
 			</div>
 		</div>

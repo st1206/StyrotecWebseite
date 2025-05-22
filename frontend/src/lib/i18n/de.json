@@ -1,7 +1,7 @@
 {
 	"legal": {
-		"privacy": "Datenschutz",
-		"rechtliches": "Rechtliches"
+		"privacyPolicy": "Datenschutz",
+		"legalNotice": "Impressum"
 	},
 	"sprachen": {
 		"local": "DE"
@@ -9,7 +9,8 @@
 	"button": {
 		"learnMore": "Mehr erfahren",
 		"print": "Herunterladen",
-		"requestNow": "Jetzt anfordern!"
+		"requestNow": "Jetzt anfordern!",
+		"send": "Absenden"
 	},
 	"nav": {
 		"home": "Start",
@@ -60,7 +61,7 @@
 		"overhaul": "Überholung",
 		"automobile": "Automobil",
 		"shipbuilding": "Schiffsbau",
-		"modelmaking": "Modellbau",
+		"modelMaking": "Modellbau",
 		"plasticIndustry": "Kunststoffindustrie",
 		"concreteIndustry": "Betonindustrie",
 		"advertisingTechnology": "Werbetechnik",
@@ -74,6 +75,18 @@
 		"fairs": "Messen"
 	},
 
+	"contactForm": "Kontaktformular",
+	"followUs": "Folge uns auf unseren Social-Media-Kanälen!",
+
+	"name": "Name",
+	"email": "E-Mail",
+	"yourEmail": "Ihre E-Mail",
+	"phone": "Telefonnummer",
+	"company": "Firma",
+	"yourMessage": "Ihre Nachricht",
+
+	"yourContact": "Ihre direkte Ansprechperson:",
+
 	"productDataSheet": {
 		"designation": "Bezeichnung",
 		"modelType": "Modeltyp",
@@ -81,6 +94,8 @@
 		"yearOfManufacture": "Baujahr",
 		"condition": "Zustand",
 		"location": "Standort",
+		"dimensions": "Abmessungen",
+		"weight": "Gewicht",
 
 		"gebraucht": "gebraucht",
 		"gebraucht, gut": "gebraucht, gut",
@@ -89,8 +104,39 @@
 		"voll funktionsfähig": "voll funktionsfähig",
 		"neu": "neu"
 	},
+	"numberOfAxes": "Anzahl Achsen",
+	"travelX": "Verfahrweg X",
+	"travelY": "Verfahrweg Y",
+	"travelZ": "Verfahrweg Z",
+	"travelA": "Verfahrweg A",
+	"travelC": "Verfahrweg B",
+	"controlSystem": "Steuerung",
+	"spindleSpeed": "Drehzahl",
+	"spindleHours": "Spindelstunden",
+	"machineHours": "Maschinenstunden",
+	"clampingSurface": "Aufspannfläche",
+	"millingSpindle": "Frässpindel",
+	"tableSize": "Tischgröße",
+	"toolHolder": "Werkzeugaufnahme",
+	"machineSerialNumber": "Maschinennummer",
+	"overhang": "Ausladung",
+	"power": "Leistung",
+	"centerDistance": "Spitzenweite",
+	"centerHeight": "Spitzenhöhe",
+	"cuttingWidth": "Schnittbreite",
+	"maxCuttingHeight": "Superschnitt Höhe",
+	"rollerDiameter": "Rollendurchmesser",
+	"grindingArea": "Schleifbereich",
+	"type": "Art",
 
-	"contactForm": "Kontaktformular",
+	"pages": "Seiten",
+	"cnc_mills": "CNC-Fräsen",
+	"conventional_mills": "Modellbaumaschinen",
+	"drilling_machines": "Bohrmaschinen",
+	"lathes": "Drehmaschinen",
+	"saws": "Sägen",
+	"grinding_machines": "Schleifmaschinen",
+	"other_machines": "Sonstige Maschinen",
 
 	"home": {
 		"title": "Startseite",

@@ -202,8 +202,23 @@ const pagesConfig: Record<string, PageContent> = {
 			},
 			{
 				sectionKey: 'collectionTypeCards'
+			},
+			{
+				sectionKey: 'seo'
 			}
 		]
-	}
+	},
+
+	// millingTools: {
+	// 	deSlug: 'produkte/styroporbearbeitung/fräswerkzeuge',
+	// 	enSlug: 'products/styrofoam-processing/milling-tools',
+	// 	cmsTypeKey: 'millingToolsPage',
+	// 	cmsApiSlug: 'milling-tools-page',
+	// 	sections: [
+	// 		{
+	// 			sectionKey: 'defaultContent'
+	// 		}
+	// 	]
+	// }
 };
 export const pages: Record<string, PageContent> = withApiParams(pagesConfig);
