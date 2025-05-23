@@ -32,7 +32,7 @@
 </svelte:head>
 
 {#if data.pageContent}
-	{console.log(data)}
+	<!-- {console.log(data)} -->
 	{#each data.pageContent.sections as section}
 		{@const SectionComponent = sectionMap[section.sectionKey as keyof typeof sectionMap]}
 		{#if SectionComponent}

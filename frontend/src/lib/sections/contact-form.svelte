@@ -12,6 +12,7 @@
 	import { _ } from 'svelte-i18n';
 	import type { Employee } from '$lib/models/employee';
 	import { Icons } from '$lib/assets/icons';
+	import { locale } from 'svelte-i18n';
 
 	let data: {
 		contactForm: any;
@@ -22,7 +23,7 @@
 		validators: zodClient(contactFormSchema)
 	});
 
-	const { form: formData, enhance } = form;
+	const { form: formData, enhance, message } = form;
 
 	onMount(() => {
 		const originUrl = page.url.pathname;
@@ -38,12 +39,12 @@
 		<div
 			class="bg-secondary/10 text-secondary mb-12 mt-16 grid h-full grid-cols-1 gap-x-8 p-8 md:grid-cols-5 lg:gap-x-12 xl:grid-cols-6"
 		>
-			<h5 class="font-boldFont col-span-1 mb-6 text-4xl md:col-span-5">
+			<h5 class="font-boldFont col-span-1 mb-6 text-3xl md:col-span-5">
 				{$_('yourContact')}
 			</h5>
 
 			{#if data.employee.contactPicture}
-				<div class="bg-secondary/10 col-span-1 mb-8 flex flex-col md:col-span-2 md:mb-0">
+				<div class="bg-secondary/10 col-span-1 mb-8 flex h-max flex-col md:col-span-2 md:mb-0">
 					<img
 						class="h-[292px] object-cover object-top"
 						src={!PUBLIC_BACKEND_URL.includes('https')
@@ -137,6 +138,18 @@
 							</Form.Control>
 						</Form.Field>
 					</div>
+
+					{#if $message && $message !== 'success'}
+						<div class="bg-secondary text-destructive mt-2 flex items-center gap-2 p-2 text-sm">
+							<Icons.error class="size-4" />
+							{$message}
+						</div>
+					{:else if $message === 'success'}
+						<div class="bg-secondary mt-2 flex items-center gap-2 p-2 text-sm text-green-500">
+							<Icons.check class="size-4" />
+							{$locale === 'de-DE' ? 'E-Mail erfolgreich gesendet!' : 'E-Mail sent successfully!'}
+						</div>
+					{/if}
 					<Form.Button class="ml-auto mr-2 mt-4">
 						<Icons.send class="mr-1 size-4 skew-x-[15deg]" />
 						<span class="skew-x-[15deg]">

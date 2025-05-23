@@ -1,6 +1,8 @@
 import {
 	ChevronLeft,
 	ChevronRight,
+	CircleAlert,
+	CircleCheckBig,
 	CopyrightIcon,
 	Download,
 	Globe,
@@ -20,28 +22,30 @@ import {
 } from 'lucide-svelte';
 import LogoLight from './logo_light.png';
 import LogoDark from './logo_dark.png';
-import printingIcon from './3d-printing.svelte';
-import artIndustryIcon from './creativity.svelte';
-import automotiveIndustryIcon from './automotive.svelte';
-import modelMakingIndustryIcon from './3d.svelte';
-import aerospaceIndustryIcon from './aerospace-industry.svelte';
-import concreteIndustryIcon from './construction-truck.svelte';
-import plasticsIndustryIcon from './recycle.svelte';
-import shipBuildingIndustryIcon from './shipping.svelte';
+import PrintingIcon from './3d-printing.svelte';
+import ArtIndustryIcon from './creativity.svelte';
+import AutomotiveIndustryIcon from './automotive.svelte';
+import ModelMakingIndustryIcon from './3d.svelte';
+import AerospaceIndustryIcon from './aerospace-industry.svelte';
+import ConcreteIndustryIcon from './construction-truck.svelte';
+import PlasticsIndustryIcon from './recycle.svelte';
+import ShipBuildingIndustryIcon from './shipping.svelte';
+import AlgoliaLogo from './algolia-logo.svelte';
 
 export type Icon = LucideIcon;
 
 export const Icons = {
+	algoliaLogo: AlgoliaLogo,
 	logoLight: LogoLight,
 	logoDark: LogoDark,
-	adIndustry: printingIcon,
-	artIndustry: artIndustryIcon,
-	automotiveIndustry: automotiveIndustryIcon,
-	modelMakingIndustry: modelMakingIndustryIcon,
-	aerospaceIndustry: aerospaceIndustryIcon,
-	concreteIndustry: concreteIndustryIcon,
-	plasticsIndustry: plasticsIndustryIcon,
-	shipBuildingIndustry: shipBuildingIndustryIcon,
+	adIndustry: PrintingIcon,
+	artIndustry: ArtIndustryIcon,
+	automotiveIndustry: AutomotiveIndustryIcon,
+	modelMakingIndustry: ModelMakingIndustryIcon,
+	aerospaceIndustry: AerospaceIndustryIcon,
+	concreteIndustry: ConcreteIndustryIcon,
+	plasticsIndustry: PlasticsIndustryIcon,
+	shipBuildingIndustry: ShipBuildingIndustryIcon,
 	plus: Plus,
 	spinner: LoaderCircle,
 	copyright: CopyrightIcon,
@@ -58,5 +62,7 @@ export const Icons = {
 	chevronRight: ChevronRight,
 	download: Download,
 	mail: Mail,
-	send: Send
+	send: Send,
+	error: CircleAlert,
+	check: CircleCheckBig
 };

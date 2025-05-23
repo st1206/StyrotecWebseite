@@ -38,7 +38,7 @@
 
 	type ComponentData = { __component: string } & (Accordion | Table);
 
-	let data: ComponentData[] = $props();
+	let data: ComponentData[] & { contactForm: any } = $props();
 
 	let overlayRefs: Array<HTMLElement | null> = $state([]);
 	const overlayHeightsMap = new SvelteMap<string, number[]>([]);
@@ -66,7 +66,9 @@
 		updateOverlayHeights();
 	});
 
-	const snapshot = $state.snapshot(data);
+	const { contactForm, ...filteredContent } = data;
+	const snapshot = $state.snapshot(filteredContent);
+
 	const sortedBlocks: ComponentData[] = $derived.by(() => {
 		return Object.values(snapshot).sort((a, b) => {
 			const orderA = a.sortOrder ?? 0;

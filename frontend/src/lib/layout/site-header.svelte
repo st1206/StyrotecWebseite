@@ -212,7 +212,7 @@
 											<BlurFade delay={0.03 * i} duration={0.3}>
 												<div
 													class="text-secondary hover:shadow-primary font-boldFont bg-secondary/30 flex h-full w-full cursor-pointer
-										flex-col items-center justify-center gap-4 p-8 text-xl transition duration-300 ease-in-out xl:text-2xl"
+															flex-col items-center justify-center gap-4 p-8 text-xl transition duration-300 ease-in-out xl:text-2xl"
 												>
 													{#if route.icon}
 														<route.icon class="text-secondary fill-secondary md:h-20 md:w-20" />

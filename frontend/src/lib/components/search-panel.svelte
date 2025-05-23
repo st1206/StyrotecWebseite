@@ -1,7 +1,11 @@
 <script lang="ts">
 	import { Icons } from '$lib/assets/icons';
 	import { liteClient } from 'algoliasearch/lite';
-	import { PUBLIC_ALGOLIA_SEARCH_KEY, PUBLIC_ALGOLIA_APP_ID } from '$env/static/public';
+	import {
+		PUBLIC_ALGOLIA_SEARCH_KEY,
+		PUBLIC_ALGOLIA_APP_ID,
+		PUBLIC_BACKEND_URL
+	} from '$env/static/public';
 	import { ScrollArea } from '$lib/components/ui/scroll-area';
 	import { Button } from '$lib/components/ui/button';
 	import { pages, type PageContent } from '$lib/config/pages';
@@ -174,6 +178,7 @@
 				results: { index: string; hits: any[]; nbHits?: number }[];
 			};
 			algoliaResponseResults = response.results.filter((result) => result.hits.length > 0);
+			console.log('Algolia search results:', algoliaResponseResults);
 		} catch (error) {
 			console.error('Algolia search error:', error);
 			algoliaResponseResults = [];
@@ -246,7 +251,7 @@
 			<ScrollArea style="height: {(innerHeight?.current ?? 0) - 300}px">
 				<div class="mt-6 space-y-8">
 					{#each algoliaResponseResults as indexResult (indexResult.index)}
-						<section class="bg-secondary/10 rounded-lg p-4 shadow md:p-6">
+						<section class="bg-secondary/10 p-4 shadow md:p-6">
 							<h2
 								class="text-primary border-secondary/20 mb-4 border-b pb-2 text-xl font-semibold md:text-2xl"
 							>
@@ -255,26 +260,46 @@
 							<div class="space-y-4">
 								{#each indexResult.hits as hit (hit.objectID)}
 									{@const link = getLinkForHit(hit, indexResult.index)}
-									<article class="bg-secondary/5 rounded-md p-3 md:p-4">
-										<h3 class="text-accent mb-1 text-lg font-medium md:text-xl">
-											{getDisplayTitle(hit, indexResult.index)}
-										</h3>
-										{@html `<p class="text-secondary/80 text-sm md:text-base mb-2 line-clamp-2">${getDisplayDescription(hit, indexResult.index)}</p>`}
-										{#if link !== '#'}
-											<Button
-												variant="link"
-												onclick={() => itemStateMap.set(99, { hovered: false, open: false })}
-												href={link}
-												class="h-auto p-0"
-											>
-												{$_('button.learnMore') || 'Details'}
-											</Button>
+									<article class="bg-secondary/5 flex gap-6 p-3 md:p-4">
+										{#if hit.slug}
+											<img
+												class="aspect-square object-cover object-top"
+												src={!PUBLIC_BACKEND_URL.includes('https')
+													? `${PUBLIC_BACKEND_URL}${hit.pictures[0].formats['thumbnail']?.url || hit.pictures[0].url}`
+													: hit.pictures[0].url}
+												alt={hit.pictures[0].alternativeText || ''}
+											/>
 										{/if}
+										<div>
+											<h3 class="text-accent mb-1 text-lg font-medium md:text-xl">
+												{getDisplayTitle(hit, indexResult.index)}
+											</h3>
+											{@html `<p class="text-secondary/80 text-sm md:text-base mb-2 line-clamp-2">${getDisplayDescription(hit, indexResult.index)}</p>`}
+											{#if link !== '#'}
+												<Button
+													variant="link"
+													onclick={() => itemStateMap.set(99, { hovered: false, open: false })}
+													href={link}
+													class="h-auto p-0"
+												>
+													{$_('button.learnMore') || 'Details'}
+												</Button>
+											{/if}
+										</div>
 									</article>
 								{/each}
 							</div>
 						</section>
 					{/each}
+					<a
+						target="_blank"
+						rel="noopener noreferrer"
+						href="https://algolia.com"
+						class="flex w-full items-center justify-end gap-2"
+					>
+						<span class="text-secondary">Search by</span>
+						<Icons.algoliaLogo class="ml-2" />
+					</a>
 				</div>
 			</ScrollArea>
 		{/if}
