@@ -263,7 +263,7 @@
 									<article class="bg-secondary/5 flex gap-6 p-3 md:p-4">
 										{#if hit.slug}
 											<img
-												class="aspect-square object-cover object-top"
+												class="aspect-square max-h-[112px] object-cover object-top"
 												src={!PUBLIC_BACKEND_URL.includes('https')
 													? `${PUBLIC_BACKEND_URL}${hit.pictures[0].formats['thumbnail']?.url || hit.pictures[0].url}`
 													: hit.pictures[0].url}
