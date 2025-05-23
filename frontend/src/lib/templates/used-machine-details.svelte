@@ -142,7 +142,7 @@
 	<meta property="og:site_name" content={siteData.siteName} />
 </svelte:head>
 
-<div class="flex flex-col items-end justify-between sm:container md:flex-row print:items-center">
+<div class="flex flex-col md:items-end justify-between sm:container md:flex-row print:items-center">
 	<PageHeader {...pageHeaderProps} />
 	<div class="mx-auto my-6 flex gap-2 md:m-4 md:mt-28">
 		<Button size="sm" variant="outline" class="print:hidden" onclick={() => window.print()}>

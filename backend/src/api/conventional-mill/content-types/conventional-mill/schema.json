@@ -27,6 +27,14 @@
       "component": "partial-components.product-data-sheet",
       "required": true
     },
+    "machineSerialNumber": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "integer"
+    },
     "description": {
       "pluginOptions": {
         "i18n": {
@@ -54,10 +62,7 @@
       "type": "media",
       "multiple": true,
       "required": false,
-      "allowedTypes": [
-        "images",
-        "files"
-      ],
+      "allowedTypes": ["images", "files"],
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -71,14 +76,6 @@
         }
       },
       "type": "string"
-    },
-    "machineSerialNumber": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "integer"
     },
     "tableHolder": {
       "pluginOptions": {

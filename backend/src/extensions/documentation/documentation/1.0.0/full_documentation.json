@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-05-23T09:50:21.286Z"
+    "x-generation-date": "2025-05-23T11:41:26.436Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -12796,35 +12796,6 @@
               "productDataSheet": {
                 "$ref": "#/components/schemas/PartialComponentsProductDataSheetComponent"
               },
-              "description": {},
-              "slug": {
-                "type": "string"
-              },
-              "contactPerson": {
-                "oneOf": [
-                  {
-                    "type": "integer"
-                  },
-                  {
-                    "type": "string"
-                  }
-                ],
-                "example": "string or id"
-              },
-              "pictures": {
-                "type": "array",
-                "items": {
-                  "oneOf": [
-                    {
-                      "type": "integer"
-                    },
-                    {
-                      "type": "string"
-                    }
-                  ],
-                  "example": "string or id"
-                }
-              },
               "numberOfAxes": {
                 "type": "integer"
               },
@@ -12861,8 +12832,34 @@
               "toolHolder": {
                 "type": "string"
               },
-              "type": {
+              "description": {},
+              "contactPerson": {
+                "oneOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "example": "string or id"
+              },
+              "slug": {
                 "type": "string"
+              },
+              "pictures": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ],
+                  "example": "string or id"
+                }
               },
               "locale": {
                 "type": "string"
@@ -12938,10 +12935,43 @@
           "productDataSheet": {
             "$ref": "#/components/schemas/PartialComponentsProductDataSheetComponent"
           },
-          "description": {},
-          "slug": {
+          "numberOfAxes": {
+            "type": "integer"
+          },
+          "travelX": {
             "type": "string"
           },
+          "travelY": {
+            "type": "string"
+          },
+          "travelZ": {
+            "type": "string"
+          },
+          "travelA": {
+            "type": "string"
+          },
+          "travelC": {
+            "type": "string"
+          },
+          "controlSystem": {
+            "type": "string"
+          },
+          "spindleHours": {
+            "type": "string"
+          },
+          "machineHours": {
+            "type": "string"
+          },
+          "clampingSurface": {
+            "type": "string"
+          },
+          "millingSpindle": {
+            "type": "string"
+          },
+          "toolHolder": {
+            "type": "string"
+          },
+          "description": {},
           "contactPerson": {
             "type": "object",
             "properties": {
@@ -13744,6 +13774,9 @@
               }
             }
           },
+          "slug": {
+            "type": "string"
+          },
           "pictures": {
             "type": "array",
             "items": {
@@ -13876,45 +13909,6 @@
               }
             }
           },
-          "numberOfAxes": {
-            "type": "integer"
-          },
-          "travelX": {
-            "type": "string"
-          },
-          "travelY": {
-            "type": "string"
-          },
-          "travelZ": {
-            "type": "string"
-          },
-          "travelA": {
-            "type": "string"
-          },
-          "travelC": {
-            "type": "string"
-          },
-          "controlSystem": {
-            "type": "string"
-          },
-          "spindleHours": {
-            "type": "string"
-          },
-          "machineHours": {
-            "type": "string"
-          },
-          "clampingSurface": {
-            "type": "string"
-          },
-          "millingSpindle": {
-            "type": "string"
-          },
-          "toolHolder": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -13966,10 +13960,43 @@
                 "productDataSheet": {
                   "$ref": "#/components/schemas/PartialComponentsProductDataSheetComponent"
                 },
-                "description": {},
-                "slug": {
+                "numberOfAxes": {
+                  "type": "integer"
+                },
+                "travelX": {
                   "type": "string"
                 },
+                "travelY": {
+                  "type": "string"
+                },
+                "travelZ": {
+                  "type": "string"
+                },
+                "travelA": {
+                  "type": "string"
+                },
+                "travelC": {
+                  "type": "string"
+                },
+                "controlSystem": {
+                  "type": "string"
+                },
+                "spindleHours": {
+                  "type": "string"
+                },
+                "machineHours": {
+                  "type": "string"
+                },
+                "clampingSurface": {
+                  "type": "string"
+                },
+                "millingSpindle": {
+                  "type": "string"
+                },
+                "toolHolder": {
+                  "type": "string"
+                },
+                "description": {},
                 "contactPerson": {
                   "type": "object",
                   "properties": {
@@ -13980,6 +14007,9 @@
                       "type": "string"
                     }
                   }
+                },
+                "slug": {
+                  "type": "string"
                 },
                 "pictures": {
                   "type": "array",
@@ -14112,45 +14142,6 @@
                       }
                     }
                   }
-                },
-                "numberOfAxes": {
-                  "type": "integer"
-                },
-                "travelX": {
-                  "type": "string"
-                },
-                "travelY": {
-                  "type": "string"
-                },
-                "travelZ": {
-                  "type": "string"
-                },
-                "travelA": {
-                  "type": "string"
-                },
-                "travelC": {
-                  "type": "string"
-                },
-                "controlSystem": {
-                  "type": "string"
-                },
-                "spindleHours": {
-                  "type": "string"
-                },
-                "machineHours": {
-                  "type": "string"
-                },
-                "clampingSurface": {
-                  "type": "string"
-                },
-                "millingSpindle": {
-                  "type": "string"
-                },
-                "toolHolder": {
-                  "type": "string"
-                },
-                "type": {
-                  "type": "string"
                 },
                 "createdAt": {
                   "type": "string",
@@ -14706,6 +14697,9 @@
               "productDataSheet": {
                 "$ref": "#/components/schemas/PartialComponentsProductDataSheetComponent"
               },
+              "machineSerialNumber": {
+                "type": "integer"
+              },
               "description": {},
               "slug": {
                 "type": "string"
@@ -14737,9 +14731,6 @@
               },
               "spindleSpeed": {
                 "type": "string"
-              },
-              "machineSerialNumber": {
-                "type": "integer"
               },
               "tableHolder": {
                 "type": "string"
@@ -14821,6 +14812,9 @@
           },
           "productDataSheet": {
             "$ref": "#/components/schemas/PartialComponentsProductDataSheetComponent"
+          },
+          "machineSerialNumber": {
+            "type": "integer"
           },
           "description": {},
           "slug": {
@@ -15763,9 +15757,6 @@
           "spindleSpeed": {
             "type": "string"
           },
-          "machineSerialNumber": {
-            "type": "integer"
-          },
           "tableHolder": {
             "type": "string"
           },
@@ -15825,6 +15816,9 @@
                 },
                 "productDataSheet": {
                   "$ref": "#/components/schemas/PartialComponentsProductDataSheetComponent"
+                },
+                "machineSerialNumber": {
+                  "type": "integer"
                 },
                 "description": {},
                 "slug": {
@@ -15975,9 +15969,6 @@
                 },
                 "spindleSpeed": {
                   "type": "string"
-                },
-                "machineSerialNumber": {
-                  "type": "integer"
                 },
                 "tableHolder": {
                   "type": "string"
@@ -21618,6 +21609,9 @@
               "productDataSheet": {
                 "$ref": "#/components/schemas/PartialComponentsProductDataSheetComponent"
               },
+              "type": {
+                "type": "string"
+              },
               "machineSerialNumber": {
                 "type": "integer"
               },
@@ -21658,9 +21652,6 @@
                   ],
                   "example": "string or id"
                 }
-              },
-              "type": {
-                "type": "string"
               },
               "locale": {
                 "type": "string"
@@ -21733,6 +21724,9 @@
           },
           "productDataSheet": {
             "$ref": "#/components/schemas/PartialComponentsProductDataSheetComponent"
+          },
+          "type": {
+            "type": "string"
           },
           "machineSerialNumber": {
             "type": "integer"
@@ -22684,9 +22678,6 @@
               }
             }
           },
-          "type": {
-            "type": "string"
-          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -22737,6 +22728,9 @@
                 },
                 "productDataSheet": {
                   "$ref": "#/components/schemas/PartialComponentsProductDataSheetComponent"
+                },
+                "type": {
+                  "type": "string"
                 },
                 "machineSerialNumber": {
                   "type": "integer"
@@ -22896,9 +22890,6 @@
                       }
                     }
                   }
-                },
-                "type": {
-                  "type": "string"
                 },
                 "createdAt": {
                   "type": "string",
@@ -25962,13 +25953,13 @@
                   "example": "string or id"
                 }
               },
+              "type": {
+                "type": "string"
+              },
               "machineSerialNumber": {
                 "type": "integer"
               },
               "power": {
-                "type": "string"
-              },
-              "type": {
                 "type": "string"
               },
               "locale": {
@@ -26981,13 +26972,13 @@
               }
             }
           },
+          "type": {
+            "type": "string"
+          },
           "machineSerialNumber": {
             "type": "integer"
           },
           "power": {
-            "type": "string"
-          },
-          "type": {
             "type": "string"
           },
           "createdAt": {
@@ -27188,13 +27179,13 @@
                     }
                   }
                 },
+                "type": {
+                  "type": "string"
+                },
                 "machineSerialNumber": {
                   "type": "integer"
                 },
                 "power": {
-                  "type": "string"
-                },
-                "type": {
                   "type": "string"
                 },
                 "createdAt": {
