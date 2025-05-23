@@ -153,19 +153,16 @@ export const actions: Actions = {
 			});
 		}
 
-		(async () => {
-			try {
-				const info = await transporter.sendMail(mailOptions);
+		try {
+			const info = await transporter.sendMail(mailOptions);
 
-				console.log('Message sent: %s', info.messageId);
-				return message(form, 'success');
-			} catch (err: unknown) {
-				console.error('Error while sending mail', err);
-				return message(form, err, {
-					status: 403
-				});
-			}
-		})();
-		return message(form, 'success');
+			console.log('Message sent: %s', info.messageId);
+			return message(form, 'success');
+		} catch (err: unknown) {
+			console.error('Error while sending mail', err);
+			return message(form, err, {
+				status: 403
+			});
+		}
 	}
 };

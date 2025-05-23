@@ -23,7 +23,7 @@
 		validators: zodClient(contactFormSchema)
 	});
 
-	const { form: formData, enhance, message } = form;
+	const { form: formData, enhance, message, submitting } = form;
 
 	onMount(() => {
 		const originUrl = page.url.pathname;
@@ -151,7 +151,11 @@
 						</div>
 					{/if}
 					<Form.Button class="ml-auto mr-2 mt-4">
-						<Icons.send class="mr-1 size-4 skew-x-[15deg]" />
+						{#if $submitting}
+							<Icons.spinner class="mr-1 size-4 animate-spin" />
+						{:else}
+							<Icons.send class="mr-1 size-4 skew-x-[15deg]" />
+						{/if}
 						<span class="skew-x-[15deg]">
 							{$_('button.send')}
 						</span>
