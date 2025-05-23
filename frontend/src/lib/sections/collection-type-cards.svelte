@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import DefaultCards from './default-cards.svelte';
-	import { _ } from 'svelte-i18n';
+	import { locale, _ } from 'svelte-i18n';
 
 	let data = $props();
+	const currentLocale = $locale === 'de-DE' ? 'de' : 'en';
 	const collectionTypeData = {
 		cards: Object.values(data)
 			.map((entry: any) => {
-				console.log(entry);
 				if (!entry.productDataSheet) {
 					return null;
 				}
@@ -20,7 +20,7 @@
 					redirectButtons: [
 						{
 							label: $_(`button.learnMore`),
-							redirectSlug: `${page.url.pathname.split('de/')[1]}/${entry.slug}`
+							redirectSlug: `${page.url.pathname.split(`${currentLocale}/`)[1]}/${entry.slug}`
 						}
 					]
 				};

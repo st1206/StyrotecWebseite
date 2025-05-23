@@ -79,7 +79,7 @@
 								<img
 									class="{!card.content
 										? 'aspect-square'
-										: ''} h-full w-max object-cover md:max-w-[450px] lg:max-w-[600px] xl:max-w-[800px]"
+										: 'md:max-w-[450px] lg:max-w-[600px] xl:max-w-[800px]'} h-full w-max object-cover"
 									src={!PUBLIC_BACKEND_URL.includes('https')
 										? `${PUBLIC_BACKEND_URL}${card.thumbnail.url}`
 										: card.thumbnail.url}
@@ -90,8 +90,10 @@
 						{#if !card.content}
 							<div
 								class="bg-foreground/90 flex {card.title.length > 20
-									? 'flex-col'
-									: 'flex-row'} absolute bottom-0 w-full justify-between gap-2 p-4 pt-2"
+									? 'flex-col lg:flex-row'
+									: card.title.length > 30
+										? 'flex-col lg:flex-row xl:flex-col'
+										: 'flex-row'} absolute bottom-0 w-full justify-between gap-2 p-4 pt-2"
 							>
 								<h4 class="text-secondary font-boldFont text-2xl lg:text-3xl">
 									{@html card.title}

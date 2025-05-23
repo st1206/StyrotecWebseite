@@ -8,10 +8,9 @@
 	} from '$env/static/public';
 	import { ScrollArea } from '$lib/components/ui/scroll-area';
 	import { Button } from '$lib/components/ui/button';
-	import { pages, type PageContent } from '$lib/config/pages';
-	import { _, locale as i18nLocaleStore } from 'svelte-i18n';
+	import { pages } from '$lib/config/pages';
+	import { _, locale } from 'svelte-i18n';
 	import { innerHeight } from 'svelte/reactivity/window';
-	import { usedMachinesCategoriesMap } from '$lib/models/used-machines-categories';
 	import { algoliaSearchIndexes } from '$lib/config/metadata';
 
 	// --- Props and State ---
@@ -105,14 +104,29 @@
 		}
 	}
 
+	// Define a minimal PageContent interface based on its usage in the function
+	interface PageContent {
+		deSlug: string;
+		enSlug: string;
+		cmsApiSlug: string; // Used for the 'pages' index
+		// other properties like cmsTypeKey, sections can be part of the actual type
+	}
+
+	// pagesConfig would be your main configuration object
+	// const pagesConfig: Record<string, PageContent> = { /* ...your config... */ };
+	// $i18nLocaleStore would be your Svelte store for locale, e.g., 'en-EN' or 'de-DE'
+
 	function getLinkForHit(hit: any, indexName: string): string {
-		const currentSvelteLocale = $i18nLocaleStore;
-		const currentAppLocale = currentSvelteLocale === 'en-EN' ? 'en' : 'de';
-		const localePrefix = currentSvelteLocale === 'en-EN' ? '/en/' : '/de/';
+		const currentAppLocale = $locale === 'en-EN' ? 'en' : 'de';
+		const localePrefix = currentAppLocale === 'en' ? '/en/' : '/de/';
 
 		if (indexName === 'pages') {
+			// Logic for hits from the 'pages' index (e.g., general content pages)
 			const objectIdParts = hit.objectID.split('.');
-			if (objectIdParts.length < 2) return '#';
+			if (objectIdParts.length < 2) {
+				console.warn(`Invalid objectID format for 'pages' index: ${hit.objectID}`);
+				return '#';
+			}
 
 			const cmsApiSlugFromHit = objectIdParts[1];
 			const pageConfigEntry = Object.values(pages).find(
@@ -122,47 +136,58 @@
 			if (pageConfigEntry) {
 				const slug = currentAppLocale === 'en' ? pageConfigEntry.enSlug : pageConfigEntry.deSlug;
 				return `${localePrefix}${slug}`;
-			}
-		} else {
-			// Adjusted to use usedMachinesCategoriesMap
-			let resolvedPageKey: keyof typeof pages | undefined = undefined;
-			const categoryFromHit = hit.productDataSheet?.category as string;
-			const itemSlug = hit.slug as string;
-
-			if (categoryFromHit && usedMachinesCategoriesMap.has(categoryFromHit)) {
-				// The category from the hit (German name) is a key in our map.
-				// Get the corresponding key from the map.
-
-				resolvedPageKey = usedMachinesCategoriesMap.get(categoryFromHit) as keyof typeof pages;
 			} else {
-				// Category from hit is truthy but NOT in usedMachinesCategoriesMap.
 				console.warn(
-					`Search item with ID ${hit.objectID} in index ${indexName} has category '${categoryFromHit}', which is not a recognized category key in usedMachinesCategoriesMap. Cannot determine page link for this item through category mapping.`
+					`No page config found for cmsApiSlug: '${cmsApiSlugFromHit}' from objectID ${hit.objectID} in 'pages' index.`
 				);
 			}
+		} else {
+			const categoryKeyFromIndex = indexName.replace(/_/g, '-'); // Transform e.g., "cnc_mills" to "cnc-mills"
+			const itemSlug = hit.slug as string;
 
-			if (resolvedPageKey && itemSlug && pages[resolvedPageKey]) {
-				const categoryPageConfig = pages[resolvedPageKey];
-				if (categoryPageConfig) {
-					const baseSlug =
-						currentAppLocale === 'en' ? categoryPageConfig.enSlug : categoryPageConfig.deSlug;
-
-					const cleanBaseSlug = baseSlug.endsWith('/') ? baseSlug.slice(0, -1) : baseSlug;
-					const cleanItemSlug = itemSlug.startsWith('/') ? itemSlug.slice(1) : itemSlug;
-
-					return `${localePrefix}${cleanBaseSlug}/${cleanItemSlug}`;
-				} else {
-					console.warn(
-						`Configuration error: No page config found in 'pages' for resolved category key '${String(resolvedPageKey)}' from item ID ${hit.objectID}, index ${indexName}.`
-					);
-				}
-			} else if (resolvedPageKey && itemSlug && !pages[resolvedPageKey]) {
+			if (!itemSlug) {
 				console.warn(
-					`Configuration error: Page config for category key '${String(resolvedPageKey)}' not found in 'pages' for item ID ${hit.objectID}, index ${indexName}.`
+					`Search item with ID ${hit.objectID} in index '${indexName}' is missing a 'slug' property.`
+				);
+				return '#';
+			}
+
+			// Find the category's page configuration by matching categoryKeyFromIndex
+			// with the last segment of the enSlug.
+			// This assumes a convention where, for an index like 'cnc_mills', the corresponding
+			// PageContent entry has an enSlug like '.../cnc-mills'.
+			const categoryPageConfig = Object.values(pages).find((p: PageContent) => {
+				if (!p.enSlug) return false; // Skip if enSlug is not defined
+				const enSlugParts = p.enSlug.split('/');
+				const lastSlugPart = enSlugParts[enSlugParts.length - 1];
+				return lastSlugPart && lastSlugPart === categoryKeyFromIndex;
+			});
+
+			if (categoryPageConfig) {
+				const baseSlugForCurrentLocale =
+					currentAppLocale === 'en' ? categoryPageConfig.enSlug : categoryPageConfig.deSlug;
+
+				// Normalize itemSlug (remove leading slash if present)
+				const normalizedItemSlug = itemSlug.startsWith('/') ? itemSlug.slice(1) : itemSlug;
+
+				if (baseSlugForCurrentLocale) {
+					// Ensure the base slug does not end with a slash before appending the item slug
+					const cleanBaseSlug = baseSlugForCurrentLocale.endsWith('/')
+						? baseSlugForCurrentLocale.slice(0, -1)
+						: baseSlugForCurrentLocale;
+					return `${localePrefix}${cleanBaseSlug}/${normalizedItemSlug}`;
+				} else {
+					// If the category's base slug is empty, link item directly under locale
+					return `${localePrefix}${normalizedItemSlug}`;
+				}
+			} else {
+				console.warn(
+					`No page configuration found where enSlug ends with '${categoryKeyFromIndex}' (derived from indexName '${indexName}' for hit '${hit.objectID}'). This was the target for simplification.`
 				);
 			}
 		}
-		return '#'; // Fallback
+
+		return '#'; // Fallback URL
 	}
 
 	// --- Search Logic ---
@@ -173,11 +198,21 @@
 					indexName: idxName,
 					query,
 					hitsPerPage: 10
+					// filters: 'locale:de'
 				}))
 			})) as {
 				results: { index: string; hits: any[]; nbHits?: number }[];
 			};
-			algoliaResponseResults = response.results.filter((result) => result.hits.length > 0);
+
+			// Filter out results with no hits first
+			const allResultsWithHits = response.results.filter((result) => result.hits.length > 0);
+
+			// Separate 'pages' index results from others
+			const pagesIndexResults = allResultsWithHits.filter((result) => result.index === 'pages');
+			const otherIndexResults = allResultsWithHits.filter((result) => result.index !== 'pages');
+
+			// Combine them in the desired order: others first, then pages
+			algoliaResponseResults = [...otherIndexResults, ...pagesIndexResults];
 			console.log('Algolia search results:', algoliaResponseResults);
 		} catch (error) {
 			console.error('Algolia search error:', error);
@@ -261,7 +296,7 @@
 								{#each indexResult.hits as hit (hit.objectID)}
 									{@const link = getLinkForHit(hit, indexResult.index)}
 									<article class="bg-secondary/5 flex gap-6 p-3 md:p-4">
-										{#if hit.slug}
+										{#if hit.pictures?.length > 0}
 											<img
 												class="aspect-square max-h-[112px] object-cover object-top"
 												src={!PUBLIC_BACKEND_URL.includes('https')

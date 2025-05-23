@@ -193,7 +193,7 @@ const pagesConfig: Record<string, PageContent> = {
 
 	cncMills: {
 		deSlug: 'produkte/gebrauchtmaschinen/cnc-fraesen',
-		enSlug: 'products/gebrauchtmaschinen/cnc-mills',
+		enSlug: 'products/used-machines/cnc-mills',
 		cmsTypeKey: 'cncMillsPage',
 		cmsApiSlug: 'cnc-mills-page',
 		sections: [
@@ -207,7 +207,7 @@ const pagesConfig: Record<string, PageContent> = {
 				sectionKey: 'seo'
 			}
 		]
-	},
+	}
 
 	// millingTools: {
 	// 	deSlug: 'produkte/styroporbearbeitung/fräswerkzeuge',
