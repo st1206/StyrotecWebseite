@@ -45,14 +45,13 @@
       "type": "string",
       "required": true
     },
-    "pictures": {
-      "allowedTypes": [
-        "images",
-        "files"
-      ],
-      "type": "media",
-      "multiple": true,
-      "required": false
+    "dimensions": {
+      "type": "string",
+      "required": true
+    },
+    "weight": {
+      "type": "string",
+      "required": true
     }
   }
 }

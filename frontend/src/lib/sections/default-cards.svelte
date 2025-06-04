@@ -57,27 +57,29 @@
 		{/if}
 		<div class={cn('grid grid-cols-6 justify-center gap-16')}>
 			{#each data.cards as card, i}
-				<div
-					id={card.anchor}
-					class={cn(
-						data.isDarkMode ? 'bg-secondary/10 text-secondary' : 'bg-foreground text-secondary',
-						i % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row',
-						card.thumbnail && !card.content ? 'md:col-span-3 xl:col-span-2' : '',
-						!card.thumbnail && card.content && data.cards.length > 1 ? 'md:col-span-3' : '',
-						data.cards.length > 1 &&
-							i + 1 === data.cards.length &&
-							!card.thumbnail &&
-							data.cards.length % 2 !== 0
-							? 'md:col-start-3'
-							: '',
-						'shadow-primary relative col-span-6 mx-auto flex scroll-mt-24 flex-col gap-4 transition duration-300 ease-in-out'
-					)}
-				>
-					<BlurFade once={true} delay={i * 0.1} duration={0.2}>
+				{#if card}
+					<div
+						id={card.anchor}
+						class={cn(
+							data.isDarkMode ? 'bg-secondary/10 text-secondary' : 'bg-foreground text-secondary',
+							i % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row',
+							card.thumbnail && !card.content ? 'md:col-span-3 xl:col-span-2' : '',
+							!card.thumbnail && card.content && data.cards.length > 1 ? 'md:col-span-3' : '',
+							data.cards.length > 1 &&
+								i + 1 === data.cards.length &&
+								!card.thumbnail &&
+								data.cards.length % 2 !== 0
+								? 'md:col-start-3'
+								: '',
+							'shadow-primary relative col-span-6 mx-auto flex scroll-mt-24 flex-col gap-4 transition duration-300 ease-in-out'
+						)}
+					>
 						{#if card.thumbnail}
 							<div class="max-h-content w-full">
 								<img
-									class="h-full w-full object-cover lg:max-w-[600px] xl:max-w-[800px]"
+									class="{!card.content
+										? 'aspect-square'
+										: 'md:max-w-[450px] lg:max-w-[600px] xl:max-w-[800px]'} h-full w-max object-cover"
 									src={!PUBLIC_BACKEND_URL.includes('https')
 										? `${PUBLIC_BACKEND_URL}${card.thumbnail.url}`
 										: card.thumbnail.url}
@@ -87,18 +89,24 @@
 						{/if}
 						{#if !card.content}
 							<div
-								class="bg-foreground/90 absolute bottom-0 flex w-full items-center justify-between p-2 px-4"
+								class="bg-foreground/90 flex {card.title.length > 20
+									? 'flex-col lg:flex-row'
+									: card.title.length > 30
+										? 'flex-col lg:flex-row xl:flex-col'
+										: 'flex-row'} absolute bottom-0 w-full justify-between gap-2 p-4 pt-2"
 							>
 								<h4 class="text-secondary font-boldFont text-2xl lg:text-3xl">
-									{card.title}
+									{@html card.title}
 								</h4>
-								{#if card.redirectButtons.length}
-									{#each card.redirectButtons as button}
-										<Button size="sm" href={getRedirectLink(button.redirectSlug)}>
-											<span class="skew-x-[15deg]">{button.label}</span>
-										</Button>
-									{/each}
-								{/if}
+								<div class="flex">
+									{#if card.redirectButtons.length}
+										{#each card.redirectButtons as button}
+											<Button size="sm" href={getRedirectLink(button.redirectSlug)}>
+												<span class="skew-x-[15deg]">{button.label}</span>
+											</Button>
+										{/each}
+									{/if}
+								</div>
 							</div>
 						{/if}
 						{#if card.content}
@@ -130,8 +138,8 @@
 								{/if}
 							</div>
 						{/if}
-					</BlurFade>
-				</div>
+					</div>
+				{/if}
 			{/each}
 		</div>
 	</div>

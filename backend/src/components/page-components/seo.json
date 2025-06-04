@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_page_components_seos",
+  "info": {
+    "displayName": "seo",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "pageTitle": {
+      "type": "string",
+      "required": true
+    },
+    "pageDescription": {
+      "type": "text",
+      "required": true
+    },
+    "keywords": {
+      "type": "text",
+      "regex": "^([A-Za-zÄÖÜäöüß\\-]+,\\s*)*[A-Za-zÄÖÜäöüß\\-]+$"
+    }
+  }
+}

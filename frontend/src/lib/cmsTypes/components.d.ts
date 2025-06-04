@@ -170,6 +170,19 @@ export interface PageComponentsPageHeader extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponentsSeo extends Struct.ComponentSchema {
+  collectionName: 'components_page_components_seos';
+  info: {
+    description: '';
+    displayName: 'seo';
+  };
+  attributes: {
+    keywords: Schema.Attribute.Text;
+    pageDescription: Schema.Attribute.Text & Schema.Attribute.Required;
+    pageTitle: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface PartialComponentsAccordion extends Struct.ComponentSchema {
   collectionName: 'components_partial_components_accordions';
   info: {
@@ -283,7 +296,7 @@ export interface PartialComponentsContentTextImage
     displayName: 'contentTextImage';
   };
   attributes: {
-    content: Schema.Attribute.Text & Schema.Attribute.Required;
+    content: Schema.Attribute.Blocks;
     image: Schema.Attribute.Media<'images' | 'files'>;
     imagePosition: Schema.Attribute.Enumeration<
       ['top', 'bottom', 'left', 'right']
@@ -374,6 +387,18 @@ export interface PartialComponentsProductDataSheet
     displayName: 'productDataSheet';
   };
   attributes: {
+    category: Schema.Attribute.Enumeration<
+      [
+        'CNC-Fr\u00E4smaschinen',
+        'Konventionelle Fr\u00E4smaschinen',
+        'S\u00E4gen',
+        'Schleifmaschinen',
+        'Drehmaschinen',
+        'Bohrmaschinen',
+        'Sonstige Maschinen',
+      ]
+    > &
+      Schema.Attribute.Required;
     condition: Schema.Attribute.Enumeration<
       [
         'gebraucht',
@@ -385,12 +410,13 @@ export interface PartialComponentsProductDataSheet
       ]
     >;
     designation: Schema.Attribute.String & Schema.Attribute.Required;
+    dimensions: Schema.Attribute.String & Schema.Attribute.Required;
     internalId: Schema.Attribute.String & Schema.Attribute.Required;
     location: Schema.Attribute.String & Schema.Attribute.Required;
     manufacturer: Schema.Attribute.String & Schema.Attribute.Required;
     modelType: Schema.Attribute.String & Schema.Attribute.Required;
     name: Schema.Attribute.String & Schema.Attribute.Required;
-    pictures: Schema.Attribute.Media<'images' | 'files', true>;
+    weight: Schema.Attribute.String & Schema.Attribute.Required;
     yearOfManufacture: Schema.Attribute.BigInteger & Schema.Attribute.Required;
   };
 }
@@ -549,6 +575,7 @@ declare module '@strapi/strapi' {
       'page-components.hero-media': PageComponentsHeroMedia;
       'page-components.history': PageComponentsHistory;
       'page-components.page-header': PageComponentsPageHeader;
+      'page-components.seo': PageComponentsSeo;
       'partial-components.accordion': PartialComponentsAccordion;
       'partial-components.accordion-item': PartialComponentsAccordionItem;
       'partial-components.content-accordion': PartialComponentsContentAccordion;

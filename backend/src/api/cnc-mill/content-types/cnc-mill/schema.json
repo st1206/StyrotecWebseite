@@ -1,6 +1,6 @@
 {
   "kind": "collectionType",
-  "collectionName": "cnc_mill",
+  "collectionName": "cnc_mills",
   "info": {
     "singularName": "cnc-mill",
     "pluralName": "cnc-mills",
@@ -27,6 +27,103 @@
       "component": "partial-components.product-data-sheet",
       "required": true
     },
+    "numberOfAxes": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "integer"
+    },
+    "travelX": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": false
+    },
+    "travelY": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "travelZ": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "travelA": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "travelC": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "controlSystem": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "spindleHours": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "machineHours": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "clampingSurface": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "millingSpindle": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "toolHolder": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
     "description": {
       "pluginOptions": {
         "i18n": {
@@ -35,6 +132,11 @@
       },
       "type": "blocks",
       "required": true
+    },
+    "contactPerson": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::employee.employee"
     },
     "slug": {
       "pluginOptions": {
@@ -45,10 +147,19 @@
       "type": "uid",
       "required": true
     },
-    "contactPerson": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::employee.employee"
+    "pictures": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

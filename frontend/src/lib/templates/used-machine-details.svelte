@@ -12,9 +12,12 @@
 	import { page } from '$app/state';
 	import { PUBLIC_BACKEND_URL } from '$env/static/public';
 	import ContactForm from '$lib/sections/contact-form.svelte';
+	import { Lightbox } from 'svelte-lightbox';
+	import { siteData } from '$lib/config/metadata';
+	import { Icons } from '$lib/assets/icons';
 
 	let data: {
-		contactFormBuilder: any;
+		contactForm: any;
 		contactPerson: Employee;
 		description: StrapiRichTextNode[];
 		productDataSheet: ProductDataSheet;
@@ -31,7 +34,7 @@
 	}[] = [
 		{
 			__component: 'partial-components.content-images',
-			images: data.productDataSheet.pictures
+			images: data.pictures
 		}
 	];
 
@@ -63,26 +66,99 @@
 		{
 			label: $_('productDataSheet.location'),
 			value: data.productDataSheet.location
+		},
+		{
+			label: $_('productDataSheet.dimensions'),
+			value: data.productDataSheet.dimensions
+		},
+		{
+			label: $_('productDataSheet.weight'),
+			value: data.productDataSheet.weight
 		}
 	];
 
-	$inspect(data);
+	// Keys already handled by the tableRows above
+	const explicitlyHandledKeys = new Set([
+		'internalId',
+		'designation',
+		'modelType',
+		'manufacturer',
+		'yearOfManufacture',
+		'condition',
+		'location',
+		'dimensions',
+		'weight',
+		'name'
+	]);
+
+	const baseIgnoreKeys = new Set([
+		'pictures',
+		'slug',
+		'locale',
+		'contactForm',
+		'contactPerson',
+		'description',
+		'productDataSheet',
+		'id',
+		'documentId',
+		'updatedAt',
+		'createdAt',
+		'publishedAt'
+	]);
+
+	const additionalTableRows = $derived(
+		data
+			? Object.entries(data)
+					.filter(([key, value]) => {
+						if (explicitlyHandledKeys.has(key) || baseIgnoreKeys.has(key)) {
+							return false;
+						}
+						// Filter out non-displayable types or empty values
+						if (value === null || value === undefined) return false;
+						if (typeof value === 'string' && value.trim() === '') return false;
+						// Exclude generic objects (non-arrays) from auto-display
+						if (typeof value === 'object' && !Array.isArray(value)) return false;
+						if (Array.isArray(value) && value.length === 0) return false;
+						// Allow numbers (incl 0), booleans, non-empty strings, non-empty arrays
+						return true;
+					})
+					.map(([key, value]) => {
+						return {
+							label: $_(key),
+							value
+						};
+					})
+			: []
+	);
 </script>
 
-<div class="flex flex-col items-end justify-between sm:container md:flex-row print:items-center">
+<svelte:head>
+	<title>{data.productDataSheet.name}</title>
+	<meta name="description" content={data.productDataSheet.designation} />
+	<meta property="og:title" content={data.productDataSheet.name} />
+	<meta property="og:description" content={siteData.siteDescription} />
+	<meta property="og:url" content={`https://example.com/${page.url.pathname}`} />
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content={siteData.siteName} />
+</svelte:head>
+
+<div class="flex flex-col md:items-end justify-between sm:container md:flex-row print:items-center">
 	<PageHeader {...pageHeaderProps} />
 	<div class="mx-auto my-6 flex gap-2 md:m-4 md:mt-28">
 		<Button size="sm" variant="outline" class="print:hidden" onclick={() => window.print()}>
+			<Icons.download class="mr-1 size-4 skew-x-[15deg]" />
 			<span class="skew-x-[15deg]">{$_('button.print')}</span>
 		</Button>
-		<Button size="sm" class="w-[150px] print:hidden" href={`${page.url.pathname}#contact-form`}>
+		<Button size="sm" class="w-[180px] print:hidden" href={`${page.url.pathname}#contact-form`}>
+			<Icons.mail class="mr-1 size-4 skew-x-[15deg]" />
 			<span class="skew-x-[15deg]">{$_('button.requestNow')}</span>
 		</Button>
 		<Button
 			size="sm"
-			class="hidden w-[150px] items-center text-center print:flex"
+			class="hidden w-[180px] items-center text-center print:flex"
 			href={`mailto:${data.contactPerson?.email || ''}`}
 		>
+			<Icons.mail class="mr-1 size-4 skew-x-[15deg]" />
 			<span class="skew-x-[15deg]">{$_('button.requestNow')}</span>
 		</Button>
 	</div>
@@ -97,13 +173,23 @@
 				<div class="my-6">
 					<Table.Root>
 						<Table.Body>
-							{#each tableRows as row, idx}
-								<Table.Row class="bg-foreground/5 hover:bg-foreground/20 border-foreground/20">
+							{#each tableRows as row}
+								<Table.Row class="border-foreground/20 bg-foreground/5 hover:bg-foreground/20">
 									<Table.Cell class="bg-foreground/5 w-[100px] sm:w-[150px]">
 										{row?.label}
 									</Table.Cell>
 									<Table.Cell class="min-w-[100px] text-center font-medium">
 										{row?.value}
+									</Table.Cell>
+								</Table.Row>
+							{/each}
+							{#each additionalTableRows as row}
+								<Table.Row class="border-foreground/20 bg-foreground/5 hover:bg-foreground/20">
+									<Table.Cell class="bg-foreground/5 w-[100px] sm:w-[150px]">
+										{row.label}
+									</Table.Cell>
+									<Table.Cell class="min-w-[100px] text-center font-medium">
+										{row.value}
 									</Table.Cell>
 								</Table.Row>
 							{/each}
@@ -125,12 +211,12 @@
 			<Separator class="bg-primary mt-6 lg:hidden" />
 		</div>
 		<div class="lg:mt-6">
-			<BlurFade once={true} delay={0.3} duration={0.2}>
+			<BlurFade once={true} delay={0.2} duration={0.2}>
 				{#if contentImages}
 					{#each contentImages as item}
 						<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-1">
 							{#each item.images as image}
-								{#if image}
+								<Lightbox transitionDuration={50}>
 									<img
 										class="shadow-primary w-full object-cover"
 										src={!PUBLIC_BACKEND_URL.includes('https')
@@ -138,7 +224,7 @@
 											: image.url}
 										alt={image.alternativeText}
 									/>
-								{/if}
+								</Lightbox>
 							{/each}
 						</div>
 					{/each}
@@ -148,4 +234,4 @@
 	</div>
 </section>
 
-<ContactForm contactForm={data.contactFormBuilder} employee={data.contactPerson} />
+<ContactForm contactForm={data.contactForm} employee={data.contactPerson} />

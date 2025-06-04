@@ -64,7 +64,7 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 		const collectionItems = await getCMSDataForCollection(
 			{
 				cmsApiSlug: collectionApiSlug!,
-				cmsApiParams: `filters[slug][$eq]=${id}&populate=${'productDataSheet.pictures'}&populate=contactPerson.picture&populate=contactPerson.contactPicture`
+				cmsApiParams: `filters[slug][$eq]=${id}&populate=${'productDataSheet'}&populate=pictures&populate=contactPerson.picture&populate=contactPerson.contactPicture`
 			},
 			lang
 		);
@@ -134,30 +134,35 @@ export const actions: Actions = {
 
 		const transporter = nodemailer.createTransport(transportData);
 
-		transporter.verify((error, _success) => {
-			if (error) {
-				console.error(error);
-			} else {
-				const mailOptions = {
-					from: EMAIL_ADRESS,
-					to: form.data.mailToContactPerson,
-					subject: 'Kontaktanfrage',
-					text: getContactFormText(form.data),
-					html: getContactFormTemplate(form.data),
-					replyTo: form.data.email
-				};
+		const mailOptions = {
+			from: EMAIL_ADRESS,
+			to: form.data.mailToContactPerson,
+			subject: 'Kontaktanfrage',
+			text: getContactFormText(form.data),
+			html: getContactFormTemplate(form.data),
+			replyTo: form.data.email
+		};
 
-				transporter.sendMail(mailOptions, (error, info) => {
-					if (error) {
-						console.error(error);
-						return message(form, 'No spam please', {
-							status: 403
-						});
-					}
-					console.log('E-Mail gesendet: ' + info.response);
-					return message(form, 'success');
-				});
-			}
-		});
+		try {
+			await transporter.verify();
+			console.log('Server is ready to take messages');
+		} catch (err) {
+			console.error('Verification failed', err);
+			return message(form, 'SMTP server not reachable', {
+				status: 403
+			});
+		}
+
+		try {
+			const info = await transporter.sendMail(mailOptions);
+
+			console.log('Message sent: %s', info.messageId);
+			return message(form, 'success');
+		} catch (err: unknown) {
+			console.error('Error while sending mail', err);
+			return message(form, err, {
+				status: 403
+			});
+		}
 	}
 };

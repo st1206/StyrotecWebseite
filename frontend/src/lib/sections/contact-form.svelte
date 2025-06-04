@@ -11,19 +11,19 @@
 	import { page } from '$app/state';
 	import { _ } from 'svelte-i18n';
 	import type { Employee } from '$lib/models/employee';
+	import { Icons } from '$lib/assets/icons';
+	import { locale } from 'svelte-i18n';
 
 	let data: {
 		contactForm: any;
 		employee: Employee;
 	} = $props();
 
-	$inspect('data', data);
-
 	const form = superForm(data.contactForm, {
 		validators: zodClient(contactFormSchema)
 	});
 
-	const { form: formData, enhance } = form;
+	const { form: formData, enhance, message, submitting } = form;
 
 	onMount(() => {
 		const originUrl = page.url.pathname;
@@ -39,14 +39,12 @@
 		<div
 			class="bg-secondary/10 text-secondary mb-12 mt-16 grid h-full grid-cols-1 gap-x-8 p-8 md:grid-cols-5 lg:gap-x-12 xl:grid-cols-6"
 		>
-			<h5 class="font-boldFont col-span-1 mb-6 text-4xl md:col-span-5">
-				{$_('contactForm')}
+			<h5 class="font-boldFont col-span-1 mb-6 text-3xl md:col-span-5">
+				{$_('yourContact')}
 			</h5>
 
 			{#if data.employee.contactPicture}
-				<div
-					class="bg-secondary/10 col-span-1 mb-8 flex flex-col md:col-span-2 md:mb-0 print:hidden"
-				>
+				<div class="bg-secondary/10 col-span-1 mb-8 flex h-max flex-col md:col-span-2 md:mb-0">
 					<img
 						class="h-[292px] object-cover object-top"
 						src={!PUBLIC_BACKEND_URL.includes('https')
@@ -55,9 +53,12 @@
 						alt={data.employee.name}
 					/>
 					<div class="p-4">
-						<h4 class="text-sm">Ihr direkter Ansprechpartner:</h4>
+						<h3 class="text-primary text-sm">{data.employee.position}</h3>
 						<h2 class="font-boldFont text-3xl lg:text-4xl">{data.employee.name}</h2>
-						<h3 class="text-primary">{data.employee.position}</h3>
+						<div class="mt-1 flex items-center gap-1 text-sm">
+							<Icons.mail class="size-3" />
+							<h3>{data.employee.email}</h3>
+						</div>
 					</div>
 				</div>
 			{/if}
@@ -68,7 +69,7 @@
 						<Form.Field {form} name="name" class="w-full">
 							<Form.Control>
 								{#snippet children({ props })}
-									<Form.Label>Name*</Form.Label>
+									<Form.Label>{$_('name')}*</Form.Label>
 									<Input {...props} bind:value={$formData.name} />
 								{/snippet}
 							</Form.Control>
@@ -78,7 +79,7 @@
 						<Form.Field {form} name="company" class="w-full">
 							<Form.Control>
 								{#snippet children({ props })}
-									<Form.Label>Firma</Form.Label>
+									<Form.Label>{$_('company')}</Form.Label>
 									<Input {...props} bind:value={$formData.company} />
 								{/snippet}
 							</Form.Control>
@@ -90,7 +91,7 @@
 						<Form.Field {form} name="email" class="w-full">
 							<Form.Control>
 								{#snippet children({ props })}
-									<Form.Label>Email*</Form.Label>
+									<Form.Label>{$_('yourEmail')}*</Form.Label>
 									<Input {...props} bind:value={$formData.email} />
 								{/snippet}
 							</Form.Control>
@@ -100,7 +101,7 @@
 						<Form.Field {form} name="phone" class="w-full">
 							<Form.Control>
 								{#snippet children({ props })}
-									<Form.Label>Telefonnummer</Form.Label>
+									<Form.Label>{$_('phone')}</Form.Label>
 									<Input {...props} bind:value={$formData.tel} />
 								{/snippet}
 							</Form.Control>
@@ -111,7 +112,7 @@
 					<Form.Field {form} name="message" class="w-full">
 						<Form.Control>
 							{#snippet children({ props })}
-								<Form.Label>Ihre Nachricht*</Form.Label>
+								<Form.Label>{$_('yourMessage')}*</Form.Label>
 								<Textarea
 									{...props}
 									bind:value={$formData.message}
@@ -137,8 +138,27 @@
 							</Form.Control>
 						</Form.Field>
 					</div>
+
+					{#if $message && $message !== 'success'}
+						<div class="bg-secondary text-destructive mt-2 flex items-center gap-2 p-2 text-sm">
+							<Icons.error class="size-4" />
+							{$message}
+						</div>
+					{:else if $message === 'success'}
+						<div class="bg-secondary mt-2 flex items-center gap-2 p-2 text-sm text-green-500">
+							<Icons.check class="size-4" />
+							{$locale === 'de-DE' ? 'E-Mail erfolgreich gesendet!' : 'E-Mail sent successfully!'}
+						</div>
+					{/if}
 					<Form.Button class="ml-auto mr-2 mt-4">
-						<span class="skew-x-[15deg]">Abschicken</span>
+						{#if $submitting}
+							<Icons.spinner class="mr-1 size-4 animate-spin" />
+						{:else}
+							<Icons.send class="mr-1 size-4 skew-x-[15deg]" />
+						{/if}
+						<span class="skew-x-[15deg]">
+							{$_('button.send')}
+						</span>
 					</Form.Button>
 				</form>
 			</div>

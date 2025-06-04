@@ -2,13 +2,14 @@
 	import * as Table from '$lib/components/ui/table';
 	import * as Accordion from '$lib/components/ui/accordion';
 	import * as Card from '$lib/components/ui/card';
-	import { cn } from '$lib/utils';
+	import { cn, resolveRichText, type StrapiRichTextNode } from '$lib/utils';
 	import { PUBLIC_BACKEND_URL } from '$env/static/public';
 	import { innerWidth } from 'svelte/reactivity/window';
 	import { SvelteMap } from 'svelte/reactivity';
 	import { onMount, tick } from 'svelte';
 	import { page } from '$app/state';
 	import type { ImageAsset } from '$lib/cmsTypes/image-type';
+	import { Lightbox } from 'svelte-lightbox';
 
 	type ContentHeader = {
 		sectionTitle: string;
@@ -56,7 +57,7 @@
 
 	type ContentTextImage = {
 		title: string;
-		content: string;
+		content: StrapiRichTextNode[];
 		image: ImageAsset;
 		imagePosition: 'top' | 'right' | 'bottom' | 'left';
 		sortOrder?: number;
@@ -156,7 +157,7 @@
 {/if}
 
 {#snippet HeaderTemplate(block: ContentHeader)}
-	<div class={cn(isDarkMode ? 'pt-16' : 'pt-24', 'flex flex-col items-center gap-2')}>
+	<div class={cn(isDarkMode ? 'pt-16' : 'pt-32', 'flex flex-col items-center gap-2')}>
 		<h3 class={cn(isDarkMode ? 'text-secondary' : 'text-foreground', 'font-boldFont text-4xl')}>
 			{block.sectionTitle}
 		</h3>
@@ -334,13 +335,15 @@
 		<div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 xl:gap-8">
 			{#each block.images as image}
 				{#if image}
-					<img
-						class="shadow-primary h-[400px] w-full object-cover"
-						src={!PUBLIC_BACKEND_URL.includes('https')
-							? `${PUBLIC_BACKEND_URL}${image.formats['large']?.url || image.url}`
-							: image.url}
-						alt={image.alternativeText}
-					/>
+					<Lightbox transitionDuration={50}>
+						<img
+							class="shadow-primary h-[400px] w-full object-cover"
+							src={!PUBLIC_BACKEND_URL.includes('https')
+								? `${PUBLIC_BACKEND_URL}${image.formats['large']?.url || image.url}`
+								: image.url}
+							alt={image.alternativeText}
+						/>
+					</Lightbox>
 				{/if}
 			{/each}
 		</div>
@@ -361,9 +364,7 @@
 					class={cn(
 						'shadow-primary h-[400px] w-full object-cover',
 						(block.imagePosition === 'left' || block.imagePosition === 'right') && 'md:w-1/2',
-						block.imagePosition === 'right' || block.imagePosition === 'bottom'
-							? 'order-2'
-							: 'order-1'
+						block.imagePosition === 'bottom' ? 'order-2' : 'order-1'
 					)}
 					src={!PUBLIC_BACKEND_URL.includes('https')
 						? `${PUBLIC_BACKEND_URL}${block.image.formats['large']?.url || block.image.url}`
@@ -372,14 +373,7 @@
 				/>
 			{/if}
 
-			<div
-				class={cn(
-					'flex-1',
-					block.imagePosition === 'right' || block.imagePosition === 'bottom'
-						? 'order-1'
-						: 'order-2'
-				)}
-			>
+			<div class={cn('flex-1', block.imagePosition === 'bottom' ? 'order-1' : 'order-2')}>
 				<h4
 					class={cn(
 						isDarkMode ? 'text-secondary' : 'text-foreground',
@@ -394,7 +388,7 @@
 						'prose prose-neutral lg:prose-lg max-w-none text-justify'
 					)}
 				>
-					{@html block.content}
+					{@html resolveRichText(block.content)}
 				</p>
 			</div>
 		</div>

@@ -18,7 +18,7 @@ import { buildPopulateQuery } from './apiParamsBuilder';
 export interface CMSTypeMap {
 	home: ApiHomeHome;
 	briquettpressPage: ApiBriquettingPressPageBriquettingPressPage;
-	styorofoamProcessingPage: ApiStyrofoamProcessingPageStyrofoamProcessingPage
+	styorofoamProcessingPage: ApiStyrofoamProcessingPageStyrofoamProcessingPage;
 	gantryMachinesPage: ApiGantryMachinesPageGantryMachinesPage;
 	fs10Page: ApiFs10PageFs10Page;
 	metalsPage: ApiMetalsPageMetalsPage;
@@ -103,7 +103,8 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'heroTextImage' },
 			{ sectionKey: 'uspList' },
 			{ sectionKey: 'exploreMore' },
-			{ sectionKey: 'contactForm' }
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
 		]
 	},
 
@@ -192,7 +193,7 @@ const pagesConfig: Record<string, PageContent> = {
 
 	cncMills: {
 		deSlug: 'produkte/gebrauchtmaschinen/cnc-fraesen',
-		enSlug: 'products/gebrauchtmaschinen/cnc-mills',
+		enSlug: 'products/used-machines/cnc-mills',
 		cmsTypeKey: 'cncMillsPage',
 		cmsApiSlug: 'cnc-mills-page',
 		sections: [
@@ -201,8 +202,23 @@ const pagesConfig: Record<string, PageContent> = {
 			},
 			{
 				sectionKey: 'collectionTypeCards'
+			},
+			{
+				sectionKey: 'seo'
 			}
 		]
 	}
+
+	// millingTools: {
+	// 	deSlug: 'produkte/styroporbearbeitung/fräswerkzeuge',
+	// 	enSlug: 'products/styrofoam-processing/milling-tools',
+	// 	cmsTypeKey: 'millingToolsPage',
+	// 	cmsApiSlug: 'milling-tools-page',
+	// 	sections: [
+	// 		{
+	// 			sectionKey: 'defaultContent'
+	// 		}
+	// 	]
+	// }
 };
 export const pages: Record<string, PageContent> = withApiParams(pagesConfig);

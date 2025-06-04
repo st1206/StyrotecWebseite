@@ -23,7 +23,8 @@ const populateBySection: Record<string, PopulateRule> = {
 	defaultCards: ['defaultCards.cards.thumbnail', 'defaultCards.cards.redirectButtons'],
 	defaultCardsTwo: ['defaultCardsTwo.cards.thumbnail', 'defaultCardsTwo.cards.redirectButtons'],
 	collectionTypeCards: ['collectionTypeCards'],
-	contactForm: ['contactForm.employee.contactPicture']
+	contactForm: ['contactForm.employee.contactPicture'],
+	seo: ['seo']
 };
 
 export function buildPopulateQuery(sectionKeys: string[]): string {
