@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-05-23T14:55:45.205Z"
+    "x-generation-date": "2025-06-04T12:33:38.890Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -12039,7 +12039,8 @@
               "heroTextImage",
               "uspList",
               "exploreMore",
-              "contactForm"
+              "contactForm",
+              "seo"
             ],
             "type": "object",
             "properties": {
@@ -12060,6 +12061,9 @@
               },
               "contactForm": {
                 "$ref": "#/components/schemas/PageComponentsContactFormComponent"
+              },
+              "seo": {
+                "$ref": "#/components/schemas/PageComponentsSeoComponent"
               },
               "locale": {
                 "type": "string"
@@ -12124,7 +12128,8 @@
           "heroTextImage",
           "uspList",
           "exploreMore",
-          "contactForm"
+          "contactForm",
+          "seo"
         ],
         "properties": {
           "id": {
@@ -12150,6 +12155,9 @@
           },
           "contactForm": {
             "$ref": "#/components/schemas/PageComponentsContactFormComponent"
+          },
+          "seo": {
+            "$ref": "#/components/schemas/PageComponentsSeoComponent"
           },
           "createdAt": {
             "type": "string",
@@ -12216,6 +12224,9 @@
                 },
                 "contactForm": {
                   "$ref": "#/components/schemas/PageComponentsContactFormComponent"
+                },
+                "seo": {
+                  "$ref": "#/components/schemas/PageComponentsSeoComponent"
                 },
                 "createdAt": {
                   "type": "string",
@@ -12775,6 +12786,23 @@
                 "type": "string"
               }
             }
+          }
+        }
+      },
+      "PageComponentsSeoComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "pageTitle": {
+            "type": "string"
+          },
+          "pageDescription": {
+            "type": "string"
+          },
+          "keywords": {
+            "type": "string"
           }
         }
       },
@@ -14648,23 +14676,6 @@
             "type": "number"
           },
           "collectionApiSlug": {
-            "type": "string"
-          }
-        }
-      },
-      "PageComponentsSeoComponent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "pageTitle": {
-            "type": "string"
-          },
-          "pageDescription": {
-            "type": "string"
-          },
-          "keywords": {
             "type": "string"
           }
         }
@@ -23423,7 +23434,8 @@
           "data": {
             "required": [
               "pageHeader",
-              "defaultCards"
+              "defaultCards",
+              "seo"
             ],
             "type": "object",
             "properties": {
@@ -23432,6 +23444,9 @@
               },
               "defaultCards": {
                 "$ref": "#/components/schemas/PageComponentsDefaultCardsComponent"
+              },
+              "seo": {
+                "$ref": "#/components/schemas/PageComponentsSeoComponent"
               },
               "locale": {
                 "type": "string"
@@ -23493,7 +23508,8 @@
         "type": "object",
         "required": [
           "pageHeader",
-          "defaultCards"
+          "defaultCards",
+          "seo"
         ],
         "properties": {
           "id": {
@@ -23507,6 +23523,9 @@
           },
           "defaultCards": {
             "$ref": "#/components/schemas/PageComponentsDefaultCardsComponent"
+          },
+          "seo": {
+            "$ref": "#/components/schemas/PageComponentsSeoComponent"
           },
           "createdAt": {
             "type": "string",
@@ -23561,6 +23580,9 @@
                 },
                 "defaultCards": {
                   "$ref": "#/components/schemas/PageComponentsDefaultCardsComponent"
+                },
+                "seo": {
+                  "$ref": "#/components/schemas/PageComponentsSeoComponent"
                 },
                 "createdAt": {
                   "type": "string",
@@ -30087,7 +30109,8 @@
               "uspList",
               "exploreMore",
               "contactForm",
-              "heroCarousel"
+              "heroCarousel",
+              "seo"
             ],
             "type": "object",
             "properties": {
@@ -30111,6 +30134,9 @@
               },
               "heroTextImage": {
                 "$ref": "#/components/schemas/PageComponentsBasicTextImageComponent"
+              },
+              "seo": {
+                "$ref": "#/components/schemas/PageComponentsSeoComponent"
               },
               "locale": {
                 "type": "string"
@@ -30174,7 +30200,8 @@
           "uspList",
           "exploreMore",
           "contactForm",
-          "heroCarousel"
+          "heroCarousel",
+          "seo"
         ],
         "properties": {
           "id": {
@@ -30203,6 +30230,9 @@
           },
           "heroTextImage": {
             "$ref": "#/components/schemas/PageComponentsBasicTextImageComponent"
+          },
+          "seo": {
+            "$ref": "#/components/schemas/PageComponentsSeoComponent"
           },
           "createdAt": {
             "type": "string",
@@ -30272,6 +30302,9 @@
                 },
                 "heroTextImage": {
                   "$ref": "#/components/schemas/PageComponentsBasicTextImageComponent"
+                },
+                "seo": {
+                  "$ref": "#/components/schemas/PageComponentsSeoComponent"
                 },
                 "createdAt": {
                   "type": "string",
@@ -30806,7 +30839,8 @@
             "required": [
               "heroCarousel",
               "exploreMore",
-              "contactForm"
+              "contactForm",
+              "seo"
             ],
             "type": "object",
             "properties": {
@@ -30818,6 +30852,9 @@
               },
               "contactForm": {
                 "$ref": "#/components/schemas/PageComponentsContactFormComponent"
+              },
+              "seo": {
+                "$ref": "#/components/schemas/PageComponentsSeoComponent"
               },
               "locale": {
                 "type": "string"
@@ -30880,7 +30917,8 @@
         "required": [
           "heroCarousel",
           "exploreMore",
-          "contactForm"
+          "contactForm",
+          "seo"
         ],
         "properties": {
           "id": {
@@ -30897,6 +30935,9 @@
           },
           "contactForm": {
             "$ref": "#/components/schemas/PageComponentsContactFormComponent"
+          },
+          "seo": {
+            "$ref": "#/components/schemas/PageComponentsSeoComponent"
           },
           "createdAt": {
             "type": "string",
@@ -30954,6 +30995,9 @@
                 },
                 "contactForm": {
                   "$ref": "#/components/schemas/PageComponentsContactFormComponent"
+                },
+                "seo": {
+                  "$ref": "#/components/schemas/PageComponentsSeoComponent"
                 },
                 "createdAt": {
                   "type": "string",

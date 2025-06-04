@@ -69,6 +69,17 @@
         }
       },
       "component": "page-components.basic-text-image"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.seo",
+      "required": true
     }
   }
 }
