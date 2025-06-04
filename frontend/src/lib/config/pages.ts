@@ -71,7 +71,7 @@ const pagesConfig: Record<string, PageContent> = {
 		deSlug: 'produkte/brikettierpressen',
 		enSlug: 'products/briquetting-press',
 		cmsTypeKey: 'briquettpressPage',
-		cmsApiSlug: 'briquett-press-page',
+		cmsApiSlug: 'briquetting-press-page',
 		sections: [
 			{ sectionKey: 'heroCarousel' },
 			{ sectionKey: 'heroTextImage' },
