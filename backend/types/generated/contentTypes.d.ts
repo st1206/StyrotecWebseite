@@ -765,7 +765,7 @@ export interface ApiConventionalMillConventionalMill
       'oneToMany',
       'api::conventional-mill.conventional-mill'
     >;
-    machineSerialNumber: Schema.Attribute.Integer &
+    machineSerialNumber: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -830,7 +830,7 @@ export interface ApiDrillingMachineDrillingMachine
   collectionName: 'drilling_machines';
   info: {
     description: '';
-    displayName: 'Borhmaschinen';
+    displayName: 'Bohrmaschinen';
     pluralName: 'drilling-machines';
     singularName: 'drilling-machine';
   };
@@ -861,7 +861,7 @@ export interface ApiDrillingMachineDrillingMachine
       'oneToMany',
       'api::drilling-machine.drilling-machine'
     >;
-    machineSerialNumber: Schema.Attribute.Integer &
+    machineSerialNumber: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1256,7 +1256,7 @@ export interface ApiGrindingMachineGrindingMachine
       'oneToMany',
       'api::grinding-machine.grinding-machine'
     >;
-    machineSerialNumber: Schema.Attribute.Integer &
+    machineSerialNumber: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1461,7 +1461,7 @@ export interface ApiLatheLathe extends Struct.CollectionTypeSchema {
       }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::lathe.lathe'>;
-    machineSerialNumber: Schema.Attribute.Integer &
+    machineSerialNumber: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1648,7 +1648,7 @@ export interface ApiOtherMachineOtherMachine
       'oneToMany',
       'api::other-machine.other-machine'
     >;
-    machineSerialNumber: Schema.Attribute.Integer &
+    machineSerialNumber: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1802,7 +1802,7 @@ export interface ApiSawSaw extends Struct.CollectionTypeSchema {
       }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::saw.saw'>;
-    machineSerialNumber: Schema.Attribute.Integer &
+    machineSerialNumber: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

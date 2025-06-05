@@ -33,8 +33,7 @@
           "localized": true
         }
       },
-      "type": "integer",
-      "required": false
+      "type": "string"
     },
     "centerDistance": {
       "pluginOptions": {
@@ -83,12 +82,13 @@
       "target": "api::employee.employee"
     },
     "pictures": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files"
       ],
-      "type": "media",
-      "multiple": true,
       "pluginOptions": {
         "i18n": {
           "localized": true

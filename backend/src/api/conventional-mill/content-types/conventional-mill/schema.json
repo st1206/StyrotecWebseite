@@ -33,7 +33,7 @@
           "localized": true
         }
       },
-      "type": "integer"
+      "type": "string"
     },
     "description": {
       "pluginOptions": {
@@ -62,7 +62,10 @@
       "type": "media",
       "multiple": true,
       "required": false,
-      "allowedTypes": ["images", "files"],
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
       "pluginOptions": {
         "i18n": {
           "localized": true

@@ -41,8 +41,7 @@
           "localized": true
         }
       },
-      "type": "integer",
-      "required": false
+      "type": "string"
     },
     "tableSize": {
       "pluginOptions": {
@@ -94,7 +93,10 @@
       "type": "media",
       "multiple": true,
       "required": false,
-      "allowedTypes": ["images", "files"],
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
       "pluginOptions": {
         "i18n": {
           "localized": true

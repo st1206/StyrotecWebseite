@@ -33,7 +33,7 @@
           "localized": true
         }
       },
-      "type": "integer"
+      "type": "string"
     },
     "rollerDiameter": {
       "pluginOptions": {
@@ -98,12 +98,13 @@
       "target": "api::employee.employee"
     },
     "pictures": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files"
       ],
-      "type": "media",
-      "multiple": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
