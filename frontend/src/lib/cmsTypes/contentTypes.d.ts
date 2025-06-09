@@ -501,6 +501,13 @@ export interface ApiBriquettingPressPageBriquettingPressPage
       'api::briquetting-press-page.briquetting-press-page'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'page-components.seo', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -647,12 +654,6 @@ export interface ApiCncMillCncMill extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
-    type: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -764,7 +765,7 @@ export interface ApiConventionalMillConventionalMill
       'oneToMany',
       'api::conventional-mill.conventional-mill'
     >;
-    machineSerialNumber: Schema.Attribute.Integer &
+    machineSerialNumber: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -829,7 +830,7 @@ export interface ApiDrillingMachineDrillingMachine
   collectionName: 'drilling_machines';
   info: {
     description: '';
-    displayName: 'Borhmaschinen';
+    displayName: 'Bohrmaschinen';
     pluralName: 'drilling-machines';
     singularName: 'drilling-machine';
   };
@@ -860,7 +861,7 @@ export interface ApiDrillingMachineDrillingMachine
       'oneToMany',
       'api::drilling-machine.drilling-machine'
     >;
-    machineSerialNumber: Schema.Attribute.Integer &
+    machineSerialNumber: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -903,6 +904,75 @@ export interface ApiDrillingMachineDrillingMachine
         };
       }>;
     tableSize: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDrillingMachinesPageDrillingMachinesPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'drilling_machines_pages';
+  info: {
+    displayName: 'Bohrmaschinen Seite';
+    pluralName: 'drilling-machines-pages';
+    singularName: 'drilling-machines-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    collectionTypeCards: Schema.Attribute.Component<
+      'page-components.collection-type-cards',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    contactForm: Schema.Attribute.Component<
+      'page-components.contact-form',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroDualImage: Schema.Attribute.Component<
+      'page-components.hero-dual-image',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::drilling-machines-page.drilling-machines-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'page-components.seo', false> &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1255,7 +1325,7 @@ export interface ApiGrindingMachineGrindingMachine
       'oneToMany',
       'api::grinding-machine.grinding-machine'
     >;
-    machineSerialNumber: Schema.Attribute.Integer &
+    machineSerialNumber: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1403,6 +1473,13 @@ export interface ApiIndustriesPageIndustriesPage
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'page-components.seo', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1453,7 +1530,7 @@ export interface ApiLatheLathe extends Struct.CollectionTypeSchema {
       }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::lathe.lathe'>;
-    machineSerialNumber: Schema.Attribute.Integer &
+    machineSerialNumber: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1604,6 +1681,76 @@ export interface ApiMillingToolsPageMillingToolsPage
   };
 }
 
+export interface ApiModelConstructionMachinesPageModelConstructionMachinesPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'model_construction_machines_pages';
+  info: {
+    description: '';
+    displayName: 'Modellbaumaschinen Seite';
+    pluralName: 'model-construction-machines-pages';
+    singularName: 'model-construction-machines-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    contactForm: Schema.Attribute.Component<
+      'page-components.contact-form',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    defaultCards: Schema.Attribute.Component<
+      'page-components.default-cards',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heroDualImage: Schema.Attribute.Component<
+      'page-components.hero-dual-image',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::model-construction-machines-page.model-construction-machines-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'page-components.seo', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiOtherMachineOtherMachine
   extends Struct.CollectionTypeSchema {
   collectionName: 'other_machines';
@@ -1640,7 +1787,7 @@ export interface ApiOtherMachineOtherMachine
       'oneToMany',
       'api::other-machine.other-machine'
     >;
-    machineSerialNumber: Schema.Attribute.Integer &
+    machineSerialNumber: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1794,7 +1941,7 @@ export interface ApiSawSaw extends Struct.CollectionTypeSchema {
       }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::saw.saw'>;
-    machineSerialNumber: Schema.Attribute.Integer &
+    machineSerialNumber: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1951,6 +2098,13 @@ export interface ApiStyrofoamProcessingPageStyrofoamProcessingPage
       'api::styrofoam-processing-page.styrofoam-processing-page'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'page-components.seo', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2061,6 +2215,13 @@ export interface ApiUsedMachinesPageUsedMachinesPage
       'api::used-machines-page.used-machines-page'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'page-components.seo', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2582,6 +2743,7 @@ declare module '@strapi/strapi' {
       'api::cnc-mills-page.cnc-mills-page': ApiCncMillsPageCncMillsPage;
       'api::conventional-mill.conventional-mill': ApiConventionalMillConventionalMill;
       'api::drilling-machine.drilling-machine': ApiDrillingMachineDrillingMachine;
+      'api::drilling-machines-page.drilling-machines-page': ApiDrillingMachinesPageDrillingMachinesPage;
       'api::employee.employee': ApiEmployeeEmployee;
       'api::fair.fair': ApiFairFair;
       'api::fs10-page.fs10-page': ApiFs10PageFs10Page;
@@ -2593,6 +2755,7 @@ declare module '@strapi/strapi' {
       'api::lathe.lathe': ApiLatheLathe;
       'api::metals-page.metals-page': ApiMetalsPageMetalsPage;
       'api::milling-tools-page.milling-tools-page': ApiMillingToolsPageMillingToolsPage;
+      'api::model-construction-machines-page.model-construction-machines-page': ApiModelConstructionMachinesPageModelConstructionMachinesPage;
       'api::other-machine.other-machine': ApiOtherMachineOtherMachine;
       'api::reference.reference': ApiReferenceReference;
       'api::saw.saw': ApiSawSaw;

@@ -2,12 +2,14 @@ import type {
 	ApiAboutUsPageAboutUsPage,
 	ApiBriquettingPressPageBriquettingPressPage,
 	ApiCncMillsPageCncMillsPage,
+	ApiDrillingMachinesPageDrillingMachinesPage,
 	ApiFs10PageFs10Page,
 	ApiGantryMachinesPageGantryMachinesPage,
 	ApiHomeHome,
 	ApiIndustriesPageIndustriesPage,
 	ApiMetalsPageMetalsPage,
 	ApiMillingToolsPageMillingToolsPage,
+	ApiModelConstructionMachinesPageModelConstructionMachinesPage,
 	ApiStyrofoamProcessingPageStyrofoamProcessingPage,
 	ApiUsedMachinesDetailsPageUsedMachinesDetailsPage,
 	ApiUsedMachinesPageUsedMachinesPage
@@ -28,6 +30,8 @@ export interface CMSTypeMap {
 	usedMachinesPage: ApiUsedMachinesPageUsedMachinesPage;
 	cncMillsPage: ApiCncMillsPageCncMillsPage;
 	usedMachinesDetailsPage: ApiUsedMachinesDetailsPageUsedMachinesDetailsPage;
+	modelConstructionMachinesPage: ApiModelConstructionMachinesPageModelConstructionMachinesPage;
+	drillingMachinesPage: ApiDrillingMachinesPageDrillingMachinesPage;
 }
 
 // Define the supported languages
@@ -205,6 +209,48 @@ const pagesConfig: Record<string, PageContent> = {
 			},
 			{
 				sectionKey: 'seo'
+			}
+		]
+	},
+
+	modelConstructionMachines: {
+		deSlug: 'produkte/gebrauchtmaschinen/modellbaumaschinen',
+		enSlug: 'produkte/gebrauchtmaschinen/model-construction-machines',
+		cmsTypeKey: 'modelConstructionMachinesPage',
+		cmsApiSlug: 'model-construction-machines-page',
+		sections: [
+			{
+				sectionKey: 'heroDualImage'
+			},
+			{
+				sectionKey: 'defaultCards'
+			},
+			{
+				sectionKey: 'seo'
+			},
+			{
+				sectionKey: 'contactForm'
+			}
+		]
+	},
+
+	drillingMachines: {
+		deSlug: 'produkte/gebrauchtmaschinen/modellbaumaschinen/bohrmaschinen',
+		enSlug: 'produkte/gebrauchtmaschinen/model-construction-machines/drilling-machines',
+		cmsTypeKey: 'drillingMachinesPage',
+		cmsApiSlug: 'drilling-machines-page',
+		sections: [
+			{
+				sectionKey: 'heroDualImage'
+			},
+			{
+				sectionKey: 'collectionTypeCards'
+			},
+			{
+				sectionKey: 'seo'
+			},
+			{
+				sectionKey: 'contactForm'
 			}
 		]
 	}

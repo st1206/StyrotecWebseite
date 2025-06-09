@@ -322,7 +322,8 @@ export interface PartialComponentsDefaultCard extends Struct.ComponentSchema {
       'partial-components.redirect-button',
       true
     >;
-    thumbnail: Schema.Attribute.Media<'images' | 'files'>;
+    thumbnail: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -387,18 +388,6 @@ export interface PartialComponentsProductDataSheet
     displayName: 'productDataSheet';
   };
   attributes: {
-    category: Schema.Attribute.Enumeration<
-      [
-        'CNC-Fr\u00E4smaschinen',
-        'Konventionelle Fr\u00E4smaschinen',
-        'S\u00E4gen',
-        'Schleifmaschinen',
-        'Drehmaschinen',
-        'Bohrmaschinen',
-        'Sonstige Maschinen',
-      ]
-    > &
-      Schema.Attribute.Required;
     condition: Schema.Attribute.Enumeration<
       [
         'gebraucht',

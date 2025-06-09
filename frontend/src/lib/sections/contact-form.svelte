@@ -43,10 +43,10 @@
 				{$_('yourContact')}
 			</h5>
 
-			{#if data.employee.contactPicture}
+			{#if data.employee && data.employee.contactPicture}
 				<div class="bg-secondary/10 col-span-1 mb-8 flex h-max flex-col md:col-span-2 md:mb-0">
 					<img
-						class="h-[292px] object-cover object-top"
+						class="h-[316px] object-cover object-top"
 						src={!PUBLIC_BACKEND_URL.includes('https')
 							? `${PUBLIC_BACKEND_URL}${data.employee.contactPicture.formats['large']?.url || data.employee.picture.url}`
 							: data.employee.contactPicture.url}
@@ -55,10 +55,10 @@
 					<div class="p-4">
 						<h3 class="text-primary text-sm">{data.employee.position}</h3>
 						<h2 class="font-boldFont text-3xl lg:text-4xl">{data.employee.name}</h2>
-						<div class="mt-1 flex items-center gap-1 text-sm">
+						<!-- <div class="mt-1 flex items-center gap-1 text-sm">
 							<Icons.mail class="size-3" />
 							<h3>{data.employee.email}</h3>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			{/if}

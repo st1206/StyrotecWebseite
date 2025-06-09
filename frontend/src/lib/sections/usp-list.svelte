@@ -9,12 +9,14 @@
 	});
 </script>
 
-<div class="bg-foreground h-14 w-full translate-y-[1px] [clip-path:polygon(100%_0,100%_100%,0_100%)]"></div>
+<div
+	class="bg-foreground h-14 w-full translate-y-[1px] [clip-path:polygon(100%_0,100%_100%,0_100%)]"
+></div>
 <section class="bg-foreground w-full">
 	<div
 		class={cn(
 			!isNameLong ? 'sm:w-max' : '',
-			'text-secondary container grid grid-cols-1 gap-y-6 py-16 lg:grid-cols-2 xl:py-24'
+			'text-secondary container grid grid-cols-1 gap-6 py-16 lg:grid-cols-2 xl:py-24'
 		)}
 	>
 		{#each data as item, i}
@@ -27,4 +29,6 @@
 		{/each}
 	</div>
 </section>
-<div class="bg-foreground h-14 w-full -translate-y-[1px] [clip-path:polygon(100%_0%,0%_0%,0%_100%)]"></div>
+<div
+	class="bg-foreground h-14 w-full -translate-y-[1px] [clip-path:polygon(100%_0%,0%_0%,0%_100%)]"
+></div>

@@ -55,7 +55,7 @@
 				</p>
 			</div>
 		{/if}
-		<div class={cn('grid grid-cols-6 justify-center gap-16')}>
+		<div class="grid grid-cols-6 justify-center gap-16">
 			{#each data.cards as card, i}
 				{#if card}
 					<div
@@ -71,15 +71,15 @@
 								data.cards.length % 2 !== 0
 								? 'md:col-start-3'
 								: '',
-							'shadow-primary relative col-span-6 mx-auto flex scroll-mt-24 flex-col gap-4 transition duration-300 ease-in-out'
+							'shadow-primary relative col-span-6 mx-auto flex w-full scroll-mt-24 flex-col gap-4 transition duration-300 ease-in-out'
 						)}
 					>
 						{#if card.thumbnail}
 							<div class="max-h-content w-full">
 								<img
 									class="{!card.content
-										? 'aspect-square'
-										: 'md:max-w-[450px] lg:max-w-[600px] xl:max-w-[800px]'} h-full w-max object-cover"
+										? 'max-h-[450px]'
+										: 'md:max-w-[450px] lg:max-w-[600px] xl:max-w-[800px]'} mx-auto h-full w-max object-cover"
 									src={!PUBLIC_BACKEND_URL.includes('https')
 										? `${PUBLIC_BACKEND_URL}${card.thumbnail.url}`
 										: card.thumbnail.url}
@@ -89,11 +89,7 @@
 						{/if}
 						{#if !card.content}
 							<div
-								class="bg-foreground/90 flex {card.title.length > 20
-									? 'flex-col lg:flex-row'
-									: card.title.length > 30
-										? 'flex-col lg:flex-row xl:flex-col'
-										: 'flex-row'} absolute bottom-0 w-full justify-between gap-2 p-4 pt-2"
+								class="bg-foreground/90 absolute bottom-0 flex w-full flex-wrap justify-between gap-x-2 p-2 px-4"
 							>
 								<h4 class="text-secondary font-boldFont text-2xl lg:text-3xl">
 									{@html card.title}
@@ -101,8 +97,8 @@
 								<div class="flex">
 									{#if card.redirectButtons.length}
 										{#each card.redirectButtons as button}
-											<Button size="sm" href={getRedirectLink(button.redirectSlug)}>
-												<span class="skew-x-[15deg]">{button.label}</span>
+											<Button href={getRedirectLink(button.redirectSlug)} class="h-8 px-2">
+												<span class="skew-x-[15deg] text-sm">{button.label}</span>
 											</Button>
 										{/each}
 									{/if}

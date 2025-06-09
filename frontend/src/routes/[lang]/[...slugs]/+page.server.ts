@@ -10,6 +10,7 @@ import nodemailer from 'nodemailer';
 import { EMAIL_ADRESS, EMAIL_HOST, EMAIL_PASSWORD } from '$env/static/private';
 import { getContactFormTemplate, getContactFormText } from '$lib/server/email';
 
+// Helper functions remain the same
 function getCMSDataForPage<K extends keyof CMSTypeMap>(
 	page: { cmsApiSlug: string; cmsApiParams?: string; cmsTypeKey: K },
 	lang: string
@@ -28,68 +29,17 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 	const { lang, slugs } = params;
 	if (!slugs) error(404, 'Page not found');
 
-	const slugParts = slugs.split('/').filter(Boolean); // ['gebrauchtmaschinen', 'cnc-fraesen', '42']
 	const slugKey = `${lang}Slug` as SlugKey;
+	const cleanSlug = slugs.replace(/\/$/, '').split('#')[0];
 
 	let matchedPage;
 	let cmsData;
 
-	if (slugParts.length === 4 && !slugParts.some((part) => part.startsWith('.'))) {
-		// 1. Match the detail page
-		const [prefix, categorySlug, subCategorySlug, id] = slugParts;
-		matchedPage = Object.values(pages).find((page) =>
-			page[slugKey]?.startsWith(`${prefix}/${categorySlug}/{`)
-		);
+	// 1. First, try to find a direct match for a regular/listing page
+	matchedPage = Object.values(pages).find((page) => page[slugKey] === cleanSlug);
 
-		if (!matchedPage) {
-			console.error(`Detail page config not found for ${slugParts}`);
-			error(404, `Detail page config not found for ${slugParts}`);
-		}
-
-		cmsData = await getCMSDataForPage(matchedPage, lang);
-
-		// 2. Match the category page (like "cncMachines")
-		const categoryPage = Object.values(pages).find(
-			(page) => page[slugKey] === `${prefix}/${categorySlug}/${subCategorySlug}`
-		);
-
-		if (!categoryPage) {
-			console.error(`Category page not found for ${matchedPage.cmsApiSlug}`);
-			error(404, `Category page not found for ${matchedPage.cmsApiSlug}`);
-		}
-
-		// 3. Use its enSlug to query the right collection data
-		const collectionApiSlug = categoryPage.enSlug.split('/').pop();
-
-		const collectionItems = await getCMSDataForCollection(
-			{
-				cmsApiSlug: collectionApiSlug!,
-				cmsApiParams: `filters[slug][$eq]=${id}&populate=${'productDataSheet'}&populate=pictures&populate=contactPerson.picture&populate=contactPerson.contactPicture`
-			},
-			lang
-		);
-
-		if (!collectionItems.length) {
-			console.error('Detail entry not found');
-			error(404, 'Detail entry not found');
-		}
-
-		cmsData = {
-			...cmsData,
-			//@ts-expect-error tbd.
-			[cmsData.componentKey]: collectionItems[0]
-		};
-	} else {
-		// handle regular pages (e.g., gebrauchtmaschinen/cnc-fraesen)
-		const cleanSlug = slugs.replace(/\/$/, '').split('#')[0];
-
-		matchedPage = Object.values(pages).find((page) => page[slugKey] === cleanSlug);
-
-		if (!matchedPage) {
-			console.error(`Page not found for ${cleanSlug}`);
-			error(404, 'Page not found');
-		}
-
+	if (matchedPage) {
+		// --- REGULAR / LISTING PAGE LOGIC ---
 		cmsData = await getCMSDataForPage(matchedPage, lang);
 
 		if ('collectionTypeCards' in cmsData && cmsData.collectionTypeCards) {
@@ -100,6 +50,82 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 				lang
 			);
 		}
+	} else {
+		// --- DETAIL PAGE LOGIC (FALLBACK) ---
+		// If no direct match, assume it's a detail page (e.g., .../category/item-slug)
+		const slugParts = cleanSlug.split('/');
+		if (slugParts.length < 2 || slugParts.some((part) => part.startsWith('.'))) {
+			error(404, 'Page not found');
+		}
+
+		const id = slugParts.pop(); // The last part is the item's slug/id
+		const categoryPath = slugParts.join('/'); // The rest is the category path
+
+		// 2. Find the specific category page configuration
+		const categoryPage = Object.values(pages).find((page) => page[slugKey] === categoryPath);
+
+		if (!categoryPage) {
+			console.error(`Category page config not found for path: ${categoryPath}`);
+			error(404, `Content category not found`);
+		}
+
+		// 3. Find the "template" page for the detail view layout.
+		// We search up the path for a config with a placeholder like `/{...}`
+		let detailPageTemplate = null;
+		const tempPathParts = [...slugParts];
+		while (tempPathParts.length > 0) {
+			const potentialBasePath = tempPathParts.join('/');
+			detailPageTemplate = Object.values(pages).find((page) =>
+				page[slugKey]?.startsWith(`${potentialBasePath}/{`)
+			);
+			if (detailPageTemplate) break;
+			tempPathParts.pop();
+		}
+
+		if (!detailPageTemplate) {
+			console.error(`Detail page template not found for category: ${categoryPath}`);
+			error(404, `Detail page template not found`);
+		}
+
+		// 4. Fetch data for the template page (the shell/layout)
+		cmsData = await getCMSDataForPage(detailPageTemplate, lang);
+
+		// 5. Use the category page's enSlug to get the collection API slug
+		const collectionApiSlug = categoryPage.enSlug.split('/').pop();
+		if (!collectionApiSlug) {
+			console.error(`Could not determine collection API slug from: ${categoryPage.enSlug}`);
+			error(500, 'Server configuration error');
+		}
+
+		// 6. Fetch the specific item from the collection
+		const collectionItems = await getCMSDataForCollection(
+			{
+				cmsApiSlug: collectionApiSlug,
+				cmsApiParams: `filters[slug][$eq]=${id}&populate=${'productDataSheet'}&populate=pictures&populate=contactPerson.picture&populate=contactPerson.contactPicture`
+			},
+			lang
+		);
+
+		if (!collectionItems.length) {
+			console.error(
+				`Detail entry with slug '${id}' not found in collection '${collectionApiSlug}'`
+			);
+			error(404, 'Detail entry not found');
+		}
+
+		// 7. Merge the specific item data into the page's CMS data
+		cmsData = {
+			...cmsData,
+			//@ts-expect-error tbd.
+			[cmsData.componentKey]: collectionItems[0]
+		};
+
+		// The matched page for the final return is the template
+		matchedPage = detailPageTemplate;
+	}
+
+	if (!matchedPage) {
+		error(404, 'Page not found');
 	}
 
 	return {
