@@ -1,0 +1,64 @@
+{
+  "kind": "singleType",
+  "collectionName": "model_construction_machines_pages",
+  "info": {
+    "singularName": "model-construction-machines-page",
+    "pluralName": "model-construction-machines-pages",
+    "displayName": "Modellbaumaschinen Seite",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.seo",
+      "required": true
+    },
+    "heroDualImage": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.hero-dual-image",
+      "required": true
+    },
+    "contactForm": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.contact-form",
+      "required": true
+    },
+    "defaultCards": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.default-cards",
+      "required": true
+    }
+  }
+}

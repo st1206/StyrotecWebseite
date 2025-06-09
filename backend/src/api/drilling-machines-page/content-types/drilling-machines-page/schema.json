@@ -1,0 +1,63 @@
+{
+  "kind": "singleType",
+  "collectionName": "drilling_machines_pages",
+  "info": {
+    "singularName": "drilling-machines-page",
+    "pluralName": "drilling-machines-pages",
+    "displayName": "Bohrmaschinen Seite"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.seo",
+      "required": true
+    },
+    "heroDualImage": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.hero-dual-image",
+      "required": true
+    },
+    "contactForm": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.contact-form",
+      "required": true
+    },
+    "collectionTypeCards": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.collection-type-cards",
+      "required": true
+    }
+  }
+}
