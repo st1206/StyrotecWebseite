@@ -7,6 +7,9 @@ import type {
 	ApiGantryMachinesPageGantryMachinesPage,
 	ApiHomeHome,
 	ApiIndustriesPageIndustriesPage,
+	ApiMachineMaintenanceMachineMaintenance,
+	ApiMachineMarketingMachineMarketing,
+	ApiMachineModernizationMachineModernization,
 	ApiMetalsPageMetalsPage,
 	ApiMillingToolsPageMillingToolsPage,
 	ApiModelConstructionMachinesPageModelConstructionMachinesPage,
@@ -32,6 +35,9 @@ export interface CMSTypeMap {
 	usedMachinesDetailsPage: ApiUsedMachinesDetailsPageUsedMachinesDetailsPage;
 	modelConstructionMachinesPage: ApiModelConstructionMachinesPageModelConstructionMachinesPage;
 	drillingMachinesPage: ApiDrillingMachinesPageDrillingMachinesPage;
+	machineMaintenancePage: ApiMachineMaintenanceMachineMaintenance;
+	machineModernizationPage: ApiMachineModernizationMachineModernization;
+	machineMarketingPage: ApiMachineMarketingMachineMarketing;
 }
 
 // Define the supported languages
@@ -183,6 +189,8 @@ const pagesConfig: Record<string, PageContent> = {
 		]
 	},
 
+
+
 	usedMachinesDetails: {
 		deSlug: 'produkte/gebrauchtmaschinen/{slug}/{id}',
 		enSlug: 'products/used-machines/{slug}/{id}',
@@ -253,7 +261,52 @@ const pagesConfig: Record<string, PageContent> = {
 				sectionKey: 'contactForm'
 			}
 		]
-	}
+	},
+
+	machineMaintenance: {
+		deSlug: 'dienstleistung/maschinenerhaltung',
+		enSlug: 'services/machine-maintenance',
+		cmsTypeKey: 'machineMaintenancePage',
+		cmsApiSlug: 'machine-maintenance',
+		sections: [
+			{ sectionKey: 'heroCarousel' },
+			{ sectionKey: 'heroTextImage' },
+			{ sectionKey: 'uspList' },
+			{ sectionKey: 'exploreMore' },
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
+		]
+	},
+
+	machineModernization: {
+		deSlug: 'dienstleistung/maschinmodernisierung',
+		enSlug: 'services/machine-modernization',
+		cmsTypeKey: 'machineModernizationPage',
+		cmsApiSlug: 'machine-modernization',
+		sections: [
+			{ sectionKey: 'heroCarousel' },
+			{ sectionKey: 'heroTextImage' },
+			{ sectionKey: 'uspList' },
+			{ sectionKey: 'exploreMore' },
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
+		]
+	},
+
+	machineMarketing: {
+		deSlug: 'dienstleistung/maschinenvermarktung',
+		enSlug: 'services/machine-marketing',
+		cmsTypeKey: 'machineMarketingPage',
+		cmsApiSlug: 'machine-marketing',
+		sections: [
+			{ sectionKey: 'heroCarousel' },
+			{ sectionKey: 'heroTextImage' },
+			{ sectionKey: 'uspList' },
+			{ sectionKey: 'exploreMore' },
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
+		]
+	},
 
 	// millingTools: {
 	// 	deSlug: 'produkte/styroporbearbeitung/fräswerkzeuge',

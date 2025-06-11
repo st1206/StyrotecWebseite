@@ -1572,6 +1572,264 @@ export interface ApiLatheLathe extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiMachineMaintenanceMachineMaintenance
+  extends Struct.SingleTypeSchema {
+  collectionName: 'machine_maintenances';
+  info: {
+    description: '';
+    displayName: 'Maschinenerhaltung Seite';
+    pluralName: 'machine-maintenances';
+    singularName: 'machine-maintenance';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    ContactForm: Schema.Attribute.Component<
+      'page-components.contact-form',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ExploreMore: Schema.Attribute.Component<
+      'page-components.explore-more',
+      true
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    HeroCarousel: Schema.Attribute.Component<
+      'page-components.hero-carousel',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    HeroTextImage: Schema.Attribute.Component<
+      'page-components.basic-text-image',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::machine-maintenance.machine-maintenance'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'page-components.seo', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    uspList: Schema.Attribute.Component<'partial-components.usp-list', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+  };
+}
+
+export interface ApiMachineMarketingMachineMarketing
+  extends Struct.SingleTypeSchema {
+  collectionName: 'machine_marketings';
+  info: {
+    description: '';
+    displayName: 'Maschinenvermarktung Seite';
+    pluralName: 'machine-marketings';
+    singularName: 'machine-marketing';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    ContactForm: Schema.Attribute.Component<
+      'page-components.contact-form',
+      false
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ExploreMore: Schema.Attribute.Component<
+      'page-components.explore-more',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    HeroCarousel: Schema.Attribute.Component<
+      'page-components.hero-carousel',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    HeroTextImage: Schema.Attribute.Component<
+      'page-components.basic-text-image',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::machine-marketing.machine-marketing'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'page-components.seo', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    UspList: Schema.Attribute.Component<'partial-components.usp-list', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+  };
+}
+
+export interface ApiMachineModernizationMachineModernization
+  extends Struct.SingleTypeSchema {
+  collectionName: 'machine_modernizations';
+  info: {
+    displayName: 'Maschinenmodernisierung Seite';
+    pluralName: 'machine-modernizations';
+    singularName: 'machine-modernization';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    ContactForm: Schema.Attribute.Component<
+      'page-components.contact-form',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ExploreMore: Schema.Attribute.Component<
+      'page-components.explore-more',
+      true
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    HeroCarousel: Schema.Attribute.Component<
+      'page-components.hero-carousel',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heroTextImage: Schema.Attribute.Component<
+      'page-components.basic-text-image',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::machine-modernization.machine-modernization'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'page-components.seo', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    uspList: Schema.Attribute.Component<'partial-components.usp-list', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+  };
+}
+
 export interface ApiMetalsPageMetalsPage extends Struct.SingleTypeSchema {
   collectionName: 'metals_pages';
   info: {
@@ -2753,6 +3011,9 @@ declare module '@strapi/strapi' {
       'api::home.home': ApiHomeHome;
       'api::industries-page.industries-page': ApiIndustriesPageIndustriesPage;
       'api::lathe.lathe': ApiLatheLathe;
+      'api::machine-maintenance.machine-maintenance': ApiMachineMaintenanceMachineMaintenance;
+      'api::machine-marketing.machine-marketing': ApiMachineMarketingMachineMarketing;
+      'api::machine-modernization.machine-modernization': ApiMachineModernizationMachineModernization;
       'api::metals-page.metals-page': ApiMetalsPageMetalsPage;
       'api::milling-tools-page.milling-tools-page': ApiMillingToolsPageMillingToolsPage;
       'api::model-construction-machines-page.model-construction-machines-page': ApiModelConstructionMachinesPageModelConstructionMachinesPage;

@@ -1,0 +1,85 @@
+{
+  "kind": "singleType",
+  "collectionName": "machine_maintenances",
+  "info": {
+    "singularName": "machine-maintenance",
+    "pluralName": "machine-maintenances",
+    "displayName": "Maschinenerhaltung Seite",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "HeroTextImage": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.basic-text-image",
+      "required": true
+    },
+    "HeroCarousel": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.hero-carousel",
+      "required": true
+    },
+    "uspList": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "partial-components.usp-list",
+      "required": true
+    },
+    "ExploreMore": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.explore-more",
+      "required": true
+    },
+    "ContactForm": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.contact-form",
+      "required": true
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.seo"
+    }
+  }
+}

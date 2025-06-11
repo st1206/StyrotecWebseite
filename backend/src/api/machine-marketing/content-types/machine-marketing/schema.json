@@ -1,0 +1,85 @@
+{
+  "kind": "singleType",
+  "collectionName": "machine_marketings",
+  "info": {
+    "singularName": "machine-marketing",
+    "pluralName": "machine-marketings",
+    "displayName": "Maschinenvermarktung Seite",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "HeroCarousel": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.hero-carousel",
+      "required": true
+    },
+    "HeroTextImage": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.basic-text-image",
+      "required": true
+    },
+    "UspList": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true,
+      "component": "partial-components.usp-list"
+    },
+    "ExploreMore": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.explore-more",
+      "required": true
+    },
+    "ContactForm": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.contact-form"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.seo",
+      "required": true
+    }
+  }
+}
