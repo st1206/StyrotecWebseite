@@ -323,7 +323,7 @@ const pagesConfig: Record<string, PageContent> = {
 
 	news: {
 		deSlug: 'unternehmen/news',
-		enSlug: 'company/brochures',
+		enSlug: 'company/news',
 		cmsTypeKey: 'newsPage',
 		cmsApiSlug: 'news-page',
 		sections: [
@@ -332,6 +332,18 @@ const pagesConfig: Record<string, PageContent> = {
 			},
 			{
 				sectionKey: 'collectionTypeCards'
+			},
+			{
+				sectionKey: 'pageHeaderTwo'
+			},
+			{
+				sectionKey: 'collectionTypeCardsTwo'
+			},
+			{
+				sectionKey: 'pageHeaderThree'
+			},
+			{
+				sectionKey: 'collectionTypeCardsThree'
 			}
 		]
 	}

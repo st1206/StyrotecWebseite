@@ -39,13 +39,52 @@
 					file: entry.file
 				};
 			})
-			.filter((card) => card !== null) // Filter out the null entries
+			.filter((entry) => entry !== null) // Filter out the null entries
 	};
-	$inspect(data);
+
+	const fairs = {
+		fairs: Object.values(data)
+			.map((entry: any) => {
+				if (!entry) {
+					return null;
+				}
+				return {
+					name: entry.name,
+					description: entry.description,
+					city: entry.city,
+					startDate: entry.startDate,
+					endDate: entry.endDate,
+					pictures: entry.pictures,
+					externalLink: entry.externalLink
+				};
+			})
+			.filter((entry) => entry !== null) // Filter out the null entries
+	};
+
+	const testimonials = {
+		testimonials: Object.values(data)
+			.map((entry: any) => {
+				if (!entry) {
+					return null;
+				}
+				return {
+					name: entry.name,
+					timestamp: entry.timestamp,
+					thumbnail: entry.thumbnail,
+					testimonial: entry.testimonial
+				};
+			})
+			.filter((entry) => entry !== null) // Filter out the null entries
+	};
+	// $inspect(data);
 </script>
 
 {#if data.type === 'brochures'}
 	<Brochures {...brochures} />
+{:else if data.type === 'fairs'}
+	<!-- <Brochures {...brochures} /> -->
+{:else if data.type === 'testimonials'}
+	<!-- <Brochures {...brochures} /> -->
 {:else}
 	<DefaultCards {...defaultCards} />
 {/if}

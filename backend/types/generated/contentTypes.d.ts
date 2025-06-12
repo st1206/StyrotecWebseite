@@ -1068,7 +1068,7 @@ export interface ApiFairFair extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    booth: Schema.Attribute.String &
+    city: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1078,6 +1078,12 @@ export interface ApiFairFair extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     endDate: Schema.Attribute.Date &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -1110,7 +1116,6 @@ export interface ApiFairFair extends Struct.CollectionTypeSchema {
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID & Schema.Attribute.Required;
     startDate: Schema.Attribute.Date &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -2102,6 +2107,26 @@ export interface ApiNewsPageNewsPage extends Struct.SingleTypeSchema {
       'page-components.collection-type-cards',
       false
     > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    collectionTypeCardsThree: Schema.Attribute.Component<
+      'page-components.collection-type-cards',
+      false
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    collectionTypeCardsTwo: Schema.Attribute.Component<
+      'page-components.collection-type-cards',
+      false
+    > &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -2116,6 +2141,26 @@ export interface ApiNewsPageNewsPage extends Struct.SingleTypeSchema {
       'api::news-page.news-page'
     >;
     pageHeader: Schema.Attribute.Component<
+      'page-components.page-header',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    pageHeaderThree: Schema.Attribute.Component<
+      'page-components.page-header',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    pageHeaderTwo: Schema.Attribute.Component<
       'page-components.page-header',
       false
     > &
@@ -2251,74 +2296,6 @@ export interface ApiPrivacyPolicyPagePrivacyPolicyPage
       'api::privacy-policy-page.privacy-policy-page'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiReferenceReference extends Struct.CollectionTypeSchema {
-  collectionName: 'references';
-  info: {
-    description: '';
-    displayName: 'Referenzen';
-    pluralName: 'references';
-    singularName: 'reference';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::reference.reference'
-    >;
-    media: Schema.Attribute.Media<'images' | 'videos', true> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    name: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    product: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    publishedAt: Schema.Attribute.DateTime;
-    sector: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    slug: Schema.Attribute.UID & Schema.Attribute.Required;
-    timestamp: Schema.Attribute.Date &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2537,6 +2514,66 @@ export interface ApiStyrofoamProcessingPageStyrofoamProcessingPage
           localized: true;
         };
       }>;
+  };
+}
+
+export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
+  collectionName: 'testimonials';
+  info: {
+    description: '';
+    displayName: 'Referenzen';
+    pluralName: 'testimonials';
+    singularName: 'testimonial';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::testimonial.testimonial'
+    >;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    testimonial: Schema.Attribute.Blocks &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    thumbnail: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    timestamp: Schema.Attribute.Date &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -3186,10 +3223,10 @@ declare module '@strapi/strapi' {
       'api::news-page.news-page': ApiNewsPageNewsPage;
       'api::other-machine.other-machine': ApiOtherMachineOtherMachine;
       'api::privacy-policy-page.privacy-policy-page': ApiPrivacyPolicyPagePrivacyPolicyPage;
-      'api::reference.reference': ApiReferenceReference;
       'api::saw.saw': ApiSawSaw;
       'api::social-media-channel.social-media-channel': ApiSocialMediaChannelSocialMediaChannel;
       'api::styrofoam-processing-page.styrofoam-processing-page': ApiStyrofoamProcessingPageStyrofoamProcessingPage;
+      'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'api::used-machines-details-page.used-machines-details-page': ApiUsedMachinesDetailsPageUsedMachinesDetailsPage;
       'api::used-machines-page.used-machines-page': ApiUsedMachinesPageUsedMachinesPage;
       'plugin::content-releases.release': PluginContentReleasesRelease;

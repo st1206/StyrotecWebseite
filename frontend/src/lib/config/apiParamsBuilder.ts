@@ -18,11 +18,15 @@ const populateBySection: Record<string, PopulateRule> = {
 		'defaultContent.image'
 	],
 	pageHeader: ['pageHeader'],
+	pageHeaderTwo: ['pageHeaderTwo'],
+	pageHeaderThree: ['pageHeaderThree'],
 	heroMedia: ['heroMedia.media', 'heroMedia.imageCards', 'heroMedia.imageCards.employee.picture'],
 	history: ['history.historyEntries'],
 	defaultCards: ['defaultCards.cards.thumbnail', 'defaultCards.cards.redirectButtons'],
 	defaultCardsTwo: ['defaultCardsTwo.cards.thumbnail', 'defaultCardsTwo.cards.redirectButtons'],
 	collectionTypeCards: ['collectionTypeCards'],
+	collectionTypeCardsTwo: ['collectionTypeCardsTwo'],
+	collectionTypeCardsThree: ['collectionTypeCardsThree'],
 	contactForm: ['contactForm.employee.contactPicture'],
 	seo: ['seo']
 };

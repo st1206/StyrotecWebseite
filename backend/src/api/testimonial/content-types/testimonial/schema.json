@@ -1,9 +1,9 @@
 {
   "kind": "collectionType",
-  "collectionName": "references",
+  "collectionName": "testimonials",
   "info": {
-    "singularName": "reference",
-    "pluralName": "references",
+    "singularName": "testimonial",
+    "pluralName": "testimonials",
     "displayName": "Referenzen",
     "description": ""
   },
@@ -25,24 +25,6 @@
       "type": "string",
       "required": true
     },
-    "product": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string",
-      "required": true
-    },
-    "sector": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string",
-      "required": true
-    },
     "timestamp": {
       "pluginOptions": {
         "i18n": {
@@ -52,19 +34,26 @@
       "type": "date",
       "required": true
     },
-    "media": {
-      "allowedTypes": ["images", "videos"],
+    "thumbnail": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ],
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
-      },
-      "required": true
+      }
     },
-    "slug": {
-      "type": "uid",
+    "testimonial": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "blocks",
       "required": true
     }
   }

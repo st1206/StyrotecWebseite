@@ -33,7 +33,7 @@
 		"rawmaterial": "Raw Material",
 		"usedMachines": "Used Machines",
 		"cncMills": "CNC-Mills",
-		"conventionalMachines": "Model Building Machines",
+		"modelConstructionMachines": "Model Building Machines",
 		"industries": "Industries",
 		"products": "Products",
 		"presses": "Presses",

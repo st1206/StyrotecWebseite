@@ -23,12 +23,16 @@ export const sectionMap = {
 	exploreVariants: ExploreVariants,
 	optionBlocks: ExploreOptions,
 	pageHeader: PageHeader,
+	pageHeaderTwo: PageHeader,
+	pageHeaderThree: PageHeader,
 	defaultCards: DefaultCards,
 	defaultCardsTwo: DefaultCards,
 	defaultContent: DefaultContent,
 	heroMedia: heroMedia,
 	history: History,
 	collectionTypeCards: CollectionTypeCards,
+	collectionTypeCardsTwo: CollectionTypeCards,
+	collectionTypeCardsThree: CollectionTypeCards,
 	usedMachineDetails: UsedMachineDetails,
 	contactForm: ContactForm
 } as const;

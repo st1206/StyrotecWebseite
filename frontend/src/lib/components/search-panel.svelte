@@ -254,7 +254,9 @@
 			size="icon"
 			onclick={() => itemStateMap.set(99, { hovered: false, open: false })}
 		>
-			<Icons.X />
+			<span class="skew-x-[15deg]">
+				<Icons.X />
+			</span>
 		</Button>
 	</div>
 

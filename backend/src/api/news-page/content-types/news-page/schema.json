@@ -16,6 +16,49 @@
     }
   },
   "attributes": {
+    "pageHeaderThree": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.page-header",
+      "required": true
+    },
+    "collectionTypeCardsThree": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.collection-type-cards"
+    },
+    "pageHeaderTwo": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.page-header",
+      "required": true
+    },
+    "collectionTypeCardsTwo": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.collection-type-cards",
+      "required": true
+    },
     "pageHeader": {
       "type": "component",
       "repeatable": false,
@@ -35,7 +78,8 @@
           "localized": true
         }
       },
-      "component": "page-components.collection-type-cards"
+      "component": "page-components.collection-type-cards",
+      "required": true
     }
   }
 }

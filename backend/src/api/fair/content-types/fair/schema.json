@@ -44,20 +44,13 @@
       "type": "date",
       "required": true
     },
-    "booth": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string",
-      "required": true
-    },
     "pictures": {
       "type": "media",
       "multiple": true,
       "required": true,
-      "allowedTypes": ["images"],
+      "allowedTypes": [
+        "images"
+      ],
       "pluginOptions": {
         "i18n": {
           "localized": false
@@ -73,8 +66,21 @@
       "type": "string",
       "required": true
     },
-    "slug": {
-      "type": "uid",
+    "description": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "blocks"
+    },
+    "city": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
       "required": true
     }
   }

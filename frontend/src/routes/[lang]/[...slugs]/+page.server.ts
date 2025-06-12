@@ -25,6 +25,22 @@ function getCMSDataForCollection<T>(
 	return loadCMSData<T[]>(collection.cmsApiSlug, lang, collection.cmsApiParams);
 }
 
+async function processCollectionType(collectionData: any, lang: string) {
+	if (!collectionData || !collectionData.collectionApiSlug) {
+		// Handle cases where collectionData is missing or malformed
+		// You might want to log a warning or throw an error here
+		console.warn('Missing collectionApiSlug for collection type.', collectionData);
+		return null; // Or return original collectionData, depending on desired behavior
+	}
+
+	const type = collectionData.type || 'defaultCards';
+	const fetchedData = await getCMSDataForCollection(
+		{ cmsApiSlug: collectionData.collectionApiSlug },
+		lang
+	);
+	return { ...fetchedData, type };
+}
+
 export const load = async <L extends Lang>({ params }: { params: { lang: L; slugs?: string } }) => {
 	const { lang, slugs } = params;
 	if (!slugs) error(404, 'Page not found');
@@ -33,7 +49,7 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 	const cleanSlug = slugs.replace(/\/$/, '').split('#')[0];
 
 	let matchedPage;
-	let cmsData;
+	let cmsData: any;
 
 	// 1. First, try to find a direct match for a regular/listing page
 	matchedPage = Object.values(pages).find((page) => page[slugKey] === cleanSlug);
@@ -41,16 +57,32 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 	if (matchedPage) {
 		// --- REGULAR / LISTING PAGE LOGIC ---
 		cmsData = await getCMSDataForPage(matchedPage, lang);
-		if ('collectionTypeCards' in cmsData && cmsData.collectionTypeCards) {
-			const type = cmsData.collectionTypeCards.type || 'defaultCards';
-			cmsData.collectionTypeCards = await getCMSDataForCollection(
-				{
-					cmsApiSlug: cmsData.collectionTypeCards.collectionApiSlug
-				},
-				lang
-			);
-			cmsData.collectionTypeCards = { ...cmsData.collectionTypeCards, type };
-		}
+
+		// Define an array of keys to check for collection types
+		const collectionTypeKeys = [
+			'collectionTypeCards',
+			'collectionTypeCardsTwo',
+			'collectionTypeCardsThree'
+		];
+
+		// Use Promise.all to fetch all collections in parallel if multiple exist
+		const collectionPromises = collectionTypeKeys.map(async (key) => {
+			if (cmsData[key]) {
+				// Await the processing of each collection type
+				return { key, data: await processCollectionType(cmsData[key], lang) };
+			}
+			return { key, data: undefined }; // Return undefined if the key doesn't exist
+		});
+
+		// Wait for all collection promises to resolve
+		const results = await Promise.all(collectionPromises);
+
+		// Update cmsData with the processed collection data
+		results.forEach(({ key, data }) => {
+			if (data) {
+				cmsData[key] = data;
+			}
+		});
 	} else {
 		// --- DETAIL PAGE LOGIC (FALLBACK) ---
 		// If no direct match, assume it's a detail page (e.g., .../category/item-slug)
@@ -117,7 +149,6 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 		// 7. Merge the specific item data into the page's CMS data
 		cmsData = {
 			...cmsData,
-			//@ts-expect-error tbd.
 			[cmsData.componentKey]: collectionItems[0]
 		};
 

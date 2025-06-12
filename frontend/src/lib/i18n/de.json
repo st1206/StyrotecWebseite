@@ -33,7 +33,7 @@
 		"rawmaterial": "Rohmaterial",
 		"usedMachines": "Gebrauchtmaschinen",
 		"cncMills": "CNC-Fräsen",
-		"conventionalMachines": "Modellbaumaschinen",
+		"modelConstructionMachines": "Modellbaumaschinen",
 		"industries": "Branchen",
 		"products": "Produkte",
 		"presses": "Pressen",

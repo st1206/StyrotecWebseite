@@ -14,7 +14,9 @@
       "type": "enumeration",
       "enum": [
         "defaultCards",
-        "brochures"
+        "brochures",
+        "fairs",
+        "testimonials"
       ],
       "default": "defaultCards",
       "required": true
