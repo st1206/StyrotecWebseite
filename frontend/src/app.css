@@ -91,3 +91,21 @@
 		height: auto;
 	}
 }
+
+#cc-main {
+	/** Change font **/
+	/* --cc-font-family: Roboto; */
+
+	/** Change button primary color to black **/
+	--cc-btn-primary-bg: #f5a800; /* orange */
+	--cc-btn-primary-border-color: #f5a800;
+	--cc-btn-primary-hover-bg: #da9500;
+	--cc-btn-primary-hover-border-color: #da9500;
+
+	/** Also make toggles the same color as the button **/
+	--cc-toggle-on-bg: var(--cc-btn-primary-bg);
+
+	/** Make the buttons a bit rounder **/
+	--cc-btn-border-radius: 0px;
+	--cc-modal-border-radius: 0px;
+}

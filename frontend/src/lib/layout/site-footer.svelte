@@ -7,6 +7,7 @@
 	import { menu } from '$lib/config/routes';
 	import { locale } from 'svelte-i18n';
 	import { _ } from 'svelte-i18n';
+	import * as CookieConsent from 'vanilla-cookieconsent';
 
 	let { socialMediaChannels }: { socialMediaChannels: { name: string; externalLink: string }[] } =
 		$props();
@@ -96,18 +97,30 @@
 		</div>
 		<Separator class="w-full bg-white/20" orientation="horizontal" />
 		<div
-			class="flex flex-col items-center justify-between pb-4 pt-6 text-xs sm:flex-row sm:pt-4 sm:text-base print:justify-center"
+			class="flex flex-col items-center justify-between pb-4 pt-6 text-xs sm:pt-4 sm:text-base md:flex-row print:justify-center"
 		>
 			<div class="flex items-center gap-2">
 				<Icons.copyright class="size-4" />
 				<h1 class="font-sans">2025 Styrotec GmbH & Co. KG</h1>
 			</div>
-			<div class="flex items-center print:hidden">
-				<Button variant="link" href="/" class="text-normal font-sans font-normal">
+			<div class="flex flex-wrap items-center justify-center pt-4 md:pt-0 print:hidden">
+				<Button
+					variant="link"
+					onclick={() => CookieConsent.showPreferences()}
+					class="text-normal h-6 py-0 font-sans font-normal"
+				>
+					{$_('legal.cookiePreferences')}
+				</Button>
+				|
+				<Button variant="link" href="/impressum" class="text-normal h-6 py-0 font-sans font-normal">
 					{$_('legal.legalNotice')}
 				</Button>
 				|
-				<Button variant="link" href="/" class="text-normal font-sans font-normal">
+				<Button
+					variant="link"
+					href="/datenschutz"
+					class="text-normal h-6 py-0 font-sans font-normal"
+				>
 					{$_('legal.privacyPolicy')}
 				</Button>
 			</div>

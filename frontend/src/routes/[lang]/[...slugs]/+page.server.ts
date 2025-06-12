@@ -41,14 +41,15 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 	if (matchedPage) {
 		// --- REGULAR / LISTING PAGE LOGIC ---
 		cmsData = await getCMSDataForPage(matchedPage, lang);
-
 		if ('collectionTypeCards' in cmsData && cmsData.collectionTypeCards) {
+			const type = cmsData.collectionTypeCards.type || 'defaultCards';
 			cmsData.collectionTypeCards = await getCMSDataForCollection(
 				{
 					cmsApiSlug: cmsData.collectionTypeCards.collectionApiSlug
 				},
 				lang
 			);
+			cmsData.collectionTypeCards = { ...cmsData.collectionTypeCards, type };
 		}
 	} else {
 		// --- DETAIL PAGE LOGIC (FALLBACK) ---

@@ -79,6 +79,7 @@
 	let isNavPanelOpen = $state(false);
 
 	function handleSearchPanelOpen() {
+		isNavPanelOpen = false;
 		itemStateMap.set(99, { hovered: true, open: true });
 	}
 </script>
@@ -183,13 +184,13 @@
 			>
 				<Icons.search class="text-secondary size-6" />
 			</Button>
-			<AnimatedHamburger bind:open={isNavPanelOpen} />
+			<AnimatedHamburger bind:itemStateMap bind:open={isNavPanelOpen} />
 		</div>
 	</div>
 
 	{#if isAnyItemOpen()}
 		<div
-			class="container print:hidden"
+			class="sm:container print:hidden"
 			in:fly={{ y: -30, duration: 300 }}
 			out:fly={{ y: -30, duration: 200 }}
 		>

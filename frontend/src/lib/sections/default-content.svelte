@@ -113,7 +113,7 @@
 
 {#if isDarkMode}
 	<div
-		class="bg-foreground mt-20 h-14 w-full translate-y-[1px] [clip-path:polygon(100%_0,100%_100%,0_100%)] lg:mt-28"
+		class="bg-foreground mt-24 h-14 w-full translate-y-[1px] [clip-path:polygon(100%_0,100%_100%,0_100%)] lg:mt-28"
 	></div>
 {/if}
 
@@ -351,7 +351,7 @@
 {/snippet}
 
 {#snippet TextImageTemplate(block: ContentTextImage)}
-	<div class="mx-auto my-16 mt-24">
+	<div class="mx-auto my-16 mt-28">
 		<div
 			class={cn(
 				'flex flex-col gap-4 lg:gap-12',
@@ -385,7 +385,7 @@
 				<p
 					class={cn(
 						isDarkMode ? 'text-secondary' : 'text-foreground',
-						'prose prose-neutral lg:prose-lg max-w-none text-justify'
+						'prose prose-neutral xl:prose-lg max-w-none text-justify'
 					)}
 				>
 					{@html resolveRichText(block.content)}

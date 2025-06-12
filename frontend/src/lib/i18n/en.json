@@ -1,7 +1,8 @@
 {
 	"legal": {
 		"privacyPolicy": "Privacy Policy",
-		"legalNotice": "Legal Notice"
+		"legalNotice": "Legal Notice",
+		"cookiePreferences": "Cookie Preferences"
 	},
 	"sprachen": {
 		"local": "EN"
@@ -43,6 +44,7 @@
 		"values": "Values",
 		"history": "History",
 		"sustainability": "Sustainability",
+		"brochures": "Brochures",
 
 		"adhesives": "Adhesives",
 		"cncAccessories": "CNC Accessories",

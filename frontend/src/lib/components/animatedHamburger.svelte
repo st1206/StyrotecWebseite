@@ -1,9 +1,30 @@
 <script lang="ts">
-	let { open = $bindable() }: { open: boolean } = $props();
+	import type { SvelteMap } from 'svelte/reactivity';
+
+	let {
+		itemStateMap = $bindable(),
+		open = $bindable()
+	}: {
+		itemStateMap: SvelteMap<
+			number,
+			{
+				hovered: boolean;
+				open: boolean;
+			}
+		>;
+		open: boolean;
+	} = $props();
+
+	function toggleMenuPanel() {
+		if (itemStateMap.get(99)?.open) {
+			itemStateMap.set(99, { open: false, hovered: false });
+		}
+		open = !open;
+	}
 </script>
 
 <button
-	onclick={() => (open = !open)}
+	onclick={toggleMenuPanel}
 	aria-expanded={open}
 	aria-label="toggle menu"
 	class="text-secondary"

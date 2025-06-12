@@ -521,6 +521,36 @@ export interface ApiBriquettingPressPageBriquettingPressPage
   };
 }
 
+export interface ApiBrochureBrochure extends Struct.CollectionTypeSchema {
+  collectionName: 'brochures';
+  info: {
+    displayName: 'Prospekte';
+    pluralName: 'brochures';
+    singularName: 'brochure';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    file: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::brochure.brochure'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    thumbnail: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCncMillCncMill extends Struct.CollectionTypeSchema {
   collectionName: 'cnc_mills';
   info: {
@@ -1572,6 +1602,134 @@ export interface ApiLatheLathe extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiLegalNoticePageLegalNoticePage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'legal_notice_pages';
+  info: {
+    description: '';
+    displayName: 'Impressum Seite';
+    pluralName: 'legal-notice-pages';
+    singularName: 'legal-notice-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    defaultContent: Schema.Attribute.DynamicZone<
+      ['partial-components.content-text-image']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::legal-notice-page.legal-notice-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMachineMaintenancePageMachineMaintenancePage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'machine_maintenance_pages';
+  info: {
+    description: '';
+    displayName: 'Maschinenerhaltung Seite';
+    pluralName: 'machine-maintenance-pages';
+    singularName: 'machine-maintenance-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    ContactForm: Schema.Attribute.Component<
+      'page-components.contact-form',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ExploreMore: Schema.Attribute.Component<
+      'page-components.explore-more',
+      true
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    HeroCarousel: Schema.Attribute.Component<
+      'page-components.hero-carousel',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    HeroTextImage: Schema.Attribute.Component<
+      'page-components.basic-text-image',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::machine-maintenance-page.machine-maintenance-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'page-components.seo', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    uspList: Schema.Attribute.Component<'partial-components.usp-list', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+  };
+}
+
 export interface ApiMachineMaintenanceMachineMaintenance
   extends Struct.SingleTypeSchema {
   collectionName: 'machine_maintenances';
@@ -1658,13 +1816,14 @@ export interface ApiMachineMaintenanceMachineMaintenance
   };
 }
 
-export interface ApiMachineMarketingMachineMarketing
+export interface ApiMachineMarketingPageMachineMarketingPage
   extends Struct.SingleTypeSchema {
-  collectionName: 'machine_marketings';
+  collectionName: 'machine_marketing_pages';
   info: {
+    description: '';
     displayName: 'Maschinenvermarktung Seite';
-    pluralName: 'machine-marketings';
-    singularName: 'machine-marketing';
+    pluralName: 'machine-marketing-pages';
+    singularName: 'machine-marketing-page';
   };
   options: {
     draftAndPublish: true;
@@ -1720,7 +1879,7 @@ export interface ApiMachineMarketingMachineMarketing
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::machine-marketing.machine-marketing'
+      'api::machine-marketing-page.machine-marketing-page'
     >;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'page-components.seo', false> &
@@ -1743,13 +1902,13 @@ export interface ApiMachineMarketingMachineMarketing
   };
 }
 
-export interface ApiMachineModernizationMachineModernization
+export interface ApiMachineModernizationPageMachineModernizationPage
   extends Struct.SingleTypeSchema {
-  collectionName: 'machine_modernizations';
+  collectionName: 'machine_modernization_pages';
   info: {
     displayName: 'Maschinenmodernisierung Seite';
-    pluralName: 'machine-modernizations';
-    singularName: 'machine-modernization';
+    pluralName: 'machine-modernization-pages';
+    singularName: 'machine-modernization-page';
   };
   options: {
     draftAndPublish: true;
@@ -1806,7 +1965,7 @@ export interface ApiMachineModernizationMachineModernization
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::machine-modernization.machine-modernization'
+      'api::machine-modernization-page.machine-modernization-page'
     >;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'page-components.seo', false> &
@@ -2008,6 +2167,57 @@ export interface ApiModelConstructionMachinesPageModelConstructionMachinesPage
   };
 }
 
+export interface ApiNewsPageNewsPage extends Struct.SingleTypeSchema {
+  collectionName: 'news_pages';
+  info: {
+    description: '';
+    displayName: 'News Seite';
+    pluralName: 'news-pages';
+    singularName: 'news-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    colllectionTypeCards: Schema.Attribute.Component<
+      'page-components.collection-type-cards',
+      false
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::news-page.news-page'
+    >;
+    pageHeader: Schema.Attribute.Component<
+      'page-components.page-header',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiOtherMachineOtherMachine
   extends Struct.CollectionTypeSchema {
   collectionName: 'other_machines';
@@ -2086,6 +2296,47 @@ export interface ApiOtherMachineOtherMachine
           localized: true;
         };
       }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPrivacyPolicyPagePrivacyPolicyPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'privacy_policy_pages';
+  info: {
+    displayName: 'Datenschutz Seite';
+    pluralName: 'privacy-policy-pages';
+    singularName: 'privacy-policy-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    defaultContent: Schema.Attribute.DynamicZone<
+      ['partial-components.content-text-image']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::privacy-policy-page.privacy-policy-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2996,6 +3247,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about-us-page.about-us-page': ApiAboutUsPageAboutUsPage;
       'api::briquetting-press-page.briquetting-press-page': ApiBriquettingPressPageBriquettingPressPage;
+      'api::brochure.brochure': ApiBrochureBrochure;
       'api::cnc-mill.cnc-mill': ApiCncMillCncMill;
       'api::cnc-mills-page.cnc-mills-page': ApiCncMillsPageCncMillsPage;
       'api::conventional-mill.conventional-mill': ApiConventionalMillConventionalMill;
@@ -3010,13 +3262,17 @@ declare module '@strapi/strapi' {
       'api::home.home': ApiHomeHome;
       'api::industries-page.industries-page': ApiIndustriesPageIndustriesPage;
       'api::lathe.lathe': ApiLatheLathe;
+      'api::legal-notice-page.legal-notice-page': ApiLegalNoticePageLegalNoticePage;
+      'api::machine-maintenance-page.machine-maintenance-page': ApiMachineMaintenancePageMachineMaintenancePage;
       'api::machine-maintenance.machine-maintenance': ApiMachineMaintenanceMachineMaintenance;
-      'api::machine-marketing.machine-marketing': ApiMachineMarketingMachineMarketing;
-      'api::machine-modernization.machine-modernization': ApiMachineModernizationMachineModernization;
+      'api::machine-marketing-page.machine-marketing-page': ApiMachineMarketingPageMachineMarketingPage;
+      'api::machine-modernization-page.machine-modernization-page': ApiMachineModernizationPageMachineModernizationPage;
       'api::metals-page.metals-page': ApiMetalsPageMetalsPage;
       'api::milling-tools-page.milling-tools-page': ApiMillingToolsPageMillingToolsPage;
       'api::model-construction-machines-page.model-construction-machines-page': ApiModelConstructionMachinesPageModelConstructionMachinesPage;
+      'api::news-page.news-page': ApiNewsPageNewsPage;
       'api::other-machine.other-machine': ApiOtherMachineOtherMachine;
+      'api::privacy-policy-page.privacy-policy-page': ApiPrivacyPolicyPagePrivacyPolicyPage;
       'api::reference.reference': ApiReferenceReference;
       'api::saw.saw': ApiSawSaw;
       'api::social-media-channel.social-media-channel': ApiSocialMediaChannelSocialMediaChannel;

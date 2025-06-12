@@ -120,8 +120,9 @@ export const menu = [
 				key: 'news',
 				anchor: null,
 				routeChildren: [
+					{ key: 'fairs', anchor: null },
 					{ key: 'references', anchor: null },
-					{ key: 'fairs', anchor: null }
+					{ key: 'brochures', anchor: '#prospekte' }
 				]
 			}
 		]

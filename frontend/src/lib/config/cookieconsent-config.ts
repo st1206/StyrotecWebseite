@@ -88,7 +88,8 @@ export const cookiesConfig: CookieConsent.CookieConsentConfig = {
 	},
 
 	language: {
-		default: 'en',
+		default: 'de',
+		autoDetect: 'browser',
 		translations: {
 			en: {
 				consentModal: {
@@ -159,6 +160,76 @@ export const cookiesConfig: CookieConsent.CookieConsentConfig = {
 							title: 'More information',
 							description:
 								'For any queries in relation to our policy on cookies and your choices, please <a href="#contact-page">contact us</a>'
+						}
+					]
+				}
+			},
+			de: {
+				consentModal: {
+					title: 'Datenschutzeinstellungen',
+					description:
+						'Diese Website verwendet zustimmungspflichtige Cookies und Technologien von Drittanbietern, um bestimmte Funktionen zu integrieren. Wenn Sie auf "Alle akzeptieren" klicken, werden diese Funktionen aktiviert (Einwilligung). Nach Ihrer Einwilligung verarbeiten wir und die beteiligten Drittunternehmen Ihre personenbezogenen Daten zu verschiedenen Zwecken. Sie können Ihre Einwilligung jederzeit widerrufen.',
+					acceptAllBtn: 'Alle akzeptieren',
+					acceptNecessaryBtn: 'Alle ablehnen',
+					showPreferencesBtn: 'Einstellungen verwalten',
+					closeIconLabel: 'Alle ablehnen und schließen',
+					footer: `
+                    <a href="/impressum">Impressum</a>
+                    <a href="/datenschutz">Datenschutz</a>
+                `
+				},
+				preferencesModal: {
+					title: 'Cookie-Einstellungen verwalten',
+					acceptAllBtn: 'Alle akzeptieren',
+					acceptNecessaryBtn: 'Alle ablehnen',
+					savePreferencesBtn: 'Aktuelle Auswahl übernehmen',
+					closeIconLabel: 'Fenster schließen',
+					serviceCounterLabel: 'Dienst|Dienste',
+					sections: [
+						{
+							title: 'Ihre Datenschutzoptionen',
+							description: `In diesem Bereich können Sie bestimmte Präferenzen zur Verarbeitung Ihrer personenbezogenen Daten festlegen. Sie können Ihre Entscheidungen jederzeit über den bereitgestellten Link im Footer erneut aufrufen und ändern. Um bestimmte Verarbeitungsvorgänge abzulehnen, deaktivieren Sie die jeweiligen Schalter oder klickem Sie auf „Alle ablehnen“ und bestätigen Sie Ihre Auswahl.`
+						},
+						{
+							title: 'Technisch erforderlich',
+							description:
+								'Diese Cookies sind für die einwandfreie Funktion der Website unbedingt erforderlich und können nicht deaktiviert werden.',
+							linkedCategory: 'necessary'
+						},
+						{
+							title: 'Leistung und Analyse',
+							description:
+								'Diese Cookies sammeln Informationen darüber, wie Sie unsere Website nutzen. Alle Daten werden anonymisiert und können nicht dazu verwendet werden, Sie zu identifizieren.',
+							linkedCategory: 'analytics',
+							cookieTable: {
+								caption: 'Cookie-Tabelle',
+								headers: {
+									name: 'Cookie',
+									domain: 'Domain',
+									desc: 'Beschreibung'
+								},
+								body: [
+									{
+										name: '_ga',
+										desc: 'Beschreibung 1'
+									},
+									{
+										name: '_gid',
+										desc: 'Beschreibung 2'
+									}
+								]
+							}
+						},
+						// {
+						// 	title: 'Targeting und Werbung',
+						// 	description:
+						// 		'Diese Cookies werden verwendet, um Werbeanzeigen für dich und deine Interessen relevanter zu machen. Ziel ist es, Anzeigen zu zeigen, die für dich interessant und ansprechend sind, und somit wertvoller für Herausgeber und Werbetreibende.',
+						// 	linkedCategory: 'ads'
+						// },
+						{
+							title: 'Weitere Informationen',
+							description:
+								'Bei Fragen zu unserer Cookie-Richtlinie und Ihren Auswahlmöglichkeiten <a href="/#contact-form">kontaktieren Sie uns bitte</a>.'
 						}
 					]
 				}

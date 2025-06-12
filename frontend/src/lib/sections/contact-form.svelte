@@ -35,7 +35,7 @@
 	class="bg-foreground mt-20 h-14 w-full translate-y-[1px] [clip-path:polygon(100%_0,100%_100%,0_100%)] print:hidden"
 ></div>
 <div class="bg-foreground">
-	<section class="flex w-full flex-col sm:container" id="contact-form">
+	<section class="flex w-full flex-col sm:container px-4" id="contact-form">
 		<div
 			class="bg-secondary/10 text-secondary mb-12 mt-16 grid h-full grid-cols-1 gap-x-8 p-8 md:grid-cols-5 lg:gap-x-12 xl:grid-cols-6"
 		>

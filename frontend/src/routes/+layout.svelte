@@ -4,14 +4,17 @@
 	import SiteFooter from '$lib/layout/site-footer.svelte';
 	import { _ } from 'svelte-i18n';
 	import * as CookieConsent from 'vanilla-cookieconsent';
-	import 'vanilla-cookieconsent/dist/cookieconsent.css';
 	import { onMount } from 'svelte';
+	import 'vanilla-cookieconsent/dist/cookieconsent.css';
 	import { cookiesConfig } from '$lib/config/cookieconsent-config';
 
 	let { data, children } = $props();
 
 	onMount(() => {
 		CookieConsent.run(cookiesConfig);
+		// document.documentElement.classList.remove('cc--lightMode');
+		// document.documentElement.classList.remove('cc--darkMode');
+		// document.documentElement.classList.add('cc--elegant-black');
 	});
 </script>
 

@@ -7,15 +7,17 @@ import type {
 	ApiGantryMachinesPageGantryMachinesPage,
 	ApiHomeHome,
 	ApiIndustriesPageIndustriesPage,
-	ApiMachineMaintenanceMachineMaintenance,
-	ApiMachineMarketingMachineMarketing,
-	ApiMachineModernizationMachineModernization,
+	ApiLegalNoticePageLegalNoticePage,
 	ApiMetalsPageMetalsPage,
 	ApiMillingToolsPageMillingToolsPage,
 	ApiModelConstructionMachinesPageModelConstructionMachinesPage,
 	ApiStyrofoamProcessingPageStyrofoamProcessingPage,
 	ApiUsedMachinesDetailsPageUsedMachinesDetailsPage,
-	ApiUsedMachinesPageUsedMachinesPage
+	ApiUsedMachinesPageUsedMachinesPage,
+	ApiNewsPageNewsPage,
+	ApiMachineModernizationPageMachineModernizationPage,
+	ApiMachineMarketingPageMachineMarketingPage,
+	ApiMachineMaintenancePageMachineMaintenancePage
 } from '$lib/cmsTypes/contentTypes';
 import { buildPopulateQuery } from './apiParamsBuilder';
 
@@ -35,9 +37,11 @@ export interface CMSTypeMap {
 	usedMachinesDetailsPage: ApiUsedMachinesDetailsPageUsedMachinesDetailsPage;
 	modelConstructionMachinesPage: ApiModelConstructionMachinesPageModelConstructionMachinesPage;
 	drillingMachinesPage: ApiDrillingMachinesPageDrillingMachinesPage;
-	machineMaintenancePage: ApiMachineMaintenanceMachineMaintenance;
-	machineModernizationPage: ApiMachineModernizationMachineModernization;
-	machineMarketingPage: ApiMachineMarketingMachineMarketing;
+	machineMaintenancePage: ApiMachineMaintenancePageMachineMaintenancePage;
+	machineModernizationPage: ApiMachineModernizationPageMachineModernizationPage;
+	machineMarketingPage: ApiMachineMarketingPageMachineMarketingPage;
+	legalNotice: ApiLegalNoticePageLegalNoticePage;
+	newsPage: ApiNewsPageNewsPage;
 }
 
 // Define the supported languages
@@ -76,6 +80,17 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsTypeKey: 'home',
 		cmsApiSlug: 'home',
 		sections: []
+	},
+	legalNotice: {
+		deSlug: 'impressum',
+		enSlug: 'legal-notice',
+		cmsTypeKey: 'legalNotice',
+		cmsApiSlug: 'legal-notice-page',
+		sections: [
+			{
+				sectionKey: 'defaultContent'
+			}
+		]
 	},
 	briquettPress: {
 		deSlug: 'produkte/brikettierpressen',
@@ -189,8 +204,6 @@ const pagesConfig: Record<string, PageContent> = {
 		]
 	},
 
-
-
 	usedMachinesDetails: {
 		deSlug: 'produkte/gebrauchtmaschinen/{slug}/{id}',
 		enSlug: 'products/used-machines/{slug}/{id}',
@@ -267,7 +280,7 @@ const pagesConfig: Record<string, PageContent> = {
 		deSlug: 'dienstleistung/maschinenerhaltung',
 		enSlug: 'services/machine-maintenance',
 		cmsTypeKey: 'machineMaintenancePage',
-		cmsApiSlug: 'machine-maintenance',
+		cmsApiSlug: 'machine-maintenance-page',
 		sections: [
 			{ sectionKey: 'heroCarousel' },
 			{ sectionKey: 'heroTextImage' },
@@ -282,7 +295,7 @@ const pagesConfig: Record<string, PageContent> = {
 		deSlug: 'dienstleistung/maschinmodernisierung',
 		enSlug: 'services/machine-modernization',
 		cmsTypeKey: 'machineModernizationPage',
-		cmsApiSlug: 'machine-modernization',
+		cmsApiSlug: 'machine-modernization-üage',
 		sections: [
 			{ sectionKey: 'heroCarousel' },
 			{ sectionKey: 'heroTextImage' },
@@ -297,7 +310,7 @@ const pagesConfig: Record<string, PageContent> = {
 		deSlug: 'dienstleistung/maschinenvermarktung',
 		enSlug: 'services/machine-marketing',
 		cmsTypeKey: 'machineMarketingPage',
-		cmsApiSlug: 'machine-marketing',
+		cmsApiSlug: 'machine-marketing-page',
 		sections: [
 			{ sectionKey: 'heroCarousel' },
 			{ sectionKey: 'heroTextImage' },
@@ -307,6 +320,21 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'seo' }
 		]
 	},
+
+	news: {
+		deSlug: 'unternehmen/news',
+		enSlug: 'company/brochures',
+		cmsTypeKey: 'newsPage',
+		cmsApiSlug: 'news-page',
+		sections: [
+			{
+				sectionKey: 'pageHeader'
+			},
+			{
+				sectionKey: 'collectionTypeCards'
+			}
+		]
+	}
 
 	// millingTools: {
 	// 	deSlug: 'produkte/styroporbearbeitung/fräswerkzeuge',

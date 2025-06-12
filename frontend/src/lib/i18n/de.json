@@ -1,7 +1,8 @@
 {
 	"legal": {
 		"privacyPolicy": "Datenschutz",
-		"legalNotice": "Impressum"
+		"legalNotice": "Impressum",
+		"cookiePreferences": "Cookie-Einstellungen"
 	},
 	"sprachen": {
 		"local": "DE"
@@ -43,6 +44,7 @@
 		"values": "Werte",
 		"history": "Historie",
 		"sustainability": "Nachhaltigkeit",
+		"brochures": "Prospekte",
 
 		"adhesives": "Kleber",
 		"cncAccessories": "CNC Zubehör",
@@ -76,7 +78,7 @@
 	},
 
 	"contactForm": "Kontaktformular",
-	"followUs": "Folge uns auf unseren Social-Media-Kanälen!",
+	"followUs": "Folge uns in den sozialen Medien!",
 
 	"name": "Name",
 	"email": "E-Mail",

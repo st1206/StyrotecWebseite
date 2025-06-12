@@ -24,6 +24,9 @@ export interface PageComponentsCollectionTypeCards
   };
   attributes: {
     collectionApiSlug: Schema.Attribute.String & Schema.Attribute.Required;
+    type: Schema.Attribute.Enumeration<['defaultCards', 'brochures']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'defaultCards'>;
   };
 }
 

@@ -9,6 +9,15 @@
     "collectionApiSlug": {
       "type": "string",
       "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "defaultCards",
+        "brochures"
+      ],
+      "default": "defaultCards",
+      "required": true
     }
   }
 }
