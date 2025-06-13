@@ -27,7 +27,7 @@
 
 	onMount(() => {
 		const originUrl = page.url.pathname;
-		formData.set({ ...$formData, originUrl, mailToContactPerson: data.employee.email });
+		formData.set({ ...$formData, originUrl, mailToContactPerson: data.employee ? data.employee.email : 'info@styrotec.de'});
 	});
 </script>
 
