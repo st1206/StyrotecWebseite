@@ -85,7 +85,7 @@
 <section class="bg-foreground w-full pb-16 pt-8 sm:mx-auto">
 	{#if sortedBlocks?.length}
 		{#if (sortedBlocks[0] as Accordion).sectionTitle}
-			<h3 class="font-boldFont text-secondary mb-12 text-center text-3xl uppercase md:text-4xl">
+			<h3 class="font-sans font-bold text-secondary mb-12 text-center text-3xl uppercase md:text-4xl">
 				{(sortedBlocks[0] as Accordion).sectionTitle}
 			</h3>
 		{/if}
@@ -129,7 +129,7 @@
 																'bg-secondary/10 w-full'
 															)}
 														>
-															<h3 class="font-boldFont text-secondary p-4">{item.title}</h3>
+															<h3 class="font-sans font-bold text-secondary p-4">{item.title}</h3>
 														</Card.Title>
 													</Card.Header>
 
@@ -170,7 +170,7 @@
 												>
 													<Table.Head class="text-secondary"></Table.Head>
 													{#each component.tableColumns as column}
-														<Table.Head class="text-secondary font-boldFont text-center">
+														<Table.Head class="text-secondary font-sans font-bold text-center">
 															{column.columnLabel}
 														</Table.Head>
 													{/each}

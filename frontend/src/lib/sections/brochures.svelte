@@ -18,7 +18,7 @@
 						'bg-foreground/90 translate-y-[0.5px] absolute bottom-0 flex h-[80px] w-full items-end pb-1 [clip-path:polygon(0%_0%,150%_100%,100%_100%,0%_100%)]'
 					)}
 				>
-					<Button variant="link" class={cn('font-boldFont text-secondary gap-2 text-xl')}>
+					<Button variant="link" class={cn('font-sans font-bold text-secondary gap-2 text-xl')}>
 						<Icons.download class="size-5" />
 						{$_('button.print')}
 					</Button>

@@ -73,7 +73,7 @@
 				></div>
 
 				<div class="absolute inset-y-0 z-20 flex items-center pl-8">
-					<h1 class="font-boldFont text-4xl text-white drop-shadow-md lg:text-5xl">
+					<h1 class="font-sans font-bold text-4xl text-white drop-shadow-md lg:text-5xl">
 						{@html data.keyphrase}
 					</h1>
 				</div>

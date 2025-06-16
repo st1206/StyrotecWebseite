@@ -158,7 +158,7 @@
 
 {#snippet HeaderTemplate(block: ContentHeader)}
 	<div class={cn(isDarkMode ? 'pt-16' : 'pt-32', 'flex flex-col items-center gap-2')}>
-		<h3 class={cn(isDarkMode ? 'text-secondary' : 'text-foreground', 'font-boldFont text-4xl')}>
+		<h3 class={cn(isDarkMode ? 'text-secondary' : 'text-foreground', 'font-sans font-bold text-4xl')}>
 			{block.sectionTitle}
 		</h3>
 		<p
@@ -179,7 +179,7 @@
 				<h4
 					class={cn(
 						isDarkMode ? 'text-secondary' : 'text-foreground',
-						'font-boldFont my-4 text-2xl'
+						'font-sans font-bold my-4 text-2xl'
 					)}
 				>
 					{table.title}
@@ -200,7 +200,7 @@
 							<Table.Head
 								class={cn(
 									isDarkMode ? 'text-secondary' : 'text-foreground',
-									'font-boldFont text-center'
+									'font-sans font-bold text-center'
 								)}
 							>
 								{column.columnLabel}
@@ -242,7 +242,7 @@
 {#snippet AccordionTemplate(block: ContentAccordion)}
 	<div class={cn('my-16 mt-24 h-full w-full lg:mx-auto')}>
 		{#if block.title}
-			<h4 class="font-boldFont text-secondary my-4 text-center text-2xl">{block.title}</h4>
+			<h4 class="font-sans font-bold text-secondary my-4 text-center text-2xl">{block.title}</h4>
 		{/if}
 		<Accordion.Root type="multiple" value={['item-1']} class="flex w-full flex-col gap-4">
 			{#each block.accordions as accordion, i}
@@ -286,7 +286,7 @@
 												<h3
 													class={cn(
 														isDarkMode ? 'text-foreground' : 'text-secondary',
-														'font-boldFont p-4'
+														'font-sans font-bold p-4'
 													)}
 												>
 													{item.title}
@@ -330,7 +330,7 @@
 {#snippet ImagesTemplate(block: ContentImages)}
 	<div class="mx-auto my-16">
 		{#if block.title}
-			<h4 class="font-boldFont my-4 text-center text-2xl">{block.title}</h4>
+			<h4 class="font-sans font-bold my-4 text-center text-2xl">{block.title}</h4>
 		{/if}
 		<div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 xl:gap-8">
 			{#each block.images as image}
@@ -377,7 +377,7 @@
 				<h4
 					class={cn(
 						isDarkMode ? 'text-secondary' : 'text-foreground',
-						'font-boldFont my-2 text-2xl'
+						'font-sans font-bold my-2 text-2xl'
 					)}
 				>
 					{block.title}

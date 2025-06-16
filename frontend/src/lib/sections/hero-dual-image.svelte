@@ -25,7 +25,7 @@
 					class={cn(
 						data.keyword.length <= 5 ? 'w-3/5 lg:w-2/5' : 'w-1/2',
 						data.keyword.length <= 15 ? 'xl:text-5xl' : '',
-						'font-boldFont text-secondary pt-6 text-center text-3xl lg:pt-12 lg:text-4xl'
+						'font-sans font-bold text-secondary pt-6 text-center text-3xl lg:pt-12 lg:text-4xl'
 					)}
 				>
 					{data.keyword}
@@ -48,7 +48,7 @@
 					>
 						{#if data.heroTextImage.image}
 							<h2
-								class="font-boldFont text-secondary absolute bottom-12 right-10 text-3xl xl:text-4xl"
+								class="font-sans font-bold text-secondary absolute bottom-12 right-10 text-3xl xl:text-4xl"
 							>
 								{data.subKeyword}
 							</h2>
@@ -71,7 +71,7 @@
 					<h2
 						class={cn(
 							data.heroTextImage.image ? 'text-right' : 'text-center',
-							'font-boldFont text-right text-3xl uppercase sm:text-4xl xl:text-5xl'
+							'font-sans font-bold text-right text-3xl uppercase sm:text-4xl xl:text-5xl'
 						)}
 					>
 						{data.heroTextImage.title}
@@ -104,7 +104,7 @@
 					<div
 						class="bg-foreground/95 absolute bottom-0 right-0 z-30 h-1/4 w-2/3 [clip-path:polygon(0%_100%,100%_100%,100%_0%)]"
 					>
-						<h2 class="font-boldFont text-secondary absolute bottom-6 right-7 text-3xl xl:text-4xl">
+						<h2 class="font-sans font-bold text-secondary absolute bottom-6 right-7 text-3xl xl:text-4xl">
 							{data.subKeyword}
 						</h2>
 					</div>

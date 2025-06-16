@@ -29,7 +29,7 @@
 <footer class="bg-primary-foreground text-white">
 	<div class="mx-2 sm:container sm:mx-auto">
 		<div class="flex flex-col items-center justify-between gap-4 py-8 sm:flex-row print:hidden">
-			<span class="font-boldFont text-center text-lg sm:text-start sm:text-xl md:text-2xl">
+			<span class="font-sans font-bold text-center text-lg sm:text-start sm:text-xl md:text-2xl">
 				{$_('followUs')}
 			</span>
 			<div class="flex gap-4 px-4">

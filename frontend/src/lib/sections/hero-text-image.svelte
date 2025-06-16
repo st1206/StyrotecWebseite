@@ -18,7 +18,7 @@
 		<div class="flex w-full flex-col items-center justify-center">
 			<div class="mb-4">
 				<h2
-					class="font-boldFont uppercases text-right text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl"
+					class="font-sans font-bold uppercases text-right text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl"
 				>
 					{data.title}
 				</h2>

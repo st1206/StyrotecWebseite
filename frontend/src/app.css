@@ -11,12 +11,17 @@
 		--popover: 38 57% 92%;
 		--popover-foreground: 36 5% 19%;
 
-		--primary: 38 93% 52%; /* orange */
-		--primary-foreground: 36 5% 19%; /* dunkelgrau */
-		--secondary: 38 57% 92%; /* beige   38 86% 73%*/
-		--secondary-foreground: 36 5% 19%; /*dunkelgrau*/
+		--primary: 38 93% 52%;
+		/* orange */
+		--primary-foreground: 36 5% 19%;
+		/* dunkelgrau */
+		--secondary: 38 57% 92%;
+		/* beige   38 86% 73%*/
+		--secondary-foreground: 36 5% 19%;
+		/*dunkelgrau*/
 		--tertiary: 210 40% 96.1%;
-		--tertiary-foreground: 38 88% 67%; /* helleres gelb */
+		--tertiary-foreground: 38 88% 67%;
+		/* helleres gelb */
 
 		--muted: 60 4.8% 95.9%;
 		--muted-foreground: 36 5% 34%;
@@ -42,28 +47,40 @@
 
 @layer base {
 	@font-face {
-		font-family: 'bookFont';
-		src: local('bookFont'), url('/fonts/bookFont/OfficinaSansStd-Book.otf');
+		font-family: 'ITCOfficinaSansStd';
+		src: url('/fonts/officinaSansStd/OfficinaSansStd-Book.otf'),
+			url('/fonts/officinaSansStd/OfficinaSansStd-Book.woff2') format('woff2'),
+			url('/fonts/officinaSansStd/OfficinaSansStd-Book.woff') format('woff');
 		font-weight: normal;
+		font-display: swap;
 	}
+
 	@font-face {
-		font-family: 'boldFont';
-		src: local('boldFont'), url('/fonts/boldFont/OfficinaSansStd-Bold.otf');
+		font-family: 'ITCOfficinaSansStd';
+		src: url('/fonts/officinaSansStd/OfficinaSansStd-Bold.otf'),
+			url('/fonts/officinaSansStd/OfficinaSansStd-Bold.woff2') format('woff2'),
+			url('/fonts/officinaSansStd/OfficinaSansStd-Bold.woff') format('woff');
 		font-weight: bold;
+		font-display: swap;
 	}
-	@font-face {
-		font-family: 'boldItalicFont';
-		src: local('boldItalicFont'), url('/fonts/boldItalicFont/OfficinaSansStd-BoldItalic.otf');
+
+	/* @font-face {
+		font-family: 'ITCOfficinaSansStd';
+		src: url('/fonts/officinaSansStd/OfficinaSansStd-BoldItalic.otf'),
+			url('/fonts/officinaSansStd/OfficinaSansStd-BoldItalic.woff2') format('woff2'),
+			url('/fonts/officinaSansStd/OfficinaSansStd-BoldItalic.woff') format('woff');
 		font-weight: italic;
-	}
+		font-display: swap;
+	} */
 
 	* {
 		@apply border-border;
 		scroll-behavior: smooth;
 	}
+
 	body {
 		@apply bg-secondary text-foreground;
-		@apply font-bookFont;
+		@apply font-sans font-normal;
 	}
 
 	/* === Highlighting === */
@@ -80,8 +97,10 @@
 
 @media print {
 	body {
-		-webkit-print-color-adjust: exact; /* Safari/Chrome */
-		print-color-adjust: exact; /* Firefox/others */
+		-webkit-print-color-adjust: exact;
+		/* Safari/Chrome */
+		print-color-adjust: exact;
+		/* Firefox/others */
 	}
 
 	img {
@@ -97,7 +116,8 @@
 	/* --cc-font-family: Roboto; */
 
 	/** Change button primary color to black **/
-	--cc-btn-primary-bg: #f5a800; /* orange */
+	--cc-btn-primary-bg: #f5a800;
+	/* orange */
 	--cc-btn-primary-border-color: #f5a800;
 	--cc-btn-primary-hover-bg: #da9500;
 	--cc-btn-primary-hover-border-color: #da9500;

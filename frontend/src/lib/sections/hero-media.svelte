@@ -58,7 +58,7 @@
 
 		<div class="p-8">
 			<div class="space-y-4 text-center">
-				<h2 class="font-boldFont text-secondary text-4xl">
+				<h2 class="font-sans font-bold text-secondary text-4xl">
 					{data.title}
 				</h2>
 				<p class="prose prose-neutral lg:prose-lg text-secondary mx-auto max-w-5xl text-center">
@@ -88,7 +88,7 @@
 						<div
 							class="bg-foreground/90 absolute bottom-0 flex w-full flex-col justify-between p-2 px-4"
 						>
-							<h4 class="text-secondary font-boldFont text-3xl">
+							<h4 class="text-secondary font-sans font-bold text-3xl">
 								{card.employee ? card.employee.name : card.title}
 							</h4>
 							<h5 class="text-primary">

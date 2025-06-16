@@ -20,7 +20,7 @@
 </script>
 
 <section class="mx-2 mb-32 mt-12 sm:container sm:mx-auto lg:mt-28 xl:my-36">
-	<h2 class="font-boldFont mb-12 text-center text-3xl uppercase md:text-4xl">
+	<h2 class="font-sans font-bold mb-12 text-center text-3xl uppercase md:text-4xl">
 		{data.sectionTitle}
 	</h2>
 
@@ -54,7 +54,7 @@
 						<div class="col-span-2 flex w-full flex-col xl:col-span-3">
 							<Card.Header class="pt-0">
 								<Card.Title class="text-center">
-									<h3 class="font-boldFont text-secondary text-3xl xl:text-4xl">{variant.title}</h3>
+									<h3 class="font-sans font-bold text-secondary text-3xl xl:text-4xl">{variant.title}</h3>
 								</Card.Title>
 							</Card.Header>
 

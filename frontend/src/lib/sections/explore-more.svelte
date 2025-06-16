@@ -74,7 +74,7 @@
 	{#if data.sectionTitle}
 		<!-- Heading -->
 		<div class="mb-16">
-			<h2 class="font-boldFont text-center text-3xl uppercase sm:text-4xl">
+			<h2 class="font-sans font-bold text-center text-3xl uppercase sm:text-4xl">
 				{data.sectionTitle}
 			</h2>
 			<p
@@ -143,7 +143,7 @@
 								<Card.Title
 									class="bg-foreground w-full translate-y-[1px] [clip-path:polygon(0%_0%,60%_0%,80%_100%,0%_100%)]"
 								>
-									<h3 class="font-boldFont text-secondary p-5">{card.title}</h3>
+									<h3 class="font-sans font-bold text-secondary p-5">{card.title}</h3>
 								</Card.Title>
 							</Card.Header>
 
@@ -165,7 +165,7 @@
 
 							<Card.Footer class="bg-foreground">
 								<Button href={getRedirectLink(card.redirectSlug)}>
-									<span class="skew-x-[15deg]">{card.ctaText}</span>
+									<span class="skew-x-[15deg] h-5">{card.ctaText}</span>
 								</Button>
 							</Card.Footer>
 						</div>

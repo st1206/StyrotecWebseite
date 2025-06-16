@@ -20,7 +20,7 @@
 		)}
 	>
 		{#each data as item, i}
-			<div class="font-boldFont flex gap-2 text-xl sm:text-2xl lg:text-2xl xl:text-3xl">
+			<div class="font-sans font-bold flex gap-2 text-xl sm:text-2xl lg:text-2xl xl:text-3xl">
 				<span class="text-primary">&#x2713; </span>
 				<p class="break-words sm:break-normal">
 					{item.name}

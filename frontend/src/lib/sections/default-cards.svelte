@@ -40,7 +40,7 @@
 				<h2
 					class={cn(
 						data.isDarkMode ? 'text-secondary' : 'text-foreground',
-						'font-boldFont text-center text-4xl uppercase'
+						'font-sans font-bold text-center text-4xl uppercase'
 					)}
 				>
 					{data.sectionTitle}
@@ -91,14 +91,14 @@
 							<div
 								class="bg-foreground/90 absolute bottom-0 flex w-full flex-wrap justify-between gap-x-2 p-2 px-4"
 							>
-								<h4 class="text-secondary font-boldFont text-2xl lg:text-3xl">
+								<h4 class="text-secondary font-sans font-bold text-2xl lg:text-3xl">
 									{@html card.title}
 								</h4>
 								<div class="flex">
 									{#if card.redirectButtons.length}
 										{#each card.redirectButtons as button}
 											<Button href={getRedirectLink(button.redirectSlug)} class="h-8 px-2">
-												<span class="skew-x-[15deg] text-sm">{button.label}</span>
+												<span class="skew-x-[15deg] h-5 text-sm">{button.label}</span>
 											</Button>
 										{/each}
 									{/if}
@@ -113,7 +113,7 @@
 								)}
 							>
 								<div>
-									<h3 class="font-boldFont text-lg sm:text-3xl xl:text-4xl">{card.title}</h3>
+									<h3 class="font-sans font-bold text-lg sm:text-3xl xl:text-4xl">{card.title}</h3>
 									<div
 										class={cn(
 											data.isDarkMode ? 'text-secondary/90' : 'text-secondary/80',
@@ -127,7 +127,7 @@
 									<div class="mt-6 flex gap-4">
 										{#each card.redirectButtons as button}
 											<Button href={getRedirectLink(button.redirectSlug)}>
-												<span class="skew-x-[15deg]">{button.label}</span>
+												<span class="skew-x-[15deg] h-5">{button.label}</span>
 											</Button>
 										{/each}
 									</div>

@@ -96,7 +96,6 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 
 		// 2. Find the specific category page configuration
 		const categoryPage = Object.values(pages).find((page) => page[slugKey] === categoryPath);
-
 		if (!categoryPage) {
 			console.error(`Category page config not found for path: ${categoryPath}`);
 			error(404, `Content category not found`);

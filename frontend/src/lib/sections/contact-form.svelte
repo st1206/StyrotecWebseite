@@ -39,7 +39,7 @@
 		<div
 			class="bg-secondary/10 text-secondary mb-12 mt-16 grid h-full grid-cols-1 gap-x-8 p-8 md:grid-cols-5 lg:gap-x-12 xl:grid-cols-6"
 		>
-			<h5 class="font-boldFont col-span-1 mb-6 text-3xl md:col-span-5">
+			<h5 class="font-sans font-bold col-span-1 mb-6 text-3xl md:col-span-5">
 				{$_('yourContact')}
 			</h5>
 
@@ -54,7 +54,7 @@
 					/>
 					<div class="p-4">
 						<h3 class="text-primary text-sm">{data.employee.position}</h3>
-						<h2 class="font-boldFont text-3xl lg:text-4xl">{data.employee.name}</h2>
+						<h2 class="font-sans font-bold text-3xl lg:text-4xl">{data.employee.name}</h2>
 						<!-- <div class="mt-1 flex items-center gap-1 text-sm">
 							<Icons.mail class="size-3" />
 							<h3>{data.employee.email}</h3>
@@ -156,7 +156,7 @@
 						{:else}
 							<Icons.send class="mr-1 size-4 skew-x-[15deg]" />
 						{/if}
-						<span class="skew-x-[15deg]">
+						<span class="skew-x-[15deg] h-5">
 							{$_('button.send')}
 						</span>
 					</Form.Button>

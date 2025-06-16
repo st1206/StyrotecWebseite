@@ -67,9 +67,7 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			fontFamily: {
-				boldFont: ['boldFont'],
-				bookFont: ['bookFont'],
-				boldItalicFont: ['boldItalicFont']
+				sans: ['ITCOfficinaSansStd'],
 			},
 			keyframes: {
 				'marquee-left': {

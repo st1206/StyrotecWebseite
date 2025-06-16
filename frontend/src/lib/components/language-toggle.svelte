@@ -33,12 +33,12 @@
 	<DropdownMenu.Root>
 		<DropdownMenu.Trigger class={fullWidth ? 'w-full' : ''}>
 			<Button variant="secondary" class={cn(fullWidth ? 'w-full' : '', '-skew-x-[15deg]')}>
-				<span class="flex skew-x-[15deg] items-center gap-2">
+				<div class="flex skew-x-[15deg] items-center gap-2">
 					<Icons.globe class="size-4" />
-					<span class="h-[18px] text-sm">
+					<span class="h-4 text-sm">
 						{languages.find((lang) => $locale === lang.code)?.shortLabel || 'ERR'}
 					</span>
-				</span>
+				</div>
 			</Button>
 		</DropdownMenu.Trigger>
 

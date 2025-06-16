@@ -7,6 +7,12 @@
 	import { onMount } from 'svelte';
 	import 'vanilla-cookieconsent/dist/cookieconsent.css';
 	import { cookiesConfig } from '$lib/config/cookieconsent-config';
+	import { dev } from '$app/environment';
+	import { injectAnalytics } from '@vercel/analytics/sveltekit';
+	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
+
+	injectSpeedInsights();
+	injectAnalytics({ mode: dev ? 'development' : 'production' });
 
 	let { data, children } = $props();
 
