@@ -1667,7 +1667,7 @@ export interface ApiMachineMaintenancePageMachineMaintenancePage
     };
   };
   attributes: {
-    ContactForm: Schema.Attribute.Component<
+    contactForm: Schema.Attribute.Component<
       'page-components.contact-form',
       false
     > &
@@ -1680,14 +1680,7 @@ export interface ApiMachineMaintenancePageMachineMaintenancePage
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    header1: Schema.Attribute.Component<'page-components.page-header', false> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    HeroCarousel: Schema.Attribute.Component<
+    heroCarousel: Schema.Attribute.Component<
       'page-components.hero-carousel',
       false
     > &
@@ -1697,7 +1690,7 @@ export interface ApiMachineMaintenancePageMachineMaintenancePage
           localized: true;
         };
       }>;
-    HeroTextImage: Schema.Attribute.Component<
+    heroTextImage: Schema.Attribute.Component<
       'page-components.basic-text-image',
       false
     > &
@@ -1707,7 +1700,7 @@ export interface ApiMachineMaintenancePageMachineMaintenancePage
           localized: true;
         };
       }>;
-    history: Schema.Attribute.Component<'page-components.history', true> &
+    history: Schema.Attribute.Component<'page-components.history', false> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1719,8 +1712,18 @@ export interface ApiMachineMaintenancePageMachineMaintenancePage
       'oneToMany',
       'api::machine-maintenance-page.machine-maintenance-page'
     >;
+    pageHeader: Schema.Attribute.Component<
+      'page-components.page-header',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
-    seo: Schema.Attribute.Component<'page-components.seo', true> &
+    seo: Schema.Attribute.Component<'page-components.seo', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1736,7 +1739,10 @@ export interface ApiMachineMaintenancePageMachineMaintenancePage
           localized: true;
         };
       }>;
-    uspList1: Schema.Attribute.Component<'partial-components.usp-list', true> &
+    uspListOne: Schema.Attribute.Component<
+      'partial-components.usp-list',
+      true
+    > &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1836,6 +1842,7 @@ export interface ApiMachineModernizationPageMachineModernizationPage
   extends Struct.SingleTypeSchema {
   collectionName: 'machine_modernization_pages';
   info: {
+    description: '';
     displayName: 'Maschinenmodernisierung Seite';
     pluralName: 'machine-modernization-pages';
     singularName: 'machine-modernization-page';
@@ -1849,7 +1856,7 @@ export interface ApiMachineModernizationPageMachineModernizationPage
     };
   };
   attributes: {
-    ContactForm: Schema.Attribute.Component<
+    contactForm: Schema.Attribute.Component<
       'page-components.contact-form',
       false
     > &
@@ -1862,7 +1869,7 @@ export interface ApiMachineModernizationPageMachineModernizationPage
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    ExploreMore: Schema.Attribute.Component<
+    exploreMore: Schema.Attribute.Component<
       'page-components.explore-more',
       true
     > &
@@ -1872,7 +1879,7 @@ export interface ApiMachineModernizationPageMachineModernizationPage
           localized: true;
         };
       }>;
-    HeroCarousel: Schema.Attribute.Component<
+    heroCarousel: Schema.Attribute.Component<
       'page-components.hero-carousel',
       false
     > &

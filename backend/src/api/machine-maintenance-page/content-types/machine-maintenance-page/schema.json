@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "HeroTextImage": {
+    "heroTextImage": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
@@ -27,7 +27,7 @@
       "component": "page-components.basic-text-image",
       "required": true
     },
-    "HeroCarousel": {
+    "heroCarousel": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
@@ -49,7 +49,7 @@
       "component": "partial-components.usp-list",
       "required": true
     },
-    "ContactForm": {
+    "contactForm": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
@@ -62,7 +62,7 @@
     },
     "seo": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -70,7 +70,7 @@
       },
       "component": "page-components.seo"
     },
-    "header1": {
+    "pageHeader": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
@@ -81,7 +81,7 @@
       "required": true,
       "component": "page-components.page-header"
     },
-    "uspList1": {
+    "uspListOne": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -94,7 +94,7 @@
     },
     "history": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "pluginOptions": {
         "i18n": {
           "localized": true

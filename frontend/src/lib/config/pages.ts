@@ -277,7 +277,7 @@ const pagesConfig: Record<string, PageContent> = {
 	},
 
 	machineMaintenance: {
-		deSlug: 'dienstleistung/maschinenerhaltung',
+		deSlug: 'dienstleistungen/maschinenerhaltung',
 		enSlug: 'services/machine-maintenance',
 		cmsTypeKey: 'machineMaintenancePage',
 		cmsApiSlug: 'machine-maintenance-page',
@@ -285,8 +285,8 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'heroCarousel' },
 			{ sectionKey: 'heroTextImage' },
 			{ sectionKey: 'uspList' },
-			{ sectionKey: 'header'},
-			{ sectionKey: 'uspList1'},
+			{ sectionKey: 'pageHeader'},
+			{ sectionKey: 'uspListOne'},
 			{ sectionKey: 'history'},
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
@@ -294,14 +294,15 @@ const pagesConfig: Record<string, PageContent> = {
 	},
 
 	machineModernization: {
-		deSlug: 'dienstleistung/maschinmodernisierung',
+		deSlug: 'dienstleistungen/maschinenmodernisierung',
 		enSlug: 'services/machine-modernization',
 		cmsTypeKey: 'machineModernizationPage',
-		cmsApiSlug: 'machine-modernization-üage',
+		cmsApiSlug: 'machine-modernization-page',
 		sections: [
 			{ sectionKey: 'heroCarousel' },
 			{ sectionKey: 'heroTextImage' },
 			{ sectionKey: 'uspList' },
+			{ sectionKey: 'exploreMore' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]

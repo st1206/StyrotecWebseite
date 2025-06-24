@@ -4,6 +4,7 @@ const populateBySection: Record<string, PopulateRule> = {
 	heroCarousel: ['heroCarousel.images'],
 	heroTextImage: ['heroTextImage.image'],
 	uspList: ['uspList'],
+	uspListOne: ['uspListOne'],
 	exploreMore: ['exploreMore.previewCards.thumbnail'],
 	heroDualImage: ['heroDualImage.image', 'heroDualImage.heroTextImage.image'],
 	exploreVariants: [

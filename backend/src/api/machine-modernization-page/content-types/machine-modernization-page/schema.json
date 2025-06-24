@@ -4,7 +4,8 @@
   "info": {
     "singularName": "machine-modernization-page",
     "pluralName": "machine-modernization-pages",
-    "displayName": "Maschinenmodernisierung Seite"
+    "displayName": "Maschinenmodernisierung Seite",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,7 +16,7 @@
     }
   },
   "attributes": {
-    "HeroCarousel": {
+    "heroCarousel": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
@@ -48,7 +49,7 @@
       "component": "partial-components.usp-list",
       "required": true
     },
-    "ExploreMore": {
+    "exploreMore": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -59,7 +60,7 @@
       "component": "page-components.explore-more",
       "required": true
     },
-    "ContactForm": {
+    "contactForm": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
