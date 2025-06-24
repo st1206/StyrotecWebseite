@@ -285,7 +285,9 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'heroCarousel' },
 			{ sectionKey: 'heroTextImage' },
 			{ sectionKey: 'uspList' },
-			{ sectionKey: 'exploreMore' },
+			{ sectionKey: 'header'},
+			{ sectionKey: 'uspList1'},
+			{ sectionKey: 'history'},
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]
@@ -300,9 +302,6 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'heroCarousel' },
 			{ sectionKey: 'heroTextImage' },
 			{ sectionKey: 'uspList' },
-			{ sectionKey: 'pageHeader'},
-			{ sectionKey: 'uspList'},
-			{ sectionKey: 'history'},
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]
