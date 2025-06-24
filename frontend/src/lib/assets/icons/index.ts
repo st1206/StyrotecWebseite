@@ -3,6 +3,7 @@ import {
 	ChevronRight,
 	CircleAlert,
 	CircleCheckBig,
+	Clock,
 	CopyrightIcon,
 	Download,
 	Globe,
@@ -64,5 +65,6 @@ export const Icons = {
 	mail: Mail,
 	send: Send,
 	error: CircleAlert,
-	check: CircleCheckBig
+	check: CircleCheckBig,
+	time: Clock
 };

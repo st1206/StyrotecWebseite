@@ -3,6 +3,7 @@
 	import Brochures from './brochures.svelte';
 	import DefaultCards from './default-cards.svelte';
 	import { locale, _ } from 'svelte-i18n';
+	import Fairs from './fairs.svelte';
 
 	let data = $props();
 	const currentLocale = $locale === 'de-DE' ? 'de' : 'en';
@@ -45,44 +46,44 @@
 	const fairs = {
 		fairs: Object.values(data)
 			.map((entry: any) => {
-				if (!entry) {
+				if (!entry.startDate) {
 					return null;
 				}
 				return {
 					name: entry.name,
 					description: entry.description,
+					content: entry.content,
 					city: entry.city,
 					startDate: entry.startDate,
 					endDate: entry.endDate,
-					pictures: entry.pictures,
-					externalLink: entry.externalLink
+					externalLink: entry.externalLink,
+					logo: entry.logo
 				};
 			})
 			.filter((entry) => entry !== null) // Filter out the null entries
 	};
 
-	const testimonials = {
-		testimonials: Object.values(data)
-			.map((entry: any) => {
-				if (!entry) {
-					return null;
-				}
-				return {
-					name: entry.name,
-					timestamp: entry.timestamp,
-					thumbnail: entry.thumbnail,
-					testimonial: entry.testimonial
-				};
-			})
-			.filter((entry) => entry !== null) // Filter out the null entries
-	};
-	// $inspect(data);
+	// const testimonials = {
+	// 	testimonials: Object.values(data)
+	// 		.map((entry: any) => {
+	// 			if (!entry) {
+	// 				return null;
+	// 			}
+	// 			return {
+	// 				name: entry.name,
+	// 				timestamp: entry.timestamp,
+	// 				thumbnail: entry.thumbnail,
+	// 				testimonial: entry.testimonial
+	// 			};
+	// 		})
+	// 		.filter((entry) => entry !== null) // Filter out the null entries
+	// };
 </script>
 
 {#if data.type === 'brochures'}
 	<Brochures {...brochures} />
 {:else if data.type === 'fairs'}
-	<!-- <Brochures {...brochures} /> -->
+	<Fairs {...fairs} />
 {:else if data.type === 'testimonials'}
 	<!-- <Brochures {...brochures} /> -->
 {:else}

@@ -1075,10 +1075,17 @@ export interface ApiFairFair extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    content: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Blocks &
+    description: Schema.Attribute.Text &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1100,19 +1107,18 @@ export interface ApiFairFair extends Struct.CollectionTypeSchema {
       }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::fair.fair'>;
+    logo: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
-        };
-      }>;
-    pictures: Schema.Attribute.Media<'images', true> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
@@ -2131,20 +2137,10 @@ export interface ApiNewsPageNewsPage extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
-    collectionTypeCardsThree: Schema.Attribute.Component<
-      'page-components.collection-type-cards',
-      false
-    > &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     collectionTypeCardsTwo: Schema.Attribute.Component<
       'page-components.collection-type-cards',
       false
     > &
-      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -2159,16 +2155,6 @@ export interface ApiNewsPageNewsPage extends Struct.SingleTypeSchema {
       'api::news-page.news-page'
     >;
     pageHeader: Schema.Attribute.Component<
-      'page-components.page-header',
-      false
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    pageHeaderThree: Schema.Attribute.Component<
       'page-components.page-header',
       false
     > &

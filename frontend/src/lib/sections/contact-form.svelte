@@ -13,6 +13,7 @@
 	import type { Employee } from '$lib/models/employee';
 	import { Icons } from '$lib/assets/icons';
 	import { locale } from 'svelte-i18n';
+	import Globe from '$lib/components/globe.svelte';
 
 	let data: {
 		contactForm: any;
@@ -27,7 +28,11 @@
 
 	onMount(() => {
 		const originUrl = page.url.pathname;
-		formData.set({ ...$formData, originUrl, mailToContactPerson: data.employee ? data.employee.email : 'info@styrotec.de'});
+		formData.set({
+			...$formData,
+			originUrl,
+			mailToContactPerson: data.employee ? data.employee.email : 'info@styrotec.de'
+		});
 	});
 </script>
 
@@ -35,7 +40,17 @@
 	class="bg-foreground mt-20 h-14 w-full translate-y-[1px] [clip-path:polygon(100%_0,100%_100%,0_100%)] print:hidden"
 ></div>
 <div class="bg-foreground">
-	<section class="flex w-full flex-col sm:container px-4" id="contact-form">
+	<div class="flex h-[80vh] w-full items-center justify-center">
+		<div
+			class="relative flex h-fit w-full max-w-[32rem] items-center justify-center overflow-hidden rounded-lg border px-40 pb-40 pt-8 md:pb-60 md:shadow-xl"
+		>
+			<Globe />
+			<div
+				class="pointer-events-none absolute inset-0 h-full bg-[radial-gradient(circle_at_50%_200%,rgba(0,0,0,0.2),rgba(255,255,255,0))]"
+			></div>
+		</div>
+	</div>
+	<section class="flex w-full flex-col px-4 sm:container" id="contact-form">
 		<div
 			class="bg-secondary/10 text-secondary mb-12 mt-16 grid h-full grid-cols-1 gap-x-8 p-8 md:grid-cols-5 lg:gap-x-12 xl:grid-cols-6"
 		>

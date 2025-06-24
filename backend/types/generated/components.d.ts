@@ -329,8 +329,7 @@ export interface PartialComponentsDefaultCard extends Struct.ComponentSchema {
       'partial-components.redirect-button',
       true
     >;
-    thumbnail: Schema.Attribute.Media<'images' | 'files'> &
-      Schema.Attribute.Required;
+    thumbnail: Schema.Attribute.Media<'images' | 'files'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }

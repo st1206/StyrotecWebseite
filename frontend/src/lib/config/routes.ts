@@ -102,6 +102,14 @@ export const menu = [
 		key: 'company',
 		menuRoutes: [
 			{
+				key: 'news',
+				anchor: null,
+				routeChildren: [
+					{ key: 'fairs', anchor: '#messen' },
+					{ key: 'brochures', anchor: '#prospekte' }
+				]
+			},
+			{
 				key: 'aboutUs',
 				anchor: null,
 				routeChildren: [
@@ -115,15 +123,6 @@ export const menu = [
 				key: 'career',
 				anchor: null,
 				routeChildren: [{ key: 'jobPosting', anchor: null }]
-			},
-			{
-				key: 'news',
-				anchor: null,
-				routeChildren: [
-					{ key: 'fairs', anchor: null },
-					{ key: 'references', anchor: null },
-					{ key: 'brochures', anchor: '#prospekte' }
-				]
 			}
 		]
 	}

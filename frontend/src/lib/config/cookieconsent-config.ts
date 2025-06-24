@@ -62,7 +62,7 @@ export const cookiesConfig: CookieConsent.CookieConsentConfig = {
 		necessary: {
 			enabled: true, // this category is enabled by default
 			readOnly: true // this category cannot be disabled
-		},
+		}
 		// analytics: {
 		// 	autoClear: {
 		// 		cookies: [

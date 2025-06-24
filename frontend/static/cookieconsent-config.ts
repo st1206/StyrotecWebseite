@@ -62,28 +62,28 @@ export const cookiesConfig: CookieConsent.CookieConsentConfig = {
 		necessary: {
 			enabled: true, // this category is enabled by default
 			readOnly: true // this category cannot be disabled
-		},
-		analytics: {
-			autoClear: {
-				cookies: [
-					{
-						name: /^_ga/ // regex: match all cookies starting with '_ga'
-					},
-					{
-						name: '_gid' // string: exact cookie name
-					}
-				]
-			},
-
-			// https://cookieconsent.orestbida.com/reference/configuration-reference.html#category-services
-			services: {
-				ga: {
-					label: 'Google Analytics',
-					onAccept: () => {},
-					onReject: () => {}
-				}
-			}
 		}
+		// analytics: {
+		// 	autoClear: {
+		// 		cookies: [
+		// 			{
+		// 				name: /^_ga/ // regex: match all cookies starting with '_ga'
+		// 			},
+		// 			{
+		// 				name: '_gid' // string: exact cookie name
+		// 			}
+		// 		]
+		// 	},
+
+		// 	// https://cookieconsent.orestbida.com/reference/configuration-reference.html#category-services
+		// 	services: {
+		// 		ga: {
+		// 			label: 'Google Analytics',
+		// 			onAccept: () => {},
+		// 			onReject: () => {}
+		// 		}
+		// 	}
+		// }
 		// ads: {}
 	},
 
@@ -124,32 +124,32 @@ export const cookiesConfig: CookieConsent.CookieConsentConfig = {
 							//this field will generate a toggle linked to the 'necessary' category
 							linkedCategory: 'necessary'
 						},
-						{
-							title: 'Performance and Analytics',
-							description:
-								'These cookies collect information about how you use our website. All of the data is anonymized and cannot be used to identify you.',
-							linkedCategory: 'analytics',
-							cookieTable: {
-								caption: 'Cookie table',
-								headers: {
-									name: 'Cookie',
-									domain: 'Domain',
-									desc: 'Description'
-								},
-								body: [
-									{
-										name: '_ga',
-										// domain: location.hostname,
-										desc: 'Description 1'
-									},
-									{
-										name: '_gid',
-										// domain: location.hostname,
-										desc: 'Description 2'
-									}
-								]
-							}
-						},
+						// {
+						// 	title: 'Performance and Analytics',
+						// 	description:
+						// 		'These cookies collect information about how you use our website. All of the data is anonymized and cannot be used to identify you.',
+						// 	linkedCategory: 'analytics',
+						// 	cookieTable: {
+						// 		caption: 'Cookie table',
+						// 		headers: {
+						// 			name: 'Cookie',
+						// 			domain: 'Domain',
+						// 			desc: 'Description'
+						// 		},
+						// 		body: [
+						// 			{
+						// 				name: '_ga',
+						// 				// domain: location.hostname,
+						// 				desc: 'Description 1'
+						// 			},
+						// 			{
+						// 				name: '_gid',
+						// 				// domain: location.hostname,
+						// 				desc: 'Description 2'
+						// 			}
+						// 		]
+						// 	}
+						// },
 						// {
 						// 	title: 'Targeting and Advertising',
 						// 	description:
@@ -187,7 +187,7 @@ export const cookiesConfig: CookieConsent.CookieConsentConfig = {
 					serviceCounterLabel: 'Dienst|Dienste',
 					sections: [
 						{
-							title: 'Deine Datenschutzoptionen',
+							title: 'Ihre Datenschutzoptionen',
 							description: `In diesem Bereich können Sie bestimmte Präferenzen zur Verarbeitung Ihrer personenbezogenen Daten festlegen. Sie können Ihre Entscheidungen jederzeit über den bereitgestellten Link im Footer erneut aufrufen und ändern. Um bestimmte Verarbeitungsvorgänge abzulehnen, deaktivieren Sie die jeweiligen Schalter oder klickem Sie auf „Alle ablehnen“ und bestätigen Sie Ihre Auswahl.`
 						},
 						{
@@ -196,30 +196,30 @@ export const cookiesConfig: CookieConsent.CookieConsentConfig = {
 								'Diese Cookies sind für die einwandfreie Funktion der Website unbedingt erforderlich und können nicht deaktiviert werden.',
 							linkedCategory: 'necessary'
 						},
-						{
-							title: 'Leistung und Analyse',
-							description:
-								'Diese Cookies sammeln Informationen darüber, wie Sie unsere Website nutzen. Alle Daten werden anonymisiert und können nicht dazu verwendet werden, Sie zu identifizieren.',
-							linkedCategory: 'analytics',
-							cookieTable: {
-								caption: 'Cookie-Tabelle',
-								headers: {
-									name: 'Cookie',
-									domain: 'Domain',
-									desc: 'Beschreibung'
-								},
-								body: [
-									{
-										name: '_ga',
-										desc: 'Beschreibung 1'
-									},
-									{
-										name: '_gid',
-										desc: 'Beschreibung 2'
-									}
-								]
-							}
-						},
+						// {
+						// 	title: 'Leistung und Analyse',
+						// 	description:
+						// 		'Diese Cookies sammeln Informationen darüber, wie Sie unsere Website nutzen. Alle Daten werden anonymisiert und können nicht dazu verwendet werden, Sie zu identifizieren.',
+						// 	linkedCategory: 'analytics',
+						// 	cookieTable: {
+						// 		caption: 'Cookie-Tabelle',
+						// 		headers: {
+						// 			name: 'Cookie',
+						// 			domain: 'Domain',
+						// 			desc: 'Beschreibung'
+						// 		},
+						// 		body: [
+						// 			{
+						// 				name: '_ga',
+						// 				desc: 'Beschreibung 1'
+						// 			},
+						// 			{
+						// 				name: '_gid',
+						// 				desc: 'Beschreibung 2'
+						// 			}
+						// 		]
+						// 	}
+						// },
 						// {
 						// 	title: 'Targeting und Werbung',
 						// 	description:

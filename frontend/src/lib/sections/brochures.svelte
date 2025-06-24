@@ -9,13 +9,13 @@
 	let data: { brochures: { thumbnail: ImageAsset; file: any }[] } = $props();
 </script>
 
-<section id="prospekte" class="my-16 max-w-4xl px-4 sm:container sm:mx-auto lg:w-full">
+<section id="prospekte" class="my-16 lg:max-w-4xl px-4 sm:container sm:mx-auto w-full">
 	<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:gap-6">
 		{#each data.brochures as brochure}
 			<div class="relative">
 				<div
 					class={cn(
-						'bg-foreground/90 translate-y-[0.5px] absolute bottom-0 flex h-[80px] w-full items-end pb-1 [clip-path:polygon(0%_0%,150%_100%,100%_100%,0%_100%)]'
+						'bg-foreground/90 absolute bottom-0 flex h-[80px] w-full translate-y-[0.5px] items-end pb-1 [clip-path:polygon(0%_0%,150%_100%,100%_100%,0%_100%)]'
 					)}
 				>
 					<Button variant="link" class={cn('font-sans font-bold text-secondary gap-2 text-xl')}>

@@ -44,10 +44,10 @@
       "type": "date",
       "required": true
     },
-    "pictures": {
+    "logo": {
       "type": "media",
-      "multiple": true,
-      "required": true,
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
       ],
@@ -66,7 +66,7 @@
       "type": "string",
       "required": true
     },
-    "description": {
+    "content": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -81,6 +81,15 @@
         }
       },
       "type": "string",
+      "required": true
+    },
+    "description": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text",
       "required": true
     }
   }

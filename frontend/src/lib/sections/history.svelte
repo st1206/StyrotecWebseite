@@ -57,10 +57,8 @@
 						class="bg-primary w-1"
 						style={`height: ${(innerWidth?.current ?? 0) > 768 ? 'auto' : ((cardHeights[i] ?? 0) - 48) / 2 + 'px'}`}
 					></div>
-					<div
-						class="bg-primary z-10 flex min-h-12 min-w-12 items-center justify-center rounded-full"
-					>
-						<span class="font-sans font-bold text-foreground text-sm">{item.year}</span>
+					<div class="bg-foreground z-10 flex min-h-12 min-w-12 items-center justify-center">
+						<span class="font-boldFont text-foreground text-sm">{item.year}</span>
 					</div>
 					<div
 						class="bg-primary w-1"
@@ -110,9 +108,9 @@
 					<div class="relative col-span-1 flex items-center justify-center">
 						<div class="bg-primary h-full w-1"></div>
 						<div
-							class="bg-primary absolute z-10 flex min-h-12 min-w-12 items-center justify-center rounded-full"
+							class="bg-foreground absolute z-10 flex min-h-12 min-w-12 items-center justify-center"
 						>
-							<p class="font-sans font-bold text-foreground text-sm">{item.year}</p>
+							<p class="font-boldFont text-primary text-sm">{item.year}</p>
 						</div>
 					</div>
 
@@ -126,13 +124,10 @@
 					<div class="relative col-span-1 flex items-center justify-center">
 						<div class="bg-primary h-full w-1"></div>
 						<div
-							class="bg-primary absolute z-10 flex min-h-12 min-w-12 items-center justify-center rounded-full"
+							class="bg-foreground absolute z-10 flex min-h-12 min-w-12 items-center justify-center"
 						>
 							<p class="font-sans font-bold text-foreground text-sm">{item.year}</p>
-						</div>
-					</div>
-
-					<!-- Right-aligned card -->
+							<p class="font-boldFont text-primary text-sm">{item.year}</p>
 					<div class="col-span-4">
 						<div
 							class="bg-foreground text-secondary shadow-primary p-2 transition duration-300 ease-in-out hover:shadow-[8px_8px_0_#f6a313] md:p-4"
