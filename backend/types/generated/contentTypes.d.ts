@@ -1680,10 +1680,7 @@ export interface ApiMachineMaintenancePageMachineMaintenancePage
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    ExploreMore: Schema.Attribute.Component<
-      'page-components.explore-more',
-      true
-    > &
+    header1: Schema.Attribute.Component<'page-components.page-header', false> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1710,6 +1707,13 @@ export interface ApiMachineMaintenancePageMachineMaintenancePage
           localized: true;
         };
       }>;
+    history: Schema.Attribute.Component<'page-components.history', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1726,6 +1730,13 @@ export interface ApiMachineMaintenancePageMachineMaintenancePage
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     uspList: Schema.Attribute.Component<'partial-components.usp-list', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    uspList1: Schema.Attribute.Component<'partial-components.usp-list', true> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

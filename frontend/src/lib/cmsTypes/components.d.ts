@@ -24,7 +24,9 @@ export interface PageComponentsCollectionTypeCards
   };
   attributes: {
     collectionApiSlug: Schema.Attribute.String & Schema.Attribute.Required;
-    type: Schema.Attribute.Enumeration<['defaultCards', 'brochures']> &
+    type: Schema.Attribute.Enumeration<
+      ['defaultCards', 'brochures', 'fairs', 'testimonials']
+    > &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'defaultCards'>;
   };
@@ -165,9 +167,11 @@ export interface PageComponentsHistory extends Struct.ComponentSchema {
 export interface PageComponentsPageHeader extends Struct.ComponentSchema {
   collectionName: 'components_page_components_page_headers';
   info: {
+    description: '';
     displayName: 'pageHeader';
   };
   attributes: {
+    anchor: Schema.Attribute.String;
     description: Schema.Attribute.Text & Schema.Attribute.Required;
     headline: Schema.Attribute.String & Schema.Attribute.Required;
   };

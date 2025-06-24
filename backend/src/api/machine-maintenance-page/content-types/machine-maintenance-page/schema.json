@@ -49,17 +49,6 @@
       "component": "partial-components.usp-list",
       "required": true
     },
-    "ExploreMore": {
-      "type": "component",
-      "repeatable": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "page-components.explore-more",
-      "required": true
-    },
     "ContactForm": {
       "type": "component",
       "repeatable": false,
@@ -80,6 +69,39 @@
         }
       },
       "component": "page-components.seo"
+    },
+    "header1": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true,
+      "component": "page-components.page-header"
+    },
+    "uspList1": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "partial-components.usp-list",
+      "required": true
+    },
+    "history": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.history",
+      "required": true
     }
   }
 }
