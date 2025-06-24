@@ -3,8 +3,8 @@ type PopulateRule = string[];
 const populateBySection: Record<string, PopulateRule> = {
 	heroCarousel: ['heroCarousel.images'],
 	heroTextImage: ['heroTextImage.image'],
-	uspList: ['uspList'],
-	uspListOne: ['uspListOne'],
+	uspList: ['uspList.uspItems'],
+	uspListOne: ['uspListOne.uspItems'],
 	exploreMore: ['exploreMore.previewCards.thumbnail'],
 	heroDualImage: ['heroDualImage.image', 'heroDualImage.heroTextImage.image'],
 	exploreVariants: [

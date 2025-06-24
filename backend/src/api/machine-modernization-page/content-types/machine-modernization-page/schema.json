@@ -40,13 +40,13 @@
     },
     "uspList": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "partial-components.usp-list",
+      "component": "page-components.usp-list",
       "required": true
     },
     "exploreMore": {

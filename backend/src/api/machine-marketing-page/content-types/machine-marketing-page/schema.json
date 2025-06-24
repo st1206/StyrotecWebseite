@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "HeroCarousel": {
+    "heroCarousel": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
@@ -27,7 +27,7 @@
       "component": "page-components.hero-carousel",
       "required": true
     },
-    "HeroTextImage": {
+    "heroTextImage": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
@@ -38,18 +38,18 @@
       "component": "page-components.basic-text-image",
       "required": true
     },
-    "UspList": {
+    "uspList": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "required": true,
-      "component": "partial-components.usp-list"
+      "component": "page-components.usp-list",
+      "required": true
     },
-    "ExploreMore": {
+    "exploreMore": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
@@ -60,7 +60,7 @@
       "component": "page-components.explore-more",
       "required": true
     },
-    "ContactForm": {
+    "contactForm": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {

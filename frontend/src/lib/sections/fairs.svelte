@@ -44,7 +44,7 @@
 								new Date(item.endDate)
 							)} | {item.city}
 						</h4>
-						<h2 class="font-boldFont text-3xl">{item.name}</h2>
+						<h2 class="text-3xl font-bold">{item.name}</h2>
 						<h3 class="text-xs">{item.description}</h3>
 					</div>
 				</Accordion.Trigger>

@@ -1,12 +1,14 @@
 <script lang="ts">
 	import { cn } from '$lib/utils';
 
-	let data: { name: string }[] = $props();
+	let data: { uspItems: { name: string }[] } = $props();
 
 	let isNameLong = $state<boolean>(false);
 	$effect(() => {
-		isNameLong = data.some(({ name }: { name: string }) => name.length > 50);
+		isNameLong = data.uspItems.some(({ name }: { name: string }) => name.length > 50);
 	});
+
+	$inspect(data);
 </script>
 
 <div
@@ -19,8 +21,8 @@
 			'text-secondary container grid grid-cols-1 gap-6 py-16 lg:grid-cols-2 xl:py-24'
 		)}
 	>
-		{#each data as item, i}
-			<div class="font-sans font-bold flex gap-2 text-xl sm:text-2xl lg:text-2xl xl:text-3xl">
+		{#each data.uspItems as item, i}
+			<div class="flex gap-2 font-sans text-xl font-semibold sm:text-2xl lg:text-2xl">
 				<span class="text-primary">&#x2713; </span>
 				<p class="break-words sm:break-normal">
 					{item.name}

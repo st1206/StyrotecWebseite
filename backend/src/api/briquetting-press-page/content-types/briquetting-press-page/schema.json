@@ -38,17 +38,6 @@
       "component": "page-components.basic-text-image",
       "required": true
     },
-    "uspList": {
-      "type": "component",
-      "repeatable": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "required": true,
-      "component": "partial-components.usp-list"
-    },
     "exploreMore": {
       "type": "component",
       "repeatable": false,
@@ -80,6 +69,17 @@
         }
       },
       "component": "page-components.seo",
+      "required": true
+    },
+    "uspList": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.usp-list",
       "required": true
     }
   }

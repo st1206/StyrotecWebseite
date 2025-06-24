@@ -38,17 +38,6 @@
       "component": "page-components.hero-carousel",
       "required": true
     },
-    "uspList": {
-      "type": "component",
-      "repeatable": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "partial-components.usp-list",
-      "required": true
-    },
     "contactForm": {
       "type": "component",
       "repeatable": false,
@@ -83,13 +72,13 @@
     },
     "uspListOne": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "partial-components.usp-list",
+      "component": "page-components.usp-list",
       "required": true
     },
     "history": {
@@ -101,6 +90,17 @@
         }
       },
       "component": "page-components.history",
+      "required": true
+    },
+    "uspList": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.usp-list",
       "required": true
     }
   }

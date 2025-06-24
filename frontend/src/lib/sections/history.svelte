@@ -58,7 +58,7 @@
 						style={`height: ${(innerWidth?.current ?? 0) > 768 ? 'auto' : ((cardHeights[i] ?? 0) - 48) / 2 + 'px'}`}
 					></div>
 					<div class="bg-foreground z-10 flex min-h-12 min-w-12 items-center justify-center">
-						<span class="font-boldFont text-foreground text-sm">{item.year}</span>
+						<span class="font-bold text-foreground text-sm">{item.year}</span>
 					</div>
 					<div
 						class="bg-primary w-1"
@@ -110,7 +110,7 @@
 						<div
 							class="bg-foreground absolute z-10 flex min-h-12 min-w-12 items-center justify-center"
 						>
-							<p class="font-boldFont text-primary text-sm">{item.year}</p>
+							<p class="font-bold text-primary text-sm">{item.year}</p>
 						</div>
 					</div>
 
@@ -127,7 +127,7 @@
 							class="bg-foreground absolute z-10 flex min-h-12 min-w-12 items-center justify-center"
 						>
 							<p class="text-foreground font-sans text-sm font-bold">{item.year}</p>
-							<p class="font-boldFont text-primary text-sm">{item.year}</p>
+							<p class="font-bold text-primary text-sm">{item.year}</p>
 						</div>
 					</div>
 					<div class="col-span-4">

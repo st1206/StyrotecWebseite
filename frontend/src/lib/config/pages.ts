@@ -285,9 +285,9 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'heroCarousel' },
 			{ sectionKey: 'heroTextImage' },
 			{ sectionKey: 'uspList' },
-			{ sectionKey: 'pageHeader'},
-			{ sectionKey: 'uspListOne'},
-			{ sectionKey: 'history'},
+			{ sectionKey: 'pageHeader' },
+			{ sectionKey: 'uspListOne' },
+			{ sectionKey: 'history' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]
@@ -309,7 +309,7 @@ const pagesConfig: Record<string, PageContent> = {
 	},
 
 	machineMarketing: {
-		deSlug: 'dienstleistung/maschinenvermarktung',
+		deSlug: 'dienstleistungen/maschinenvermarktung',
 		enSlug: 'services/machine-marketing',
 		cmsTypeKey: 'machineMarketingPage',
 		cmsApiSlug: 'machine-marketing-page',
@@ -343,17 +343,5 @@ const pagesConfig: Record<string, PageContent> = {
 			}
 		]
 	}
-
-	// millingTools: {
-	// 	deSlug: 'produkte/styroporbearbeitung/fräswerkzeuge',
-	// 	enSlug: 'products/styrofoam-processing/milling-tools',
-	// 	cmsTypeKey: 'millingToolsPage',
-	// 	cmsApiSlug: 'milling-tools-page',
-	// 	sections: [
-	// 		{
-	// 			sectionKey: 'defaultContent'
-	// 		}
-	// 	]
-	// }
 };
 export const pages: Record<string, PageContent> = withApiParams(pagesConfig);

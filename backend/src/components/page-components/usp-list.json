@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_page_components_usp_lists",
+  "info": {
+    "displayName": "uspList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "uspItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "partial-components.usp-list",
+      "required": true
+    }
+  }
+}

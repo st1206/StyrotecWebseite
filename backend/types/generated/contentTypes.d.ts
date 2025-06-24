@@ -511,7 +511,7 @@ export interface ApiBriquettingPressPageBriquettingPressPage
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    uspList: Schema.Attribute.Component<'partial-components.usp-list', true> &
+    uspList: Schema.Attribute.Component<'page-components.usp-list', false> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1283,7 +1283,7 @@ export interface ApiGantryMachinesPageGantryMachinesPage
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    uspList: Schema.Attribute.Component<'partial-components.usp-list', true> &
+    uspList: Schema.Attribute.Component<'page-components.usp-list', false> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1738,17 +1738,14 @@ export interface ApiMachineMaintenancePageMachineMaintenancePage
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    uspList: Schema.Attribute.Component<'partial-components.usp-list', true> &
+    uspList: Schema.Attribute.Component<'page-components.usp-list', false> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    uspListOne: Schema.Attribute.Component<
-      'partial-components.usp-list',
-      true
-    > &
+    uspListOne: Schema.Attribute.Component<'page-components.usp-list', false> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1776,7 +1773,7 @@ export interface ApiMachineMarketingPageMachineMarketingPage
     };
   };
   attributes: {
-    ContactForm: Schema.Attribute.Component<
+    contactForm: Schema.Attribute.Component<
       'page-components.contact-form',
       false
     > &
@@ -1788,7 +1785,7 @@ export interface ApiMachineMarketingPageMachineMarketingPage
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    ExploreMore: Schema.Attribute.Component<
+    exploreMore: Schema.Attribute.Component<
       'page-components.explore-more',
       false
     > &
@@ -1798,7 +1795,7 @@ export interface ApiMachineMarketingPageMachineMarketingPage
           localized: true;
         };
       }>;
-    HeroCarousel: Schema.Attribute.Component<
+    heroCarousel: Schema.Attribute.Component<
       'page-components.hero-carousel',
       false
     > &
@@ -1808,7 +1805,7 @@ export interface ApiMachineMarketingPageMachineMarketingPage
           localized: true;
         };
       }>;
-    HeroTextImage: Schema.Attribute.Component<
+    heroTextImage: Schema.Attribute.Component<
       'page-components.basic-text-image',
       false
     > &
@@ -1834,7 +1831,7 @@ export interface ApiMachineMarketingPageMachineMarketingPage
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    UspList: Schema.Attribute.Component<'partial-components.usp-list', true> &
+    uspList: Schema.Attribute.Component<'page-components.usp-list', false> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1921,7 +1918,7 @@ export interface ApiMachineModernizationPageMachineModernizationPage
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    uspList: Schema.Attribute.Component<'partial-components.usp-list', true> &
+    uspList: Schema.Attribute.Component<'page-components.usp-list', false> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1985,53 +1982,6 @@ export interface ApiMetalsPageMetalsPage extends Struct.SingleTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::metals-page.metals-page'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiMillingToolsPageMillingToolsPage
-  extends Struct.SingleTypeSchema {
-  collectionName: 'milling_tools_pages';
-  info: {
-    description: '';
-    displayName: 'Fraeswerkzeuge Seite';
-    pluralName: 'milling-tools-pages';
-    singularName: 'milling-tools-page';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    defaultContent: Schema.Attribute.DynamicZone<
-      [
-        'partial-components.content-header',
-        'partial-components.content-text-image',
-        'partial-components.content-table',
-        'partial-components.content-images',
-        'partial-components.content-accordion',
-      ]
-    > &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::milling-tools-page.milling-tools-page'
     >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -2511,7 +2461,7 @@ export interface ApiStyrofoamProcessingPageStyrofoamProcessingPage
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    uspList: Schema.Attribute.Component<'partial-components.usp-list', true> &
+    uspList: Schema.Attribute.Component<'page-components.usp-list', false> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -3222,7 +3172,6 @@ declare module '@strapi/strapi' {
       'api::machine-marketing-page.machine-marketing-page': ApiMachineMarketingPageMachineMarketingPage;
       'api::machine-modernization-page.machine-modernization-page': ApiMachineModernizationPageMachineModernizationPage;
       'api::metals-page.metals-page': ApiMetalsPageMetalsPage;
-      'api::milling-tools-page.milling-tools-page': ApiMillingToolsPageMillingToolsPage;
       'api::model-construction-machines-page.model-construction-machines-page': ApiModelConstructionMachinesPageModelConstructionMachinesPage;
       'api::news-page.news-page': ApiNewsPageNewsPage;
       'api::other-machine.other-machine': ApiOtherMachineOtherMachine;
