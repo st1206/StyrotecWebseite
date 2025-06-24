@@ -19,8 +19,6 @@ export const loadCMSData = async <T>(
 	lang: string,
 	apiParams?: string
 ): Promise<AttributesOf<T>> => {
-	console.log('apiSlug', apiSlug);
-	console.log('apiParams', apiParams);
 	const res = await fetch(
 		`${PUBLIC_BACKEND_URL}/api/${apiSlug}?${apiParams || 'populate=*'}&locale=${lang}`,
 		{
@@ -29,7 +27,6 @@ export const loadCMSData = async <T>(
 		}
 	);
 	const response = await res.json();
-	console.log('response', response);
 	if (res.ok) {
 		return response.data;
 	} else {

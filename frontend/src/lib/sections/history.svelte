@@ -43,7 +43,7 @@
 	<div class="mx-auto w-full max-w-6xl">
 		{#if data.sectionTitle}
 			<!-- Heading -->
-			<h2 class="font-sans font-bold text-foreground mb-16 text-center text-4xl uppercase">
+			<h2 class="text-foreground mb-16 text-center font-sans text-4xl font-bold uppercase">
 				{data.sectionTitle}
 			</h2>
 		{/if}
@@ -69,7 +69,7 @@
 					class="bg-foreground text-secondary shadow-primary h-full w-full p-4 transition duration-300 ease-in-out hover:shadow-[8px_8px_0_#f6a313]"
 					bind:this={cardRefs[i]}
 				>
-					<h3 class="font-sans font-bold text-md uppercase md:text-xl lg:text-2xl">
+					<h3 class="text-md font-sans font-bold uppercase md:text-xl lg:text-2xl">
 						{item.title}
 					</h3>
 					<p class="prose prose-neutral prose-sm text-secondary/80">
@@ -95,7 +95,7 @@
 						<div
 							class="bg-foreground text-secondary shadow-primary p-2 transition duration-300 ease-in-out hover:shadow-[8px_8px_0_#f6a313] md:p-4"
 						>
-							<h3 class="font-sans font-bold text-md uppercase md:text-xl lg:text-2xl">
+							<h3 class="text-md font-sans font-bold uppercase md:text-xl lg:text-2xl">
 								{item.title}
 							</h3>
 							<p class="prose prose-neutral prose-xs sm:prose-sm text-secondary/80">
@@ -126,13 +126,15 @@
 						<div
 							class="bg-foreground absolute z-10 flex min-h-12 min-w-12 items-center justify-center"
 						>
-							<p class="font-sans font-bold text-foreground text-sm">{item.year}</p>
+							<p class="text-foreground font-sans text-sm font-bold">{item.year}</p>
 							<p class="font-boldFont text-primary text-sm">{item.year}</p>
+						</div>
+					</div>
 					<div class="col-span-4">
 						<div
 							class="bg-foreground text-secondary shadow-primary p-2 transition duration-300 ease-in-out hover:shadow-[8px_8px_0_#f6a313] md:p-4"
 						>
-							<h3 class="font-sans font-bold text-md uppercase md:text-xl lg:text-2xl">
+							<h3 class="text-md font-sans font-bold uppercase md:text-xl lg:text-2xl">
 								{item.title}
 							</h3>
 							<p class="prose prose-neutral prose-xs sm:prose-sm text-secondary/80">
