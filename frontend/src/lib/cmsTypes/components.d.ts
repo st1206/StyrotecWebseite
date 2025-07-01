@@ -190,6 +190,18 @@ export interface PageComponentsSeo extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponentsUspList extends Struct.ComponentSchema {
+  collectionName: 'components_page_components_usp_lists';
+  info: {
+    description: '';
+    displayName: 'uspList';
+  };
+  attributes: {
+    uspItems: Schema.Attribute.Component<'partial-components.usp-list', true> &
+      Schema.Attribute.Required;
+  };
+}
+
 export interface PartialComponentsAccordion extends Struct.ComponentSchema {
   collectionName: 'components_partial_components_accordions';
   info: {
@@ -329,8 +341,7 @@ export interface PartialComponentsDefaultCard extends Struct.ComponentSchema {
       'partial-components.redirect-button',
       true
     >;
-    thumbnail: Schema.Attribute.Media<'images' | 'files'> &
-      Schema.Attribute.Required;
+    thumbnail: Schema.Attribute.Media<'images' | 'files'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -572,6 +583,7 @@ declare module '@strapi/strapi' {
       'page-components.history': PageComponentsHistory;
       'page-components.page-header': PageComponentsPageHeader;
       'page-components.seo': PageComponentsSeo;
+      'page-components.usp-list': PageComponentsUspList;
       'partial-components.accordion': PartialComponentsAccordion;
       'partial-components.accordion-item': PartialComponentsAccordionItem;
       'partial-components.content-accordion': PartialComponentsContentAccordion;

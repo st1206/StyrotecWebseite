@@ -511,7 +511,7 @@ export interface ApiBriquettingPressPageBriquettingPressPage
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    uspList: Schema.Attribute.Component<'partial-components.usp-list', true> &
+    uspList: Schema.Attribute.Component<'page-components.usp-list', false> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1075,10 +1075,17 @@ export interface ApiFairFair extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    content: Schema.Attribute.Blocks &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Blocks &
+    description: Schema.Attribute.Text &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1100,19 +1107,18 @@ export interface ApiFairFair extends Struct.CollectionTypeSchema {
       }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::fair.fair'>;
+    logo: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
-        };
-      }>;
-    pictures: Schema.Attribute.Media<'images', true> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
@@ -1186,6 +1192,146 @@ export interface ApiFs10PageFs10Page extends Struct.SingleTypeSchema {
     >;
     optionBlocks: Schema.Attribute.DynamicZone<
       ['partial-components.accordion', 'partial-components.table']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFs15PageFs15Page extends Struct.SingleTypeSchema {
+  collectionName: 'fs15_pages';
+  info: {
+    displayName: 'FS15 Seite';
+    pluralName: 'fs15-pages';
+    singularName: 'fs15-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    contactForm: Schema.Attribute.Component<
+      'page-components.contact-form',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    exploreVariants: Schema.Attribute.Component<
+      'page-components.explore-variants',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heroDualIamge: Schema.Attribute.Component<
+      'page-components.hero-dual-image',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::fs15-page.fs15-page'
+    >;
+    optionBlocks: Schema.Attribute.DynamicZone<
+      ['partial-components.accordion', 'partial-components.table']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFs20PageFs20Page extends Struct.SingleTypeSchema {
+  collectionName: 'fs20_pages';
+  info: {
+    displayName: 'FS20 Seite';
+    pluralName: 'fs20-pages';
+    singularName: 'fs20-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    contactForm: Schema.Attribute.Component<
+      'page-components.contact-form',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    exploreVariants: Schema.Attribute.Component<
+      'page-components.explore-variants',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heroDualImage: Schema.Attribute.Component<
+      'page-components.hero-dual-image',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::fs20-page.fs20-page'
+    >;
+    optionBlocks: Schema.Attribute.DynamicZone<
+      ['partial-components.table', 'partial-components.accordion']
     > &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -1277,7 +1423,7 @@ export interface ApiGantryMachinesPageGantryMachinesPage
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    uspList: Schema.Attribute.Component<'partial-components.usp-list', true> &
+    uspList: Schema.Attribute.Component<'page-components.usp-list', false> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1667,7 +1813,7 @@ export interface ApiMachineMaintenancePageMachineMaintenancePage
     };
   };
   attributes: {
-    ContactForm: Schema.Attribute.Component<
+    contactForm: Schema.Attribute.Component<
       'page-components.contact-form',
       false
     > &
@@ -1680,14 +1826,7 @@ export interface ApiMachineMaintenancePageMachineMaintenancePage
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    header1: Schema.Attribute.Component<'page-components.page-header', false> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    HeroCarousel: Schema.Attribute.Component<
+    heroCarousel: Schema.Attribute.Component<
       'page-components.hero-carousel',
       false
     > &
@@ -1697,7 +1836,7 @@ export interface ApiMachineMaintenancePageMachineMaintenancePage
           localized: true;
         };
       }>;
-    HeroTextImage: Schema.Attribute.Component<
+    heroTextImage: Schema.Attribute.Component<
       'page-components.basic-text-image',
       false
     > &
@@ -1707,7 +1846,7 @@ export interface ApiMachineMaintenancePageMachineMaintenancePage
           localized: true;
         };
       }>;
-    history: Schema.Attribute.Component<'page-components.history', true> &
+    history: Schema.Attribute.Component<'page-components.history', false> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1719,8 +1858,18 @@ export interface ApiMachineMaintenancePageMachineMaintenancePage
       'oneToMany',
       'api::machine-maintenance-page.machine-maintenance-page'
     >;
+    pageHeader: Schema.Attribute.Component<
+      'page-components.page-header',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
-    seo: Schema.Attribute.Component<'page-components.seo', true> &
+    seo: Schema.Attribute.Component<'page-components.seo', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1729,14 +1878,14 @@ export interface ApiMachineMaintenancePageMachineMaintenancePage
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    uspList: Schema.Attribute.Component<'partial-components.usp-list', true> &
+    uspList: Schema.Attribute.Component<'page-components.usp-list', false> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    uspList1: Schema.Attribute.Component<'partial-components.usp-list', true> &
+    uspListOne: Schema.Attribute.Component<'page-components.usp-list', false> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1764,7 +1913,7 @@ export interface ApiMachineMarketingPageMachineMarketingPage
     };
   };
   attributes: {
-    ContactForm: Schema.Attribute.Component<
+    contactForm: Schema.Attribute.Component<
       'page-components.contact-form',
       false
     > &
@@ -1776,7 +1925,7 @@ export interface ApiMachineMarketingPageMachineMarketingPage
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    ExploreMore: Schema.Attribute.Component<
+    exploreMore: Schema.Attribute.Component<
       'page-components.explore-more',
       false
     > &
@@ -1786,7 +1935,7 @@ export interface ApiMachineMarketingPageMachineMarketingPage
           localized: true;
         };
       }>;
-    HeroCarousel: Schema.Attribute.Component<
+    heroCarousel: Schema.Attribute.Component<
       'page-components.hero-carousel',
       false
     > &
@@ -1796,7 +1945,7 @@ export interface ApiMachineMarketingPageMachineMarketingPage
           localized: true;
         };
       }>;
-    HeroTextImage: Schema.Attribute.Component<
+    heroTextImage: Schema.Attribute.Component<
       'page-components.basic-text-image',
       false
     > &
@@ -1822,7 +1971,7 @@ export interface ApiMachineMarketingPageMachineMarketingPage
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    UspList: Schema.Attribute.Component<'partial-components.usp-list', true> &
+    uspList: Schema.Attribute.Component<'page-components.usp-list', false> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1836,6 +1985,7 @@ export interface ApiMachineModernizationPageMachineModernizationPage
   extends Struct.SingleTypeSchema {
   collectionName: 'machine_modernization_pages';
   info: {
+    description: '';
     displayName: 'Maschinenmodernisierung Seite';
     pluralName: 'machine-modernization-pages';
     singularName: 'machine-modernization-page';
@@ -1849,7 +1999,7 @@ export interface ApiMachineModernizationPageMachineModernizationPage
     };
   };
   attributes: {
-    ContactForm: Schema.Attribute.Component<
+    contactForm: Schema.Attribute.Component<
       'page-components.contact-form',
       false
     > &
@@ -1862,7 +2012,7 @@ export interface ApiMachineModernizationPageMachineModernizationPage
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    ExploreMore: Schema.Attribute.Component<
+    exploreMore: Schema.Attribute.Component<
       'page-components.explore-more',
       true
     > &
@@ -1872,7 +2022,7 @@ export interface ApiMachineModernizationPageMachineModernizationPage
           localized: true;
         };
       }>;
-    HeroCarousel: Schema.Attribute.Component<
+    heroCarousel: Schema.Attribute.Component<
       'page-components.hero-carousel',
       false
     > &
@@ -1908,7 +2058,7 @@ export interface ApiMachineModernizationPageMachineModernizationPage
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    uspList: Schema.Attribute.Component<'partial-components.usp-list', true> &
+    uspList: Schema.Attribute.Component<'page-components.usp-list', false> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1972,53 +2122,6 @@ export interface ApiMetalsPageMetalsPage extends Struct.SingleTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::metals-page.metals-page'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiMillingToolsPageMillingToolsPage
-  extends Struct.SingleTypeSchema {
-  collectionName: 'milling_tools_pages';
-  info: {
-    description: '';
-    displayName: 'Fraeswerkzeuge Seite';
-    pluralName: 'milling-tools-pages';
-    singularName: 'milling-tools-page';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    defaultContent: Schema.Attribute.DynamicZone<
-      [
-        'partial-components.content-header',
-        'partial-components.content-text-image',
-        'partial-components.content-table',
-        'partial-components.content-images',
-        'partial-components.content-accordion',
-      ]
-    > &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::milling-tools-page.milling-tools-page'
     >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -2124,20 +2227,10 @@ export interface ApiNewsPageNewsPage extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
-    collectionTypeCardsThree: Schema.Attribute.Component<
-      'page-components.collection-type-cards',
-      false
-    > &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     collectionTypeCardsTwo: Schema.Attribute.Component<
       'page-components.collection-type-cards',
       false
     > &
-      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -2152,16 +2245,6 @@ export interface ApiNewsPageNewsPage extends Struct.SingleTypeSchema {
       'api::news-page.news-page'
     >;
     pageHeader: Schema.Attribute.Component<
-      'page-components.page-header',
-      false
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    pageHeaderThree: Schema.Attribute.Component<
       'page-components.page-header',
       false
     > &
@@ -2518,7 +2601,7 @@ export interface ApiStyrofoamProcessingPageStyrofoamProcessingPage
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    uspList: Schema.Attribute.Component<'partial-components.usp-list', true> &
+    uspList: Schema.Attribute.Component<'page-components.usp-list', false> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -3218,6 +3301,8 @@ declare module '@strapi/strapi' {
       'api::employee.employee': ApiEmployeeEmployee;
       'api::fair.fair': ApiFairFair;
       'api::fs10-page.fs10-page': ApiFs10PageFs10Page;
+      'api::fs15-page.fs15-page': ApiFs15PageFs15Page;
+      'api::fs20-page.fs20-page': ApiFs20PageFs20Page;
       'api::gantry-machines-page.gantry-machines-page': ApiGantryMachinesPageGantryMachinesPage;
       'api::global.global': ApiGlobalGlobal;
       'api::grinding-machine.grinding-machine': ApiGrindingMachineGrindingMachine;
@@ -3229,7 +3314,6 @@ declare module '@strapi/strapi' {
       'api::machine-marketing-page.machine-marketing-page': ApiMachineMarketingPageMachineMarketingPage;
       'api::machine-modernization-page.machine-modernization-page': ApiMachineModernizationPageMachineModernizationPage;
       'api::metals-page.metals-page': ApiMetalsPageMetalsPage;
-      'api::milling-tools-page.milling-tools-page': ApiMillingToolsPageMillingToolsPage;
       'api::model-construction-machines-page.model-construction-machines-page': ApiModelConstructionMachinesPageModelConstructionMachinesPage;
       'api::news-page.news-page': ApiNewsPageNewsPage;
       'api::other-machine.other-machine': ApiOtherMachineOtherMachine;

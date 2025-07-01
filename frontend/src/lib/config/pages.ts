@@ -4,6 +4,8 @@ import type {
 	ApiCncMillsPageCncMillsPage,
 	ApiDrillingMachinesPageDrillingMachinesPage,
 	ApiFs10PageFs10Page,
+	ApiFs15PageFs15Page,
+	ApiFs20PageFs20Page,
 	ApiGantryMachinesPageGantryMachinesPage,
 	ApiHomeHome,
 	ApiIndustriesPageIndustriesPage,
@@ -28,6 +30,8 @@ export interface CMSTypeMap {
 	styorofoamProcessingPage: ApiStyrofoamProcessingPageStyrofoamProcessingPage;
 	gantryMachinesPage: ApiGantryMachinesPageGantryMachinesPage;
 	fs10Page: ApiFs10PageFs10Page;
+	fs15Page: ApiFs15PageFs15Page;
+	fs20Page: ApiFs20PageFs20Page;
 	metalsPage: ApiMetalsPageMetalsPage;
 	industriesPage: ApiIndustriesPageIndustriesPage;
 	millingToolsPage: ApiMillingToolsPageMillingToolsPage;
@@ -138,6 +142,44 @@ const pagesConfig: Record<string, PageContent> = {
 		enSlug: 'products/gantry-machines/fs10',
 		cmsTypeKey: 'fs10Page',
 		cmsApiSlug: 'fs10-page',
+		sections: [
+			{
+				sectionKey: 'heroDualImage'
+			},
+			{
+				sectionKey: 'exploreVariants'
+			},
+			{
+				sectionKey: 'optionBlocks'
+			},
+			{ sectionKey: 'contactForm' }
+		]
+	},
+
+	fs15: {
+		deSlug: 'produkte/portalfraesmaschinen/fs15',
+		enSlug: 'products/gantry-machines/fs15',
+		cmsTypeKey: 'fs15Page',
+		cmsApiSlug: 'fs15-page',
+		sections: [
+			{
+				sectionKey: 'heroDualImage'
+			},
+			{
+				sectionKey: 'exploreVariants'
+			},
+			{
+				sectionKey: 'optionBlocks'
+			},
+			{ sectionKey: 'contactForm' }
+		]
+	},
+
+	fs20: {
+		deSlug: 'produkte/portalfraesmaschinen/fs10',
+		enSlug: 'products/gantry-machines/fs10',
+		cmsTypeKey: 'fs20Page',
+		cmsApiSlug: 'fs20-page',
 		sections: [
 			{
 				sectionKey: 'heroDualImage'
