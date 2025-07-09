@@ -47,6 +47,7 @@ export const sectionMap = {
 	pageHeader: PageHeader,
 	pageHeaderTwo: PageHeader,
 	pageHeaderThree: PageHeader,
+	pageHeaderFour: PageHeader,
 	defaultCards: DefaultCards,
 	defaultCardsTwo: DefaultCards,
 	defaultCardsThree: DefaultCards,
