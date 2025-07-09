@@ -102,6 +102,39 @@
       },
       "component": "page-components.usp-list",
       "required": true
+    },
+    "pageHeaderTwo": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.page-header",
+      "required": true
+    },
+    "pageHeaderThree": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.page-header",
+      "required": true
+    },
+    "pageHeaderFour": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.page-header",
+      "required": true
     }
   }
 }

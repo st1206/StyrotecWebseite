@@ -1868,6 +1868,36 @@ export interface ApiMachineMaintenancePageMachineMaintenancePage
           localized: true;
         };
       }>;
+    pageHeaderFour: Schema.Attribute.Component<
+      'page-components.page-header',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    pageHeaderThree: Schema.Attribute.Component<
+      'page-components.page-header',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    pageHeaderTwo: Schema.Attribute.Component<
+      'page-components.page-header',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'page-components.seo', false> &
       Schema.Attribute.SetPluginOptions<{

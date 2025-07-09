@@ -21,6 +21,7 @@ const populateBySection: Record<string, PopulateRule> = {
 	pageHeader: ['pageHeader'],
 	pageHeaderTwo: ['pageHeaderTwo'],
 	pageHeaderThree: ['pageHeaderThree'],
+	pageHeaderFour: ['pageHeaderFour'],
 	heroMedia: ['heroMedia.media', 'heroMedia.imageCards', 'heroMedia.imageCards.employee.picture'],
 	history: ['history.historyEntries'],
 	defaultCards: ['defaultCards.cards.thumbnail', 'defaultCards.cards.redirectButtons'],
