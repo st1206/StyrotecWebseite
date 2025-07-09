@@ -23,7 +23,7 @@ export const menu = [
 				anchor: null,
 				routeChildren: [
 					{ key: 'metals', anchor: null },
-					{ key: 'synthetics', anchor: null },
+					{ key: 'plastics', anchor: null },
 					{ key: 'styrofoam', anchor: null }
 				]
 			},
