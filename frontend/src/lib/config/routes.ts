@@ -58,10 +58,10 @@ export const menu = [
 				key: 'machineMaintenance',
 				anchor: null,
 				routeChildren: [
-					{ key: 'spindleService', anchor: '#spindleService' },
+					{ key: 'spindleService', anchor: '#spindle-service' },
 					{ key: 'maintenance', anchor: '#maintenance' },
 					{ key: 'repairs', anchor: '#repairs' },
-					{ key: 'machineRelocation', anchor: '#machineRelocation' }
+					{ key: 'machineRelocation', anchor: '#machine-relocation' }
 				]
 			},
 			{
