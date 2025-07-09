@@ -1955,16 +1955,6 @@ export interface ApiMachineMarketingPageMachineMarketingPage
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    exploreMore: Schema.Attribute.Component<
-      'page-components.explore-more',
-      false
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     heroCarousel: Schema.Attribute.Component<
       'page-components.hero-carousel',
       false
@@ -1990,6 +1980,36 @@ export interface ApiMachineMarketingPageMachineMarketingPage
       'oneToMany',
       'api::machine-marketing-page.machine-marketing-page'
     >;
+    pageHeader: Schema.Attribute.Component<
+      'page-components.page-header',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    pageHeaderThree: Schema.Attribute.Component<
+      'page-components.page-header',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    pageHeaderTwo: Schema.Attribute.Component<
+      'page-components.page-header',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'page-components.seo', false> &
       Schema.Attribute.Required &
@@ -2042,16 +2062,6 @@ export interface ApiMachineModernizationPageMachineModernizationPage
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    exploreMore: Schema.Attribute.Component<
-      'page-components.explore-more',
-      true
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     heroCarousel: Schema.Attribute.Component<
       'page-components.hero-carousel',
       false
@@ -2077,6 +2087,36 @@ export interface ApiMachineModernizationPageMachineModernizationPage
       'oneToMany',
       'api::machine-modernization-page.machine-modernization-page'
     >;
+    pageHeader: Schema.Attribute.Component<
+      'page-components.page-header',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    pageHeaderThree: Schema.Attribute.Component<
+      'page-components.page-header',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    pageHeaderTwo: Schema.Attribute.Component<
+      'page-components.page-header',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'page-components.seo', false> &
       Schema.Attribute.Required &

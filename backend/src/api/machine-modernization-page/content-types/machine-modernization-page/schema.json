@@ -49,17 +49,6 @@
       "component": "page-components.usp-list",
       "required": true
     },
-    "exploreMore": {
-      "type": "component",
-      "repeatable": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "page-components.explore-more",
-      "required": true
-    },
     "contactForm": {
       "type": "component",
       "repeatable": false,
@@ -80,6 +69,39 @@
         }
       },
       "component": "page-components.seo",
+      "required": true
+    },
+    "pageHeader": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.page-header",
+      "required": true
+    },
+    "pageHeaderTwo": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.page-header",
+      "required": true
+    },
+    "pageHeaderThree": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.page-header",
       "required": true
     }
   }
