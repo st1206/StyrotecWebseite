@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "metals_pages",
+  "collectionName": "plastics_pages",
   "info": {
-    "singularName": "metals-page",
-    "pluralName": "metals-pages",
-    "displayName": "Metalle Seite",
+    "singularName": "plastics-page",
+    "pluralName": "plastics-pages",
+    "displayName": "Kunststfoff Seite",
     "description": ""
   },
   "options": {
@@ -27,17 +27,6 @@
       "component": "page-components.hero-dual-image",
       "required": true
     },
-    "exploreVariants": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "page-components.explore-variants",
-      "required": true
-    },
     "contactForm": {
       "type": "component",
       "repeatable": false,
@@ -58,6 +47,17 @@
         }
       },
       "component": "page-components.seo",
+      "required": true
+    },
+    "exploreVariants": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.explore-variants",
       "required": true
     }
   }

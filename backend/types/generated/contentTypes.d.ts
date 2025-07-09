@@ -2184,6 +2184,13 @@ export interface ApiMetalsPageMetalsPage extends Struct.SingleTypeSchema {
       'api::metals-page.metals-page'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'page-components.seo', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2415,6 +2422,75 @@ export interface ApiOtherMachineOtherMachine
   };
 }
 
+export interface ApiPlasticsPagePlasticsPage extends Struct.SingleTypeSchema {
+  collectionName: 'plastics_pages';
+  info: {
+    description: '';
+    displayName: 'Kunststfoff Seite';
+    pluralName: 'plastics-pages';
+    singularName: 'plastics-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    contactForm: Schema.Attribute.Component<
+      'page-components.contact-form',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    exploreVariants: Schema.Attribute.Component<
+      'page-components.explore-variants',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heroDualImage: Schema.Attribute.Component<
+      'page-components.hero-dual-image',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::plastics-page.plastics-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'page-components.seo', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPrivacyPolicyPagePrivacyPolicyPage
   extends Struct.SingleTypeSchema {
   collectionName: 'privacy_policy_pages';
@@ -2579,6 +2655,74 @@ export interface ApiSocialMediaChannelSocialMediaChannel
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiStyrofoamPageStyrofoamPage extends Struct.SingleTypeSchema {
+  collectionName: 'styrofoam_pages';
+  info: {
+    displayName: 'Styropor Seite';
+    pluralName: 'styrofoam-pages';
+    singularName: 'styrofoam-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    contactForm: Schema.Attribute.Component<
+      'page-components.contact-form',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    exploreVariants: Schema.Attribute.Component<
+      'page-components.explore-variants',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heroDualImage: Schema.Attribute.Component<
+      'page-components.hero-dual-image',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::styrofoam-page.styrofoam-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'page-components.seo', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -3377,9 +3521,11 @@ declare module '@strapi/strapi' {
       'api::model-construction-machines-page.model-construction-machines-page': ApiModelConstructionMachinesPageModelConstructionMachinesPage;
       'api::news-page.news-page': ApiNewsPageNewsPage;
       'api::other-machine.other-machine': ApiOtherMachineOtherMachine;
+      'api::plastics-page.plastics-page': ApiPlasticsPagePlasticsPage;
       'api::privacy-policy-page.privacy-policy-page': ApiPrivacyPolicyPagePrivacyPolicyPage;
       'api::saw.saw': ApiSawSaw;
       'api::social-media-channel.social-media-channel': ApiSocialMediaChannelSocialMediaChannel;
+      'api::styrofoam-page.styrofoam-page': ApiStyrofoamPageStyrofoamPage;
       'api::styrofoam-processing-page.styrofoam-processing-page': ApiStyrofoamProcessingPageStyrofoamProcessingPage;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'api::used-machines-details-page.used-machines-details-page': ApiUsedMachinesDetailsPageUsedMachinesDetailsPage;

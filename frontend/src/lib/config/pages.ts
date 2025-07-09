@@ -11,6 +11,8 @@ import type {
 	ApiIndustriesPageIndustriesPage,
 	ApiLegalNoticePageLegalNoticePage,
 	ApiMetalsPageMetalsPage,
+	ApiPlasticsPagePlasticsPage,
+	ApiStyrofoamPageStyrofoamPage,
 	ApiMillingToolsPageMillingToolsPage,
 	ApiModelConstructionMachinesPageModelConstructionMachinesPage,
 	ApiStyrofoamProcessingPageStyrofoamProcessingPage,
@@ -33,6 +35,8 @@ export interface CMSTypeMap {
 	fs15Page: ApiFs15PageFs15Page;
 	fs20Page: ApiFs20PageFs20Page;
 	metalsPage: ApiMetalsPageMetalsPage;
+	plasticsPage: ApiPlasticsPagePlasticsPage;
+	styrofoamPage: ApiStyrofoamPageStyrofoamPage;
 	industriesPage: ApiIndustriesPageIndustriesPage;
 	millingToolsPage: ApiMillingToolsPageMillingToolsPage;
 	aboutUsPage: ApiAboutUsPageAboutUsPage;
@@ -109,6 +113,43 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'contactForm' }
 		]
 	},
+	metals: {
+		deSlug: 'produkte/brikettierpressen/metalle',
+		enSlug: 'products/briquetting-press/metals',
+		cmsTypeKey: 'metalsPage',
+		cmsApiSlug: 'metals-page',
+		sections: [
+			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'exploreVariants' },
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
+		]
+	},
+	plastics: {
+		deSlug: 'produkte/brikettierpressen/plastik',
+		enSlug: 'products/briquetting-press/plastics',
+		cmsTypeKey: 'plasticsPage',
+		cmsApiSlug: 'plastics-page',
+		sections: [
+			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'exploreVariants' },
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
+		]
+	},
+	styrofoam: {
+		deSlug: 'produkte/brikettierpressen/styropor',
+		enSlug: 'products/briquetting-press/styrofoam',
+		cmsTypeKey: 'styrofoamPage',
+		cmsApiSlug: 'styrofoam-page',
+		sections: [
+			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'exploreVariants' },
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
+		]
+	},
+
 	styrofoamProcessing: {
 		deSlug: 'produkte/styroporbearbeitung',
 		enSlug: 'products/styrofoam-processing',

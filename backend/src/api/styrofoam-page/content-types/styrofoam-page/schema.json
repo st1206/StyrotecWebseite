@@ -1,11 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "metals_pages",
+  "collectionName": "styrofoam_pages",
   "info": {
-    "singularName": "metals-page",
-    "pluralName": "metals-pages",
-    "displayName": "Metalle Seite",
-    "description": ""
+    "singularName": "styrofoam-page",
+    "pluralName": "styrofoam-pages",
+    "displayName": "Styropor Seite"
   },
   "options": {
     "draftAndPublish": true
