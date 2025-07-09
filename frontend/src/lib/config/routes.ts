@@ -58,27 +58,27 @@ export const menu = [
 				key: 'machineMaintenance',
 				anchor: null,
 				routeChildren: [
-					{ key: 'spindleService', anchor: null },
-					{ key: 'maintenance', anchor: null },
-					{ key: 'repairs', anchor: null },
-					{ key: 'machineRelocation', anchor: null }
+					{ key: 'spindleService', anchor: '#spindleService' },
+					{ key: 'maintenance', anchor: '#maintenance' },
+					{ key: 'repairs', anchor: '#repairs' },
+					{ key: 'machineRelocation', anchor: '#machineRelocation' }
 				]
 			},
 			{
 				key: 'machineMarketing',
 				anchor: null,
 				routeChildren: [
-					{ key: 'evaluation', anchor: null },
-					{ key: 'mediation', anchor: null },
-					{ key: 'purchase', anchor: null }
+					{ key: 'evaluation', anchor: '#evaluation' },
+					{ key: 'mediation', anchor: '#mediation' },
+					{ key: 'purchase', anchor: '#purchase' }
 				]
 			},
 			{
 				key: 'machineModernization',
 				anchor: null,
 				routeChildren: [
-					{ key: 'retrofit', anchor: null },
-					{ key: 'overhaul', anchor: null }
+					{ key: 'retrofit', anchor: '#retrofit' },
+					{ key: 'overhaul', anchor: '#overhaul' }
 				]
 			}
 		]
