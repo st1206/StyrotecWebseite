@@ -2097,16 +2097,6 @@ export interface ApiMachineModernizationPageMachineModernizationPage
           localized: true;
         };
       }>;
-    pageHeaderThree: Schema.Attribute.Component<
-      'page-components.page-header',
-      false
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     pageHeaderTwo: Schema.Attribute.Component<
       'page-components.page-header',
       false

@@ -92,17 +92,6 @@
       },
       "component": "page-components.page-header",
       "required": true
-    },
-    "pageHeaderThree": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "page-components.page-header",
-      "required": true
     }
   }
 }
