@@ -23,7 +23,13 @@ import type {
 	ApiMachineMarketingPageMachineMarketingPage,
 	ApiMachineMaintenancePageMachineMaintenancePage,
 	ApiHybridPageHybridPage,
-	ApiInstockPageInstockPage
+	ApiInstockPageInstockPage,
+	ApiHollowMillingSpindlePageHollowMillingSpindlePage,
+	ApiSuctionSystemPageSuctionSystemPage,
+	ApiShredderPageShredderPage,
+	ApiPressesPagePressesPage,
+	ApiRawMaterialPageRawMaterialPage,
+	ApiAdhesivePageAdhesivePage
 } from '$lib/cmsTypes/contentTypes';
 import { buildPopulateQuery } from './apiParamsBuilder';
 
@@ -43,6 +49,12 @@ export interface CMSTypeMap {
 	styrofoamPage: ApiStyrofoamPageStyrofoamPage;
 	industriesPage: ApiIndustriesPageIndustriesPage;
 	millingToolsPage: ApiMillingToolsPageMillingToolsPage;
+	hollowMillingSpindlePage: ApiHollowMillingSpindlePageHollowMillingSpindlePage;
+	suctionSystemPage: ApiSuctionSystemPageSuctionSystemPage;
+	shredderPage: ApiShredderPageShredderPage;
+	pressesPage: ApiPressesPagePressesPage;
+	rawMaterialPage: ApiRawMaterialPageRawMaterialPage;
+	adhesivePage: ApiAdhesivePageAdhesivePage;
 	aboutUsPage: ApiAboutUsPageAboutUsPage;
 	usedMachinesPage: ApiUsedMachinesPageUsedMachinesPage;
 	cncMillsPage: ApiCncMillsPageCncMillsPage;
@@ -181,6 +193,78 @@ const pagesConfig: Record<string, PageContent> = {
 		]
 	},
 
+	hollowMillingSpindle: {
+		deSlug: 'produkte/styroporbearbeitung/hohlfrässpindeln',
+		enSlug: 'products/styrofoam-processing/hollow-milling-spindle',
+		cmsTypeKey: 'hollowMillingSpindlePage',
+		cmsApiSlug: 'hollow-milling-spindle-page',
+		sections: [
+			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
+		]
+	},
+
+	suctionSystems: {
+		deSlug: 'produkte/styroporbearbeitung/absaugungen',
+		enSlug: 'products/styrofoam-processing/suction-systems',
+		cmsTypeKey: 'suctionSystemPage',
+		cmsApiSlug: 'suction-system-page',
+		sections: [
+			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
+		]
+	},
+
+	shredder: {
+		deSlug: 'produkte/styroporbearbeitung/zerkleinerer',
+		enSlug: 'products/styrofoam-processing/shredder',
+		cmsTypeKey: 'shredderPage',
+		cmsApiSlug: 'shredder-page',
+		sections: [
+			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
+		]
+	},
+
+	presses: {
+		deSlug: 'produkte/styroporbearbeitung/pressen',
+		enSlug: 'products/styrofoam-processing/presses',
+		cmsTypeKey: 'pressesPage',
+		cmsApiSlug: 'presses-page',
+		sections: [
+			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
+		]
+	},
+
+	rawMaterial: {
+		deSlug: 'produkte/styroporbearbeitung/rohmaterial',
+		enSlug: 'products/styrofoam-processing/raw-materials',
+		cmsTypeKey: 'rawMaterialPage',
+		cmsApiSlug: 'raw-material-page',
+		sections: [
+			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
+		]
+	},
+
+	adhesive: {
+		deSlug: 'produkte/styroporbearbeitung/kleber',
+		enSlug: 'products/styrofoam-processing/adhesive',
+		cmsTypeKey: 'adhesivePage',
+		cmsApiSlug: 'adhesive-page',
+		sections: [
+			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
+		]
+	},
+
 	gantryMachines: {
 		deSlug: 'produkte/portalfraesmaschinen',
 		enSlug: 'products/gantry-machines',
@@ -250,6 +334,7 @@ const pagesConfig: Record<string, PageContent> = {
 				sectionKey: 'optionBlocks'
 			},
 			{ sectionKey: 'contactForm' }
+
 		]
 	},
 

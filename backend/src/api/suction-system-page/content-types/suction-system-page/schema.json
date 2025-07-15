@@ -1,0 +1,53 @@
+{
+  "kind": "singleType",
+  "collectionName": "suction_system_pages",
+  "info": {
+    "singularName": "suction-system-page",
+    "pluralName": "suction-system-pages",
+    "displayName": "Absaugungen Seite",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "heroDualImage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "page-components.hero-dual-image",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "contactForm": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.contact-form",
+      "required": true
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.seo",
+      "required": true
+    }
+  }
+}
