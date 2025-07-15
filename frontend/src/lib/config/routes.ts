@@ -14,8 +14,8 @@ export const menu = [
 					{ key: 'fs10', anchor: null },
 					{ key: 'fs15', anchor: null },
 					{ key: 'fs20', anchor: null },
-					{ key: 'hybrid3D', anchor: null },
-					{ key: 'stockMachines', anchor: null }
+					{ key: 'hybrid', anchor: null },
+					{ key: 'instock', anchor: null }
 				]
 			},
 			{

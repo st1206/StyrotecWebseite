@@ -1,0 +1,63 @@
+{
+  "kind": "singleType",
+  "collectionName": "instock_pages",
+  "info": {
+    "singularName": "instock-page",
+    "pluralName": "instock-pages",
+    "displayName": "Vorratsmaschinen Seite"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "heroDualImage": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.hero-dual-image",
+      "required": true
+    },
+    "exploreMore": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.explore-more",
+      "required": true
+    },
+    "contactForm": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.contact-form",
+      "required": true
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.seo",
+      "required": true
+    }
+  }
+}

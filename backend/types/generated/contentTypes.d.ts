@@ -1607,6 +1607,84 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiHybridPageHybridPage extends Struct.SingleTypeSchema {
+  collectionName: 'hybrid_pages';
+  info: {
+    description: '';
+    displayName: 'Hybrid Seite';
+    pluralName: 'hybrid-pages';
+    singularName: 'hybrid-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    contactForm: Schema.Attribute.Component<
+      'page-components.contact-form',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    exploreVariants: Schema.Attribute.Component<
+      'page-components.explore-variants',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heroDualImage: Schema.Attribute.Component<
+      'page-components.hero-dual-image',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::hybrid-page.hybrid-page'
+    >;
+    optionBlocks: Schema.Attribute.DynamicZone<
+      ['partial-components.accordion', 'partial-components.table']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'page-components.seo', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiIndustriesPageIndustriesPage
   extends Struct.SingleTypeSchema {
   collectionName: 'industries_pages';
@@ -1653,6 +1731,74 @@ export interface ApiIndustriesPageIndustriesPage
           localized: true;
         };
       }>;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'page-components.seo', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiInstockPageInstockPage extends Struct.SingleTypeSchema {
+  collectionName: 'instock_pages';
+  info: {
+    displayName: 'Vorratsmaschinen Seite';
+    pluralName: 'instock-pages';
+    singularName: 'instock-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    contactForm: Schema.Attribute.Component<
+      'page-components.contact-form',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    exploreMore: Schema.Attribute.Component<
+      'page-components.explore-more',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    heroDualImage: Schema.Attribute.Component<
+      'page-components.hero-dual-image',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::instock-page.instock-page'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'page-components.seo', false> &
       Schema.Attribute.Required &
@@ -2182,6 +2328,66 @@ export interface ApiMetalsPageMetalsPage extends Struct.SingleTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::metals-page.metals-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'page-components.seo', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMillingToolsPageMillingToolsPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'milling_tools_pages';
+  info: {
+    description: '';
+    displayName: 'Fr\u00E4swerkzeug Seite';
+    pluralName: 'milling-tools-pages';
+    singularName: 'milling-tools-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    contactForm: Schema.Attribute.Component<
+      'page-components.contact-form',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroDualImage: Schema.Attribute.Component<
+      'page-components.hero-dual-image',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::milling-tools-page.milling-tools-page'
     >;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'page-components.seo', false> &
@@ -3511,13 +3717,16 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::grinding-machine.grinding-machine': ApiGrindingMachineGrindingMachine;
       'api::home.home': ApiHomeHome;
+      'api::hybrid-page.hybrid-page': ApiHybridPageHybridPage;
       'api::industries-page.industries-page': ApiIndustriesPageIndustriesPage;
+      'api::instock-page.instock-page': ApiInstockPageInstockPage;
       'api::lathe.lathe': ApiLatheLathe;
       'api::legal-notice-page.legal-notice-page': ApiLegalNoticePageLegalNoticePage;
       'api::machine-maintenance-page.machine-maintenance-page': ApiMachineMaintenancePageMachineMaintenancePage;
       'api::machine-marketing-page.machine-marketing-page': ApiMachineMarketingPageMachineMarketingPage;
       'api::machine-modernization-page.machine-modernization-page': ApiMachineModernizationPageMachineModernizationPage;
       'api::metals-page.metals-page': ApiMetalsPageMetalsPage;
+      'api::milling-tools-page.milling-tools-page': ApiMillingToolsPageMillingToolsPage;
       'api::model-construction-machines-page.model-construction-machines-page': ApiModelConstructionMachinesPageModelConstructionMachinesPage;
       'api::news-page.news-page': ApiNewsPageNewsPage;
       'api::other-machine.other-machine': ApiOtherMachineOtherMachine;

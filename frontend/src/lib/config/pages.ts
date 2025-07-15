@@ -21,7 +21,9 @@ import type {
 	ApiNewsPageNewsPage,
 	ApiMachineModernizationPageMachineModernizationPage,
 	ApiMachineMarketingPageMachineMarketingPage,
-	ApiMachineMaintenancePageMachineMaintenancePage
+	ApiMachineMaintenancePageMachineMaintenancePage,
+	ApiHybridPageHybridPage,
+	ApiInstockPageInstockPage
 } from '$lib/cmsTypes/contentTypes';
 import { buildPopulateQuery } from './apiParamsBuilder';
 
@@ -34,6 +36,8 @@ export interface CMSTypeMap {
 	fs10Page: ApiFs10PageFs10Page;
 	fs15Page: ApiFs15PageFs15Page;
 	fs20Page: ApiFs20PageFs20Page;
+	hybridPage: ApiHybridPageHybridPage;
+	instockPage: ApiInstockPageInstockPage;
 	metalsPage: ApiMetalsPageMetalsPage;
 	plasticsPage: ApiPlasticsPagePlasticsPage;
 	styrofoamPage: ApiStyrofoamPageStyrofoamPage;
@@ -160,9 +164,23 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'heroTextImage' },
 			{ sectionKey: 'uspList' },
 			{ sectionKey: 'exploreMore' },
-			{ sectionKey: 'contactForm' }
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
 		]
 	},
+
+	millingTools: {
+		deSlug: 'produkte/styroporbearbeitung/fräswerkzeuge',
+		enSlug: 'products/styrofoam-processing/milling-tools',
+		cmsTypeKey: 'millingToolsPage',
+		cmsApiSlug: 'milling-tools-page',
+		sections: [
+			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
+		]
+	},
+
 	gantryMachines: {
 		deSlug: 'produkte/portalfraesmaschinen',
 		enSlug: 'products/gantry-machines',
@@ -232,6 +250,46 @@ const pagesConfig: Record<string, PageContent> = {
 				sectionKey: 'optionBlocks'
 			},
 			{ sectionKey: 'contactForm' }
+		]
+	},
+
+	hybrid: {
+		deSlug: 'produkte/portalfraesmaschinen/hybrid',
+		enSlug: 'products/gantry-machines/hybrid',
+		cmsTypeKey: 'hybridPage',
+		cmsApiSlug: 'hybrid-page',
+		sections: [
+			{
+				sectionKey: 'heroDualImage'
+			},
+			{
+				sectionKey: 'exploreVariants'
+			},
+			{
+				sectionKey: 'optionBlocks'
+			},
+			{ sectionKey: 'contactForm' },
+			{
+				sectionKey: 'seo'
+			}
+		]
+	},
+	instock: {
+		deSlug: 'produkte/portalfraesmaschinen/vorratsmaschinen',
+		enSlug: 'products/gantry-machines/instock',
+		cmsTypeKey: 'instockPage',
+		cmsApiSlug: 'instock-page',
+		sections: [
+			{
+				sectionKey: 'heroDualImage'
+			},
+			{
+				sectionKey: 'exploreMore'
+			},
+			{ sectionKey: 'contactForm' },
+			{
+				sectionKey: 'seo'
+			}
 		]
 	},
 
