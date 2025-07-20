@@ -533,7 +533,6 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'uspList' },
 			{ sectionKey: 'pageHeader' },
 			{ sectionKey: 'pageHeaderTwo' },
-			{ sectionKey: 'pageHeaderThree' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]
