@@ -45,7 +45,8 @@ export const menu = [
 				anchor: null,
 				routeChildren: [
 					{ key: 'cncMills', anchor: null },
-					{ key: 'modelConstructionMachines', anchor: null }
+					{ key: 'modelConstructionMachines', anchor: null },
+					{ key: 'woodworkingMachines', anchor: null }
 				]
 			}
 		]

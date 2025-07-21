@@ -230,12 +230,13 @@ const pagesConfig: Record<string, PageContent> = {
 	},
 
 	presses: {
-		deSlug: 'produkte/styroporbearbeitung/pressen',
-		enSlug: 'products/styrofoam-processing/presses',
-		cmsTypeKey: 'pressesPage',
-		cmsApiSlug: 'presses-page',
+		deSlug: 'produkte/brikettierpressen/styropor',
+		enSlug: 'products/briquetting-press/styrofoam',
+		cmsTypeKey: 'styrofoamPage',
+		cmsApiSlug: 'styrofoam-page',
 		sections: [
 			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'exploreVariants' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]
@@ -334,7 +335,6 @@ const pagesConfig: Record<string, PageContent> = {
 				sectionKey: 'optionBlocks'
 			},
 			{ sectionKey: 'contactForm' }
-
 		]
 	},
 
@@ -461,6 +461,27 @@ const pagesConfig: Record<string, PageContent> = {
 	},
 
 	modelConstructionMachines: {
+		deSlug: 'produkte/gebrauchtmaschinen/modellbaumaschinen',
+		enSlug: 'produkte/gebrauchtmaschinen/model-construction-machines',
+		cmsTypeKey: 'modelConstructionMachinesPage',
+		cmsApiSlug: 'model-construction-machines-page',
+		sections: [
+			{
+				sectionKey: 'heroDualImage'
+			},
+			{
+				sectionKey: 'defaultCards'
+			},
+			{
+				sectionKey: 'seo'
+			},
+			{
+				sectionKey: 'contactForm'
+			}
+		]
+	},
+
+	woodworkingMachines: {
 		deSlug: 'produkte/gebrauchtmaschinen/modellbaumaschinen',
 		enSlug: 'produkte/gebrauchtmaschinen/model-construction-machines',
 		cmsTypeKey: 'modelConstructionMachinesPage',
