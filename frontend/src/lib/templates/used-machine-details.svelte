@@ -137,13 +137,13 @@
 	<meta name="description" content={data.productDataSheet.designation} />
 	<meta property="og:title" content={data.productDataSheet.name} />
 	<meta property="og:description" content={siteData.siteDescription} />
-	<meta property="og:url" content={`https://example.com/${page.url.pathname}`} />
+	<meta property="og:url" content={`${siteData.siteUrl}/${page.url.pathname}`} />
 	<meta property="og:type" content="website" />
 	<meta property="og:site_name" content={siteData.siteName} />
 </svelte:head>
 
-<div class="flex flex-col md:items-end justify-between sm:container md:flex-row print:items-center">
-	<PageHeader {...pageHeaderProps} />
+<div class="flex flex-col justify-between sm:container md:flex-row md:items-end print:items-center">
+	<PageHeader {...pageHeaderProps} textStart />
 	<div class="mx-auto my-6 flex gap-2 md:m-4 md:mt-28">
 		<Button size="sm" variant="outline" class="print:hidden" onclick={() => window.print()}>
 			<Icons.download class="mr-1 size-4 skew-x-[15deg]" />
@@ -167,8 +167,8 @@
 <section class="mb-20 px-4 sm:container sm:mx-auto">
 	<Separator class="bg-primary" />
 
-	<div class="grid grid-cols-1 gap-16 lg:grid-cols-3">
-		<div class="col-span-1 lg:col-span-2">
+	<div class="grid grid-cols-1 gap-16 md:grid-cols-6">
+		<div class="col-span-1 md:col-span-3 lg:col-span-2">
 			<BlurFade once={true} delay={0.2} duration={0.2}>
 				<div class="my-6">
 					<Table.Root>
@@ -208,13 +208,13 @@
 					</p>
 				{/if}
 			</BlurFade>
-			<Separator class="bg-primary mt-6 lg:hidden" />
+			<Separator class="bg-primary mt-6 md:hidden" />
 		</div>
-		<div class="lg:mt-6">
+		<div class="col-span-1 md:col-span-3 md:mt-6 lg:col-span-4">
 			<BlurFade once={true} delay={0.2} duration={0.2}>
 				{#if contentImages}
 					{#each contentImages as item}
-						<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-1">
+						<div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
 							{#each item.images as image}
 								<Lightbox transitionDuration={50}>
 									<img

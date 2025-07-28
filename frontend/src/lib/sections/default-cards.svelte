@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { PUBLIC_BACKEND_URL } from '$env/static/public';
 	import type { ImageAsset } from '$lib/cmsTypes/image-type';
-	import BlurFade from '$lib/components/blur-fade.svelte';
 	import { Button } from '$lib/components/ui/button';
 	import { cn, getRedirectLink } from '$lib/utils';
 
@@ -40,7 +39,7 @@
 				<h2
 					class={cn(
 						data.isDarkMode ? 'text-secondary' : 'text-foreground',
-						'font-sans font-bold text-center text-4xl uppercase'
+						'text-center font-sans text-4xl font-bold uppercase'
 					)}
 				>
 					{data.sectionTitle}
@@ -91,14 +90,14 @@
 							<div
 								class="bg-foreground/90 absolute bottom-0 flex w-full flex-wrap justify-between gap-x-2 p-2 px-4"
 							>
-								<h4 class="text-secondary font-sans font-bold text-2xl lg:text-3xl">
+								<h4 class="text-secondary font-sans text-2xl font-bold lg:text-2xl">
 									{@html card.title}
 								</h4>
 								<div class="flex">
 									{#if card.redirectButtons.length}
 										{#each card.redirectButtons as button}
 											<Button href={getRedirectLink(button.redirectSlug)} class="h-8 px-2">
-												<span class="skew-x-[15deg] h-5 text-sm">{button.label}</span>
+												<span class="h-4 skew-x-[15deg] text-sm">{button.label}</span>
 											</Button>
 										{/each}
 									{/if}
@@ -113,7 +112,7 @@
 								)}
 							>
 								<div>
-									<h3 class="font-sans font-bold text-lg sm:text-3xl xl:text-4xl">{card.title}</h3>
+									<h3 class="font-sans text-lg font-bold sm:text-3xl xl:text-4xl">{card.title}</h3>
 									<div
 										class={cn(
 											data.isDarkMode ? 'text-secondary/90' : 'text-secondary/80',
@@ -127,7 +126,7 @@
 									<div class="mt-6 flex gap-4">
 										{#each card.redirectButtons as button}
 											<Button href={getRedirectLink(button.redirectSlug)}>
-												<span class="skew-x-[15deg] h-5">{button.label}</span>
+												<span class="h-5 skew-x-[15deg]">{button.label}</span>
 											</Button>
 										{/each}
 									</div>

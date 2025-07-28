@@ -2,7 +2,8 @@ export const siteData = {
 	siteName: 'STYROTEC GmbH & Co. KG',
 	siteDescription:
 		'STYROTEC GmbH & Co. KG bietet Ihnen Gebrauchtmaschinen, Fräswerkzeuge, Portalfräsmaschinen und passendes Zubehör.',
-	siteUrl: 'https://www.styrotec.de'
+	siteUrl: 'https://www.styrotec.de',
+	siteDomain: 'styrotec.de'
 };
 
 export const algoliaSearchIndexes = [
