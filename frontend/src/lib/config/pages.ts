@@ -3,6 +3,10 @@ import type {
 	ApiBriquettingPressPageBriquettingPressPage,
 	ApiCncMillsPageCncMillsPage,
 	ApiDrillingMachinesPageDrillingMachinesPage,
+	ApiGrindingMachinesPageGrindingMachinesPage,
+	ApiLathesPageLathesPage,
+	ApiMillingMachinesPageMillingMachinesPage,
+	ApiSawsPageSawsPage,
 	ApiFs10PageFs10Page,
 	ApiFs15PageFs15Page,
 	ApiFs20PageFs20Page,
@@ -61,6 +65,10 @@ export interface CMSTypeMap {
 	usedMachinesDetailsPage: ApiUsedMachinesDetailsPageUsedMachinesDetailsPage;
 	modelConstructionMachinesPage: ApiModelConstructionMachinesPageModelConstructionMachinesPage;
 	drillingMachinesPage: ApiDrillingMachinesPageDrillingMachinesPage;
+	grindingMachinesPage: ApiGrindingMachinesPageGrindingMachinesPage;
+	lathesPage: ApiLathesPageLathesPage;
+	millingMachinesPage: ApiMillingMachinesPageMillingMachinesPage;
+	sawsPage: ApiSawsPageSawsPage;
 	machineMaintenancePage: ApiMachineMaintenancePageMachineMaintenancePage;
 	machineModernizationPage: ApiMachineModernizationPageMachineModernizationPage;
 	machineMarketingPage: ApiMachineMarketingPageMachineMarketingPage;
@@ -507,6 +515,90 @@ const pagesConfig: Record<string, PageContent> = {
 		enSlug: 'produkte/gebrauchtmaschinen/model-construction-machines/drilling-machines',
 		cmsTypeKey: 'drillingMachinesPage',
 		cmsApiSlug: 'drilling-machines-page',
+		sections: [
+			{
+				sectionKey: 'heroDualImage'
+			},
+			{
+				sectionKey: 'collectionTypeCards'
+			},
+			{
+				sectionKey: 'seo'
+			},
+			{
+				sectionKey: 'contactForm'
+			}
+		]
+	},
+
+	grindingMachines: {
+		deSlug: 'produkte/gebrauchtmaschinen/modellbaumaschinen/schleifmaschinen',
+		enSlug: 'produkte/gebrauchtmaschinen/model-construction-machines/grinding-machines',
+		cmsTypeKey: 'grindingMachinesPage',
+		cmsApiSlug: 'grinding-machines-page',
+		sections: [
+			{
+				sectionKey: 'heroDualImage'
+			},
+			{
+				sectionKey: 'collectionTypeCards'
+			},
+			{
+				sectionKey: 'seo'
+			},
+			{
+				sectionKey: 'contactForm'
+			}
+		]
+	},
+
+	lathes: {
+		deSlug: 'produkte/gebrauchtmaschinen/modellbaumaschinen/drehmaschinen',
+		enSlug: 'produkte/gebrauchtmaschinen/model-construction-machines/lathes',
+		cmsTypeKey: 'lathesPage',
+		cmsApiSlug: 'lathes-page',
+		sections: [
+			{
+				sectionKey: 'heroDualImage'
+			},
+			{
+				sectionKey: 'collectionTypeCards'
+			},
+			{
+				sectionKey: 'seo'
+			},
+			{
+				sectionKey: 'contactForm'
+			}
+		]
+	},
+
+	millingMachines: {
+		deSlug: 'produkte/gebrauchtmaschinen/modellbaumaschinen/fräsmaschinen',
+		enSlug: 'produkte/gebrauchtmaschinen/model-construction-machines/milling-machines',
+		cmsTypeKey: 'millingMachinesPage',
+		cmsApiSlug: 'milling-machines-page',
+		sections: [
+			{
+				sectionKey: 'heroDualImage'
+			},
+			{
+				sectionKey: 'collectionTypeCards'
+			},
+			{
+				sectionKey: 'seo'
+			},
+			{
+				sectionKey: 'contactForm'
+			}
+		]
+	},
+
+	saws: {
+		deSlug: 'produkte/gebrauchtmaschinen/modellbaumaschinen/saegen',
+		enSlug: 'produkte/gebrauchtmaschinen/model-construction-machines/saw-machines',
+		cmsTypeKey: 'sawsPage',
+		cmsApiSlug: 'saws-page',
 		sections: [
 			{
 				sectionKey: 'heroDualImage'
