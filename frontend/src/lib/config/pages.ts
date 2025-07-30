@@ -201,7 +201,7 @@ const pagesConfig: Record<string, PageContent> = {
 		]
 	},
 
-	hollowMillingSpindle: {
+	hollowMillingSpindles: {
 		deSlug: 'produkte/styroporbearbeitung/hohlfrässpindeln',
 		enSlug: 'products/styrofoam-processing/hollow-milling-spindle',
 		cmsTypeKey: 'hollowMillingSpindlePage',
