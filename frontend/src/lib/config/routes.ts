@@ -32,7 +32,7 @@ export const menu = [
 				anchor: null,
 				routeChildren: [
 					{ key: 'millingTools', anchor: null },
-					{ key: 'hollowMillingSpindle', anchor: null },
+					{ key: 'hollowMillingSpindles', anchor: null },
 					{ key: 'suctionSystems', anchor: null },
 					{ key: 'shredder', anchor: null },
 					{ key: 'presses', anchor: null },
