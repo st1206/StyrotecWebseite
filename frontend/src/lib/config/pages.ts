@@ -262,7 +262,7 @@ const pagesConfig: Record<string, PageContent> = {
 		]
 	},
 
-	adhesive: {
+	adhesives: {
 		deSlug: 'produkte/styroporbearbeitung/kleber',
 		enSlug: 'products/styrofoam-processing/adhesive',
 		cmsTypeKey: 'adhesivePage',
@@ -328,8 +328,8 @@ const pagesConfig: Record<string, PageContent> = {
 	},
 
 	fs20: {
-		deSlug: 'produkte/portalfraesmaschinen/fs10',
-		enSlug: 'products/gantry-machines/fs10',
+		deSlug: 'produkte/portalfraesmaschinen/fs20',
+		enSlug: 'products/gantry-machines/fs20',
 		cmsTypeKey: 'fs20Page',
 		cmsApiSlug: 'fs20-page',
 		sections: [
