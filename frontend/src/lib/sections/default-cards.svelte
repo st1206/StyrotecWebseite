@@ -61,7 +61,7 @@
 						id={card.anchor}
 						class={cn(
 							'shadow-primary relative col-span-6 mx-auto flex h-full w-full scroll-mt-24 flex-col overflow-hidden rounded-lg transition duration-300 ease-in-out',
-							data.isDarkMode ? 'bg-secondary/10 text-secondary' : 'text-secondary bg-white',
+							data.isDarkMode ? 'bg-secondary/10 text-secondary' : 'text-secondary bg-foreground',
 							i % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row',
 							card.thumbnail && !card.content ? 'md:col-span-3 xl:col-span-2' : '',
 							!card.thumbnail && card.content && data.cards.length > 1 ? 'md:col-span-3' : '',
