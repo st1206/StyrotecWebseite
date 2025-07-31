@@ -158,7 +158,9 @@
 
 {#snippet HeaderTemplate(block: ContentHeader)}
 	<div class={cn(isDarkMode ? 'pt-16' : 'pt-32', 'flex flex-col items-center gap-2')}>
-		<h3 class={cn(isDarkMode ? 'text-secondary' : 'text-foreground', 'font-sans font-bold text-4xl')}>
+		<h3
+			class={cn(isDarkMode ? 'text-secondary' : 'text-foreground', 'font-sans text-4xl font-bold')}
+		>
 			{block.sectionTitle}
 		</h3>
 		<p
@@ -179,7 +181,7 @@
 				<h4
 					class={cn(
 						isDarkMode ? 'text-secondary' : 'text-foreground',
-						'font-sans font-bold my-4 text-2xl'
+						'my-4 font-sans text-2xl font-bold'
 					)}
 				>
 					{table.title}
@@ -200,7 +202,7 @@
 							<Table.Head
 								class={cn(
 									isDarkMode ? 'text-secondary' : 'text-foreground',
-									'font-sans font-bold text-center'
+									'text-center font-sans font-bold'
 								)}
 							>
 								{column.columnLabel}
@@ -242,7 +244,7 @@
 {#snippet AccordionTemplate(block: ContentAccordion)}
 	<div class={cn('my-16 mt-24 h-full w-full lg:mx-auto')}>
 		{#if block.title}
-			<h4 class="font-sans font-bold text-secondary my-4 text-center text-2xl">{block.title}</h4>
+			<h4 class="text-secondary my-4 text-center font-sans text-2xl font-bold">{block.title}</h4>
 		{/if}
 		<Accordion.Root type="multiple" value={['item-1']} class="flex w-full flex-col gap-4">
 			{#each block.accordions as accordion, i}
@@ -268,7 +270,7 @@
 											<img
 												class="h-[260px] w-full object-contain"
 												src={!PUBLIC_BACKEND_URL.includes('https')
-													? `${PUBLIC_BACKEND_URL}${item.image.formats['large']?.url || item.image.url}`
+													? `${PUBLIC_BACKEND_URL}${item.image.formats?.['large']?.url || item.image.url}`
 													: item.image.url}
 												alt={item.image.alternativeText}
 											/>
@@ -286,7 +288,7 @@
 												<h3
 													class={cn(
 														isDarkMode ? 'text-foreground' : 'text-secondary',
-														'font-sans font-bold p-4'
+														'p-4 font-sans font-bold'
 													)}
 												>
 													{item.title}
@@ -330,7 +332,7 @@
 {#snippet ImagesTemplate(block: ContentImages)}
 	<div class="mx-auto my-16">
 		{#if block.title}
-			<h4 class="font-sans font-bold my-4 text-center text-2xl">{block.title}</h4>
+			<h4 class="my-4 text-center font-sans text-2xl font-bold">{block.title}</h4>
 		{/if}
 		<div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 xl:gap-8">
 			{#each block.images as image}
@@ -339,7 +341,7 @@
 						<img
 							class="shadow-primary h-[400px] w-full object-cover"
 							src={!PUBLIC_BACKEND_URL.includes('https')
-								? `${PUBLIC_BACKEND_URL}${image.formats['large']?.url || image.url}`
+								? `${PUBLIC_BACKEND_URL}${image.formats?.['large']?.url || image.url}`
 								: image.url}
 							alt={image.alternativeText}
 						/>
@@ -367,7 +369,7 @@
 						block.imagePosition === 'bottom' ? 'order-2' : 'order-1'
 					)}
 					src={!PUBLIC_BACKEND_URL.includes('https')
-						? `${PUBLIC_BACKEND_URL}${block.image.formats['large']?.url || block.image.url}`
+						? `${PUBLIC_BACKEND_URL}${block.image.formats?.['large']?.url || block.image.url}`
 						: block.image.url}
 					alt={block.image.alternativeText}
 				/>
@@ -377,7 +379,7 @@
 				<h4
 					class={cn(
 						isDarkMode ? 'text-secondary' : 'text-foreground',
-						'font-sans font-bold my-2 text-2xl'
+						'my-2 font-sans text-2xl font-bold'
 					)}
 				>
 					{block.title}

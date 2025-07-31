@@ -115,7 +115,7 @@
 														<img
 															class="h-[260px] w-full object-contain"
 															src={!PUBLIC_BACKEND_URL.includes('https')
-																? `${PUBLIC_BACKEND_URL}${item.image.formats['large']?.url || item.image.url}`
+																? `${PUBLIC_BACKEND_URL}${item.image.formats?.['large']?.url || item.image.url}`
 																: item.image.url}
 															alt={item.image.alternativeText}
 														/>

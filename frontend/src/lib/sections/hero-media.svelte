@@ -58,7 +58,7 @@
 
 		<div class="p-8">
 			<div class="space-y-4 text-center">
-				<h2 class="font-sans font-bold text-secondary text-4xl">
+				<h2 class="text-secondary font-sans text-4xl font-bold">
 					{data.title}
 				</h2>
 				<p class="prose prose-neutral lg:prose-lg text-secondary mx-auto max-w-5xl text-center">
@@ -71,7 +71,7 @@
 						{#if card.image}
 							<img
 								src={!PUBLIC_BACKEND_URL.includes('https')
-									? `${PUBLIC_BACKEND_URL}${card.image.formats['large']?.url || card.image.url}`
+									? `${PUBLIC_BACKEND_URL}${card.image.formats?.['large']?.url || card.image.url}`
 									: card.image.url}
 								alt={card.image.alternativeText}
 								class="mx-auto h-[300px] w-auto object-cover object-top lg:h-[330px] xl:h-[400px]"
@@ -79,7 +79,7 @@
 						{:else}
 							<img
 								src={!PUBLIC_BACKEND_URL.includes('https')
-									? `${PUBLIC_BACKEND_URL}${card.employee.picture.formats['large']?.url || card.employee.picture.url}`
+									? `${PUBLIC_BACKEND_URL}${card.employee.picture.formats?.['large']?.url || card.employee.picture.url}`
 									: card.employee.picture.url}
 								alt={card.employee.picture.alternativeText}
 								class="h-[300px] w-full object-cover object-top lg:h-[330px] xl:h-[400px]"
@@ -88,7 +88,7 @@
 						<div
 							class="bg-foreground/90 absolute bottom-0 flex w-full flex-col justify-between p-2 px-4"
 						>
-							<h4 class="text-secondary font-sans font-bold text-3xl">
+							<h4 class="text-secondary font-sans text-3xl font-bold">
 								{card.employee ? card.employee.name : card.title}
 							</h4>
 							<h5 class="text-primary">

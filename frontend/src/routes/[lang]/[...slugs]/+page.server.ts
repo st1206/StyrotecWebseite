@@ -121,6 +121,7 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 
 		// 4. Fetch data for the template page (the shell/layout)
 		cmsData = await getCMSDataForPage(detailPageTemplate, lang);
+		console.log(cmsData);
 
 		// 5. Use the category page's enSlug to get the collection API slug
 		const collectionApiSlug = categoryPage.enSlug.split('/').pop();

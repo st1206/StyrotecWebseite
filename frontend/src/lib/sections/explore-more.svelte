@@ -116,7 +116,7 @@
 								<img
 									class="mx-auto h-full"
 									src={!PUBLIC_BACKEND_URL.includes('https')
-										? `${PUBLIC_BACKEND_URL}${card.thumbnail.formats['large']?.url || card.thumbnail.url}`
+										? `${PUBLIC_BACKEND_URL}${card.thumbnail.formats?.['large']?.url || card.thumbnail.url}`
 										: card.thumbnail.url}
 									alt={card.thumbnail.alternativeText}
 								/>

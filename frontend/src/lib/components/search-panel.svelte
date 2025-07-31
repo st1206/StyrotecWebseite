@@ -302,7 +302,7 @@
 											<img
 												class="aspect-square max-h-[112px] object-cover object-top"
 												src={!PUBLIC_BACKEND_URL.includes('https')
-													? `${PUBLIC_BACKEND_URL}${hit.pictures[0].formats['thumbnail']?.url || hit.pictures[0].url}`
+													? `${PUBLIC_BACKEND_URL}${hit.pictures[0].formats?.['thumbnail']?.url || hit.pictures[0].url}`
 													: hit.pictures[0].url}
 												alt={hit.pictures[0].alternativeText || ''}
 											/>

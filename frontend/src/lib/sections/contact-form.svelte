@@ -43,7 +43,7 @@
 		<div
 			class="bg-secondary/10 text-secondary mb-12 mt-16 grid h-full grid-cols-1 gap-x-8 p-8 md:grid-cols-5 lg:gap-x-12 xl:grid-cols-6"
 		>
-			<h5 class="font-sans font-bold col-span-1 mb-6 text-3xl md:col-span-5">
+			<h5 class="col-span-1 mb-6 font-sans text-3xl font-bold md:col-span-5">
 				{$_('yourContact')}
 			</h5>
 
@@ -52,13 +52,13 @@
 					<img
 						class="h-[316px] object-cover object-top"
 						src={!PUBLIC_BACKEND_URL.includes('https')
-							? `${PUBLIC_BACKEND_URL}${data.employee.contactPicture.formats['large']?.url || data.employee.picture.url}`
+							? `${PUBLIC_BACKEND_URL}${data.employee.contactPicture.formats?.['large']?.url || data.employee.picture.url}`
 							: data.employee.contactPicture.url}
 						alt={data.employee.name}
 					/>
 					<div class="p-4">
 						<h3 class="text-primary text-sm">{data.employee.position}</h3>
-						<h2 class="font-sans font-bold text-3xl lg:text-4xl">{data.employee.name}</h2>
+						<h2 class="font-sans text-3xl font-bold lg:text-4xl">{data.employee.name}</h2>
 						<!-- <div class="mt-1 flex items-center gap-1 text-sm">
 							<Icons.mail class="size-3" />
 							<h3>{data.employee.email}</h3>
@@ -160,7 +160,7 @@
 						{:else}
 							<Icons.send class="mr-1 size-4 skew-x-[15deg]" />
 						{/if}
-						<span class="skew-x-[15deg] h-5">
+						<span class="h-5 skew-x-[15deg]">
 							{$_('button.send')}
 						</span>
 					</Form.Button>

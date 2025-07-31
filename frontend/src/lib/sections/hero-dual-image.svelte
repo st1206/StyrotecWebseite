@@ -25,7 +25,7 @@
 					class={cn(
 						data.keyword.length <= 5 ? 'w-3/5 lg:w-2/5' : 'w-1/2',
 						data.keyword.length <= 15 ? 'xl:text-5xl' : '',
-						'font-sans font-bold text-secondary pt-6 text-center text-3xl lg:pt-12 lg:text-4xl'
+						'text-secondary pt-6 text-center font-sans text-3xl font-bold lg:pt-12 lg:text-4xl'
 					)}
 				>
 					{data.keyword}
@@ -33,7 +33,7 @@
 			</div>
 			<img
 				src={!PUBLIC_BACKEND_URL.includes('https')
-					? `${PUBLIC_BACKEND_URL}${data.image.formats['large']?.url || data.image.url}`
+					? `${PUBLIC_BACKEND_URL}${data.image.formats?.['large']?.url || data.image.url}`
 					: data.image.url}
 				alt="FS10 Titelbild"
 				class="shadow-foreground bg-secondary z-20 h-[300px] w-full object-cover lg:h-[600px]"
@@ -48,7 +48,7 @@
 					>
 						{#if data.heroTextImage.image}
 							<h2
-								class="font-sans font-bold text-secondary absolute bottom-12 right-10 text-3xl xl:text-4xl"
+								class="text-secondary absolute bottom-12 right-10 font-sans text-3xl font-bold xl:text-4xl"
 							>
 								{data.subKeyword}
 							</h2>
@@ -71,7 +71,7 @@
 					<h2
 						class={cn(
 							data.heroTextImage.image ? 'text-right' : 'text-center',
-							'font-sans font-bold text-right text-3xl uppercase sm:text-4xl xl:text-5xl'
+							'text-right font-sans text-3xl font-bold uppercase sm:text-4xl xl:text-5xl'
 						)}
 					>
 						{data.heroTextImage.title}
@@ -104,13 +104,15 @@
 					<div
 						class="bg-foreground/95 absolute bottom-0 right-0 z-30 h-1/4 w-2/3 [clip-path:polygon(0%_100%,100%_100%,100%_0%)]"
 					>
-						<h2 class="font-sans font-bold text-secondary absolute bottom-6 right-7 text-3xl xl:text-4xl">
+						<h2
+							class="text-secondary absolute bottom-6 right-7 font-sans text-3xl font-bold xl:text-4xl"
+						>
 							{data.subKeyword}
 						</h2>
 					</div>
 					<img
 						src={!PUBLIC_BACKEND_URL.includes('https')
-							? `${PUBLIC_BACKEND_URL}${data.heroTextImage.image.formats['large']?.url || data.heroTextImage.image.url}`
+							? `${PUBLIC_BACKEND_URL}${data.heroTextImage.image.formats?.['large']?.url || data.heroTextImage.image.url}`
 							: data.heroTextImage.image.url}
 						alt={data.heroTextImage.image.alternativeText}
 						class="h-full w-full object-cover [clip-path:polygon(0%_33.2%,100%_0%,100%_100%,0%_100%)]"

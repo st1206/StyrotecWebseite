@@ -18,7 +18,7 @@
 		<div class="flex w-full flex-col items-center justify-center">
 			<div class="mb-4">
 				<h2
-					class="font-sans font-bold uppercases text-right text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl"
+					class="uppercases text-right font-sans text-3xl font-bold sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl"
 				>
 					{data.title}
 				</h2>
@@ -35,7 +35,7 @@
 		{#if data.image}
 			<img
 				src={!PUBLIC_BACKEND_URL.includes('https')
-					? `${PUBLIC_BACKEND_URL}${data.image.formats['large']?.url || data.image.url}`
+					? `${PUBLIC_BACKEND_URL}${data.image.formats?.['large']?.url || data.image.url}`
 					: data.image.url}
 				alt={data.image.alternativeText}
 				class="shadow-primary mx-auto h-[300px] w-auto object-cover lg:h-[330px] xl:h-[400px]"

@@ -20,7 +20,7 @@
 </script>
 
 <section class="mx-2 mb-32 mt-12 sm:container sm:mx-auto lg:mt-28 xl:my-36">
-	<h2 class="font-sans font-bold mb-12 text-center text-3xl uppercase md:text-4xl">
+	<h2 class="mb-12 text-center font-sans text-3xl font-bold uppercase md:text-4xl">
 		{data.sectionTitle}
 	</h2>
 
@@ -46,7 +46,7 @@
 							<img
 								class="col-span-2 mx-auto h-[350px] object-contain xl:col-span-2"
 								src={!PUBLIC_BACKEND_URL.includes('https')
-									? `${PUBLIC_BACKEND_URL}${variant.image.formats['large']?.url || variant.image.url}`
+									? `${PUBLIC_BACKEND_URL}${variant.image.formats?.['large']?.url || variant.image.url}`
 									: variant.image.url}
 								alt={variant.image.alternativeText}
 							/>
@@ -54,7 +54,9 @@
 						<div class="col-span-2 flex w-full flex-col xl:col-span-3">
 							<Card.Header class="pt-0">
 								<Card.Title class="text-center">
-									<h3 class="font-sans font-bold text-secondary text-3xl xl:text-4xl">{variant.title}</h3>
+									<h3 class="text-secondary font-sans text-3xl font-bold xl:text-4xl">
+										{variant.title}
+									</h3>
 								</Card.Title>
 							</Card.Header>
 

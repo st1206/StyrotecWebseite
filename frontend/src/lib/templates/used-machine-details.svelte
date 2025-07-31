@@ -220,7 +220,7 @@
 									<img
 										class="shadow-primary w-full object-cover"
 										src={!PUBLIC_BACKEND_URL.includes('https')
-											? `${PUBLIC_BACKEND_URL}${image.formats['large']?.url || image.url}`
+											? `${PUBLIC_BACKEND_URL}${image.formats?.['large']?.url || image.url}`
 											: image.url}
 										alt={image.alternativeText}
 									/>
