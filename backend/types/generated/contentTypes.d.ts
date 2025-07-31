@@ -1267,6 +1267,7 @@ export interface ApiFs10PageFs10Page extends Struct.SingleTypeSchema {
 export interface ApiFs15PageFs15Page extends Struct.SingleTypeSchema {
   collectionName: 'fs15_pages';
   info: {
+    description: '';
     displayName: 'FS15 Seite';
     pluralName: 'fs15-pages';
     singularName: 'fs15-page';
@@ -1303,7 +1304,7 @@ export interface ApiFs15PageFs15Page extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
-    heroDualIamge: Schema.Attribute.Component<
+    heroDualImage: Schema.Attribute.Component<
       'page-components.hero-dual-image',
       false
     > &

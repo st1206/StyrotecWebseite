@@ -10,6 +10,7 @@
 		image: ImageAsset;
 		heroTextImage: { title: string; subtitle: string; content: string; image: ImageAsset };
 	} = $props();
+	console.log(data);
 </script>
 
 <section class="mt-20 lg:container lg:mx-auto lg:mt-32 lg:w-full">
@@ -28,7 +29,7 @@
 						'text-secondary pt-6 text-center font-sans text-3xl font-bold lg:pt-12 lg:text-4xl'
 					)}
 				>
-					{data.keyword}
+					{data.keyword || '-'}
 				</h1>
 			</div>
 			<img
@@ -50,7 +51,7 @@
 							<h2
 								class="text-secondary absolute bottom-12 right-10 font-sans text-3xl font-bold xl:text-4xl"
 							>
-								{data.subKeyword}
+								{data.subKeyword || '-'}
 							</h2>
 						{/if}
 					</div>

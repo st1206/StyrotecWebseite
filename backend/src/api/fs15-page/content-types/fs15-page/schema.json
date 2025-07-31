@@ -4,7 +4,8 @@
   "info": {
     "singularName": "fs15-page",
     "pluralName": "fs15-pages",
-    "displayName": "FS15 Seite"
+    "displayName": "FS15 Seite",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,7 +16,7 @@
     }
   },
   "attributes": {
-    "heroDualIamge": {
+    "heroDualImage": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
