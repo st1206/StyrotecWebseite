@@ -27,30 +27,6 @@
       "component": "page-components.hero-dual-image",
       "required": true
     },
-    "exploreVariants": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "page-components.explore-variants",
-      "required": true
-    },
-    "optionBlocks": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "dynamiczone",
-      "components": [
-        "partial-components.accordion",
-        "partial-components.table"
-      ],
-      "required": true
-    },
     "contactForm": {
       "type": "component",
       "repeatable": false,
@@ -71,6 +47,28 @@
         }
       },
       "component": "page-components.seo",
+      "required": true
+    },
+    "contentTextImage": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "partial-components.content-text-image",
+      "required": true
+    },
+    "contentImages": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "partial-components.content-images",
       "required": true
     }
   }

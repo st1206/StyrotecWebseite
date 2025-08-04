@@ -1821,11 +1821,8 @@ export interface ApiHybridPageHybridPage extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    exploreVariants: Schema.Attribute.Component<
-      'page-components.explore-variants',
+    contentImages: Schema.Attribute.Component<
+      'partial-components.content-images',
       false
     > &
       Schema.Attribute.Required &
@@ -1834,6 +1831,19 @@ export interface ApiHybridPageHybridPage extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
+    contentTextImage: Schema.Attribute.Component<
+      'partial-components.content-text-image',
+      true
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
     heroDualImage: Schema.Attribute.Component<
       'page-components.hero-dual-image',
       false
@@ -1849,15 +1859,6 @@ export interface ApiHybridPageHybridPage extends Struct.SingleTypeSchema {
       'oneToMany',
       'api::hybrid-page.hybrid-page'
     >;
-    optionBlocks: Schema.Attribute.DynamicZone<
-      ['partial-components.accordion', 'partial-components.table']
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'page-components.seo', false> &
       Schema.Attribute.Required &
