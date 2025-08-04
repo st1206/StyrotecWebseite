@@ -49,26 +49,20 @@
       "component": "page-components.seo",
       "required": true
     },
-    "contentTextImage": {
-      "type": "component",
-      "repeatable": true,
+    "defaultContent": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "partial-components.content-text-image",
-      "required": true
-    },
-    "contentImages": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "partial-components.content-images",
+      "type": "dynamiczone",
+      "components": [
+        "partial-components.content-text-image",
+        "partial-components.content-images",
+        "partial-components.content-table",
+        "partial-components.content-header",
+        "partial-components.content-accordion"
+      ],
       "required": true
     }
   }

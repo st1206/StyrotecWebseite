@@ -1821,29 +1821,24 @@ export interface ApiHybridPageHybridPage extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
-    contentImages: Schema.Attribute.Component<
-      'partial-components.content-images',
-      false
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    contentTextImage: Schema.Attribute.Component<
-      'partial-components.content-text-image',
-      true
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    defaultContent: Schema.Attribute.DynamicZone<
+      [
+        'partial-components.content-text-image',
+        'partial-components.content-images',
+        'partial-components.content-table',
+        'partial-components.content-header',
+        'partial-components.content-accordion',
+      ]
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     heroDualImage: Schema.Attribute.Component<
       'page-components.hero-dual-image',
       false

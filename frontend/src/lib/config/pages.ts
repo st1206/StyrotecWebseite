@@ -356,12 +356,11 @@ const pagesConfig: Record<string, PageContent> = {
 				sectionKey: 'heroDualImage'
 			},
 			{
-				sectionKey: 'exploreVariants'
+				sectionKey: 'defaultContent'
 			},
-			{
-				sectionKey: 'optionBlocks'
+			{ 
+				sectionKey: 'contactForm' 
 			},
-			{ sectionKey: 'contactForm' },
 			{
 				sectionKey: 'seo'
 			}
