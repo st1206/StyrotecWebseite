@@ -377,7 +377,7 @@ const pagesConfig: Record<string, PageContent> = {
 				sectionKey: 'heroDualImage'
 			},
 			{
-				sectionKey: 'exploreMore'
+				sectionKey: 'collectionTypeCards'
 			},
 			{ sectionKey: 'contactForm' },
 			{

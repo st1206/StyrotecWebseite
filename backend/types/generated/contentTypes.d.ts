@@ -1935,6 +1935,7 @@ export interface ApiIndustriesPageIndustriesPage
 export interface ApiInstockPageInstockPage extends Struct.SingleTypeSchema {
   collectionName: 'instock_pages';
   info: {
+    description: '';
     displayName: 'Vorratsmaschinen Seite';
     pluralName: 'instock-pages';
     singularName: 'instock-page';
@@ -1948,6 +1949,16 @@ export interface ApiInstockPageInstockPage extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
+    collectionTypeCards: Schema.Attribute.Component<
+      'page-components.collection-type-cards',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     contactForm: Schema.Attribute.Component<
       'page-components.contact-form',
       false
@@ -1961,16 +1972,6 @@ export interface ApiInstockPageInstockPage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    exploreMore: Schema.Attribute.Component<
-      'page-components.explore-more',
-      false
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     heroDualImage: Schema.Attribute.Component<
       'page-components.hero-dual-image',
       false
