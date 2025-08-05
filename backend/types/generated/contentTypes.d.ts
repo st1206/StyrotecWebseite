@@ -437,6 +437,7 @@ export interface ApiAboutUsPageAboutUsPage extends Struct.SingleTypeSchema {
 export interface ApiAdhesivePageAdhesivePage extends Struct.SingleTypeSchema {
   collectionName: 'adhesive_pages';
   info: {
+    description: '';
     displayName: 'Kleber Seite';
     pluralName: 'adhesive-pages';
     singularName: 'adhesive-page';
@@ -463,6 +464,21 @@ export interface ApiAdhesivePageAdhesivePage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    defaultContent: Schema.Attribute.DynamicZone<
+      [
+        'partial-components.content-text-image',
+        'partial-components.content-table',
+        'partial-components.content-images',
+        'partial-components.content-header',
+        'partial-components.content-accordion',
+      ]
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     heroDualImage: Schema.Attribute.Component<
       'page-components.hero-dual-image',
       false
@@ -3162,6 +3178,7 @@ export interface ApiRawMaterialPageRawMaterialPage
   extends Struct.SingleTypeSchema {
   collectionName: 'raw_material_pages';
   info: {
+    description: '';
     displayName: 'Rohmaterial Seite';
     pluralName: 'raw-material-pages';
     singularName: 'raw-material-page';
@@ -3188,6 +3205,21 @@ export interface ApiRawMaterialPageRawMaterialPage
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    defaultContent: Schema.Attribute.DynamicZone<
+      [
+        'partial-components.content-text-image',
+        'partial-components.content-table',
+        'partial-components.content-images',
+        'partial-components.content-header',
+        'partial-components.content-accordion',
+      ]
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     heroDualImage: Schema.Attribute.Component<
       'page-components.hero-dual-image',
       false
@@ -3386,6 +3418,7 @@ export interface ApiSawsPageSawsPage extends Struct.SingleTypeSchema {
 export interface ApiShredderPageShredderPage extends Struct.SingleTypeSchema {
   collectionName: 'shredder_pages';
   info: {
+    description: '';
     displayName: 'Zerkleinerer Seite';
     pluralName: 'shredder-pages';
     singularName: 'shredder-page';
@@ -3412,6 +3445,21 @@ export interface ApiShredderPageShredderPage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    defaultContent: Schema.Attribute.DynamicZone<
+      [
+        'partial-components.content-text-image',
+        'partial-components.content-table',
+        'partial-components.content-images',
+        'partial-components.content-header',
+        'partial-components.content-accordion',
+      ]
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     heroDualImage: Schema.Attribute.Component<
       'page-components.hero-dual-image',
       false
@@ -3673,6 +3721,16 @@ export interface ApiSuctionSystemPageSuctionSystemPage
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    exploreVariants: Schema.Attribute.Component<
+      'page-components.explore-variants',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     heroDualImage: Schema.Attribute.Component<
       'page-components.hero-dual-image',
       false

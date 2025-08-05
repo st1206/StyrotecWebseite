@@ -4,7 +4,8 @@
   "info": {
     "singularName": "shredder-page",
     "pluralName": "shredder-pages",
-    "displayName": "Zerkleinerer Seite"
+    "displayName": "Zerkleinerer Seite",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -46,6 +47,22 @@
         }
       },
       "component": "page-components.contact-form",
+      "required": true
+    },
+    "defaultContent": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "dynamiczone",
+      "components": [
+        "partial-components.content-text-image",
+        "partial-components.content-table",
+        "partial-components.content-images",
+        "partial-components.content-header",
+        "partial-components.content-accordion"
+      ],
       "required": true
     }
   }
