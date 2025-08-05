@@ -224,6 +224,7 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'suction-system-page',
 		sections: [
 			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'exploreVariants' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]
@@ -236,6 +237,7 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'shredder-page',
 		sections: [
 			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]
@@ -262,6 +264,7 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'raw-material-page',
 		sections: [
 			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]
@@ -274,6 +277,7 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'adhesive-page',
 		sections: [
 			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]
