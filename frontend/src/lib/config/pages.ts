@@ -169,6 +169,7 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'styrofoam-page',
 		sections: [
 			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'exploreVariants' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
@@ -247,6 +248,7 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'styrofoam-page',
 		sections: [
 			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'exploreVariants' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
