@@ -134,7 +134,8 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'heroTextImage' },
 			{ sectionKey: 'uspList' },
 			{ sectionKey: 'exploreMore' },
-			{ sectionKey: 'contactForm' }
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
 		]
 	},
 	metals: {
@@ -313,7 +314,8 @@ const pagesConfig: Record<string, PageContent> = {
 			{
 				sectionKey: 'optionBlocks'
 			},
-			{ sectionKey: 'contactForm' }
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
 		]
 	},
 
@@ -332,7 +334,8 @@ const pagesConfig: Record<string, PageContent> = {
 			{
 				sectionKey: 'optionBlocks'
 			},
-			{ sectionKey: 'contactForm' }
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
 		]
 	},
 
@@ -351,7 +354,8 @@ const pagesConfig: Record<string, PageContent> = {
 			{
 				sectionKey: 'optionBlocks'
 			},
-			{ sectionKey: 'contactForm' }
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
 		]
 	},
 
@@ -405,7 +409,8 @@ const pagesConfig: Record<string, PageContent> = {
 			},
 			{
 				sectionKey: 'defaultCards'
-			}
+			},
+			{ sectionKey: 'seo' }
 		]
 	},
 
@@ -426,7 +431,8 @@ const pagesConfig: Record<string, PageContent> = {
 			},
 			{
 				sectionKey: 'defaultCardsTwo'
-			}
+			},
+			{ sectionKey: 'seo' }
 		]
 	},
 
@@ -442,7 +448,8 @@ const pagesConfig: Record<string, PageContent> = {
 			{
 				sectionKey: 'exploreMore'
 			},
-			{ sectionKey: 'contactForm' }
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
 		]
 	},
 
@@ -693,7 +700,8 @@ const pagesConfig: Record<string, PageContent> = {
 			},
 			{
 				sectionKey: 'collectionTypeCardsTwo'
-			}
+			},
+			{ sectionKey: 'seo' }
 		]
 	}
 };

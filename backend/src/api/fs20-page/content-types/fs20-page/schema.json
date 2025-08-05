@@ -4,7 +4,8 @@
   "info": {
     "singularName": "fs20-page",
     "pluralName": "fs20-pages",
-    "displayName": "FS20 Seite"
+    "displayName": "FS20 Seite",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -60,6 +61,17 @@
       },
       "required": true,
       "component": "page-components.contact-form"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.seo",
+      "required": true
     }
   }
 }
