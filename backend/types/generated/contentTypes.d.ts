@@ -1692,6 +1692,7 @@ export interface ApiHollowMillingSpindlePageHollowMillingSpindlePage
   extends Struct.SingleTypeSchema {
   collectionName: 'hollow_milling_spindle_pages';
   info: {
+    description: '';
     displayName: 'Hohlfr\u00E4sspindel Seite';
     pluralName: 'hollow-milling-spindle-pages';
     singularName: 'hollow-milling-spindle-page';
@@ -1718,6 +1719,16 @@ export interface ApiHollowMillingSpindlePageHollowMillingSpindlePage
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    exploreVariants: Schema.Attribute.Component<
+      'page-components.explore-variants',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     heroDualImage: Schema.Attribute.Component<
       'page-components.hero-dual-image',
       false
@@ -2556,6 +2567,21 @@ export interface ApiMetalsPageMetalsPage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    defaultContent: Schema.Attribute.DynamicZone<
+      [
+        'partial-components.content-text-image',
+        'partial-components.content-table',
+        'partial-components.content-images',
+        'partial-components.content-header',
+        'partial-components.content-accordion',
+      ]
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     exploreVariants: Schema.Attribute.Component<
       'page-components.explore-variants',
       false
@@ -2695,6 +2721,21 @@ export interface ApiMillingToolsPageMillingToolsPage
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    defaultContent: Schema.Attribute.DynamicZone<
+      [
+        'partial-components.content-text-image',
+        'partial-components.content-table',
+        'partial-components.content-images',
+        'partial-components.content-header',
+        'partial-components.content-accordion',
+      ]
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     heroDualImage: Schema.Attribute.Component<
       'page-components.hero-dual-image',
       false
@@ -3434,6 +3475,7 @@ export interface ApiSocialMediaChannelSocialMediaChannel
 export interface ApiStyrofoamPageStyrofoamPage extends Struct.SingleTypeSchema {
   collectionName: 'styrofoam_pages';
   info: {
+    description: '';
     displayName: 'Styropor Seite';
     pluralName: 'styrofoam-pages';
     singularName: 'styrofoam-page';
@@ -3460,6 +3502,21 @@ export interface ApiStyrofoamPageStyrofoamPage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    defaultContent: Schema.Attribute.DynamicZone<
+      [
+        'partial-components.content-text-image',
+        'partial-components.content-table',
+        'partial-components.content-images',
+        'partial-components.content-header',
+        'partial-components.content-accordion',
+      ]
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     exploreVariants: Schema.Attribute.Component<
       'page-components.explore-variants',
       false

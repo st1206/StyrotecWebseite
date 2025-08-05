@@ -144,6 +144,7 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'metals-page',
 		sections: [
 			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'exploreVariants' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
@@ -196,6 +197,7 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'milling-tools-page',
 		sections: [
 			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]
@@ -208,6 +210,7 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'hollow-milling-spindle-page',
 		sections: [
 			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'exploreVariants' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]

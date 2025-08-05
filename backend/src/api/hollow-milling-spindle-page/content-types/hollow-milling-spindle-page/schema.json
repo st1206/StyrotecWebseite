@@ -4,7 +4,8 @@
   "info": {
     "singularName": "hollow-milling-spindle-page",
     "pluralName": "hollow-milling-spindle-pages",
-    "displayName": "Hohlfrässpindel Seite"
+    "displayName": "Hohlfrässpindel Seite",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -46,6 +47,17 @@
         }
       },
       "component": "page-components.seo",
+      "required": true
+    },
+    "exploreVariants": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.explore-variants",
       "required": true
     }
   }
