@@ -643,8 +643,11 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'uspListOne' },
 			{ sectionKey: 'history' },
 			{ sectionKey: 'pageHeaderTwo' },
+			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'pageHeaderThree' },
+			{ sectionKey: 'defaultContentOne' },
 			{ sectionKey: 'pageHeaderFour' },
+			{ sectionKey: 'defaultContentTwo' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]
@@ -660,7 +663,9 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'heroTextImage' },
 			{ sectionKey: 'uspList' },
 			{ sectionKey: 'pageHeader' },
+			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'pageHeaderTwo' },
+			{ sectionKey: 'defaultContentOne' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]
@@ -676,8 +681,11 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'heroTextImage' },
 			{ sectionKey: 'uspList' },
 			{ sectionKey: 'pageHeader' },
+			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'pageHeaderTwo' },
+			{ sectionKey: 'defaultContentOne' },
 			{ sectionKey: 'pageHeaderThree' },
+			{ sectionKey: 'defaultContentTwo' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]
