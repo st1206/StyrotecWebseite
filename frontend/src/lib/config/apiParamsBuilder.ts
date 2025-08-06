@@ -18,6 +18,24 @@ const populateBySection: Record<string, PopulateRule> = {
 		'defaultContent.images',
 		'defaultContent.image'
 	],
+	defaultContentOne: [
+		'defaultContentOne.tables.tableColumns.tableRows',
+		'defaultContentOne.accordions.accordionItems.image',
+		'defaultContentOne.images',
+		'defaultContentOne.image'
+	],
+	defaultContentTwo: [
+		'defaultContentTwo.tables.tableColumns.tableRows',
+		'defaultContentTwo.accordions.accordionItems.image',
+		'defaultContentTwo.images',
+		'defaultContentTwo.image'
+	],
+	defaultContentThree: [
+		'defaultContentThree.tables.tableColumns.tableRows',
+		'defaultContentThree.accordions.accordionItems.image',
+		'defaultContentThree.images',
+		'defaultContentThree.image'
+	],
 	pageHeader: ['pageHeader'],
 	pageHeaderTwo: ['pageHeaderTwo'],
 	pageHeaderThree: ['pageHeaderThree'],
