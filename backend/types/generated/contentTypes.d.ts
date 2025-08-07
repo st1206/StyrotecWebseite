@@ -632,6 +632,71 @@ export interface ApiBrochureBrochure extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCareerCareer extends Struct.SingleTypeSchema {
+  collectionName: 'careers';
+  info: {
+    displayName: 'Karriere';
+    pluralName: 'careers';
+    singularName: 'career';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    collectionTypeCards: Schema.Attribute.Component<
+      'page-components.collection-type-cards',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    contactForm: Schema.Attribute.Component<
+      'page-components.contact-form',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroCarousel: Schema.Attribute.Component<
+      'page-components.hero-carousel',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::career.career'>;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'page-components.seo', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCncMillCncMill extends Struct.CollectionTypeSchema {
   collectionName: 'cnc_mills';
   info: {
@@ -2041,6 +2106,51 @@ export interface ApiInstockPageInstockPage extends Struct.SingleTypeSchema {
     >;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'page-components.seo', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiJobOfferJobOffer extends Struct.CollectionTypeSchema {
+  collectionName: 'job_offers';
+  info: {
+    displayName: 'Stellenausschreibung';
+    pluralName: 'job-offers';
+    singularName: 'job-offer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Beschreibung: Schema.Attribute.Blocks &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::job-offer.job-offer'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    Stelle: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -4599,6 +4709,7 @@ declare module '@strapi/strapi' {
       'api::adhesive-page.adhesive-page': ApiAdhesivePageAdhesivePage;
       'api::briquetting-press-page.briquetting-press-page': ApiBriquettingPressPageBriquettingPressPage;
       'api::brochure.brochure': ApiBrochureBrochure;
+      'api::career.career': ApiCareerCareer;
       'api::cnc-mill.cnc-mill': ApiCncMillCncMill;
       'api::cnc-mills-page.cnc-mills-page': ApiCncMillsPageCncMillsPage;
       'api::conventional-mill.conventional-mill': ApiConventionalMillConventionalMill;
@@ -4618,6 +4729,7 @@ declare module '@strapi/strapi' {
       'api::hybrid-page.hybrid-page': ApiHybridPageHybridPage;
       'api::industries-page.industries-page': ApiIndustriesPageIndustriesPage;
       'api::instock-page.instock-page': ApiInstockPageInstockPage;
+      'api::job-offer.job-offer': ApiJobOfferJobOffer;
       'api::lathe.lathe': ApiLatheLathe;
       'api::lathes-page.lathes-page': ApiLathesPageLathesPage;
       'api::legal-notice-page.legal-notice-page': ApiLegalNoticePageLegalNoticePage;
