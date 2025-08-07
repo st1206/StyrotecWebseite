@@ -33,7 +33,8 @@ import type {
 	ApiShredderPageShredderPage,
 	ApiPressesPagePressesPage,
 	ApiRawMaterialPageRawMaterialPage,
-	ApiAdhesivePageAdhesivePage
+	ApiAdhesivePageAdhesivePage,
+	ApiCareerCareer
 } from '$lib/cmsTypes/contentTypes';
 import { buildPopulateQuery } from './apiParamsBuilder';
 
@@ -74,6 +75,7 @@ export interface CMSTypeMap {
 	machineMarketingPage: ApiMachineMarketingPageMachineMarketingPage;
 	legalNotice: ApiLegalNoticePageLegalNoticePage;
 	newsPage: ApiNewsPageNewsPage;
+	career: ApiCareerCareer;
 }
 
 // Define the supported languages
@@ -708,6 +710,25 @@ const pagesConfig: Record<string, PageContent> = {
 			},
 			{
 				sectionKey: 'collectionTypeCardsTwo'
+			},
+			{ sectionKey: 'seo' }
+		]
+	},
+
+	career: {
+		deSlug: 'unternehmen/karriere',
+		enSlug: 'company/career',
+		cmsTypeKey: 'career',
+		cmsApiSlug: 'career',
+		sections: [
+			{
+				sectionKey: 'heroCarousel'
+			},
+			{
+				sectionKey: 'collectionTypeCards'
+			},
+			{
+				sectionKey: 'contactForm'
 			},
 			{ sectionKey: 'seo' }
 		]
