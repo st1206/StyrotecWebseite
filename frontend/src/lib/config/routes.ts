@@ -123,7 +123,7 @@ export const menu = [
 			{
 				key: 'career',
 				anchor: null,
-				routeChildren: [{ key: 'jobOffers', anchor: '#stellenausschreibung' }]
+				routeChildren: [{ key: 'jobPosting', anchor: '#stellenausschreibung' }]
 			}
 		]
 	}

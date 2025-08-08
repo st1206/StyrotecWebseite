@@ -1563,7 +1563,7 @@ export interface ApiGantryMachinesPageGantryMachinesPage
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
     heroTextImage: Schema.Attribute.Component<

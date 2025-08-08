@@ -22,7 +22,7 @@
       "repeatable": false,
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       },
       "component": "page-components.hero-carousel",
