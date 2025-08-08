@@ -69,6 +69,17 @@
       },
       "component": "page-components.seo",
       "required": true
+    },
+    "heroCarousel": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.hero-carousel",
+      "required": true
     }
   }
 }

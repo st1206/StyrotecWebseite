@@ -700,6 +700,9 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'news-page',
 		sections: [
 			{
+				sectionKey: 'heroCarousel'
+			},
+			{
 				sectionKey: 'pageHeader'
 			},
 			{
