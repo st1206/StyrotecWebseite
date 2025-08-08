@@ -2896,6 +2896,93 @@ export interface ApiMetalsPageMetalsPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiMillingMachineMillingMachine
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'milling_machines';
+  info: {
+    displayName: 'Fr\u00E4smaschinen';
+    pluralName: 'milling-machines';
+    singularName: 'milling-machine';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Blocks &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::milling-machine.milling-machine'
+    >;
+    machineSerialNumber: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    pictures: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    productDataSheet: Schema.Attribute.Component<
+      'partial-components.product-data-sheet',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    tableHeight: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    tableSize: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiMillingMachinesPageMillingMachinesPage
   extends Struct.SingleTypeSchema {
   collectionName: 'milling_machines_pages';
@@ -4747,6 +4834,7 @@ declare module '@strapi/strapi' {
       'api::machine-marketing-page.machine-marketing-page': ApiMachineMarketingPageMachineMarketingPage;
       'api::machine-modernization-page.machine-modernization-page': ApiMachineModernizationPageMachineModernizationPage;
       'api::metals-page.metals-page': ApiMetalsPageMetalsPage;
+      'api::milling-machine.milling-machine': ApiMillingMachineMillingMachine;
       'api::milling-machines-page.milling-machines-page': ApiMillingMachinesPageMillingMachinesPage;
       'api::milling-tools-page.milling-tools-page': ApiMillingToolsPageMillingToolsPage;
       'api::model-construction-machines-page.model-construction-machines-page': ApiModelConstructionMachinesPageModelConstructionMachinesPage;
