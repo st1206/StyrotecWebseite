@@ -13,6 +13,7 @@ import History from './history.svelte';
 import CollectionTypeCards from './collection-type-cards.svelte';
 import UsedMachineDetails from '$lib/templates/used-machine-details.svelte';
 import ContactForm from './contact-form.svelte';
+import CollectionTypeTable from './collection-type-table.svelte';
 
 export const sectionMap = {
 	heroCarousel: HeroCarousel,
@@ -45,10 +46,12 @@ export const sectionMap = {
 	optionBlocksOne: ExploreOptions,
 	optionBlocksTwo: ExploreOptions,
 	pageHeader: PageHeader,
+	pageHeaderOne: PageHeader,
 	pageHeaderTwo: PageHeader,
 	pageHeaderThree: PageHeader,
 	pageHeaderFour: PageHeader,
 	defaultCards: DefaultCards,
+	defaultCardsOne: DefaultCards,
 	defaultCardsTwo: DefaultCards,
 	defaultCardsThree: DefaultCards,
 	defaultContent: DefaultContent,
@@ -62,8 +65,12 @@ export const sectionMap = {
 	historyOne: History,
 	historyTwo: History,
 	collectionTypeCards: CollectionTypeCards,
+	collectionTypeCardsOne: CollectionTypeCards,
 	collectionTypeCardsTwo: CollectionTypeCards,
 	collectionTypeCardsThree: CollectionTypeCards,
+	collectionTypeTable: CollectionTypeTable,
+	collectionTypeTableTwo: CollectionTypeTable,
+	collectionTypeTableThree: CollectionTypeTable,
 	usedMachineDetails: UsedMachineDetails,
 	contactForm: ContactForm
 } as const;

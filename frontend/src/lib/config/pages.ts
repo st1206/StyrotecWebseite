@@ -685,6 +685,12 @@ const pagesConfig: Record<string, PageContent> = {
 			},
 			{
 				sectionKey: 'collectionTypeCardsTwo'
+			},
+			{
+				sectionKey: 'pageHeaderThree'
+			},
+			{
+				sectionKey: 'collectionTypeTable'
 			}
 		]
 	}

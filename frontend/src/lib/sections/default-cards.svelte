@@ -13,6 +13,7 @@
 			redirectButtons: {
 				label: string;
 				redirectSlug: string;
+				isPrimaryAction?: boolean;
 			}[];
 			thumbnail?: ImageAsset;
 			anchor?: string;
@@ -57,7 +58,13 @@
 		<div class="grid grid-cols-6 justify-center gap-8 md:gap-16">
 			{#each data.cards as card, i}
 				{#if card}
-					<div
+					{@const primaryAction = card.redirectButtons.find((b) => b.isPrimaryAction)}
+					{@const visibleButtons = card.redirectButtons.filter((b) => !b.isPrimaryAction)}
+					{@const CardElement = primaryAction ? 'a' : 'div'}
+
+					<svelte:element
+						this={CardElement}
+						href={primaryAction ? getRedirectLink(primaryAction.redirectSlug) : undefined}
 						id={card.anchor}
 						class={cn(
 							'shadow-primary relative col-span-6 mx-auto flex h-full w-full scroll-mt-24 flex-col overflow-hidden rounded-lg transition duration-300 ease-in-out',
@@ -70,7 +77,8 @@
 								!card.thumbnail &&
 								data.cards.length % 2 !== 0
 								? 'md:col-start-3'
-								: ''
+								: '',
+							primaryAction ? 'hover:scale-[101%] hover:shadow-[10px_10px_0_#f6a313] ' : ''
 						)}
 					>
 						{#if card.thumbnail}
@@ -96,9 +104,10 @@
 										<h4 class="text-secondary font-sans text-2xl font-bold lg:text-2xl">
 											{@html card.title}
 										</h4>
+										<!-- Render only the non-primary buttons -->
 										<div class="flex">
-											{#if card.redirectButtons.length}
-												{#each card.redirectButtons as button}
+											{#if visibleButtons.length}
+												{#each visibleButtons as button}
 													<Button href={getRedirectLink(button.redirectSlug)} class="h-8 px-2">
 														<span class="h-4 skew-x-[15deg] text-sm">{button.label}</span>
 													</Button>
@@ -113,7 +122,9 @@
 						{#if card.content}
 							<div class="flex flex-grow flex-col justify-between p-6 md:p-10">
 								<div>
-									<h3 class="font-sans text-lg font-bold sm:text-3xl xl:text-4xl">{card.title}</h3>
+									<h3 class="font-sans text-lg font-bold sm:text-3xl xl:text-4xl">
+										{card.title}
+									</h3>
 									<div
 										class={cn(
 											data.isDarkMode ? 'text-secondary/90' : 'text-secondary/80',
@@ -123,9 +134,10 @@
 										{@html card.content}
 									</div>
 								</div>
-								{#if card.redirectButtons.length}
+								<!-- Render only the non-primary buttons -->
+								{#if visibleButtons.length}
 									<div class="mt-6 flex flex-wrap gap-4">
-										{#each card.redirectButtons as button}
+										{#each visibleButtons as button}
 											<Button href={getRedirectLink(button.redirectSlug)}>
 												<span class="h-5 skew-x-[15deg]">{button.label}</span>
 											</Button>
@@ -134,7 +146,7 @@
 								{/if}
 							</div>
 						{/if}
-					</div>
+					</svelte:element>
 				{/if}
 			{/each}
 		</div>

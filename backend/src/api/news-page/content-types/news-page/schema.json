@@ -58,6 +58,28 @@
       },
       "component": "page-components.collection-type-cards",
       "required": true
+    },
+    "pageHeaderThree": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.page-header",
+      "required": true
+    },
+    "collectionTypeTable": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.collection-type-table",
+      "required": true
     }
   }
 }

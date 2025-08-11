@@ -913,6 +913,66 @@ export interface ApiConventionalMillConventionalMill
   };
 }
 
+export interface ApiDownloadDownload extends Struct.CollectionTypeSchema {
+  collectionName: 'downloads';
+  info: {
+    description: '';
+    displayName: 'Downloads';
+    pluralName: 'downloads';
+    singularName: 'download';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    file: Schema.Attribute.Media<'files' | 'images' | 'videos' | 'audios'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::download.download'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    sortOrder: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<1>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiDrillingMachineDrillingMachine
   extends Struct.CollectionTypeSchema {
   collectionName: 'drilling_machines';
@@ -1821,29 +1881,24 @@ export interface ApiHybridPageHybridPage extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
-    contentImages: Schema.Attribute.Component<
-      'partial-components.content-images',
-      false
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    contentTextImage: Schema.Attribute.Component<
-      'partial-components.content-text-image',
-      true
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    defaultContent: Schema.Attribute.DynamicZone<
+      [
+        'partial-components.content-text-image',
+        'partial-components.content-table',
+        'partial-components.content-images',
+        'partial-components.content-header',
+        'partial-components.content-accordion',
+      ]
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     heroDualImage: Schema.Attribute.Component<
       'page-components.hero-dual-image',
       false
@@ -2835,6 +2890,16 @@ export interface ApiNewsPageNewsPage extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
+    collectionTypeTable: Schema.Attribute.Component<
+      'page-components.collection-type-table',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2844,6 +2909,16 @@ export interface ApiNewsPageNewsPage extends Struct.SingleTypeSchema {
       'api::news-page.news-page'
     >;
     pageHeader: Schema.Attribute.Component<
+      'page-components.page-header',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    pageHeaderThree: Schema.Attribute.Component<
       'page-components.page-header',
       false
     > &
@@ -4336,6 +4411,7 @@ declare module '@strapi/strapi' {
       'api::cnc-mill.cnc-mill': ApiCncMillCncMill;
       'api::cnc-mills-page.cnc-mills-page': ApiCncMillsPageCncMillsPage;
       'api::conventional-mill.conventional-mill': ApiConventionalMillConventionalMill;
+      'api::download.download': ApiDownloadDownload;
       'api::drilling-machine.drilling-machine': ApiDrillingMachineDrillingMachine;
       'api::drilling-machines-page.drilling-machines-page': ApiDrillingMachinesPageDrillingMachinesPage;
       'api::employee.employee': ApiEmployeeEmployee;

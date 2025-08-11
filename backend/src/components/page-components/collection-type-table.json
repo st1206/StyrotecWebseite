@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_page_components_collection_type_tables",
+  "info": {
+    "displayName": "collectionTypeTable",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "collectionApiSlug": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

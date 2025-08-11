@@ -22,12 +22,13 @@
 					redirectButtons: [
 						{
 							label: $_(`button.learnMore`),
-							redirectSlug: `${page.url.pathname.split(`${currentLocale}/`)[1]}/${entry.slug}`
+							redirectSlug: `${page.url.pathname.split(`${currentLocale}/`)[1]}/${entry.slug}`,
+							isPrimaryAction: true
 						}
 					]
 				};
 			})
-			.filter((card) => card !== null) // Filter out the null entries
+			.filter((card) => card !== null)
 	};
 	const brochures = {
 		brochures: Object.values(data)
@@ -40,7 +41,7 @@
 					file: entry.file
 				};
 			})
-			.filter((entry) => entry !== null) // Filter out the null entries
+			.filter((entry) => entry !== null)
 	};
 
 	const fairs = {
@@ -60,24 +61,8 @@
 					logo: entry.logo
 				};
 			})
-			.filter((entry) => entry !== null) // Filter out the null entries
+			.filter((entry) => entry !== null)
 	};
-
-	// const testimonials = {
-	// 	testimonials: Object.values(data)
-	// 		.map((entry: any) => {
-	// 			if (!entry) {
-	// 				return null;
-	// 			}
-	// 			return {
-	// 				name: entry.name,
-	// 				timestamp: entry.timestamp,
-	// 				thumbnail: entry.thumbnail,
-	// 				testimonial: entry.testimonial
-	// 			};
-	// 		})
-	// 		.filter((entry) => entry !== null) // Filter out the null entries
-	// };
 </script>
 
 {#if data.type === 'brochures'}

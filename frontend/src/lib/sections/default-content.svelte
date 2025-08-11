@@ -11,6 +11,7 @@
 	import type { ImageAsset } from '$lib/cmsTypes/image-type';
 	import { Lightbox } from 'svelte-lightbox';
 
+	// --- TYPES ---
 	type ContentHeader = {
 		sectionTitle: string;
 		description: string;
@@ -79,7 +80,6 @@
 
 	async function updateOverlayHeights() {
 		await tick();
-
 		overlayRefs.forEach((el, i) => {
 			if (el) {
 				const heights = overlayHeightsMap.get(page.url.pathname) ?? [];
