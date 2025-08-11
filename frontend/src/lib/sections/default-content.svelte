@@ -224,7 +224,7 @@
 				(col: any) => col && typeof col === 'object' && 'columnLabel' in col
 			)}
 
-			<div class="mx-auto mt-24 h-full w-full py-16 text-center">
+			<div class="mx-auto h-full w-full py-16 text-center">
 				{#if blockTitle && !tableTitle}
 					<h4
 						class={cn(
@@ -365,7 +365,7 @@
 {/snippet}
 
 {#snippet AccordionTemplate(block: ContentAccordion)}
-	<div class={cn('mt-24 h-full w-full py-16 lg:mx-auto')}>
+	<div class={cn('h-full w-full py-16 lg:mx-auto')}>
 		{#if block.title}
 			<h4 class="text-secondary my-4 text-center font-sans text-2xl font-bold">{block.title}</h4>
 		{/if}
@@ -597,7 +597,7 @@
 {/snippet}
 
 {#snippet TextImageTemplate(block: ContentTextImage)}
-	<div class="mx-auto mt-28 py-16">
+	<div class="mx-auto py-16">
 		<div
 			class={cn(
 				'flex flex-col gap-4 lg:gap-12',
