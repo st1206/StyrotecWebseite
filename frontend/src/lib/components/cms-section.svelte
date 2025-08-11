@@ -74,15 +74,6 @@
 								if (!card?.title) {
 									errors.push(createError(`cards[${index}].title`, 'Card title is missing'));
 								}
-								if (
-									!card?.redirectButtons ||
-									!Array.isArray(card.redirectButtons) ||
-									card.redirectButtons.length === 0
-								) {
-									errors.push(
-										createWarning(`cards[${index}].redirectButtons`, 'Card has no action buttons')
-									);
-								}
 							});
 						}
 						return errors;
@@ -108,62 +99,22 @@
 				validator.custom((data) => {
 					const errors: ValidationError[] = [];
 
-					// Check if data is an array (as expected by the component)
-					if (!Array.isArray(data)) {
-						errors.push(createError('data', 'Option blocks data should be an array'));
+					if (!data || typeof data !== 'object') {
+						errors.push(createError('data', 'No data provided'));
 						return errors;
 					}
 
-					// Check if there are any accordion components with accordion items
-					const accordionBlocks = data.filter(
-						(block) =>
-							block &&
-							typeof block === 'object' &&
-							block.__component === 'partial-components.accordion'
-					);
+					// Convert to array if it's an object with numeric keys
+					let blocks = Array.isArray(data)
+						? data
+						: Object.keys(data)
+								.filter((key) => !isNaN(Number(key)))
+								.map((key) => data[key])
+								.filter(Boolean);
 
-					if (accordionBlocks.length === 0) {
-						errors.push(createWarning('accordionBlocks', 'No accordion blocks found'));
-						return errors;
+					if (blocks.length === 0) {
+						errors.push(createWarning('blocks', 'No content blocks found'));
 					}
-
-					// Validate each accordion block
-					accordionBlocks.forEach((block, blockIndex) => {
-						if (!block.accordionItems || !Array.isArray(block.accordionItems)) {
-							errors.push(
-								createError(
-									`accordionBlocks[${blockIndex}].accordionItems`,
-									'Accordion items array is missing'
-								)
-							);
-						} else if (block.accordionItems.length === 0) {
-							errors.push(
-								createWarning(
-									`accordionBlocks[${blockIndex}].accordionItems`,
-									'Accordion items array is empty'
-								)
-							);
-						} else {
-							// Validate individual accordion items
-							block.accordionItems.forEach((item: any, itemIndex: number) => {
-								if (!item || typeof item !== 'object') {
-									errors.push(
-										createError(
-											`accordionBlocks[${blockIndex}].accordionItems[${itemIndex}]`,
-											'Invalid accordion item'
-										)
-									);
-								} else if (!item.title) {
-									errors.push(
-										createError(
-											`accordionBlocks[${blockIndex}].accordionItems[${itemIndex}].title`,
-											'Accordion item title is missing'
-										)
-									);
-								}
-							});
-						}
-					});
 
 					return errors;
 				});
@@ -263,7 +214,7 @@
 				<p class="text-muted-foreground mb-2 text-xs">
 					Section: <code class="bg-muted rounded px-1">{sectionKey}</code>
 				</p>
-				<details class="mx-auto mt-8 max-w-7xl">
+				<details class="mx-auto mt-4 max-w-7xl">
 					<summary
 						class="text-muted-foreground hover:text-foreground mb-2 cursor-pointer text-center text-xs"
 					>
@@ -291,7 +242,7 @@
 		{:else if SectionComponent && sectionData}
 			<!-- Show warnings if any -->
 			{#if validationResult && validationResult.warnings.length > 0}
-				<div class="mb-4 rounded-lg border border-yellow-200 bg-yellow-50 p-3">
+				<div class="mx-auto mb-4 max-w-7xl rounded-lg border border-yellow-200 bg-yellow-50 p-3">
 					<div class="flex items-center">
 						<svg
 							class="mr-2 h-4 w-4 text-yellow-600"
@@ -310,7 +261,7 @@
 							Section has {validationResult.warnings.length} warning(s)
 						</p>
 					</div>
-					<details class="mt-2">
+					<details class="mt-4">
 						<summary class="cursor-pointer text-xs text-yellow-700 hover:text-yellow-900">
 							Show warnings
 						</summary>

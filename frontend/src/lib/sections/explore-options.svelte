@@ -164,7 +164,7 @@
 	class="bg-foreground mt-20 h-14 w-full translate-y-[1px] [clip-path:polygon(100%_0,100%_100%,0_100%)] lg:mt-28"
 ></div>
 
-<section class="bg-foreground w-full pb-16 pt-8 sm:mx-auto">
+<section class="bg-foreground w-full py-16 sm:mx-auto">
 	{#if sortedBlocks.length > 0}
 		{#if sectionTitle}
 			<h3
