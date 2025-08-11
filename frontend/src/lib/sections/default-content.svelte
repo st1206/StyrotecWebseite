@@ -118,11 +118,6 @@
 		});
 	});
 
-	// <!-- DARKMODE REWORK NEEDED -->
-	// const isDarkMode = $derived(() => {
-	// 	const firstBlock = sortedBlocks[0] as ContentHeader;
-	// 	return firstBlock?.isDarkMode || false;
-	// });
 	const isDarkMode = true;
 </script>
 
@@ -132,7 +127,7 @@
 	></div>
 {/if}
 
-<section class={cn(true ? 'bg-foreground' : '', 'w-full pb-16')}>
+<section class={cn(true ? 'bg-foreground' : '', 'w-full')}>
 	<div class="sm:container">
 		{#if sortedBlocks?.length > 0}
 			{#each sortedBlocks as block, i}
@@ -229,7 +224,7 @@
 				(col: any) => col && typeof col === 'object' && 'columnLabel' in col
 			)}
 
-			<div class="mx-auto my-16 mt-24 h-full w-full text-center">
+			<div class="mx-auto mt-24 h-full w-full py-16 text-center">
 				{#if blockTitle && !tableTitle}
 					<h4
 						class={cn(
@@ -370,7 +365,7 @@
 {/snippet}
 
 {#snippet AccordionTemplate(block: ContentAccordion)}
-	<div class={cn('my-16 mt-24 h-full w-full lg:mx-auto')}>
+	<div class={cn('mt-24 h-full w-full py-16 lg:mx-auto')}>
 		{#if block.title}
 			<h4 class="text-secondary my-4 text-center font-sans text-2xl font-bold">{block.title}</h4>
 		{/if}
@@ -394,15 +389,60 @@
 									<Card.Root
 										class={cn(isDarkMode ? 'bg-secondary/10' : 'bg-foreground/10', 'px-0')}
 									>
+										<!-- Fixed image display logic -->
 										{#if item.image}
-											<img
-												class="h-[260px] w-full object-contain"
-												src={!PUBLIC_BACKEND_URL.includes('https')
-													? `${PUBLIC_BACKEND_URL}${item.image.formats?.['large']?.url || item.image.url}`
-													: item.image.url}
-												alt={item.image.alternativeText}
-											/>
+											{@const imageUrl = getOptimizedImageUrl(item.image)}
+											{#if imageUrl}
+												<img
+													class="h-[260px] w-full object-contain"
+													src={imageUrl}
+													alt={getImageAltText(item.image, item.title)}
+													loading="lazy"
+													onerror={handleImageError}
+												/>
+											{:else}
+												<!-- Fallback for invalid/missing image URL -->
+												<div
+													class="bg-muted flex h-[260px] w-full flex-col items-center justify-center"
+												>
+													<svg
+														class="text-muted-foreground mb-2 h-12 w-12"
+														fill="none"
+														viewBox="0 0 24 24"
+														stroke="currentColor"
+													>
+														<path
+															stroke-linecap="round"
+															stroke-linejoin="round"
+															stroke-width="2"
+															d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+														/>
+													</svg>
+													<p class="text-muted-foreground text-sm">Image not available</p>
+												</div>
+											{/if}
+										{:else}
+											<!-- No image provided -->
+											<div
+												class="bg-muted flex h-[260px] w-full flex-col items-center justify-center"
+											>
+												<svg
+													class="text-muted-foreground mb-2 h-12 w-12"
+													fill="none"
+													viewBox="0 0 24 24"
+													stroke="currentColor"
+												>
+													<path
+														stroke-linecap="round"
+														stroke-linejoin="round"
+														stroke-width="2"
+														d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+													/>
+												</svg>
+												<p class="text-muted-foreground text-sm">No image provided</p>
+											</div>
 										{/if}
+
 										<Card.Header class="mt-12 p-0">
 											<Card.Title
 												class={cn(
@@ -463,7 +503,7 @@
 	{@const images = safe.getArray<ImageAsset>('images', [])}
 	{@const validImages = images.filter((img) => img && getOptimizedImageUrl(img))}
 
-	<div class="mx-auto my-16">
+	<div class="mx-auto py-16">
 		{#if title}
 			<h4
 				class={cn(
@@ -483,32 +523,35 @@
 
 					<div class="relative">
 						<Lightbox transitionDuration={50}>
-							<img
-								class="shadow-primary h-[400px] w-full object-cover"
-								src={imageUrl}
-								alt={imageAlt}
-								loading="lazy"
-								onerror={handleImageError}
-							/>
-							<!-- Fallback for broken images -->
-							<div
-								class="bg-muted shadow-primary flex h-[400px] w-full flex-col items-center justify-center"
-							>
-								<svg
-									class="text-muted-foreground mb-2 h-12 w-12"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
+							{#if imageUrl}
+								<img
+									class="shadow-primary h-[400px] w-full object-cover"
+									src={imageUrl}
+									alt={imageAlt}
+									loading="lazy"
+									onerror={handleImageError}
+								/>
+							{:else}
+								<!-- Fallback for broken images -->
+								<div
+									class="bg-muted shadow-primary flex h-[400px] w-full flex-col items-center justify-center"
 								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										stroke-width="2"
-										d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-									/>
-								</svg>
-								<p class="text-muted-foreground text-sm">Image {i + 1} not available</p>
-							</div>
+									<svg
+										class="text-muted-foreground mb-2 h-12 w-12"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke="currentColor"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+										/>
+									</svg>
+									<p class="text-muted-foreground text-sm">Image {i + 1} not available</p>
+								</div>
+							{/if}
 						</Lightbox>
 					</div>
 				{/each}
@@ -554,7 +597,7 @@
 {/snippet}
 
 {#snippet TextImageTemplate(block: ContentTextImage)}
-	<div class="mx-auto my-16 mt-28">
+	<div class="mx-auto mt-28 py-16">
 		<div
 			class={cn(
 				'flex flex-col gap-4 lg:gap-12',
@@ -563,17 +606,44 @@
 			)}
 		>
 			{#if block.image}
-				<img
-					class={cn(
-						'shadow-primary h-[400px] w-full object-cover',
-						(block.imagePosition === 'left' || block.imagePosition === 'right') && 'md:w-1/2',
-						block.imagePosition === 'bottom' ? 'order-2' : 'order-1'
-					)}
-					src={!PUBLIC_BACKEND_URL.includes('https')
-						? `${PUBLIC_BACKEND_URL}${block.image.formats?.['large']?.url || block.image.url}`
-						: block.image.url}
-					alt={block.image.alternativeText}
-				/>
+				{@const imageUrl = getOptimizedImageUrl(block.image)}
+				{#if imageUrl}
+					<img
+						class={cn(
+							'shadow-primary h-[400px] w-full object-cover',
+							(block.imagePosition === 'left' || block.imagePosition === 'right') && 'md:w-1/2',
+							block.imagePosition === 'bottom' ? 'order-2' : 'order-1'
+						)}
+						src={imageUrl}
+						alt={getImageAltText(block.image, block.title)}
+						loading="lazy"
+						onerror={handleImageError}
+					/>
+				{:else}
+					<!-- Fallback for invalid image -->
+					<div
+						class={cn(
+							'bg-muted shadow-primary flex h-[400px] w-full flex-col items-center justify-center',
+							(block.imagePosition === 'left' || block.imagePosition === 'right') && 'md:w-1/2',
+							block.imagePosition === 'bottom' ? 'order-2' : 'order-1'
+						)}
+					>
+						<svg
+							class="text-muted-foreground mb-2 h-12 w-12"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+							/>
+						</svg>
+						<p class="text-muted-foreground text-sm">Image not available</p>
+					</div>
+				{/if}
 			{/if}
 
 			<div class={cn('flex-1', block.imagePosition === 'bottom' ? 'order-1' : 'order-2')}>

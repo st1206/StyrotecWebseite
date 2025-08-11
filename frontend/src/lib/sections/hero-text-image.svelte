@@ -1,9 +1,9 @@
 <script lang="ts">
-    import { PUBLIC_BACKEND_URL } from '$env/static/public';
-    import type { ImageAsset } from '$lib/cmsTypes/image-type';
-    import BlurFade from '$lib/components/blur-fade.svelte';
-    import { SafeData } from '$lib/validation';
-    import { getOptimizedImageUrl, getImageAltText, handleImageError } from '$lib/image';
+	import { PUBLIC_BACKEND_URL } from '$env/static/public';
+	import type { ImageAsset } from '$lib/cmsTypes/image-type';
+	import BlurFade from '$lib/components/blur-fade.svelte';
+	import { SafeData } from '$lib/validation';
+	import { getOptimizedImageUrl, getImageAltText, handleImageError } from '$lib/image';
 
 	let data: {
 		title?: string;
@@ -19,9 +19,9 @@
 	const title = safe.getString('title', 'Untitled Section');
 	const subtitle = safe.getString('subtitle');
 	const content = safe.getString('content', 'No content available.');
-    const imageAlt = getImageAltText(data.image, 'Hero image');
+	const imageAlt = getImageAltText(data.image, 'Hero image');
 
-    const optimizedImageUrl = getOptimizedImageUrl(data.image);
+	const optimizedImageUrl = getOptimizedImageUrl(data.image);
 </script>
 
 <BlurFade once={true} delay={0.1} duration={0.3}>
@@ -50,9 +50,9 @@
 			</div>
 		</div>
 
-		<!-- Image section with robust error handling -->
-		<div class="flex items-center justify-center">
-			{#if optimizedImageUrl}
+		{#if optimizedImageUrl}
+			<!-- Image section with robust error handling -->
+			<div class="flex items-center justify-center">
 				<img
 					src={optimizedImageUrl}
 					alt={imageAlt}
@@ -79,27 +79,7 @@
 					</svg>
 					<p class="text-muted-foreground text-sm">Image not available</p>
 				</div>
-			{:else}
-				<!-- No image provided -->
-				<div
-					class="border-muted-foreground/20 bg-muted/50 shadow-primary mx-auto flex h-[300px] w-auto flex-col items-center justify-center rounded-lg border-2 border-dashed lg:h-[330px] xl:h-[400px]"
-				>
-					<svg
-						class="text-muted-foreground mb-2 h-16 w-16"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-						/>
-					</svg>
-					<p class="text-muted-foreground text-sm">No image provided</p>
-				</div>
-			{/if}
-		</div>
+			</div>
+		{/if}
 	</section>
 </BlurFade>

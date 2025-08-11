@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { _ } from 'svelte-i18n';
-	import { Button } from './ui/button';
 
 	interface Props {
 		fallback?: string;
@@ -41,11 +40,6 @@
 			window.removeEventListener('unhandledrejection', handleUnhandledRejection);
 		};
 	});
-
-	function retry() {
-		hasError = false;
-		error = null;
-	}
 </script>
 
 {#if hasError}
@@ -78,17 +72,12 @@
 				>
 					{$_('error.showDetails', { default: 'Show technical details' })}
 				</summary>
-				<pre
-					class="bg-muted text-muted-foreground mt-2 overflow-auto rounded p-2 text-xs">{error.message}
-{error.stack}</pre>
+				<pre class="bg-muted text-muted-foreground mt-2 overflow-auto rounded p-2 text-xs">
+					{error.message}
+					{error.stack}
+				</pre>
 			</details>
 		{/if}
-
-		<div class="w-full">
-			<Button onclick={retry} size="sm" class="mx-auto">
-				{$_('error.retry', { default: 'Try again' })}
-			</Button>
-		</div>
 	</div>
 {:else}
 	{@render children()}
