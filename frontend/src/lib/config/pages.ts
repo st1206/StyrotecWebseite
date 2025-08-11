@@ -33,7 +33,8 @@ import type {
 	ApiShredderPageShredderPage,
 	ApiPressesPagePressesPage,
 	ApiRawMaterialPageRawMaterialPage,
-	ApiAdhesivePageAdhesivePage
+	ApiAdhesivePageAdhesivePage,
+	ApiCareerCareer
 } from '$lib/cmsTypes/contentTypes';
 import { buildPopulateQuery } from './apiParamsBuilder';
 
@@ -74,6 +75,7 @@ export interface CMSTypeMap {
 	machineMarketingPage: ApiMachineMarketingPageMachineMarketingPage;
 	legalNotice: ApiLegalNoticePageLegalNoticePage;
 	newsPage: ApiNewsPageNewsPage;
+	career: ApiCareerCareer;
 }
 
 // Define the supported languages
@@ -134,7 +136,8 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'heroTextImage' },
 			{ sectionKey: 'uspList' },
 			{ sectionKey: 'exploreMore' },
-			{ sectionKey: 'contactForm' }
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
 		]
 	},
 	metals: {
@@ -144,6 +147,7 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'metals-page',
 		sections: [
 			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'exploreVariants' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
@@ -168,6 +172,7 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'styrofoam-page',
 		sections: [
 			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'exploreVariants' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
@@ -196,6 +201,7 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'milling-tools-page',
 		sections: [
 			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]
@@ -208,6 +214,7 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'hollow-milling-spindle-page',
 		sections: [
 			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'exploreVariants' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]
@@ -220,6 +227,7 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'suction-system-page',
 		sections: [
 			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'exploreVariants' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]
@@ -232,6 +240,7 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'shredder-page',
 		sections: [
 			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]
@@ -244,6 +253,7 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'styrofoam-page',
 		sections: [
 			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'exploreVariants' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
@@ -257,6 +267,7 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'raw-material-page',
 		sections: [
 			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]
@@ -269,6 +280,7 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'adhesive-page',
 		sections: [
 			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]
@@ -304,7 +316,8 @@ const pagesConfig: Record<string, PageContent> = {
 			{
 				sectionKey: 'optionBlocks'
 			},
-			{ sectionKey: 'contactForm' }
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
 		]
 	},
 
@@ -323,7 +336,8 @@ const pagesConfig: Record<string, PageContent> = {
 			{
 				sectionKey: 'optionBlocks'
 			},
-			{ sectionKey: 'contactForm' }
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
 		]
 	},
 
@@ -342,7 +356,8 @@ const pagesConfig: Record<string, PageContent> = {
 			{
 				sectionKey: 'optionBlocks'
 			},
-			{ sectionKey: 'contactForm' }
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
 		]
 	},
 
@@ -356,12 +371,11 @@ const pagesConfig: Record<string, PageContent> = {
 				sectionKey: 'heroDualImage'
 			},
 			{
-				sectionKey: 'exploreVariants'
+				sectionKey: 'defaultContent'
 			},
-			{
-				sectionKey: 'optionBlocks'
+			{ 
+				sectionKey: 'contactForm' 
 			},
-			{ sectionKey: 'contactForm' },
 			{
 				sectionKey: 'seo'
 			}
@@ -397,7 +411,8 @@ const pagesConfig: Record<string, PageContent> = {
 			},
 			{
 				sectionKey: 'defaultCards'
-			}
+			},
+			{ sectionKey: 'seo' }
 		]
 	},
 
@@ -418,7 +433,8 @@ const pagesConfig: Record<string, PageContent> = {
 			},
 			{
 				sectionKey: 'defaultCardsTwo'
-			}
+			},
+			{ sectionKey: 'seo' }
 		]
 	},
 
@@ -434,7 +450,8 @@ const pagesConfig: Record<string, PageContent> = {
 			{
 				sectionKey: 'exploreMore'
 			},
-			{ sectionKey: 'contactForm' }
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
 		]
 	},
 
@@ -628,8 +645,11 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'uspListOne' },
 			{ sectionKey: 'history' },
 			{ sectionKey: 'pageHeaderTwo' },
+			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'pageHeaderThree' },
+			{ sectionKey: 'defaultContentOne' },
 			{ sectionKey: 'pageHeaderFour' },
+			{ sectionKey: 'defaultContentTwo' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]
@@ -645,7 +665,9 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'heroTextImage' },
 			{ sectionKey: 'uspList' },
 			{ sectionKey: 'pageHeader' },
+			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'pageHeaderTwo' },
+			{ sectionKey: 'defaultContentOne' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]
@@ -661,8 +683,11 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'heroTextImage' },
 			{ sectionKey: 'uspList' },
 			{ sectionKey: 'pageHeader' },
+			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'pageHeaderTwo' },
+			{ sectionKey: 'defaultContentOne' },
 			{ sectionKey: 'pageHeaderThree' },
+			{ sectionKey: 'defaultContentTwo' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]
@@ -675,6 +700,9 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'news-page',
 		sections: [
 			{
+				sectionKey: 'heroCarousel'
+			},
+			{
 				sectionKey: 'pageHeader'
 			},
 			{
@@ -686,12 +714,26 @@ const pagesConfig: Record<string, PageContent> = {
 			{
 				sectionKey: 'collectionTypeCardsTwo'
 			},
+			{ sectionKey: 'seo' }
+		]
+	},
+
+	career: {
+		deSlug: 'unternehmen/karriere',
+		enSlug: 'company/career',
+		cmsTypeKey: 'career',
+		cmsApiSlug: 'career',
+		sections: [
 			{
-				sectionKey: 'pageHeaderThree'
+				sectionKey: 'heroCarousel'
 			},
 			{
-				sectionKey: 'collectionTypeTable'
-			}
+				sectionKey: 'collectionTypeCards'
+			},
+			{
+				sectionKey: 'contactForm'
+			},
+			{ sectionKey: 'seo' }
 		]
 	}
 };

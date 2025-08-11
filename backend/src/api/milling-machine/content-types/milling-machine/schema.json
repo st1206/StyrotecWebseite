@@ -1,11 +1,10 @@
 {
-  "kind": "singleType",
-  "collectionName": "news_pages",
+  "kind": "collectionType",
+  "collectionName": "milling_machines",
   "info": {
-    "singularName": "news-page",
-    "pluralName": "news-pages",
-    "displayName": "News Seite",
-    "description": ""
+    "singularName": "milling-machine",
+    "pluralName": "milling-machines",
+    "displayName": "Fräsmaschinen"
   },
   "options": {
     "draftAndPublish": true
@@ -16,7 +15,7 @@
     }
   },
   "attributes": {
-    "pageHeaderTwo": {
+    "productDataSheet": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
@@ -24,61 +23,68 @@
           "localized": true
         }
       },
-      "component": "page-components.page-header",
+      "component": "partial-components.product-data-sheet",
       "required": true
     },
-    "collectionTypeCardsTwo": {
-      "type": "component",
-      "repeatable": false,
+    "machineSerialNumber": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "page-components.collection-type-cards"
-    },
-    "pageHeader": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "page-components.page-header",
+      "type": "string",
       "required": true
     },
-    "collectionTypeCards": {
-      "type": "component",
-      "repeatable": false,
+    "tableHeight": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "page-components.collection-type-cards",
+      "type": "string",
       "required": true
     },
-    "seo": {
-      "type": "component",
-      "repeatable": false,
+    "tableSize": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "page-components.seo",
+      "type": "string",
       "required": true
     },
-    "heroCarousel": {
-      "type": "component",
-      "repeatable": false,
+    "description": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "page-components.hero-carousel",
+      "type": "blocks",
+      "required": true
+    },
+    "slug": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "uid",
+      "required": true
+    },
+    "pictures": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "required": true
     }
   }

@@ -57,6 +57,7 @@ export const sectionMap = {
 	defaultContent: DefaultContent,
 	defaultContentOne: DefaultContent,
 	defaultContentTwo: DefaultContent,
+	defaultContentThree: DefaultContent,
 	heroMedia: heroMedia,
 	heroMediaOne: heroMedia,
 	heroMediaTwo: heroMedia,
