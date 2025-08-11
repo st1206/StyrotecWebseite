@@ -1,7 +1,7 @@
 import { error, fail, type Actions } from '@sveltejs/kit';
 import type { AttributesOf } from '$lib/cmsTypes/types';
 import { pages, type CMSTypeMap, type Lang, type SlugKey } from '$lib/config/pages';
-import { loadCMSData } from '$lib/server/utils';
+import { loadCMSData, loadCMSDataSafe, CMSFetchError } from '$lib/server/utils';
 import { contactFormSchema } from '$lib/models/contact-form-schema';
 import { zod } from 'sveltekit-superforms/adapters';
 import { superValidate } from 'sveltekit-superforms';
@@ -27,18 +27,28 @@ function getCMSDataForCollection<T>(
 
 async function processCollectionType(collectionData: any, lang: string) {
 	if (!collectionData || !collectionData.collectionApiSlug) {
-		// Handle cases where collectionData is missing or malformed
-		// You might want to log a warning or throw an error here
 		console.warn('Missing collectionApiSlug for collection type.', collectionData);
-		return null; // Or return original collectionData, depending on desired behavior
+		return null;
 	}
 
-	const type = collectionData.type || 'defaultCards';
-	const fetchedData = await getCMSDataForCollection(
-		{ cmsApiSlug: collectionData.collectionApiSlug },
-		lang
-	);
-	return { ...fetchedData, type };
+	try {
+		const type = collectionData.type || 'defaultCards';
+		const fetchedData = await getCMSDataForCollection(
+			{ cmsApiSlug: collectionData.collectionApiSlug },
+			lang
+		);
+		return { ...fetchedData, type };
+	} catch (err) {
+		console.error(
+			`Failed to process collection type for ${collectionData.collectionApiSlug}:`,
+			err
+		);
+		// Return a fallback structure to prevent page crashes
+		return {
+			type: collectionData.type || 'defaultCards',
+			error: err instanceof CMSFetchError ? err.message : 'Failed to load collection data'
+		};
+	}
 }
 
 export const load = async <L extends Lang>({ params }: { params: { lang: L; slugs?: string } }) => {
@@ -56,33 +66,45 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 
 	if (matchedPage) {
 		// --- REGULAR / LISTING PAGE LOGIC ---
-		cmsData = await getCMSDataForPage(matchedPage, lang);
+		try {
+			cmsData = await getCMSDataForPage(matchedPage, lang);
 
-		// Define an array of keys to check for collection types
-		const collectionTypeKeys = [
-			'collectionTypeCards',
-			'collectionTypeCardsTwo',
-			'collectionTypeCardsThree'
-		];
+			// Define an array of keys to check for collection types
+			const collectionTypeKeys = [
+				'collectionTypeCards',
+				'collectionTypeCardsTwo',
+				'collectionTypeCardsThree'
+			];
 
-		// Use Promise.all to fetch all collections in parallel if multiple exist
-		const collectionPromises = collectionTypeKeys.map(async (key) => {
-			if (cmsData[key]) {
-				// Await the processing of each collection type
-				return { key, data: await processCollectionType(cmsData[key], lang) };
+			// Use Promise.all to fetch all collections in parallel if multiple exist
+			const collectionPromises = collectionTypeKeys.map(async (key) => {
+				if (cmsData[key]) {
+					// Await the processing of each collection type
+					return { key, data: await processCollectionType(cmsData[key], lang) };
+				}
+				return { key, data: undefined }; // Return undefined if the key doesn't exist
+			});
+
+			// Wait for all collection promises to resolve
+			const results = await Promise.all(collectionPromises);
+
+			// Update cmsData with the processed collection data
+			results.forEach(({ key, data }) => {
+				if (data) {
+					cmsData[key] = data;
+				}
+			});
+		} catch (err) {
+			console.error(`Failed to load CMS data for page ${matchedPage.cmsApiSlug}:`, err);
+
+			// For critical page data, we still throw the error
+			if (err instanceof CMSFetchError && err.statusCode < 500) {
+				throw err;
 			}
-			return { key, data: undefined }; // Return undefined if the key doesn't exist
-		});
 
-		// Wait for all collection promises to resolve
-		const results = await Promise.all(collectionPromises);
-
-		// Update cmsData with the processed collection data
-		results.forEach(({ key, data }) => {
-			if (data) {
-				cmsData[key] = data;
-			}
-		});
+			// For server errors, provide a fallback
+			error(503, 'Content temporarily unavailable. Please try again later.');
+		}
 	} else {
 		// --- DETAIL PAGE LOGIC (FALLBACK) ---
 		// If no direct match, assume it's a detail page (e.g., .../category/item-slug)
@@ -120,37 +142,51 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 		}
 
 		// 4. Fetch data for the template page (the shell/layout)
-		cmsData = await getCMSDataForPage(detailPageTemplate, lang);
-		console.log(cmsData);
+		try {
+			cmsData = await getCMSDataForPage(detailPageTemplate, lang);
+			console.log(cmsData);
 
-		// 5. Use the category page's enSlug to get the collection API slug
-		const collectionApiSlug = categoryPage.enSlug.split('/').pop();
-		if (!collectionApiSlug) {
-			console.error(`Could not determine collection API slug from: ${categoryPage.enSlug}`);
-			error(500, 'Server configuration error');
-		}
+			// 5. Use the category page's enSlug to get the collection API slug
+			const collectionApiSlug = categoryPage.enSlug.split('/').pop();
+			if (!collectionApiSlug) {
+				console.error(`Could not determine collection API slug from: ${categoryPage.enSlug}`);
+				error(500, 'Server configuration error');
+			}
 
-		// 6. Fetch the specific item from the collection
-		const collectionItems = await getCMSDataForCollection(
-			{
-				cmsApiSlug: collectionApiSlug,
-				cmsApiParams: `filters[slug][$eq]=${id}&populate=${'productDataSheet'}&populate=pictures&populate=contactPerson.picture&populate=contactPerson.contactPicture`
-			},
-			lang
-		);
-
-		if (!collectionItems.length) {
-			console.error(
-				`Detail entry with slug '${id}' not found in collection '${collectionApiSlug}'`
+			// 6. Fetch the specific item from the collection
+			const collectionItems = await getCMSDataForCollection(
+				{
+					cmsApiSlug: collectionApiSlug,
+					cmsApiParams: `filters[slug][$eq]=${id}&populate=${'productDataSheet'}&populate=pictures&populate=contactPerson.picture&populate=contactPerson.contactPicture`
+				},
+				lang
 			);
-			error(404, 'Detail entry not found');
-		}
 
-		// 7. Merge the specific item data into the page's CMS data
-		cmsData = {
-			...cmsData,
-			[cmsData.componentKey]: collectionItems[0]
-		};
+			if (!collectionItems.length) {
+				console.error(
+					`Detail entry with slug '${id}' not found in collection '${collectionApiSlug}'`
+				);
+				error(404, 'Detail entry not found');
+			}
+
+			// 7. Merge the specific item data into the page's CMS data
+			cmsData = {
+				...cmsData,
+				[cmsData.componentKey]: collectionItems[0]
+			};
+		} catch (err) {
+			console.error(`Failed to load detail page data for ${id}:`, err);
+
+			if (err instanceof CMSFetchError) {
+				if (err.statusCode === 404) {
+					error(404, 'Content not found');
+				} else if (err.statusCode < 500) {
+					throw err;
+				}
+			}
+
+			error(503, 'Content temporarily unavailable. Please try again later.');
+		}
 
 		// The matched page for the final return is the template
 		matchedPage = detailPageTemplate;

@@ -13,6 +13,8 @@
 	import type { Employee } from '$lib/models/employee';
 	import { Icons } from '$lib/assets/icons';
 	import { locale } from 'svelte-i18n';
+	import { SafeData } from '$lib/validation';
+	import { handleImageError, optimizeImageUrl } from '$lib/image';
 
 	let data: {
 		contactForm: any;
@@ -25,12 +27,61 @@
 
 	const { form: formData, enhance, message, submitting } = form;
 
+	// Safely process employee data
+	const safe = new SafeData(data);
+	const employee = safe.getObject('employee');
+	const employeeSafe = new SafeData(employee);
+
+	const processedEmployee = employee
+		? {
+				name: employeeSafe.getString('name', 'Contact Person'),
+				position: employeeSafe.getString('position', ''),
+				email: employeeSafe.getString('email', 'info@styrotec.de'),
+				contactPicture: employeeSafe.getObject('contactPicture'),
+				picture: employeeSafe.getObject('picture')
+			}
+		: null;
+
+	// Helper function to get employee image URL with fallbacks
+	function getEmployeeImageUrl(): string {
+		if (!processedEmployee) return '';
+
+		const contactPicture = processedEmployee.contactPicture;
+		const fallbackPicture = processedEmployee.picture;
+
+		// Try contact picture first
+		if (contactPicture) {
+			const contactSafe = new SafeData(contactPicture);
+			const formats = contactSafe.getObject('formats', {}) as Record<string, any>;
+			const url = formats.large?.url || formats.medium?.url || contactSafe.getString('url');
+			if (url) {
+				return optimizeImageUrl(url, PUBLIC_BACKEND_URL);
+			}
+		}
+
+		// Fallback to regular picture
+		if (fallbackPicture) {
+			const pictureSafe = new SafeData(fallbackPicture);
+			const formats = pictureSafe.getObject('formats', {}) as Record<string, any>;
+			const url = formats.large?.url || formats.medium?.url || pictureSafe.getString('url');
+			if (url) {
+				return optimizeImageUrl(url, PUBLIC_BACKEND_URL);
+			}
+		}
+		return '';
+	}
+
+	const employeeImageUrl = getEmployeeImageUrl();
+	const hasValidEmployee = processedEmployee && (processedEmployee.name || processedEmployee.email);
+
 	onMount(() => {
 		const originUrl = page.url.pathname;
+		const contactEmail = processedEmployee?.email || 'info@styrotec.de';
+
 		formData.set({
 			...$formData,
 			originUrl,
-			mailToContactPerson: data.employee ? data.employee.email : 'info@styrotec.de'
+			mailToContactPerson: contactEmail
 		});
 	});
 </script>
@@ -47,22 +98,74 @@
 				{$_('yourContact')}
 			</h5>
 
-			{#if data.employee && data.employee.contactPicture}
+			{#if hasValidEmployee}
 				<div class="bg-secondary/10 col-span-1 mb-8 flex h-max flex-col md:col-span-2 md:mb-0">
-					<img
-						class="h-[316px] object-cover object-top"
-						src={!PUBLIC_BACKEND_URL.includes('https')
-							? `${PUBLIC_BACKEND_URL}${data.employee.contactPicture.formats?.['large']?.url || data.employee.picture.url}`
-							: data.employee.contactPicture.url}
-						alt={data.employee.name}
-					/>
+					{#if employeeImageUrl}
+						<!-- Employee image with fallback -->
+						<img
+							class="h-[316px] object-cover object-top"
+							src={employeeImageUrl}
+							alt={processedEmployee.name}
+							style="display: block;"
+							onerror={handleImageError}
+							loading="lazy"
+						/>
+
+						<!-- Fallback for broken employee image -->
+						<div
+							class="bg-secondary/20 text-muted-foreground flex h-[316px] flex-col items-center justify-center"
+							style="display: none;"
+						>
+							<Icons.user class="mb-4 size-16 opacity-50" />
+							<p class="text-sm font-medium">{processedEmployee.name}</p>
+							<p class="mt-1 text-xs opacity-75">
+								{$_('common.imageNotAvailable') || 'Image not available'}
+							</p>
+						</div>
+					{:else}
+						<!-- No image available - show placeholder -->
+						<div
+							class="bg-secondary/20 text-muted-foreground flex h-[316px] flex-col items-center justify-center"
+						>
+							<Icons.user class="mb-4 size-16 opacity-50" />
+							<p class="text-sm font-medium">{processedEmployee.name}</p>
+							<p class="mt-1 text-xs opacity-75">
+								{$_('contact.noImageAvailable') || 'No image available'}
+							</p>
+						</div>
+					{/if}
+
 					<div class="p-4">
-						<h3 class="text-primary text-sm">{data.employee.position}</h3>
-						<h2 class="font-sans text-3xl font-bold lg:text-4xl">{data.employee.name}</h2>
+						{#if processedEmployee.position}
+							<h3 class="text-primary text-sm">{processedEmployee.position}</h3>
+						{/if}
+						<h2 class="font-sans text-3xl font-bold lg:text-4xl">{processedEmployee.name}</h2>
 						<!-- <div class="mt-1 flex items-center gap-1 text-sm">
 							<Icons.mail class="size-3" />
-							<h3>{data.employee.email}</h3>
+							<h3>{processedEmployee.email}</h3>
 						</div> -->
+					</div>
+				</div>
+			{:else}
+				<!-- No employee data - show generic contact -->
+				<div class="bg-secondary/10 col-span-1 mb-8 flex h-max flex-col md:col-span-2 md:mb-0">
+					<div
+						class="bg-secondary/20 text-muted-foreground flex h-[316px] flex-col items-center justify-center"
+					>
+						<Icons.mail class="mb-4 size-16 opacity-50" />
+						<p class="text-sm font-medium">
+							{$_('contact.generalContact') || 'General Contact'}
+						</p>
+						<p class="mt-1 text-xs opacity-75">info@styrotec.de</p>
+					</div>
+
+					<div class="p-4">
+						<h3 class="text-primary text-sm">
+							{$_('contact.contactTeam') || 'Contact Team'}
+						</h3>
+						<h2 class="font-sans text-3xl font-bold lg:text-4xl">
+							{$_('contact.getInTouch') || 'Get in Touch'}
+						</h2>
 					</div>
 				</div>
 			{/if}

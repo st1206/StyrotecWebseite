@@ -37,6 +37,7 @@ import type {
 	ApiCareerCareer
 } from '$lib/cmsTypes/contentTypes';
 import { buildPopulateQuery } from './apiParamsBuilder';
+import type { TypedSectionConfig } from '$lib/types/sections';
 
 // The mapping interface uses keys that match your cmsTypeKey values.
 export interface CMSTypeMap {
@@ -91,9 +92,19 @@ export type PageContent = {
 	cmsTypeKey: keyof CMSTypeMap;
 	cmsApiSlug: string;
 	cmsApiParams?: string;
+	sections: Array<TypedSectionConfig>;
+};
+
+// Legacy support for existing code
+export type LegacyPageContent = {
+	deSlug: string;
+	enSlug: string;
+	cmsTypeKey: keyof CMSTypeMap;
+	cmsApiSlug: string;
+	cmsApiParams?: string;
 	sections: Array<{
 		sectionKey: string;
-		props?: Record<string, any>; // eslint-disable-line
+		props?: Record<string, any>;
 	}>;
 };
 
@@ -373,8 +384,8 @@ const pagesConfig: Record<string, PageContent> = {
 			{
 				sectionKey: 'defaultContent'
 			},
-			{ 
-				sectionKey: 'contactForm' 
+			{
+				sectionKey: 'contactForm'
 			},
 			{
 				sectionKey: 'seo'

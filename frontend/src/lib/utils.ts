@@ -7,6 +7,15 @@ import { locale } from 'svelte-i18n';
 import { get } from 'svelte/store';
 import { error } from '@sveltejs/kit';
 
+export function handleImageError(event: Event) {
+	const img = event.currentTarget as HTMLImageElement | null;
+	const sibling = img?.nextElementSibling as HTMLElement | null;
+	if (img && sibling) {
+		img.style.display = 'none';
+		sibling.style.display = 'flex';
+	}
+}
+
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
 }

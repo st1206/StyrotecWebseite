@@ -10,6 +10,11 @@
 	import { page } from '$app/state';
 	import type { ImageAsset } from '$lib/cmsTypes/image-type';
 	import { Lightbox } from 'svelte-lightbox';
+	import { SafeData } from '$lib/validation';
+	import { getOptimizedImageUrl, handleImageError, getImageAltText } from '$lib/image';
+
+	type TableRow = { rowLabel?: string; rowValue?: string };
+	type TableColumn = { columnLabel?: string; tableRows: TableRow[] };
 
 	// --- TYPES ---
 	type ContentHeader = {
@@ -99,16 +104,26 @@
 		updateOverlayHeights();
 	});
 
-	const snapshot = $state.snapshot(data);
+	const snapshot: { [key: number]: ComponentData } = $state.snapshot(data);
 	const sortedBlocks: ComponentData[] = $derived.by(() => {
-		return Object.values(snapshot).sort((a, b) => {
+		const componentData = Object.values(snapshot);
+		if (!componentData.length) {
+			return [];
+		}
+
+		return componentData.sort((a, b) => {
 			const orderA = a.sortOrder ?? 0;
 			const orderB = b.sortOrder ?? 0;
 			return orderA - orderB;
 		});
 	});
 
-	const isDarkMode = $derived((Object.values(snapshot)[0] as ContentHeader)?.isDarkMode || false);
+	// <!-- DARKMODE REWORK NEEDED -->
+	// const isDarkMode = $derived(() => {
+	// 	const firstBlock = sortedBlocks[0] as ContentHeader;
+	// 	return firstBlock?.isDarkMode || false;
+	// });
+	const isDarkMode = true;
 </script>
 
 {#if isDarkMode}
@@ -117,35 +132,50 @@
 	></div>
 {/if}
 
-<section class={cn(isDarkMode ? 'bg-foreground' : '', 'w-full pb-16')}>
+<section class={cn(true ? 'bg-foreground' : '', 'w-full pb-16')}>
 	<div class="sm:container">
-		{#if sortedBlocks?.length}
+		{#if sortedBlocks?.length > 0}
 			{#each sortedBlocks as block, i}
 				{#if block.__component === 'partial-components.content-header'}
 					{@const componentData = block as ContentHeader}
 					{@render HeaderTemplate(componentData)}
-				{/if}
-
-				{#if block.__component === 'partial-components.content-table'}
+				{:else if block.__component === 'partial-components.content-table'}
 					{@const componentData = block as ContentTable}
 					{@render TableTemplate(componentData)}
-				{/if}
-
-				{#if block.__component === 'partial-components.content-accordion'}
+				{:else if block.__component === 'partial-components.content-accordion'}
 					{@const componentData = block as ContentAccordion}
 					{@render AccordionTemplate(componentData)}
-				{/if}
-
-				{#if block.__component === 'partial-components.content-images'}
+				{:else if block.__component === 'partial-components.content-images'}
 					{@const componentData = block as ContentImages}
 					{@render ImagesTemplate(componentData)}
-				{/if}
-
-				{#if block.__component === 'partial-components.content-text-image'}
+				{:else if block.__component === 'partial-components.content-text-image'}
 					{@const componentData = block as ContentTextImage}
 					{@render TextImageTemplate(componentData)}
 				{/if}
 			{/each}
+		{:else}
+			<!-- No content blocks available -->
+			<div class="py-16 text-center">
+				<div class="bg-muted mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-lg">
+					<svg
+						class="text-muted-foreground h-8 w-8"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="currentColor"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+						/>
+					</svg>
+				</div>
+				<h3 class="text-muted-foreground mb-2 text-lg font-semibold">No content available</h3>
+				<p class="text-muted-foreground text-sm">
+					No content blocks were provided for this section
+				</p>
+			</div>
 		{/if}
 	</div>
 </section>
@@ -157,88 +187,186 @@
 {/if}
 
 {#snippet HeaderTemplate(block: ContentHeader)}
+	{@const safe = new SafeData(block)}
+	{@const title = safe.getString('sectionTitle', 'Untitled Section')}
+	{@const description = safe.getString('description')}
+
 	<div class={cn(isDarkMode ? 'pt-16' : 'pt-32', 'flex flex-col items-center gap-2')}>
 		<h3
 			class={cn(isDarkMode ? 'text-secondary' : 'text-foreground', 'font-sans text-4xl font-bold')}
 		>
-			{block.sectionTitle}
+			{title}
 		</h3>
-		<p
-			class={cn(
-				isDarkMode ? 'text-secondary' : 'text-foreground',
-				'prose prose-neutral lg:prose-lg max-w-5xl text-justify'
-			)}
-		>
-			{@html block.description}
-		</p>
+		{#if description}
+			<div
+				class={cn(
+					isDarkMode ? 'text-secondary' : 'text-foreground',
+					'prose prose-neutral lg:prose-lg max-w-5xl text-justify'
+				)}
+			>
+				{#if description.includes('<')}
+					{@html description}
+				{:else}
+					<p>{description}</p>
+				{/if}
+			</div>
+		{/if}
 	</div>
 {/snippet}
 
 {#snippet TableTemplate(block: ContentTable)}
-	{#each block.tables as table}
-		<div class="lg: mx-auto my-16 mt-24 h-full w-full text-center">
-			{#if table.title}
-				<h4
-					class={cn(
-						isDarkMode ? 'text-secondary' : 'text-foreground',
-						'my-4 font-sans text-2xl font-bold'
-					)}
-				>
-					{table.title}
-				</h4>
-			{/if}
-			<Table.Root>
-				<Table.Header>
-					<Table.Row
+	{@const safe = new SafeData(block)}
+	{@const blockTitle = safe.getString('title')}
+	{@const tables = safe.getArray('tables', [])}
+	{@const validTables = tables.filter((table: any) => table && typeof table === 'object')}
+
+	{#if validTables.length > 0}
+		{#each validTables as table}
+			{@const tableSafe = new SafeData(table)}
+			{@const tableTitle = tableSafe.getString('title')}
+			{@const tableColumns = tableSafe.getArray<TableColumn>('tableColumns', [])}
+			{@const validColumns = tableColumns.filter(
+				(col: any) => col && typeof col === 'object' && 'columnLabel' in col
+			)}
+
+			<div class="mx-auto my-16 mt-24 h-full w-full text-center">
+				{#if blockTitle && !tableTitle}
+					<h4
 						class={cn(
-							isDarkMode
-								? 'bg-secondary/10 hover:bg-secondary/15'
-								: 'bg-foreground/10 hover:bg-foreground/15',
-							'border-foreground/20'
+							isDarkMode ? 'text-secondary' : 'text-foreground',
+							'my-4 font-sans text-2xl font-bold'
 						)}
 					>
-						<Table.Head class={cn(isDarkMode ? 'text-secondary' : 'text-foreground')}></Table.Head>
-						{#each table.tableColumns as column}
-							<Table.Head
-								class={cn(
-									isDarkMode ? 'text-secondary' : 'text-foreground',
-									'text-center font-sans font-bold'
-								)}
-							>
-								{column.columnLabel}
-							</Table.Head>
-						{/each}
-					</Table.Row>
-				</Table.Header>
-				<Table.Body class={cn(isDarkMode ? 'text-secondary' : 'text-foreground')}>
-					{#each table.tableColumns[0].tableRows as row, idx}
-						<Table.Row
-							class={cn(
-								isDarkMode
-									? 'bg-secondary/5 hover:bg-secondary/20'
-									: 'bg-foreground/5 hover:bg-foreground/20',
-								'border-foreground/20'
-							)}
-						>
-							<Table.Cell
-								class={cn(
-									isDarkMode ? 'bg-secondary/5' : 'bg-foreground/5',
-									'w-[100px] sm:w-[150px]'
-								)}
-							>
-								{row.rowLabel}
-							</Table.Cell>
-							{#each table.tableColumns as column}
-								<Table.Cell class="min-w-[100px] text-center font-medium">
-									{column.tableRows[idx].rowValue}
-								</Table.Cell>
-							{/each}
-						</Table.Row>
-					{/each}
-				</Table.Body>
-			</Table.Root>
+						{blockTitle}
+					</h4>
+				{/if}
+
+				{#if tableTitle}
+					<h4
+						class={cn(
+							isDarkMode ? 'text-secondary' : 'text-foreground',
+							'my-4 font-sans text-2xl font-bold'
+						)}
+					>
+						{tableTitle}
+					</h4>
+				{/if}
+
+				{#if validColumns.length > 0}
+					{@const firstColumn = validColumns[0]}
+					{@const firstColumnSafe = new SafeData(firstColumn)}
+					{@const tableRows = firstColumnSafe.getArray<TableRow>('tableRows', [])}
+					{@const validRows = tableRows.filter((row: any) => row && typeof row === 'object')}
+
+					{#if validRows.length > 0}
+						<Table.Root>
+							<Table.Header>
+								<Table.Row
+									class={cn(
+										isDarkMode
+											? 'bg-secondary/10 hover:bg-secondary/15'
+											: 'bg-foreground/10 hover:bg-foreground/15',
+										'border-foreground/20'
+									)}
+								>
+									<Table.Head class={cn(isDarkMode ? 'text-secondary' : 'text-foreground')}
+									></Table.Head>
+									{#each validColumns as column}
+										{@const columnSafe = new SafeData(column)}
+										{@const columnLabel = columnSafe.getString('columnLabel', 'Column')}
+										<Table.Head
+											class={cn(
+												isDarkMode ? 'text-secondary' : 'text-foreground',
+												'text-center font-sans font-bold'
+											)}
+										>
+											{columnLabel}
+										</Table.Head>
+									{/each}
+								</Table.Row>
+							</Table.Header>
+							<Table.Body class={cn(isDarkMode ? 'text-secondary' : 'text-foreground')}>
+								{#each validRows as row, idx}
+									{@const rowSafe = new SafeData(row)}
+									{@const rowLabel = rowSafe.getString('rowLabel', `Row ${idx + 1}`)}
+
+									<Table.Row
+										class={cn(
+											isDarkMode
+												? 'bg-secondary/5 hover:bg-secondary/20'
+												: 'bg-foreground/5 hover:bg-foreground/20',
+											'border-foreground/20'
+										)}
+									>
+										<Table.Cell
+											class={cn(
+												isDarkMode ? 'bg-secondary/5' : 'bg-foreground/5',
+												'w-[100px] sm:w-[150px]'
+											)}
+										>
+											{rowLabel}
+										</Table.Cell>
+										{#each validColumns as column}
+											{@const columnSafe = new SafeData(column)}
+											{@const columnRows = columnSafe.getArray('tableRows', [])}
+											{@const cellData = columnRows[idx]}
+											{@const cellSafe = new SafeData(cellData)}
+											{@const cellValue = cellSafe.getString('rowValue', '-')}
+
+											<Table.Cell class="min-w-[100px] text-center font-medium">
+												{cellValue}
+											</Table.Cell>
+										{/each}
+									</Table.Row>
+								{/each}
+							</Table.Body>
+						</Table.Root>
+					{:else}
+						<!-- No valid rows -->
+						<div class="py-8 text-center">
+							<p class={cn(isDarkMode ? 'text-secondary/60' : 'text-muted-foreground', 'text-sm')}>
+								No table rows available
+							</p>
+						</div>
+					{/if}
+				{:else}
+					<!-- No valid columns -->
+					<div class="py-8 text-center">
+						<p class={cn(isDarkMode ? 'text-secondary/60' : 'text-muted-foreground', 'text-sm')}>
+							No table columns available
+						</p>
+					</div>
+				{/if}
+			</div>
+		{/each}
+	{:else}
+		<!-- No valid tables -->
+		<div class="py-12 text-center">
+			<div class="bg-muted mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-lg">
+				<svg
+					class="text-muted-foreground h-8 w-8"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+					/>
+				</svg>
+			</div>
+			<h4
+				class={cn(isDarkMode ? 'text-secondary' : 'text-foreground', 'mb-2 text-lg font-semibold')}
+			>
+				No tables available
+			</h4>
+			<p class={cn(isDarkMode ? 'text-secondary/60' : 'text-muted-foreground', 'text-sm')}>
+				No table data was provided for this section
+			</p>
 		</div>
-	{/each}
+	{/if}
 {/snippet}
 
 {#snippet AccordionTemplate(block: ContentAccordion)}
@@ -252,8 +380,8 @@
 					<Accordion.Trigger
 						class={cn(
 							isDarkMode
-								? 'text-secondary bg-secondary/10 hover:bg-secondary/15'
-								: 'text-foreground bg-foreground/10 hover:bg-foreground/15',
+								? 'bg-secondary/10 text-secondary hover:bg-secondary/15'
+								: 'bg-foreground/10 text-foreground hover:bg-foreground/15',
 							'font-sans font-medium'
 						)}
 					>
@@ -305,7 +433,7 @@
 											style={`height: ${(innerWidth?.current ?? 0) < 976 ? 'auto' : (overlayHeights[i] ?? 0) - 364 + 'px'}`}
 										>
 											{#if item.subtitle}
-												<h4 class="text-primary text-md mb-1 font-sans font-medium">
+												<h4 class="text-md text-primary mb-1 font-sans font-medium">
 													{item.subtitle}
 												</h4>
 											{/if}
@@ -330,25 +458,98 @@
 {/snippet}
 
 {#snippet ImagesTemplate(block: ContentImages)}
+	{@const safe = new SafeData(block)}
+	{@const title = safe.getString('title')}
+	{@const images = safe.getArray<ImageAsset>('images', [])}
+	{@const validImages = images.filter((img) => img && getOptimizedImageUrl(img))}
+
 	<div class="mx-auto my-16">
-		{#if block.title}
-			<h4 class="my-4 text-center font-sans text-2xl font-bold">{block.title}</h4>
+		{#if title}
+			<h4
+				class={cn(
+					isDarkMode ? 'text-secondary' : 'text-foreground',
+					'my-4 text-center font-sans text-2xl font-bold'
+				)}
+			>
+				{title}
+			</h4>
 		{/if}
-		<div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 xl:gap-8">
-			{#each block.images as image}
-				{#if image}
-					<Lightbox transitionDuration={50}>
-						<img
-							class="shadow-primary h-[400px] w-full object-cover"
-							src={!PUBLIC_BACKEND_URL.includes('https')
-								? `${PUBLIC_BACKEND_URL}${image.formats?.['large']?.url || image.url}`
-								: image.url}
-							alt={image.alternativeText}
+
+		{#if validImages.length > 0}
+			<div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 xl:gap-8">
+				{#each validImages as image, i}
+					{@const imageUrl = getOptimizedImageUrl(image)}
+					{@const imageAlt = getImageAltText(image, `Image ${i + 1}`)}
+
+					<div class="relative">
+						<Lightbox transitionDuration={50}>
+							<img
+								class="shadow-primary h-[400px] w-full object-cover"
+								src={imageUrl}
+								alt={imageAlt}
+								loading="lazy"
+								onerror={handleImageError}
+							/>
+							<!-- Fallback for broken images -->
+							<div
+								class="bg-muted shadow-primary flex h-[400px] w-full flex-col items-center justify-center"
+							>
+								<svg
+									class="text-muted-foreground mb-2 h-12 w-12"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+									/>
+								</svg>
+								<p class="text-muted-foreground text-sm">Image {i + 1} not available</p>
+							</div>
+						</Lightbox>
+					</div>
+				{/each}
+			</div>
+		{:else}
+			<!-- No valid images -->
+			<div class="py-12 text-center">
+				<div class="bg-muted mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-lg">
+					<svg
+						class="text-muted-foreground h-8 w-8"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="currentColor"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
 						/>
-					</Lightbox>
+					</svg>
+				</div>
+				<h4
+					class={cn(
+						isDarkMode ? 'text-secondary' : 'text-foreground',
+						'mb-2 text-lg font-semibold'
+					)}
+				>
+					No images available
+				</h4>
+				{#if images.length > 0}
+					<p class={cn(isDarkMode ? 'text-secondary/60' : 'text-muted-foreground', 'text-sm')}>
+						{images.length} image(s) provided but none could be loaded
+					</p>
+				{:else}
+					<p class={cn(isDarkMode ? 'text-secondary/60' : 'text-muted-foreground', 'text-sm')}>
+						No images were provided for this gallery
+					</p>
 				{/if}
-			{/each}
-		</div>
+			</div>
+		{/if}
 	</div>
 {/snippet}
 

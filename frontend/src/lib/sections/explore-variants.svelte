@@ -1,31 +1,43 @@
 <script lang="ts">
-	import { PUBLIC_BACKEND_URL } from '$env/static/public';
 	import * as Card from '$lib/components/ui/card';
 	import * as Accordion from '$lib/components/ui/accordion';
 	import { ScrollArea } from '$lib/components/ui/scroll-area';
 	import BlurFade from '$lib/components/blur-fade.svelte';
 	import { innerWidth } from 'svelte/reactivity/window';
 	import type { ImageAsset } from '$lib/cmsTypes/image-type';
+	import { SafeData } from '$lib/validation';
+	import { getOptimizedImageUrl, getImageAltText } from '$lib/image';
 
 	let data: {
-		sectionTitle: string;
-		variantCards: {
-			image: ImageAsset;
-			title: string;
-			accordionItems: { title: string; accordionItemLines: { label: string; value: string }[] }[];
+		sectionTitle?: string;
+		variantCards?: {
+			image?: ImageAsset;
+			title?: string;
+			accordionItems?: {
+				title?: string;
+				accordionItemLines?: { label?: string; value?: string }[];
+			}[];
 		}[];
 	} = $props();
+
+	const safe = new SafeData(data);
+	const sectionTitle = safe.getString('sectionTitle');
+	const variants = safe.getArray<any>('variantCards', []).map((v) => ({
+		image: v?.image,
+		title: v?.title || '',
+		accordionItems: Array.isArray(v?.accordionItems) ? v.accordionItems : []
+	}));
 
 	let accordionHeight: number | null = $state(280);
 </script>
 
 <section class="mx-2 mb-32 mt-12 sm:container sm:mx-auto lg:mt-28 xl:my-36">
 	<h2 class="mb-12 text-center font-sans text-3xl font-bold uppercase md:text-4xl">
-		{data.sectionTitle}
+		{sectionTitle}
 	</h2>
 
 	<div class="grid grid-cols-1 justify-center gap-20 md:grid-cols-2 xl:mx-10 xl:grid-cols-1">
-		{#each data.variantCards as variant, i}
+		{#each variants || [] as variant, i}
 			<BlurFade once={true} delay={0.1 + i * 0.1} duration={0.3}>
 				<Card.Root
 					class="bg-foreground 
@@ -45,10 +57,8 @@
 						{#if variant.image}
 							<img
 								class="col-span-2 mx-auto h-[350px] object-contain xl:col-span-2"
-								src={!PUBLIC_BACKEND_URL.includes('https')
-									? `${PUBLIC_BACKEND_URL}${variant.image.formats?.['large']?.url || variant.image.url}`
-									: variant.image.url}
-								alt={variant.image.alternativeText}
+								src={getOptimizedImageUrl(variant.image)}
+								alt={getImageAltText(variant.image, variant.title)}
 							/>
 						{/if}
 						<div class="col-span-2 flex w-full flex-col xl:col-span-3">

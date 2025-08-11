@@ -1,4 +1,11 @@
 {
+	"error": {
+		"title": "Fehler",
+		"retry": "Erneut versuchen",
+		"showDetails": "Technische Details anzeigen",
+		"contentUnavailable": "Inhalt vorübergehend nicht verfügbar. Bitte versuchen Sie es später erneut.",
+		"sectionFailed": "Dieser Bereich konnte nicht geladen werden."
+	},
 	"legal": {
 		"privacyPolicy": "Datenschutz",
 		"legalNotice": "Impressum",

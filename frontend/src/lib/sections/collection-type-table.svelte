@@ -4,7 +4,6 @@
 	import { PUBLIC_BACKEND_URL } from '$env/static/public';
 
 	// --- TYPES from DefaultContent ---
-	// We only need the types for the components we are creating.
 	type ContentHeader = {
 		__component: 'partial-components.content-header';
 		sectionTitle: string;
@@ -78,25 +77,23 @@
 
 		const fileColumnRows = sortedEntries.map((entry) => {
 			const fileUrl = entry.file?.url ?? '';
-			// Construct absolute URL if it's a relative path
 			const fullUrl =
 				!PUBLIC_BACKEND_URL.includes('https') && fileUrl
 					? `${PUBLIC_BACKEND_URL}${fileUrl}`
 					: fileUrl;
 			return {
 				rowLabel: entry.title,
-				// This will be rendered as plain text by the provided TableTemplate
 				rowValue: fullUrl
 			};
 		});
 
 		const table: ContentTable = {
 			__component: 'partial-components.content-table',
-			title: '', // Section title is already in the header
+			title: '',
 			sortOrder: 2,
 			tables: [
 				{
-					title: '', // No individual table title needed
+					title: '',
 					tableColumns: [
 						{
 							columnLabel: $_('downloads.columns.description') || 'Description',

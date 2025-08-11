@@ -21,7 +21,7 @@ export interface ImageAsset {
 	caption: string | null;
 	width: number;
 	height: number;
-	formats: Record<string, ImageFormat>;
+	formats: Record<'small' | 'medium' | 'large' | 'thumbnail', ImageFormat> | null;
 	hash: string;
 	ext: string;
 	mime: string;

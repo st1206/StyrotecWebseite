@@ -1,26 +1,40 @@
 <script lang="ts">
 	import { onMount, tick } from 'svelte';
-	import { PUBLIC_BACKEND_URL } from '$env/static/public';
 	import { Button } from '$lib/components/ui/button';
 	import * as Card from '$lib/components/ui/card';
 	import { page } from '$app/state';
 	import BlurFade from '$lib/components/blur-fade.svelte';
 	import { cn, getRedirectLink } from '$lib/utils';
 	import type { ImageAsset } from '$lib/cmsTypes/image-type';
+	import { SafeData } from '$lib/validation';
+	import { getOptimizedImageUrl, getImageAltText } from '$lib/image';
 
 	let data: {
-		sectionTitle: string;
-		description: string;
-		previewCards: {
-			title: string;
-			subtitle: string;
-			content: string;
-			ctaText: string;
-			redirectSlug: string;
-			isImageTransparent: boolean;
-			thumbnail: ImageAsset;
+		sectionTitle?: string;
+		description?: string;
+		previewCards?: {
+			title?: string;
+			subtitle?: string;
+			content?: string;
+			ctaText?: string;
+			redirectSlug?: string;
+			isImageTransparent?: boolean;
+			thumbnail?: ImageAsset;
 		}[];
 	} = $props();
+
+	const safe = new SafeData(data);
+	const sectionTitle = safe.getString('sectionTitle');
+	const description = safe.getString('description');
+	const previewCards = safe.getArray<any>('previewCards', []).map((c) => ({
+		title: c?.title || '',
+		subtitle: c?.subtitle || '',
+		content: c?.content || '',
+		ctaText: c?.ctaText || '',
+		redirectSlug: c?.redirectSlug || '#',
+		isImageTransparent: Boolean(c?.isImageTransparent),
+		thumbnail: c?.thumbnail
+	}));
 
 	let hoveredIndex: number | null = $state(null);
 	let overlayRefs: Array<HTMLElement | null> = $state([]);
@@ -71,22 +85,22 @@
 </script>
 
 <section class="mb-32 mt-20 px-4 sm:container sm:mx-auto lg:mt-28 xl:my-36">
-	{#if data.sectionTitle}
+	{#if sectionTitle}
 		<!-- Heading -->
 		<div class="mb-16">
 			<h2 class="text-center font-sans text-3xl font-bold uppercase sm:text-4xl">
-				{data.sectionTitle}
+				{sectionTitle}
 			</h2>
 			<p
 				class="prose prose-neutral prose-sm lg:prose-base xl:prose-lg mx-auto mt-2 max-w-5xl text-center"
 			>
-				{@html data.description}
+				{@html description}
 			</p>
 		</div>
 	{/if}
 
 	<div class="grid grid-cols-1 gap-8 lg:grid-cols-2 xl:grid-cols-3">
-		{#each data.previewCards as card, i}
+		{#each previewCards || [] as card, i}
 			<BlurFade once={true} delay={i * 0.1} duration={0.2}>
 				<div
 					class="relative"
@@ -115,10 +129,8 @@
 							>
 								<img
 									class="mx-auto h-full"
-									src={!PUBLIC_BACKEND_URL.includes('https')
-										? `${PUBLIC_BACKEND_URL}${card.thumbnail.formats?.['large']?.url || card.thumbnail.url}`
-										: card.thumbnail.url}
-									alt={card.thumbnail.alternativeText}
+									src={getOptimizedImageUrl(card.thumbnail)}
+									alt={getImageAltText(card.thumbnail, card.title)}
 								/>
 							</div>
 						{/if}
@@ -164,7 +176,7 @@
 							</Card.Content>
 
 							<Card.Footer class="bg-foreground">
-								<Button href={getRedirectLink(card.redirectSlug)}>
+								<Button href={getRedirectLink(card.redirectSlug || '#')}>
 									<span class="h-5 skew-x-[15deg]">{card.ctaText}</span>
 								</Button>
 							</Card.Footer>

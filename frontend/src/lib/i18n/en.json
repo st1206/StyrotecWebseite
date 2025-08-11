@@ -1,4 +1,11 @@
 {
+	"error": {
+		"title": "Error",
+		"retry": "Try again",
+		"showDetails": "Show technical details",
+		"contentUnavailable": "Content temporarily unavailable. Please try again later.",
+		"sectionFailed": "This section could not be loaded."
+	},
 	"legal": {
 		"privacyPolicy": "Privacy Policy",
 		"legalNotice": "Legal Notice",

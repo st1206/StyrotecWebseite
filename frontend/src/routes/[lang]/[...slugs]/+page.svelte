@@ -1,18 +1,13 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { siteData } from '$lib/config/metadata.js';
-	import { sectionMap } from '$lib/sections';
 	import { locale } from 'svelte-i18n';
+	import CMSSection from '$lib/components/cms-section.svelte';
+	import type { SEOSection } from '$lib/types/sections';
 
 	let { data } = $props();
 
-	type SEOObject = {
-		pageTitle: string;
-		pageDescription: string;
-		keywords: string;
-	};
-
-	const seoData: SEOObject = $state(
+	const seoData: SEOSection | undefined = $state(
 		data.pageContent.cmsData['seo' as keyof typeof data.pageContent.cmsData]
 	);
 </script>
@@ -33,16 +28,14 @@
 
 {#if data.pageContent}
 	{#each data.pageContent.sections as section}
-		{@const SectionComponent = sectionMap[section.sectionKey as keyof typeof sectionMap]}
-		{#if SectionComponent}
-			<SectionComponent
-				{...data.pageContent.cmsData[section.sectionKey as keyof typeof data.pageContent.cmsData]}
-				{...section.props}
-				contactForm={data.pageContent.contactFormBuilder}
-			/>
-		{:else if section.sectionKey !== 'seo'}
-			<p>Section {section.sectionKey} not found</p>
-		{/if}
+		<CMSSection
+			sectionKey={section.sectionKey}
+			sectionData={data.pageContent.cmsData[
+				section.sectionKey as keyof typeof data.pageContent.cmsData
+			]}
+			sectionProps={section.props}
+			contactForm={data.pageContent.contactFormBuilder}
+		/>
 	{/each}
 {:else}
 	<p>Page not found</p>

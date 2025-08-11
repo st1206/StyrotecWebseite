@@ -3293,16 +3293,6 @@ export interface ApiNewsPageNewsPage extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
-    collectionTypeTable: Schema.Attribute.Component<
-      'page-components.collection-type-table',
-      false
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -3322,16 +3312,6 @@ export interface ApiNewsPageNewsPage extends Struct.SingleTypeSchema {
       'api::news-page.news-page'
     >;
     pageHeader: Schema.Attribute.Component<
-      'page-components.page-header',
-      false
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    pageHeaderThree: Schema.Attribute.Component<
       'page-components.page-header',
       false
     > &
