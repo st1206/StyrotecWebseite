@@ -1,7 +1,7 @@
 import { error, fail, type Actions } from '@sveltejs/kit';
 import type { AttributesOf } from '$lib/cmsTypes/types';
 import { pages, type CMSTypeMap, type Lang, type SlugKey } from '$lib/config/pages';
-import { loadCMSData, loadCMSDataSafe, CMSFetchError } from '$lib/server/utils';
+import { loadCMSData, CMSFetchError } from '$lib/server/utils';
 import { contactFormSchema } from '$lib/models/contact-form-schema';
 import { zod } from 'sveltekit-superforms/adapters';
 import { superValidate } from 'sveltekit-superforms';

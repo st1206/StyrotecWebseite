@@ -3,12 +3,12 @@
 	import { siteData } from '$lib/config/metadata.js';
 	import { locale } from 'svelte-i18n';
 	import CMSSection from '$lib/components/cms-section.svelte';
-	import type { SEOSection } from '$lib/types/sections';
+	import { type PageData } from './$types';
 
-	let { data } = $props();
+	let props = $props<{ data: PageData }>();
 
-	const seoData: SEOSection | undefined = $state(
-		data.pageContent.cmsData['seo' as keyof typeof data.pageContent.cmsData]
+	const seoData = $derived(
+		props.data.pageContent.cmsData['seo' as keyof typeof props.data.pageContent.cmsData]
 	);
 </script>
 
@@ -26,15 +26,15 @@
 	<meta property="og:locale" content={$locale} />
 </svelte:head>
 
-{#if data.pageContent}
-	{#each data.pageContent.sections as section}
+{#if props.data.pageContent}
+	{#each props.data.pageContent.sections as section}
 		<CMSSection
 			sectionKey={section.sectionKey}
-			sectionData={data.pageContent.cmsData[
-				section.sectionKey as keyof typeof data.pageContent.cmsData
+			sectionData={props.data.pageContent.cmsData[
+				section.sectionKey as keyof typeof props.data.pageContent.cmsData
 			]}
 			sectionProps={section.props}
-			contactForm={data.pageContent.contactFormBuilder}
+			contactForm={props.data.pageContent.contactFormBuilder}
 		/>
 	{/each}
 {:else}
