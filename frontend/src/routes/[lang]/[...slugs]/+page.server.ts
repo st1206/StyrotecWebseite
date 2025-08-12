@@ -6,7 +6,7 @@ import { contactFormSchema } from '$lib/models/contact-form-schema';
 import { zod } from 'sveltekit-superforms/adapters';
 import { superValidate } from 'sveltekit-superforms';
 
-export const prerender = true;
+export const prerender = false;
 
 export async function entries() {
 	const routes = [];
