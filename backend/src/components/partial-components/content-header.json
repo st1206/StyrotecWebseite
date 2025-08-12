@@ -18,6 +18,11 @@
       "type": "boolean",
       "default": false,
       "required": true
+    },
+    "sortOrder": {
+      "type": "integer",
+      "default": 1,
+      "required": true
     }
   }
 }

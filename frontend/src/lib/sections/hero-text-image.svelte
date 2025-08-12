@@ -41,7 +41,7 @@
 					</h3>
 				{/if}
 			</div>
-			<div class="prose prose-sm prose-neutral md:prose-base xl:prose-lg text-justify">
+			<div class="prose prose-sm prose-neutral text-center lg:text-start md:prose-base xl:prose-lg text-justif max-w-none">
 				{#if content.includes('<')}
 					{@html content}
 				{:else}
@@ -52,11 +52,11 @@
 
 		{#if optimizedImageUrl}
 			<!-- Image section with robust error handling -->
-			<div class="flex items-center justify-center">
+			<div class="mx-auto flex w-full max-w-lg items-center justify-center">
 				<img
 					src={optimizedImageUrl}
 					alt={imageAlt}
-					class="shadow-primary mx-auto h-[300px] w-auto object-cover lg:h-[330px] xl:h-[400px]"
+					class="shadow-primary h-[300px] w-full object-cover lg:h-[330px] xl:h-[400px]"
 					loading="lazy"
 					onerror={handleImageError}
 				/>
