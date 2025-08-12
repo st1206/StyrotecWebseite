@@ -28,7 +28,7 @@
 		error = null
 	}: Props = $props();
 
-	const SectionComponent = sectionMap[sectionKey as keyof typeof sectionMap];
+	const SectionComponent = $derived(sectionMap[sectionKey as keyof typeof sectionMap]);
 
 	// Validate section data and get detailed error information
 	let validationResult = $state<ValidationResult | null>(null);
@@ -189,6 +189,11 @@
 	const hasComponent = $derived.by(() =>
 		Boolean(sectionMap[sectionKey as keyof typeof sectionMap])
 	);
+
+	// Create a more efficient key for component re-rendering
+	const componentKey = $derived(
+		`${sectionKey}-${sectionData?.id || sectionData?.title || Date.now()}`
+	);
 </script>
 
 <ErrorBoundary onError={handleSectionError} fallback="This section could not be loaded.">
@@ -282,7 +287,9 @@
 				</div>
 			{/if}
 
-			<SectionComponent {...sectionData} {...sectionProps} {contactForm} />
+			{#key componentKey}
+				<SectionComponent {...sectionData} {...sectionProps} {contactForm} />
+			{/key}
 		{:else if sectionKey !== 'seo'}
 			<div class="rounded-lg border border-muted bg-muted/20 p-4 text-center">
 				<p class="text-sm text-muted-foreground">
