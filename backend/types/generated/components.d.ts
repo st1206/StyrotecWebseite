@@ -305,6 +305,9 @@ export interface PartialComponentsContentImages extends Struct.ComponentSchema {
   attributes: {
     images: Schema.Attribute.Media<'images' | 'files', true> &
       Schema.Attribute.Required;
+    isDarkMode: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
     sortOrder: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<1>;
@@ -319,6 +322,9 @@ export interface PartialComponentsContentTable extends Struct.ComponentSchema {
     displayName: 'contentTable';
   };
   attributes: {
+    isDarkMode: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
     sortOrder: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<1>;
@@ -341,6 +347,9 @@ export interface PartialComponentsContentTextImage
       ['top', 'bottom', 'left', 'right']
     > &
       Schema.Attribute.DefaultTo<'right'>;
+    isDarkMode: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
     sortOrder: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<1>;

@@ -13,12 +13,20 @@
       "type": "media",
       "multiple": true,
       "required": true,
-      "allowedTypes": ["images", "files"]
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
     },
     "sortOrder": {
       "type": "integer",
       "required": true,
       "default": 1
+    },
+    "isDarkMode": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }

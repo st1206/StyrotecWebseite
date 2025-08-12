@@ -1,17 +1,16 @@
 <script lang="ts">
-	import * as Table from '$lib/components/ui/table';
 	import * as Accordion from '$lib/components/ui/accordion';
 	import * as Card from '$lib/components/ui/card';
-	import { cn, resolveRichText, type StrapiRichTextNode } from '$lib/utils';
-	import { PUBLIC_BACKEND_URL } from '$env/static/public';
-	import { innerWidth } from 'svelte/reactivity/window';
-	import { SvelteMap } from 'svelte/reactivity';
-	import { onMount, tick } from 'svelte';
-	import { page } from '$app/state';
+	import * as Table from '$lib/components/ui/table';
 	import type { ImageAsset } from '$lib/cmsTypes/image-type';
-	import { Lightbox } from 'svelte-lightbox';
+	import { page } from '$app/state';
+	import { getImageAltText, getOptimizedImageUrl, handleImageError } from '$lib/image';
 	import { SafeData } from '$lib/validation';
-	import { getOptimizedImageUrl, handleImageError, getImageAltText } from '$lib/image';
+	import { cn, resolveRichText, type StrapiRichTextNode } from '$lib/utils';
+	import { Lightbox } from 'svelte-lightbox';
+	import { onMount, tick } from 'svelte';
+	import { SvelteMap } from 'svelte/reactivity';
+	import { innerWidth } from 'svelte/reactivity/window';
 
 	type TableRow = { rowLabel?: string; rowValue?: string };
 	type TableColumn = { columnLabel?: string; tableRows: TableRow[] };
@@ -21,6 +20,7 @@
 		sectionTitle: string;
 		description: string;
 		isDarkMode: boolean;
+		sortOrder?: number;
 	};
 
 	type ContentTable = {
@@ -36,6 +36,7 @@
 			}[];
 			sortOrder?: number;
 		}[];
+		isDarkMode?: boolean;
 		sortOrder?: number;
 	};
 
@@ -52,12 +53,14 @@
 			}[];
 			sortOrder?: number;
 		}[];
+		isDarkMode?: boolean;
 		sortOrder?: number;
 	};
 
 	type ContentImages = {
 		title?: string;
 		images: ImageAsset[];
+		isDarkMode?: boolean;
 		sortOrder?: number;
 	};
 
@@ -66,6 +69,7 @@
 		content: StrapiRichTextNode[];
 		image: ImageAsset;
 		imagePosition: 'top' | 'right' | 'bottom' | 'left';
+		isDarkMode?: boolean;
 		sortOrder?: number;
 	};
 
@@ -118,38 +122,57 @@
 		});
 	});
 
-	const isDarkMode = true;
+	function isBlockDarkMode(block: ComponentData): boolean {
+		return 'isDarkMode' in block ? block.isDarkMode === true : false;
+	}
 </script>
 
-{#if isDarkMode}
-	<div
-		class="bg-foreground mt-24 h-14 w-full translate-y-[1px] [clip-path:polygon(100%_0,100%_100%,0_100%)] lg:mt-28"
-	></div>
-{/if}
+<section class="w-full">
+	{#if sortedBlocks?.length > 0}
+		{#each sortedBlocks as block, i}
+			{@const currentIsDark = isBlockDarkMode(block)}
+			{@const prevIsDark = i > 0 ? isBlockDarkMode(sortedBlocks[i - 1]) : false}
+			{@const nextIsDark =
+				i < sortedBlocks.length - 1 ? isBlockDarkMode(sortedBlocks[i + 1]) : false}
 
-<section class={cn(true ? 'bg-foreground' : '', 'w-full')}>
-	<div class="sm:container">
-		{#if sortedBlocks?.length > 0}
-			{#each sortedBlocks as block, i}
-				{#if block.__component === 'partial-components.content-header'}
-					{@const componentData = block as ContentHeader}
-					{@render HeaderTemplate(componentData)}
-				{:else if block.__component === 'partial-components.content-table'}
-					{@const componentData = block as ContentTable}
-					{@render TableTemplate(componentData)}
-				{:else if block.__component === 'partial-components.content-accordion'}
-					{@const componentData = block as ContentAccordion}
-					{@render AccordionTemplate(componentData)}
-				{:else if block.__component === 'partial-components.content-images'}
-					{@const componentData = block as ContentImages}
-					{@render ImagesTemplate(componentData)}
-				{:else if block.__component === 'partial-components.content-text-image'}
-					{@const componentData = block as ContentTextImage}
-					{@render TextImageTemplate(componentData)}
-				{/if}
-			{/each}
-		{:else}
-			<!-- No content blocks available -->
+			{@const isStartOfDarkGroup = currentIsDark && !prevIsDark}
+			{@const isEndOfDarkGroup = currentIsDark && !nextIsDark}
+
+			{#if isStartOfDarkGroup}
+				<div
+					class="bg-foreground mt-24 h-14 w-full translate-y-[1px] [clip-path:polygon(100%_0,100%_100%,0_100%)] lg:mt-28"
+				></div>
+			{/if}
+
+			<div class={cn(currentIsDark ? 'bg-foreground' : '')}>
+				<div class="sm:container">
+					{#if block.__component === 'partial-components.content-header'}
+						{@const componentData = block as ContentHeader}
+						{@render HeaderTemplate(componentData)}
+					{:else if block.__component === 'partial-components.content-table'}
+						{@const componentData = block as ContentTable}
+						{@render TableTemplate(componentData)}
+					{:else if block.__component === 'partial-components.content-accordion'}
+						{@const componentData = block as ContentAccordion}
+						{@render AccordionTemplate(componentData)}
+					{:else if block.__component === 'partial-components.content-images'}
+						{@const componentData = block as ContentImages}
+						{@render ImagesTemplate(componentData)}
+					{:else if block.__component === 'partial-components.content-text-image'}
+						{@const componentData = block as ContentTextImage}
+						{@render TextImageTemplate(componentData)}
+					{/if}
+				</div>
+			</div>
+
+			{#if isEndOfDarkGroup}
+				<div
+					class="bg-foreground mb-32 h-14 w-full -translate-y-[1px] [clip-path:polygon(100%_0%,0%_0%,0%_100%)]"
+				></div>
+			{/if}
+		{/each}
+	{:else}
+		<div class="sm:container">
 			<div class="py-16 text-center">
 				<div class="bg-muted mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-lg">
 					<svg
@@ -171,22 +194,17 @@
 					No content blocks were provided for this section
 				</p>
 			</div>
-		{/if}
-	</div>
+		</div>
+	{/if}
 </section>
-
-{#if isDarkMode}
-	<div
-		class="bg-foreground mb-32 h-14 w-full -translate-y-[1px] [clip-path:polygon(100%_0%,0%_0%,0%_100%)]"
-	></div>
-{/if}
 
 {#snippet HeaderTemplate(block: ContentHeader)}
 	{@const safe = new SafeData(block)}
 	{@const title = safe.getString('sectionTitle', 'Untitled Section')}
 	{@const description = safe.getString('description')}
+	{@const isDarkMode = safe.getBoolean('isDarkMode', false)}
 
-	<div class={cn(isDarkMode ? 'pt-16' : 'pt-32', 'flex flex-col items-center gap-2')}>
+	<div class={cn(isDarkMode ? 'py-16' : 'pb-16 pt-32', 'flex flex-col items-center gap-2')}>
 		<h3
 			class={cn(isDarkMode ? 'text-secondary' : 'text-foreground', 'font-sans text-4xl font-bold')}
 		>
@@ -214,6 +232,7 @@
 	{@const blockTitle = safe.getString('title')}
 	{@const tables = safe.getArray('tables', [])}
 	{@const validTables = tables.filter((table: any) => table && typeof table === 'object')}
+	{@const isDarkMode = safe.getBoolean('isDarkMode', false)}
 
 	{#if validTables.length > 0}
 		{#each validTables as table}
@@ -317,7 +336,6 @@
 							</Table.Body>
 						</Table.Root>
 					{:else}
-						<!-- No valid rows -->
 						<div class="py-8 text-center">
 							<p class={cn(isDarkMode ? 'text-secondary/60' : 'text-muted-foreground', 'text-sm')}>
 								No table rows available
@@ -325,7 +343,6 @@
 						</div>
 					{/if}
 				{:else}
-					<!-- No valid columns -->
 					<div class="py-8 text-center">
 						<p class={cn(isDarkMode ? 'text-secondary/60' : 'text-muted-foreground', 'text-sm')}>
 							No table columns available
@@ -335,7 +352,6 @@
 			</div>
 		{/each}
 	{:else}
-		<!-- No valid tables -->
 		<div class="py-12 text-center">
 			<div class="bg-muted mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-lg">
 				<svg
@@ -365,9 +381,19 @@
 {/snippet}
 
 {#snippet AccordionTemplate(block: ContentAccordion)}
+	{@const safe = new SafeData(block)}
+	{@const isDarkMode = safe.getBoolean('isDarkMode', false)}
+
 	<div class={cn('h-full w-full py-16 lg:mx-auto')}>
 		{#if block.title}
-			<h4 class="text-secondary my-4 text-center font-sans text-2xl font-bold">{block.title}</h4>
+			<h4
+				class={cn(
+					isDarkMode ? 'text-secondary' : 'text-foreground',
+					'my-4 text-center font-sans text-2xl font-bold'
+				)}
+			>
+				{block.title}
+			</h4>
 		{/if}
 		<Accordion.Root type="multiple" value={['item-1']} class="flex w-full flex-col gap-4">
 			{#each block.accordions as accordion, i}
@@ -389,7 +415,6 @@
 									<Card.Root
 										class={cn(isDarkMode ? 'bg-secondary/10' : 'bg-foreground/10', 'px-0')}
 									>
-										<!-- Fixed image display logic -->
 										{#if item.image}
 											{@const imageUrl = getOptimizedImageUrl(item.image)}
 											{#if imageUrl}
@@ -401,7 +426,6 @@
 													onerror={handleImageError}
 												/>
 											{:else}
-												<!-- Fallback for invalid/missing image URL -->
 												<div
 													class="bg-muted flex h-[260px] w-full flex-col items-center justify-center"
 												>
@@ -422,7 +446,6 @@
 												</div>
 											{/if}
 										{:else}
-											<!-- No image provided -->
 											<div
 												class="bg-muted flex h-[260px] w-full flex-col items-center justify-center"
 											>
@@ -502,6 +525,7 @@
 	{@const title = safe.getString('title')}
 	{@const images = safe.getArray<ImageAsset>('images', [])}
 	{@const validImages = images.filter((img) => img && getOptimizedImageUrl(img))}
+	{@const isDarkMode = safe.getBoolean('isDarkMode', false)}
 
 	<div class="mx-auto py-16">
 		{#if title}
@@ -532,7 +556,6 @@
 									onerror={handleImageError}
 								/>
 							{:else}
-								<!-- Fallback for broken images -->
 								<div
 									class="bg-muted shadow-primary flex h-[400px] w-full flex-col items-center justify-center"
 								>
@@ -557,7 +580,6 @@
 				{/each}
 			</div>
 		{:else}
-			<!-- No valid images -->
 			<div class="py-12 text-center">
 				<div class="bg-muted mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-lg">
 					<svg
@@ -597,6 +619,9 @@
 {/snippet}
 
 {#snippet TextImageTemplate(block: ContentTextImage)}
+	{@const safe = new SafeData(block)}
+	{@const isDarkMode = safe.getBoolean('isDarkMode', false)}
+
 	<div class="mx-auto py-16">
 		<div
 			class={cn(
@@ -620,7 +645,6 @@
 						onerror={handleImageError}
 					/>
 				{:else}
-					<!-- Fallback for invalid image -->
 					<div
 						class={cn(
 							'bg-muted shadow-primary flex h-[400px] w-full flex-col items-center justify-center',
