@@ -460,7 +460,7 @@ export interface ApiAdhesivePageAdhesivePage extends Struct.SingleTypeSchema {
   attributes: {
     contactForm: Schema.Attribute.Component<
       'page-components.contact-form',
-      true
+      false
     > &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -3617,7 +3617,7 @@ export interface ApiRawMaterialPageRawMaterialPage
   attributes: {
     contactForm: Schema.Attribute.Component<
       'page-components.contact-form',
-      true
+      false
     > &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -4047,7 +4047,7 @@ export interface ApiStyrofoamProcessingPageStyrofoamProcessingPage
   attributes: {
     contactForm: Schema.Attribute.Component<
       'page-components.contact-form',
-      true
+      false
     > &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{

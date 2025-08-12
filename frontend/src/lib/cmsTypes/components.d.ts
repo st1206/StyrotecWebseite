@@ -32,6 +32,19 @@ export interface PageComponentsCollectionTypeCards
   };
 }
 
+export interface PageComponentsCollectionTypeTable
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_components_collection_type_tables';
+  info: {
+    description: '';
+    displayName: 'collectionTypeTable';
+    icon: 'bulletList';
+  };
+  attributes: {
+    collectionApiSlug: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface PageComponentsContactForm extends Struct.ComponentSchema {
   collectionName: 'components_page_components_contact_forms';
   info: {
@@ -573,6 +586,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'page-components.basic-text-image': PageComponentsBasicTextImage;
       'page-components.collection-type-cards': PageComponentsCollectionTypeCards;
+      'page-components.collection-type-table': PageComponentsCollectionTypeTable;
       'page-components.contact-form': PageComponentsContactForm;
       'page-components.default-cards': PageComponentsDefaultCards;
       'page-components.explore-more': PageComponentsExploreMore;

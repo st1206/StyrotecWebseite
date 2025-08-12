@@ -460,7 +460,7 @@ export interface ApiAdhesivePageAdhesivePage extends Struct.SingleTypeSchema {
   attributes: {
     contactForm: Schema.Attribute.Component<
       'page-components.contact-form',
-      true
+      false
     > &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -990,6 +990,66 @@ export interface ApiConventionalMillConventionalMill
         };
       }>;
     tableSize: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDownloadDownload extends Struct.CollectionTypeSchema {
+  collectionName: 'downloads';
+  info: {
+    description: '';
+    displayName: 'Downloads';
+    pluralName: 'downloads';
+    singularName: 'download';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    file: Schema.Attribute.Media<'files' | 'images' | 'videos' | 'audios'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::download.download'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    sortOrder: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<1>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -3557,7 +3617,7 @@ export interface ApiRawMaterialPageRawMaterialPage
   attributes: {
     contactForm: Schema.Attribute.Component<
       'page-components.contact-form',
-      true
+      false
     > &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -3987,7 +4047,7 @@ export interface ApiStyrofoamProcessingPageStyrofoamProcessingPage
   attributes: {
     contactForm: Schema.Attribute.Component<
       'page-components.contact-form',
-      true
+      false
     > &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -4810,6 +4870,7 @@ declare module '@strapi/strapi' {
       'api::cnc-mill.cnc-mill': ApiCncMillCncMill;
       'api::cnc-mills-page.cnc-mills-page': ApiCncMillsPageCncMillsPage;
       'api::conventional-mill.conventional-mill': ApiConventionalMillConventionalMill;
+      'api::download.download': ApiDownloadDownload;
       'api::drilling-machine.drilling-machine': ApiDrillingMachineDrillingMachine;
       'api::drilling-machines-page.drilling-machines-page': ApiDrillingMachinesPageDrillingMachinesPage;
       'api::employee.employee': ApiEmployeeEmployee;
