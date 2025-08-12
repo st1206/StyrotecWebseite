@@ -97,24 +97,25 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 				'collectionTypeCardsThree'
 			];
 
-			// Use Promise.all to fetch all collections in parallel if multiple exist
-			const collectionPromises = collectionTypeKeys.map(async (key) => {
-				if (cmsData[key]) {
-					// Await the processing of each collection type
+			// Only process collections that actually exist to reduce API calls
+			const existingCollections = collectionTypeKeys.filter((key) => cmsData[key]);
+
+			if (existingCollections.length > 0) {
+				// Use Promise.all to fetch all collections in parallel
+				const collectionPromises = existingCollections.map(async (key) => {
 					return { key, data: await processCollectionType(cmsData[key], lang) };
-				}
-				return { key, data: undefined }; // Return undefined if the key doesn't exist
-			});
+				});
 
-			// Wait for all collection promises to resolve
-			const results = await Promise.all(collectionPromises);
+				// Wait for all collection promises to resolve
+				const results = await Promise.all(collectionPromises);
 
-			// Update cmsData with the processed collection data
-			results.forEach(({ key, data }) => {
-				if (data) {
-					cmsData[key] = data;
-				}
-			});
+				// Update cmsData with the processed collection data
+				results.forEach(({ key, data }) => {
+					if (data) {
+						cmsData[key] = data;
+					}
+				});
+			}
 		} catch (err) {
 			console.error(`Failed to load CMS data for page ${matchedPage.cmsApiSlug}:`, err);
 
