@@ -10,6 +10,8 @@ import nodemailer from 'nodemailer';
 import { EMAIL_ADRESS, EMAIL_HOST, EMAIL_PASSWORD } from '$env/static/private';
 import { getContactFormTemplate, getContactFormText } from '$lib/server/email';
 
+export const prerender = true;
+
 // Helper functions remain the same
 function getCMSDataForPage<K extends keyof CMSTypeMap>(
 	page: { cmsApiSlug: string; cmsApiParams?: string; cmsTypeKey: K },
