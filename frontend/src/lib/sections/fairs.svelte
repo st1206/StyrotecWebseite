@@ -65,13 +65,13 @@
 	);
 </script>
 
-<section class="my-16 scroll-mt-16 px-4 sm:container sm:mx-auto lg:max-w-5xl xl:max-w-7xl">
+<section class="my-16 scroll-mt-24 px-4 sm:container sm:mx-auto lg:max-w-5xl xl:max-w-7xl">
 	{#if fairs.length > 0}
 		<Accordion.Root type="single" class="flex w-full flex-col gap-4">
 			{#each fairs as item, i}
 				<Accordion.Item value="item-{i + 1}" class="border-none">
 					<Accordion.Trigger
-						class="font-base text-foreground grid h-max grid-cols-12 items-center text-start"
+						class="font-base grid h-max grid-cols-12 items-center text-start text-foreground"
 					>
 						<div class="col-span-3 mr-8">
 							{#if item.logoUrl}
@@ -84,7 +84,7 @@
 									loading="lazy"
 								/>
 								<div
-									class="bg-secondary/20 text-muted-foreground flex max-h-[70px] flex-col items-center justify-center rounded-lg p-2"
+									class="flex max-h-[70px] flex-col items-center justify-center rounded-lg bg-secondary/20 p-2 text-muted-foreground"
 									style="display: none;"
 								>
 									<Icons.calendar class="mb-1 size-6 opacity-50" />
@@ -92,7 +92,7 @@
 								</div>
 							{:else}
 								<div
-									class="bg-secondary/20 text-muted-foreground flex max-h-[70px] flex-col items-center justify-center rounded-lg p-2"
+									class="flex max-h-[70px] flex-col items-center justify-center rounded-lg bg-secondary/20 p-2 text-muted-foreground"
 								>
 									<Icons.calendar class="mb-1 size-6 opacity-50" />
 									<p class="text-center text-xs">{item.name}</p>
@@ -120,12 +120,12 @@
 					<Accordion.Content>
 						<div class="grid w-full grid-cols-12">
 							<div
-								class="prose prose-sm prose-neutral lg:prose-base xl:prose-lg col-span-8 col-start-4 mx-auto mt-2 max-w-5xl"
+								class="prose prose-sm prose-neutral col-span-8 col-start-4 mx-auto mt-2 max-w-5xl lg:prose-base xl:prose-lg"
 							>
 								{#if item.hasContent}
 									{@html resolveRichText(item.content)}
 								{:else}
-									<p class="text-muted-foreground text-center text-sm">
+									<p class="text-center text-sm text-muted-foreground">
 										{$_('fairs.noAdditionalInfo') || 'No additional information available'}
 									</p>
 								{/if}
@@ -145,7 +145,7 @@
 			<h3 class="mb-2 text-lg font-semibold">
 				{$_('fairs.noFairs') || 'No fairs or events available'}
 			</h3>
-			<p class="text-muted-foreground max-w-md">
+			<p class="max-w-md text-muted-foreground">
 				{$_('fairs.noFairsDescription') ||
 					'Information about upcoming fairs and events will be displayed here when available.'}
 			</p>

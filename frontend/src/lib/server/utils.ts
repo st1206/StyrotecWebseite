@@ -5,7 +5,7 @@ import { error } from '@sveltejs/kit';
 
 // Simple in-memory cache for CMS data (5 minute TTL)
 const cmsCache = new Map<string, { data: any; timestamp: number }>();
-const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
+const CACHE_TTL = import.meta.env.DEV ? 0 : 5 * 60 * 1000; // 5 minutes
 
 export function getRequestHeaders(): Record<string, string> {
 	return {

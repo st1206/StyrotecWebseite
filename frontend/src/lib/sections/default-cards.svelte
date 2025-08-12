@@ -80,10 +80,7 @@
 	></div>
 {/if}
 
-<section
-	id={anchor}
-	class={cn(isDarkMode ? 'bg-foreground py-8 pb-12' : 'my-16 sm:my-24', 'scroll-mt-32')}
->
+<section id={anchor} class={cn(isDarkMode ? 'bg-foreground py-8 pb-12' : 'my-16 sm:my-24')}>
 	<div class="mx-3 sm:container sm:mx-auto lg:w-full">
 		{#if sectionTitle}
 			<div class="mb-16 text-center">
@@ -143,8 +140,8 @@
 						{#if card.thumbnailUrl}
 							<div
 								class={cn(
-									'relative aspect-[3/2] w-full shrink-0',
-									hasContent ? 'md:w-[40%]' : 'w-full'
+									'relative aspect-[4/2] w-full shrink-0',
+									hasContent ? 'md:w-[60%]' : 'w-full'
 								)}
 							>
 								<img

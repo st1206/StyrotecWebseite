@@ -1,11 +1,6 @@
 <script lang="ts">
 	import { sectionMap } from '$lib/sections';
-	import type {
-		ValidationResult,
-		ValidationError,
-		SafeData,
-		SectionValidator
-	} from '$lib/validation';
+	import type { ValidationResult, ValidationError, SafeData } from '$lib/validation';
 	import ErrorBoundary from './error-boundary.svelte';
 	import LoadingSkeleton from './loading-skeleton.svelte';
 	import { _ } from 'svelte-i18n';
@@ -201,12 +196,12 @@
 		{#if loading}
 			<LoadingSkeleton type={getSkeletonType(sectionKey)} />
 		{:else if error || (shouldValidate && validationResult && !validationResult.isValid)}
-			<div class="rounded-lg border border-destructive/20 bg-destructive/5 p-4 text-center">
+			<div class="border-destructive/20 bg-destructive/5 rounded-lg border p-4 text-center">
 				<div
-					class="mx-auto mb-3 flex h-8 w-8 items-center justify-center rounded-full bg-destructive/10"
+					class="bg-destructive/10 mx-auto mb-3 flex h-8 w-8 items-center justify-center rounded-full"
 				>
 					<svg
-						class="h-4 w-4 text-destructive"
+						class="text-destructive h-4 w-4"
 						fill="none"
 						viewBox="0 0 24 24"
 						stroke="currentColor"
@@ -219,29 +214,29 @@
 						/>
 					</svg>
 				</div>
-				<p class="mb-2 text-sm font-medium text-destructive">
+				<p class="text-destructive mb-2 text-sm font-medium">
 					{$_('error.sectionFailed', { default: 'Section could not be loaded' })}
 				</p>
-				<p class="mb-2 text-xs text-muted-foreground">
-					Section: <code class="rounded bg-muted px-1">{sectionKey}</code>
+				<p class="text-muted-foreground mb-2 text-xs">
+					Section: <code class="bg-muted rounded px-1">{sectionKey}</code>
 				</p>
 				<details class="mx-auto mt-4 max-w-7xl">
 					<summary
-						class="mb-2 cursor-pointer text-center text-xs text-muted-foreground hover:text-foreground"
+						class="text-muted-foreground hover:text-foreground mb-2 cursor-pointer text-center text-xs"
 					>
 						{$_('error.showDetails', { default: 'Show details' })}
 					</summary>
-					<div class="rounded bg-muted p-2 text-left text-xs">
-						<p class="mb-1 font-medium text-destructive">Error Details:</p>
+					<div class="bg-muted rounded p-2 text-left text-xs">
+						<p class="text-destructive mb-1 font-medium">Error Details:</p>
 						<p class="text-muted-foreground">{getDetailedErrorMessage()}</p>
 
 						{#if validationResult && validationResult.errors.length > 0}
 							<div class="mt-2">
-								<p class="mb-1 font-medium text-destructive">Validation Errors:</p>
+								<p class="text-destructive mb-1 font-medium">Validation Errors:</p>
 								<ul class="list-inside list-disc space-y-1">
 									{#each validationResult.errors as error}
 										<li class="text-muted-foreground">
-											<code class="rounded bg-background px-1">{error.field}</code>: {error.message}
+											<code class="bg-background rounded px-1">{error.field}</code>: {error.message}
 										</li>
 									{/each}
 								</ul>
@@ -291,11 +286,11 @@
 				<SectionComponent {...sectionData} {...sectionProps} {contactForm} />
 			{/key}
 		{:else if sectionKey !== 'seo'}
-			<div class="rounded-lg border border-muted bg-muted/20 p-4 text-center">
-				<p class="text-sm text-muted-foreground">
+			<div class="border-muted bg-muted/20 rounded-lg border p-4 text-center">
+				<p class="text-muted-foreground text-sm">
 					{hasComponent ? 'No data available' : `Section "${sectionKey}" not found`}
 				</p>
-				<p class="mt-1 text-xs text-muted-foreground">
+				<p class="text-muted-foreground mt-1 text-xs">
 					{getDetailedErrorMessage()}
 				</p>
 			</div>

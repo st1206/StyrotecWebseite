@@ -8,7 +8,11 @@ export interface PageComponentsBasicTextImage extends Struct.ComponentSchema {
     icon: 'pencil';
   };
   attributes: {
-    content: Schema.Attribute.Text & Schema.Attribute.Required;
+    content: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 530;
+      }>;
     image: Schema.Attribute.Media<'files' | 'images'>;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;

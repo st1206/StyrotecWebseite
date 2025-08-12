@@ -83,7 +83,7 @@
 	}
 </script>
 
-<section id={anchor} class="mt-20 scroll-mt-32 lg:container lg:mx-auto lg:mt-32 lg:w-full">
+<section id={anchor} class="mt-20 scroll-mt-24 lg:container lg:mx-auto lg:mt-32 lg:w-full">
 	<div class="bg-foreground lg:shadow-primary">
 		{#if hasValidMedia}
 			{#if isVideo}
@@ -101,7 +101,7 @@
 				</video>
 				<!-- Fallback for broken video -->
 				<div
-					class="bg-secondary/20 text-muted-foreground flex max-h-[750px] min-h-[400px] w-full flex-col items-center justify-center [clip-path:polygon(0%_0%,100%_0%,100%_90%,0%_100%)]"
+					class="flex max-h-[750px] min-h-[400px] w-full flex-col items-center justify-center bg-secondary/20 text-muted-foreground [clip-path:polygon(0%_0%,100%_0%,100%_90%,0%_100%)]"
 					style="display: none;"
 				>
 					<Icons.play class="mb-4 size-16 opacity-50" />
@@ -122,7 +122,7 @@
 				/>
 				<!-- Fallback for broken image -->
 				<div
-					class="bg-secondary/20 text-muted-foreground flex max-h-[750px] min-h-[400px] w-full flex-col items-center justify-center [clip-path:polygon(0%_0%,100%_0%,100%_90%,0%_100%)]"
+					class="flex max-h-[750px] min-h-[400px] w-full flex-col items-center justify-center bg-secondary/20 text-muted-foreground [clip-path:polygon(0%_0%,100%_0%,100%_90%,0%_100%)]"
 					style="display: none;"
 				>
 					<Icons.image class="mb-4 size-16 opacity-50" />
@@ -135,7 +135,7 @@
 		{:else}
 			<!-- No media available -->
 			<div
-				class="bg-secondary/20 text-muted-foreground flex max-h-[750px] min-h-[400px] w-full flex-col items-center justify-center [clip-path:polygon(0%_0%,100%_0%,100%_90%,0%_100%)]"
+				class="flex max-h-[750px] min-h-[400px] w-full flex-col items-center justify-center bg-secondary/20 text-muted-foreground [clip-path:polygon(0%_0%,100%_0%,100%_90%,0%_100%)]"
 			>
 				<Icons.fileVideo class="mb-4 size-16 opacity-50" />
 				<h3 class="mb-2 text-lg font-semibold">{title}</h3>
@@ -149,12 +149,12 @@
 			{#if title || description}
 				<div class="space-y-4 text-center">
 					{#if title}
-						<h2 class="text-secondary font-sans text-4xl font-bold">
+						<h2 class="font-sans text-4xl font-bold text-secondary">
 							{title}
 						</h2>
 					{/if}
 					{#if description}
-						<p class="prose prose-neutral text-secondary lg:prose-lg mx-auto max-w-5xl text-center">
+						<p class="prose prose-neutral mx-auto max-w-5xl text-center text-secondary lg:prose-lg">
 							{@html description}
 						</p>
 					{/if}
@@ -164,7 +164,7 @@
 			{#if sortedCards.length > 0}
 				<div class="mt-16 grid grid-cols-1 flex-wrap gap-12 md:grid-cols-2 xl:grid-cols-3">
 					{#each sortedCards as card}
-						<div class="bg-foreground/10 relative shadow-xl">
+						<div class="relative bg-foreground/10 shadow-xl">
 							{#if card.imageUrl}
 								<!-- Card image with fallback -->
 								<img
@@ -177,7 +177,7 @@
 								/>
 								<!-- Fallback for broken card image -->
 								<div
-									class="bg-secondary/20 text-muted-foreground flex h-[300px] flex-col items-center justify-center lg:h-[330px] xl:h-[400px]"
+									class="flex h-[300px] flex-col items-center justify-center bg-secondary/20 text-muted-foreground lg:h-[330px] xl:h-[400px]"
 									style="display: none;"
 								>
 									<Icons.user class="mb-2 size-12 opacity-50" />
@@ -189,7 +189,7 @@
 							{:else}
 								<!-- No image available -->
 								<div
-									class="bg-secondary/20 text-muted-foreground flex h-[300px] flex-col items-center justify-center lg:h-[330px] xl:h-[400px]"
+									class="flex h-[300px] flex-col items-center justify-center bg-secondary/20 text-muted-foreground lg:h-[330px] xl:h-[400px]"
 								>
 									<Icons.user class="mb-2 size-12 opacity-50" />
 									<p class="px-4 text-center text-sm">{card.displayName}</p>
@@ -200,9 +200,9 @@
 							{/if}
 
 							<div
-								class="bg-foreground/90 absolute bottom-0 flex w-full flex-col justify-between p-2 px-4"
+								class="absolute bottom-0 flex w-full flex-col justify-between bg-foreground/90 p-2 px-4"
 							>
-								<h4 class="text-secondary font-sans text-3xl font-bold">
+								<h4 class="font-sans text-3xl font-bold text-secondary">
 									{card.displayName}
 								</h4>
 								{#if card.displaySubtitle}

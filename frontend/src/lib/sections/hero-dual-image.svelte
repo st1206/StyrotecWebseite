@@ -156,7 +156,7 @@
 						<p
 							class={cn(
 								hasSecondaryImage ? '' : 'max-w-7xl text-center',
-								'prose prose-neutral xl:prose-lg'
+								'prose prose-neutral xl:prose-lg max-w-none'
 							)}
 						>
 							{@html heroData.content}

@@ -73,6 +73,10 @@
 		font-display: swap;
 	} */
 
+	html {
+		@apply bg-foreground;
+	}
+
 	* {
 		@apply border-border;
 		scroll-behavior: smooth;
