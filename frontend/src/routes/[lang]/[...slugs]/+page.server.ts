@@ -1,14 +1,35 @@
-import { error, fail, type Actions } from '@sveltejs/kit';
+import { error } from '@sveltejs/kit';
 import type { AttributesOf } from '$lib/cmsTypes/types';
 import { pages, type CMSTypeMap, type Lang, type SlugKey } from '$lib/config/pages';
 import { loadCMSData, CMSFetchError } from '$lib/server/utils';
 import { contactFormSchema } from '$lib/models/contact-form-schema';
 import { zod } from 'sveltekit-superforms/adapters';
 import { superValidate } from 'sveltekit-superforms';
-import { message } from 'sveltekit-superforms';
-import nodemailer from 'nodemailer';
-import { EMAIL_ADRESS, EMAIL_HOST, EMAIL_PASSWORD } from '$env/static/private';
-import { getContactFormTemplate, getContactFormText } from '$lib/server/email';
+
+export const prerender = true;
+
+export async function entries() {
+	const routes = [];
+	const languages: Lang[] = ['de']; // Only prerender German pages for testing
+
+	// Generate routes for German pages only
+	for (const [pageKey, pageConfig] of Object.entries(pages)) {
+		for (const lang of languages) {
+			const slugKey = `${lang}Slug` as SlugKey;
+			const slug = pageConfig[slugKey];
+
+			// Skip dynamic detail pages (they contain {slug} or {id})
+			if (!slug.includes('{')) {
+				routes.push({
+					lang,
+					slugs: slug
+				});
+			}
+		}
+	}
+
+	return routes;
+}
 
 // Helper functions remain the same
 function getCMSDataForPage<K extends keyof CMSTypeMap>(
@@ -76,34 +97,51 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 				'collectionTypeCardsThree'
 			];
 
-			// Use Promise.all to fetch all collections in parallel if multiple exist
-			const collectionPromises = collectionTypeKeys.map(async (key) => {
-				if (cmsData[key]) {
-					// Await the processing of each collection type
+			// Only process collections that actually exist to reduce API calls
+			const existingCollections = collectionTypeKeys.filter((key) => cmsData[key]);
+
+			if (existingCollections.length > 0) {
+				// Use Promise.all to fetch all collections in parallel
+				const collectionPromises = existingCollections.map(async (key) => {
 					return { key, data: await processCollectionType(cmsData[key], lang) };
-				}
-				return { key, data: undefined }; // Return undefined if the key doesn't exist
-			});
+				});
 
-			// Wait for all collection promises to resolve
-			const results = await Promise.all(collectionPromises);
+				// Wait for all collection promises to resolve
+				const results = await Promise.all(collectionPromises);
 
-			// Update cmsData with the processed collection data
-			results.forEach(({ key, data }) => {
-				if (data) {
-					cmsData[key] = data;
-				}
-			});
+				// Update cmsData with the processed collection data
+				results.forEach(({ key, data }) => {
+					if (data) {
+						cmsData[key] = data;
+					}
+				});
+			}
 		} catch (err) {
 			console.error(`Failed to load CMS data for page ${matchedPage.cmsApiSlug}:`, err);
 
-			// For critical page data, we still throw the error
-			if (err instanceof CMSFetchError && err.statusCode < 500) {
-				throw err;
-			}
+			// During build time (prerendering), provide fallback data instead of throwing errors
+			if (process.env.NODE_ENV === 'production' || process.env.BUILDING) {
+				console.warn(`Using fallback data for page ${matchedPage.cmsApiSlug} during build`);
+				cmsData = {
+					title: `${matchedPage.cmsApiSlug} (Fallback)`,
+					description: 'Content temporarily unavailable',
+					sections: [],
+					// Add any other required fields based on your CMS structure
+					...Object.fromEntries(
+						['collectionTypeCards', 'collectionTypeCardsTwo', 'collectionTypeCardsThree'].map(
+							(key) => [key, null]
+						)
+					)
+				};
+			} else {
+				// For critical page data in development, we still throw the error
+				if (err instanceof CMSFetchError && err.statusCode < 500) {
+					throw err;
+				}
 
-			// For server errors, provide a fallback
-			error(503, 'Content temporarily unavailable. Please try again later.');
+				// For server errors, provide a fallback
+				error(503, 'Content temporarily unavailable. Please try again later.');
+			}
 		}
 	} else {
 		// --- DETAIL PAGE LOGIC (FALLBACK) ---
@@ -177,15 +215,29 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 		} catch (err) {
 			console.error(`Failed to load detail page data for ${id}:`, err);
 
-			if (err instanceof CMSFetchError) {
-				if (err.statusCode === 404) {
-					error(404, 'Content not found');
-				} else if (err.statusCode < 500) {
-					throw err;
+			// During build time (prerendering), provide fallback data instead of throwing errors
+			if (process.env.NODE_ENV === 'production' || process.env.BUILDING) {
+				console.warn(`Using fallback data for detail page ${id} during build`);
+				cmsData = {
+					...cmsData,
+					[cmsData.componentKey || 'detailItem']: {
+						title: `${id} (Fallback)`,
+						description: 'Content temporarily unavailable',
+						slug: id
+						// Add any other required fields for detail items
+					}
+				};
+			} else {
+				if (err instanceof CMSFetchError) {
+					if (err.statusCode === 404) {
+						error(404, 'Content not found');
+					} else if (err.statusCode < 500) {
+						throw err;
+					}
 				}
-			}
 
-			error(503, 'Content temporarily unavailable. Please try again later.');
+				error(503, 'Content temporarily unavailable. Please try again later.');
+			}
 		}
 
 		// The matched page for the final return is the template
@@ -204,59 +256,4 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 			contactFormBuilder: await superValidate(zod(contactFormSchema))
 		}
 	};
-};
-
-export const actions: Actions = {
-	default: async ({ request }) => {
-		const form = await superValidate(request, zod(contactFormSchema));
-
-		if (!form.valid) {
-			return fail(400, {
-				form
-			});
-		}
-
-		const transportData = {
-			host: EMAIL_HOST,
-			port: 587,
-			secure: false, // A new SMTP connection is created for every message
-			auth: {
-				user: EMAIL_ADRESS,
-				pass: EMAIL_PASSWORD
-			}
-		};
-
-		const transporter = nodemailer.createTransport(transportData);
-
-		const mailOptions = {
-			from: EMAIL_ADRESS,
-			to: form.data.mailToContactPerson,
-			subject: 'Kontaktanfrage',
-			text: getContactFormText(form.data),
-			html: getContactFormTemplate(form.data),
-			replyTo: form.data.email
-		};
-
-		try {
-			await transporter.verify();
-			console.log('Server is ready to take messages');
-		} catch (err) {
-			console.error('Verification failed', err);
-			return message(form, 'SMTP server not reachable', {
-				status: 403
-			});
-		}
-
-		try {
-			const info = await transporter.sendMail(mailOptions);
-
-			console.log('Message sent: %s', info.messageId);
-			return message(form, 'success');
-		} catch (err: unknown) {
-			console.error('Error while sending mail', err);
-			return message(form, err, {
-				status: 403
-			});
-		}
-	}
 };

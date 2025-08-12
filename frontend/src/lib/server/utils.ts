@@ -3,6 +3,10 @@ import { PUBLIC_BACKEND_URL } from '$env/static/public';
 import type { AttributesOf } from '$lib/cmsTypes/types';
 import { error } from '@sveltejs/kit';
 
+// Simple in-memory cache for CMS data (5 minute TTL)
+const cmsCache = new Map<string, { data: any; timestamp: number }>();
+const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
+
 export function getRequestHeaders(): Record<string, string> {
 	return {
 		'Content-Type': 'application/json',
@@ -42,9 +46,9 @@ interface RetryConfig {
 }
 
 const DEFAULT_RETRY_CONFIG: RetryConfig = {
-	maxRetries: 3,
-	baseDelay: 1000,
-	maxDelay: 10000,
+	maxRetries: 1, // Reduced from 3 to 1 for faster failures
+	baseDelay: 500, // Reduced from 1000ms to 500ms
+	maxDelay: 2000, // Reduced from 10000ms to 2000ms
 	retryCondition: (error) => error.statusCode >= 500 || error.statusCode === 429
 };
 
@@ -74,12 +78,19 @@ export const loadCMSData = async <T>(
 	const config = { ...DEFAULT_RETRY_CONFIG, ...retryConfig };
 	const url = `${PUBLIC_BACKEND_URL}/api/${apiSlug}?${apiParams || 'populate=*'}&locale=${lang}`;
 
+	// Check cache first
+	const cacheKey = `${apiSlug}:${lang}:${apiParams || 'populate=*'}`;
+	const cached = cmsCache.get(cacheKey);
+	if (cached && Date.now() - cached.timestamp < CACHE_TTL) {
+		return cached.data;
+	}
+
 	let lastError: CMSFetchError | null = null;
 
 	for (let attempt = 0; attempt <= config.maxRetries; attempt++) {
 		try {
 			const controller = new AbortController();
-			const timeoutId = setTimeout(() => controller.abort(), 30000); // 30s timeout
+			const timeoutId = setTimeout(() => controller.abort(), 10000); // Reduced from 30s to 10s timeout
 
 			const res = await fetch(url, {
 				method: 'GET',
@@ -128,6 +139,8 @@ export const loadCMSData = async <T>(
 					);
 				}
 
+				// Cache the successful response
+				cmsCache.set(cacheKey, { data: response.data, timestamp: Date.now() });
 				return response.data;
 			}
 		} catch (err) {

@@ -137,6 +137,17 @@ const pagesConfig: Record<string, PageContent> = {
 			}
 		]
 	},
+	privacyPolicy: {
+		deSlug: 'datenschutz',
+		enSlug: 'privacy-policy',
+		cmsTypeKey: 'legalNotice',
+		cmsApiSlug: 'privacy-policy-page',
+		sections: [
+			{
+				sectionKey: 'defaultContent'
+			}
+		]
+	},
 	briquettPress: {
 		deSlug: 'produkte/brikettierpressen',
 		enSlug: 'products/briquetting-press',

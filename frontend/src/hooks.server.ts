@@ -5,6 +5,20 @@ import { DEFAULT_LOCALE, languages } from '$lib/i18n';
 
 const DEFAULT_SLUG: Record<Lang, string> = { de: 'start', en: 'home' };
 
+// Cache for page lookups to avoid repeated Object.entries() calls
+const pageSlugCache = new Map<string, string | null>();
+
+function getCachedPageKey(slug: string, slugKey: SlugKey): string | null {
+	const cacheKey = `${slug}:${slugKey}`;
+	if (pageSlugCache.has(cacheKey)) {
+		return pageSlugCache.get(cacheKey)!;
+	}
+
+	const pageKey = Object.entries(pages).find(([_, p]) => p[slugKey] === slug)?.[0] ?? null;
+	pageSlugCache.set(cacheKey, pageKey);
+	return pageKey;
+}
+
 export const handle: Handle = async ({ event, resolve }) => {
 	const { pathname } = event.url;
 	const segments = pathname.split('/').filter(Boolean);
@@ -34,11 +48,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 	/* ───────────── Step3: slug‑canonicalisation ───────────── */
 	const slugKey = `${lang}Slug` as SlugKey;
 
-	const getPageKeyBySlug = (slug: string) => {
-		return Object.entries(pages).find(([_, p]) => p[slugKey] === slug)?.[0] ?? null;
-	};
-
-	let pageKey = getPageKeyBySlug(incomingSlug);
+	let pageKey = getCachedPageKey(incomingSlug, slugKey);
 
 	// cross‑language slug fallback
 	if (!pageKey) {

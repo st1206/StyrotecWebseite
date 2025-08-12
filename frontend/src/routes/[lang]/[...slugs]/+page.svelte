@@ -10,6 +10,11 @@
 	const seoData = $derived(
 		props.data.pageContent.cmsData['seo' as keyof typeof props.data.pageContent.cmsData]
 	);
+
+	// Create a unique key for the page to force re-rendering on navigation
+	const pageKey = $derived(
+		`${page.url.pathname}-${props.data.pageContent?.cmsApiSlug || 'fallback'}`
+	);
 </script>
 
 <svelte:head>
@@ -26,17 +31,19 @@
 	<meta property="og:locale" content={$locale} />
 </svelte:head>
 
-{#if props.data.pageContent}
-	{#each props.data.pageContent.sections as section}
-		<CMSSection
-			sectionKey={section.sectionKey}
-			sectionData={props.data.pageContent.cmsData[
-				section.sectionKey as keyof typeof props.data.pageContent.cmsData
-			]}
-			sectionProps={section.props}
-			contactForm={props.data.pageContent.contactFormBuilder}
-		/>
-	{/each}
-{:else}
-	<p>Page not found</p>
-{/if}
+{#key pageKey}
+	{#if props.data.pageContent}
+		{#each props.data.pageContent.sections as section (section.sectionKey)}
+			<CMSSection
+				sectionKey={section.sectionKey}
+				sectionData={props.data.pageContent.cmsData[
+					section.sectionKey as keyof typeof props.data.pageContent.cmsData
+				]}
+				sectionProps={section.props}
+				contactForm={props.data.pageContent.contactFormBuilder}
+			/>
+		{/each}
+	{:else}
+		<p>Page not found</p>
+	{/if}
+{/key}

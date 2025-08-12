@@ -1,12 +1,10 @@
 <script lang="ts">
 	import { sectionMap } from '$lib/sections';
-	import {
+	import type {
+		ValidationResult,
+		ValidationError,
 		SafeData,
-		SectionValidator,
-		type ValidationResult,
-		type ValidationError,
-		createError,
-		createWarning
+		SectionValidator
 	} from '$lib/validation';
 	import ErrorBoundary from './error-boundary.svelte';
 	import LoadingSkeleton from './loading-skeleton.svelte';
@@ -30,112 +28,122 @@
 		error = null
 	}: Props = $props();
 
-	const SectionComponent = sectionMap[sectionKey as keyof typeof sectionMap];
+	const SectionComponent = $derived(sectionMap[sectionKey as keyof typeof sectionMap]);
 
 	// Validate section data and get detailed error information
 	let validationResult = $state<ValidationResult | null>(null);
 	let safeData = $state<SafeData | null>(null);
 
-	$effect(() => {
-		if (sectionData && sectionKey !== 'seo') {
-			const validator = new SectionValidator(sectionKey, sectionData);
-			safeData = new SafeData(sectionData);
+	// Only validate in development or when explicitly enabled
+	const shouldValidate = $derived(
+		import.meta.env.DEV || import.meta.env.VITE_ENABLE_VALIDATION === 'true'
+	);
 
-			// Comprehensive validation for different section types
-			if (sectionKey.includes('hero')) {
-				if (sectionKey.includes('carousel')) {
-					validator.images('images', 'Hero carousel images');
-				} else if (sectionKey.includes('textImage')) {
-					validator.required('title', 'Hero title').image('image', 'Hero image');
-				} else if (sectionKey.includes('dualImage')) {
-					validator.required('title', 'Hero title');
-					// Image is optional for dual image heroes
-				} else if (sectionKey.includes('media')) {
-					validator.required('title', 'Hero title');
-				}
-			} else if (sectionKey.includes('cards') || sectionKey.includes('Cards')) {
-				if (sectionKey.includes('collectionType')) {
-					// Collection type cards have different validation
-					validator.custom((data) => {
-						const errors: ValidationError[] = [];
-						if (data.error) {
-							errors.push(createError('collection', data.error));
+	$effect(() => {
+		if (sectionData && sectionKey !== 'seo' && shouldValidate) {
+			// Lazy load validation modules only when needed
+			import('$lib/validation').then(
+				({ SectionValidator, SafeData, createError, createWarning }) => {
+					const validator = new SectionValidator(sectionKey, sectionData);
+					safeData = new SafeData(sectionData);
+
+					// Comprehensive validation for different section types
+					if (sectionKey.includes('hero')) {
+						if (sectionKey.includes('carousel')) {
+							validator.images('images', 'Hero carousel images');
+						} else if (sectionKey.includes('textImage')) {
+							validator.required('title', 'Hero title').image('image', 'Hero image');
+						} else if (sectionKey.includes('dualImage')) {
+							validator.required('title', 'Hero title');
+							// Image is optional for dual image heroes
+						} else if (sectionKey.includes('media')) {
+							validator.required('title', 'Hero title');
 						}
-						if (!data.type) {
-							errors.push(createWarning('type', 'Collection type is missing'));
-						}
-						return errors;
-					});
-				} else {
-					validator.arrayNotEmpty('cards', 'Cards array').custom((data) => {
-						const errors: ValidationError[] = [];
-						if (data.cards && Array.isArray(data.cards)) {
-							data.cards.forEach((card: any, index: number) => {
-								if (!card?.title) {
-									errors.push(createError(`cards[${index}].title`, 'Card title is missing'));
+					} else if (sectionKey.includes('cards') || sectionKey.includes('Cards')) {
+						if (sectionKey.includes('collectionType')) {
+							// Collection type cards have different validation
+							validator.custom((data) => {
+								const errors: ValidationError[] = [];
+								if (data.error) {
+									errors.push(createError('collection', data.error));
 								}
+								if (!data.type) {
+									errors.push(createWarning('type', 'Collection type is missing'));
+								}
+								return errors;
+							});
+						} else {
+							validator.arrayNotEmpty('cards', 'Cards array').custom((data) => {
+								const errors: ValidationError[] = [];
+								if (data.cards && Array.isArray(data.cards)) {
+									data.cards.forEach((card: any, index: number) => {
+										if (!card?.title) {
+											errors.push(createError(`cards[${index}].title`, 'Card title is missing'));
+										}
+									});
+								}
+								return errors;
 							});
 						}
-						return errors;
-					});
-				}
-			} else if (sectionKey.includes('usp')) {
-				validator.arrayNotEmpty('uspItems', 'USP items').custom((data) => {
-					const errors: ValidationError[] = [];
-					if (data.uspItems && Array.isArray(data.uspItems)) {
-						data.uspItems.forEach((item: any, index: number) => {
-							if (!item?.name && !item?.title) {
-								errors.push(createError(`uspItems[${index}]`, 'USP item has no name or title'));
+					} else if (sectionKey.includes('usp')) {
+						validator.arrayNotEmpty('uspItems', 'USP items').custom((data) => {
+							const errors: ValidationError[] = [];
+							if (data.uspItems && Array.isArray(data.uspItems)) {
+								data.uspItems.forEach((item: any, index: number) => {
+									if (!item?.name && !item?.title) {
+										errors.push(createError(`uspItems[${index}]`, 'USP item has no name or title'));
+									}
+								});
 							}
+							return errors;
 						});
+					} else if (sectionKey.includes('exploreMore')) {
+						validator.arrayNotEmpty('previewCards', 'Preview cards');
+					} else if (sectionKey.includes('exploreVariants')) {
+						validator.arrayNotEmpty('variantCards', 'Variant cards');
+					} else if (sectionKey.includes('exploreOptions') || sectionKey.includes('optionBlocks')) {
+						validator.custom((data) => {
+							const errors: ValidationError[] = [];
+
+							if (!data || typeof data !== 'object') {
+								errors.push(createError('data', 'No data provided'));
+								return errors;
+							}
+
+							// Convert to array if it's an object with numeric keys
+							let blocks = Array.isArray(data)
+								? data
+								: Object.keys(data)
+										.filter((key) => !isNaN(Number(key)))
+										.map((key) => data[key])
+										.filter(Boolean);
+
+							if (blocks.length === 0) {
+								errors.push(createWarning('blocks', 'No content blocks found'));
+							}
+
+							return errors;
+						});
+					} else if (sectionKey.includes('defaultContent')) {
+						// Default content can have various structures, so we're more lenient
+						validator.custom((data) => {
+							const errors: ValidationError[] = [];
+							if (!data || (Array.isArray(data) && data.length === 0)) {
+								errors.push(createWarning('content', 'No content blocks provided'));
+							}
+							return errors;
+						});
+					} else if (sectionKey.includes('pageHeader')) {
+						validator.required('headline', 'Page header headline');
+					} else if (sectionKey.includes('history')) {
+						validator.arrayNotEmpty('historyEntries', 'History entries');
+					} else if (sectionKey.includes('contactForm')) {
+						// Contact form validation is handled separately
 					}
-					return errors;
-				});
-			} else if (sectionKey.includes('exploreMore')) {
-				validator.arrayNotEmpty('previewCards', 'Preview cards');
-			} else if (sectionKey.includes('exploreVariants')) {
-				validator.arrayNotEmpty('variantCards', 'Variant cards');
-			} else if (sectionKey.includes('exploreOptions') || sectionKey.includes('optionBlocks')) {
-				validator.custom((data) => {
-					const errors: ValidationError[] = [];
 
-					if (!data || typeof data !== 'object') {
-						errors.push(createError('data', 'No data provided'));
-						return errors;
-					}
-
-					// Convert to array if it's an object with numeric keys
-					let blocks = Array.isArray(data)
-						? data
-						: Object.keys(data)
-								.filter((key) => !isNaN(Number(key)))
-								.map((key) => data[key])
-								.filter(Boolean);
-
-					if (blocks.length === 0) {
-						errors.push(createWarning('blocks', 'No content blocks found'));
-					}
-
-					return errors;
-				});
-			} else if (sectionKey.includes('defaultContent')) {
-				// Default content can have various structures, so we're more lenient
-				validator.custom((data) => {
-					const errors: ValidationError[] = [];
-					if (!data || (Array.isArray(data) && data.length === 0)) {
-						errors.push(createWarning('content', 'No content blocks provided'));
-					}
-					return errors;
-				});
-			} else if (sectionKey.includes('pageHeader')) {
-				validator.required('headline', 'Page header headline');
-			} else if (sectionKey.includes('history')) {
-				validator.arrayNotEmpty('historyEntries', 'History entries');
-			} else if (sectionKey.includes('contactForm')) {
-				// Contact form validation is handled separately
-			}
-
-			validationResult = validator.getResult();
+					validationResult = validator.getResult();
+				}
+			);
 		}
 	});
 
@@ -157,8 +165,7 @@
 		}
 
 		if (validationResult && !validationResult.isValid) {
-			const validator = new SectionValidator(sectionKey, sectionData);
-			return validator.getErrorMessage();
+			return `Section "${sectionKey}" has ${validationResult.errors.length} error(s)`;
 		}
 
 		if (!sectionData) {
@@ -174,8 +181,7 @@
 
 	function getWarningMessage(): string {
 		if (validationResult && validationResult.warnings.length > 0) {
-			const validator = new SectionValidator(sectionKey, sectionData);
-			return validator.getWarningMessage();
+			return `Section "${sectionKey}" has ${validationResult.warnings.length} warning(s)`;
 		}
 		return '';
 	}
@@ -183,19 +189,24 @@
 	const hasComponent = $derived.by(() =>
 		Boolean(sectionMap[sectionKey as keyof typeof sectionMap])
 	);
+
+	// Create a more efficient key for component re-rendering
+	const componentKey = $derived(
+		`${sectionKey}-${sectionData?.id || sectionData?.title || Date.now()}`
+	);
 </script>
 
 <ErrorBoundary onError={handleSectionError} fallback="This section could not be loaded.">
 	{#snippet children()}
 		{#if loading}
 			<LoadingSkeleton type={getSkeletonType(sectionKey)} />
-		{:else if error || (validationResult && !validationResult.isValid)}
-			<div class="border-destructive/20 bg-destructive/5 rounded-lg border p-4 text-center">
+		{:else if error || (shouldValidate && validationResult && !validationResult.isValid)}
+			<div class="rounded-lg border border-destructive/20 bg-destructive/5 p-4 text-center">
 				<div
-					class="bg-destructive/10 mx-auto mb-3 flex h-8 w-8 items-center justify-center rounded-full"
+					class="mx-auto mb-3 flex h-8 w-8 items-center justify-center rounded-full bg-destructive/10"
 				>
 					<svg
-						class="text-destructive h-4 w-4"
+						class="h-4 w-4 text-destructive"
 						fill="none"
 						viewBox="0 0 24 24"
 						stroke="currentColor"
@@ -208,29 +219,29 @@
 						/>
 					</svg>
 				</div>
-				<p class="text-destructive mb-2 text-sm font-medium">
+				<p class="mb-2 text-sm font-medium text-destructive">
 					{$_('error.sectionFailed', { default: 'Section could not be loaded' })}
 				</p>
-				<p class="text-muted-foreground mb-2 text-xs">
-					Section: <code class="bg-muted rounded px-1">{sectionKey}</code>
+				<p class="mb-2 text-xs text-muted-foreground">
+					Section: <code class="rounded bg-muted px-1">{sectionKey}</code>
 				</p>
 				<details class="mx-auto mt-4 max-w-7xl">
 					<summary
-						class="text-muted-foreground hover:text-foreground mb-2 cursor-pointer text-center text-xs"
+						class="mb-2 cursor-pointer text-center text-xs text-muted-foreground hover:text-foreground"
 					>
 						{$_('error.showDetails', { default: 'Show details' })}
 					</summary>
-					<div class="bg-muted rounded p-2 text-left text-xs">
-						<p class="text-destructive mb-1 font-medium">Error Details:</p>
+					<div class="rounded bg-muted p-2 text-left text-xs">
+						<p class="mb-1 font-medium text-destructive">Error Details:</p>
 						<p class="text-muted-foreground">{getDetailedErrorMessage()}</p>
 
 						{#if validationResult && validationResult.errors.length > 0}
 							<div class="mt-2">
-								<p class="text-destructive mb-1 font-medium">Validation Errors:</p>
+								<p class="mb-1 font-medium text-destructive">Validation Errors:</p>
 								<ul class="list-inside list-disc space-y-1">
 									{#each validationResult.errors as error}
 										<li class="text-muted-foreground">
-											<code class="bg-background rounded px-1">{error.field}</code>: {error.message}
+											<code class="rounded bg-background px-1">{error.field}</code>: {error.message}
 										</li>
 									{/each}
 								</ul>
@@ -241,7 +252,7 @@
 			</div>
 		{:else if SectionComponent && sectionData}
 			<!-- Show warnings if any -->
-			{#if validationResult && validationResult.warnings.length > 0}
+			{#if shouldValidate && validationResult && validationResult.warnings.length > 0}
 				<div class="mx-auto mb-4 max-w-7xl rounded-lg border border-yellow-200 bg-yellow-50 p-3">
 					<div class="flex items-center">
 						<svg
@@ -276,13 +287,15 @@
 				</div>
 			{/if}
 
-			<SectionComponent {...sectionData} {...sectionProps} {contactForm} />
+			{#key componentKey}
+				<SectionComponent {...sectionData} {...sectionProps} {contactForm} />
+			{/key}
 		{:else if sectionKey !== 'seo'}
-			<div class="border-muted bg-muted/20 rounded-lg border p-4 text-center">
-				<p class="text-muted-foreground text-sm">
+			<div class="rounded-lg border border-muted bg-muted/20 p-4 text-center">
+				<p class="text-sm text-muted-foreground">
 					{hasComponent ? 'No data available' : `Section "${sectionKey}" not found`}
 				</p>
-				<p class="text-muted-foreground mt-1 text-xs">
+				<p class="mt-1 text-xs text-muted-foreground">
 					{getDetailedErrorMessage()}
 				</p>
 			</div>
