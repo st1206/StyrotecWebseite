@@ -11,6 +11,8 @@
 	import { onMount, tick } from 'svelte';
 	import { SvelteMap } from 'svelte/reactivity';
 	import { innerWidth } from 'svelte/reactivity/window';
+	import type { Size, SpacerSection } from '$lib/types/sections';
+	import Spacer from './spacer.svelte';
 
 	type TableRow = { rowLabel?: string; rowValue?: string };
 	type TableColumn = { columnLabel?: string; tableRows: TableRow[] };
@@ -73,12 +75,18 @@
 		sortOrder?: number;
 	};
 
+	type ContentSpacer = {
+		spacer: SpacerSection;
+		sortOrder?: number;
+	};
+
 	type ComponentData = { __component: string; sortOrder?: number } & (
 		| ContentHeader
 		| ContentTable
 		| ContentAccordion
 		| ContentImages
 		| ContentTextImage
+		| ContentSpacer
 	);
 
 	let data: ComponentData[] = $props();
@@ -161,6 +169,9 @@
 					{:else if block.__component === 'partial-components.content-text-image'}
 						{@const componentData = block as ContentTextImage}
 						{@render TextImageTemplate(componentData)}
+					{:else if block.__component === 'partial-components.content-spacer'}
+						{@const componentData = block as ContentSpacer}
+						{@render SpacerTemplate(componentData.spacer)}
 					{/if}
 				</div>
 			</div>
@@ -690,4 +701,13 @@
 			</div>
 		</div>
 	</div>
+{/snippet}
+
+{#snippet SpacerTemplate(block: SpacerSection)}
+	{@const safe = new SafeData(block)}
+	{@const height = safe.getString('height') as Size}
+	{@const isDarkMode = safe.getBoolean('isDarkMode', false)}
+	{@const withSeparatorLine = safe.getBoolean('withSeparatorLine', false)}
+
+	<Spacer {height} {isDarkMode} {withSeparatorLine} />
 {/snippet}

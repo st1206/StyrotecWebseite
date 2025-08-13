@@ -77,6 +77,8 @@ export interface Employee {
 	contactPicture?: ImageAsset;
 }
 
+export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+
 // Section-specific interfaces
 export interface HeroTextImageSection extends BaseSection {
 	title: string;
@@ -151,6 +153,7 @@ export interface DefaultContentSection extends BaseSection {
 	accordions?: {
 		accordionItems: AccordionItem[];
 	}[];
+	spacer?: SpacerSection;
 }
 
 export interface PageHeaderSection extends BaseSection {
@@ -193,6 +196,12 @@ export interface SEOSection {
 	keywords?: string;
 }
 
+export interface SpacerSection extends BaseSection {
+	height: Size;
+	isDarkMode: boolean;
+	withSeparatorLine: boolean;
+}
+
 // Union type of all section data types
 export type SectionData =
 	| HeroTextImageSection
@@ -211,7 +220,8 @@ export type SectionData =
 	| CollectionTypeTableSection
 	| ContactFormSection
 	| UsedMachineDetailsSection
-	| SEOSection;
+	| SEOSection
+	| SpacerSection;
 // Section key to data type mapping
 export interface SectionTypeMap {
 	// Hero sections
@@ -293,6 +303,12 @@ export interface SectionTypeMap {
 	contactForm: ContactFormSection;
 	usedMachineDetails: UsedMachineDetailsSection;
 	seo: SEOSection;
+
+	spacer: SpacerSection;
+	spacerOne: SpacerSection;
+	spacerTwo: SpacerSection;
+	spacerThree: SpacerSection;
+	spacerFour: SpacerSection;
 }
 
 // Helper type to get section data type from section key

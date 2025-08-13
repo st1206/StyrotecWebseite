@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_partial_components_content_spacers",
+  "info": {
+    "displayName": "contentSpacer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "spacer": {
+      "type": "component",
+      "repeatable": false,
+      "component": "page-components.spacer",
+      "required": true
+    },
+    "sortOrder": {
+      "type": "integer",
+      "required": true,
+      "default": 1
+    }
+  }
+}

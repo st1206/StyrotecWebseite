@@ -207,6 +207,25 @@ export interface PageComponentsSeo extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponentsSpacer extends Struct.ComponentSchema {
+  collectionName: 'components_page_components_spacers';
+  info: {
+    description: '';
+    displayName: 'spacer';
+  };
+  attributes: {
+    height: Schema.Attribute.Enumeration<['xs', 'sm', 'md', 'lg', 'xl']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'md'>;
+    isDarkMode: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    withSeparatorLine: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+  };
+}
+
 export interface PageComponentsUspList extends Struct.ComponentSchema {
   collectionName: 'components_page_components_usp_lists';
   info: {
@@ -312,6 +331,21 @@ export interface PartialComponentsContentImages extends Struct.ComponentSchema {
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<1>;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface PartialComponentsContentSpacer extends Struct.ComponentSchema {
+  collectionName: 'components_partial_components_content_spacers';
+  info: {
+    description: '';
+    displayName: 'contentSpacer';
+  };
+  attributes: {
+    sortOrder: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<1>;
+    spacer: Schema.Attribute.Component<'page-components.spacer', false> &
+      Schema.Attribute.Required;
   };
 }
 
@@ -613,12 +647,14 @@ declare module '@strapi/strapi' {
       'page-components.history': PageComponentsHistory;
       'page-components.page-header': PageComponentsPageHeader;
       'page-components.seo': PageComponentsSeo;
+      'page-components.spacer': PageComponentsSpacer;
       'page-components.usp-list': PageComponentsUspList;
       'partial-components.accordion': PartialComponentsAccordion;
       'partial-components.accordion-item': PartialComponentsAccordionItem;
       'partial-components.content-accordion': PartialComponentsContentAccordion;
       'partial-components.content-header': PartialComponentsContentHeader;
       'partial-components.content-images': PartialComponentsContentImages;
+      'partial-components.content-spacer': PartialComponentsContentSpacer;
       'partial-components.content-table': PartialComponentsContentTable;
       'partial-components.content-text-image': PartialComponentsContentTextImage;
       'partial-components.default-card': PartialComponentsDefaultCard;

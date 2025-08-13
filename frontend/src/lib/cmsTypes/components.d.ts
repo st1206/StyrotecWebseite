@@ -207,6 +207,25 @@ export interface PageComponentsSeo extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponentsSpacer extends Struct.ComponentSchema {
+  collectionName: 'components_page_components_spacers';
+  info: {
+    description: '';
+    displayName: 'spacer';
+  };
+  attributes: {
+    height: Schema.Attribute.Enumeration<['sm', 'md', 'lg', 'xl']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'md'>;
+    isDarkMode: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    withSeparatorLine: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+  };
+}
+
 export interface PageComponentsUspList extends Struct.ComponentSchema {
   collectionName: 'components_page_components_usp_lists';
   info: {
@@ -485,7 +504,7 @@ export interface PartialComponentsTable extends Struct.ComponentSchema {
       true
     > &
       Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -613,6 +632,7 @@ declare module '@strapi/strapi' {
       'page-components.history': PageComponentsHistory;
       'page-components.page-header': PageComponentsPageHeader;
       'page-components.seo': PageComponentsSeo;
+      'page-components.spacer': PageComponentsSpacer;
       'page-components.usp-list': PageComponentsUspList;
       'partial-components.accordion': PartialComponentsAccordion;
       'partial-components.accordion-item': PartialComponentsAccordionItem;

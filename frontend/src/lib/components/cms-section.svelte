@@ -134,6 +134,8 @@
 						validator.arrayNotEmpty('historyEntries', 'History entries');
 					} else if (sectionKey.includes('contactForm')) {
 						// Contact form validation is handled separately
+					} else if (sectionKey.includes('spacer')) {
+						validator.required('height', 'Spacer height is required');
 					}
 
 					validationResult = validator.getResult();
@@ -174,12 +176,12 @@
 		return 'Unknown error occurred';
 	}
 
-	function getWarningMessage(): string {
-		if (validationResult && validationResult.warnings.length > 0) {
-			return `Section "${sectionKey}" has ${validationResult.warnings.length} warning(s)`;
-		}
-		return '';
-	}
+	// function getWarningMessage(): string {
+	// 	if (validationResult && validationResult.warnings.length > 0) {
+	// 		return `Section "${sectionKey}" has ${validationResult.warnings.length} warning(s)`;
+	// 	}
+	// 	return '';
+	// }
 
 	const hasComponent = $derived.by(() =>
 		Boolean(sectionMap[sectionKey as keyof typeof sectionMap])

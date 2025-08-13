@@ -14,6 +14,7 @@ import CollectionTypeCards from './collection-type-cards.svelte';
 import UsedMachineDetails from '$lib/templates/used-machine-details.svelte';
 import ContactForm from './contact-form.svelte';
 import CollectionTypeTable from './collection-type-table.svelte';
+import Spacer from './spacer.svelte';
 
 export const sectionMap = {
 	heroCarousel: HeroCarousel,
@@ -73,5 +74,10 @@ export const sectionMap = {
 	collectionTypeTableTwo: CollectionTypeTable,
 	collectionTypeTableThree: CollectionTypeTable,
 	usedMachineDetails: UsedMachineDetails,
-	contactForm: ContactForm
+	contactForm: ContactForm,
+	spacer: Spacer,
+	spacerOne: Spacer,
+	spacerTwo: Spacer,
+	spacerThree: Spacer,
+	spacerFour: Spacer
 } as const;

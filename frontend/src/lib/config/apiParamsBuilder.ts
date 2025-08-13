@@ -16,25 +16,29 @@ const populateBySection: Record<string, PopulateRule> = {
 		'defaultContent.tables.tableColumns.tableRows',
 		'defaultContent.accordions.accordionItems.image',
 		'defaultContent.images',
-		'defaultContent.image'
+		'defaultContent.image',
+		'defaultContent.spacer'
 	],
 	defaultContentOne: [
 		'defaultContentOne.tables.tableColumns.tableRows',
 		'defaultContentOne.accordions.accordionItems.image',
 		'defaultContentOne.images',
-		'defaultContentOne.image'
+		'defaultContentOne.image',
+		'defaultContent.spacer'
 	],
 	defaultContentTwo: [
 		'defaultContentTwo.tables.tableColumns.tableRows',
 		'defaultContentTwo.accordions.accordionItems.image',
 		'defaultContentTwo.images',
-		'defaultContentTwo.image'
+		'defaultContentTwo.image',
+		'defaultContent.spacer'
 	],
 	defaultContentThree: [
 		'defaultContentThree.tables.tableColumns.tableRows',
 		'defaultContentThree.accordions.accordionItems.image',
 		'defaultContentThree.images',
-		'defaultContentThree.image'
+		'defaultContentThree.image',
+		'defaultContent.spacer'
 	],
 	pageHeader: ['pageHeader'],
 	pageHeaderTwo: ['pageHeaderTwo'],
@@ -48,7 +52,12 @@ const populateBySection: Record<string, PopulateRule> = {
 	collectionTypeCardsTwo: ['collectionTypeCardsTwo'],
 	collectionTypeCardsThree: ['collectionTypeCardsThree'],
 	contactForm: ['contactForm.employee.contactPicture'],
-	seo: ['seo']
+	seo: ['seo'],
+	spacer: ['spacer'],
+	spacerOne: ['spacer'],
+	spacerTwo: ['spacer'],
+	spacerThree: ['spacer'],
+	spacerFour: ['spacer']
 };
 
 export function buildPopulateQuery(sectionKeys: string[]): string {

@@ -2012,6 +2012,7 @@ export interface ApiHybridPageHybridPage extends Struct.SingleTypeSchema {
         'partial-components.content-table',
         'partial-components.content-header',
         'partial-components.content-accordion',
+        'partial-components.content-spacer',
       ]
     > &
       Schema.Attribute.Required &
@@ -2037,6 +2038,13 @@ export interface ApiHybridPageHybridPage extends Struct.SingleTypeSchema {
     >;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'page-components.seo', false> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    spacer: Schema.Attribute.Component<'page-components.spacer', false> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -3218,8 +3226,8 @@ export interface ApiModelConstructionMachinesPageModelConstructionMachinesPage
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    defaultCards: Schema.Attribute.Component<
-      'page-components.default-cards',
+    exploreMore: Schema.Attribute.Component<
+      'page-components.explore-more',
       false
     > &
       Schema.Attribute.Required &
