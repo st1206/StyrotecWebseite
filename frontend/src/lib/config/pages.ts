@@ -35,7 +35,7 @@ import type {
 	ApiRawMaterialPageRawMaterialPage,
 	ApiAdhesivePageAdhesivePage,
 	ApiCareerCareer
-} from '$lib/cmsTypes/contentTypes';
+} from '$lib/types/cmsTypes/contentTypes';
 import { buildPopulateQuery } from './apiParamsBuilder';
 import type { TypedSectionConfig } from '$lib/types/sections';
 
@@ -413,7 +413,7 @@ const pagesConfig: Record<string, PageContent> = {
 				sectionKey: 'heroDualImage'
 			},
 			{
-				sectionKey: 'collectionTypeCards'
+				sectionKey: 'collectionTypeComponents'
 			},
 			{ sectionKey: 'contactForm' },
 			{
@@ -499,7 +499,7 @@ const pagesConfig: Record<string, PageContent> = {
 				sectionKey: 'heroDualImage'
 			},
 			{
-				sectionKey: 'collectionTypeCards'
+				sectionKey: 'collectionTypeComponents'
 			},
 			{
 				sectionKey: 'seo'
@@ -559,7 +559,7 @@ const pagesConfig: Record<string, PageContent> = {
 				sectionKey: 'heroDualImage'
 			},
 			{
-				sectionKey: 'collectionTypeCards'
+				sectionKey: 'collectionTypeComponents'
 			},
 			{
 				sectionKey: 'seo'
@@ -580,7 +580,7 @@ const pagesConfig: Record<string, PageContent> = {
 				sectionKey: 'heroDualImage'
 			},
 			{
-				sectionKey: 'collectionTypeCards'
+				sectionKey: 'collectionTypeComponents'
 			},
 			{
 				sectionKey: 'seo'
@@ -601,7 +601,7 @@ const pagesConfig: Record<string, PageContent> = {
 				sectionKey: 'heroDualImage'
 			},
 			{
-				sectionKey: 'collectionTypeCards'
+				sectionKey: 'collectionTypeComponents'
 			},
 			{
 				sectionKey: 'seo'
@@ -622,7 +622,7 @@ const pagesConfig: Record<string, PageContent> = {
 				sectionKey: 'heroDualImage'
 			},
 			{
-				sectionKey: 'collectionTypeCards'
+				sectionKey: 'collectionTypeComponents'
 			},
 			{
 				sectionKey: 'seo'
@@ -643,7 +643,7 @@ const pagesConfig: Record<string, PageContent> = {
 				sectionKey: 'heroDualImage'
 			},
 			{
-				sectionKey: 'collectionTypeCards'
+				sectionKey: 'collectionTypeComponents'
 			},
 			{
 				sectionKey: 'seo'
@@ -728,13 +728,16 @@ const pagesConfig: Record<string, PageContent> = {
 				sectionKey: 'pageHeader'
 			},
 			{
-				sectionKey: 'collectionTypeCards'
+				sectionKey: 'collectionTypeComponents'
 			},
 			{
 				sectionKey: 'pageHeaderTwo'
 			},
 			{
-				sectionKey: 'collectionTypeCardsTwo'
+				sectionKey: 'collectionTypeComponentsOne'
+			},
+			{
+				sectionKey: 'collectionTypeComponentsTwo'
 			},
 			{ sectionKey: 'seo' }
 		]
@@ -750,7 +753,7 @@ const pagesConfig: Record<string, PageContent> = {
 				sectionKey: 'heroCarousel'
 			},
 			{
-				sectionKey: 'collectionTypeCards'
+				sectionKey: 'collectionTypeComponents'
 			},
 			{
 				sectionKey: 'contactForm'

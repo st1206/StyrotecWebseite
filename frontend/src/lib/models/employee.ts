@@ -1,4 +1,4 @@
-import type { ImageAsset } from '$lib/cmsTypes/image-type';
+import type { ImageAsset } from '$lib/types/cmsTypes/image-type';
 
 export interface Employee {
 	name: string;

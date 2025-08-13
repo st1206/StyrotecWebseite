@@ -1,7 +1,7 @@
 <script lang="ts">
 	import BlurFade from '$lib/components/blur-fade.svelte';
 	import { cn } from '$lib/utils';
-    import { SafeData } from '$lib/validation';
+    import { SafeData } from '$lib/utils/validation';
 
 	let data: { headline?: string; description?: string; anchor?: string; textStart?: boolean } = $props();
 

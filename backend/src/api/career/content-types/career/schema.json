@@ -26,7 +26,7 @@
       "component": "page-components.hero-carousel",
       "required": true
     },
-    "collectionTypeCards": {
+    "collectionTypeComponents": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
@@ -34,7 +34,7 @@
           "localized": true
         }
       },
-      "component": "page-components.collection-type-cards",
+      "component": "page-components.collection-type-components",
       "required": true
     },
     "contactForm": {

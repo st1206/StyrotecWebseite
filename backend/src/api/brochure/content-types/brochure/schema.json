@@ -4,7 +4,8 @@
   "info": {
     "singularName": "brochure",
     "pluralName": "brochures",
-    "displayName": "Prospekte"
+    "displayName": "Prospekte",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,23 +13,28 @@
   "pluginOptions": {},
   "attributes": {
     "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      ]
     },
     "file": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "title": {
+      "type": "string",
+      "required": true
     }
   }
 }

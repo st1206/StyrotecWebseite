@@ -1,6 +1,6 @@
 import { BACKEND_API_TOKEN } from '$env/static/private';
 import { PUBLIC_BACKEND_URL } from '$env/static/public';
-import type { AttributesOf } from '$lib/cmsTypes/types';
+import type { AttributesOf } from '$lib/types/cmsTypes/types';
 import { error } from '@sveltejs/kit';
 
 // Simple in-memory cache for CMS data (5 minute TTL)

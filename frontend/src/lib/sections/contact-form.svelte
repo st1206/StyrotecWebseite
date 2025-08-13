@@ -13,8 +13,8 @@
 	import type { Employee } from '$lib/models/employee';
 	import { Icons } from '$lib/assets/icons';
 	import { locale } from 'svelte-i18n';
-	import { SafeData } from '$lib/validation';
-	import { handleImageError, optimizeImageUrl } from '$lib/image';
+	import { SafeData } from '$lib/utils/validation';
+	import { handleImageError, optimizeImageUrl } from '$lib/utils/image';
 
 	let data: {
 		contactForm: any;

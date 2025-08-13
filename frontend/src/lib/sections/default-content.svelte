@@ -2,10 +2,10 @@
 	import * as Accordion from '$lib/components/ui/accordion';
 	import * as Card from '$lib/components/ui/card';
 	import * as Table from '$lib/components/ui/table';
-	import type { ImageAsset } from '$lib/cmsTypes/image-type';
+	import type { ImageAsset } from '$lib/types/cmsTypes/image-type';
 	import { page } from '$app/state';
-	import { getImageAltText, getOptimizedImageUrl, handleImageError } from '$lib/image';
-	import { SafeData } from '$lib/validation';
+	import { getImageAltText, getOptimizedImageUrl, handleImageError } from '$lib/utils/image';
+	import { SafeData } from '$lib/utils/validation';
 	import { cn, resolveRichText, type StrapiRichTextNode } from '$lib/utils';
 	import { Lightbox } from 'svelte-lightbox';
 	import { onMount, tick } from 'svelte';
@@ -290,7 +290,6 @@
 								<Table.Header>
 									<Table.Row
 										class={cn(
-											'border-secondary/20 hover:bg-secondary/15',
 											isDarkMode
 												? 'bg-secondary/10 hover:bg-secondary/15'
 												: 'bg-foreground/10 hover:bg-foreground/15'
@@ -319,7 +318,7 @@
 
 										<Table.Row
 											class={cn(
-												'border-secondary/20 hover:bg-secondary/5',
+												'border-secondary/20',
 												isDarkMode ? 'hover:bg-secondary/5' : 'hover:bg-foreground/5'
 											)}
 										>
@@ -344,7 +343,7 @@
 														'min-w-[100px] text-center font-medium'
 													)}
 												>
-													{cellValue}
+													{@html cellValue}
 												</Table.Cell>
 											{/each}
 										</Table.Row>

@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { PUBLIC_BACKEND_URL } from '$env/static/public';
-	import type { ImageAsset } from '$lib/cmsTypes/image-type';
+	import type { ImageAsset } from '$lib/types/cmsTypes/image-type';
 	import type { Employee } from '$lib/models/employee';
-	import { SafeData } from '$lib/validation';
-	import { optimizeImageUrl } from '$lib/image';
+	import { SafeData } from '$lib/utils/validation';
+	import { optimizeImageUrl } from '$lib/utils/image';
 	import { Icons } from '$lib/assets/icons';
 	import { _ } from 'svelte-i18n';
 

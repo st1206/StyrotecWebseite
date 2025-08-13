@@ -1,5 +1,5 @@
 import { PUBLIC_BACKEND_URL } from '$env/static/public';
-import type { ImageAsset } from '$lib/cmsTypes/image-type';
+import type { ImageAsset } from '$lib/types/cmsTypes/image-type';
 
 type StrapiRelationImage = {
 	data?: { attributes?: Partial<ImageAsset> & { formats?: Record<string, any> } } | null;

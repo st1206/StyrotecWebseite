@@ -5,9 +5,9 @@
 	import { page } from '$app/state';
 	import BlurFade from '$lib/components/blur-fade.svelte';
 	import { cn, getRedirectLink } from '$lib/utils';
-	import type { ImageAsset } from '$lib/cmsTypes/image-type';
-	import { SafeData } from '$lib/validation';
-	import { getOptimizedImageUrl, getImageAltText } from '$lib/image';
+	import type { ImageAsset } from '$lib/types/cmsTypes/image-type';
+	import { SafeData } from '$lib/utils/validation';
+	import { getOptimizedImageUrl, getImageAltText } from '$lib/utils/image';
 
 	let data: {
 		sectionTitle?: string;
@@ -114,7 +114,7 @@
 						border-none 
 						shadow-[5px_5px_0_#f6a313] transition
 						duration-500
-						hover:shadow-[10px_10px_0_#f6a313] focus:outline-none lg:h-[400px]
+						hover:shadow-[8px_8px_0_#f6a313] focus:outline-none lg:h-[400px]
 						"
 					>
 						{#if card.thumbnail}

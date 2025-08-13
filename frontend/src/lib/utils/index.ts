@@ -2,7 +2,7 @@ import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { DateFormatter } from '@internationalized/date';
 import type { SvelteComponent } from 'svelte';
-import { Icons } from './assets/icons';
+import { Icons } from '../assets/icons';
 import { locale } from 'svelte-i18n';
 import { get } from 'svelte/store';
 import { error } from '@sveltejs/kit';

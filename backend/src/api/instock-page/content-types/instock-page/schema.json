@@ -49,7 +49,7 @@
       "component": "page-components.seo",
       "required": true
     },
-    "collectionTypeCards": {
+    "collectionTypeComponents": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
@@ -57,7 +57,7 @@
           "localized": true
         }
       },
-      "component": "page-components.collection-type-cards",
+      "component": "page-components.collection-type-components",
       "required": true
     }
   }

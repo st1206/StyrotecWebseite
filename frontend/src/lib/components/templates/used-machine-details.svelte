@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ImageAsset } from '$lib/cmsTypes/image-type';
+	import type { ImageAsset } from '$lib/types/cmsTypes/image-type';
 	import Separator from '$lib/components/ui/separator/separator.svelte';
 	import type { Employee } from '$lib/models/employee';
 	import type { ProductDataSheet } from '$lib/models/productDataSheet';

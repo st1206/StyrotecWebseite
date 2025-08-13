@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { sectionMap } from '$lib/sections';
-	import type { ValidationResult, ValidationError, SafeData } from '$lib/validation';
+	import type { ValidationResult, ValidationError, SafeData } from '$lib/utils/validation';
 	import ErrorBoundary from './error-boundary.svelte';
 	import LoadingSkeleton from './loading-skeleton.svelte';
 	import { _ } from 'svelte-i18n';
@@ -37,13 +37,24 @@
 	$effect(() => {
 		if (sectionData && sectionKey !== 'seo' && shouldValidate) {
 			// Lazy load validation modules only when needed
-			import('$lib/validation').then(
+			import('$lib/utils/validation').then(
 				({ SectionValidator, SafeData, createError, createWarning }) => {
 					const validator = new SectionValidator(sectionKey, sectionData);
 					safeData = new SafeData(sectionData);
 
-					// Comprehensive validation for different section types
-					if (sectionKey.includes('hero')) {
+					if (sectionKey.includes('collectionType')) {
+						// Collection type components have different validation
+						validator.custom((data) => {
+							const errors: ValidationError[] = [];
+							if (data.error) {
+								errors.push(createError('collection', data.error));
+							}
+							if (!data.type) {
+								errors.push(createWarning('type', 'Collection type is missing'));
+							}
+							return errors;
+						});
+					} else if (sectionKey.includes('hero')) {
 						if (sectionKey.includes('carousel')) {
 							validator.images('images', 'Hero carousel images');
 						} else if (sectionKey.includes('textImage')) {
@@ -55,31 +66,17 @@
 							validator.required('title', 'Hero title');
 						}
 					} else if (sectionKey.includes('cards') || sectionKey.includes('Cards')) {
-						if (sectionKey.includes('collectionType')) {
-							// Collection type cards have different validation
-							validator.custom((data) => {
-								const errors: ValidationError[] = [];
-								if (data.error) {
-									errors.push(createError('collection', data.error));
-								}
-								if (!data.type) {
-									errors.push(createWarning('type', 'Collection type is missing'));
-								}
-								return errors;
-							});
-						} else {
-							validator.arrayNotEmpty('cards', 'Cards array').custom((data) => {
-								const errors: ValidationError[] = [];
-								if (data.cards && Array.isArray(data.cards)) {
-									data.cards.forEach((card: any, index: number) => {
-										if (!card?.title) {
-											errors.push(createError(`cards[${index}].title`, 'Card title is missing'));
-										}
-									});
-								}
-								return errors;
-							});
-						}
+						validator.arrayNotEmpty('cards', 'Cards array').custom((data) => {
+							const errors: ValidationError[] = [];
+							if (data.cards && Array.isArray(data.cards)) {
+								data.cards.forEach((card: any, index: number) => {
+									if (!card?.title) {
+										errors.push(createError(`cards[${index}].title`, 'Card title is missing'));
+									}
+								});
+							}
+							return errors;
+						});
 					} else if (sectionKey.includes('usp')) {
 						validator.arrayNotEmpty('uspItems', 'USP items').custom((data) => {
 							const errors: ValidationError[] = [];

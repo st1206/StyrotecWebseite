@@ -3,10 +3,10 @@
 	import * as Carousel from '$lib/components/ui/carousel';
 	import type { CarouselAPI, CarouselOptions } from '$lib/components/ui/carousel/context';
 	import BlurFade from '$lib/components/blur-fade.svelte';
-	import type { ImageAsset } from '$lib/cmsTypes/image-type';
+	import type { ImageAsset } from '$lib/types/cmsTypes/image-type';
 	import { Icons } from '$lib/assets/icons';
-	import { SafeData } from '$lib/validation';
-	import { getOptimizedImageUrl, getImageAltText, handleImageError } from '$lib/image';
+	import { SafeData } from '$lib/utils/validation';
+	import { getOptimizedImageUrl, getImageAltText, handleImageError } from '$lib/utils/image';
 
 	let data: { keyphrase?: string; images?: ImageAsset[] } = $props();
 

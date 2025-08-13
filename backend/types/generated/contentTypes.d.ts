@@ -605,6 +605,7 @@ export interface ApiBriquettingPressPageBriquettingPressPage
 export interface ApiBrochureBrochure extends Struct.CollectionTypeSchema {
   collectionName: 'brochures';
   info: {
+    description: '';
     displayName: 'Prospekte';
     pluralName: 'brochures';
     singularName: 'brochure';
@@ -626,6 +627,7 @@ export interface ApiBrochureBrochure extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     thumbnail: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -648,8 +650,8 @@ export interface ApiCareerCareer extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    collectionTypeCards: Schema.Attribute.Component<
-      'page-components.collection-type-cards',
+    collectionTypeComponents: Schema.Attribute.Component<
+      'page-components.collection-type-components',
       false
     > &
       Schema.Attribute.Required &
@@ -853,8 +855,8 @@ export interface ApiCncMillsPageCncMillsPage extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    collectionTypeCards: Schema.Attribute.Component<
-      'page-components.collection-type-cards',
+    collectionTypeComponents: Schema.Attribute.Component<
+      'page-components.collection-type-components',
       false
     > &
       Schema.Attribute.Required &
@@ -1168,8 +1170,8 @@ export interface ApiDrillingMachinesPageDrillingMachinesPage
     };
   };
   attributes: {
-    collectionTypeCards: Schema.Attribute.Component<
-      'page-components.collection-type-cards',
+    collectionTypeComponents: Schema.Attribute.Component<
+      'page-components.collection-type-components',
       false
     > &
       Schema.Attribute.Required &
@@ -1806,8 +1808,8 @@ export interface ApiGrindingMachinesPageGrindingMachinesPage
     };
   };
   attributes: {
-    collectionTypeCards: Schema.Attribute.Component<
-      'page-components.collection-type-cards',
+    collectionTypeComponents: Schema.Attribute.Component<
+      'page-components.collection-type-components',
       false
     > &
       Schema.Attribute.Required &
@@ -2127,8 +2129,8 @@ export interface ApiInstockPageInstockPage extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    collectionTypeCards: Schema.Attribute.Component<
-      'page-components.collection-type-cards',
+    collectionTypeComponents: Schema.Attribute.Component<
+      'page-components.collection-type-components',
       false
     > &
       Schema.Attribute.Required &
@@ -2326,8 +2328,8 @@ export interface ApiLathesPageLathesPage extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    collectionTypeCards: Schema.Attribute.Component<
-      'page-components.collection-type-cards',
+    collectionTypeComponents: Schema.Attribute.Component<
+      'page-components.collection-type-components',
       false
     > &
       Schema.Attribute.Required &
@@ -3061,8 +3063,8 @@ export interface ApiMillingMachinesPageMillingMachinesPage
     };
   };
   attributes: {
-    collectionTypeCards: Schema.Attribute.Component<
-      'page-components.collection-type-cards',
+    collectionTypeComponents: Schema.Attribute.Component<
+      'page-components.collection-type-components',
       false
     > &
       Schema.Attribute.Required &
@@ -3275,8 +3277,8 @@ export interface ApiNewsPageNewsPage extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    collectionTypeCards: Schema.Attribute.Component<
-      'page-components.collection-type-cards',
+    collectionTypeComponents: Schema.Attribute.Component<
+      'page-components.collection-type-components',
       false
     > &
       Schema.Attribute.Required &
@@ -3285,10 +3287,20 @@ export interface ApiNewsPageNewsPage extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
-    collectionTypeCardsTwo: Schema.Attribute.Component<
-      'page-components.collection-type-cards',
+    collectionTypeComponentsOne: Schema.Attribute.Component<
+      'page-components.collection-type-components',
       false
     > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    collectionTypeComponentsTwo: Schema.Attribute.Component<
+      'page-components.collection-type-components',
+      false
+    > &
+      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -3787,8 +3799,8 @@ export interface ApiSawsPageSawsPage extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    collectionTypeCards: Schema.Attribute.Component<
-      'page-components.collection-type-cards',
+    collectionTypeComponents: Schema.Attribute.Component<
+      'page-components.collection-type-components',
       false
     > &
       Schema.Attribute.Required &

@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { PUBLIC_BACKEND_URL } from '$env/static/public';
-	import type { ImageAsset } from '$lib/cmsTypes/image-type';
+	import type { ImageAsset } from '$lib/types/cmsTypes/image-type';
 	import BlurFade from '$lib/components/blur-fade.svelte';
-	import { SafeData } from '$lib/validation';
-	import { getOptimizedImageUrl, getImageAltText, handleImageError } from '$lib/image';
+	import { SafeData } from '$lib/utils/validation';
+	import { getOptimizedImageUrl, getImageAltText, handleImageError } from '$lib/utils/image';
 
 	let data: {
 		title?: string;

@@ -19,33 +19,20 @@ export interface PageComponentsBasicTextImage extends Struct.ComponentSchema {
   };
 }
 
-export interface PageComponentsCollectionTypeCards
+export interface PageComponentsCollectionTypeComponents
   extends Struct.ComponentSchema {
-  collectionName: 'components_page_components_collection_type_cards';
+  collectionName: 'components_page_components_collection_type_components';
   info: {
     description: '';
-    displayName: 'collectionTypeCards';
+    displayName: 'collectionTypeComponents';
   };
   attributes: {
     collectionApiSlug: Schema.Attribute.String & Schema.Attribute.Required;
     type: Schema.Attribute.Enumeration<
-      ['defaultCards', 'brochures', 'fairs', 'testimonials']
+      ['defaultCards', 'brochures', 'fairs', 'downloads']
     > &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'defaultCards'>;
-  };
-}
-
-export interface PageComponentsCollectionTypeTable
-  extends Struct.ComponentSchema {
-  collectionName: 'components_page_components_collection_type_tables';
-  info: {
-    description: '';
-    displayName: 'collectionTypeTable';
-    icon: 'bulletList';
-  };
-  attributes: {
-    collectionApiSlug: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -644,8 +631,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'page-components.basic-text-image': PageComponentsBasicTextImage;
-      'page-components.collection-type-cards': PageComponentsCollectionTypeCards;
-      'page-components.collection-type-table': PageComponentsCollectionTypeTable;
+      'page-components.collection-type-components': PageComponentsCollectionTypeComponents;
       'page-components.contact-form': PageComponentsContactForm;
       'page-components.default-cards': PageComponentsDefaultCards;
       'page-components.explore-more': PageComponentsExploreMore;

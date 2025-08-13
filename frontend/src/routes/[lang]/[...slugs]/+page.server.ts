@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import type { AttributesOf } from '$lib/cmsTypes/types';
+import type { AttributesOf } from '$lib/types/cmsTypes/types';
 import { pages, type CMSTypeMap, type Lang, type SlugKey } from '$lib/config/pages';
 import { loadCMSData, CMSFetchError } from '$lib/server/utils';
 import { contactFormSchema } from '$lib/models/contact-form-schema';
@@ -92,9 +92,10 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 
 			// Define an array of keys to check for collection types
 			const collectionTypeKeys = [
-				'collectionTypeCards',
-				'collectionTypeCardsTwo',
-				'collectionTypeCardsThree'
+				'collectionTypeComponents',
+				'collectionTypeComponentsOne',
+				'collectionTypeComponentsTwo',
+				'collectionTypeComponentsThree'
 			];
 
 			// Only process collections that actually exist to reduce API calls
@@ -128,9 +129,12 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 					sections: [],
 					// Add any other required fields based on your CMS structure
 					...Object.fromEntries(
-						['collectionTypeCards', 'collectionTypeCardsTwo', 'collectionTypeCardsThree'].map(
-							(key) => [key, null]
-						)
+						[
+							'collectionTypeComponents',
+							'collectionTypeComponentsOne',
+							'collectionTypeComponentsTwo',
+							'collectionTypeComponentsThree'
+						].map((key) => [key, null])
 					)
 				};
 			} else {

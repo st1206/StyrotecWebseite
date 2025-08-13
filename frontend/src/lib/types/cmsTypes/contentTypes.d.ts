@@ -648,8 +648,8 @@ export interface ApiCareerCareer extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    collectionTypeCards: Schema.Attribute.Component<
-      'page-components.collection-type-cards',
+    collectionTypeComponents: Schema.Attribute.Component<
+      'page-components.collection-type-components',
       false
     > &
       Schema.Attribute.Required &
@@ -853,8 +853,8 @@ export interface ApiCncMillsPageCncMillsPage extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    collectionTypeCards: Schema.Attribute.Component<
-      'page-components.collection-type-cards',
+    collectionTypeComponents: Schema.Attribute.Component<
+      'page-components.collection-type-components',
       false
     > &
       Schema.Attribute.Required &
@@ -1168,8 +1168,8 @@ export interface ApiDrillingMachinesPageDrillingMachinesPage
     };
   };
   attributes: {
-    collectionTypeCards: Schema.Attribute.Component<
-      'page-components.collection-type-cards',
+    collectionTypeComponents: Schema.Attribute.Component<
+      'page-components.collection-type-components',
       false
     > &
       Schema.Attribute.Required &
@@ -1806,8 +1806,8 @@ export interface ApiGrindingMachinesPageGrindingMachinesPage
     };
   };
   attributes: {
-    collectionTypeCards: Schema.Attribute.Component<
-      'page-components.collection-type-cards',
+    collectionTypeComponents: Schema.Attribute.Component<
+      'page-components.collection-type-components',
       false
     > &
       Schema.Attribute.Required &
@@ -2012,6 +2012,7 @@ export interface ApiHybridPageHybridPage extends Struct.SingleTypeSchema {
         'partial-components.content-table',
         'partial-components.content-header',
         'partial-components.content-accordion',
+        'partial-components.content-spacer',
       ]
     > &
       Schema.Attribute.Required &
@@ -2037,13 +2038,6 @@ export interface ApiHybridPageHybridPage extends Struct.SingleTypeSchema {
     >;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'page-components.seo', false> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    spacer: Schema.Attribute.Component<'page-components.spacer', false> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -2133,8 +2127,8 @@ export interface ApiInstockPageInstockPage extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    collectionTypeCards: Schema.Attribute.Component<
-      'page-components.collection-type-cards',
+    collectionTypeComponents: Schema.Attribute.Component<
+      'page-components.collection-type-components',
       false
     > &
       Schema.Attribute.Required &
@@ -2332,8 +2326,8 @@ export interface ApiLathesPageLathesPage extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    collectionTypeCards: Schema.Attribute.Component<
-      'page-components.collection-type-cards',
+    collectionTypeComponents: Schema.Attribute.Component<
+      'page-components.collection-type-components',
       false
     > &
       Schema.Attribute.Required &
@@ -3067,8 +3061,8 @@ export interface ApiMillingMachinesPageMillingMachinesPage
     };
   };
   attributes: {
-    collectionTypeCards: Schema.Attribute.Component<
-      'page-components.collection-type-cards',
+    collectionTypeComponents: Schema.Attribute.Component<
+      'page-components.collection-type-components',
       false
     > &
       Schema.Attribute.Required &
@@ -3281,8 +3275,8 @@ export interface ApiNewsPageNewsPage extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    collectionTypeCards: Schema.Attribute.Component<
-      'page-components.collection-type-cards',
+    collectionTypeComponents: Schema.Attribute.Component<
+      'page-components.collection-type-components',
       false
     > &
       Schema.Attribute.Required &
@@ -3291,8 +3285,8 @@ export interface ApiNewsPageNewsPage extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
-    collectionTypeCardsTwo: Schema.Attribute.Component<
-      'page-components.collection-type-cards',
+    collectionTypeComponentsTwo: Schema.Attribute.Component<
+      'page-components.collection-type-components',
       false
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -3793,8 +3787,8 @@ export interface ApiSawsPageSawsPage extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    collectionTypeCards: Schema.Attribute.Component<
-      'page-components.collection-type-cards',
+    collectionTypeComponents: Schema.Attribute.Component<
+      'page-components.collection-type-components',
       false
     > &
       Schema.Attribute.Required &

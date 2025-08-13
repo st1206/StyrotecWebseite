@@ -1,4 +1,4 @@
-import type { ImageAsset } from '$lib/cmsTypes/image-type';
+import type { ImageAsset } from '$lib/types/cmsTypes/image-type';
 
 // Base section interface
 export interface BaseSection {
@@ -168,7 +168,7 @@ export interface HistorySection extends BaseSection {
 	historyEntries: HistoryEntry[];
 }
 
-export interface CollectionTypeCardsSection extends BaseSection {
+export interface CollectionTypeComponentsSection extends BaseSection {
 	collectionApiSlug?: string;
 	type?: string;
 }
@@ -216,7 +216,7 @@ export type SectionData =
 	| DefaultContentSection
 	| PageHeaderSection
 	| HistorySection
-	| CollectionTypeCardsSection
+	| CollectionTypeComponentsSection
 	| CollectionTypeTableSection
 	| ContactFormSection
 	| UsedMachineDetailsSection
@@ -291,10 +291,10 @@ export interface SectionTypeMap {
 	historyOne: HistorySection;
 	historyTwo: HistorySection;
 
-	collectionTypeCards: CollectionTypeCardsSection;
-	collectionTypeCardsOne: CollectionTypeCardsSection;
-	collectionTypeCardsTwo: CollectionTypeCardsSection;
-	collectionTypeCardsThree: CollectionTypeCardsSection;
+	collectionTypeComponents: CollectionTypeComponentsSection;
+	collectionTypeComponentsOne: CollectionTypeComponentsSection;
+	collectionTypeComponentsTwo: CollectionTypeComponentsSection;
+	collectionTypeComponentsThree: CollectionTypeComponentsSection;
 
 	collectionTypeTable: CollectionTypeTableSection;
 	collectionTypeTableTwo: CollectionTypeTableSection;

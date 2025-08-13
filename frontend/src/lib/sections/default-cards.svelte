@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { ImageAsset } from '$lib/cmsTypes/image-type';
+	import type { ImageAsset } from '$lib/types/cmsTypes/image-type';
 	import { Button } from '$lib/components/ui/button';
 	import { cn, getRedirectLink } from '$lib/utils';
-	import { SafeData } from '$lib/validation';
-	import { getOptimizedImageUrl, getImageAltText, handleImageError } from '$lib/image';
+	import { SafeData } from '$lib/utils/validation';
+	import { getOptimizedImageUrl, getImageAltText, handleImageError } from '$lib/utils/image';
 
 	let {
 		sectionTitle = '',
@@ -133,7 +133,7 @@
 								validCards.length % 2 !== 0
 								? 'md:col-start-3'
 								: '',
-							primaryAction ? 'hover:scale-[101%] hover:shadow-[10px_10px_0_#f6a313]' : ''
+							primaryAction ? 'hover:scale-[101%] hover:shadow-[8px_8px_0_#f6a313]' : ''
 						)}
 					>
 						<!-- Simplified Image Section -->

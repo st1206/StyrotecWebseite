@@ -147,6 +147,10 @@
 	"grinding_machines": "Schleifmaschinen",
 	"other_machines": "Sonstige Maschinen",
 
+	"title": "Titel",
+	"description": "Beschreibung",
+	"file": "Datei",
+
 	"home": {
 		"title": "Startseite",
 		"description": "Willkommen auf der Startseite"

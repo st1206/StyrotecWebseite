@@ -1,14 +1,14 @@
 <script lang="ts">
 	import { PUBLIC_BACKEND_URL } from '$env/static/public';
 	import { Icons } from '$lib/assets/icons';
-	import type { ImageAsset } from '$lib/cmsTypes/image-type';
+	import type { ImageAsset } from '$lib/types/cmsTypes/image-type';
 	import { Button } from '$lib/components/ui/button';
 	import { cn } from '$lib/utils';
 	import { _ } from 'svelte-i18n';
-	import { SafeData } from '$lib/validation';
-	import { handleImageError, optimizeImageUrl } from '$lib/image';
+	import { SafeData } from '$lib/utils/validation';
+	import { handleImageError, optimizeImageUrl } from '$lib/utils/image';
 
-	let data: { brochures?: { thumbnail?: ImageAsset; file?: any }[] } = $props();
+	let data: { brochures?: { title: string; thumbnail: ImageAsset; file: any }[] } = $props();
 
 	const safe = new SafeData(data);
 	const rawBrochures = safe.getArray<any>('brochures', []);
@@ -16,11 +16,13 @@
 	const brochures = rawBrochures
 		.map((brochure, index) => {
 			const brochureSafe = new SafeData(brochure);
+			const title = brochureSafe.getString('title');
 			const thumbnail = brochureSafe.getObject('thumbnail');
 			const file = brochureSafe.getObject('file');
 
-			if (!thumbnail || !file) {
-				console.warn(`Brochure at index ${index} missing thumbnail or file:`, {
+			if (!title || !thumbnail || !file) {
+				console.warn(`Brochure at index ${index} missing data:`, {
+					title: !!title,
 					thumbnail: !!thumbnail,
 					file: !!file
 				});
@@ -31,6 +33,7 @@
 			const fileSafe = new SafeData(file);
 
 			return {
+				title: title,
 				thumbnail: {
 					url: thumbnailSafe.getString('url', ''),
 					formats: thumbnailSafe.getObject('formats', {}) as Record<string, any>,
@@ -67,16 +70,26 @@
 		<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:gap-6">
 			{#each brochures as brochure}
 				{#if brochure?.isValid}
-					<div class="group relative">
+					<button
+						type="button"
+						onclick={() => {
+							const downloadUrl = getDownloadUrl(brochure.file);
+							if (downloadUrl !== '#') {
+								window.open(downloadUrl, '_blank');
+							}
+						}}
+						class="group relative cursor-pointer"
+					>
+						<!-- [clip-path:polygon(0%_0%,300%_100%,100%_100%,0%_100%)] -->
 						<div
 							class={cn(
-								'bg-foreground/90 absolute bottom-0 z-10 flex h-[80px] w-full translate-y-[0.5px] items-end pb-1 [clip-path:polygon(0%_0%,150%_100%,100%_100%,0%_100%)]'
+								'bg-foreground/90 absolute bottom-0 z-10 flex w-full translate-y-[0.5px] items-end'
 							)}
 						>
 							<Button
 								variant="link"
 								class={cn(
-									'text-secondary gap-2 font-sans text-xl font-bold transition-colors hover:text-white'
+									'text-secondary line-clamp-1 gap-2 truncate font-sans text-xl font-bold transition-colors hover:text-white'
 								)}
 								onclick={() => {
 									const downloadUrl = getDownloadUrl(brochure.file);
@@ -85,8 +98,7 @@
 									}
 								}}
 							>
-								<Icons.download class="size-5" />
-								{$_('button.print')}
+								{brochure.title}
 							</Button>
 						</div>
 
@@ -94,11 +106,17 @@
 						<img
 							src={getBrochureImageUrl(brochure.thumbnail)}
 							alt={brochure.thumbnail.alternativeText}
-							class="bg-secondary shadow-foreground w-full object-cover transition-transform group-hover:scale-105"
+							class="bg-secondary shadow-foreground w-full object-cover transition ease-in-out group-hover:shadow-[8px_8px_0_#33312e]"
 							style="display: block;"
 							onerror={handleImageError}
-							loading="lazy"
+							loading="eager"
 						/>
+
+						<div
+							class="bg-foreground/90 absolute top-0 flex h-16 w-full justify-end p-3 [clip-path:polygon(100%_0,70%_0,100%_100%)]"
+						>
+							<Icons.download class="text-secondary size-4" />
+						</div>
 
 						<!-- Fallback for broken images -->
 						<div
@@ -113,7 +131,7 @@
 								{$_('common.imageNotAvailable') || 'Image not available'}
 							</p>
 						</div>
-					</div>
+					</button>
 				{/if}
 			{/each}
 		</div>

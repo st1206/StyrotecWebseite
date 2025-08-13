@@ -2,9 +2,9 @@
 	import * as Accordion from '$lib/components/ui/accordion';
 	import * as Card from '$lib/components/ui/card';
 	import BlurFade from '$lib/components/blur-fade.svelte';
-	import type { ImageAsset } from '$lib/cmsTypes/image-type';
-	import { getImageAltText, getOptimizedImageUrl } from '$lib/image';
-	import { SafeData } from '$lib/validation';
+	import type { ImageAsset } from '$lib/types/cmsTypes/image-type';
+	import { getImageAltText, getOptimizedImageUrl } from '$lib/utils/image';
+	import { SafeData } from '$lib/utils/validation';
 	import { innerWidth } from 'svelte/reactivity/window';
 
 	let data: {
@@ -73,7 +73,7 @@
 						py-8 shadow-[5px_5px_0_#f6a313]
 						transition
 						duration-500
-						hover:shadow-[10px_10px_0_#f6a313]
+						hover:shadow-[8px_8px_0_#f6a313]
 						focus:outline-none
 						xl:-skew-x-[10deg]
 						"

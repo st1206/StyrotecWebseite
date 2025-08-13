@@ -9,9 +9,9 @@
 	import { SvelteMap } from 'svelte/reactivity';
 	import { innerWidth } from 'svelte/reactivity/window';
 	import * as Table from '$lib/components/ui/table';
-	import type { ImageAsset } from '$lib/cmsTypes/image-type';
-	import { SafeData } from '$lib/validation';
-	import { optimizeImageUrl, handleImageError } from '$lib/image';
+	import type { ImageAsset } from '$lib/types/cmsTypes/image-type';
+	import { SafeData } from '$lib/utils/validation';
+	import { optimizeImageUrl, handleImageError } from '$lib/utils/image';
 	import { Icons } from '$lib/assets/icons';
 	import { _ } from 'svelte-i18n';
 

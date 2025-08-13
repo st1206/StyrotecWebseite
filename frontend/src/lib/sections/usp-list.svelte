@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { cn } from '$lib/utils';
-	import { SafeData } from '$lib/validation';
+	import { SafeData } from '$lib/utils/validation';
 
 	let data: {
 		uspItems: { name?: string; title?: string; content?: string }[];

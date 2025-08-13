@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { PUBLIC_BACKEND_URL } from '$env/static/public';
-	import type { ImageAsset } from '$lib/cmsTypes/image-type';
+	import type { ImageAsset } from '$lib/types/cmsTypes/image-type';
 	import BlurFade from '$lib/components/blur-fade.svelte';
 	import { cn } from '$lib/utils';
-	import { SafeData } from '$lib/validation';
-	import { handleImageError, optimizeImageUrl } from '$lib/image';
+	import { SafeData } from '$lib/utils/validation';
+	import { handleImageError, optimizeImageUrl } from '$lib/utils/image';
 	import { Icons } from '$lib/assets/icons';
 	import { _ } from 'svelte-i18n';
 

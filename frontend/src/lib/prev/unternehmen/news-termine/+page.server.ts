@@ -5,8 +5,8 @@ import type {
 	ApiBerichteBerichte,
 	ApiMessenMessen,
 	ApiReferenzenReferenzen
-} from '$lib/cmsTypes/contentTypes';
-import type { AttributesOf } from '$lib/cmsTypes/types';
+} from '$lib/types/cmsTypes/contentTypes';
+import type { AttributesOf } from '$lib/types/cmsTypes/types';
 import { PUBLIC_BACKEND_URL } from '$env/static/public';
 import { getRequestHeaders } from '$lib/server/utils';
 import { LANG_KEY } from '$lib/i18n';

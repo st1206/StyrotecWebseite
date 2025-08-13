@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_page_components_collection_type_cards",
+  "collectionName": "components_page_components_collection_type_components",
   "info": {
-    "displayName": "collectionTypeCards",
+    "displayName": "collectionTypeComponents",
     "description": ""
   },
   "options": {},
@@ -16,7 +16,7 @@
         "defaultCards",
         "brochures",
         "fairs",
-        "testimonials"
+        "downloads"
       ],
       "default": "defaultCards",
       "required": true

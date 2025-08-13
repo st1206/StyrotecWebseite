@@ -3,7 +3,7 @@
 	import { onMount, tick } from 'svelte';
 	import { SvelteMap } from 'svelte/reactivity';
 	import { innerWidth } from 'svelte/reactivity/window';
-    import { SafeData } from '$lib/validation';
+    import { SafeData } from '$lib/utils/validation';
 
 interface HistoryEntry {
     title?: string;

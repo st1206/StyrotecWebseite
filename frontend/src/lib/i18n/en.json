@@ -149,6 +149,10 @@
 	"grinding_machines": "Grinding Machines",
 	"other_machines": "Other Machines",
 
+	"title": "Title",
+	"description": "Description",
+	"file": "File",
+
 	"home": {
 		"title": "Homepage",
 		"description": "Welcome to the homepage"
