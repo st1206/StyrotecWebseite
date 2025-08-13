@@ -4,7 +4,8 @@
   "info": {
     "singularName": "job-offer",
     "pluralName": "job-offers",
-    "displayName": "Stellenausschreibung"
+    "displayName": "Stellenausschreibungen",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,7 +16,7 @@
     }
   },
   "attributes": {
-    "Stelle": {
+    "title": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -24,14 +25,37 @@
       "type": "string",
       "required": true
     },
-    "Beschreibung": {
+    "description": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "blocks",
+      "type": "text",
       "required": true
+    },
+    "file": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "sortOrder": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "integer",
+      "required": true,
+      "default": 1
     }
   }
 }

@@ -2184,7 +2184,8 @@ export interface ApiInstockPageInstockPage extends Struct.SingleTypeSchema {
 export interface ApiJobOfferJobOffer extends Struct.CollectionTypeSchema {
   collectionName: 'job_offers';
   info: {
-    displayName: 'Stellenausschreibung';
+    description: '';
+    displayName: 'Stellenausschreibungen';
     pluralName: 'job-offers';
     singularName: 'job-offer';
   };
@@ -2197,23 +2198,37 @@ export interface ApiJobOfferJobOffer extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    Beschreibung: Schema.Attribute.Blocks &
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
+    file: Schema.Attribute.Media<'files'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::job-offer.job-offer'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    Stelle: Schema.Attribute.String &
+    sortOrder: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<1>;
+    title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
