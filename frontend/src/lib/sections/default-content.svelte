@@ -289,7 +289,7 @@
 								<Table.Header>
 									<Table.Row
 										class={cn(
-											'border-foreground/20',
+											'border-secondary/20 hover:bg-secondary/15',
 											isDarkMode
 												? 'bg-secondary/10 hover:bg-secondary/15'
 												: 'bg-foreground/10 hover:bg-foreground/15'
@@ -318,7 +318,7 @@
 
 										<Table.Row
 											class={cn(
-												'border-foreground/20',
+												'border-secondary/20 hover:bg-secondary/5',
 												isDarkMode ? 'hover:bg-secondary/5' : 'hover:bg-foreground/5'
 											)}
 										>
