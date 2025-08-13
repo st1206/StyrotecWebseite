@@ -3218,8 +3218,8 @@ export interface ApiModelConstructionMachinesPageModelConstructionMachinesPage
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    defaultCards: Schema.Attribute.Component<
-      'page-components.default-cards',
+    exploreMore: Schema.Attribute.Component<
+      'page-components.explore-more',
       false
     > &
       Schema.Attribute.Required &

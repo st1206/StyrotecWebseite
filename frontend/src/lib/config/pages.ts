@@ -517,7 +517,7 @@ const pagesConfig: Record<string, PageContent> = {
 				sectionKey: 'heroDualImage'
 			},
 			{
-				sectionKey: 'defaultCards'
+				sectionKey: 'exploreMore'
 			},
 			{
 				sectionKey: 'seo'
@@ -538,7 +538,7 @@ const pagesConfig: Record<string, PageContent> = {
 				sectionKey: 'heroDualImage'
 			},
 			{
-				sectionKey: 'defaultCards'
+				sectionKey: 'exploreMore'
 			},
 			{
 				sectionKey: 'seo'
