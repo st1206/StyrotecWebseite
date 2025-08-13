@@ -52,6 +52,7 @@
 				description: string;
 				image: ImageAsset;
 				sortOrder?: number;
+				isImageTransparent: boolean;
 			}[];
 			sortOrder?: number;
 		}[];
@@ -426,7 +427,7 @@
 		{/if}
 		<Accordion.Root
 			type="multiple"
-			value={['item-1']}
+			value={['item-2']}
 			class="flex w-full flex-col gap-4"
 			onValueChange={updateOverlayHeights}
 		>
@@ -453,7 +454,11 @@
 											{@const imageUrl = getOptimizedImageUrl(item.image)}
 											{#if imageUrl}
 												<img
-													class="h-[260px] w-full object-contain"
+													class={cn(
+														item.isImageTransparent
+															? 'h-[260px] w-full object-contain'
+															: 'h-[260px] w-full object-cover'
+													)}
 													src={imageUrl}
 													alt={getImageAltText(item.image, item.title)}
 													loading="lazy"
@@ -465,12 +470,12 @@
 												<Card.Title
 													class={cn(
 														isDarkMode ? 'bg-secondary/10' : 'bg-foreground/10',
-														'w-full',
-														imageUrl
+														item.isImageTransparent && imageUrl
 															? item.title?.length > 15
 																? '[clip-path:polygon(0%_0%,70%_0%,100%_100%,0%_100%)]'
 																: '[clip-path:polygon(0%_0%,60%_0%,80%_100%,0%_100%)]'
-															: ''
+															: '',
+														'w-full'
 													)}
 												>
 													<h3
@@ -487,10 +492,10 @@
 											<Card.Content
 												class={cn(
 													imageUrl ? (isDarkMode ? 'bg-secondary/10' : 'bg-foreground/10') : '',
-													item.subtitle ? 'pt-4' : '',
+													item.isImageTransparent ? 'pt-4' : '',
 													'p-4'
 												)}
-												style={`height: ${(innerWidth?.current ?? 0) < 976 ? 'auto' : (overlayHeights[i] ?? 0) - 364 + 'px'}`}
+												style={`height: ${(innerWidth?.current ?? 0) < 976 ? 'auto' : (overlayHeights[i] ?? 0) - 316 + 'px'}`}
 											>
 												{#if item.subtitle}
 													<h4 class="text-md text-primary mb-1 font-sans font-medium">

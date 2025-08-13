@@ -25,6 +25,7 @@
 			description: string;
 			image: ImageAsset | null;
 			sortOrder: number;
+			isImageTransparent: boolean;
 		}[];
 		sortOrder: number;
 	};
@@ -119,7 +120,8 @@
 									subtitle: itemSafe.getString('subtitle'),
 									description: itemSafe.getString('description'),
 									image: itemSafe.getObject<ImageAsset>('image'),
-									sortOrder: itemSafe.getNumber('sortOrder')
+									sortOrder: itemSafe.getNumber('sortOrder'),
+									isImageTransparent: itemSafe.getBoolean('isImageTransparent') || true
 								}
 							];
 						})
@@ -201,7 +203,11 @@
 														)}
 														{#if imageUrl}
 															<img
-																class="h-[260px] w-full object-contain"
+																class={cn(
+																	item.isImageTransparent
+																		? 'h-[260px] w-full object-contain'
+																		: 'h-[260px] w-full object-cover'
+																)}
 																src={imageUrl}
 																alt={item.image?.alternativeText || item.title}
 																style="display: block;"
@@ -224,10 +230,11 @@
 														<Card.Header class="mt-12 p-0">
 															<Card.Title
 																class={cn(
-																	'bg-secondary/10 w-full',
-																	item.title.length > 15
-																		? '[clip-path:polygon(0%_0%,70%_0%,100%_100%,0%_100%)]'
-																		: '[clip-path:polygon(0%_0%,60%_0%,80%_100%,0%_100%)]'
+																	item.isImageTransparent && imageUrl
+																		? item.title?.length > 15
+																			? '[clip-path:polygon(0%_0%,70%_0%,100%_100%,0%_100%)]'
+																			: '[clip-path:polygon(0%_0%,60%_0%,80%_100%,0%_100%)]'
+																		: ''
 																)}
 															>
 																<h3 class="text-secondary p-4 font-sans font-bold">
@@ -237,7 +244,11 @@
 														</Card.Header>
 
 														<Card.Content
-															class={cn('bg-secondary/10 px-4', item.subtitle ? 'pt-4' : '')}
+															class={cn(
+																imageUrl ? 'bg-secondary/10' : '',
+																item.isImageTransparent ? 'pt-4' : '',
+																'p-4'
+															)}
 															style={`height: ${(innerWidth.current ?? 0) < 976 ? 'auto' : (overlayHeights[i] ?? 0) - 364 + 'px'}`}
 														>
 															{#if item.subtitle}
