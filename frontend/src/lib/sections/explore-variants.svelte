@@ -1,12 +1,11 @@
 <script lang="ts">
-	import * as Card from '$lib/components/ui/card';
 	import * as Accordion from '$lib/components/ui/accordion';
-	import { ScrollArea } from '$lib/components/ui/scroll-area';
+	import * as Card from '$lib/components/ui/card';
 	import BlurFade from '$lib/components/blur-fade.svelte';
-	import { innerWidth } from 'svelte/reactivity/window';
 	import type { ImageAsset } from '$lib/cmsTypes/image-type';
+	import { getImageAltText, getOptimizedImageUrl } from '$lib/image';
 	import { SafeData } from '$lib/validation';
-	import { getOptimizedImageUrl, getImageAltText } from '$lib/image';
+	import { innerWidth } from 'svelte/reactivity/window';
 
 	let data: {
 		sectionTitle?: string;
@@ -28,7 +27,35 @@
 		accordionItems: Array.isArray(v?.accordionItems) ? v.accordionItems : []
 	}));
 
-	let accordionHeight: number | null = $state(280);
+	const FIXED_ACCORDION_HEIGHT = 280;
+	const scrollAreaHeight = $derived(
+		(innerWidth?.current ?? 0) < 1440 ? 'auto' : `${FIXED_ACCORDION_HEIGHT}px`
+	);
+	let scrollableDivs: (HTMLDivElement | null)[] = $state([]);
+
+	function handleAccordionChange(variantIndex: number, itemValue: string) {
+		if ((innerWidth?.current ?? 0) < 1440) return;
+
+		setTimeout(() => {
+			const scrollableDiv = scrollableDivs[variantIndex];
+			if (!scrollableDiv) return;
+
+			const accordionItem = scrollableDiv.querySelector(`[data-value="${itemValue}"]`);
+			if (!accordionItem) return;
+
+			const itemRect = accordionItem.getBoundingClientRect();
+			const viewportRect = scrollableDiv.getBoundingClientRect();
+
+			const isVisible = itemRect.top >= viewportRect.top && itemRect.bottom <= viewportRect.bottom;
+
+			if (!isVisible) {
+				accordionItem.scrollIntoView({
+					behavior: 'smooth',
+					block: 'nearest'
+				});
+			}
+		}, 150);
+	}
 </script>
 
 <section class="mx-2 mb-32 mt-12 sm:container sm:mx-auto lg:mt-28 xl:my-36">
@@ -72,19 +99,22 @@
 
 							<div>
 								<Card.Content>
-									<ScrollArea
-										class="w-full pr-2"
-										style="height: {(innerWidth?.current ?? 0) < 1440
-											? 'auto'
-											: accordionHeight + 'px'}"
+									<div
+										bind:this={scrollableDivs[i]}
+										class="w-full overflow-y-auto pr-2"
+										style="height: {scrollAreaHeight}"
 									>
-										<Accordion.Root type="single" class="flex w-full flex-col gap-4">
+										<Accordion.Root
+											type="single"
+											class="flex w-full flex-col gap-4"
+											onValueChange={(value) => value && handleAccordionChange(i, value)}
+										>
 											{#each variant.accordionItems as item, j}
-												<Accordion.Item value="item-{j + 1}">
+												<Accordion.Item value="item-{j + 1}" data-value="item-{j + 1}">
 													<Accordion.Trigger class="text-secondary font-sans font-medium">
 														{item.title}
 													</Accordion.Trigger>
-													<Accordion.Content class="text-secondary bg-secondary/5">
+													<Accordion.Content class="bg-secondary/5 text-secondary">
 														{#each item.accordionItemLines as line, k}
 															<div class="flex justify-between">
 																<span>{line.label}</span>
@@ -95,7 +125,7 @@
 												</Accordion.Item>
 											{/each}
 										</Accordion.Root>
-									</ScrollArea>
+									</div>
 								</Card.Content>
 							</div>
 						</div>
