@@ -284,72 +284,90 @@
 					{@const validRows = tableRows.filter((row: any) => row && typeof row === 'object')}
 
 					{#if validRows.length > 0}
-						<Table.Root>
-							<Table.Header>
-								<Table.Row
-									class={cn(
-										isDarkMode
-											? 'bg-secondary/10 hover:bg-secondary/15'
-											: 'bg-foreground/10 hover:bg-foreground/15',
-										'border-foreground/20'
-									)}
-								>
-									<Table.Head class={cn(isDarkMode ? 'text-secondary' : 'text-foreground')}
-									></Table.Head>
-									{#each validColumns as column}
-										{@const columnSafe = new SafeData(column)}
-										{@const columnLabel = columnSafe.getString('columnLabel', 'Column')}
-										<Table.Head
-											class={cn(
-												isDarkMode ? 'text-secondary' : 'text-foreground',
-												'text-center font-sans font-bold'
-											)}
-										>
-											{columnLabel}
-										</Table.Head>
-									{/each}
-								</Table.Row>
-							</Table.Header>
-							<Table.Body class={cn(isDarkMode ? 'text-secondary' : 'text-foreground')}>
-								{#each validRows as row, idx}
-									{@const rowSafe = new SafeData(row)}
-									{@const rowLabel = rowSafe.getString('rowLabel', `Row ${idx + 1}`)}
-
+						<div class="overflow-x-auto">
+							<Table.Root>
+								<Table.Header>
 									<Table.Row
 										class={cn(
+											'border-foreground/20',
 											isDarkMode
-												? 'bg-secondary/5 hover:bg-secondary/20'
-												: 'bg-foreground/5 hover:bg-foreground/20',
-											'border-foreground/20'
+												? 'bg-secondary/10 hover:bg-secondary/15'
+												: 'bg-foreground/10 hover:bg-foreground/15'
 										)}
 									>
-										<Table.Cell
-											class={cn(
-												isDarkMode ? 'bg-secondary/5' : 'bg-foreground/5',
-												'w-[100px] sm:w-[150px]'
-											)}
-										>
-											{rowLabel}
-										</Table.Cell>
+										<Table.Head class={cn(isDarkMode ? 'text-secondary' : 'text-foreground')}
+										></Table.Head>
 										{#each validColumns as column}
 											{@const columnSafe = new SafeData(column)}
-											{@const columnRows = columnSafe.getArray('tableRows', [])}
-											{@const cellData = columnRows[idx]}
-											{@const cellSafe = new SafeData(cellData)}
-											{@const cellValue = cellSafe.getString('rowValue', '-')}
-
-											<Table.Cell class="min-w-[100px] text-center font-medium">
-												{cellValue}
-											</Table.Cell>
+											{@const columnLabel = columnSafe.getString('columnLabel', 'Column')}
+											<Table.Head
+												class={cn(
+													isDarkMode ? 'text-secondary' : 'text-foreground',
+													'text-center font-sans font-bold'
+												)}
+											>
+												{columnLabel}
+											</Table.Head>
 										{/each}
 									</Table.Row>
-								{/each}
-							</Table.Body>
-						</Table.Root>
+								</Table.Header>
+								<Table.Body class={cn(isDarkMode ? 'text-secondary' : 'text-foreground')}>
+									{#each validRows as row, idx}
+										{@const rowSafe = new SafeData(row)}
+										{@const rowLabel = rowSafe.getString('rowLabel', `Row ${idx + 1}`)}
+
+										<Table.Row
+											class={cn(
+												'border-foreground/20',
+												isDarkMode ? 'hover:bg-secondary/5' : 'hover:bg-foreground/5'
+											)}
+										>
+											<Table.Cell
+												class={cn(
+													isDarkMode ? 'bg-secondary/10' : 'bg-foreground/10',
+													'w-[100px] sm:w-[150px]'
+												)}
+											>
+												{rowLabel}
+											</Table.Cell>
+											{#each validColumns as column}
+												{@const columnSafe = new SafeData(column)}
+												{@const columnRows = columnSafe.getArray('tableRows', [])}
+												{@const cellData = columnRows[idx]}
+												{@const cellSafe = new SafeData(cellData)}
+												{@const cellValue = cellSafe.getString('rowValue', '-')}
+
+												<Table.Cell
+													class={cn(
+														isDarkMode ? 'bg-secondary/5' : '',
+														'min-w-[100px] text-center font-medium'
+													)}
+												>
+													{cellValue}
+												</Table.Cell>
+											{/each}
+										</Table.Row>
+									{/each}
+								</Table.Body>
+							</Table.Root>
+						</div>
 					{:else}
-						<div class="py-8 text-center">
-							<p class={cn(isDarkMode ? 'text-secondary/60' : 'text-muted-foreground', 'text-sm')}>
-								No table rows available
+						<div class="flex flex-col items-center justify-center py-8 text-center">
+							<svg
+								class={cn('mb-4 h-12 w-12', isDarkMode ? 'opacity-30' : 'text-muted-foreground')}
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+								stroke-width="1.5"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 01-1.125-1.125v-12.75c0-.621.504-1.125 1.125-1.125h17.25c.621 0 1.125.504 1.125 1.125v12.75c0 .621-.504 1.125-1.125 1.125m-17.25 0h17.25m-17.25 0v-12.75m17.25 12.75v-12.75m0 0H3.375m17.25 0c.621 0 1.125.504 1.125 1.125v12.75c0 .621-.504 1.125-1.125 1.125m-1.125-1.125v-1.125m-15 1.125v-1.125m15 0H4.5m15 0v-1.125m-15 1.125v-1.125m12.75 0v-1.125m-10.5 1.125v-1.125"
+								/>
+							</svg>
+							<p class={cn(isDarkMode ? 'text-secondary/70' : 'text-muted-foreground')}>
+								No table data available
 							</p>
 						</div>
 					{/if}
@@ -406,7 +424,12 @@
 				{block.title}
 			</h4>
 		{/if}
-		<Accordion.Root type="multiple" value={['item-1']} class="flex w-full flex-col gap-4">
+		<Accordion.Root
+			type="multiple"
+			value={['item-1']}
+			class="flex w-full flex-col gap-4"
+			onValueChange={updateOverlayHeights}
+		>
 			{#each block.accordions as accordion, i}
 				<Accordion.Item value={`item-${i + 1}`} class="border-none">
 					<Accordion.Trigger
@@ -414,19 +437,19 @@
 							isDarkMode
 								? 'bg-secondary/10 text-secondary hover:bg-secondary/15'
 								: 'bg-foreground/10 text-foreground hover:bg-foreground/15',
-							'font-sans font-medium'
+							'border-primary border-b font-sans font-medium'
 						)}
 					>
 						<h4>{accordion.title}</h4>
 					</Accordion.Trigger>
 					<Accordion.Content class={cn(isDarkMode ? 'bg-secondary/5' : 'bg-foreground/5', 'pt-2')}>
-						<div class="grid w-full grid-cols-1 gap-4 md:grid-cols-2">
-							{#each accordion.accordionItems as item, k}
-								<div class="h-full" bind:this={overlayRefs[i]}>
-									<Card.Root
-										class={cn(isDarkMode ? 'bg-secondary/10' : 'bg-foreground/10', 'px-0')}
-									>
-										{#if item.image}
+						{#if accordion.accordionItems.length > 0}
+							<div class="grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+								{#each accordion.accordionItems as item, k}
+									<div class="h-full" bind:this={overlayRefs[i]}>
+										<Card.Root
+											class={cn(isDarkMode ? 'bg-secondary/5' : 'bg-foreground/5', 'h-full px-0')}
+										>
 											{@const imageUrl = getOptimizedImageUrl(item.image)}
 											{#if imageUrl}
 												<img
@@ -436,94 +459,77 @@
 													loading="lazy"
 													onerror={handleImageError}
 												/>
-											{:else}
-												<div
-													class="bg-muted flex h-[260px] w-full flex-col items-center justify-center"
-												>
-													<svg
-														class="text-muted-foreground mb-2 h-12 w-12"
-														fill="none"
-														viewBox="0 0 24 24"
-														stroke="currentColor"
-													>
-														<path
-															stroke-linecap="round"
-															stroke-linejoin="round"
-															stroke-width="2"
-															d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-														/>
-													</svg>
-													<p class="text-muted-foreground text-sm">Image not available</p>
-												</div>
 											{/if}
-										{:else}
-											<div
-												class="bg-muted flex h-[260px] w-full flex-col items-center justify-center"
-											>
-												<svg
-													class="text-muted-foreground mb-2 h-12 w-12"
-													fill="none"
-													viewBox="0 0 24 24"
-													stroke="currentColor"
-												>
-													<path
-														stroke-linecap="round"
-														stroke-linejoin="round"
-														stroke-width="2"
-														d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-													/>
-												</svg>
-												<p class="text-muted-foreground text-sm">No image provided</p>
-											</div>
-										{/if}
 
-										<Card.Header class="mt-12 p-0">
-											<Card.Title
-												class={cn(
-													item.title?.length > 15
-														? '[clip-path:polygon(0%_0%,70%_0%,100%_100%,0%_100%)]'
-														: '[clip-path:polygon(0%_0%,50%_0%,70%_100%,0%_100%)]',
-													isDarkMode ? 'bg-secondary' : 'bg-foreground',
-													'w-full'
-												)}
-											>
-												<h3
+											<Card.Header class="p-0">
+												<Card.Title
 													class={cn(
-														isDarkMode ? 'text-foreground' : 'text-secondary',
-														'p-4 font-sans font-bold'
+														isDarkMode ? 'bg-secondary/10' : 'bg-foreground/10',
+														'w-full',
+														imageUrl
+															? item.title?.length > 15
+																? '[clip-path:polygon(0%_0%,70%_0%,100%_100%,0%_100%)]'
+																: '[clip-path:polygon(0%_0%,60%_0%,80%_100%,0%_100%)]'
+															: ''
 													)}
 												>
-													{item.title}
-												</h3>
-											</Card.Title>
-										</Card.Header>
+													<h3
+														class={cn(
+															isDarkMode ? 'text-secondary' : 'text-foreground',
+															'p-4 font-sans font-bold'
+														)}
+													>
+														{item.title}
+													</h3>
+												</Card.Title>
+											</Card.Header>
 
-										<Card.Content
-											class={cn(
-												item.subtitle ? 'pt-4' : '',
-												isDarkMode ? 'bg-secondary' : 'bg-foreground',
-												'px-4'
-											)}
-											style={`height: ${(innerWidth?.current ?? 0) < 976 ? 'auto' : (overlayHeights[i] ?? 0) - 364 + 'px'}`}
-										>
-											{#if item.subtitle}
-												<h4 class="text-md text-primary mb-1 font-sans font-medium">
-													{item.subtitle}
-												</h4>
-											{/if}
-											<p
+											<Card.Content
 												class={cn(
-													isDarkMode ? 'text-foreground' : 'text-secondary',
-													'prose-sm text-justify font-sans'
+													imageUrl ? (isDarkMode ? 'bg-secondary/10' : 'bg-foreground/10') : '',
+													item.subtitle ? 'pt-4' : '',
+													'p-4'
 												)}
+												style={`height: ${(innerWidth?.current ?? 0) < 976 ? 'auto' : (overlayHeights[i] ?? 0) - 364 + 'px'}`}
 											>
-												{@html item.description}
-											</p>
-										</Card.Content>
-									</Card.Root>
-								</div>
-							{/each}
-						</div>
+												{#if item.subtitle}
+													<h4 class="text-md text-primary mb-1 font-sans font-medium">
+														{item.subtitle}
+													</h4>
+												{/if}
+												<div
+													class={cn(
+														'prose-sm text-justify font-sans',
+														isDarkMode ? 'text-secondary' : 'text-foreground'
+													)}
+												>
+													{@html item.description}
+												</div>
+											</Card.Content>
+										</Card.Root>
+									</div>
+								{/each}
+							</div>
+						{:else}
+							<div class="flex flex-col items-center justify-center py-8 text-center">
+								<svg
+									class={cn('mb-4 h-12 w-12', isDarkMode ? 'opacity-30' : 'text-muted-foreground')}
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+									stroke-width="1.5"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M8.25 6.75h7.5M8.25 12h7.5m-7.5 5.25h7.5M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+									/>
+								</svg>
+								<p class={cn(isDarkMode ? 'text-secondary/70' : 'text-muted-foreground')}>
+									No items available in this section
+								</p>
+							</div>
+						{/if}
 					</Accordion.Content>
 				</Accordion.Item>
 			{/each}

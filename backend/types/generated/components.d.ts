@@ -290,6 +290,9 @@ export interface PartialComponentsContentAccordion
       true
     > &
       Schema.Attribute.Required;
+    isDarkMode: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
     sortOrder: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<1>;

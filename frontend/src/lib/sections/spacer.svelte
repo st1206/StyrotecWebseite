@@ -17,8 +17,6 @@
 	};
 
 	const spacerClass = $derived(heightClasses[height]);
-
-	$inspect({ isDarkMode, height, withSeparatorLine });
 </script>
 
 <div class={cn('flex w-full items-center', isDarkMode ? 'bg-foreground' : '', spacerClass)}>

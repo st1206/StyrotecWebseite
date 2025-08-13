@@ -65,17 +65,6 @@
         "partial-components.content-spacer"
       ],
       "required": true
-    },
-    "spacer": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "page-components.spacer",
-      "required": true
     }
   }
 }

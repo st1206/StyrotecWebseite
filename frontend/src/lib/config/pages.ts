@@ -393,9 +393,6 @@ const pagesConfig: Record<string, PageContent> = {
 				sectionKey: 'heroDualImage'
 			},
 			{
-				sectionKey: 'spacer'
-			},
-			{
 				sectionKey: 'defaultContent'
 			},
 			{
