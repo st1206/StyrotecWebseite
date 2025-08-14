@@ -6,10 +6,6 @@
   },
   "options": {},
   "attributes": {
-    "internalId": {
-      "type": "string",
-      "required": true
-    },
     "designation": {
       "type": "string",
       "required": true

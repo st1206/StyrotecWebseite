@@ -178,8 +178,8 @@
 
 		<div class="flex flex-col gap-20 px-2 sm:container xl:px-48">
 			<Accordion.Root
-				type="multiple"
-				value={['item-1']}
+				type="single"
+				value={'item-1'}
 				class="flex w-full flex-col gap-4"
 				onValueChange={updateOverlayHeights}
 			>
