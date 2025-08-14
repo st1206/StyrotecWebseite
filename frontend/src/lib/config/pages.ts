@@ -724,17 +724,18 @@ const pagesConfig: Record<string, PageContent> = {
 			{
 				sectionKey: 'heroCarousel'
 			},
-			{
-				sectionKey: 'pageHeader'
-			},
-			{
-				sectionKey: 'collectionTypeComponents'
-			},
+
 			{
 				sectionKey: 'pageHeaderTwo'
 			},
 			{
 				sectionKey: 'collectionTypeComponentsOne'
+			},
+			{
+				sectionKey: 'pageHeader'
+			},
+			{
+				sectionKey: 'collectionTypeComponents'
 			},
 			{
 				sectionKey: 'collectionTypeComponentsTwo'
