@@ -48,7 +48,8 @@
 @layer base {
 	@font-face {
 		font-family: 'ITCOfficinaSansStd';
-		src: url('/fonts/officinaSansStd/OfficinaSansStd-Book.otf'),
+		src:
+			url('/fonts/officinaSansStd/OfficinaSansStd-Book.otf'),
 			url('/fonts/officinaSansStd/OfficinaSansStd-Book.woff2') format('woff2'),
 			url('/fonts/officinaSansStd/OfficinaSansStd-Book.woff') format('woff');
 		font-weight: normal;
@@ -57,7 +58,8 @@
 
 	@font-face {
 		font-family: 'ITCOfficinaSansStd';
-		src: url('/fonts/officinaSansStd/OfficinaSansStd-Bold.otf'),
+		src:
+			url('/fonts/officinaSansStd/OfficinaSansStd-Bold.otf'),
 			url('/fonts/officinaSansStd/OfficinaSansStd-Bold.woff2') format('woff2'),
 			url('/fonts/officinaSansStd/OfficinaSansStd-Bold.woff') format('woff');
 		font-weight: bold;
@@ -101,10 +103,8 @@
 
 @media print {
 	body {
-		-webkit-print-color-adjust: exact;
-		/* Safari/Chrome */
+		-webkit-print-color-adjust: exact !important;
 		print-color-adjust: exact;
-		/* Firefox/others */
 	}
 
 	img {
