@@ -16,18 +16,12 @@
       "type": "string",
       "required": true
     },
-    "favicon": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ]
-    },
     "siteDescription": {
       "type": "text",
+      "required": true
+    },
+    "keywords": {
+      "type": "string",
       "required": true
     }
   }

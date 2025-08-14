@@ -140,8 +140,8 @@
 						{#if card.thumbnailUrl}
 							<div
 								class={cn(
-									'relative aspect-[4/2] w-full shrink-0',
-									hasContent ? 'md:w-[60%]' : 'w-full'
+									'relative  w-full shrink-0',
+									hasContent ? 'aspect-[4/2] md:w-[60%]' : 'aspect-[4/3] w-full'
 								)}
 							>
 								<img

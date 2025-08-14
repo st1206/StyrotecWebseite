@@ -3,29 +3,29 @@
 	import { onMount, tick } from 'svelte';
 	import { SvelteMap } from 'svelte/reactivity';
 	import { innerWidth } from 'svelte/reactivity/window';
-    import { SafeData } from '$lib/utils/validation';
+	import { SafeData } from '$lib/utils/validation';
 
-interface HistoryEntry {
-    title?: string;
-    description?: string;
-    year?: string | number;
-}
+	interface HistoryEntry {
+		title?: string;
+		description?: string;
+		year?: string | number;
+	}
 
-let data: { sectionTitle?: string; historyEntries?: HistoryEntry[] } = $props();
+	let data: { sectionTitle?: string; historyEntries?: HistoryEntry[] } = $props();
 
-const safe = new SafeData(data);
-const sectionTitle = safe.getString('sectionTitle');
-const rawEntries = safe.getArray<HistoryEntry>('historyEntries', []);
-const entries = $derived(
-    rawEntries
-        .filter((e) => e && typeof e === 'object')
-        .map((e) => ({
-            title: (e.title || '').toString(),
-            description: (e.description || '').toString(),
-            year: e.year ?? ''
-        }))
-        .filter((e) => e.title)
-);
+	const safe = new SafeData(data);
+	const sectionTitle = safe.getString('sectionTitle');
+	const rawEntries = safe.getArray<HistoryEntry>('historyEntries', []);
+	const entries = $derived(
+		rawEntries
+			.filter((e) => e && typeof e === 'object')
+			.map((e) => ({
+				title: (e.title || '').toString(),
+				description: (e.description || '').toString(),
+				year: e.year ?? ''
+			}))
+			.filter((e) => e.title)
+	);
 
 	let cardRefs: Array<HTMLElement | null> = $state([]);
 	const cardHeightsMap = new SvelteMap<string, number[]>([]);
@@ -55,15 +55,15 @@ const entries = $derived(
 </script>
 
 <section id="historie" class="my-20 scroll-mt-24 px-4 lg:container lg:mx-auto lg:my-32 lg:w-full">
-    <div class="mx-auto w-full max-w-6xl">
-        {#if sectionTitle}
+	<div class="mx-auto w-full max-w-6xl">
+		{#if sectionTitle}
 			<!-- Heading -->
 			<h2 class="text-foreground mb-16 text-center font-sans text-4xl font-bold uppercase">
-                {sectionTitle}
+				{sectionTitle}
 			</h2>
 		{/if}
 
-        {#each entries as item, i}
+		{#each entries as item, i}
 			<!-- ************* MOBILE (< sm) LAYOUT ************* -->
 			<!-- Card column -->
 			<div class="flex w-full items-center gap-8 md:hidden">
@@ -73,7 +73,7 @@ const entries = $derived(
 						style={`height: ${(innerWidth?.current ?? 0) > 768 ? 'auto' : ((cardHeights[i] ?? 0) - 48) / 2 + 'px'}`}
 					></div>
 					<div class="bg-foreground z-10 flex min-h-12 min-w-12 items-center justify-center">
-						<span class="text-foreground text-sm font-bold">{item.year}</span>
+						<span class="text-primary text-sm font-bold">{item.year}</span>
 					</div>
 					<div
 						class="bg-primary w-1"
@@ -94,7 +94,7 @@ const entries = $derived(
 			</div>
 
 			<!-- Spacer for mobile -->
-            {#if i < entries.length - 1}
+			{#if i < entries.length - 1}
 				<div class="flex items-center gap-4 md:hidden">
 					<div class="flex w-12 justify-center">
 						<div class="bg-primary h-10 w-1"></div>
@@ -160,7 +160,7 @@ const entries = $derived(
 			</div>
 
 			<!-- Spacer for tablet/desktop -->
-            {#if i < entries.length - 1}
+			{#if i < entries.length - 1}
 				<div class="hidden md:grid md:grid-cols-9">
 					<div class="col-span-4"></div>
 					<div class="col-span-1 flex items-center justify-center">
