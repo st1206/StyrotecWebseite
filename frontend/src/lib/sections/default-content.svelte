@@ -570,7 +570,7 @@
 						<Lightbox transitionDuration={50}>
 							{#if imageUrl}
 								<img
-									class="shadow-primary h-[400px] w-full object-cover"
+									class="shadow-primary aspect-video w-full object-cover"
 									src={imageUrl}
 									alt={imageAlt}
 									loading="lazy"
@@ -578,7 +578,7 @@
 								/>
 							{:else}
 								<div
-									class="bg-muted shadow-primary flex h-[400px] w-full flex-col items-center justify-center"
+									class="bg-muted shadow-primary flex aspect-video w-full flex-col items-center justify-center"
 								>
 									<svg
 										class="text-muted-foreground mb-2 h-12 w-12"
