@@ -154,7 +154,7 @@
 			{/if}
 
 			<div class={cn(currentIsDark ? 'bg-foreground' : '')}>
-				<div class="sm:container">
+				<div class="px-4 sm:container 2xl:px-0">
 					{#if block.__component === 'partial-components.content-header'}
 						{@const componentData = block as ContentHeader}
 						{@render HeaderTemplate(componentData)}
@@ -216,7 +216,9 @@
 	{@const description = safe.getString('description')}
 	{@const isDarkMode = safe.getBoolean('isDarkMode', false)}
 
-	<div class={cn(isDarkMode ? 'py-16' : 'pb-16 pt-32', 'flex flex-col items-center gap-2')}>
+	<div
+		class={cn(isDarkMode ? 'py-16' : 'lg:pt-15 pb-16 pt-28', 'flex flex-col items-center gap-2')}
+	>
 		<h3
 			class={cn(isDarkMode ? 'text-secondary' : 'text-foreground', 'font-sans text-4xl font-bold')}
 		>
@@ -646,7 +648,7 @@
 	<div class="mx-auto py-16">
 		<div
 			class={cn(
-				'flex flex-col gap-4 lg:gap-12',
+				'flex flex-col gap-6 sm:gap-4 lg:gap-12',
 				block.imagePosition === 'left' && 'md:flex-row',
 				block.imagePosition === 'right' && 'md:flex-row-reverse'
 			)}

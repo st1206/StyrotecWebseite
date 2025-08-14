@@ -67,7 +67,7 @@
 
 <section id="prospekte" class="my-16 w-full px-4 sm:container sm:mx-auto lg:max-w-4xl">
 	{#if brochures.length > 0}
-		<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:gap-6">
+		<div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:gap-6">
 			{#each brochures as brochure}
 				{#if brochure?.isValid}
 					<button
@@ -81,7 +81,7 @@
 						class="group relative cursor-pointer"
 					>
 						<!-- [clip-path:polygon(0%_0%,300%_100%,100%_100%,0%_100%)] -->
-						<div
+						<!-- <div
 							class={cn(
 								'bg-foreground/90 absolute bottom-0 z-10 flex w-full translate-y-[0.5px] items-end'
 							)}
@@ -100,7 +100,7 @@
 							>
 								{brochure.title}
 							</Button>
-						</div>
+						</div> -->
 
 						<!-- Main image -->
 						<img

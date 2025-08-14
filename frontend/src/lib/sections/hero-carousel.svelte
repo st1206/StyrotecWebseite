@@ -22,8 +22,10 @@
 		stopOnInteraction: false,
 		stopOnMouseEnter: true
 	};
+
 	const carouselOptions: CarouselOptions = {
 		loop: images.length > 1,
+		watchDrag: images.length > 1,
 		dragFree: false,
 		containScroll: 'trimSnaps',
 		align: 'start',

@@ -83,7 +83,7 @@
 					>
 						{#if variant.image}
 							<img
-								class="col-span-2 mx-auto h-[350px] object-contain xl:col-span-2"
+								class="col-span-2 px-4 mx-auto h-[350px] object-contain xl:col-span-2"
 								src={getOptimizedImageUrl(variant.image)}
 								alt={getImageAltText(variant.image, variant.title)}
 							/>

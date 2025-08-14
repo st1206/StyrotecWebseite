@@ -115,7 +115,7 @@
 					class={cn(
 						i < menu.length - 1 ? 'border-r-2 border-white/20' : '',
 						onlyThisItemActive(item.id) ? 'bg-primary' : '',
-						'font-sans font-bold text-secondary hover:bg-primary h-full -skew-x-[15deg] cursor-pointer uppercase transition duration-300 hover:text-white'
+						'text-secondary hover:bg-primary h-full -skew-x-[15deg] cursor-pointer font-sans font-bold uppercase transition duration-300 hover:text-white'
 					)}
 					onmouseenter={() => handleMouseEnter(item.id)}
 					onmouseleave={() => handleMouseLeave(item.id)}
@@ -210,10 +210,10 @@
 											href={getLink(menuItem.key, route.anchor)}
 											onclick={(e) => closeAll()}
 										>
-											<BlurFade delay={0.03 * i} duration={0.3}>
+											<BlurFade once={true} delay={0.03 * i} duration={0.3}>
 												<div
-													class="text-secondary hover:shadow-primary font-sans font-bold bg-secondary/30 flex h-full w-full cursor-pointer
-															flex-col items-center justify-center gap-4 p-8 text-xl transition duration-300 ease-in-out xl:text-2xl"
+													class="text-secondary hover:shadow-primary bg-secondary/30 flex h-full w-full cursor-pointer flex-col items-center
+															justify-center gap-4 p-8 font-sans text-xl font-bold transition duration-300 ease-in-out xl:text-2xl"
 												>
 													{#if route.icon}
 														<route.icon class="text-secondary fill-secondary md:h-20 md:w-20" />
@@ -226,10 +226,10 @@
 								</div>
 							{:else}
 								{#each menuItem.menuRoutes as route, i}
-									<BlurFade delay={0.03 * i} duration={0.3}>
+									<BlurFade once={true} delay={0.03 * i} duration={0.3}>
 										<div class="flex flex-col gap-6">
 											<a
-												class="font-sans font-bold text-primary text-2xl hover:underline xl:text-3xl"
+												class="text-primary font-sans text-2xl font-bold hover:underline xl:text-3xl"
 												href={getLink(route.key, route.anchor)}
 												onclick={(e) => closeAll()}
 											>

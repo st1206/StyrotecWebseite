@@ -153,7 +153,12 @@
 						>
 							<Card.Header class="p-0">
 								<Card.Title
-									class="bg-foreground w-full translate-y-[1px] [clip-path:polygon(0%_0%,60%_0%,80%_100%,0%_100%)]"
+									class={cn(
+										card.title.length < 20
+											? '[clip-path:polygon(0%_0%,60%_0%,80%_100%,0%_100%)]'
+											: '',
+										'bg-foreground w-full translate-y-[1px]'
+									)}
 								>
 									<h3 class="text-secondary p-5 font-sans font-bold">{card.title}</h3>
 								</Card.Title>

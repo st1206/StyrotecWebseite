@@ -126,8 +126,10 @@
 			{#if hasContent}
 				<div
 					class={cn(
-						hasSecondaryImage ? 'absolute left-0 h-[410px] lg:w-3/5' : 'px-16 pt-16 lg:w-full',
-						'flex w-full flex-col items-center justify-center px-4 sm:px-8'
+						hasSecondaryImage
+							? 'absolute left-0 h-[430px] pt-20 sm:pt-0 lg:w-3/5'
+							: 'px-20 pt-16 lg:w-full',
+						'flex w-full flex-col items-center justify-center px-6 sm:px-12'
 					)}
 				>
 					<div class="mb-4">
@@ -219,6 +221,6 @@
 		{/if}
 	</div>
 	{#if hasSecondaryImage}
-		<div class="h-[410px]"></div>
+		<div class="h-[430px] md:h-[400px]"></div>
 	{/if}
 </section>
