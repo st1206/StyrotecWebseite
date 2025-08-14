@@ -17,7 +17,8 @@
     },
     "content": {
       "type": "text",
-      "required": true
+      "required": true,
+      "maxLength": 250
     },
     "ctaText": {
       "type": "string",

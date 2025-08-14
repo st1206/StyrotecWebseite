@@ -90,7 +90,7 @@
 	"name": "Name",
 	"email": "E-Mail",
 	"yourEmail": "Ihre E-Mail",
-	"phone": "Telefonnummer",
+	"phone": "Telefon",
 	"company": "Firma",
 	"yourMessage": "Ihre Nachricht",
 
@@ -453,7 +453,7 @@
 	"kontaktformular": {
 		"name": "Name",
 		"firma": "Firma",
-		"tel": "Telefonnummer",
+		"tel": "Telefon",
 		"email": "E-Mail:",
 		"nachricht": "Ihre Nachricht:"
 	},

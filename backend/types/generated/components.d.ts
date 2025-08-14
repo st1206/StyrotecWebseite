@@ -443,7 +443,11 @@ export interface PartialComponentsPreviewCard extends Struct.ComponentSchema {
     icon: 'cursor';
   };
   attributes: {
-    content: Schema.Attribute.Text & Schema.Attribute.Required;
+    content: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 250;
+      }>;
     ctaText: Schema.Attribute.String & Schema.Attribute.Required;
     isImageTransparent: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;

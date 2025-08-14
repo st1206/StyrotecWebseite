@@ -65,26 +65,26 @@
 	);
 </script>
 
-<section class=" my-16 scroll-mt-24 px-4 sm:container sm:mx-auto lg:max-w-5xl xl:max-w-7xl">
+<section class="my-16 scroll-mt-24 px-4 sm:container sm:mx-auto lg:max-w-5xl xl:max-w-7xl">
 	{#if fairs.length > 0}
 		<Accordion.Root type="single" class="flex w-full flex-col gap-4">
 			{#each fairs as item, i}
 				<div
-					class="bg-foreground shadow-primary skew-x-[-15deg] transition ease-in-out hover:shadow-[8px_8px_0_#f6a313]"
+					class="bg-foreground shadow-primary transition ease-in-out hover:shadow-[8px_8px_0_#f6a313] sm:skew-x-[-15deg]"
 				>
-					<Accordion.Item value="item-{i + 1}" class="text-secondary skew-x-[15deg] border-none">
+					<Accordion.Item value="item-{i + 1}" class="text-secondary border-none sm:skew-x-[15deg]">
 						<Accordion.Trigger
-							class="skew-x-[-15deg] bg-transparent hover:bg-transparent [&>svg]:skew-x-[15deg]"
+							class="bg-transparent hover:bg-transparent sm:skew-x-[-15deg] sm:[&>svg]:skew-x-[15deg]"
 						>
 							<div
-								class="font-base grid w-full skew-x-[15deg] grid-cols-12 items-center text-start"
+								class="font-base grid w-full grid-cols-12 items-center text-start sm:skew-x-[15deg]"
 							>
-								<div class="col-span-3 mr-8">
+								<div class="col-span-12 mr-8 sm:col-span-3">
 									{#if item.logoUrl}
 										<img
 											src={item.logoUrl}
 											alt={item.logo?.alternativeText || item.name}
-											class="max-h-[70px] w-full rounded-lg object-contain"
+											class="max-h-[100px] sm:w-full rounded-lg sm:max-h-[70px] sm:object-contain"
 											style="display: block;"
 											onerror={handleImageError}
 											loading="lazy"
@@ -106,7 +106,7 @@
 									{/if}
 								</div>
 
-								<div class="col-span-8 flex flex-col gap-2">
+								<div class="col-span-8 mt-8 flex flex-col gap-2 sm:mt-0">
 									{#if item.displayDate || item.city}
 										<h4 class="text-lg">
 											{item.displayDate}
@@ -127,7 +127,7 @@
 						<Accordion.Content>
 							<div class="grid grid-cols-12">
 								<div
-									class="prose prose-sm text-secondary prose-neutral lg:prose-base xl:prose-base col-span-8 col-start-4 mt-2 max-w-5xl"
+									class="prose prose-sm text-secondary prose-neutral lg:prose-base xl:prose-base col-span-8 sm:col-start-4 mt-2 max-w-5xl"
 								>
 									{#if item.hasContent}
 										{@html resolveRichText(item.content)}

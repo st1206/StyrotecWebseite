@@ -23,10 +23,10 @@
 		) as Record<keyof typeof pages, string>;
 	});
 
-	function getLink<K extends keyof typeof pages>(key: K, appendage?: string): string {
+	function getLink<K extends keyof typeof pages>(key: K, anchor?: string): string {
 		const base = slugMap[key];
-		if (!appendage) return base;
-		return appendage.startsWith('/') ? `${base}${appendage}` : `${base}/${appendage}`;
+		if (!anchor) return base;
+		return anchor.startsWith('/') ? `${base}${anchor}` : `${base}/${anchor}`;
 	}
 
 	$effect(() => {
@@ -83,7 +83,7 @@
 													}}
 												>
 													<div
-														class="bg-secondary/30 text-secondary hover:shadow-primary font-sans font-bold flex flex-col items-center gap-2 p-6 text-center text-lg transition"
+														class="bg-secondary/30 text-secondary hover:shadow-primary flex flex-col items-center gap-2 p-6 text-center font-sans text-lg font-bold transition"
 													>
 														{#if route.icon}
 															<route.icon class="fill-secondary size-12" />
@@ -100,7 +100,7 @@
 											<BlurFade once={true} delay={0.07 * j} duration={0.2}>
 												<div class="flex flex-col gap-2">
 													<a
-														class="font-sans font-bold text-primary text-xl hover:underline"
+														class="text-primary font-sans text-xl font-bold hover:underline"
 														href={getLink(route.key)}
 														onclick={(e) => {
 															open = false;
@@ -116,7 +116,9 @@
 																	<li>
 																		<a
 																			class="text-md text-secondary hover:underline"
-																			href={getLink(child.key)}
+																			href={child.anchor
+																				? getLink(route.key, child.anchor)
+																				: getLink(child.key)}
 																			onclick={(e) => {
 																				open = false;
 																			}}
