@@ -23,6 +23,8 @@
 		anchor?: string;
 	} = $props();
 
+	console.log(data);
+
 	// --- Primary Data Extraction ---
 	const safe = new SafeData(data);
 	const title = safe.getString('title', 'Media Section');
