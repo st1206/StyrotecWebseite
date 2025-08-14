@@ -152,6 +152,8 @@
 	"title": "Title",
 	"description": "Description",
 	"file": "File",
+	"details": "Details",
+	"additionalImages": "Additional Images",
 
 	"home": {
 		"title": "Homepage",

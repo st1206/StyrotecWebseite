@@ -150,6 +150,8 @@
 	"title": "Titel",
 	"description": "Beschreibung",
 	"file": "Datei",
+	"details": "Details",
+	"additionalImages": "Weitere Bilder",
 
 	"home": {
 		"title": "Startseite",

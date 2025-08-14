@@ -192,7 +192,7 @@
 			<Breadcrumb.Root>
 				<Breadcrumb.List>
 					<Breadcrumb.Item>
-						<Breadcrumb.Link href="/">Home</Breadcrumb.Link>
+						<Breadcrumb.Link href="/">{$_('nav.home')}</Breadcrumb.Link>
 					</Breadcrumb.Item>
 					{#each breadcrumbs as crumb, i}
 						<Breadcrumb.Separator />
@@ -225,12 +225,12 @@
 
 		<Tabs.Root value="details" class="mt-10 print:mt-0 print:flex print:flex-col">
 			<Tabs.List class="print:hidden">
-				<Tabs.Trigger value="details">Details</Tabs.Trigger>
-				<Tabs.Trigger value="description">Description</Tabs.Trigger>
+				<Tabs.Trigger value="details">{$_('details')}</Tabs.Trigger>
+				<Tabs.Trigger value="description">{$_('description')}</Tabs.Trigger>
 			</Tabs.List>
 
 			<Tabs.Content value="description" class="print:order-2 print:mt-8 print:block">
-				<h3 class="mb-4 text-xl font-semibold sm:hidden print:block">Description</h3>
+				<h3 class="mb-4 text-xl font-semibold sm:hidden print:block">{$_('description')}</h3>
 				<div class="prose prose-neutral prose-sm md:prose-base max-w-none text-gray-600">
 					{#if data.description}
 						{@html resolveRichText(data.description)}
@@ -241,7 +241,7 @@
 			</Tabs.Content>
 
 			<Tabs.Content value="details" class="print:order-1 print:block">
-				<h3 class="mb-4 mt-8 text-xl font-semibold sm:hidden print:block">Details</h3>
+				<h3 class="mb-4 mt-8 text-xl font-semibold sm:hidden print:block">{$_('details')}</h3>
 				<div class="overflow-x-auto">
 					<Table.Root>
 						<Table.Body>
@@ -274,7 +274,7 @@
 </section>
 
 <section class="my-12 hidden sm:container print:block">
-	<h2 class="mb-4 text-2xl font-bold">Additional Images</h2>
+	<h2 class="mb-4 text-2xl font-bold">{$_('additionalImages')}</h2>
 	<div class="grid grid-cols-2 gap-6">
 		{#each data.pictures as image (image.id)}
 			<div class="break-inside-avoid">
