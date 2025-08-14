@@ -23,8 +23,6 @@
 		anchor?: string;
 	} = $props();
 
-	console.log(data);
-
 	// --- Primary Data Extraction ---
 	const safe = new SafeData(data);
 	const title = safe.getString('title', 'Media Section');
@@ -49,16 +47,12 @@
 		const cardSafe = new SafeData(card);
 		const employeeSafe = new SafeData(cardSafe.getObject('employee'));
 
-		console.log(cardSafe);
-		console.log(employeeSafe);
-
 		// Determine the primary image URL, prioritizing the card's own image
 		const imageObject = cardSafe.getObject('image') || employeeSafe.getObject('picture');
 		const imageUrl = optimizeImageUrl(new SafeData(imageObject).getImageUrl(), PUBLIC_BACKEND_URL);
 
 		// Determine display name/subtitle, prioritizing employee data
 		const isEmployee = !!cardSafe.getObject('employee');
-		console.log(isEmployee);
 		const displayName = isEmployee
 			? employeeSafe.getString('name', 'Team Member')
 			: cardSafe.getString('title', 'Card');
