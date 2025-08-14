@@ -12,7 +12,7 @@
 	import { Lightbox } from 'svelte-lightbox';
 	import { Icons } from '$lib/assets/icons';
 	import * as Breadcrumb from '$lib/components/ui/breadcrumb';
-	import * as Tabs from '$lib/components/ui/tabs';
+	import * as Accordion from '$lib/components/ui/accordion';
 	import { languages } from '$lib/i18n';
 
 	let data: {
@@ -47,7 +47,6 @@
 	});
 
 	const tableRows = [
-		// { label: 'ID', value: data.productDataSheet.internalId },
 		{
 			label: $_('productDataSheet.designation'),
 			value: data.productDataSheet.designation
@@ -79,7 +78,8 @@
 		{
 			label: $_('productDataSheet.weight'),
 			value: data.productDataSheet.weight
-		}
+		},
+		{ label: 'ID', value: data.productDataSheet.internalId }
 	];
 
 	const explicitlyHandledKeys = new Set(tableRows.map((r) => r.label.toLowerCase()));
@@ -146,7 +146,7 @@
 	class="mt-28 grid grid-cols-1 gap-x-16 gap-y-12 px-4 sm:container lg:grid-cols-2 print:mt-8 print:block"
 >
 	<div class="flex flex-col">
-		<div class="w-full overflow-hidden rounded-lg">
+		<div class="h-[550px] w-full overflow-hidden rounded-lg print:h-full">
 			{#if selectedImage}
 				<Lightbox transitionDuration={50}>
 					<img
@@ -212,7 +212,7 @@
 			{data.productDataSheet.name}
 		</h1>
 
-		<div class="mt-8 flex flex-col gap-4 sm:flex-row print:hidden">
+		<div class="mt-4 flex flex-col gap-4 sm:flex-row print:hidden">
 			<Button href={`${page.url.pathname}#contact-form`}>
 				<Icons.mail class="mr-2 size-5 skew-x-[15deg]" />
 				<span class="skew-x-[15deg]">{$_('button.requestNow')}</span>
@@ -223,53 +223,101 @@
 			</Button>
 		</div>
 
-		<Tabs.Root value="details" class="mt-10 print:mt-0 print:flex print:flex-col">
-			<Tabs.List class="print:hidden">
-				<Tabs.Trigger value="details">{$_('details')}</Tabs.Trigger>
-				<Tabs.Trigger value="description">{$_('description')}</Tabs.Trigger>
-			</Tabs.List>
+		<!-- Details Accordion for Screen View -->
+		<Accordion.Root
+			class="mt-4 flex w-full flex-col gap-2 print:hidden"
+			type="single"
+			value="details"
+		>
+			<Accordion.Item value="details">
+				<Accordion.Trigger
+					class="bg-foreground/5 text-foreground hover:bg-foreground/10 font-sans font-medium"
+				>
+					{$_('details')}
+				</Accordion.Trigger>
+				<Accordion.Content>
+					<div class="overflow-x-auto pt-2">
+						<Table.Root>
+							<Table.Body>
+								{#each tableRows as row}
+									<Table.Row class="bg-foreground/5 hover:bg-foreground/10 border-foreground/20">
+										<Table.Cell
+											class="bg-foreground/10 hover:bg-foreground/15 w-1/3 font-medium sm:w-1/4"
+										>
+											{row?.label}
+										</Table.Cell>
+										<Table.Cell class="font-medium">{row?.value}</Table.Cell>
+									</Table.Row>
+								{/each}
+							</Table.Body>
+						</Table.Root>
+					</div>
+				</Accordion.Content>
+			</Accordion.Item>
+			<Accordion.Item value="technicalSpecifications">
+				<Accordion.Trigger
+					class="bg-foreground/5 text-foreground hover:bg-foreground/10 font-sans font-medium"
+				>
+					{$_('technicalSpecifications')}
+				</Accordion.Trigger>
+				<Accordion.Content>
+					<div class="overflow-x-auto pt-2">
+						<Table.Root>
+							<Table.Body>
+								{#each additionalTableRows as row}
+									<Table.Row class="bg-foreground/5 hover:bg-foreground/10 border-foreground/20">
+										<Table.Cell
+											class="bg- bg-foreground/10 hover:bg-foreground/15 w-1/3 font-medium sm:w-1/4"
+										>
+											{row.label}
+										</Table.Cell>
+										<Table.Cell class="font-medium">{row.value}</Table.Cell>
+									</Table.Row>
+								{/each}
+							</Table.Body>
+						</Table.Root>
+					</div>
+				</Accordion.Content>
+			</Accordion.Item>
+		</Accordion.Root>
 
-			<Tabs.Content value="description" class="print:order-2 print:mt-8 print:block">
-				<h3 class="mb-4 text-xl font-semibold sm:hidden print:block">{$_('description')}</h3>
-				<div class="prose prose-neutral prose-sm md:prose-base max-w-none text-gray-600">
-					{#if data.description}
-						{@html resolveRichText(data.description)}
-					{:else}
-						<p>No description available for this product.</p>
-					{/if}
-				</div>
-			</Tabs.Content>
-
-			<Tabs.Content value="details" class="print:order-1 print:block">
-				<h3 class="mb-4 mt-8 text-xl font-semibold sm:hidden print:block">{$_('details')}</h3>
-				<div class="overflow-x-auto">
-					<Table.Root>
-						<Table.Body>
-							{#each tableRows as row}
-								<Table.Row class="bg-foreground/5 hover:bg-foreground/10 border-foreground/20">
-									<Table.Cell
-										class="bg-foreground/10 hover:bg-foreground/15 w-1/3 font-medium sm:w-1/4"
-									>
-										{row?.label}
-									</Table.Cell>
-									<Table.Cell class="font-medium ">{row?.value}</Table.Cell>
-								</Table.Row>
-							{/each}
-							{#each additionalTableRows as row}
-								<Table.Row class="bg-foreground/5 hover:bg-foreground/10 border-foreground/20">
-									<Table.Cell
-										class="bg- bg-foreground/10 hover:bg-foreground/15 w-1/3 font-medium sm:w-1/4"
-									>
-										{row.label}
-									</Table.Cell>
-									<Table.Cell class="font-medium ">{row.value}</Table.Cell>
-								</Table.Row>
-							{/each}
-						</Table.Body>
-					</Table.Root>
-				</div>
-			</Tabs.Content>
-		</Tabs.Root>
+		<!-- Details Table for Print View -->
+		<div class="mt-10 hidden print:block">
+			<h3 class="mb-4 text-2xl font-bold">{$_('details')}</h3>
+			<div class="overflow-x-auto">
+				<Table.Root>
+					<Table.Body>
+						{#each tableRows as row}
+							<Table.Row class="bg-foreground/5 border-foreground/20">
+								<Table.Cell class="bg-foreground/10 w-1/3 font-medium sm:w-1/4">
+									{row?.label}
+								</Table.Cell>
+								<Table.Cell class="font-medium">{row?.value}</Table.Cell>
+							</Table.Row>
+						{/each}
+						{#each additionalTableRows as row}
+							<Table.Row class="bg-foreground/5 border-foreground/20">
+								<Table.Cell class="bg-foreground/10 w-1/3 font-medium sm:w-1/4">
+									{row.label}
+								</Table.Cell>
+								<Table.Cell class="font-medium">{row.value}</Table.Cell>
+							</Table.Row>
+						{/each}
+					</Table.Body>
+				</Table.Root>
+			</div>
+		</div>
+		<!-- Description Section -->
+		<div class="mt-10 print:mt-8">
+			<h2 class="mb-4 text-2xl font-bold">{$_('description')}</h2>
+			<div class="prose prose-neutral prose-sm md:prose-base max-w-none text-gray-600">
+				{#if data.description}
+					{@html resolveRichText(data.description)}
+				{:else}
+					<p>No description available for this product.</p>
+				{/if}
+			</div>
+		</div>
 	</div>
 </section>
 

@@ -83,22 +83,6 @@
 	<section class="mx-auto mt-20 lg:container lg:mt-32 lg:w-full">
 		{#if hasValidImages}
 			<div class="shadow-primary relative">
-				{#if keyphrase}
-					<div
-						class="from-foreground/100 via-foreground/40 absolute inset-0 z-10 bg-gradient-to-r to-transparent"
-					></div>
-
-					<div class="absolute inset-y-0 z-20 flex items-center pl-8">
-						<h1 class="font-sans text-4xl font-bold text-white drop-shadow-md lg:text-5xl">
-							{#if keyphrase.includes('<')}
-								{@html keyphrase}
-							{:else}
-								{keyphrase}
-							{/if}
-						</h1>
-					</div>
-				{/if}
-
 				<Carousel.Root
 					setApi={(emblaApi) => (api = emblaApi)}
 					plugins={validImages.length > 1 ? [Autoplay(autoPlayOptions) as any] : []}
@@ -116,10 +100,7 @@
 									loading={i === 0 ? 'eager' : 'lazy'}
 									onerror={handleImageError}
 								/>
-								<!-- Fallback for broken images -->
-								<div
-									class="bg-muted flex hidden h-full w-full flex-col items-center justify-center"
-								>
+								<div class="bg-muted flex h-full w-full flex-col items-center justify-center">
 									<svg
 										class="text-muted-foreground mb-2 h-16 w-16"
 										fill="none"
@@ -140,33 +121,50 @@
 					</Carousel.Content>
 				</Carousel.Root>
 
-				<!-- Only show navigation if there are multiple images -->
-				{#if validImages.length > 1}
-					<div class="absolute bottom-5 left-10 z-40 flex items-center gap-1">
-						<button type="button" aria-label="Go to previous slide" onclick={goToPreviousSlide}>
-							<Icons.chevronLeft class="text-secondary/70 hover:text-secondary size-5 transition" />
-						</button>
-						<div class="flex items-center space-x-2">
-							<!-- Dot Navigation -->
-							{#each Array.from({ length: validImages.length }, (_, i) => i + 1) as slide (slide)}
-								<button
-									type="button"
-									aria-label="Go to slide {slide}"
-									onclick={() => goToSlide(slide)}
-									class={getDotClass(slide)}
-								></button>
-							{/each}
-						</div>
-						<button type="button" aria-label="Go to next slide" onclick={goToNextSlide}>
-							<Icons.chevronRight
-								class="text-secondary/70 hover:text-secondary size-5 transition"
-							/>
-						</button>
+				<div
+					class="from-foreground/100 via-foreground/40 pointer-events-none absolute inset-0 z-10 bg-gradient-to-r to-transparent"
+				>
+					<div class="relative h-full w-full">
+						{#if keyphrase}
+							<div class="absolute inset-y-0 z-20 flex items-center pl-8">
+								<h1 class="font-sans text-4xl font-bold text-white drop-shadow-md lg:text-5xl">
+									{#if keyphrase.includes('<')}
+										{@html keyphrase}
+									{:else}
+										{keyphrase}
+									{/if}
+								</h1>
+							</div>
+						{/if}
+
+						{#if validImages.length > 1}
+							<div class="absolute bottom-5 left-10 z-20 flex items-center gap-1">
+								<button type="button" aria-label="Go to previous slide" onclick={goToPreviousSlide}>
+									<Icons.chevronLeft
+										class="text-secondary/70 hover:text-secondary size-5 transition"
+									/>
+								</button>
+								<div class="flex items-center space-x-2">
+									{#each Array.from({ length: validImages.length }, (_, i) => i + 1) as slide (slide)}
+										<button
+											type="button"
+											aria-label="Go to slide {slide}"
+											onclick={() => goToSlide(slide)}
+											class={getDotClass(slide)}
+										></button>
+									{/each}
+								</div>
+								<button type="button" aria-label="Go to next slide" onclick={goToNextSlide}>
+									<Icons.chevronRight
+										class="text-secondary/70 hover:text-secondary size-5 transition"
+									/>
+								</button>
+							</div>
+						{/if}
 					</div>
-				{/if}
+				</div>
 			</div>
 		{:else}
-			<!-- No valid images fallback -->
 			<div
 				class="border-muted-foreground/20 bg-muted shadow-primary relative flex h-[500px] flex-col items-center justify-center border-2 border-dashed lg:h-[600px]"
 			>

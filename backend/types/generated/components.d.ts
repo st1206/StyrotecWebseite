@@ -477,6 +477,7 @@ export interface PartialComponentsProductDataSheet
     >;
     designation: Schema.Attribute.String & Schema.Attribute.Required;
     dimensions: Schema.Attribute.String & Schema.Attribute.Required;
+    internalId: Schema.Attribute.String & Schema.Attribute.Required;
     location: Schema.Attribute.String & Schema.Attribute.Required;
     manufacturer: Schema.Attribute.String & Schema.Attribute.Required;
     modelType: Schema.Attribute.String & Schema.Attribute.Required;

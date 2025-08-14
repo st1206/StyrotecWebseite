@@ -48,6 +48,10 @@
     "weight": {
       "type": "string",
       "required": true
+    },
+    "internalId": {
+      "type": "string",
+      "required": true
     }
   }
 }
