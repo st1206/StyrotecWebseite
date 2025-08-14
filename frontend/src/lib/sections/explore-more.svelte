@@ -128,7 +128,7 @@
 								)}
 							>
 								<img
-									class="mx-auto h-full"
+									class="mx-auto object-cover h-full"
 									src={getOptimizedImageUrl(card.thumbnail)}
 									alt={getImageAltText(card.thumbnail, card.title)}
 								/>
