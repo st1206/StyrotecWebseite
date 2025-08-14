@@ -47,8 +47,8 @@
 		const cardSafe = new SafeData(card);
 		const employeeSafe = new SafeData(cardSafe.getObject('employee'));
 
-		$inspect(cardSafe);
-		$inspect(employeeSafe);
+		console.log(cardSafe);
+		console.log(employeeSafe);
 
 		// Determine the primary image URL, prioritizing the card's own image
 		const imageObject = cardSafe.getObject('image') || employeeSafe.getObject('picture');
@@ -56,7 +56,7 @@
 
 		// Determine display name/subtitle, prioritizing employee data
 		const isEmployee = !!cardSafe.getObject('employee');
-		$inspect(isEmployee);
+		console.log(isEmployee);
 		const displayName = isEmployee
 			? employeeSafe.getString('name', 'Team Member')
 			: cardSafe.getString('title', 'Card');
