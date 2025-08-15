@@ -171,6 +171,7 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'heroDualImage' },
 			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'exploreVariants' },
+			{ sectionKey: 'defaultContentOne' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]
@@ -236,6 +237,7 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'hollow-milling-spindle-page',
 		sections: [
 			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'exploreVariants' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
@@ -249,6 +251,7 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'suction-system-page',
 		sections: [
 			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'exploreVariants' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
