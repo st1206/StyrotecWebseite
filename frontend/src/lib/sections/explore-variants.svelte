@@ -31,6 +31,7 @@
 	const scrollAreaHeight = $derived(
 		(innerWidth?.current ?? 0) < 1440 ? 'auto' : `${FIXED_ACCORDION_HEIGHT}px`
 	);
+
 	let scrollableDivs: (HTMLDivElement | null)[] = $state([]);
 
 	function handleAccordionChange(variantIndex: number, itemValue: string) {
@@ -83,7 +84,7 @@
 					>
 						{#if variant.image}
 							<img
-								class="col-span-2 px-4 mx-auto h-[350px] object-contain xl:col-span-2"
+								class="col-span-2 mx-auto h-[350px] object-contain px-4 xl:col-span-2"
 								src={getOptimizedImageUrl(variant.image)}
 								alt={getImageAltText(variant.image, variant.title)}
 							/>
@@ -110,7 +111,7 @@
 											onValueChange={(value) => value && handleAccordionChange(i, value)}
 										>
 											{#each variant.accordionItems as item, j}
-												<Accordion.Item value="item-{j + 1}" data-value="item-{j + 1}">
+												<Accordion.Item value={`item-${i}-${j}`} data-value={`item-${i}-${j}`}>
 													<Accordion.Trigger class="text-secondary font-sans font-medium">
 														{item.title}
 													</Accordion.Trigger>
