@@ -142,20 +142,20 @@
 				<svelte:fragment slot="thumbnail">
 					{#if selectedImage}
 						<GalleryThumbnail id={data.pictures.findIndex((item) => item.id === selectedImage.id)}>
-							<div class="h-[550px] w-full overflow-hidden rounded-lg">
+							<div class="w-full">
 								<img
 									src={!PUBLIC_BACKEND_URL.includes('https')
 										? `${PUBLIC_BACKEND_URL}${selectedImage.formats?.['large']?.url || selectedImage.url}`
 										: selectedImage.url}
 									alt={selectedImage.alternativeText || data.productDataSheet.name}
-									class="h-full w-full cursor-pointer object-cover object-center print:hidden"
+									class="h-[550px] w-full cursor-pointer object-contain object-center print:hidden"
 								/>
 								<img
 									src={!PUBLIC_BACKEND_URL.includes('https')
 										? `${PUBLIC_BACKEND_URL}${data.pictures[0].formats?.['large']?.url || data.pictures[0].url}`
 										: data.pictures[0].url}
 									alt={data.pictures[0].alternativeText || data.productDataSheet.name}
-									class="hidden h-full w-full cursor-pointer object-cover object-center print:block"
+									class="hidden h-[550px] w-full cursor-pointer object-contain object-center print:block"
 								/>
 							</div>
 						</GalleryThumbnail>
