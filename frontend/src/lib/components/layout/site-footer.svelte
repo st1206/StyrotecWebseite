@@ -101,7 +101,7 @@
 		>
 			<div class="flex items-center gap-2">
 				<Icons.copyright class="size-4" />
-				<h1 class="font-sans">2025 Styrotec GmbH & Co. KG</h1>
+				<h1 class="font-sans">2025 Styrotec GmbH & Co KG</h1>
 			</div>
 			<div class="flex flex-wrap items-center justify-center pt-4 md:pt-0 print:hidden">
 				<Button
