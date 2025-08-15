@@ -48,7 +48,7 @@
 </script>
 
 <section class="mt-20 lg:container lg:mx-auto lg:mt-32 lg:w-full">
-	<BlurFade once={true} delay={0} duration={0.3}>
+	<BlurFade once={true} delay={0} duration={0.2}>
 		<div class="relative">
 			<div
 				class={cn(
@@ -101,7 +101,7 @@
 				</div>
 			{/if}
 			{#if subKeyword}
-				<BlurFade once={true} delay={0.2} duration={0.3}>
+				<BlurFade once={true} delay={0.2} duration={0.2}>
 					<div
 						class={cn(
 							hasSecondaryImage ? 'bg-foreground' : 'bg-foreground/95',
@@ -122,7 +122,7 @@
 	</BlurFade>
 
 	<div class="relative w-full">
-		<BlurFade once={true} delay={0.3} duration={0.3}>
+		<BlurFade once={true} delay={0.3} duration={0.2}>
 			{#if hasContent}
 				<div
 					class={cn(
@@ -177,7 +177,7 @@
 		</BlurFade>
 
 		{#if hasSecondaryImage}
-			<BlurFade once={true} delay={0.1} duration={0.3}>
+			<BlurFade once={true} delay={0.1} duration={0.2}>
 				<div
 					class="shadow-foreground absolute right-0 hidden h-[600px] w-2/5 -translate-y-[194px] lg:block"
 				>

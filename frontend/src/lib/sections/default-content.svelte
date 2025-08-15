@@ -7,12 +7,12 @@
 	import { getImageAltText, getOptimizedImageUrl, handleImageError } from '$lib/utils/image';
 	import { SafeData } from '$lib/utils/validation';
 	import { cn, resolveRichText, type StrapiRichTextNode } from '$lib/utils';
-	import { Lightbox } from 'svelte-lightbox';
 	import { onMount, tick } from 'svelte';
 	import { SvelteMap } from 'svelte/reactivity';
 	import { innerWidth } from 'svelte/reactivity/window';
 	import type { Size, SpacerSection } from '$lib/types/sections';
 	import Spacer from './spacer.svelte';
+	import ImageCardGrid from '$lib/components/image-card-grid.svelte';
 
 	type TableRow = { rowLabel?: string; rowValue?: string };
 	type TableColumn = { columnLabel?: string; tableRows: TableRow[] };
@@ -26,7 +26,6 @@
 	};
 
 	type ContentTable = {
-		title: string;
 		tables: {
 			title: string;
 			tableColumns: {
@@ -62,7 +61,12 @@
 
 	type ContentImages = {
 		title?: string;
-		images: ImageAsset[];
+		imageCards: {
+			title: string;
+			image: ImageAsset;
+			isImageTransparent: boolean;
+			sortOrder?: number;
+		}[];
 		isDarkMode?: boolean;
 		sortOrder?: number;
 	};
@@ -243,145 +247,146 @@
 
 {#snippet TableTemplate(block: ContentTable)}
 	{@const safe = new SafeData(block)}
-	{@const blockTitle = safe.getString('title')}
 	{@const tables = safe.getArray('tables', [])}
 	{@const validTables = tables.filter((table: any) => table && typeof table === 'object')}
 	{@const isDarkMode = safe.getBoolean('isDarkMode', false)}
 
 	{#if validTables.length > 0}
-		{#each validTables as table}
-			{@const tableSafe = new SafeData(table)}
-			{@const tableTitle = tableSafe.getString('title')}
-			{@const tableColumns = tableSafe.getArray<TableColumn>('tableColumns', [])}
-			{@const validColumns = tableColumns.filter(
-				(col: any) => col && typeof col === 'object' && 'columnLabel' in col
+		<div
+			class={cn(
+				validTables.length > 1 ? 'grid-cols-1 md:grid-cols-4' : 'grid-cols-4',
+				'grid gap-4'
 			)}
+		>
+			{#each validTables as table}
+				{@const tableSafe = new SafeData(table)}
+				{@const tableTitle = tableSafe.getString('title')}
+				{@const tableColumns = tableSafe.getArray<TableColumn>('tableColumns', [])}
+				{@const validColumns = tableColumns.filter(
+					(col: any) => col && typeof col === 'object' && 'columnLabel' in col
+				)}
 
-			<div class="mx-auto h-full w-full py-16 text-center">
-				{#if blockTitle && !tableTitle}
-					<h4
-						class={cn(
-							isDarkMode ? 'text-secondary' : 'text-foreground',
-							'my-4 font-sans text-2xl font-bold'
-						)}
-					>
-						{blockTitle}
-					</h4>
-				{/if}
+				<div
+					class={cn(
+						validColumns.length > 1 ? 'col-span-2' : 'col-span-1',
+						validTables.length === 1 && 'col-start-2',
+						'mx-auto h-full w-full py-16 text-center'
+					)}
+				>
+					{#if tableTitle}
+						<h4
+							class={cn(
+								isDarkMode ? 'text-secondary' : 'text-foreground',
+								'my-4 font-sans text-2xl font-bold'
+							)}
+						>
+							{tableTitle}
+						</h4>
+					{/if}
 
-				{#if tableTitle}
-					<h4
-						class={cn(
-							isDarkMode ? 'text-secondary' : 'text-foreground',
-							'my-4 font-sans text-2xl font-bold'
-						)}
-					>
-						{tableTitle}
-					</h4>
-				{/if}
+					{#if validColumns.length > 0}
+						{@const firstColumn = validColumns[0]}
+						{@const firstColumnSafe = new SafeData(firstColumn)}
+						{@const tableRows = firstColumnSafe.getArray<TableRow>('tableRows', [])}
+						{@const validRows = tableRows.filter((row: any) => row && typeof row === 'object')}
 
-				{#if validColumns.length > 0}
-					{@const firstColumn = validColumns[0]}
-					{@const firstColumnSafe = new SafeData(firstColumn)}
-					{@const tableRows = firstColumnSafe.getArray<TableRow>('tableRows', [])}
-					{@const validRows = tableRows.filter((row: any) => row && typeof row === 'object')}
-
-					{#if validRows.length > 0}
-						<div class="overflow-x-auto">
-							<Table.Root>
-								<Table.Header>
-									<Table.Row
-										class={cn(
-											isDarkMode
-												? 'bg-secondary/10 hover:bg-secondary/15'
-												: 'bg-foreground/10 hover:bg-foreground/15'
-										)}
-									>
-										<Table.Head class={cn(isDarkMode ? 'text-secondary' : 'text-foreground')}
-										></Table.Head>
-										{#each validColumns as column}
-											{@const columnSafe = new SafeData(column)}
-											{@const columnLabel = columnSafe.getString('columnLabel', 'Column')}
-											<Table.Head
-												class={cn(
-													isDarkMode ? 'text-secondary' : 'text-foreground',
-													'text-center font-sans font-bold'
-												)}
-											>
-												{columnLabel}
-											</Table.Head>
-										{/each}
-									</Table.Row>
-								</Table.Header>
-								<Table.Body class={cn(isDarkMode ? 'text-secondary' : 'text-foreground')}>
-									{#each validRows as row, idx}
-										{@const rowSafe = new SafeData(row)}
-										{@const rowLabel = rowSafe.getString('rowLabel', `Row ${idx + 1}`)}
-
+						{#if validRows.length > 0}
+							<div class="overflow-x-auto">
+								<Table.Root>
+									<Table.Header>
 										<Table.Row
 											class={cn(
-												'border-secondary/20',
-												isDarkMode ? 'hover:bg-secondary/5' : 'hover:bg-foreground/5'
+												isDarkMode
+													? 'bg-secondary/10 hover:bg-secondary/15'
+													: 'bg-foreground/10 hover:bg-foreground/15'
 											)}
 										>
-											<Table.Cell
-												class={cn(
-													isDarkMode ? 'bg-secondary/10' : 'bg-foreground/10',
-													'w-[100px] sm:w-[150px]'
-												)}
-											>
-												{rowLabel}
-											</Table.Cell>
+											<Table.Head class={cn(isDarkMode ? 'text-secondary' : 'text-foreground')}
+											></Table.Head>
 											{#each validColumns as column}
 												{@const columnSafe = new SafeData(column)}
-												{@const columnRows = columnSafe.getArray('tableRows', [])}
-												{@const cellData = columnRows[idx]}
-												{@const cellSafe = new SafeData(cellData)}
-												{@const cellValue = cellSafe.getString('rowValue', '-')}
-
-												<Table.Cell
+												{@const columnLabel = columnSafe.getString('columnLabel', 'Column')}
+												<Table.Head
 													class={cn(
-														isDarkMode ? 'bg-secondary/5' : '',
-														'min-w-[100px] text-center font-medium'
+														isDarkMode ? 'text-secondary' : 'text-foreground',
+														'text-center font-sans font-bold'
 													)}
 												>
-													{@html cellValue}
-												</Table.Cell>
+													{columnLabel}
+												</Table.Head>
 											{/each}
 										</Table.Row>
-									{/each}
-								</Table.Body>
-							</Table.Root>
-						</div>
+									</Table.Header>
+									<Table.Body class={cn(isDarkMode ? 'text-secondary' : 'text-foreground')}>
+										{#each validRows as row, idx}
+											{@const rowSafe = new SafeData(row)}
+											{@const rowLabel = rowSafe.getString('rowLabel', `Row ${idx + 1}`)}
+
+											<Table.Row
+												class={cn(
+													'border-secondary/20',
+													isDarkMode ? 'hover:bg-secondary/5' : 'hover:bg-foreground/5'
+												)}
+											>
+												<Table.Cell
+													class={cn(
+														isDarkMode ? 'bg-secondary/10' : 'bg-foreground/10',
+														'w-[100px] sm:w-[150px]'
+													)}
+												>
+													{rowLabel}
+												</Table.Cell>
+												{#each validColumns as column}
+													{@const columnSafe = new SafeData(column)}
+													{@const columnRows = columnSafe.getArray('tableRows', [])}
+													{@const cellData = columnRows[idx]}
+													{@const cellSafe = new SafeData(cellData)}
+													{@const cellValue = cellSafe.getString('rowValue', '-')}
+
+													<Table.Cell
+														class={cn(
+															isDarkMode ? 'bg-secondary/5' : '',
+															'min-w-[100px] text-center font-medium'
+														)}
+													>
+														{@html cellValue}
+													</Table.Cell>
+												{/each}
+											</Table.Row>
+										{/each}
+									</Table.Body>
+								</Table.Root>
+							</div>
+						{:else}
+							<div class="flex flex-col items-center justify-center py-8 text-center">
+								<svg
+									class={cn('mb-4 h-12 w-12', isDarkMode ? 'opacity-30' : 'text-muted-foreground')}
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+									stroke-width="1.5"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 01-1.125-1.125v-12.75c0-.621.504-1.125 1.125-1.125h17.25c.621 0 1.125.504 1.125 1.125v12.75c0 .621-.504 1.125-1.125 1.125m-17.25 0h17.25m-17.25 0v-12.75m17.25 12.75v-12.75m0 0H3.375m17.25 0c.621 0 1.125.504 1.125 1.125v12.75c0 .621-.504 1.125-1.125 1.125m-1.125-1.125v-1.125m-15 1.125v-1.125m15 0H4.5m15 0v-1.125m-15 1.125v-1.125m12.75 0v-1.125m-10.5 1.125v-1.125"
+									/>
+								</svg>
+								<p class={cn(isDarkMode ? 'text-secondary/70' : 'text-muted-foreground')}>
+									No table data available
+								</p>
+							</div>
+						{/if}
 					{:else}
-						<div class="flex flex-col items-center justify-center py-8 text-center">
-							<svg
-								class={cn('mb-4 h-12 w-12', isDarkMode ? 'opacity-30' : 'text-muted-foreground')}
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke="currentColor"
-								stroke-width="1.5"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 01-1.125-1.125v-12.75c0-.621.504-1.125 1.125-1.125h17.25c.621 0 1.125.504 1.125 1.125v12.75c0 .621-.504 1.125-1.125 1.125m-17.25 0h17.25m-17.25 0v-12.75m17.25 12.75v-12.75m0 0H3.375m17.25 0c.621 0 1.125.504 1.125 1.125v12.75c0 .621-.504 1.125-1.125 1.125m-1.125-1.125v-1.125m-15 1.125v-1.125m15 0H4.5m15 0v-1.125m-15 1.125v-1.125m12.75 0v-1.125m-10.5 1.125v-1.125"
-								/>
-							</svg>
-							<p class={cn(isDarkMode ? 'text-secondary/70' : 'text-muted-foreground')}>
-								No table data available
+						<div class="py-8 text-center">
+							<p class={cn(isDarkMode ? 'text-secondary/60' : 'text-muted-foreground', 'text-sm')}>
+								No table columns available
 							</p>
 						</div>
 					{/if}
-				{:else}
-					<div class="py-8 text-center">
-						<p class={cn(isDarkMode ? 'text-secondary/60' : 'text-muted-foreground', 'text-sm')}>
-							No table columns available
-						</p>
-					</div>
-				{/if}
-			</div>
-		{/each}
+				</div>
+			{/each}
+		</div>
 	{:else}
 		<div class="py-12 text-center">
 			<div class="bg-muted mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-lg">
@@ -546,9 +551,22 @@
 {#snippet ImagesTemplate(block: ContentImages)}
 	{@const safe = new SafeData(block)}
 	{@const title = safe.getString('title')}
-	{@const images = safe.getArray<ImageAsset>('images', [])}
-	{@const validImages = images.filter((img) => img && getOptimizedImageUrl(img))}
 	{@const isDarkMode = safe.getBoolean('isDarkMode', false)}
+	{@const imageCards = safe.getArray<any>('imageCards', [])}
+
+	{@const processedCards = imageCards
+		.map((card, index) => {
+			const cardSafe = new SafeData(card);
+			return {
+				title: cardSafe.getString('title', 'Card'),
+				subtitle: undefined, // Kein Subtitle in diesem Kontext
+				imageUrl: getOptimizedImageUrl(cardSafe.getObject('image')),
+				altText: getImageAltText(cardSafe.getObject('image'), cardSafe.getString('title')),
+				isImageTransparent: cardSafe.getBoolean('isImageTransparent', false),
+				sortOrder: cardSafe.getNumber('sortOrder', index + 1)
+			};
+		})
+		.sort((a, b) => a.sortOrder - b.sortOrder)}
 
 	<div class="mx-auto py-16">
 		{#if title}
@@ -562,82 +580,7 @@
 			</h4>
 		{/if}
 
-		{#if validImages.length > 0}
-			<div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 xl:gap-8">
-				{#each validImages as image, i}
-					{@const imageUrl = getOptimizedImageUrl(image)}
-					{@const imageAlt = getImageAltText(image, `Image ${i + 1}`)}
-
-					<div class="relative">
-						<Lightbox transitionDuration={50}>
-							{#if imageUrl}
-								<img
-									class="shadow-primary aspect-video w-full object-cover"
-									src={imageUrl}
-									alt={imageAlt}
-									loading="lazy"
-									onerror={handleImageError}
-								/>
-							{:else}
-								<div
-									class="bg-muted shadow-primary flex aspect-video w-full flex-col items-center justify-center"
-								>
-									<svg
-										class="text-muted-foreground mb-2 h-12 w-12"
-										fill="none"
-										viewBox="0 0 24 24"
-										stroke="currentColor"
-									>
-										<path
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											stroke-width="2"
-											d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-										/>
-									</svg>
-									<p class="text-muted-foreground text-sm">Image {i + 1} not available</p>
-								</div>
-							{/if}
-						</Lightbox>
-					</div>
-				{/each}
-			</div>
-		{:else}
-			<div class="py-12 text-center">
-				<div class="bg-muted mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-lg">
-					<svg
-						class="text-muted-foreground h-8 w-8"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-						/>
-					</svg>
-				</div>
-				<h4
-					class={cn(
-						isDarkMode ? 'text-secondary' : 'text-foreground',
-						'mb-2 text-lg font-semibold'
-					)}
-				>
-					No images available
-				</h4>
-				{#if images.length > 0}
-					<p class={cn(isDarkMode ? 'text-secondary/60' : 'text-muted-foreground', 'text-sm')}>
-						{images.length} image(s) provided but none could be loaded
-					</p>
-				{:else}
-					<p class={cn(isDarkMode ? 'text-secondary/60' : 'text-muted-foreground', 'text-sm')}>
-						No images were provided for this gallery
-					</p>
-				{/if}
-			</div>
-		{/if}
+		<ImageCardGrid cards={processedCards} {isDarkMode} />
 	</div>
 {/snippet}
 

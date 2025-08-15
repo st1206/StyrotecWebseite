@@ -80,7 +80,10 @@
 	></div>
 {/if}
 
-<section id={anchor} class={cn(isDarkMode ? 'bg-foreground py-8 pb-12' : 'my-16 sm:my-24')}>
+<section
+	id={anchor}
+	class={cn(isDarkMode ? 'bg-foreground py-8 pb-12' : 'my-16 sm:my-24', 'scroll-mt-24')}
+>
 	<div class="mx-3 sm:container sm:mx-auto lg:w-full">
 		{#if sectionTitle}
 			<div class="mb-16 text-center">

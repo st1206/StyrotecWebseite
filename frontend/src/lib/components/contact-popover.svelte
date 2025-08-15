@@ -22,21 +22,22 @@
 	}
 
 	const contactFormUrl = $derived(`${page.url.pathname}${page.url.search}#contact-form`);
+
+	let open = $state(false);
 </script>
 
 <div class="fixed right-0 top-1/2 z-50 hidden -translate-y-1/2 md:block">
-	<Popover.Root>
+	<Popover.Root bind:open>
 		<Popover.Trigger
 			aria-label="Open contact card"
-			class={cn(
-				buttonVariants({ variant: 'default' }),
-				'translate-x-[36px] rotate-[270deg] skew-x-[0deg]'
-			)}
+			class={cn(buttonVariants({ variant: 'default' }), 'translate-x-[36px] rotate-[270deg]')}
 		>
-			<Mail class="size-4" />
-			Kontakt
+			<span class="flex skew-x-[15deg] items-center gap-2">
+				<Mail class="size-4" />
+				Kontakt
+			</span>
 		</Popover.Trigger>
-		<Popover.Content side="left" class="bg-foreground text-secondary mr-2 w-80 border-none p-0">
+		<Popover.Content side="left" class="bg-foreground text-secondary mr-2 w-80 p-0">
 			<div class="flex flex-col">
 				{#if picture && !imageError}
 					<!-- Employee image with fallback logic -->
@@ -65,8 +66,14 @@
 						<h3 class="text-primary text-sm">{position}</h3>
 					{/if}
 					<h2 class="font-sans text-2xl font-bold">{name}</h2>
-					<Button variant="secondary" size="sm" class="mt-4 w-max " href={contactFormUrl}>
-						<span class="skew-x-[15deg]"> Jetzt kontaktieren </span>
+					<Button
+						onclick={() => (open = false)}
+						variant="secondary"
+						size="sm"
+						class="mt-4 w-max "
+						href={contactFormUrl}
+					>
+						<span class="skew-x-[15deg]"> Zum Kontaktformular </span>
 					</Button>
 				</div>
 			</div>

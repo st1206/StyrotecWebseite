@@ -24,7 +24,7 @@
 	const optimizedImageUrl = getOptimizedImageUrl(data.image);
 </script>
 
-<BlurFade once={true} delay={0.1} duration={0.3}>
+<BlurFade once={true} delay={0.1} duration={0.2}>
 	<section
 		class="bg-secondary mx-auto mb-32 mt-20 flex w-full flex-col gap-16 px-4 sm:container lg:my-36 lg:flex-row"
 	>

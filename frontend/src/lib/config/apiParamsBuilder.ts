@@ -15,28 +15,28 @@ const populateBySection: Record<string, PopulateRule> = {
 	defaultContent: [
 		'defaultContent.tables.tableColumns.tableRows',
 		'defaultContent.accordions.accordionItems.image',
-		'defaultContent.images',
+		'defaultContent.imageCards.image',
 		'defaultContent.image',
 		'defaultContent.spacer'
 	],
 	defaultContentOne: [
 		'defaultContentOne.tables.tableColumns.tableRows',
 		'defaultContentOne.accordions.accordionItems.image',
-		'defaultContentOne.images',
+		'defaultContentOne.imageCards.image',
 		'defaultContentOne.image',
 		'defaultContent.spacer'
 	],
 	defaultContentTwo: [
 		'defaultContentTwo.tables.tableColumns.tableRows',
 		'defaultContentTwo.accordions.accordionItems.image',
-		'defaultContentTwo.images',
+		'defaultContentTwo.imageCards.image',
 		'defaultContentTwo.image',
 		'defaultContent.spacer'
 	],
 	defaultContentThree: [
 		'defaultContentThree.tables.tableColumns.tableRows',
 		'defaultContentThree.accordions.accordionItems.image',
-		'defaultContentThree.images',
+		'defaultContentThree.imageCards.image',
 		'defaultContentThree.image',
 		'defaultContent.spacer'
 	],

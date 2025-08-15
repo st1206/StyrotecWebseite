@@ -2,18 +2,19 @@
 	import type { ImageAsset } from '$lib/types/cmsTypes/image-type';
 	import type { Employee } from '$lib/models/employee';
 	import type { ProductDataSheet } from '$lib/models/productDataSheet';
-	import { resolveRichText, type StrapiRichTextNode } from '$lib/utils';
+	import { cn, resolveRichText, type StrapiRichTextNode } from '$lib/utils';
 	import { _ } from 'svelte-i18n';
 	import * as Table from '$lib/components/ui/table';
 	import { Button } from '$lib/components/ui/button';
 	import { page } from '$app/state';
 	import { PUBLIC_BACKEND_URL } from '$env/static/public';
 	import ContactForm from '$lib/sections/contact-form.svelte';
-	import { Lightbox } from 'svelte-lightbox';
+	import { GalleryImage, GalleryThumbnail, Lightbox, LightboxGallery } from 'svelte-lightbox';
 	import { Icons } from '$lib/assets/icons';
 	import * as Breadcrumb from '$lib/components/ui/breadcrumb';
 	import * as Accordion from '$lib/components/ui/accordion';
 	import { languages } from '$lib/i18n';
+	import { tick } from 'svelte';
 
 	let data: {
 		contactForm: any;
@@ -24,7 +25,6 @@
 		slug: string;
 	} = $props();
 
-	// State for the image gallery
 	let selectedImage = $state(data.pictures[0]);
 
 	const languageCodes = languages.map((l) => l.shortCode);
@@ -106,13 +106,10 @@
 						if (explicitlyHandledKeys.has(key) || baseIgnoreKeys.has(key)) {
 							return false;
 						}
-						// Filter out non-displayable types or empty values
 						if (value === null || value === undefined) return false;
 						if (typeof value === 'string' && value.trim() === '') return false;
-						// Exclude generic objects (non-arrays) from auto-display
 						if (typeof value === 'object' && !Array.isArray(value)) return false;
 						if (Array.isArray(value) && value.length === 0) return false;
-						// Allow numbers (incl 0), booleans, non-empty strings, non-empty arrays
 						return true;
 					})
 					.map(([key, value]) => {
@@ -132,32 +129,51 @@
 	<meta property="og:description" content={data.productDataSheet.designation} />
 	<meta property="og:url" content={`${page.url.pathname}`} />
 	<meta property="og:type" content="website" />
-	{#if selectedImage}
-		<meta
-			property="og:image"
-			content={!PUBLIC_BACKEND_URL.includes('https')
-				? `${PUBLIC_BACKEND_URL}${selectedImage.formats?.['large']?.url || selectedImage.url}`
-				: selectedImage.url}
-		/>
-	{/if}
 </svelte:head>
 
 <section
 	class="mt-28 grid grid-cols-1 gap-x-16 gap-y-12 px-4 sm:container lg:grid-cols-2 print:mt-8 print:block"
 >
 	<div class="flex flex-col">
-		<div class="h-[550px] w-full overflow-hidden rounded-lg print:h-full">
-			{#if selectedImage}
-				<Lightbox transitionDuration={50}>
-					<img
-						src={!PUBLIC_BACKEND_URL.includes('https')
-							? `${PUBLIC_BACKEND_URL}${selectedImage.formats?.['large']?.url || selectedImage.url}`
-							: selectedImage.url}
-						alt={selectedImage.alternativeText || data.productDataSheet.name}
-						class="h-full w-full cursor-pointer object-cover object-center transition-opacity duration-300"
-					/>
-				</Lightbox>
-			{/if}
+		<div style="--lightbox-arrow-color: white;">
+			<LightboxGallery
+				arrowsConfig={{ color: '#ffffff', character: 'loop', enableKeyboardControl: true }}
+			>
+				<svelte:fragment slot="thumbnail">
+					{#if selectedImage}
+						<GalleryThumbnail id={data.pictures.findIndex((item) => item.id === selectedImage.id)}>
+							<div class="h-[550px] w-full overflow-hidden rounded-lg">
+								<img
+									src={!PUBLIC_BACKEND_URL.includes('https')
+										? `${PUBLIC_BACKEND_URL}${selectedImage.formats?.['large']?.url || selectedImage.url}`
+										: selectedImage.url}
+									alt={selectedImage.alternativeText || data.productDataSheet.name}
+									class="h-full w-full cursor-pointer object-cover object-center print:hidden"
+								/>
+								<img
+									src={!PUBLIC_BACKEND_URL.includes('https')
+										? `${PUBLIC_BACKEND_URL}${data.pictures[0].formats?.['large']?.url || data.pictures[0].url}`
+										: data.pictures[0].url}
+									alt={data.pictures[0].alternativeText || data.productDataSheet.name}
+									class="hidden h-full w-full cursor-pointer object-cover object-center print:block"
+								/>
+							</div>
+						</GalleryThumbnail>
+					{/if}
+				</svelte:fragment>
+
+				{#each data.pictures as image, i (image.id)}
+					<GalleryImage id={i} class="size-[600px] md:size-[800px]">
+						<img
+							src={!PUBLIC_BACKEND_URL.includes('https')
+								? `${PUBLIC_BACKEND_URL}${image.formats?.['large']?.url || image.url}`
+								: image.url}
+							alt={image.alternativeText || `Image ${image.id}`}
+							class="h-full w-full object-contain object-center"
+						/>
+					</GalleryImage>
+				{/each}
+			</LightboxGallery>
 		</div>
 		<div class="mx-auto mt-4 w-full max-w-2xl lg:max-w-none print:hidden">
 			<div class="grid grid-cols-5 gap-2 sm:gap-4">
@@ -166,7 +182,12 @@
 						onclick={() => (selectedImage = image)}
 						class="relative flex aspect-square cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none"
 					>
-						<span class="absolute inset-0 overflow-hidden rounded-md">
+						<span
+							class={cn(
+								'absolute inset-0 overflow-hidden rounded-md ',
+								selectedImage.id === image.id ? 'ring-primary ring-2 ring-offset-2' : ''
+							)}
+						>
 							<img
 								src={!PUBLIC_BACKEND_URL.includes('https')
 									? `${PUBLIC_BACKEND_URL}${image.formats?.['thumbnail']?.url || image.url}`
@@ -175,12 +196,6 @@
 								class="h-full w-full object-cover object-center"
 							/>
 						</span>
-						{#if selectedImage.id === image.id}
-							<span
-								class="ring-primary pointer-events-none absolute inset-0 rounded-md ring-2 ring-offset-2"
-								aria-hidden="true"
-							></span>
-						{/if}
 					</button>
 				{/each}
 			</div>
@@ -242,11 +257,11 @@
 								{#each tableRows as row}
 									<Table.Row class="bg-foreground/5 hover:bg-foreground/10 border-foreground/20">
 										<Table.Cell
-											class="bg-foreground/10 hover:bg-foreground/15 w-1/3 font-medium sm:w-1/4"
+											class="bg-foreground/10 hover:bg-foreground/15 w-1/3 p-2  font-medium sm:w-1/4"
 										>
 											{row?.label}
 										</Table.Cell>
-										<Table.Cell class="font-medium">{row?.value}</Table.Cell>
+										<Table.Cell class="p-2 font-medium">{row?.value}</Table.Cell>
 									</Table.Row>
 								{/each}
 							</Table.Body>
@@ -267,11 +282,11 @@
 								{#each additionalTableRows as row}
 									<Table.Row class="bg-foreground/5 hover:bg-foreground/10 border-foreground/20">
 										<Table.Cell
-											class="bg- bg-foreground/10 hover:bg-foreground/15 w-1/3 font-medium sm:w-1/4"
+											class="bg- bg-foreground/10 hover:bg-foreground/15 w-1/3 p-2 font-medium sm:w-1/4"
 										>
 											{row.label}
 										</Table.Cell>
-										<Table.Cell class="font-medium">{row.value}</Table.Cell>
+										<Table.Cell class="p-2 font-medium">{row.value}</Table.Cell>
 									</Table.Row>
 								{/each}
 							</Table.Body>
@@ -283,29 +298,32 @@
 
 		<!-- Details Table for Print View -->
 		<div class="mt-10 hidden print:block">
-			<h3 class="mb-4 text-2xl font-bold">{$_('details')}</h3>
-			<div class="overflow-x-auto">
-				<Table.Root>
-					<Table.Body>
-						{#each tableRows as row}
-							<Table.Row class="bg-foreground/5 border-foreground/20">
-								<Table.Cell class="bg-foreground/10 w-1/3 font-medium sm:w-1/4">
-									{row?.label}
-								</Table.Cell>
-								<Table.Cell class="font-medium">{row?.value}</Table.Cell>
-							</Table.Row>
-						{/each}
-						{#each additionalTableRows as row}
-							<Table.Row class="bg-foreground/5 border-foreground/20">
-								<Table.Cell class="bg-foreground/10 w-1/3 font-medium sm:w-1/4">
-									{row.label}
-								</Table.Cell>
-								<Table.Cell class="font-medium">{row.value}</Table.Cell>
-							</Table.Row>
-						{/each}
-					</Table.Body>
-				</Table.Root>
-			</div>
+			<h3 class="text-2xl font-bold">{$_('details')}</h3>
+			<Table.Root>
+				<Table.Body>
+					{#each additionalTableRows as row}
+						<Table.Row class="bg-foreground/5 border-foreground/20">
+							<Table.Cell class="bg-foreground/10 w-1/3 p-2 font-medium sm:w-1/4">
+								{row.label}
+							</Table.Cell>
+							<Table.Cell class="p-2 font-medium">{row.value}</Table.Cell>
+						</Table.Row>
+					{/each}
+				</Table.Body>
+			</Table.Root>
+			<h3 class="pt-8 text-2xl font-bold">{$_('technicalSpecifications')}</h3>
+			<Table.Root>
+				<Table.Body>
+					{#each additionalTableRows as row}
+						<Table.Row class="bg-foreground/5 border-foreground/20">
+							<Table.Cell class="bg-foreground/10 w-1/3 p-2 font-medium sm:w-1/4">
+								{row.label}
+							</Table.Cell>
+							<Table.Cell class="p-2 font-medium">{row.value}</Table.Cell>
+						</Table.Row>
+					{/each}
+				</Table.Body>
+			</Table.Root>
 		</div>
 		<!-- Description Section -->
 		<div class="mt-10 print:mt-8">

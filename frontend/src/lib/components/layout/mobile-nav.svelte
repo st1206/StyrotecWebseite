@@ -73,7 +73,7 @@
 							</Accordion.Trigger>
 							<Accordion.Content class="py-8">
 								{#if menuItem.key === 'industries'}
-									<div class="grid grid-cols-2 gap-4">
+									<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
 										{#each menuItem.menuRoutes as route, j}
 											<BlurFade once={true} delay={0.07 * j} duration={0.2}>
 												<a

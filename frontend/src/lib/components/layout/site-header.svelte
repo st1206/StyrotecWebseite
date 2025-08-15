@@ -210,7 +210,7 @@
 											href={getLink(menuItem.key, route.anchor)}
 											onclick={(e) => closeAll()}
 										>
-											<BlurFade once={true} delay={0.03 * i} duration={0.3}>
+											<BlurFade once={true} delay={0.03 * i} duration={0.2}>
 												<div
 													class="text-secondary hover:shadow-primary bg-secondary/30 flex h-full w-full cursor-pointer flex-col items-center
 															justify-center gap-4 p-8 font-sans text-xl font-bold transition duration-300 ease-in-out xl:text-2xl"
@@ -226,7 +226,7 @@
 								</div>
 							{:else}
 								{#each menuItem.menuRoutes as route, i}
-									<BlurFade once={true} delay={0.03 * i} duration={0.3}>
+									<BlurFade once={true} delay={0.03 * i} duration={0.2}>
 										<div class="flex flex-col gap-6">
 											<a
 												class="text-primary font-sans text-2xl font-bold hover:underline xl:text-3xl"

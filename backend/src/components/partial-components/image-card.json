@@ -22,12 +22,20 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images", "files"]
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
     },
     "sortOrder": {
       "required": true,
       "default": 1,
       "type": "integer"
+    },
+    "isImageTransparent": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }

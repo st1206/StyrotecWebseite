@@ -90,7 +90,7 @@
 					plugins={validImages.length > 1 ? [Autoplay(autoPlayOptions) as any] : []}
 					opts={carouselOptions}
 				>
-					<Carousel.Content class="h-[500px] lg:h-[600px]">
+					<Carousel.Content class="h-[350px] md:h-[500px] lg:h-[600px]">
 						{#each validImages as image, i}
 							{@const imageUrl = getOptimizedImageUrl(image)}
 							{@const imageAlt = getImageAltText(image, `Carousel image ${i + 1}`)}
@@ -113,7 +113,7 @@
 											stroke-linecap="round"
 											stroke-linejoin="round"
 											stroke-width="2"
-											d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+											d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 002-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
 										/>
 									</svg>
 									<p class="text-muted-foreground text-sm">Image {i + 1} not available</p>
@@ -123,6 +123,7 @@
 					</Carousel.Content>
 				</Carousel.Root>
 
+				<!-- Gradient and Title Overlay -->
 				<div
 					class="from-foreground/100 via-foreground/40 pointer-events-none absolute inset-0 z-10 bg-gradient-to-r to-transparent"
 				>
@@ -138,35 +139,35 @@
 								</h1>
 							</div>
 						{/if}
-
-						{#if validImages.length > 1}
-							<div class="absolute bottom-5 left-10 z-20 flex items-center gap-1">
-								<button type="button" aria-label="Go to previous slide" onclick={goToPreviousSlide}>
-									<Icons.chevronLeft
-										class="text-secondary/70 hover:text-secondary size-5 transition"
-									/>
-								</button>
-								<div class="flex items-center space-x-2">
-									{#each Array.from({ length: validImages.length }, (_, i) => i + 1) as slide (slide)}
-										<button
-											type="button"
-											aria-label="Go to slide {slide}"
-											onclick={() => goToSlide(slide)}
-											class={getDotClass(slide)}
-										></button>
-									{/each}
-								</div>
-								<button type="button" aria-label="Go to next slide" onclick={goToNextSlide}>
-									<Icons.chevronRight
-										class="text-secondary/70 hover:text-secondary size-5 transition"
-									/>
-								</button>
-							</div>
-						{/if}
 					</div>
 				</div>
+
+				<!-- Navigation Controls -->
+				{#if validImages.length > 1}
+					<div class="absolute bottom-5 left-10 z-20 flex items-center gap-1">
+						<button type="button" aria-label="Go to previous slide" onclick={goToPreviousSlide}>
+							<Icons.chevronLeft class="text-secondary/70 hover:text-secondary size-5 transition" />
+						</button>
+						<div class="flex items-center space-x-2">
+							{#each Array.from({ length: validImages.length }, (_, i) => i + 1) as slide (slide)}
+								<button
+									type="button"
+									aria-label="Go to slide {slide}"
+									onclick={() => goToSlide(slide)}
+									class={getDotClass(slide)}
+								></button>
+							{/each}
+						</div>
+						<button type="button" aria-label="Go to next slide" onclick={goToNextSlide}>
+							<Icons.chevronRight
+								class="text-secondary/70 hover:text-secondary size-5 transition"
+							/>
+						</button>
+					</div>
+				{/if}
 			</div>
 		{:else}
+			<!-- Fallback content remains the same -->
 			<div
 				class="border-muted-foreground/20 bg-muted shadow-primary relative flex h-[500px] flex-col items-center justify-center border-2 border-dashed lg:h-[600px]"
 			>
@@ -193,7 +194,7 @@
 							stroke-linecap="round"
 							stroke-linejoin="round"
 							stroke-width="2"
-							d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+							d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 002-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
 						/>
 					</svg>
 					<p class="text-muted-foreground text-lg">No carousel images available</p>

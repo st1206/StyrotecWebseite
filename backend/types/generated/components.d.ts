@@ -315,7 +315,10 @@ export interface PartialComponentsContentImages extends Struct.ComponentSchema {
     displayName: 'contentImages';
   };
   attributes: {
-    images: Schema.Attribute.Media<'images' | 'files', true> &
+    imageCards: Schema.Attribute.Component<
+      'partial-components.image-card',
+      true
+    > &
       Schema.Attribute.Required;
     isDarkMode: Schema.Attribute.Boolean &
       Schema.Attribute.Required &
@@ -323,7 +326,6 @@ export interface PartialComponentsContentImages extends Struct.ComponentSchema {
     sortOrder: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<1>;
-    title: Schema.Attribute.String;
   };
 }
 
@@ -359,7 +361,6 @@ export interface PartialComponentsContentTable extends Struct.ComponentSchema {
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<1>;
     tables: Schema.Attribute.Component<'partial-components.table', true>;
-    title: Schema.Attribute.String;
   };
 }
 
@@ -427,6 +428,9 @@ export interface PartialComponentsImageCard extends Struct.ComponentSchema {
   attributes: {
     employee: Schema.Attribute.Relation<'oneToOne', 'api::employee.employee'>;
     image: Schema.Attribute.Media<'images' | 'files'>;
+    isImageTransparent: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
     sortOrder: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<1>;

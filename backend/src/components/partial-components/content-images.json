@@ -6,18 +6,6 @@
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "images": {
-      "type": "media",
-      "multiple": true,
-      "required": true,
-      "allowedTypes": [
-        "images",
-        "files"
-      ]
-    },
     "sortOrder": {
       "type": "integer",
       "required": true,
@@ -26,6 +14,12 @@
     "isDarkMode": {
       "type": "boolean",
       "default": false,
+      "required": true
+    },
+    "imageCards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "partial-components.image-card",
       "required": true
     }
   }

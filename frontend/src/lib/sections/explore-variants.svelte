@@ -65,7 +65,7 @@
 
 	<div class="grid grid-cols-1 justify-center gap-20 md:grid-cols-2 xl:mx-10 xl:grid-cols-1">
 		{#each variants || [] as variant, i}
-			<BlurFade once={true} delay={0.1 + i * 0.1} duration={0.3}>
+			<BlurFade once={true} delay={0.1 + i * 0.1} duration={0.2}>
 				<Card.Root
 					class="bg-foreground 
 						w-full
