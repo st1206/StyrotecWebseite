@@ -265,7 +265,7 @@ const pagesConfig: Record<string, PageContent> = {
 	},
 
 	raspHollow: {
-		deSlug: 'produkte/styroporbearbeitung/fräswerkzeuge/raspelhohlfraser',
+		deSlug: 'produkte/styroporbearbeitung/fräswerkzeuge/raspelhohlfraeser',
 		enSlug: 'products/styrofoam-processing/milling-tools/rasp-hollow-cutters',
 		cmsTypeKey: 'raspHollowPage',
 		cmsApiSlug: 'rasp-hollow-cutter-page',
