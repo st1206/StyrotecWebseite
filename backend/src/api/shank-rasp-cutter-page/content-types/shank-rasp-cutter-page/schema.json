@@ -1,11 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "milling_tools_pages",
+  "collectionName": "shank_rasp_cutter_pages",
   "info": {
-    "singularName": "milling-tools-page",
-    "pluralName": "milling-tools-pages",
-    "displayName": "Fräswerkzeug Seite",
-    "description": ""
+    "singularName": "shank-rasp-cutter-page",
+    "pluralName": "shank-rasp-cutter-pages",
+    "displayName": "Zylinderschaft Raspelfräser Seite"
   },
   "options": {
     "draftAndPublish": true
@@ -27,15 +26,21 @@
       "component": "page-components.hero-dual-image",
       "required": true
     },
-    "contactForm": {
-      "type": "component",
-      "repeatable": false,
+    "defaultContent": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "component": "page-components.contact-form",
+      "type": "dynamiczone",
+      "components": [
+        "partial-components.content-accordion",
+        "partial-components.content-header",
+        "partial-components.content-images",
+        "partial-components.content-spacer",
+        "partial-components.content-table",
+        "partial-components.content-text-image"
+      ],
       "required": true
     },
     "seo": {
@@ -49,7 +54,7 @@
       "component": "page-components.seo",
       "required": true
     },
-    "exploreMore": {
+    "contactForm": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
@@ -57,24 +62,7 @@
           "localized": true
         }
       },
-      "component": "page-components.explore-more",
-      "required": true
-    },
-    "defaultContent": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "dynamiczone",
-      "components": [
-        "partial-components.content-text-image",
-        "partial-components.content-table",
-        "partial-components.content-spacer",
-        "partial-components.content-images",
-        "partial-components.content-header",
-        "partial-components.content-accordion"
-      ],
+      "component": "page-components.contact-form",
       "required": true
     }
   }

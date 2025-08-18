@@ -38,6 +38,7 @@ import type {
 } from '$lib/types/cmsTypes/contentTypes';
 import { buildPopulateQuery } from './apiParamsBuilder';
 import type { TypedSectionConfig } from '$lib/types/sections';
+import type { ApiHoleCutterPageHoleCutterPage, ApiRaspDiscCutterPageRaspDiscCutterPage, ApiRaspHollowCutterPageRaspHollowCutterPage, ApiShankRaspCutterPageShankRaspCutterPage, ApiSpecialMillingCutterPageSpecialMillingCutterPage, ApiStyrospeedHsPageStyrospeedHsPage } from '$lib/cmsTypes/contentTypes';
 
 // The mapping interface uses keys that match your cmsTypeKey values.
 export interface CMSTypeMap {
@@ -55,6 +56,12 @@ export interface CMSTypeMap {
 	styrofoamPage: ApiStyrofoamPageStyrofoamPage;
 	industriesPage: ApiIndustriesPageIndustriesPage;
 	millingToolsPage: ApiMillingToolsPageMillingToolsPage;
+	styrospeedPage: ApiStyrospeedHsPageStyrospeedHsPage;
+	shankRaspPage: ApiShankRaspCutterPageShankRaspCutterPage;
+	raspHollowPage: ApiRaspHollowCutterPageRaspHollowCutterPage;
+	holeCutterPage: ApiHoleCutterPageHoleCutterPage;
+	raspDiscPage: ApiRaspDiscCutterPageRaspDiscCutterPage;
+	specialCutterPage: ApiSpecialMillingCutterPageSpecialMillingCutterPage;
 	hollowMillingSpindlePage: ApiHollowMillingSpindlePageHollowMillingSpindlePage;
 	suctionSystemPage: ApiSuctionSystemPageSuctionSystemPage;
 	shredderPage: ApiShredderPageShredderPage;
@@ -225,10 +232,90 @@ const pagesConfig: Record<string, PageContent> = {
 		sections: [
 			{ sectionKey: 'heroDualImage' },
 			{ sectionKey: 'defaultContent' },
+			{ sectionKey: 'exploreMore'},
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]
 	},
+
+	styrospeed: {
+		deSlug: 'produkte/styroporbearbeitung/fräswerkzeuge/styrospeed-hs',
+		enSlug: 'products/styrofoam-processing/milling-tools/styrospeed-hs',
+		cmsTypeKey: 'styrospeedPage',
+		cmsApiSlug: 'styrospeed-hs-page',
+		sections: [
+			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'defaultContent' },
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
+		]
+	},
+
+	shankRasp: {
+		deSlug: 'produkte/styroporbearbeitung/fräswerkzeuge/zylinderschaft-raspelfraeser',
+		enSlug: 'products/styrofoam-processing/milling-tools/shank-rasp-cutters',
+		cmsTypeKey: 'shankRaspPage',
+		cmsApiSlug: 'shank-rasp-cutter-page',
+		sections: [
+			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'defaultContent' },
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
+		]
+	},
+
+	raspHollow: {
+		deSlug: 'produkte/styroporbearbeitung/fräswerkzeuge/raspelhohlfraser',
+		enSlug: 'products/styrofoam-processing/milling-tools/rasp-hollow-cutters',
+		cmsTypeKey: 'raspHollowPage',
+		cmsApiSlug: 'rasp-hollow-cutter-page',
+		sections: [
+			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'defaultContent' },
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
+		]
+	},
+
+	holeCutter: {
+		deSlug: 'produkte/styroporbearbeitung/fräswerkzeuge/lochfraeser',
+		enSlug: 'products/styrofoam-processing/milling-tools/hole-cutters',
+		cmsTypeKey: 'holeCutterPage',
+		cmsApiSlug: 'hole-cutter-page',
+		sections: [
+			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'defaultContent' },
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
+		]
+	},
+
+	raspDisc: {
+		deSlug: 'produkte/styroporbearbeitung/fräswerkzeuge/raspeltellerfraeser',
+		enSlug: 'products/styrofoam-processing/milling-tools/rasp-disc-cutters',
+		cmsTypeKey: 'raspDiscPage',
+		cmsApiSlug: 'rasp-disc-cutter-page',
+		sections: [
+			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'defaultContent' },
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
+		]
+	},
+
+	specialCutter: {
+		deSlug: 'produkte/styroporbearbeitung/fräswerkzeuge/spezialfraeser',
+		enSlug: 'products/styrofoam-processing/milling-tools/special-cutters',
+		cmsTypeKey: 'specialCutterPage',
+		cmsApiSlug: 'special-milling-cutter-page',
+		sections: [
+			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'defaultContent' },
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
+		]
+	},
+
 
 	hollowMillingSpindles: {
 		deSlug: 'produkte/styroporbearbeitung/hohlfrässpindeln',

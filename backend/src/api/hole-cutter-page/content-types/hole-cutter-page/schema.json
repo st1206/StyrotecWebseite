@@ -1,11 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "milling_tools_pages",
+  "collectionName": "hole_cutter_pages",
   "info": {
-    "singularName": "milling-tools-page",
-    "pluralName": "milling-tools-pages",
-    "displayName": "Fräswerkzeug Seite",
-    "description": ""
+    "singularName": "hole-cutter-page",
+    "pluralName": "hole-cutter-pages",
+    "displayName": "Lochfräser Seite"
   },
   "options": {
     "draftAndPublish": true
@@ -27,39 +26,6 @@
       "component": "page-components.hero-dual-image",
       "required": true
     },
-    "contactForm": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "page-components.contact-form",
-      "required": true
-    },
-    "seo": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "page-components.seo",
-      "required": true
-    },
-    "exploreMore": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "page-components.explore-more",
-      "required": true
-    },
     "defaultContent": {
       "pluginOptions": {
         "i18n": {
@@ -75,6 +41,28 @@
         "partial-components.content-header",
         "partial-components.content-accordion"
       ],
+      "required": true
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.seo",
+      "required": true
+    },
+    "contactForm": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.contact-form",
       "required": true
     }
   }
