@@ -301,7 +301,7 @@
 			<h3 class="text-2xl font-bold">{$_('details')}</h3>
 			<Table.Root>
 				<Table.Body>
-					{#each additionalTableRows as row}
+					{#each tableRows as row}
 						<Table.Row class="bg-foreground/5 border-foreground/20">
 							<Table.Cell class="bg-foreground/10 w-1/3 p-2 font-medium sm:w-1/4">
 								{row.label}
@@ -356,4 +356,4 @@
 	</div>
 </section>
 
-<ContactForm contactForm={data.contactForm} employee={data.contactPerson} />
+<!-- <ContactForm contactForm={data.contactForm} employee={data.contactPerson} /> -->
