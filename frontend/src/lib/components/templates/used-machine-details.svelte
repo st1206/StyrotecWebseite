@@ -367,4 +367,6 @@
 	</div>
 </section>
 
-<!-- <ContactForm contactForm={data.contactForm} employee={data.contactPerson} /> -->
+<div class="print:hidden">
+	<ContactForm contactForm={data.contactForm} employee={data.contactPerson} />
+</div>
