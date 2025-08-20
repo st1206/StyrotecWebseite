@@ -3,7 +3,7 @@
 	import { PUBLIC_BACKEND_URL } from '$env/static/public';
 	import * as Accordion from '$lib/components/ui/accordion';
 	import * as Card from '$lib/components/ui/card';
-	import { cn } from '$lib/utils';
+	import { cn, handleAccordionViewport } from '$lib/utils';
 	import { onMount, tick } from 'svelte';
 	import { SvelteMap } from 'svelte/reactivity';
 	import { innerWidth } from 'svelte/reactivity/window';
@@ -51,7 +51,10 @@
 	const overlayHeightsMap = new SvelteMap<string, number[]>([]);
 	let overlayHeights = $state<number[]>([]);
 
-	async function updateOverlayHeights() {
+	// needed viewport change
+	let accordionDivs: (HTMLDivElement | null)[] = $state([]);
+
+	async function updateOverlayHeights(value?: string) {
 		await tick();
 		const currentHeights = overlayHeightsMap.get(page.url.pathname) ?? [];
 		let needsUpdate = false;
@@ -66,6 +69,11 @@
 		if (needsUpdate) {
 			overlayHeightsMap.set(page.url.pathname, [...currentHeights]);
 		}
+
+		if (!value) {
+			return;
+		}
+		handleAccordionViewport(0, value, accordionDivs);
 	}
 
 	$effect(() => {
@@ -176,153 +184,155 @@
 		{/if}
 
 		<div class="flex flex-col gap-20 px-2 sm:container xl:px-48">
-			<Accordion.Root
-				type="single"
-				value={'item-1'}
-				class="flex w-full flex-col gap-4"
-				onValueChange={updateOverlayHeights}
-			>
-				{#each sortedBlocks as block, i}
-					{#if block.__component === 'partial-components.accordion'}
-						{@const component = block}
-						<Accordion.Item value={`item-${i + 1}`}>
-							<Accordion.Trigger class="text-secondary font-sans font-medium">
-								<h4>{component.title}</h4>
-							</Accordion.Trigger>
-							<Accordion.Content class="bg-secondary/5 pt-2">
-								{#if component.accordionItems.length > 0}
-									<div class="grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-										{#each component.accordionItems as item, k}
-											<div class="h-full" bind:this={overlayRefs[i]}>
-												<Card.Root class="bg-secondary/5 h-full px-0">
-													{@const imageUrl = optimizeImageUrl(
-														new SafeData(item.image).getImageUrl(),
-														PUBLIC_BACKEND_URL
-													)}
-													{#if imageUrl}
-														<img
-															class={cn(
-																item.isImageTransparent
-																	? 'h-[260px] w-full object-contain'
-																	: 'h-[260px] w-full object-cover'
-															)}
-															src={imageUrl}
-															alt={item.image?.alternativeText || item.title}
-															style="display: block;"
-															onerror={handleImageError}
-															loading="lazy"
-														/>
-														<div
-															class="bg-secondary/20 text-muted-foreground flex h-[260px] flex-col items-center justify-center"
-															style="display: none;"
-														>
-															<Icons.image class="mb-2 size-12 opacity-50" />
-															<p class="px-4 text-center text-sm">
-																{item.title}
-															</p>
-															<p class="mt-1 text-xs opacity-75">
-																{$_('common.imageNotAvailable') || 'Image not available'}
-															</p>
-														</div>
-													{/if}
-													<Card.Header class="mt-12 p-0">
-														<Card.Title
-															class={cn(
-																item.isImageTransparent && imageUrl
-																	? item.title?.length > 15
-																		? '[clip-path:polygon(0%_0%,70%_0%,100%_100%,0%_100%)]'
-																		: '[clip-path:polygon(0%_0%,60%_0%,80%_100%,0%_100%)]'
-																	: ''
-															)}
-														>
-															<h3 class="text-secondary p-4 font-sans font-bold">
-																{item.title}
-															</h3>
-														</Card.Title>
-													</Card.Header>
-
-													<Card.Content
-														class={cn(
-															imageUrl ? 'bg-secondary/10' : '',
-															item.isImageTransparent ? 'pt-4' : '',
-															'p-4'
+			<div bind:this={accordionDivs[0]}>
+				<Accordion.Root
+					type="single"
+					value={'item-1'}
+					class="flex w-full flex-col gap-4"
+					onValueChange={(value) => updateOverlayHeights(value)}
+				>
+					{#each sortedBlocks as block, i}
+						{#if block.__component === 'partial-components.accordion'}
+							{@const component = block}
+							<Accordion.Item value={`item-${i + 1}`} data-value={`item-${i + 1}`}>
+								<Accordion.Trigger class="text-secondary font-sans font-medium">
+									<h4>{component.title}</h4>
+								</Accordion.Trigger>
+								<Accordion.Content class="bg-secondary/5 pt-2">
+									{#if component.accordionItems.length > 0}
+										<div class="grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+											{#each component.accordionItems as item, k}
+												<div class="h-full" bind:this={overlayRefs[i]}>
+													<Card.Root class="bg-secondary/5 h-full px-0">
+														{@const imageUrl = optimizeImageUrl(
+															new SafeData(item.image).getImageUrl(),
+															PUBLIC_BACKEND_URL
 														)}
-														style={`height: ${(innerWidth.current ?? 0) < 976 ? 'auto' : (overlayHeights[i] ?? 0) - 364 + 'px'}`}
-													>
-														{#if item.subtitle}
-															<h4 class="text-md text-primary mb-1 font-sans font-medium">
-																{item.subtitle}
-															</h4>
+														{#if imageUrl}
+															<img
+																class={cn(
+																	item.isImageTransparent
+																		? 'h-[260px] w-full object-contain'
+																		: 'h-[260px] w-full object-cover'
+																)}
+																src={imageUrl}
+																alt={item.image?.alternativeText || item.title}
+																style="display: block;"
+																onerror={handleImageError}
+																loading="lazy"
+															/>
+															<div
+																class="bg-secondary/20 text-muted-foreground flex h-[260px] flex-col items-center justify-center"
+																style="display: none;"
+															>
+																<Icons.image class="mb-2 size-12 opacity-50" />
+																<p class="px-4 text-center text-sm">
+																	{item.title}
+																</p>
+																<p class="mt-1 text-xs opacity-75">
+																	{$_('common.imageNotAvailable') || 'Image not available'}
+																</p>
+															</div>
 														{/if}
-														<div class="prose-sm text-secondary text-justify font-sans">
-															{@html item.description}
-														</div>
-													</Card.Content>
-												</Card.Root>
-											</div>
-										{/each}
-									</div>
-								{:else}
-									<div class="flex flex-col items-center justify-center py-8 text-center">
-										<Icons.list class="mb-4 size-12 opacity-30" />
-										<p class="text-secondary/70">
-											{$_('accordion.noItems') || 'No items available in this section'}
-										</p>
-									</div>
-								{/if}
-							</Accordion.Content>
-						</Accordion.Item>
-					{:else if block.__component === 'partial-components.table'}
-						{@const component = block}
-						<Accordion.Item value={`item-${i + 1}`}>
-							<Accordion.Trigger class="text-secondary font-sans font-medium">
-								<h4>{component.title}</h4>
-							</Accordion.Trigger>
-							<Accordion.Content class="bg-secondary/5 pt-2">
-								{#if component.tableColumns?.length > 0 && component.tableColumns[0]?.tableRows?.length > 0}
-									<div class="overflow-x-auto">
-										<Table.Root>
-											<Table.Header>
-												<Table.Row
-													class="border-secondary/20 bg-secondary/10 hover:bg-secondary/15"
-												>
-													<Table.Head class="text-secondary"></Table.Head>
-													{#each component.tableColumns as column}
-														<Table.Head class="text-secondary text-center font-sans font-bold">
-															{column.columnLabel}
-														</Table.Head>
-													{/each}
-												</Table.Row>
-											</Table.Header>
-											<Table.Body class="text-secondary">
-												{#each component.tableColumns[0].tableRows as row, idx}
-													<Table.Row class="border-secondary/20 hover:bg-secondary/5">
-														<Table.Cell class="bg-secondary/10 w-[100px] sm:w-[150px]">
-															{row.rowLabel}
-														</Table.Cell>
+														<Card.Header class="mt-12 p-0">
+															<Card.Title
+																class={cn(
+																	item.isImageTransparent && imageUrl
+																		? item.title?.length > 15
+																			? '[clip-path:polygon(0%_0%,70%_0%,100%_100%,0%_100%)]'
+																			: '[clip-path:polygon(0%_0%,60%_0%,80%_100%,0%_100%)]'
+																		: ''
+																)}
+															>
+																<h3 class="text-secondary p-4 font-sans font-bold">
+																	{item.title}
+																</h3>
+															</Card.Title>
+														</Card.Header>
+
+														<Card.Content
+															class={cn(
+																imageUrl ? 'bg-secondary/10' : '',
+																item.isImageTransparent ? 'pt-4' : '',
+																'p-4'
+															)}
+															style={`height: ${(innerWidth.current ?? 0) < 976 ? 'auto' : (overlayHeights[i] ?? 0) - 364 + 'px'}`}
+														>
+															{#if item.subtitle}
+																<h4 class="text-md text-primary mb-1 font-sans font-medium">
+																	{item.subtitle}
+																</h4>
+															{/if}
+															<div class="prose-sm text-secondary text-justify font-sans">
+																{@html item.description}
+															</div>
+														</Card.Content>
+													</Card.Root>
+												</div>
+											{/each}
+										</div>
+									{:else}
+										<div class="flex flex-col items-center justify-center py-8 text-center">
+											<Icons.list class="mb-4 size-12 opacity-30" />
+											<p class="text-secondary/70">
+												{$_('accordion.noItems') || 'No items available in this section'}
+											</p>
+										</div>
+									{/if}
+								</Accordion.Content>
+							</Accordion.Item>
+						{:else if block.__component === 'partial-components.table'}
+							{@const component = block}
+							<Accordion.Item value={`item-${i + 1}`} data-value={`item-${i + 1}`}>
+								<Accordion.Trigger class="text-secondary font-sans font-medium">
+									<h4>{component.title}</h4>
+								</Accordion.Trigger>
+								<Accordion.Content class="bg-secondary/5 pt-2">
+									{#if component.tableColumns?.length > 0 && component.tableColumns[0]?.tableRows?.length > 0}
+										<div class="overflow-x-auto">
+											<Table.Root>
+												<Table.Header>
+													<Table.Row
+														class="border-secondary/20 bg-secondary/10 hover:bg-secondary/15"
+													>
+														<Table.Head class="text-secondary"></Table.Head>
 														{#each component.tableColumns as column}
-															<Table.Cell class="min-w-[100px] text-center font-medium">
-																{column.tableRows[idx]?.rowValue || '-'}
-															</Table.Cell>
+															<Table.Head class="text-secondary text-center font-sans font-bold">
+																{column.columnLabel}
+															</Table.Head>
 														{/each}
 													</Table.Row>
-												{/each}
-											</Table.Body>
-										</Table.Root>
-									</div>
-								{:else}
-									<div class="flex flex-col items-center justify-center py-8 text-center">
-										<Icons.table class="mb-4 size-12 opacity-30" />
-										<p class="text-secondary/70">
-											{$_('table.noData') || 'No table data available'}
-										</p>
-									</div>
-								{/if}
-							</Accordion.Content>
-						</Accordion.Item>
-					{/if}
-				{/each}
-			</Accordion.Root>
+												</Table.Header>
+												<Table.Body class="text-secondary">
+													{#each component.tableColumns[0].tableRows as row, idx}
+														<Table.Row class="border-secondary/20 hover:bg-secondary/5">
+															<Table.Cell class="bg-secondary/10 w-[100px] sm:w-[150px]">
+																{row.rowLabel}
+															</Table.Cell>
+															{#each component.tableColumns as column}
+																<Table.Cell class="min-w-[100px] text-center font-medium">
+																	{column.tableRows[idx]?.rowValue || '-'}
+																</Table.Cell>
+															{/each}
+														</Table.Row>
+													{/each}
+												</Table.Body>
+											</Table.Root>
+										</div>
+									{:else}
+										<div class="flex flex-col items-center justify-center py-8 text-center">
+											<Icons.table class="mb-4 size-12 opacity-30" />
+											<p class="text-secondary/70">
+												{$_('table.noData') || 'No table data available'}
+											</p>
+										</div>
+									{/if}
+								</Accordion.Content>
+							</Accordion.Item>
+						{/if}
+					{/each}
+				</Accordion.Root>
+			</div>
 		</div>
 	{:else}
 		<div class="flex flex-col items-center justify-center py-16 text-center">

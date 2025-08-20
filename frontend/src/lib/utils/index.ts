@@ -6,14 +6,35 @@ import { Icons } from '../assets/icons';
 import { locale } from 'svelte-i18n';
 import { get } from 'svelte/store';
 import { error } from '@sveltejs/kit';
+import { innerWidth } from 'svelte/reactivity/window';
 
-export function handleImageError(event: Event) {
-	const img = event.currentTarget as HTMLImageElement | null;
-	const sibling = img?.nextElementSibling as HTMLElement | null;
-	if (img && sibling) {
-		img.style.display = 'none';
-		sibling.style.display = 'flex';
-	}
+export function handleAccordionViewport(
+	variantIndex: number,
+	itemValue: string,
+	scrollableDivs: (HTMLDivElement | null)[],
+	block?: ScrollLogicalPosition | undefined
+) {
+	if ((innerWidth?.current ?? 0) < 1440) return;
+
+	setTimeout(() => {
+		const scrollableDiv = scrollableDivs[variantIndex];
+		if (!scrollableDiv) return;
+
+		const accordionItem = scrollableDiv.querySelector(`[data-value="${itemValue}"]`);
+		if (!accordionItem) return;
+
+		const itemRect = accordionItem.getBoundingClientRect();
+		const viewportRect = scrollableDiv.getBoundingClientRect();
+
+		const isVisible = itemRect.top <= viewportRect.top && itemRect.bottom <= viewportRect.bottom;
+
+		if (!isVisible) {
+			accordionItem.scrollIntoView({
+				behavior: 'smooth',
+				block: block || 'center'
+			});
+		}
+	}, 160);
 }
 
 export function cn(...inputs: ClassValue[]) {

@@ -12,7 +12,12 @@
 		type ImagePosition
 	} from '$lib/utils/image';
 	import { SafeData } from '$lib/utils/validation';
-	import { cn, resolveRichText, type StrapiRichTextNode } from '$lib/utils';
+	import {
+		cn,
+		handleAccordionViewport,
+		resolveRichText,
+		type StrapiRichTextNode
+	} from '$lib/utils';
 	import { onMount, tick } from 'svelte';
 	import { SvelteMap } from 'svelte/reactivity';
 	import { innerWidth } from 'svelte/reactivity/window';
@@ -109,7 +114,7 @@
 	const overlayHeightsMap = new SvelteMap<string, number[]>([]);
 	let overlayHeights = $state<number[]>([]);
 
-	async function updateOverlayHeights() {
+	async function updateOverlayHeights(value?: string) {
 		await tick();
 		overlayRefs.forEach((el, i) => {
 			if (el) {
@@ -120,6 +125,11 @@
 				}
 			}
 		});
+
+		if (!value) {
+			return;
+		}
+		handleAccordionViewport(0, value, accordionDivs);
 	}
 
 	$effect(() => {
@@ -147,6 +157,9 @@
 	function isBlockDarkMode(block: ComponentData): boolean {
 		return 'isDarkMode' in block ? block.isDarkMode === true : false;
 	}
+
+	// needed for accordion viewport change
+	let accordionDivs: (HTMLDivElement | null)[] = $state([]);
 </script>
 
 <section class="w-full">
@@ -450,120 +463,127 @@
 				{block.title}
 			</h4>
 		{/if}
-		<Accordion.Root
-			type="single"
-			value={'item-1'}
-			class="flex w-full flex-col gap-4"
-			onValueChange={updateOverlayHeights}
-		>
-			{#each block.accordions as accordion, i}
-				<Accordion.Item value={`item-${i + 1}`} class="border-none">
-					<Accordion.Trigger
-						class={cn(
-							isDarkMode
-								? 'bg-secondary/10 text-secondary hover:bg-secondary/15'
-								: 'bg-foreground/10 text-foreground hover:bg-foreground/15',
-							'border-primary border-b font-sans font-medium'
-						)}
-					>
-						<h4>{accordion.title}</h4>
-					</Accordion.Trigger>
-					<Accordion.Content class={cn(isDarkMode ? 'bg-secondary/5' : 'bg-foreground/5', 'pt-2')}>
-						{#if accordion.accordionItems.length > 0}
-							<div class="grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-								{#each accordion.accordionItems as item, k}
-									<div class="h-full" bind:this={overlayRefs[i]}>
-										<Card.Root
-											class={cn(isDarkMode ? 'bg-secondary/5' : 'bg-foreground/5', 'h-full px-0')}
-										>
-											{@const imageUrl = getOptimizedImageUrl(item.image)}
-											{#if imageUrl}
-												<img
-													class={cn(
-														item.isImageTransparent
-															? 'h-[260px] w-full object-contain'
-															: 'h-[260px] w-full object-cover'
-													)}
-													src={imageUrl}
-													alt={getImageAltText(item.image, item.title)}
-													loading="lazy"
-													onerror={handleImageError}
-												/>
-											{/if}
-
-											<Card.Header class="p-0">
-												<Card.Title
-													class={cn(
-														isDarkMode ? 'bg-secondary/10' : 'bg-foreground/10',
-														item.isImageTransparent && imageUrl
-															? item.title?.length > 15
-																? '[clip-path:polygon(0%_0%,70%_0%,100%_100%,0%_100%)]'
-																: '[clip-path:polygon(0%_0%,60%_0%,80%_100%,0%_100%)]'
-															: '',
-														'w-full'
-													)}
-												>
-													<h3
+		<div bind:this={accordionDivs[0]}>
+			<Accordion.Root
+				type="single"
+				value={'item-1'}
+				class="flex w-full flex-col gap-4"
+				onValueChange={(value) => updateOverlayHeights(value)}
+			>
+				{#each block.accordions as accordion, i}
+					<Accordion.Item value={`item-${i + 1}`} data-value={`item-${i + 1}`} class="border-none">
+						<Accordion.Trigger
+							class={cn(
+								isDarkMode
+									? 'bg-secondary/10 text-secondary hover:bg-secondary/15'
+									: 'bg-foreground/10 text-foreground hover:bg-foreground/15',
+								'border-primary border-b font-sans font-medium'
+							)}
+						>
+							<h4>{accordion.title}</h4>
+						</Accordion.Trigger>
+						<Accordion.Content
+							class={cn(isDarkMode ? 'bg-secondary/5' : 'bg-foreground/5', 'pt-2')}
+						>
+							{#if accordion.accordionItems.length > 0}
+								<div class="grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+									{#each accordion.accordionItems as item, k}
+										<div class="h-full" bind:this={overlayRefs[i]}>
+											<Card.Root
+												class={cn(isDarkMode ? 'bg-secondary/5' : 'bg-foreground/5', 'h-full px-0')}
+											>
+												{@const imageUrl = getOptimizedImageUrl(item.image)}
+												{#if imageUrl}
+													<img
 														class={cn(
-															isDarkMode ? 'text-secondary' : 'text-foreground',
-															'p-4 font-sans font-bold'
+															item.isImageTransparent
+																? 'h-[260px] w-full object-contain'
+																: 'h-[260px] w-full object-cover'
+														)}
+														src={imageUrl}
+														alt={getImageAltText(item.image, item.title)}
+														loading="lazy"
+														onerror={handleImageError}
+													/>
+												{/if}
+
+												<Card.Header class="p-0">
+													<Card.Title
+														class={cn(
+															isDarkMode ? 'bg-secondary/10' : 'bg-foreground/10',
+															item.isImageTransparent && imageUrl
+																? item.title?.length > 15
+																	? '[clip-path:polygon(0%_0%,70%_0%,100%_100%,0%_100%)]'
+																	: '[clip-path:polygon(0%_0%,60%_0%,80%_100%,0%_100%)]'
+																: '',
+															'w-full'
 														)}
 													>
-														{item.title}
-													</h3>
-												</Card.Title>
-											</Card.Header>
+														<h3
+															class={cn(
+																isDarkMode ? 'text-secondary' : 'text-foreground',
+																'p-4 font-sans font-bold'
+															)}
+														>
+															{item.title}
+														</h3>
+													</Card.Title>
+												</Card.Header>
 
-											<Card.Content
-												class={cn(
-													imageUrl ? (isDarkMode ? 'bg-secondary/10' : 'bg-foreground/10') : '',
-													item.isImageTransparent ? 'pt-4' : '',
-													'p-4'
-												)}
-												style={`height: ${(innerWidth?.current ?? 0) < 976 ? 'auto' : (overlayHeights[i] ?? 0) - 316 + 'px'}`}
-											>
-												{#if item.subtitle}
-													<h4 class="text-md text-primary mb-1 font-sans font-medium">
-														{item.subtitle}
-													</h4>
-												{/if}
-												<div
+												<Card.Content
 													class={cn(
-														'prose-sm text-justify font-sans',
-														isDarkMode ? 'text-secondary' : 'text-foreground'
+														imageUrl ? (isDarkMode ? 'bg-secondary/10' : 'bg-foreground/10') : '',
+														item.isImageTransparent ? 'pt-4' : '',
+														'p-4'
 													)}
+													style={`height: ${(innerWidth?.current ?? 0) < 976 ? 'auto' : (overlayHeights[i] ?? 0) - 316 + 'px'}`}
 												>
-													{@html item.description}
-												</div>
-											</Card.Content>
-										</Card.Root>
-									</div>
-								{/each}
-							</div>
-						{:else}
-							<div class="flex flex-col items-center justify-center py-8 text-center">
-								<svg
-									class={cn('mb-4 h-12 w-12', isDarkMode ? 'opacity-30' : 'text-muted-foreground')}
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-									stroke-width="1.5"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										d="M8.25 6.75h7.5M8.25 12h7.5m-7.5 5.25h7.5M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
-									/>
-								</svg>
-								<p class={cn(isDarkMode ? 'text-secondary/70' : 'text-muted-foreground')}>
-									No items available in this section
-								</p>
-							</div>
-						{/if}
-					</Accordion.Content>
-				</Accordion.Item>
-			{/each}
-		</Accordion.Root>
+													{#if item.subtitle}
+														<h4 class="text-md text-primary mb-1 font-sans font-medium">
+															{item.subtitle}
+														</h4>
+													{/if}
+													<div
+														class={cn(
+															'prose-sm text-justify font-sans',
+															isDarkMode ? 'text-secondary' : 'text-foreground'
+														)}
+													>
+														{@html item.description}
+													</div>
+												</Card.Content>
+											</Card.Root>
+										</div>
+									{/each}
+								</div>
+							{:else}
+								<div class="flex flex-col items-center justify-center py-8 text-center">
+									<svg
+										class={cn(
+											'mb-4 h-12 w-12',
+											isDarkMode ? 'opacity-30' : 'text-muted-foreground'
+										)}
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke="currentColor"
+										stroke-width="1.5"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="M8.25 6.75h7.5M8.25 12h7.5m-7.5 5.25h7.5M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+										/>
+									</svg>
+									<p class={cn(isDarkMode ? 'text-secondary/70' : 'text-muted-foreground')}>
+										No items available in this section
+									</p>
+								</div>
+							{/if}
+						</Accordion.Content>
+					</Accordion.Item>
+				{/each}
+			</Accordion.Root>
+		</div>
 	</div>
 {/snippet}
 

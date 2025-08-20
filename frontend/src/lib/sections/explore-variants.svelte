@@ -2,6 +2,7 @@
 	import * as Accordion from '$lib/components/ui/accordion';
 	import * as Card from '$lib/components/ui/card';
 	import type { ImageAsset } from '$lib/types/cmsTypes/image-type';
+	import { handleAccordionViewport } from '$lib/utils';
 	import { getImageAltText, getOptimizedImageUrl } from '$lib/utils/image';
 	import { SafeData } from '$lib/utils/validation';
 	import { innerWidth } from 'svelte/reactivity/window';
@@ -31,31 +32,8 @@
 		(innerWidth?.current ?? 0) < 1440 ? 'auto' : `${FIXED_ACCORDION_HEIGHT}px`
 	);
 
+	// needed viewport change
 	let scrollableDivs: (HTMLDivElement | null)[] = $state([]);
-
-	function handleAccordionChange(variantIndex: number, itemValue: string) {
-		if ((innerWidth?.current ?? 0) < 1440) return;
-
-		setTimeout(() => {
-			const scrollableDiv = scrollableDivs[variantIndex];
-			if (!scrollableDiv) return;
-
-			const accordionItem = scrollableDiv.querySelector(`[data-value="${itemValue}"]`);
-			if (!accordionItem) return;
-
-			const itemRect = accordionItem.getBoundingClientRect();
-			const viewportRect = scrollableDiv.getBoundingClientRect();
-
-			const isVisible = itemRect.top >= viewportRect.top && itemRect.bottom <= viewportRect.bottom;
-
-			if (!isVisible) {
-				accordionItem.scrollIntoView({
-					behavior: 'smooth',
-					block: 'nearest'
-				});
-			}
-		}, 150);
-	}
 </script>
 
 <section class="mx-2 mb-32 mt-12 sm:container sm:mx-auto lg:mt-28 xl:my-36">
@@ -104,7 +82,8 @@
 									<Accordion.Root
 										type="single"
 										class="flex w-full flex-col gap-4"
-										onValueChange={(value) => value && handleAccordionChange(i, value)}
+										onValueChange={(value) =>
+											value && handleAccordionViewport(i, value, scrollableDivs, 'nearest')}
 									>
 										{#each variant.accordionItems as item, j}
 											<Accordion.Item value={`item-${i}-${j}`} data-value={`item-${i}-${j}`}>

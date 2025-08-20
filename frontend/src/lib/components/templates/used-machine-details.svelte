@@ -2,7 +2,12 @@
 	import type { ImageAsset } from '$lib/types/cmsTypes/image-type';
 	import type { Employee } from '$lib/models/employee';
 	import type { ProductDataSheet } from '$lib/models/productDataSheet';
-	import { cn, resolveRichText, type StrapiRichTextNode } from '$lib/utils';
+	import {
+		cn,
+		handleAccordionViewport,
+		resolveRichText,
+		type StrapiRichTextNode
+	} from '$lib/utils';
 	import { _ } from 'svelte-i18n';
 	import * as Table from '$lib/components/ui/table';
 	import { Button } from '$lib/components/ui/button';
@@ -120,6 +125,9 @@
 					})
 			: []
 	);
+
+	// needed for accordion viewport change
+	let accordionDivs: (HTMLDivElement | null)[] = $state([]);
 </script>
 
 <svelte:head>
@@ -148,7 +156,7 @@
 										? `${PUBLIC_BACKEND_URL}${selectedImage.formats?.['large']?.url || selectedImage.url}`
 										: selectedImage.url}
 									alt={selectedImage.alternativeText || data.productDataSheet.name}
-									class="h-[550px] w-full cursor-pointer object-contain object-center print:hidden"
+									class="h-[330px] w-full cursor-pointer object-contain object-center md:h-[550px] print:hidden"
 								/>
 								<img
 									src={!PUBLIC_BACKEND_URL.includes('https')
@@ -239,62 +247,65 @@
 		</div>
 
 		<!-- Details Accordion for Screen View -->
-		<Accordion.Root
-			class="mt-4 flex w-full flex-col gap-2 print:hidden"
-			type="single"
-			value="details"
-		>
-			<Accordion.Item value="details">
-				<Accordion.Trigger
-					class="bg-foreground/5 text-foreground hover:bg-foreground/10 font-sans font-medium"
-				>
-					{$_('details')}
-				</Accordion.Trigger>
-				<Accordion.Content>
-					<div class="overflow-x-auto pt-2">
-						<Table.Root>
-							<Table.Body>
-								{#each tableRows as row}
-									<Table.Row class="bg-foreground/5 hover:bg-foreground/10 border-foreground/20">
-										<Table.Cell
-											class="bg-foreground/10 hover:bg-foreground/15 w-1/3 font-medium sm:w-1/4"
-										>
-											{row?.label}
-										</Table.Cell>
-										<Table.Cell class="font-medium">{row?.value}</Table.Cell>
-									</Table.Row>
-								{/each}
-							</Table.Body>
-						</Table.Root>
-					</div>
-				</Accordion.Content>
-			</Accordion.Item>
-			<Accordion.Item value="technicalSpecifications">
-				<Accordion.Trigger
-					class="bg-foreground/5 text-foreground hover:bg-foreground/10 font-sans font-medium"
-				>
-					{$_('technicalSpecifications')}
-				</Accordion.Trigger>
-				<Accordion.Content>
-					<div class="overflow-x-auto pt-2">
-						<Table.Root>
-							<Table.Body>
-								{#each additionalTableRows as row}
-									<Table.Row class="bg-foreground/5 hover:bg-foreground/10 border-foreground/20">
-										<Table.Cell
-											class="bg-foreground/10 hover:bg-foreground/15 w-1/3 font-medium sm:w-1/4"
-										>
-											{row.label}
-										</Table.Cell>
-										<Table.Cell class="font-medium">{row.value}</Table.Cell>
-									</Table.Row>
-								{/each}
-							</Table.Body>
-						</Table.Root>
-					</div>
-				</Accordion.Content>
-			</Accordion.Item>
-		</Accordion.Root>
+		<div bind:this={accordionDivs[0]} class="w-full">
+			<Accordion.Root
+				class="mt-4 flex w-full flex-col gap-2 print:hidden"
+				type="single"
+				value="details"
+				onValueChange={(value) => value && handleAccordionViewport(0, value, accordionDivs)}
+			>
+				<Accordion.Item value="details" data-value="details">
+					<Accordion.Trigger
+						class="bg-foreground/5 text-foreground hover:bg-foreground/10 font-sans font-medium"
+					>
+						{$_('details')}
+					</Accordion.Trigger>
+					<Accordion.Content>
+						<div class="overflow-x-auto pt-2">
+							<Table.Root>
+								<Table.Body>
+									{#each tableRows as row}
+										<Table.Row class="bg-foreground/5 hover:bg-foreground/10 border-foreground/20">
+											<Table.Cell
+												class="bg-foreground/10 hover:bg-foreground/15 w-1/3 font-medium sm:w-1/4"
+											>
+												{row?.label}
+											</Table.Cell>
+											<Table.Cell class="font-medium">{row?.value}</Table.Cell>
+										</Table.Row>
+									{/each}
+								</Table.Body>
+							</Table.Root>
+						</div>
+					</Accordion.Content>
+				</Accordion.Item>
+				<Accordion.Item value="technicalSpecifications" data-value="technicalSpecifications">
+					<Accordion.Trigger
+						class="bg-foreground/5 text-foreground hover:bg-foreground/10 font-sans font-medium"
+					>
+						{$_('technicalSpecifications')}
+					</Accordion.Trigger>
+					<Accordion.Content>
+						<div class="overflow-x-auto pt-2">
+							<Table.Root>
+								<Table.Body>
+									{#each additionalTableRows as row}
+										<Table.Row class="bg-foreground/5 hover:bg-foreground/10 border-foreground/20">
+											<Table.Cell
+												class="bg-foreground/10 hover:bg-foreground/15 w-1/3 font-medium sm:w-1/4"
+											>
+												{row.label}
+											</Table.Cell>
+											<Table.Cell class="font-medium">{row.value}</Table.Cell>
+										</Table.Row>
+									{/each}
+								</Table.Body>
+							</Table.Root>
+						</div>
+					</Accordion.Content>
+				</Accordion.Item>
+			</Accordion.Root>
+		</div>
 
 		<!-- Details Table for Print View -->
 		<div class="mt-10 hidden print:block">
@@ -326,7 +337,7 @@
 			</Table.Root>
 		</div>
 		<!-- Description Section -->
-		<div class="mt-10 print:mt-8">
+		<div class="my-10 print:mt-8">
 			<h2 class="mb-4 text-2xl font-bold">{$_('description')}</h2>
 			<div class="prose prose-neutral prose-sm md:prose-base max-w-none text-gray-600">
 				{#if data.description}

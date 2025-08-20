@@ -65,7 +65,7 @@
 		<div class="flex flex-col gap-8">
 			{#each menu as menuItem, i}
 				<div class="flex flex-col gap-4">
-					<Accordion.Root type="multiple" value={['item-1']}>
+					<Accordion.Root type="single" value={'item-1'}>
 						<Accordion.Item value="item-{i + 1}">
 							<Accordion.Trigger>
 								{$_(`nav.${menuItem.key}`) ?? menuItem.key}
