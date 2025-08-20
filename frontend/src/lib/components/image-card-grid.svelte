@@ -82,18 +82,20 @@
 					</div>
 				{/if}
 
-				<div
-					class={cn(
-						'bg-foreground/90 absolute bottom-0 flex w-full flex-col justify-between p-2 px-4'
-					)}
-				>
-					<h4 class={cn('text-secondary font-sans text-3xl font-bold')}>
-						{card.title}
-					</h4>
-					{#if card.subtitle}
-						<h5 class="text-primary">{card.subtitle}</h5>
-					{/if}
-				</div>
+				{#if card.title}
+					<div
+						class={cn(
+							'bg-foreground/90 absolute bottom-0 flex w-full flex-col justify-between p-2 px-4'
+						)}
+					>
+						<h4 class={cn('text-secondary font-sans text-3xl font-bold')}>
+							{card.title}
+						</h4>
+						{#if card.subtitle}
+							<h5 class="text-primary">{card.subtitle}</h5>
+						{/if}
+					</div>
+				{/if}
 			</div>
 		{/each}
 	</div>

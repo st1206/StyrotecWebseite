@@ -257,11 +257,11 @@
 								{#each tableRows as row}
 									<Table.Row class="bg-foreground/5 hover:bg-foreground/10 border-foreground/20">
 										<Table.Cell
-											class="bg-foreground/10 hover:bg-foreground/15 w-1/3 p-2  font-medium sm:w-1/4"
+											class="bg-foreground/10 hover:bg-foreground/15 w-1/3 font-medium sm:w-1/4"
 										>
 											{row?.label}
 										</Table.Cell>
-										<Table.Cell class="p-2 font-medium">{row?.value}</Table.Cell>
+										<Table.Cell class="font-medium">{row?.value}</Table.Cell>
 									</Table.Row>
 								{/each}
 							</Table.Body>
@@ -282,11 +282,11 @@
 								{#each additionalTableRows as row}
 									<Table.Row class="bg-foreground/5 hover:bg-foreground/10 border-foreground/20">
 										<Table.Cell
-											class="bg- bg-foreground/10 hover:bg-foreground/15 w-1/3 p-2 font-medium sm:w-1/4"
+											class="bg-foreground/10 hover:bg-foreground/15 w-1/3 font-medium sm:w-1/4"
 										>
 											{row.label}
 										</Table.Cell>
-										<Table.Cell class="p-2 font-medium">{row.value}</Table.Cell>
+										<Table.Cell class="font-medium">{row.value}</Table.Cell>
 									</Table.Row>
 								{/each}
 							</Table.Body>

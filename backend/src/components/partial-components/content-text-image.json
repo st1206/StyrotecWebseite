@@ -41,6 +41,23 @@
       "type": "boolean",
       "default": false,
       "required": true
+    },
+    "imageSize": {
+      "type": "enumeration",
+      "enum": [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl"
+      ],
+      "default": "md",
+      "required": true
+    },
+    "isImageTransparent": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }

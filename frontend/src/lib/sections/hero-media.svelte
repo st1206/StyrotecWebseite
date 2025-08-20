@@ -58,12 +58,10 @@
 			);
 
 			const isEmployee = !!cardSafe.getObject('employee');
-			const displayName = isEmployee
-				? employeeSafe.getString('name', 'Team Member')
-				: cardSafe.getString('title', 'Card');
+			const displayName = isEmployee ? employeeSafe.getString('name') : cardSafe.getString('title');
 			const displaySubtitle = isEmployee
-				? employeeSafe.getString('position', '')
-				: cardSafe.getString('subtitle', '');
+				? employeeSafe.getString('position')
+				: cardSafe.getString('subtitle');
 
 			return {
 				title: displayName,

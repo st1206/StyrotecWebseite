@@ -69,3 +69,6 @@ export function optimizeImageUrl(url: string, backendUrl: string): string {
 
 	return !backendUrl.includes('https') && !url.startsWith('http') ? `${backendUrl}${url}` : url;
 }
+
+export type ImageSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+export type ImagePosition = 'left' | 'right' | 'bottom';

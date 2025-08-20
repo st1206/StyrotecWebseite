@@ -4,7 +4,13 @@
 	import * as Table from '$lib/components/ui/table';
 	import type { ImageAsset } from '$lib/types/cmsTypes/image-type';
 	import { page } from '$app/state';
-	import { getImageAltText, getOptimizedImageUrl, handleImageError } from '$lib/utils/image';
+	import {
+		getImageAltText,
+		getOptimizedImageUrl,
+		handleImageError,
+		type ImageSize,
+		type ImagePosition
+	} from '$lib/utils/image';
 	import { SafeData } from '$lib/utils/validation';
 	import { cn, resolveRichText, type StrapiRichTextNode } from '$lib/utils';
 	import { onMount, tick } from 'svelte';
@@ -13,6 +19,7 @@
 	import type { Size, SpacerSection } from '$lib/types/sections';
 	import Spacer from './spacer.svelte';
 	import ImageCardGrid from '$lib/components/image-card-grid.svelte';
+	import { Columns } from 'lucide-svelte';
 
 	type TableRow = { rowLabel?: string; rowValue?: string };
 	type TableColumn = { columnLabel?: string; tableRows: TableRow[] };
@@ -76,6 +83,8 @@
 		content: StrapiRichTextNode[];
 		image: ImageAsset;
 		imagePosition: 'top' | 'right' | 'bottom' | 'left';
+		imageSize: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+		isImageTransparent: boolean;
 		isDarkMode?: boolean;
 		sortOrder?: number;
 	};
@@ -251,11 +260,20 @@
 	{@const validTables = tables.filter((table: any) => table && typeof table === 'object')}
 	{@const isDarkMode = safe.getBoolean('isDarkMode', false)}
 
+	<!-- NEW: Calculate the total column span required by all tables -->
+	{@const totalColumnSpan = validTables.reduce((accumulator, currentTable) => {
+		const tableSafe = new SafeData(currentTable);
+		const columns = tableSafe.getArray('tableColumns', []);
+		// A table takes 2 spans if it has more than one column, otherwise it takes 1
+		return accumulator + (columns.length > 1 ? 2 : 1);
+	}, 0)}
+
 	{#if validTables.length > 0}
 		<div
 			class={cn(
-				validTables.length > 1 ? 'grid-cols-1 md:grid-cols-4' : 'grid-cols-4',
-				'grid gap-4'
+				'grid grid-cols-1 gap-4 py-16',
+				`md:grid-cols-${totalColumnSpan > 3 ? 4 : totalColumnSpan}`,
+				validTables.length <= 1 && 'md:mx-16 lg:mx-36 xl:mx-48'
 			)}
 		>
 			{#each validTables as table}
@@ -268,9 +286,8 @@
 
 				<div
 					class={cn(
-						validColumns.length > 1 ? 'col-span-2' : 'col-span-1',
-						validTables.length === 1 && 'col-start-2',
-						'mx-auto h-full w-full py-16 text-center'
+						validColumns.length > 1 ? 'md:col-span-2' : 'md:col-span-1',
+						'mx-auto h-full w-full text-center '
 					)}
 				>
 					{#if tableTitle}
@@ -325,7 +342,9 @@
 											<Table.Row
 												class={cn(
 													'border-secondary/20',
-													isDarkMode ? 'hover:bg-secondary/5' : 'hover:bg-foreground/5'
+													isDarkMode
+														? 'hover:bg-secondary/5 even:bg-secondary/5'
+														: 'hover:bg-foreground/5 even:bg-foreground/5'
 												)}
 											>
 												<Table.Cell
@@ -432,8 +451,8 @@
 			</h4>
 		{/if}
 		<Accordion.Root
-			type="multiple"
-			value={['item-2']}
+			type="single"
+			value={'item-1'}
 			class="flex w-full flex-col gap-4"
 			onValueChange={updateOverlayHeights}
 		>
@@ -558,7 +577,7 @@
 		.map((card, index) => {
 			const cardSafe = new SafeData(card);
 			return {
-				title: cardSafe.getString('title', 'Card'),
+				title: cardSafe.getString('title'),
 				subtitle: undefined, // Kein Subtitle in diesem Kontext
 				imageUrl: getOptimizedImageUrl(cardSafe.getObject('image')),
 				altText: getImageAltText(cardSafe.getObject('image'), cardSafe.getString('title')),
@@ -584,16 +603,30 @@
 	</div>
 {/snippet}
 
+<!-- START: MODIFIED SECTION -->
 {#snippet TextImageTemplate(block: ContentTextImage)}
 	{@const safe = new SafeData(block)}
 	{@const isDarkMode = safe.getBoolean('isDarkMode', false)}
+	{@const isImageTransparent = safe.getBoolean('isImageTransparent', false)}
+	{@const imageSize = safe.getString('imageSize', 'md') as ImageSize}
+	{@const imagePosition = safe.getString('imagePosition', 'bottom') as ImagePosition}
+
+	{@const imageSizeMap: Record<ImageSize, string> = {
+		xs: 'md:w-1/4',
+		sm: 'md:w-2/5',
+		md: 'md:w-1/2',
+		lg: 'md:w-3/5',
+		xl: 'md:w-3/4'
+	}}
+
+	{@const isHorizontalLayout = imagePosition === 'left' || imagePosition === 'right'}
 
 	<div class="mx-auto py-16">
 		<div
 			class={cn(
 				'flex flex-col gap-6 sm:gap-4 lg:gap-12',
-				block.imagePosition === 'left' && 'md:flex-row',
-				block.imagePosition === 'right' && 'md:flex-row-reverse'
+				imagePosition === 'left' && 'md:flex-row',
+				imagePosition === 'right' && 'md:flex-row-reverse'
 			)}
 		>
 			{#if block.image}
@@ -601,9 +634,10 @@
 				{#if imageUrl}
 					<img
 						class={cn(
-							'shadow-primary h-[400px] w-full object-cover',
-							(block.imagePosition === 'left' || block.imagePosition === 'right') && 'md:w-1/2',
-							block.imagePosition === 'bottom' ? 'order-2' : 'order-1'
+							'max-h-[400px] w-full object-cover',
+							!isImageTransparent && 'shadow-primary',
+							isHorizontalLayout && imageSizeMap[imageSize],
+							imagePosition === 'bottom' ? 'order-2' : 'order-1'
 						)}
 						src={imageUrl}
 						alt={getImageAltText(block.image, block.title)}
@@ -613,9 +647,10 @@
 				{:else}
 					<div
 						class={cn(
-							'bg-muted shadow-primary flex h-[400px] w-full flex-col items-center justify-center',
-							(block.imagePosition === 'left' || block.imagePosition === 'right') && 'md:w-1/2',
-							block.imagePosition === 'bottom' ? 'order-2' : 'order-1'
+							'bg-muted flex h-[400px] w-full flex-col items-center justify-center',
+							!isImageTransparent && 'shadow-primary',
+							isHorizontalLayout && imageSizeMap[imageSize],
+							imagePosition === 'bottom' ? 'order-2' : 'order-1'
 						)}
 					>
 						<svg
@@ -636,7 +671,7 @@
 				{/if}
 			{/if}
 
-			<div class={cn('flex-1', block.imagePosition === 'bottom' ? 'order-1' : 'order-2')}>
+			<div class={cn('flex-1', imagePosition === 'bottom' ? 'order-1' : 'order-2')}>
 				<h4
 					class={cn(
 						isDarkMode ? 'text-secondary' : 'text-foreground',
@@ -645,18 +680,19 @@
 				>
 					{block.title}
 				</h4>
-				<p
+				<div
 					class={cn(
 						isDarkMode ? 'text-secondary' : 'text-foreground',
 						'prose prose-neutral xl:prose-lg max-w-none text-justify'
 					)}
 				>
 					{@html resolveRichText(block.content)}
-				</p>
+				</div>
 			</div>
 		</div>
 	</div>
 {/snippet}
+<!-- END: MODIFIED SECTION -->
 
 {#snippet SpacerTemplate(block: SpacerSection)}
 	{@const safe = new SafeData(block)}
