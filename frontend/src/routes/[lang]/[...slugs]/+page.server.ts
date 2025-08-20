@@ -1,10 +1,13 @@
-import { error } from '@sveltejs/kit';
+import { error, type Actions } from '@sveltejs/kit';
 import type { AttributesOf } from '$lib/types/cmsTypes/types';
 import { pages, type CMSTypeMap, type Lang, type SlugKey } from '$lib/config/pages';
 import { loadCMSData, CMSFetchError } from '$lib/server/utils';
 import { contactFormSchema } from '$lib/models/contact-form-schema';
 import { zod } from 'sveltekit-superforms/adapters';
-import { superValidate } from 'sveltekit-superforms';
+import { fail, message, superValidate } from 'sveltekit-superforms';
+import { EMAIL_ADRESS, EMAIL_HOST, EMAIL_PASSWORD } from '$env/static/private';
+import { getContactFormTemplate, getContactFormText } from '$lib/server/email';
+import nodemailer from 'nodemailer';
 
 export const prerender = false;
 
@@ -259,4 +262,59 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 			contactFormBuilder: await superValidate(zod(contactFormSchema))
 		}
 	};
+};
+
+export const actions: Actions = {
+	default: async ({ request }) => {
+		const form = await superValidate(request, zod(contactFormSchema));
+
+		if (!form.valid) {
+			return fail(400, {
+				form
+			});
+		}
+
+		const transportData = {
+			host: EMAIL_HOST,
+			port: 587,
+			secure: false, // A new SMTP connection is created for every message
+			auth: {
+				user: EMAIL_ADRESS,
+				pass: EMAIL_PASSWORD
+			}
+		};
+
+		const transporter = nodemailer.createTransport(transportData);
+
+		const mailOptions = {
+			from: EMAIL_ADRESS,
+			to: form.data.mailToContactPerson,
+			subject: 'Kontaktanfrage',
+			text: getContactFormText(form.data),
+			html: getContactFormTemplate(form.data),
+			replyTo: form.data.email
+		};
+
+		try {
+			await transporter.verify();
+			console.log('Server is ready to take messages');
+		} catch (err) {
+			console.error('Verification failed', err);
+			return message(form, 'SMTP server not reachable', {
+				status: 403
+			});
+		}
+
+		try {
+			const info = await transporter.sendMail(mailOptions);
+
+			console.log('Message sent: %s', info.messageId);
+			return message(form, 'success');
+		} catch (err: unknown) {
+			console.error('Error while sending mail', err);
+			return message(form, err, {
+				status: 403
+			});
+		}
+	}
 };

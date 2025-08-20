@@ -149,8 +149,6 @@
 			safe.getString('error') || (dataEntries.length === 0 && data && typeof data === 'object')
 		);
 	});
-
-	$inspect(data);
 </script>
 
 {#if hasError}
