@@ -3,7 +3,6 @@
 	import { Button } from '$lib/components/ui/button';
 	import * as Card from '$lib/components/ui/card';
 	import { page } from '$app/state';
-	import BlurFade from '$lib/components/blur-fade.svelte';
 	import { cn, getRedirectLink } from '$lib/utils';
 	import type { ImageAsset } from '$lib/types/cmsTypes/image-type';
 	import { SafeData } from '$lib/utils/validation';
@@ -101,43 +100,42 @@
 
 	<div class="grid grid-cols-1 gap-8 lg:grid-cols-2 xl:grid-cols-3">
 		{#each previewCards || [] as card, i}
-			<BlurFade once={true} delay={i * 0.1} duration={0.2}>
-				<div
-					class="relative"
-					onmouseenter={() => handleMouseEnter(i)}
-					onmouseleave={handleMouseLeave}
-					aria-hidden="true"
-				>
-					<Card.Root
-						class="bg-muted-foreground group relative h-[300px] 
+			<div
+				class="relative"
+				onmouseenter={() => handleMouseEnter(i)}
+				onmouseleave={handleMouseLeave}
+				aria-hidden="true"
+			>
+				<Card.Root
+					class="bg-muted-foreground group relative h-[300px] 
 						w-full overflow-hidden 
 						border-none 
 						shadow-[5px_5px_0_#f6a313] transition
 						duration-500
 						hover:shadow-[8px_8px_0_#f6a313] focus:outline-none lg:h-[400px]
 						"
-					>
-						{#if card.thumbnail}
-							<div
-								class="absolute z-10 h-full w-full transition duration-300 ease-in-out group-hover:backdrop-blur-sm"
-							></div>
-							<div
-								class={cn(
-									card.isImageTransparent ? 'px-4 pb-[80px] pt-4' : '',
-									'relative h-full w-full'
-								)}
-							>
-								<img
-									class="mx-auto object-cover h-full"
-									src={getOptimizedImageUrl(card.thumbnail)}
-									alt={getImageAltText(card.thumbnail, card.title)}
-								/>
-							</div>
-						{/if}
-
+				>
+					{#if card.thumbnail}
 						<div
-							bind:this={overlayRefs[i]}
-							class="
+							class="absolute z-10 h-full w-full transition duration-300 ease-in-out group-hover:backdrop-blur-sm"
+						></div>
+						<div
+							class={cn(
+								card.isImageTransparent ? 'px-4 pb-[80px] pt-4' : '',
+								'relative h-full w-full'
+							)}
+						>
+							<img
+								class="mx-auto h-full object-cover"
+								src={getOptimizedImageUrl(card.thumbnail)}
+								alt={getImageAltText(card.thumbnail, card.title)}
+							/>
+						</div>
+					{/if}
+
+					<div
+						bind:this={overlayRefs[i]}
+						class="
 							absolute
 							bottom-0
 							left-0
@@ -146,49 +144,48 @@
 							w-full
 							overflow-hidden
 						"
-							style="
+						style="
 							transform: translateY({hoveredIndex === i ? '0px' : overlayHeights[i] - 64 + 'px'});
 							transition: transform 0.2s ease-in-out;
 						"
-						>
-							<Card.Header class="p-0">
-								<Card.Title
-									class={cn(
-										card.title.length < 20
-											? '[clip-path:polygon(0%_0%,60%_0%,80%_100%,0%_100%)]'
-											: '',
-										'bg-foreground w-full translate-y-[1px]'
-									)}
-								>
-									<h3 class="text-secondary p-5 font-sans font-bold">{card.title}</h3>
-								</Card.Title>
-							</Card.Header>
+					>
+						<Card.Header class="p-0">
+							<Card.Title
+								class={cn(
+									card.title.length < 20
+										? '[clip-path:polygon(0%_0%,60%_0%,80%_100%,0%_100%)]'
+										: '',
+									'bg-foreground w-full translate-y-[1px]'
+								)}
+							>
+								<h3 class="text-secondary p-5 font-sans font-bold">{card.title}</h3>
+							</Card.Title>
+						</Card.Header>
 
-							<Card.Content class="bg-foreground px-5 pt-2">
-								{#if card.subtitle}
-									<h4 class="text-primary mb-1 font-sans font-medium">
-										{card.subtitle}
-									</h4>
-								{/if}
-								<p
-									class={cn(
-										card.subtitle ? '' : 'mt-3',
-										'prose text-secondary text-justify font-sans text-sm font-medium'
-									)}
-								>
-									{@html card.content}
-								</p>
-							</Card.Content>
+						<Card.Content class="bg-foreground px-5 pt-2">
+							{#if card.subtitle}
+								<h4 class="text-primary mb-1 font-sans font-medium">
+									{card.subtitle}
+								</h4>
+							{/if}
+							<p
+								class={cn(
+									card.subtitle ? '' : 'mt-3',
+									'prose text-secondary text-justify font-sans text-sm font-medium'
+								)}
+							>
+								{@html card.content}
+							</p>
+						</Card.Content>
 
-							<Card.Footer class="bg-foreground">
-								<Button href={getRedirectLink(card.redirectSlug || '#')}>
-									<span class="h-5 skew-x-[15deg]">{card.ctaText}</span>
-								</Button>
-							</Card.Footer>
-						</div>
-					</Card.Root>
-				</div>
-			</BlurFade>
+						<Card.Footer class="bg-foreground">
+							<Button href={getRedirectLink(card.redirectSlug || '#')}>
+								<span class="h-5 skew-x-[15deg]">{card.ctaText}</span>
+							</Button>
+						</Card.Footer>
+					</div>
+				</Card.Root>
+			</div>
 		{/each}
 	</div>
 </section>

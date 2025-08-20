@@ -10,7 +10,6 @@
 	import { _ } from 'svelte-i18n';
 	import LanguageToggle from '$lib/components/language-toggle.svelte';
 	import * as Tooltip from '$lib/components/ui/tooltip';
-	import BlurFade from '$lib/components/blur-fade.svelte';
 	import MobileNav from './mobile-nav.svelte';
 	import AnimatedHamburger from '$lib/components/animatedHamburger.svelte';
 	import SearchPanel from '$lib/components/search-panel.svelte';
@@ -210,51 +209,47 @@
 											href={getLink(menuItem.key, route.anchor)}
 											onclick={(e) => closeAll()}
 										>
-											<BlurFade once={true} delay={0.03 * i} duration={0.2}>
-												<div
-													class="text-secondary hover:shadow-primary bg-secondary/30 flex h-full w-full cursor-pointer flex-col items-center
+											<div
+												class="text-secondary hover:shadow-primary bg-secondary/30 flex h-full w-full cursor-pointer flex-col items-center
 															justify-center gap-4 p-8 font-sans text-xl font-bold transition duration-300 ease-in-out xl:text-2xl"
-												>
-													{#if route.icon}
-														<route.icon class="text-secondary fill-secondary md:h-20 md:w-20" />
-													{/if}
-													<span>{$_(`nav.${route.key}`)}</span>
-												</div>
-											</BlurFade>
+											>
+												{#if route.icon}
+													<route.icon class="text-secondary fill-secondary md:h-20 md:w-20" />
+												{/if}
+												<span>{$_(`nav.${route.key}`)}</span>
+											</div>
 										</a>
 									{/each}
 								</div>
 							{:else}
 								{#each menuItem.menuRoutes as route, i}
-									<BlurFade once={true} delay={0.03 * i} duration={0.2}>
-										<div class="flex flex-col gap-6">
-											<a
-												class="text-primary font-sans text-2xl font-bold hover:underline xl:text-3xl"
-												href={getLink(route.key, route.anchor)}
-												onclick={(e) => closeAll()}
-											>
-												{$_(`nav.${route.key}`)}
-											</a>
+									<div class="flex flex-col gap-6">
+										<a
+											class="text-primary font-sans text-2xl font-bold hover:underline xl:text-3xl"
+											href={getLink(route.key, route.anchor)}
+											onclick={(e) => closeAll()}
+										>
+											{$_(`nav.${route.key}`)}
+										</a>
 
-											{#if route.routeChildren?.length}
-												<ul class="flex flex-col gap-1">
-													{#each route.routeChildren as routeChild}
-														<li>
-															<a
-																class="text-md text-white hover:underline xl:text-lg"
-																href={routeChild.anchor
-																	? getLink(route.key, routeChild.anchor)
-																	: getLink(routeChild.key)}
-																onclick={(e) => closeAll()}
-															>
-																{$_(`nav.${routeChild.key}`)}
-															</a>
-														</li>
-													{/each}
-												</ul>
-											{/if}
-										</div>
-									</BlurFade>
+										{#if route.routeChildren?.length}
+											<ul class="flex flex-col gap-1">
+												{#each route.routeChildren as routeChild}
+													<li>
+														<a
+															class="text-md text-white hover:underline xl:text-lg"
+															href={routeChild.anchor
+																? getLink(route.key, routeChild.anchor)
+																: getLink(routeChild.key)}
+															onclick={(e) => closeAll()}
+														>
+															{$_(`nav.${routeChild.key}`)}
+														</a>
+													</li>
+												{/each}
+											</ul>
+										{/if}
+									</div>
 								{/each}
 							{/if}
 						{/if}

@@ -100,7 +100,6 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 
 			// Only process collections that actually exist to reduce API calls
 			const existingCollections = collectionTypeKeys.filter((key) => cmsData[key]);
-
 			if (existingCollections.length > 0) {
 				// Use Promise.all to fetch all collections in parallel
 				const collectionPromises = existingCollections.map(async (key) => {
@@ -160,6 +159,7 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 
 		// 2. Find the specific category page configuration
 		const categoryPage = Object.values(pages).find((page) => page[slugKey] === categoryPath);
+
 		if (!categoryPage) {
 			console.error(`Category page config not found for path: ${categoryPath}`);
 			error(404, `Content category not found`);

@@ -3,7 +3,6 @@
 	import { pages } from '$lib/config/pages';
 	import { ScrollArea } from '$lib/components/ui/scroll-area';
 	import { locale } from 'svelte-i18n';
-	import BlurFade from '$lib/components/blur-fade.svelte';
 	import { _ } from 'svelte-i18n';
 	import * as Accordion from '$lib/components/ui/accordion';
 	import { cn } from '$lib/utils';
@@ -75,63 +74,57 @@
 								{#if menuItem.key === 'industries'}
 									<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
 										{#each menuItem.menuRoutes as route, j}
-											<BlurFade once={true} delay={0.07 * j} duration={0.2}>
-												<a
-													href={getLink(menuItem.key, route.anchor)}
-													onclick={(e) => {
-														open = false;
-													}}
+											<a
+												href={getLink(menuItem.key, route.anchor)}
+												onclick={(e) => {
+													open = false;
+												}}
+											>
+												<div
+													class="bg-secondary/30 text-secondary hover:shadow-primary flex flex-col items-center gap-2 p-6 text-center font-sans text-lg font-bold transition"
 												>
-													<div
-														class="bg-secondary/30 text-secondary hover:shadow-primary flex flex-col items-center gap-2 p-6 text-center font-sans text-lg font-bold transition"
-													>
-														{#if route.icon}
-															<route.icon class="fill-secondary size-12" />
-														{/if}
-														{$_(`nav.${route.key}`)}
-													</div>
-												</a>
-											</BlurFade>
+													{#if route.icon}
+														<route.icon class="fill-secondary size-12" />
+													{/if}
+													{$_(`nav.${route.key}`)}
+												</div>
+											</a>
 										{/each}
 									</div>
 								{:else}
 									<div class="flex flex-col gap-4">
 										{#each menuItem.menuRoutes as route, j}
-											<BlurFade once={true} delay={0.07 * j} duration={0.2}>
-												<div class="flex flex-col gap-2">
-													<a
-														class="text-primary font-sans text-xl font-bold hover:underline"
-														href={getLink(route.key)}
-														onclick={(e) => {
-															open = false;
-														}}
-													>
-														{$_(`nav.${route.key}`)}
-													</a>
+											<div class="flex flex-col gap-2">
+												<a
+													class="text-primary font-sans text-xl font-bold hover:underline"
+													href={getLink(route.key)}
+													onclick={(e) => {
+														open = false;
+													}}
+												>
+													{$_(`nav.${route.key}`)}
+												</a>
 
-													{#if route.routeChildren?.length}
-														<ul class="flex flex-col gap-1 pl-2">
-															{#each route.routeChildren as child}
-																<BlurFade once={true} delay={0.07 * j} duration={0.2}>
-																	<li>
-																		<a
-																			class="text-md text-secondary hover:underline"
-																			href={child.anchor
-																				? getLink(route.key, child.anchor)
-																				: getLink(child.key)}
-																			onclick={(e) => {
-																				open = false;
-																			}}
-																		>
-																			{$_(`nav.${child.key}`)}
-																		</a>
-																	</li>
-																</BlurFade>
-															{/each}
-														</ul>
-													{/if}
-												</div>
-											</BlurFade>
+												{#if route.routeChildren?.length}
+													<ul class="flex flex-col gap-1 pl-2">
+														{#each route.routeChildren as child}
+															<li>
+																<a
+																	class="text-md text-secondary hover:underline"
+																	href={child.anchor
+																		? getLink(route.key, child.anchor)
+																		: getLink(child.key)}
+																	onclick={(e) => {
+																		open = false;
+																	}}
+																>
+																	{$_(`nav.${child.key}`)}
+																</a>
+															</li>
+														{/each}
+													</ul>
+												{/if}
+											</div>
 										{/each}
 									</div>
 								{/if}

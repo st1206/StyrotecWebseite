@@ -40,6 +40,7 @@ import { buildPopulateQuery } from './apiParamsBuilder';
 import type { TypedSectionConfig } from '$lib/types/sections';
 import type {
 	ApiHoleCutterPageHoleCutterPage,
+	ApiInstockMachinesDetailsPageInstockMachinesDetailsPage,
 	ApiRaspDiscCutterPageRaspDiscCutterPage,
 	ApiRaspHollowCutterPageRaspHollowCutterPage,
 	ApiShankRaspCutterPageShankRaspCutterPage,
@@ -91,6 +92,7 @@ export interface CMSTypeMap {
 	legalNotice: ApiLegalNoticePageLegalNoticePage;
 	newsPage: ApiNewsPageNewsPage;
 	career: ApiCareerCareer;
+	instockPageDetails: ApiInstockMachinesDetailsPageInstockMachinesDetailsPage;
 }
 
 // Define the supported languages
@@ -482,7 +484,7 @@ const pagesConfig: Record<string, PageContent> = {
 	},
 	instock: {
 		deSlug: 'produkte/portalfraesmaschinen/vorratsmaschinen',
-		enSlug: 'products/gantry-machines/instock',
+		enSlug: 'products/gantry-machines/instock-machines',
 		cmsTypeKey: 'instockPage',
 		cmsApiSlug: 'instock-page',
 		sections: [
@@ -495,6 +497,17 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'contactForm' },
 			{
 				sectionKey: 'seo'
+			}
+		]
+	},
+	instockMachinesDetails: {
+		deSlug: 'produkte/portalfraesmaschinen/vorratsmaschinen/{id}',
+		enSlug: 'products/gantry-machines/instock-machines/{id}',
+		cmsTypeKey: 'instockPageDetails',
+		cmsApiSlug: 'instock-machines-details-page',
+		sections: [
+			{
+				sectionKey: 'usedMachineDetails'
 			}
 		]
 	},

@@ -49,8 +49,7 @@
 				if (!productDataSheet && !title) return null;
 				const cardTitle = productDataSheet?.name || title || 'Untitled Item';
 				const pictures = entrySafe.getArray<any>('pictures', []);
-				const images = entrySafe.getArray<any>('images', []);
-				const thumbnail = pictures[0] || images[0] || null;
+				const thumbnail = pictures[0] || null;
 				if (!slug) return null;
 				return {
 					title: cardTitle,
@@ -150,6 +149,8 @@
 			safe.getString('error') || (dataEntries.length === 0 && data && typeof data === 'object')
 		);
 	});
+
+	$inspect(data);
 </script>
 
 {#if hasError}

@@ -2203,6 +2203,45 @@ export interface ApiIndustriesPageIndustriesPage
   };
 }
 
+export interface ApiInstockMachinesDetailsPageInstockMachinesDetailsPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'instock_machines_details_pages';
+  info: {
+    displayName: 'Vorratsmaschinen-Details Seite';
+    pluralName: 'instock-machines-details-pages';
+    singularName: 'instock-machines-details-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    componentKey: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::instock-machines-details-page.instock-machines-details-page'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiInstockPageInstockPage extends Struct.SingleTypeSchema {
   collectionName: 'instock_pages';
   info: {
@@ -5425,6 +5464,7 @@ declare module '@strapi/strapi' {
       'api::home.home': ApiHomeHome;
       'api::hybrid-page.hybrid-page': ApiHybridPageHybridPage;
       'api::industries-page.industries-page': ApiIndustriesPageIndustriesPage;
+      'api::instock-machines-details-page.instock-machines-details-page': ApiInstockMachinesDetailsPageInstockMachinesDetailsPage;
       'api::instock-page.instock-page': ApiInstockPageInstockPage;
       'api::job-offer.job-offer': ApiJobOfferJobOffer;
       'api::lathe.lathe': ApiLatheLathe;

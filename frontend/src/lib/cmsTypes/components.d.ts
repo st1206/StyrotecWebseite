@@ -378,7 +378,13 @@ export interface PartialComponentsContentTextImage
       ['top', 'bottom', 'left', 'right']
     > &
       Schema.Attribute.DefaultTo<'right'>;
+    imageSize: Schema.Attribute.Enumeration<['xs', 'sm', 'md', 'lg', 'xl']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'md'>;
     isDarkMode: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    isImageTransparent: Schema.Attribute.Boolean &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<false>;
     sortOrder: Schema.Attribute.Integer &

@@ -77,7 +77,6 @@ export const loadCMSData = async <T>(
 ): Promise<AttributesOf<T>> => {
 	const config = { ...DEFAULT_RETRY_CONFIG, ...retryConfig };
 	const url = `${PUBLIC_BACKEND_URL}/api/${apiSlug}?${apiParams || 'populate=*'}&locale=${lang}`;
-
 	// Check cache first
 	const cacheKey = `${apiSlug}:${lang}:${apiParams || 'populate=*'}`;
 	const cached = cmsCache.get(cacheKey);
