@@ -2261,7 +2261,7 @@ export interface ApiInstockMachineInstockMachine
           localized: true;
         };
       }>;
-    numberOfAxis: Schema.Attribute.Integer &
+    numberOfAxes: Schema.Attribute.Integer &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
