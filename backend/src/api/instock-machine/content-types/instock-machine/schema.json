@@ -53,7 +53,7 @@
       "relation": "oneToOne",
       "target": "api::employee.employee"
     },
-    "numberOfAxis": {
+    "numberOfAxes": {
       "pluginOptions": {
         "i18n": {
           "localized": true
