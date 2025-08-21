@@ -487,6 +487,12 @@ export interface PartialComponentsProductDataSheet
         '\u00FCberholt',
         'voll funktionsf\u00E4hig',
         'neu',
+        'used',
+        'used, good',
+        'used, very good',
+        'overhauled',
+        'fully functioning ',
+        'new',
       ]
     >;
     designation: Schema.Attribute.String & Schema.Attribute.Required;

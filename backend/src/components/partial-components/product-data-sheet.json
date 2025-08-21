@@ -26,7 +26,13 @@
         "gebraucht, sehr gut",
         "überholt",
         "voll funktionsfähig",
-        "neu"
+        "neu",
+        "used",
+        "used, good",
+        "used, very good",
+        "overhauled",
+        "fully functioning ",
+        "new"
       ]
     },
     "location": {
