@@ -199,6 +199,7 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'plastics-page',
 		sections: [
 			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'exploreVariants' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
