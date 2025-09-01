@@ -3797,6 +3797,22 @@ export interface ApiPlasticsPagePlasticsPage extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
+    defaultContentOne: Schema.Attribute.DynamicZone<
+      [
+        'partial-components.content-text-image',
+        'partial-components.content-table',
+        'partial-components.content-spacer',
+        'partial-components.content-images',
+        'partial-components.content-header',
+        'partial-components.content-accordion',
+      ]
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     exploreVariants: Schema.Attribute.Component<
       'page-components.explore-variants',
       false
@@ -4615,6 +4631,22 @@ export interface ApiStyrofoamPageStyrofoamPage extends Struct.SingleTypeSchema {
       [
         'partial-components.content-text-image',
         'partial-components.content-table',
+        'partial-components.content-images',
+        'partial-components.content-header',
+        'partial-components.content-accordion',
+      ]
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    defaultContentOne: Schema.Attribute.DynamicZone<
+      [
+        'partial-components.content-text-image',
+        'partial-components.content-table',
+        'partial-components.content-spacer',
         'partial-components.content-images',
         'partial-components.content-header',
         'partial-components.content-accordion',

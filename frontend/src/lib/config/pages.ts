@@ -201,6 +201,7 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'heroDualImage' },
 			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'exploreVariants' },
+			{ sectionKey: 'defaultContentOne' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]
@@ -214,6 +215,7 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'heroDualImage' },
 			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'exploreVariants' },
+			{ sectionKey: 'defaultContentOne' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]

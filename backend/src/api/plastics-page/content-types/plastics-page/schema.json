@@ -76,6 +76,23 @@
         "partial-components.content-accordion"
       ],
       "required": true
+    },
+    "defaultContentOne": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "dynamiczone",
+      "components": [
+        "partial-components.content-text-image",
+        "partial-components.content-table",
+        "partial-components.content-spacer",
+        "partial-components.content-images",
+        "partial-components.content-header",
+        "partial-components.content-accordion"
+      ],
+      "required": true
     }
   }
 }
