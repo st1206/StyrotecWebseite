@@ -409,6 +409,22 @@ export interface ApiAboutUsPageAboutUsPage extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
+    defaultContent: Schema.Attribute.DynamicZone<
+      [
+        'partial-components.content-accordion',
+        'partial-components.content-header',
+        'partial-components.content-images',
+        'partial-components.content-spacer',
+        'partial-components.content-table',
+        'partial-components.content-text-image',
+      ]
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     heroMedia: Schema.Attribute.Component<'page-components.hero-media', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

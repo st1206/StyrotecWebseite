@@ -547,6 +547,9 @@ const pagesConfig: Record<string, PageContent> = {
 			{
 				sectionKey: 'defaultCardsTwo'
 			},
+			{
+				sectionKey: 'defaultContent'
+			},
 			{ sectionKey: 'seo' }
 		]
 	},

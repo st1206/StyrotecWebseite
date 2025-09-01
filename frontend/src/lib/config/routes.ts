@@ -117,7 +117,8 @@ export const menu = [
 					{ key: 'team', anchor: '#team' },
 					{ key: 'history', anchor: '#historie' },
 					{ key: 'values', anchor: '#werte' },
-					{ key: 'sustainability', anchor: '#nachhaltigkeit' }
+					{ key: 'sustainability', anchor: '#nachhaltigkeit' },
+					{ key: 'codeOfConduct', anchor: '#CodeOfConduct' }
 				]
 			},
 			{
