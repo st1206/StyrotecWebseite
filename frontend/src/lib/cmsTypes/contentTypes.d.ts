@@ -2757,6 +2757,7 @@ export interface ApiMachineMaintenancePageMachineMaintenancePage
         'partial-components.content-images',
         'partial-components.content-header',
         'partial-components.content-accordion',
+        'partial-components.content-spacer',
       ]
     > &
       Schema.Attribute.Required &
@@ -2772,6 +2773,7 @@ export interface ApiMachineMaintenancePageMachineMaintenancePage
         'partial-components.content-accordion',
         'partial-components.content-text-image',
         'partial-components.content-table',
+        'partial-components.content-spacer',
       ]
     > &
       Schema.Attribute.Required &
@@ -2787,6 +2789,7 @@ export interface ApiMachineMaintenancePageMachineMaintenancePage
         'partial-components.content-images',
         'partial-components.content-header',
         'partial-components.content-accordion',
+        'partial-components.content-spacer',
       ]
     > &
       Schema.Attribute.Required &
@@ -2931,6 +2934,7 @@ export interface ApiMachineMarketingPageMachineMarketingPage
         'partial-components.content-images',
         'partial-components.content-header',
         'partial-components.content-accordion',
+        'partial-components.content-spacer',
       ]
     > &
       Schema.Attribute.Required &
@@ -2946,6 +2950,7 @@ export interface ApiMachineMarketingPageMachineMarketingPage
         'partial-components.content-images',
         'partial-components.content-header',
         'partial-components.content-accordion',
+        'partial-components.content-spacer',
       ]
     > &
       Schema.Attribute.Required &
@@ -2961,6 +2966,7 @@ export interface ApiMachineMarketingPageMachineMarketingPage
         'partial-components.content-images',
         'partial-components.content-header',
         'partial-components.content-accordion',
+        'partial-components.content-spacer',
       ]
     > &
       Schema.Attribute.Required &
@@ -3083,6 +3089,7 @@ export interface ApiMachineModernizationPageMachineModernizationPage
         'partial-components.content-table',
         'partial-components.content-accordion',
         'partial-components.content-header',
+        'partial-components.content-spacer',
       ]
     > &
       Schema.Attribute.Required &
@@ -3098,6 +3105,7 @@ export interface ApiMachineModernizationPageMachineModernizationPage
         'partial-components.content-images',
         'partial-components.content-header',
         'partial-components.content-accordion',
+        'partial-components.content-spacer',
       ]
     > &
       Schema.Attribute.Required &
