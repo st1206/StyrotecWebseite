@@ -425,6 +425,22 @@ export interface ApiAboutUsPageAboutUsPage extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
+    defaultContentOne: Schema.Attribute.DynamicZone<
+      [
+        'partial-components.content-accordion',
+        'partial-components.content-header',
+        'partial-components.content-images',
+        'partial-components.content-spacer',
+        'partial-components.content-table',
+        'partial-components.content-text-image',
+      ]
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     heroMedia: Schema.Attribute.Component<'page-components.hero-media', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -443,6 +459,16 @@ export interface ApiAboutUsPageAboutUsPage extends Struct.SingleTypeSchema {
       'oneToMany',
       'api::about-us-page.about-us-page'
     >;
+    pageHeader: Schema.Attribute.Component<
+      'page-components.page-header',
+      false
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'page-components.seo', false> &
       Schema.Attribute.Required &
@@ -2782,6 +2808,22 @@ export interface ApiMachineMaintenancePageMachineMaintenancePage
           localized: true;
         };
       }>;
+    defaultContentThree: Schema.Attribute.DynamicZone<
+      [
+        'partial-components.content-text-image',
+        'partial-components.content-table',
+        'partial-components.content-spacer',
+        'partial-components.content-images',
+        'partial-components.content-header',
+        'partial-components.content-accordion',
+      ]
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     defaultContentTwo: Schema.Attribute.DynamicZone<
       [
         'partial-components.content-text-image',
@@ -2881,13 +2923,6 @@ export interface ApiMachineMaintenancePageMachineMaintenancePage
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     uspList: Schema.Attribute.Component<'page-components.usp-list', false> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    uspListOne: Schema.Attribute.Component<'page-components.usp-list', false> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

@@ -548,6 +548,12 @@ const pagesConfig: Record<string, PageContent> = {
 				sectionKey: 'defaultCardsTwo'
 			},
 			{
+				sectionKey: 'defaultContentOne'
+			},
+			{
+				sectionKey: 'pageHeader'
+			},
+			{
 				sectionKey: 'defaultContent'
 			},
 			{ sectionKey: 'seo' }
@@ -747,7 +753,7 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'heroTextImage' },
 			{ sectionKey: 'uspList' },
 			{ sectionKey: 'pageHeader' },
-			{ sectionKey: 'uspListOne' },
+			{ sectionKey: 'defaultContentThree' },
 			{ sectionKey: 'history' },
 			{ sectionKey: 'pageHeaderTwo' },
 			{ sectionKey: 'defaultContent' },

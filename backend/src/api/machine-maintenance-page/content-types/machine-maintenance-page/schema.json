@@ -70,17 +70,6 @@
       "required": true,
       "component": "page-components.page-header"
     },
-    "uspListOne": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "page-components.usp-list",
-      "required": true
-    },
     "history": {
       "type": "component",
       "repeatable": false,
@@ -184,6 +173,23 @@
         "partial-components.content-header",
         "partial-components.content-accordion",
         "partial-components.content-spacer"
+      ],
+      "required": true
+    },
+    "defaultContentThree": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "dynamiczone",
+      "components": [
+        "partial-components.content-text-image",
+        "partial-components.content-table",
+        "partial-components.content-spacer",
+        "partial-components.content-images",
+        "partial-components.content-header",
+        "partial-components.content-accordion"
       ],
       "required": true
     }
