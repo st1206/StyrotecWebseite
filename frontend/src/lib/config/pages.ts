@@ -420,7 +420,6 @@ const pagesConfig: Record<string, PageContent> = {
 			{
 				sectionKey: 'exploreVariants'
 			},
-			{ sectionKey: 'defaultContent' },
 			{
 				sectionKey: 'optionBlocks'
 			},
@@ -440,7 +439,6 @@ const pagesConfig: Record<string, PageContent> = {
 			{
 				sectionKey: 'exploreVariants'
 			},
-			{ sectionKey: 'defaultContent' },
 			{
 				sectionKey: 'optionBlocks'
 			},
@@ -460,7 +458,6 @@ const pagesConfig: Record<string, PageContent> = {
 			{
 				sectionKey: 'exploreVariants'
 			},
-			{ sectionKey: 'defaultContent' },
 			{
 				sectionKey: 'optionBlocks'
 			},
