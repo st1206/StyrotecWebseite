@@ -1389,6 +1389,22 @@ export interface ApiFs10PageFs10Page extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    defaultContent: Schema.Attribute.DynamicZone<
+      [
+        'partial-components.content-text-image',
+        'partial-components.content-table',
+        'partial-components.content-spacer',
+        'partial-components.content-images',
+        'partial-components.content-header',
+        'partial-components.content-accordion',
+      ]
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     exploreVariants: Schema.Attribute.Component<
       'page-components.explore-variants',
       false
@@ -1467,6 +1483,22 @@ export interface ApiFs15PageFs15Page extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    defaultContent: Schema.Attribute.DynamicZone<
+      [
+        'partial-components.content-text-image',
+        'partial-components.content-table',
+        'partial-components.content-spacer',
+        'partial-components.content-images',
+        'partial-components.content-header',
+        'partial-components.content-accordion',
+      ]
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     exploreVariants: Schema.Attribute.Component<
       'page-components.explore-variants',
       false
@@ -1545,6 +1577,22 @@ export interface ApiFs20PageFs20Page extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    defaultContent: Schema.Attribute.DynamicZone<
+      [
+        'partial-components.content-text-image',
+        'partial-components.content-table',
+        'partial-components.content-spacer',
+        'partial-components.content-images',
+        'partial-components.content-header',
+        'partial-components.content-accordion',
+      ]
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     exploreVariants: Schema.Attribute.Component<
       'page-components.explore-variants',
       false
