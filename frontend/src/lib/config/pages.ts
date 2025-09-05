@@ -605,7 +605,7 @@ const pagesConfig: Record<string, PageContent> = {
 	},
 	modelConstructionMachines: {
 		deSlug: 'produkte/gebrauchtmaschinen/modellbaumaschinen',
-		enSlug: 'produkte/gebrauchtmaschinen/model-construction-machines',
+		enSlug: 'products/used-machines/model-construction-machines',
 		cmsTypeKey: 'modelConstructionMachinesPage',
 		cmsApiSlug: 'model-construction-machines-page',
 		sections: [
@@ -625,7 +625,7 @@ const pagesConfig: Record<string, PageContent> = {
 	},
 	woodworkingMachines: {
 		deSlug: 'produkte/gebrauchtmaschinen/modellbaumaschinen',
-		enSlug: 'produkte/gebrauchtmaschinen/model-construction-machines',
+		enSlug: 'products/used-machines/model-construction-machines',
 		cmsTypeKey: 'modelConstructionMachinesPage',
 		cmsApiSlug: 'model-construction-machines-page',
 		sections: [
@@ -645,7 +645,7 @@ const pagesConfig: Record<string, PageContent> = {
 	},
 	drillingMachines: {
 		deSlug: 'produkte/gebrauchtmaschinen/modellbaumaschinen/bohrmaschinen',
-		enSlug: 'produkte/gebrauchtmaschinen/model-construction-machines/drilling-machines',
+		enSlug: 'products/used-machines/model-construction-machines/drilling-machines',
 		cmsTypeKey: 'drillingMachinesPage',
 		cmsApiSlug: 'drilling-machines-page',
 		sections: [
@@ -665,7 +665,7 @@ const pagesConfig: Record<string, PageContent> = {
 	},
 	grindingMachines: {
 		deSlug: 'produkte/gebrauchtmaschinen/modellbaumaschinen/schleifmaschinen',
-		enSlug: 'produkte/gebrauchtmaschinen/model-construction-machines/grinding-machines',
+		enSlug: 'products/used-machines/model-construction-machines/grinding-machines',
 		cmsTypeKey: 'grindingMachinesPage',
 		cmsApiSlug: 'grinding-machines-page',
 		sections: [
@@ -685,7 +685,7 @@ const pagesConfig: Record<string, PageContent> = {
 	},
 	lathes: {
 		deSlug: 'produkte/gebrauchtmaschinen/modellbaumaschinen/drehmaschinen',
-		enSlug: 'produkte/gebrauchtmaschinen/model-construction-machines/lathes',
+		enSlug: 'products/used-machines/model-construction-machines/lathes',
 		cmsTypeKey: 'lathesPage',
 		cmsApiSlug: 'lathes-page',
 		sections: [
@@ -705,7 +705,7 @@ const pagesConfig: Record<string, PageContent> = {
 	},
 	millingMachines: {
 		deSlug: 'produkte/gebrauchtmaschinen/modellbaumaschinen/fraesmaschinen',
-		enSlug: 'produkte/gebrauchtmaschinen/model-construction-machines/milling-machines',
+		enSlug: 'products/used-machines/model-construction-machines/milling-machines',
 		cmsTypeKey: 'millingMachinesPage',
 		cmsApiSlug: 'milling-machines-page',
 		sections: [
@@ -725,7 +725,7 @@ const pagesConfig: Record<string, PageContent> = {
 	},
 	saws: {
 		deSlug: 'produkte/gebrauchtmaschinen/modellbaumaschinen/saegen',
-		enSlug: 'produkte/gebrauchtmaschinen/model-construction-machines/saw-machines',
+		enSlug: 'products/used-machines/model-construction-machines/saw-machines',
 		cmsTypeKey: 'sawsPage',
 		cmsApiSlug: 'saws-page',
 		sections: [
