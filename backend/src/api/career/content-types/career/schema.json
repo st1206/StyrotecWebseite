@@ -4,7 +4,8 @@
   "info": {
     "singularName": "career",
     "pluralName": "careers",
-    "displayName": "Karriere"
+    "displayName": "Karriere",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -57,6 +58,28 @@
         }
       },
       "component": "page-components.seo",
+      "required": true
+    },
+    "pageHeader": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.page-header",
+      "required": true
+    },
+    "pageHeaderOne": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.page-header",
       "required": true
     }
   }

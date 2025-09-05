@@ -124,7 +124,10 @@ export const menu = [
 			{
 				key: 'career',
 				anchor: null,
-				routeChildren: [{ key: 'jobPosting', anchor: '#stellenausschreibung' }]
+				routeChildren: [
+					{ key: 'jobPosting', anchor: '#stellenausschreibung' },
+					{ key: 'initiative', anchor: '#initiativbewerbung' }
+				]
 			}
 		]
 	}

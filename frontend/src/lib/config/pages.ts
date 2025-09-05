@@ -839,7 +839,13 @@ const pagesConfig: Record<string, PageContent> = {
 				sectionKey: 'heroCarousel'
 			},
 			{
+				sectionKey: 'pageHeader'
+			},
+			{
 				sectionKey: 'collectionTypeComponents'
+			},
+			{
+				sectionKey: 'pageHeaderOne'
 			},
 			{
 				sectionKey: 'contactForm'
