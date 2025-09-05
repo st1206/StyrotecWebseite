@@ -845,7 +845,7 @@ const pagesConfig: Record<string, PageContent> = {
 				sectionKey: 'collectionTypeComponents'
 			},
 			{
-				sectionKey: 'pageHeaderOne'
+				sectionKey: 'pageHeaderTwo'
 			},
 			{
 				sectionKey: 'contactForm'

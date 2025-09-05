@@ -71,7 +71,7 @@
       "component": "page-components.page-header",
       "required": true
     },
-    "pageHeaderOne": {
+    "pageHeaderTwo": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {

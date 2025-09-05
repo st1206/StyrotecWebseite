@@ -758,7 +758,7 @@ export interface ApiCareerCareer extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
-    pageHeaderOne: Schema.Attribute.Component<
+    pageHeaderTwo: Schema.Attribute.Component<
       'page-components.page-header',
       false
     > &
