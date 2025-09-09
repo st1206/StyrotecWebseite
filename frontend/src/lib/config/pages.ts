@@ -39,10 +39,7 @@ import type {
 import { buildPopulateQuery } from './apiParamsBuilder';
 import type { TypedSectionConfig } from '$lib/types/sections';
 import type {
-	ApiHoleCutterPageHoleCutterPage,
 	ApiInstockMachinesDetailsPageInstockMachinesDetailsPage,
-	ApiRaspDiscCutterPageRaspDiscCutterPage,
-	ApiRaspHollowCutterPageRaspHollowCutterPage,
 	ApiShankRaspCutterPageShankRaspCutterPage,
 	ApiSpecialMillingCutterPageSpecialMillingCutterPage,
 	ApiStyrospeedHsPageStyrospeedHsPage
@@ -66,9 +63,6 @@ export interface CMSTypeMap {
 	millingToolsPage: ApiMillingToolsPageMillingToolsPage;
 	styrospeedPage: ApiStyrospeedHsPageStyrospeedHsPage;
 	shankRaspPage: ApiShankRaspCutterPageShankRaspCutterPage;
-	raspHollowPage: ApiRaspHollowCutterPageRaspHollowCutterPage;
-	holeCutterPage: ApiHoleCutterPageHoleCutterPage;
-	raspDiscPage: ApiRaspDiscCutterPageRaspDiscCutterPage;
 	specialCutterPage: ApiSpecialMillingCutterPageSpecialMillingCutterPage;
 	hollowMillingSpindlePage: ApiHollowMillingSpindlePageHollowMillingSpindlePage;
 	suctionSystemPage: ApiSuctionSystemPageSuctionSystemPage;
@@ -264,42 +258,6 @@ const pagesConfig: Record<string, PageContent> = {
 		enSlug: 'products/styrofoam-processing/milling-tools/shank-rasp-cutters',
 		cmsTypeKey: 'shankRaspPage',
 		cmsApiSlug: 'shank-rasp-cutter-page',
-		sections: [
-			{ sectionKey: 'heroDualImage' },
-			{ sectionKey: 'defaultContent' },
-			{ sectionKey: 'contactForm' },
-			{ sectionKey: 'seo' }
-		]
-	},
-	raspHollow: {
-		deSlug: 'produkte/styroporbearbeitung/fraeswerkzeuge/raspelhohlfraeser',
-		enSlug: 'products/styrofoam-processing/milling-tools/rasp-hollow-cutters',
-		cmsTypeKey: 'raspHollowPage',
-		cmsApiSlug: 'rasp-hollow-cutter-page',
-		sections: [
-			{ sectionKey: 'heroDualImage' },
-			{ sectionKey: 'defaultContent' },
-			{ sectionKey: 'contactForm' },
-			{ sectionKey: 'seo' }
-		]
-	},
-	holeCutter: {
-		deSlug: 'produkte/styroporbearbeitung/fraeswerkzeuge/lochfraeser',
-		enSlug: 'products/styrofoam-processing/milling-tools/hole-cutters',
-		cmsTypeKey: 'holeCutterPage',
-		cmsApiSlug: 'hole-cutter-page',
-		sections: [
-			{ sectionKey: 'heroDualImage' },
-			{ sectionKey: 'defaultContent' },
-			{ sectionKey: 'contactForm' },
-			{ sectionKey: 'seo' }
-		]
-	},
-	raspDisc: {
-		deSlug: 'produkte/styroporbearbeitung/fraeswerkzeuge/raspeltellerfraeser',
-		enSlug: 'products/styrofoam-processing/milling-tools/rasp-disc-cutters',
-		cmsTypeKey: 'raspDiscPage',
-		cmsApiSlug: 'rasp-disc-cutter-page',
 		sections: [
 			{ sectionKey: 'heroDualImage' },
 			{ sectionKey: 'defaultContent' },

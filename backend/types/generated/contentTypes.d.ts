@@ -1983,81 +1983,6 @@ export interface ApiGrindingMachinesPageGrindingMachinesPage
   };
 }
 
-export interface ApiHoleCutterPageHoleCutterPage
-  extends Struct.SingleTypeSchema {
-  collectionName: 'hole_cutter_pages';
-  info: {
-    displayName: 'Lochfr\u00E4ser Seite';
-    pluralName: 'hole-cutter-pages';
-    singularName: 'hole-cutter-page';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    contactForm: Schema.Attribute.Component<
-      'page-components.contact-form',
-      false
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    defaultContent: Schema.Attribute.DynamicZone<
-      [
-        'partial-components.content-text-image',
-        'partial-components.content-table',
-        'partial-components.content-spacer',
-        'partial-components.content-images',
-        'partial-components.content-header',
-        'partial-components.content-accordion',
-      ]
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    heroDualImage: Schema.Attribute.Component<
-      'page-components.hero-dual-image',
-      false
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::hole-cutter-page.hole-cutter-page'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    seo: Schema.Attribute.Component<'page-components.seo', false> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiHollowMillingSpindlePageHollowMillingSpindlePage
   extends Struct.SingleTypeSchema {
   collectionName: 'hollow_milling_spindle_pages';
@@ -4093,156 +4018,6 @@ export interface ApiPrivacyPolicyPagePrivacyPolicyPage
   };
 }
 
-export interface ApiRaspDiscCutterPageRaspDiscCutterPage
-  extends Struct.SingleTypeSchema {
-  collectionName: 'rasp_disc_cutter_pages';
-  info: {
-    displayName: 'Raspeltellerfr\u00E4ser Seite';
-    pluralName: 'rasp-disc-cutter-pages';
-    singularName: 'rasp-disc-cutter-page';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    contactForm: Schema.Attribute.Component<
-      'page-components.contact-form',
-      false
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    defaultContent: Schema.Attribute.DynamicZone<
-      [
-        'partial-components.content-text-image',
-        'partial-components.content-table',
-        'partial-components.content-spacer',
-        'partial-components.content-images',
-        'partial-components.content-header',
-        'partial-components.content-accordion',
-      ]
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    heroDualImage: Schema.Attribute.Component<
-      'page-components.hero-dual-image',
-      false
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::rasp-disc-cutter-page.rasp-disc-cutter-page'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    seo: Schema.Attribute.Component<'page-components.seo', false> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiRaspHollowCutterPageRaspHollowCutterPage
-  extends Struct.SingleTypeSchema {
-  collectionName: 'rasp_hollow_cutter_pages';
-  info: {
-    displayName: 'Raspelhohlfr\u00E4ser Seite';
-    pluralName: 'rasp-hollow-cutter-pages';
-    singularName: 'rasp-hollow-cutter-page';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    contactForm: Schema.Attribute.Component<
-      'page-components.contact-form',
-      false
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    defaultContent: Schema.Attribute.DynamicZone<
-      [
-        'partial-components.content-text-image',
-        'partial-components.content-table',
-        'partial-components.content-spacer',
-        'partial-components.content-images',
-        'partial-components.content-header',
-        'partial-components.content-accordion',
-      ]
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    heroDualImage: Schema.Attribute.Component<
-      'page-components.hero-dual-image',
-      false
-    > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::rasp-hollow-cutter-page.rasp-hollow-cutter-page'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    seo: Schema.Attribute.Component<'page-components.seo', false> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiRawMaterialPageRawMaterialPage
   extends Struct.SingleTypeSchema {
   collectionName: 'raw_material_pages';
@@ -5786,7 +5561,6 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::grinding-machine.grinding-machine': ApiGrindingMachineGrindingMachine;
       'api::grinding-machines-page.grinding-machines-page': ApiGrindingMachinesPageGrindingMachinesPage;
-      'api::hole-cutter-page.hole-cutter-page': ApiHoleCutterPageHoleCutterPage;
       'api::hollow-milling-spindle-page.hollow-milling-spindle-page': ApiHollowMillingSpindlePageHollowMillingSpindlePage;
       'api::home.home': ApiHomeHome;
       'api::hybrid-page.hybrid-page': ApiHybridPageHybridPage;
@@ -5811,8 +5585,6 @@ declare module '@strapi/strapi' {
       'api::plastics-page.plastics-page': ApiPlasticsPagePlasticsPage;
       'api::presses-page.presses-page': ApiPressesPagePressesPage;
       'api::privacy-policy-page.privacy-policy-page': ApiPrivacyPolicyPagePrivacyPolicyPage;
-      'api::rasp-disc-cutter-page.rasp-disc-cutter-page': ApiRaspDiscCutterPageRaspDiscCutterPage;
-      'api::rasp-hollow-cutter-page.rasp-hollow-cutter-page': ApiRaspHollowCutterPageRaspHollowCutterPage;
       'api::raw-material-page.raw-material-page': ApiRawMaterialPageRawMaterialPage;
       'api::saw.saw': ApiSawSaw;
       'api::saws-page.saws-page': ApiSawsPageSawsPage;
