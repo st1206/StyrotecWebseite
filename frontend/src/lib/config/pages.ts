@@ -650,7 +650,7 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'drilling-machines-page',
 		sections: [
 			{
-				sectionKey: 'heroDualImage'
+				sectionKey: 'pageHeader'
 			},
 			{
 				sectionKey: 'collectionTypeComponents'
@@ -670,7 +670,7 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'grinding-machines-page',
 		sections: [
 			{
-				sectionKey: 'heroDualImage'
+				sectionKey: 'pageHeader'
 			},
 			{
 				sectionKey: 'collectionTypeComponents'
@@ -690,7 +690,7 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'lathes-page',
 		sections: [
 			{
-				sectionKey: 'heroDualImage'
+				sectionKey: 'pageHeader'
 			},
 			{
 				sectionKey: 'collectionTypeComponents'
@@ -710,7 +710,7 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'milling-machines-page',
 		sections: [
 			{
-				sectionKey: 'heroDualImage'
+				sectionKey: 'pageHeader'
 			},
 			{
 				sectionKey: 'collectionTypeComponents'
@@ -730,7 +730,7 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'saws-page',
 		sections: [
 			{
-				sectionKey: 'heroDualImage'
+				sectionKey: 'pageHeader'
 			},
 			{
 				sectionKey: 'collectionTypeComponents'
