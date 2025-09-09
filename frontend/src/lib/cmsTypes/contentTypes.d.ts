@@ -1240,6 +1240,7 @@ export interface ApiDrillingMachinesPageDrillingMachinesPage
   extends Struct.SingleTypeSchema {
   collectionName: 'drilling_machines_pages';
   info: {
+    description: '';
     displayName: 'Bohrmaschinen Seite';
     pluralName: 'drilling-machines-pages';
     singularName: 'drilling-machines-page';
@@ -1276,8 +1277,13 @@ export interface ApiDrillingMachinesPageDrillingMachinesPage
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    heroDualImage: Schema.Attribute.Component<
-      'page-components.hero-dual-image',
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::drilling-machines-page.drilling-machines-page'
+    >;
+    pageHeader: Schema.Attribute.Component<
+      'page-components.page-header',
       false
     > &
       Schema.Attribute.Required &
@@ -1286,11 +1292,6 @@ export interface ApiDrillingMachinesPageDrillingMachinesPage
           localized: true;
         };
       }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::drilling-machines-page.drilling-machines-page'
-    >;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'page-components.seo', false> &
       Schema.Attribute.Required &
@@ -1916,6 +1917,7 @@ export interface ApiGrindingMachinesPageGrindingMachinesPage
   extends Struct.SingleTypeSchema {
   collectionName: 'grinding_machines_pages';
   info: {
+    description: '';
     displayName: 'Schleifmaschinen Seite';
     pluralName: 'grinding-machines-pages';
     singularName: 'grinding-machines-page';
@@ -1952,8 +1954,13 @@ export interface ApiGrindingMachinesPageGrindingMachinesPage
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    heroDualImage: Schema.Attribute.Component<
-      'page-components.hero-dual-image',
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::grinding-machines-page.grinding-machines-page'
+    >;
+    pageHeader: Schema.Attribute.Component<
+      'page-components.page-header',
       false
     > &
       Schema.Attribute.Required &
@@ -1962,11 +1969,6 @@ export interface ApiGrindingMachinesPageGrindingMachinesPage
           localized: true;
         };
       }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::grinding-machines-page.grinding-machines-page'
-    >;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'page-components.seo', false> &
       Schema.Attribute.Required &
@@ -2717,6 +2719,7 @@ export interface ApiLatheLathe extends Struct.CollectionTypeSchema {
 export interface ApiLathesPageLathesPage extends Struct.SingleTypeSchema {
   collectionName: 'lathes_pages';
   info: {
+    description: '';
     displayName: 'Drehmaschinen Seite';
     pluralName: 'lathes-pages';
     singularName: 'lathes-page';
@@ -2753,8 +2756,13 @@ export interface ApiLathesPageLathesPage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    heroDualImage: Schema.Attribute.Component<
-      'page-components.hero-dual-image',
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::lathes-page.lathes-page'
+    >;
+    pageHeader: Schema.Attribute.Component<
+      'page-components.page-header',
       false
     > &
       Schema.Attribute.Required &
@@ -2763,11 +2771,6 @@ export interface ApiLathesPageLathesPage extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::lathes-page.lathes-page'
-    >;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'page-components.seo', false> &
       Schema.Attribute.Required &
@@ -3486,6 +3489,7 @@ export interface ApiMillingMachinesPageMillingMachinesPage
   extends Struct.SingleTypeSchema {
   collectionName: 'milling_machines_pages';
   info: {
+    description: '';
     displayName: 'Fr\u00E4smaschinen Seite';
     pluralName: 'milling-machines-pages';
     singularName: 'milling-machines-page';
@@ -3522,8 +3526,13 @@ export interface ApiMillingMachinesPageMillingMachinesPage
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    heroDualImage: Schema.Attribute.Component<
-      'page-components.hero-dual-image',
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::milling-machines-page.milling-machines-page'
+    >;
+    pageHeader: Schema.Attribute.Component<
+      'page-components.page-header',
       false
     > &
       Schema.Attribute.Required &
@@ -3532,11 +3541,6 @@ export interface ApiMillingMachinesPageMillingMachinesPage
           localized: true;
         };
       }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::milling-machines-page.milling-machines-page'
-    >;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'page-components.seo', false> &
       Schema.Attribute.Required &
@@ -4415,6 +4419,7 @@ export interface ApiSawSaw extends Struct.CollectionTypeSchema {
 export interface ApiSawsPageSawsPage extends Struct.SingleTypeSchema {
   collectionName: 'saws_pages';
   info: {
+    description: '';
     displayName: 'S\u00E4gen Seite';
     pluralName: 'saws-pages';
     singularName: 'saws-page';
@@ -4451,8 +4456,13 @@ export interface ApiSawsPageSawsPage extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    heroDualImage: Schema.Attribute.Component<
-      'page-components.hero-dual-image',
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::saws-page.saws-page'
+    >;
+    pageHeader: Schema.Attribute.Component<
+      'page-components.page-header',
       false
     > &
       Schema.Attribute.Required &
@@ -4461,11 +4471,6 @@ export interface ApiSawsPageSawsPage extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::saws-page.saws-page'
-    >;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'page-components.seo', false> &
       Schema.Attribute.Required &

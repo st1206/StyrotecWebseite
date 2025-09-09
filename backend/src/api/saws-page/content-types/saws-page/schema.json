@@ -4,7 +4,8 @@
   "info": {
     "singularName": "saws-page",
     "pluralName": "saws-pages",
-    "displayName": "Sägen Seite"
+    "displayName": "Sägen Seite",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,17 +16,6 @@
     }
   },
   "attributes": {
-    "heroDualImage": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "page-components.hero-dual-image",
-      "required": true
-    },
     "seo": {
       "type": "component",
       "repeatable": false,
@@ -57,6 +47,17 @@
         }
       },
       "component": "page-components.collection-type-components",
+      "required": true
+    },
+    "pageHeader": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.page-header",
       "required": true
     }
   }
