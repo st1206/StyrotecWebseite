@@ -98,14 +98,14 @@
 				</p>
 			</div>
 		{/if}
-		{#if subKeyword}
+		{#if hasSecondaryImage}
 			<div
 				class={cn(
 					hasSecondaryImage ? 'bg-foreground' : 'bg-foreground/95',
 					'absolute bottom-0 right-0 hidden h-[200px] w-2/5 [clip-path:polygon(50%_50%,100%_0%,100%_100%,0%_100%)] lg:block'
 				)}
 			>
-				{#if hasSecondaryImage}
+				{#if subKeyword}
 					<h2
 						class="text-secondary absolute bottom-12 right-10 font-sans text-3xl font-bold xl:text-4xl"
 					>
@@ -175,10 +175,14 @@
 			>
 				{#if subKeyword}
 					<div
-						class="bg-foreground/95 absolute bottom-0 right-0 z-30 h-1/4 w-2/3 [clip-path:polygon(0%_100%,100%_100%,100%_0%)]"
+						class={cn(
+							subKeyword && subKeyword.length <= 10 ? 'h-1/5 w-2/3' : 'h-1/4 w-3/4',
+							subKeyword && subKeyword.length > 15 && 'h-1/3 w-5/6',
+							'bg-foreground/95 absolute bottom-0 right-0 z-30  [clip-path:polygon(0%_100%,100%_100%,100%_0%)]'
+						)}
 					>
 						<h2
-							class="text-secondary absolute bottom-6 right-7 font-sans text-3xl font-bold xl:text-4xl"
+							class="text-secondary absolute bottom-5 right-7 font-sans text-3xl font-bold xl:text-4xl"
 						>
 							{subKeyword}
 						</h2>

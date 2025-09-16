@@ -254,6 +254,8 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 		error(404, 'Page not found');
 	}
 
+	console.log(cmsData);
+
 	return {
 		lang,
 		pageContent: {

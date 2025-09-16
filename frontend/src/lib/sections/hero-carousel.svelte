@@ -7,17 +7,18 @@
 	import { SafeData } from '$lib/utils/validation';
 	import { getOptimizedImageUrl, getImageAltText, handleImageError } from '$lib/utils/image';
 
-	let data: { keyphrase?: string; images?: ImageAsset[] } = $props();
+	let data: { keyphrase?: string; images?: ImageAsset[]; carouselSpeed?: number } = $props();
 
 	// Create safe data accessor
 	const safe = new SafeData(data);
 	const keyphrase = safe.getString('keyphrase');
 	const images = safe.getArray<ImageAsset>('images', []);
+	const carouselSpeed = safe.getNumber('carouselSpeed');
 
 	let api = $state<CarouselAPI>();
 
 	const autoPlayOptions: AutoplayOptionsType = {
-		delay: 5000,
+		delay: carouselSpeed || 4000,
 		stopOnInteraction: false,
 		stopOnMouseEnter: true
 	};

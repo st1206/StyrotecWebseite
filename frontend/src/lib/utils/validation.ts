@@ -298,7 +298,19 @@ export class SafeData {
 
 	getNumber(field: string, fallback: number = 0): number {
 		const value = this.data?.[field];
-		return typeof value === 'number' && !isNaN(value) ? value : fallback;
+
+		if (typeof value === 'number' && !isNaN(value)) {
+			return value;
+		}
+
+		if (typeof value === 'string') {
+			const parsed = parseFloat(value);
+			if (!isNaN(parsed)) {
+				return parsed;
+			}
+		}
+
+		return fallback;
 	}
 
 	getBoolean(field: string, fallback: boolean = false): boolean {

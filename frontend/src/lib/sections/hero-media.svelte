@@ -85,10 +85,10 @@
 	}
 </script>
 
-<section id={anchor} class="mt-20 scroll-mt-24 lg:container lg:mx-auto lg:mt-32 lg:w-full">
+<section class="mt-20 lg:container lg:mx-auto lg:mt-32 lg:w-full">
 	<div class="bg-foreground lg:shadow-primary">
 		{#if hasValidMedia}
-			<!-- Video/Image Media (unverändert) -->
+			<!-- Video/Image Media -->
 			{#if isVideo}
 				<video
 					autoplay
@@ -115,7 +115,7 @@
 				<img
 					src={mediaUrl}
 					alt={mediaName || title || 'Hero media'}
-					class="max-h-[750px] w-full object-cover object-top [clip-path:polygon(0%_0%,100%_0%,100%_90%,0%_100%)]"
+					class="max-h-[650px] w-full object-cover object-top [clip-path:polygon(0%_0%,100%_0%,100%_90%,0%_100%)]"
 					style="display: block;"
 					onerror={handleAssetError}
 					loading="eager"
@@ -132,7 +132,7 @@
 				</div>
 			{/if}
 		{:else}
-			<!-- No media available (unverändert) -->
+			<!-- No media available  -->
 			<div
 				class="bg-secondary/20 text-muted-foreground flex max-h-[750px] min-h-[400px] w-full flex-col items-center justify-center [clip-path:polygon(0%_0%,100%_0%,100%_90%,0%_100%)]"
 			>
@@ -144,7 +144,7 @@
 			</div>
 		{/if}
 
-		<div class="p-8">
+		<div class="scroll-mt-24 p-8" id={anchor}>
 			{#if title || description}
 				<div class="space-y-4 text-center">
 					{#if title}
@@ -160,7 +160,6 @@
 				</div>
 			{/if}
 
-			<!-- HIER KOMT DIE NEUE KOMPONENTE ZUM EINSATZ -->
 			<ImageCardGrid cards={processedCards} isDarkMode={true} />
 		</div>
 	</div>

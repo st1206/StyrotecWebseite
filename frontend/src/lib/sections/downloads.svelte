@@ -62,7 +62,7 @@
 				<Table.Body>
 					{#each validatedDownloads as download}
 						<Table.Row class={cn('border-foreground/20 bg-foreground/5 hover:bg-foreground/10')}>
-							<Table.Cell class={cn('sm:min-w-[300px] min-w-[130px] font-medium')}>
+							<Table.Cell class={cn('min-w-[130px] font-medium sm:min-w-[300px]')}>
 								{download.title}
 							</Table.Cell>
 							<Table.Cell class={cn(' w-full font-medium')}>

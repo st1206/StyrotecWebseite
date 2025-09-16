@@ -100,8 +100,9 @@
 
 	<div class="grid grid-cols-1 gap-8 lg:grid-cols-2 xl:grid-cols-3">
 		{#each previewCards || [] as card, i}
-			<div
-				class="relative"
+			<a
+				href={getRedirectLink(card.redirectSlug || '#')}
+				class="relative cursor-pointer"
 				onmouseenter={() => handleMouseEnter(i)}
 				onmouseleave={handleMouseLeave}
 				aria-hidden="true"
@@ -178,14 +179,14 @@
 							</p>
 						</Card.Content>
 
-						<Card.Footer class="bg-foreground">
+						<!-- <Card.Footer class="bg-foreground">
 							<Button href={getRedirectLink(card.redirectSlug || '#')}>
 								<span class="h-5 skew-x-[15deg]">{card.ctaText}</span>
 							</Button>
-						</Card.Footer>
+						</Card.Footer> -->
 					</div>
 				</Card.Root>
-			</div>
+			</a>
 		{/each}
 	</div>
 </section>

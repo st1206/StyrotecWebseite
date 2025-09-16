@@ -8,6 +8,7 @@
 	import { dateFormatter, resolveRichText, type StrapiRichTextNode } from '$lib/utils';
 	import { Separator } from '$lib/components/ui/separator';
 	import { Icons } from '$lib/assets/icons';
+	import { Button } from '$lib/components/ui/button';
 
 	let {
 		fairs: rawFairs = []
@@ -84,7 +85,7 @@
 										<img
 											src={item.logoUrl}
 											alt={item.logo?.alternativeText || item.name}
-											class="max-h-[100px] sm:w-full rounded-lg sm:max-h-[70px] sm:object-contain"
+											class="max-h-[100px] rounded-lg sm:max-h-[70px] sm:w-full sm:object-contain"
 											style="display: block;"
 											onerror={handleImageError}
 											loading="lazy"
@@ -125,9 +126,10 @@
 						</Accordion.Trigger>
 
 						<Accordion.Content>
+							<Separator class="bg-secondary/20" />
 							<div class="grid grid-cols-12">
 								<div
-									class="prose prose-sm text-secondary prose-neutral lg:prose-base xl:prose-base col-span-8 sm:col-start-4 mt-2 max-w-5xl"
+									class="prose prose-sm text-secondary prose-neutral lg:prose-base xl:prose-base col-span-7 mt-2 max-w-5xl sm:col-start-4"
 								>
 									{#if item.hasContent}
 										{@html resolveRichText(item.content)}
@@ -136,6 +138,13 @@
 											{$_('fairs.noAdditionalInfo') || 'No additional information available'}
 										</p>
 									{/if}
+								</div>
+								<div class="col-span-2 mt-2">
+									<Button class="w-max" href="href={item.externalLink}">
+										<span class="skew-x-[15deg]">
+											{$_('button.learnMore')}
+										</span>
+									</Button>
 								</div>
 							</div>
 						</Accordion.Content>

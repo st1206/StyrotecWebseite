@@ -28,8 +28,8 @@
 
 <footer class="bg-primary-foreground text-white">
 	<div class="mx-2 sm:container sm:mx-auto">
-		<div class="flex flex-col items-center justify-between gap-4 py-8 sm:flex-row print:hidden">
-			<span class="text-center font-sans text-lg font-bold sm:text-start sm:text-xl md:text-2xl">
+		<div class="flex flex-col items-center justify-between gap-4 py-8 md:flex-row print:hidden">
+			<span class="text-center font-sans text-lg font-bold sm:text-xl md:text-2xl">
 				{$_('followUs')}
 			</span>
 			<div class="flex gap-4 px-4">
@@ -61,33 +61,20 @@
 			</div>
 		</div>
 		<Separator class="hidden w-full bg-white/20 lg:block" orientation="horizontal" />
-		<div class=" flex w-full items-center justify-center py-16 lg:justify-between">
-			<div class="flex w-max flex-col gap-8">
-				<img src={Icons.logoLight} alt="Logo" class="mx-auto h-20 w-max lg:mx-0 lg:h-28" />
-				<div class="flex">
-					<div class="flex flex-col gap-4">
-						<div class="flex flex-col gap-2">
-							<div class="mx-auto flex items-center gap-1 font-sans font-medium lg:mx-0">
-								<Icons.mail class="size-4" />
-
-								{$_('email')}
-							</div>
-							<a href="mailto:info@styrotec.com" class="font-sans"> info@styrotec.com </a>
-						</div>
-						<div class="flex flex-col gap-2">
-							<div class="mx-auto flex items-center gap-1 font-sans font-medium lg:mx-0">
-								<Icons.phone class="size-4" />
-								{$_('phone')}
-							</div>
-							<a href="tel:+49 751 56050-20" class="font-sans"> +49 751 56050-20 </a>
-						</div>
+		<div class="flex w-full items-center justify-center py-16 md:justify-start lg:justify-between">
+			<div class="flex flex-col gap-8">
+				<img src={Icons.logoLight} alt="Logo" class="mx-auto h-20 w-max lg:mx-0 md:h-28" />
+				<div class="mx-auto flex w-min flex-col gap-4 md:mx-0">
+					<div class="flex items-center gap-2 font-sans font-medium lg:mx-0">
+						<Icons.mail class="size-4" />
+						<a href="mailto:info@styrotec.com" class="font-sans"> info@styrotec.com </a>
 					</div>
-					<!-- <Separator class="mx-2 w-full  bg-white/20" /> -->
-					<div class="ml-6 border-l border-white/20 pl-6">
-						<div class="flex gap-2">
-							<Icons.pin class="size-4" />
-							{$_('address')}
-						</div>
+					<div class="flex items-center gap-2 font-sans font-medium lg:mx-0">
+						<Icons.phone class="size-4" />
+						<a href="tel:+49 751 56050-20" class="font-sans"> +49 751 56050-20 </a>
+					</div>
+					<div class="flex gap-2">
+						<Icons.pin class="size-4" />
 						<div>
 							Kartonstraße 2 <br />
 							88255 Baienfurt <br />

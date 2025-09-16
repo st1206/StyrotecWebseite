@@ -108,6 +108,9 @@ export interface PageComponentsHeroCarousel extends Struct.ComponentSchema {
     icon: 'picture';
   };
   attributes: {
+    carouselSpeed: Schema.Attribute.BigInteger &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'4000'>;
     images: Schema.Attribute.Media<'images', true> & Schema.Attribute.Required;
     keyphrase: Schema.Attribute.String;
   };

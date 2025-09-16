@@ -18,6 +18,11 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "carouselSpeed": {
+      "type": "biginteger",
+      "required": true,
+      "default": "4000"
     }
   }
 }

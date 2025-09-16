@@ -160,7 +160,7 @@
 			</div>
 
 			<!-- Spacer for tablet/desktop -->
-			{#if i < entries.length - 1}
+			<!-- {#if i < entries.length - 1}
 				<div class="hidden md:grid md:grid-cols-9">
 					<div class="col-span-4"></div>
 					<div class="col-span-1 flex items-center justify-center">
@@ -168,7 +168,7 @@
 					</div>
 					<div class="col-span-4"></div>
 				</div>
-			{/if}
+			{/if} -->
 		{/each}
 	</div>
 </section>
