@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { ImageAsset } from '$lib/cmsTypes/image-type';
+	import type { ImageAsset } from '$lib/types/cmsTypes/image-type';
 	import { Button } from '$lib/components/ui/button';
 	import { cn, getRedirectLink } from '$lib/utils';
-	import { SafeData } from '$lib/validation';
-	import { getOptimizedImageUrl, getImageAltText, handleImageError } from '$lib/image';
+	import { SafeData } from '$lib/utils/validation';
+	import { getOptimizedImageUrl, getImageAltText, handleImageError } from '$lib/utils/image';
 
 	let {
 		sectionTitle = '',
@@ -82,7 +82,7 @@
 
 <section
 	id={anchor}
-	class={cn(isDarkMode ? 'bg-foreground py-8 pb-12' : 'my-16 sm:my-24', 'scroll-mt-32')}
+	class={cn(isDarkMode ? 'bg-foreground py-8 pb-12' : 'my-16 sm:my-24', 'scroll-mt-24')}
 >
 	<div class="mx-3 sm:container sm:mx-auto lg:w-full">
 		{#if sectionTitle}
@@ -136,15 +136,15 @@
 								validCards.length % 2 !== 0
 								? 'md:col-start-3'
 								: '',
-							primaryAction ? 'hover:scale-[101%] hover:shadow-[10px_10px_0_#f6a313]' : ''
+							primaryAction ? 'hover:scale-[101%] hover:shadow-[8px_8px_0_#f6a313]' : ''
 						)}
 					>
 						<!-- Simplified Image Section -->
 						{#if card.thumbnailUrl}
 							<div
 								class={cn(
-									'relative aspect-[3/2] w-full shrink-0',
-									hasContent ? 'md:w-[40%]' : 'w-full'
+									'relative  w-full shrink-0',
+									hasContent ? 'aspect-[4/2] md:w-[60%]' : 'aspect-[4/3] w-full'
 								)}
 							>
 								<img

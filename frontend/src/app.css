@@ -48,7 +48,8 @@
 @layer base {
 	@font-face {
 		font-family: 'ITCOfficinaSansStd';
-		src: url('/fonts/officinaSansStd/OfficinaSansStd-Book.otf'),
+		src:
+			url('/fonts/officinaSansStd/OfficinaSansStd-Book.otf'),
 			url('/fonts/officinaSansStd/OfficinaSansStd-Book.woff2') format('woff2'),
 			url('/fonts/officinaSansStd/OfficinaSansStd-Book.woff') format('woff');
 		font-weight: normal;
@@ -57,7 +58,8 @@
 
 	@font-face {
 		font-family: 'ITCOfficinaSansStd';
-		src: url('/fonts/officinaSansStd/OfficinaSansStd-Bold.otf'),
+		src:
+			url('/fonts/officinaSansStd/OfficinaSansStd-Bold.otf'),
 			url('/fonts/officinaSansStd/OfficinaSansStd-Bold.woff2') format('woff2'),
 			url('/fonts/officinaSansStd/OfficinaSansStd-Bold.woff') format('woff');
 		font-weight: bold;
@@ -72,6 +74,10 @@
 		font-weight: italic;
 		font-display: swap;
 	} */
+
+	html {
+		@apply bg-foreground;
+	}
 
 	* {
 		@apply border-border;
@@ -93,14 +99,40 @@
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 	}
+
+	/* === Custom Scrollbars === */
+	/* For Firefox */
+	html {
+		scrollbar-width: thin;
+		scrollbar-color: hsl(var(--foreground)) hsl(var(--secondary));
+	}
+
+	/* For WebKit Browsers (Chrome, Safari, Edge) */
+	::-webkit-scrollbar {
+		width: 12px;
+		height: 12px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: hsl(var(--secondary));
+	}
+
+	::-webkit-scrollbar-thumb {
+		background-color: hsl(var(--foreground));
+		border-radius: 0px;
+		border: 3px solid hsl(var(--secondary));
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		background-color: hsl(var(--muted-foreground));
+	}
 }
 
 @media print {
 	body {
-		-webkit-print-color-adjust: exact;
-		/* Safari/Chrome */
+		-webkit-print-color-adjust: exact !important;
 		print-color-adjust: exact;
-		/* Firefox/others */
+		@apply bg-white;
 	}
 
 	img {

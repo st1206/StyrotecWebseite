@@ -10,10 +10,10 @@ import DefaultCards from './default-cards.svelte';
 import DefaultContent from './default-content.svelte';
 import heroMedia from './hero-media.svelte';
 import History from './history.svelte';
-import CollectionTypeCards from './collection-type-cards.svelte';
-import UsedMachineDetails from '$lib/templates/used-machine-details.svelte';
+import CollectionTypeComponents from './collection-type-components.svelte';
+import UsedMachineDetails from '$lib/components/templates/used-machine-details.svelte';
 import ContactForm from './contact-form.svelte';
-import CollectionTypeTable from './collection-type-table.svelte';
+import Spacer from './spacer.svelte';
 
 export const sectionMap = {
 	heroCarousel: HeroCarousel,
@@ -65,13 +65,15 @@ export const sectionMap = {
 	history: History,
 	historyOne: History,
 	historyTwo: History,
-	collectionTypeCards: CollectionTypeCards,
-	collectionTypeCardsOne: CollectionTypeCards,
-	collectionTypeCardsTwo: CollectionTypeCards,
-	collectionTypeCardsThree: CollectionTypeCards,
-	collectionTypeTable: CollectionTypeTable,
-	collectionTypeTableTwo: CollectionTypeTable,
-	collectionTypeTableThree: CollectionTypeTable,
+	collectionTypeComponents: CollectionTypeComponents,
+	collectionTypeComponentsOne: CollectionTypeComponents,
+	collectionTypeComponentsTwo: CollectionTypeComponents,
+	collectionTypeComponentsThree: CollectionTypeComponents,
 	usedMachineDetails: UsedMachineDetails,
-	contactForm: ContactForm
+	contactForm: ContactForm,
+	spacer: Spacer,
+	spacerOne: Spacer,
+	spacerTwo: Spacer,
+	spacerThree: Spacer,
+	spacerFour: Spacer
 } as const;

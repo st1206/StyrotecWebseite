@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_page_components_collection_type_components",
+  "info": {
+    "displayName": "collectionTypeComponents",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "collectionApiSlug": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "defaultCards",
+        "brochures",
+        "fairs",
+        "downloads",
+        "jobAds"
+      ],
+      "default": "defaultCards",
+      "required": true
+    }
+  }
+}

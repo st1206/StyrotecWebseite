@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Accordion as AccordionPrimitive, type WithoutChild } from 'bits-ui';
 	import ChevronDown from 'lucide-svelte/icons/chevron-down';
-	import { cn } from '$lib/utils.js';
+	import { cn } from '$lib/utils/index.js';
 
 	let {
 		ref = $bindable(null),
@@ -18,7 +18,7 @@
 	<AccordionPrimitive.Trigger
 		bind:ref
 		class={cn(
-			'font-sans font-bold text-secondary hover:bg-secondary/10 bg-secondary/5 flex flex-1 items-center justify-between p-4 py-4 font-medium uppercase transition-all [&[data-state=open]>svg]:rotate-180',
+			'text-secondary hover:bg-secondary/10 bg-secondary/5 flex flex-1 items-center justify-between p-4 py-4 font-sans font-medium uppercase transition-all [&[data-state=open]>svg]:rotate-180',
 			className
 		)}
 		{...restProps}

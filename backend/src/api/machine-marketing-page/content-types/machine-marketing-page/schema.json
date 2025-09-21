@@ -115,7 +115,8 @@
         "partial-components.content-table",
         "partial-components.content-images",
         "partial-components.content-header",
-        "partial-components.content-accordion"
+        "partial-components.content-accordion",
+        "partial-components.content-spacer"
       ],
       "required": true
     },
@@ -131,7 +132,8 @@
         "partial-components.content-table",
         "partial-components.content-images",
         "partial-components.content-header",
-        "partial-components.content-accordion"
+        "partial-components.content-accordion",
+        "partial-components.content-spacer"
       ],
       "required": true
     },
@@ -147,7 +149,8 @@
         "partial-components.content-table",
         "partial-components.content-images",
         "partial-components.content-header",
-        "partial-components.content-accordion"
+        "partial-components.content-accordion",
+        "partial-components.content-spacer"
       ],
       "required": true
     }

@@ -39,11 +39,11 @@
 		"shredder": "Zerkleinerer",
 		"rawMaterial": "Rohmaterial",
 		"usedMachines": "Gebrauchtmaschinen",
-		"cncMills": "CNC-Fräsen",
+		"cncMills": "CNC-Fräsmaschinen",
 		"modelConstructionMachines": "Modellbaumaschinen",
 		"industries": "Branchen",
 		"products": "Produkte",
-		"presses": "Pressen",
+		"presses": "Styroporpressen",
 		"company": "Unternehmen",
 		"aboutUs": "Über Uns",
 		"services": "Dienstleistungen",
@@ -51,7 +51,9 @@
 		"values": "Werte",
 		"history": "Historie",
 		"sustainability": "Nachhaltigkeit",
-		"brochures": "Prospekte",
+		"codeOfConduct": "Grundsatzerklärung",
+		"brochures": "Downloads",
+		"initiative": "Initiativbewerbung",
 
 		"adhesives": "Kleber",
 		"cncAccessories": "CNC Zubehör",
@@ -73,9 +75,9 @@
 		"modelMaking": "Modellbau",
 		"plasticIndustry": "Kunststoffindustrie",
 		"concreteIndustry": "Betonindustrie",
-		"advertisingTechnology": "Werbetechnik",
+		"moldMaking": "Formenbau",
 		"aerospace": "Aerospace",
-		"art": "Kunst",
+		"creative": "Kreatives",
 		"career": "Karriere",
 		"jobPosting": "Stellenausschreibung",
 		"news": "Neuigkeiten",
@@ -90,11 +92,13 @@
 	"name": "Name",
 	"email": "E-Mail",
 	"yourEmail": "Ihre E-Mail",
-	"phone": "Telefonnummer",
+	"phone": "Telefon",
 	"company": "Firma",
 	"yourMessage": "Ihre Nachricht",
 
 	"yourContact": "Ihre direkte Ansprechperson:",
+
+	"address": "Adresse",
 
 	"productDataSheet": {
 		"designation": "Bezeichnung",
@@ -146,6 +150,13 @@
 	"saws": "Sägen",
 	"grinding_machines": "Schleifmaschinen",
 	"other_machines": "Sonstige Maschinen",
+
+	"title": "Titel",
+	"description": "Beschreibung",
+	"file": "Datei",
+	"details": "Übersicht",
+	"additionalImages": "Weitere Bilder",
+	"technicalSpecifications": "Technische Daten",
 
 	"home": {
 		"title": "Startseite",
@@ -446,7 +457,7 @@
 	"kontaktformular": {
 		"name": "Name",
 		"firma": "Firma",
-		"tel": "Telefonnummer",
+		"tel": "Telefon",
 		"email": "E-Mail:",
 		"nachricht": "Ihre Nachricht:"
 	},
@@ -580,5 +591,17 @@
 		"lösung": "Unsere Lösungen",
 		"links": "Maschinen",
 		"rechts": "Zusätzliches"
+	},
+	"empty": {
+		"noItems": "Derzeit keine Einträge vorhanden",
+		"noResults": "Keine Ergebnisse gefunden",
+		"noContent": "Kein Inhalt verfügbar",
+		"noMachines": "Derzeit keine Maschinen verfügbar",
+		"noBrochures": "Derzeit keine Broschüren verfügbar",
+		"noDownloads": "Derzeit keine Downloads verfügbar",
+		"noFairs": "Derzeit keine Messen verfügbar",
+		"noNews": "Derzeit keine Neuigkeiten verfügbar",
+		"noEmployees": "Derzeit keine Mitarbeiter verfügbar",
+		"noTestimonials": "Derzeit keine Referenzen verfügbar"
 	}
 }

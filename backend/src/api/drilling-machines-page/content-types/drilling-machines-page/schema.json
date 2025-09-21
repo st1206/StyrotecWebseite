@@ -4,7 +4,8 @@
   "info": {
     "singularName": "drilling-machines-page",
     "pluralName": "drilling-machines-pages",
-    "displayName": "Bohrmaschinen Seite"
+    "displayName": "Bohrmaschinen Seite",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -26,17 +27,6 @@
       "component": "page-components.seo",
       "required": true
     },
-    "heroDualImage": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "page-components.hero-dual-image",
-      "required": true
-    },
     "contactForm": {
       "type": "component",
       "repeatable": false,
@@ -48,7 +38,7 @@
       "component": "page-components.contact-form",
       "required": true
     },
-    "collectionTypeCards": {
+    "collectionTypeComponents": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
@@ -56,7 +46,18 @@
           "localized": true
         }
       },
-      "component": "page-components.collection-type-cards",
+      "component": "page-components.collection-type-components",
+      "required": true
+    },
+    "pageHeader": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.page-header",
       "required": true
     }
   }

@@ -6,10 +6,6 @@
   },
   "options": {},
   "attributes": {
-    "internalId": {
-      "type": "string",
-      "required": true
-    },
     "designation": {
       "type": "string",
       "required": true
@@ -30,7 +26,13 @@
         "gebraucht, sehr gut",
         "überholt",
         "voll funktionsfähig",
-        "neu"
+        "neu",
+        "used",
+        "used, good",
+        "used, very good",
+        "overhauled",
+        "fully functioning ",
+        "new"
       ]
     },
     "location": {
@@ -51,6 +53,20 @@
     },
     "weight": {
       "type": "string",
+      "required": true
+    },
+    "internalId": {
+      "type": "string",
+      "required": true
+    },
+    "priority": {
+      "type": "enumeration",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "default": "medium",
       "required": true
     }
   }

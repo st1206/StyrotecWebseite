@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
-import type { ApiMaschineMaschine } from '$lib/cmsTypes/contentTypes';
-import type { AttributesOf } from '$lib/cmsTypes/types';
+import type { ApiMaschineMaschine } from '$lib/types/cmsTypes/contentTypes';
+import type { AttributesOf } from '$lib/types/cmsTypes/types';
 import { PUBLIC_BACKEND_URL } from '$env/static/public';
 import type { PageServerLoad } from './$types';
 import { getRequestHeaders } from '$lib/server/utils';

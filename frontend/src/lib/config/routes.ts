@@ -94,8 +94,8 @@ export const menu = [
 			{ key: 'modelMaking', anchor: '#modellbau', icon: Icons.modelMakingIndustry },
 			{ key: 'plasticIndustry', anchor: '#kunststoffindustrie', icon: Icons.plasticsIndustry },
 			{ key: 'concreteIndustry', anchor: '#betonindustrie', icon: Icons.concreteIndustry },
-			{ key: 'advertisingTechnology', anchor: '#werbetechnik', icon: Icons.adIndustry },
-			{ key: 'art', anchor: '#kunst', icon: Icons.artIndustry }
+			{ key: 'moldMaking', anchor: '#formenbau', icon: Icons.adIndustry },
+			{ key: 'creative', anchor: '#kreativ', icon: Icons.artIndustry }
 		]
 	},
 	{
@@ -117,13 +117,17 @@ export const menu = [
 					{ key: 'team', anchor: '#team' },
 					{ key: 'history', anchor: '#historie' },
 					{ key: 'values', anchor: '#werte' },
-					{ key: 'sustainability', anchor: '#nachhaltigkeit' }
+					{ key: 'sustainability', anchor: '#nachhaltigkeit' },
+					{ key: 'codeOfConduct', anchor: '#CodeOfConduct' }
 				]
 			},
 			{
 				key: 'career',
 				anchor: null,
-				routeChildren: [{ key: 'jobPosting', anchor: '#stellenausschreibung' }]
+				routeChildren: [
+					{ key: 'jobPosting', anchor: '#stellenausschreibung' },
+					{ key: 'initiative', anchor: '#initiativbewerbung' }
+				]
 			}
 		]
 	}

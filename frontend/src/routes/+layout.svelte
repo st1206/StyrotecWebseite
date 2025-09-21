@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '../app.css';
-	import SiteHeader from '$lib/layout/site-header.svelte';
-	import SiteFooter from '$lib/layout/site-footer.svelte';
+	import SiteHeader from '$lib/components/layout/site-header.svelte';
+	import SiteFooter from '$lib/components/layout/site-footer.svelte';
 	import { _ } from 'svelte-i18n';
 	import * as CookieConsent from 'vanilla-cookieconsent';
 	import { onMount } from 'svelte';

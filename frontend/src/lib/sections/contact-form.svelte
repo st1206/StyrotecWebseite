@@ -13,8 +13,8 @@
 	import type { Employee } from '$lib/models/employee';
 	import { Icons } from '$lib/assets/icons';
 	import { locale } from 'svelte-i18n';
-	import { SafeData } from '$lib/validation';
-	import { handleImageError, optimizeImageUrl } from '$lib/image';
+	import { SafeData } from '$lib/utils/validation';
+	import { handleImageError, optimizeImageUrl } from '$lib/utils/image';
 
 	let data: {
 		contactForm: any;
@@ -25,7 +25,9 @@
 		validators: zodClient(contactFormSchema)
 	});
 
-	const { form: formData, enhance, message, submitting } = form;
+	const { form: formData, message } = form;
+
+	let submitting = $state(false);
 
 	// Safely process employee data
 	const safe = new SafeData(data);
@@ -73,6 +75,51 @@
 
 	const employeeImageUrl = getEmployeeImageUrl();
 	const hasValidEmployee = processedEmployee && (processedEmployee.name || processedEmployee.email);
+
+	// Custom form submission handler for API endpoint
+	async function handleSubmit(event: Event) {
+		event.preventDefault();
+
+		// Set submitting state
+		submitting = true;
+		message.set('');
+
+		const formElement = event.target as HTMLFormElement;
+		const formData = new FormData(formElement);
+
+		try {
+			const response = await fetch('/api/contact', {
+				method: 'POST',
+				body: formData
+			});
+
+			const result = await response.json();
+
+			console.log(result);
+
+			if (response.ok && result.type === 'success') {
+				message.set('success');
+				// Optionally reset form
+				formElement.reset();
+			} else {
+				// Handle validation errors or other errors
+				if (result.form.message) {
+					message.set(result.form.message);
+				} else {
+					message.set($locale === 'de-DE' ? 'Ein Fehler ist aufgetreten.' : 'An error occurred.');
+				}
+			}
+		} catch (error) {
+			console.error('Form submission error:', error);
+			message.set(
+				$locale === 'de-DE'
+					? 'Ein Fehler ist aufgetreten, bitte überprüfen Sie Ihre Eingabedaten.'
+					: 'An Error occured, please check input fields.'
+			);
+		} finally {
+			submitting = false;
+		}
+	}
 
 	onMount(() => {
 		const originUrl = page.url.pathname;
@@ -140,10 +187,6 @@
 							<h3 class="text-primary text-sm">{processedEmployee.position}</h3>
 						{/if}
 						<h2 class="font-sans text-3xl font-bold lg:text-4xl">{processedEmployee.name}</h2>
-						<!-- <div class="mt-1 flex items-center gap-1 text-sm">
-							<Icons.mail class="size-3" />
-							<h3>{processedEmployee.email}</h3>
-						</div> -->
 					</div>
 				</div>
 			{:else}
@@ -171,7 +214,8 @@
 			{/if}
 
 			<div class="col-span-1 md:col-span-3 xl:col-span-4">
-				<form method="POST" use:enhance class="flex flex-col gap-2 print:hidden">
+				<!-- Updated form to use custom submit handler instead of enhance -->
+				<form onsubmit={handleSubmit} class="flex flex-col gap-2 print:hidden">
 					<div class="flex w-full flex-col gap-4 sm:flex-row">
 						<Form.Field {form} name="name" class="w-full">
 							<Form.Control>
@@ -230,20 +274,8 @@
 						<Form.FieldErrors />
 					</Form.Field>
 					<div class="hidden">
-						<Form.Field {form} name="mailToContactPerson">
-							<Form.Control>
-								{#snippet children({ props })}
-									<Input {...props} bind:value={$formData.mailToContactPerson} />
-								{/snippet}
-							</Form.Control>
-						</Form.Field>
-						<Form.Field {form} name="originUrl">
-							<Form.Control>
-								{#snippet children({ props })}
-									<Input {...props} bind:value={$formData.originUrl} />
-								{/snippet}
-							</Form.Control>
-						</Form.Field>
+						<Input name="mailToContactPerson" bind:value={$formData.mailToContactPerson} />
+						<Input name="originUrl" bind:value={$formData.originUrl} />
 					</div>
 
 					{#if $message && $message !== 'success'}
@@ -257,8 +289,8 @@
 							{$locale === 'de-DE' ? 'E-Mail erfolgreich gesendet!' : 'E-Mail sent successfully!'}
 						</div>
 					{/if}
-					<Form.Button class="ml-auto mr-2 mt-4">
-						{#if $submitting}
+					<Form.Button disabled={submitting} class="ml-auto mr-2 mt-2">
+						{#if submitting}
 							<Icons.spinner class="mr-1 size-4 animate-spin" />
 						{:else}
 							<Icons.send class="mr-1 size-4 skew-x-[15deg]" />

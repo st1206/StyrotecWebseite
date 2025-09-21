@@ -28,7 +28,7 @@
 		"fs20": "FS 20",
 		"hybrid": "Hybrid - 3D",
 		"instock": "Stock Machines",
-		"briquettPress": "Chip Presses",
+		"briquettPress": "Briquetting Presses",
 		"metals": "Metals",
 		"plastics": "Plastics",
 		"styrofoam": "Styrofoam",
@@ -51,7 +51,9 @@
 		"values": "Values",
 		"history": "History",
 		"sustainability": "Sustainability",
-		"brochures": "Brochures",
+		"codeOfConduct": "Code of Conduct",
+		"brochures": "Downlaods",
+		"initiative": "Unsolicited application",
 
 		"adhesives": "Adhesives",
 		"cncAccessories": "CNC Accessories",
@@ -73,15 +75,15 @@
 		"modelMaking": "Model Making",
 		"plasticIndustry": "Plastic Industry",
 		"concreteIndustry": "Concrete Industry",
-		"advertisingTechnology": "Advertising Technology",
+		"moldMaking": "Mold making",
 		"aerospace": "Aerospace",
-		"art": "Art",
+		"creative": "Creative",
 		"career": "Career",
 		"jobPosting": "Job Openings",
 		"news": "News",
 		"userStories": "Customer Stories",
 		"references": "References",
-		"fairs": "Trade Shows"
+		"fairs": "Fairs"
 	},
 
 	"followUs": "Follow us on our Socials!",
@@ -95,6 +97,8 @@
 	"yourMessage": "Your Message",
 
 	"yourContact": "Your contact person:",
+
+	"address": "Adress",
 
 	"productDataSheet": {
 		"designation": "Designation",
@@ -148,6 +152,13 @@
 	"saws": "Saws",
 	"grinding_machines": "Grinding Machines",
 	"other_machines": "Other Machines",
+
+	"title": "Title",
+	"description": "Description",
+	"file": "File",
+	"details": "Details",
+	"additionalImages": "Additional Images",
+	"technicalSpecifications": "Technical Specifications",
 
 	"home": {
 		"title": "Homepage",
@@ -578,5 +589,17 @@
 		"lösung": "Our Solutions",
 		"links": "Maschines",
 		"rechts": "Additional equipment"
+	},
+	"empty": {
+		"noItems": "Currently no items available",
+		"noResults": "No results found",
+		"noContent": "No content available",
+		"noMachines": "Currently no machines available",
+		"noBrochures": "Currently no brochures available",
+		"noDownloads": "Currently no downloads available",
+		"noFairs": "Currently no fairs available",
+		"noNews": "Currently no news available",
+		"noEmployees": "Currently no employees available",
+		"noTestimonials": "Currently no testimonials available"
 	}
 }

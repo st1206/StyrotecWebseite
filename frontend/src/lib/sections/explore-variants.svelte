@@ -1,12 +1,13 @@
 <script lang="ts">
-	import * as Card from '$lib/components/ui/card';
 	import * as Accordion from '$lib/components/ui/accordion';
-	import { ScrollArea } from '$lib/components/ui/scroll-area';
-	import BlurFade from '$lib/components/blur-fade.svelte';
+	import * as Card from '$lib/components/ui/card';
+	import type { ImageAsset } from '$lib/types/cmsTypes/image-type';
+	import { handleAccordionViewport } from '$lib/utils';
+	import { getImageAltText, getOptimizedImageUrl } from '$lib/utils/image';
+	import { SafeData } from '$lib/utils/validation';
 	import { innerWidth } from 'svelte/reactivity/window';
-	import type { ImageAsset } from '$lib/cmsTypes/image-type';
-	import { SafeData } from '$lib/validation';
-	import { getOptimizedImageUrl, getImageAltText } from '$lib/image';
+	import { _ } from 'svelte-i18n';
+	import { Icons } from '$lib/assets/icons';
 
 	let data: {
 		sectionTitle?: string;
@@ -28,7 +29,13 @@
 		accordionItems: Array.isArray(v?.accordionItems) ? v.accordionItems : []
 	}));
 
-	let accordionHeight: number | null = $state(280);
+	const FIXED_ACCORDION_HEIGHT = 280;
+	const scrollAreaHeight = $derived(
+		(innerWidth?.current ?? 0) < 1440 ? 'auto' : `${FIXED_ACCORDION_HEIGHT}px`
+	);
+
+	// needed viewport change
+	let scrollableDivs: (HTMLDivElement | null)[] = $state([]);
 </script>
 
 <section class="mx-2 mb-32 mt-12 sm:container sm:mx-auto lg:mt-28 xl:my-36">
@@ -38,70 +45,87 @@
 
 	<div class="grid grid-cols-1 justify-center gap-20 md:grid-cols-2 xl:mx-10 xl:grid-cols-1">
 		{#each variants || [] as variant, i}
-			<BlurFade once={true} delay={0.1 + i * 0.1} duration={0.3}>
-				<Card.Root
-					class="bg-foreground 
+			<Card.Root
+				class="bg-foreground 
 						w-full
 						overflow-hidden
 						py-8 shadow-[5px_5px_0_#f6a313]
 						transition
 						duration-500
-						hover:shadow-[10px_10px_0_#f6a313]
+						hover:shadow-[8px_8px_0_#f6a313]
 						focus:outline-none
 						xl:-skew-x-[10deg]
 						"
-				>
-					<div
-						class="grid grid-cols-1 items-center gap-8 xl:skew-x-[10deg] xl:grid-cols-5 xl:px-24"
-					>
-						{#if variant.image}
-							<img
-								class="col-span-2 mx-auto h-[350px] object-contain xl:col-span-2"
-								src={getOptimizedImageUrl(variant.image)}
-								alt={getImageAltText(variant.image, variant.title)}
-							/>
-						{/if}
-						<div class="col-span-2 flex w-full flex-col xl:col-span-3">
-							<Card.Header class="pt-0">
-								<Card.Title class="text-center">
-									<h3 class="text-secondary font-sans text-3xl font-bold xl:text-4xl">
-										{variant.title}
-									</h3>
-								</Card.Title>
-							</Card.Header>
+			>
+				<div class="grid grid-cols-1 items-center gap-8 xl:skew-x-[10deg] xl:grid-cols-5 xl:px-24">
+					{#if variant.image}
+						<img
+							class="col-span-2 mx-auto h-[350px] object-contain px-4 xl:col-span-2"
+							src={getOptimizedImageUrl(variant.image)}
+							alt={getImageAltText(variant.image, variant.title)}
+						/>
+					{/if}
+					<div class="col-span-2 flex w-full flex-col xl:col-span-3">
+						<Card.Header class="pt-0">
+							<Card.Title class="text-center">
+								<h3 class="text-secondary font-sans text-3xl font-bold xl:text-4xl">
+									{variant.title}
+								</h3>
+							</Card.Title>
+						</Card.Header>
 
-							<div>
-								<Card.Content>
-									<ScrollArea
-										class="w-full pr-2"
-										style="height: {(innerWidth?.current ?? 0) < 1440
-											? 'auto'
-											: accordionHeight + 'px'}"
+						<div>
+							<Card.Content>
+								<div
+									bind:this={scrollableDivs[i]}
+									class="w-full overflow-y-auto pr-2"
+									style="height: {scrollAreaHeight}"
+								>
+									<Accordion.Root
+										type="single"
+										class="flex w-full flex-col gap-4"
+										onValueChange={(value) =>
+											value && handleAccordionViewport(i, value, scrollableDivs, 'nearest')}
 									>
-										<Accordion.Root type="single" class="flex w-full flex-col gap-4">
-											{#each variant.accordionItems as item, j}
-												<Accordion.Item value="item-{j + 1}">
-													<Accordion.Trigger class="text-secondary font-sans font-medium">
-														{item.title}
-													</Accordion.Trigger>
-													<Accordion.Content class="text-secondary bg-secondary/5">
-														{#each item.accordionItemLines as line, k}
-															<div class="flex justify-between">
-																<span>{line.label}</span>
-																<span>{line.value}</span>
-															</div>
-														{/each}
-													</Accordion.Content>
-												</Accordion.Item>
-											{/each}
-										</Accordion.Root>
-									</ScrollArea>
-								</Card.Content>
-							</div>
+										{#each variant.accordionItems as item, j}
+											<Accordion.Item value={`item-${i}-${j}`} data-value={`item-${i}-${j}`}>
+												<Accordion.Trigger class="text-secondary font-sans font-medium">
+													{item.title}
+												</Accordion.Trigger>
+												<Accordion.Content class="bg-secondary/5 text-secondary">
+													{#each item.accordionItemLines as line, k}
+														<div class="flex justify-between">
+															<span>{line.label}</span>
+															<span>{line.value}</span>
+														</div>
+													{:else}
+														<div class="flex items-center justify-center py-4 text-muted-foreground">
+															<Icons.bag class="h-6 w-6 mr-2" />
+															<span class="text-sm">{$_('empty.noItems')}</span>
+														</div>
+													{/each}
+												</Accordion.Content>
+											</Accordion.Item>
+										{:else}
+											<div class="flex items-center justify-center py-8 text-muted-foreground">
+												<Icons.bag class="h-8 w-8 mr-3" />
+												<span>{$_('empty.noItems')}</span>
+											</div>
+										{/each}
+									</Accordion.Root>
+								</div>
+							</Card.Content>
 						</div>
 					</div>
-				</Card.Root>
-			</BlurFade>
+				</div>
+			</Card.Root>
+		{:else}
+			<div class="col-span-full flex flex-col items-center justify-center py-12 text-center">
+				<Icons.bag class="h-12 w-12 text-muted-foreground mb-4" />
+				<h3 class="text-lg font-medium text-foreground mb-2">
+					{$_('empty.noItems')}
+				</h3>
+			</div>
 		{/each}
 	</div>
 </section>

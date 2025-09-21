@@ -279,8 +279,11 @@
 
 	<div class="my-28 max-h-[70vh] pr-2">
 		{#if searchValue.trim() !== '' && !isLoading && algoliaResponseResults.length === 0}
-			<div class="text-secondary text-center text-lg">
-				Keine Ergebnisse für "{searchValue}" gefunden.
+			<div class="flex flex-col items-center justify-center py-8 text-center">
+				<Icons.search class="h-12 w-12 text-muted-foreground mb-4" />
+				<div class="text-secondary text-lg">
+					{$_('empty.noResults')} "{searchValue}"
+				</div>
 			</div>
 		{/if}
 
@@ -324,9 +327,21 @@
 											{/if}
 										</div>
 									</article>
+								{:else}
+									<div class="flex items-center justify-center py-4 text-muted-foreground">
+										<Icons.search class="h-6 w-6 mr-2" />
+										<span class="text-sm">{$_('empty.noResults')}</span>
+									</div>
 								{/each}
 							</div>
 						</section>
+					{:else}
+						<div class="flex flex-col items-center justify-center py-8 text-center">
+							<Icons.search class="h-12 w-12 text-muted-foreground mb-4" />
+							<div class="text-secondary text-lg">
+								{$_('empty.noResults')}
+							</div>
+						</div>
 					{/each}
 					<a
 						target="_blank"

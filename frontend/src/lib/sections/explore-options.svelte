@@ -1,17 +1,16 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { PUBLIC_BACKEND_URL } from '$env/static/public';
-	import BlurFade from '$lib/components/blur-fade.svelte';
 	import * as Accordion from '$lib/components/ui/accordion';
 	import * as Card from '$lib/components/ui/card';
-	import { cn } from '$lib/utils';
+	import { cn, handleAccordionViewport } from '$lib/utils';
 	import { onMount, tick } from 'svelte';
 	import { SvelteMap } from 'svelte/reactivity';
 	import { innerWidth } from 'svelte/reactivity/window';
 	import * as Table from '$lib/components/ui/table';
-	import type { ImageAsset } from '$lib/cmsTypes/image-type';
-	import { SafeData } from '$lib/validation';
-	import { optimizeImageUrl, handleImageError } from '$lib/image';
+	import type { ImageAsset } from '$lib/types/cmsTypes/image-type';
+	import { SafeData } from '$lib/utils/validation';
+	import { optimizeImageUrl, handleImageError } from '$lib/utils/image';
 	import { Icons } from '$lib/assets/icons';
 	import { _ } from 'svelte-i18n';
 
@@ -25,6 +24,7 @@
 			description: string;
 			image: ImageAsset | null;
 			sortOrder: number;
+			isImageTransparent: boolean;
 		}[];
 		sortOrder: number;
 	};
@@ -51,7 +51,10 @@
 	const overlayHeightsMap = new SvelteMap<string, number[]>([]);
 	let overlayHeights = $state<number[]>([]);
 
-	async function updateOverlayHeights() {
+	// needed viewport change
+	let accordionDivs: (HTMLDivElement | null)[] = $state([]);
+
+	async function updateOverlayHeights(value?: string) {
 		await tick();
 		const currentHeights = overlayHeightsMap.get(page.url.pathname) ?? [];
 		let needsUpdate = false;
@@ -66,6 +69,11 @@
 		if (needsUpdate) {
 			overlayHeightsMap.set(page.url.pathname, [...currentHeights]);
 		}
+
+		if (!value) {
+			return;
+		}
+		handleAccordionViewport(0, value, accordionDivs);
 	}
 
 	$effect(() => {
@@ -119,7 +127,8 @@
 									subtitle: itemSafe.getString('subtitle'),
 									description: itemSafe.getString('description'),
 									image: itemSafe.getObject<ImageAsset>('image'),
-									sortOrder: itemSafe.getNumber('sortOrder')
+									sortOrder: itemSafe.getNumber('sortOrder'),
+									isImageTransparent: itemSafe.getBoolean('isImageTransparent') || true
 								}
 							];
 						})
@@ -175,17 +184,17 @@
 		{/if}
 
 		<div class="flex flex-col gap-20 px-2 sm:container xl:px-48">
-			<Accordion.Root
-				type="multiple"
-				value={['item-1']}
-				class="flex w-full flex-col gap-4"
-				onValueChange={updateOverlayHeights}
-			>
-				{#each sortedBlocks as block, i}
-					{#if block.__component === 'partial-components.accordion'}
-						{@const component = block}
-						<BlurFade once={true} delay={0.1 + i * 0.1} duration={0.2}>
-							<Accordion.Item value={`item-${i + 1}`}>
+			<div bind:this={accordionDivs[0]}>
+				<Accordion.Root
+					type="single"
+					value={'item-1'}
+					class="flex w-full flex-col gap-4"
+					onValueChange={(value) => updateOverlayHeights(value)}
+				>
+					{#each sortedBlocks as block, i}
+						{#if block.__component === 'partial-components.accordion'}
+							{@const component = block}
+							<Accordion.Item value={`item-${i + 1}`} data-value={`item-${i + 1}`}>
 								<Accordion.Trigger class="text-secondary font-sans font-medium">
 									<h4>{component.title}</h4>
 								</Accordion.Trigger>
@@ -201,7 +210,11 @@
 														)}
 														{#if imageUrl}
 															<img
-																class="h-[260px] w-full object-contain"
+																class={cn(
+																	item.isImageTransparent
+																		? 'h-[260px] w-full object-contain'
+																		: 'h-[260px] w-full object-cover'
+																)}
 																src={imageUrl}
 																alt={item.image?.alternativeText || item.title}
 																style="display: block;"
@@ -224,10 +237,11 @@
 														<Card.Header class="mt-12 p-0">
 															<Card.Title
 																class={cn(
-																	'bg-secondary/10 w-full',
-																	item.title.length > 15
-																		? '[clip-path:polygon(0%_0%,70%_0%,100%_100%,0%_100%)]'
-																		: '[clip-path:polygon(0%_0%,60%_0%,80%_100%,0%_100%)]'
+																	item.isImageTransparent && imageUrl
+																		? item.title?.length > 15
+																			? '[clip-path:polygon(0%_0%,70%_0%,100%_100%,0%_100%)]'
+																			: '[clip-path:polygon(0%_0%,60%_0%,80%_100%,0%_100%)]'
+																		: ''
 																)}
 															>
 																<h3 class="text-secondary p-4 font-sans font-bold">
@@ -237,7 +251,11 @@
 														</Card.Header>
 
 														<Card.Content
-															class={cn('bg-secondary/10 px-4', item.subtitle ? 'pt-4' : '')}
+															class={cn(
+																imageUrl ? 'bg-secondary/10' : '',
+																item.isImageTransparent ? 'pt-4' : '',
+																'p-4'
+															)}
 															style={`height: ${(innerWidth.current ?? 0) < 976 ? 'auto' : (overlayHeights[i] ?? 0) - 364 + 'px'}`}
 														>
 															{#if item.subtitle}
@@ -263,11 +281,9 @@
 									{/if}
 								</Accordion.Content>
 							</Accordion.Item>
-						</BlurFade>
-					{:else if block.__component === 'partial-components.table'}
-						{@const component = block}
-						<BlurFade once={true} delay={0.1 + i * 0.1} duration={0.2}>
-							<Accordion.Item value={`item-${i + 1}`}>
+						{:else if block.__component === 'partial-components.table'}
+							{@const component = block}
+							<Accordion.Item value={`item-${i + 1}`} data-value={`item-${i + 1}`}>
 								<Accordion.Trigger class="text-secondary font-sans font-medium">
 									<h4>{component.title}</h4>
 								</Accordion.Trigger>
@@ -313,10 +329,10 @@
 									{/if}
 								</Accordion.Content>
 							</Accordion.Item>
-						</BlurFade>
-					{/if}
-				{/each}
-			</Accordion.Root>
+						{/if}
+					{/each}
+				</Accordion.Root>
+			</div>
 		</div>
 	{:else}
 		<div class="flex flex-col items-center justify-center py-16 text-center">

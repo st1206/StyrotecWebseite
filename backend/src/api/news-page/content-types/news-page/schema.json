@@ -27,7 +27,7 @@
       "component": "page-components.page-header",
       "required": true
     },
-    "collectionTypeCardsTwo": {
+    "collectionTypeComponentsOne": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
@@ -35,7 +35,7 @@
           "localized": true
         }
       },
-      "component": "page-components.collection-type-cards"
+      "component": "page-components.collection-type-components"
     },
     "pageHeader": {
       "type": "component",
@@ -48,7 +48,7 @@
       "component": "page-components.page-header",
       "required": true
     },
-    "collectionTypeCards": {
+    "collectionTypeComponents": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
@@ -56,7 +56,7 @@
           "localized": true
         }
       },
-      "component": "page-components.collection-type-cards",
+      "component": "page-components.collection-type-components",
       "required": true
     },
     "seo": {
@@ -79,6 +79,17 @@
         }
       },
       "component": "page-components.hero-carousel",
+      "required": true
+    },
+    "collectionTypeComponentsTwo": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "page-components.collection-type-components",
       "required": true
     }
   }

@@ -1,12 +1,13 @@
 import { error } from '@sveltejs/kit';
-import type { AttributesOf } from '$lib/cmsTypes/types';
+import type { AttributesOf } from '$lib/types/cmsTypes/types';
 import { pages, type CMSTypeMap, type Lang, type SlugKey } from '$lib/config/pages';
 import { loadCMSData, CMSFetchError } from '$lib/server/utils';
 import { contactFormSchema } from '$lib/models/contact-form-schema';
 import { zod } from 'sveltekit-superforms/adapters';
 import { superValidate } from 'sveltekit-superforms';
+import { VERCEL_ENV } from '$env/static/private';
 
-export const prerender = true;
+export const prerender = VERCEL_ENV !== 'production' ? false : true;
 
 export async function entries() {
 	const routes = [];
@@ -92,14 +93,14 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 
 			// Define an array of keys to check for collection types
 			const collectionTypeKeys = [
-				'collectionTypeCards',
-				'collectionTypeCardsTwo',
-				'collectionTypeCardsThree'
+				'collectionTypeComponents',
+				'collectionTypeComponentsOne',
+				'collectionTypeComponentsTwo',
+				'collectionTypeComponentsThree'
 			];
 
 			// Only process collections that actually exist to reduce API calls
 			const existingCollections = collectionTypeKeys.filter((key) => cmsData[key]);
-
 			if (existingCollections.length > 0) {
 				// Use Promise.all to fetch all collections in parallel
 				const collectionPromises = existingCollections.map(async (key) => {
@@ -128,9 +129,12 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 					sections: [],
 					// Add any other required fields based on your CMS structure
 					...Object.fromEntries(
-						['collectionTypeCards', 'collectionTypeCardsTwo', 'collectionTypeCardsThree'].map(
-							(key) => [key, null]
-						)
+						[
+							'collectionTypeComponents',
+							'collectionTypeComponentsOne',
+							'collectionTypeComponentsTwo',
+							'collectionTypeComponentsThree'
+						].map((key) => [key, null])
 					)
 				};
 			} else {
@@ -156,6 +160,7 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 
 		// 2. Find the specific category page configuration
 		const categoryPage = Object.values(pages).find((page) => page[slugKey] === categoryPath);
+
 		if (!categoryPage) {
 			console.error(`Category page config not found for path: ${categoryPath}`);
 			error(404, `Content category not found`);
@@ -182,7 +187,6 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 		// 4. Fetch data for the template page (the shell/layout)
 		try {
 			cmsData = await getCMSDataForPage(detailPageTemplate, lang);
-			console.log(cmsData);
 
 			// 5. Use the category page's enSlug to get the collection API slug
 			const collectionApiSlug = categoryPage.enSlug.split('/').pop();
@@ -248,6 +252,8 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 		error(404, 'Page not found');
 	}
 
+	console.log(cmsData);
+
 	return {
 		lang,
 		pageContent: {
@@ -257,3 +263,58 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 		}
 	};
 };
+
+// export const actions: Actions = {
+// 	default: async ({ request }) => {
+// 		const form = await superValidate(request, zod(contactFormSchema));
+
+// 		if (!form.valid) {
+// 			return fail(400, {
+// 				form
+// 			});
+// 		}
+
+// 		const transportData = {
+// 			host: EMAIL_HOST,
+// 			port: 587,
+// 			secure: false, // A new SMTP connection is created for every message
+// 			auth: {
+// 				user: EMAIL_ADRESS,
+// 				pass: EMAIL_PASSWORD
+// 			}
+// 		};
+
+// 		const transporter = nodemailer.createTransport(transportData);
+
+// 		const mailOptions = {
+// 			from: EMAIL_ADRESS,
+// 			to: form.data.mailToContactPerson,
+// 			subject: 'Kontaktanfrage',
+// 			text: getContactFormText(form.data),
+// 			html: getContactFormTemplate(form.data),
+// 			replyTo: form.data.email
+// 		};
+
+// 		try {
+// 			await transporter.verify();
+// 			console.log('Server is ready to take messages');
+// 		} catch (err) {
+// 			console.error('Verification failed', err);
+// 			return message(form, 'SMTP server not reachable', {
+// 				status: 403
+// 			});
+// 		}
+
+// 		try {
+// 			const info = await transporter.sendMail(mailOptions);
+
+// 			console.log('Message sent: %s', info.messageId);
+// 			return message(form, 'success');
+// 		} catch (err: unknown) {
+// 			console.error('Error while sending mail', err);
+// 			return message(form, err, {
+// 				status: 403
+// 			});
+// 		}
+// 	}
+// };

@@ -35,9 +35,15 @@ import type {
 	ApiRawMaterialPageRawMaterialPage,
 	ApiAdhesivePageAdhesivePage,
 	ApiCareerCareer
-} from '$lib/cmsTypes/contentTypes';
+} from '$lib/types/cmsTypes/contentTypes';
 import { buildPopulateQuery } from './apiParamsBuilder';
 import type { TypedSectionConfig } from '$lib/types/sections';
+import type {
+	ApiInstockMachinesDetailsPageInstockMachinesDetailsPage,
+	ApiShankRaspCutterPageShankRaspCutterPage,
+	ApiSpecialMillingCutterPageSpecialMillingCutterPage,
+	ApiStyrospeedHsPageStyrospeedHsPage
+} from '$lib/cmsTypes/contentTypes';
 
 // The mapping interface uses keys that match your cmsTypeKey values.
 export interface CMSTypeMap {
@@ -55,6 +61,9 @@ export interface CMSTypeMap {
 	styrofoamPage: ApiStyrofoamPageStyrofoamPage;
 	industriesPage: ApiIndustriesPageIndustriesPage;
 	millingToolsPage: ApiMillingToolsPageMillingToolsPage;
+	styrospeedPage: ApiStyrospeedHsPageStyrospeedHsPage;
+	shankRaspPage: ApiShankRaspCutterPageShankRaspCutterPage;
+	specialCutterPage: ApiSpecialMillingCutterPageSpecialMillingCutterPage;
 	hollowMillingSpindlePage: ApiHollowMillingSpindlePageHollowMillingSpindlePage;
 	suctionSystemPage: ApiSuctionSystemPageSuctionSystemPage;
 	shredderPage: ApiShredderPageShredderPage;
@@ -77,6 +86,7 @@ export interface CMSTypeMap {
 	legalNotice: ApiLegalNoticePageLegalNoticePage;
 	newsPage: ApiNewsPageNewsPage;
 	career: ApiCareerCareer;
+	instockPageDetails: ApiInstockMachinesDetailsPageInstockMachinesDetailsPage;
 }
 
 // Define the supported languages
@@ -171,6 +181,7 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'heroDualImage' },
 			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'exploreVariants' },
+			{ sectionKey: 'defaultContentOne' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]
@@ -182,7 +193,9 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'plastics-page',
 		sections: [
 			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'exploreVariants' },
+			{ sectionKey: 'defaultContentOne' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]
@@ -196,11 +209,11 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'heroDualImage' },
 			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'exploreVariants' },
+			{ sectionKey: 'defaultContentOne' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]
 	},
-
 	styrofoamProcessing: {
 		deSlug: 'produkte/styroporbearbeitung',
 		enSlug: 'products/styrofoam-processing',
@@ -215,12 +228,24 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'seo' }
 		]
 	},
-
 	millingTools: {
-		deSlug: 'produkte/styroporbearbeitung/fräswerkzeuge',
+		deSlug: 'produkte/styroporbearbeitung/fraeswerkzeuge',
 		enSlug: 'products/styrofoam-processing/milling-tools',
 		cmsTypeKey: 'millingToolsPage',
 		cmsApiSlug: 'milling-tools-page',
+		sections: [
+			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'defaultContent' },
+			{ sectionKey: 'exploreMore' },
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
+		]
+	},
+	styrospeed: {
+		deSlug: 'produkte/styroporbearbeitung/fraeswerkzeuge/styrospeed-hs',
+		enSlug: 'products/styrofoam-processing/milling-tools/styrospeed-hs',
+		cmsTypeKey: 'styrospeedPage',
+		cmsApiSlug: 'styrospeed-hs-page',
 		sections: [
 			{ sectionKey: 'heroDualImage' },
 			{ sectionKey: 'defaultContent' },
@@ -228,20 +253,43 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'seo' }
 		]
 	},
-
+	shankRasp: {
+		deSlug: 'produkte/styroporbearbeitung/fraeswerkzeuge/zylinderschaft-raspelfraeser',
+		enSlug: 'products/styrofoam-processing/milling-tools/shank-rasp-cutters',
+		cmsTypeKey: 'shankRaspPage',
+		cmsApiSlug: 'shank-rasp-cutter-page',
+		sections: [
+			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'defaultContent' },
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
+		]
+	},
+	specialCutter: {
+		deSlug: 'produkte/styroporbearbeitung/fraeswerkzeuge/spezialfraeser',
+		enSlug: 'products/styrofoam-processing/milling-tools/special-cutters',
+		cmsTypeKey: 'specialCutterPage',
+		cmsApiSlug: 'special-milling-cutter-page',
+		sections: [
+			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'defaultContent' },
+			{ sectionKey: 'contactForm' },
+			{ sectionKey: 'seo' }
+		]
+	},
 	hollowMillingSpindles: {
-		deSlug: 'produkte/styroporbearbeitung/hohlfrässpindeln',
+		deSlug: 'produkte/styroporbearbeitung/hohlfraesspindeln',
 		enSlug: 'products/styrofoam-processing/hollow-milling-spindle',
 		cmsTypeKey: 'hollowMillingSpindlePage',
 		cmsApiSlug: 'hollow-milling-spindle-page',
 		sections: [
 			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'exploreVariants' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]
 	},
-
 	suctionSystems: {
 		deSlug: 'produkte/styroporbearbeitung/absaugungen',
 		enSlug: 'products/styrofoam-processing/suction-systems',
@@ -249,12 +297,12 @@ const pagesConfig: Record<string, PageContent> = {
 		cmsApiSlug: 'suction-system-page',
 		sections: [
 			{ sectionKey: 'heroDualImage' },
+			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'exploreVariants' },
 			{ sectionKey: 'contactForm' },
 			{ sectionKey: 'seo' }
 		]
 	},
-
 	shredder: {
 		deSlug: 'produkte/styroporbearbeitung/zerkleinerer',
 		enSlug: 'products/styrofoam-processing/shredder',
@@ -267,7 +315,6 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'seo' }
 		]
 	},
-
 	presses: {
 		deSlug: 'produkte/brikettierpressen/styropor',
 		enSlug: 'products/briquetting-press/styrofoam',
@@ -281,7 +328,6 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'seo' }
 		]
 	},
-
 	rawMaterial: {
 		deSlug: 'produkte/styroporbearbeitung/rohmaterial',
 		enSlug: 'products/styrofoam-processing/raw-materials',
@@ -294,7 +340,6 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'seo' }
 		]
 	},
-
 	adhesives: {
 		deSlug: 'produkte/styroporbearbeitung/kleber',
 		enSlug: 'products/styrofoam-processing/adhesive',
@@ -307,7 +352,6 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'seo' }
 		]
 	},
-
 	gantryMachines: {
 		deSlug: 'produkte/portalfraesmaschinen',
 		enSlug: 'products/gantry-machines',
@@ -322,7 +366,6 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'seo' }
 		]
 	},
-
 	fs10: {
 		deSlug: 'produkte/portalfraesmaschinen/fs10',
 		enSlug: 'products/gantry-machines/fs10',
@@ -342,7 +385,6 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'seo' }
 		]
 	},
-
 	fs15: {
 		deSlug: 'produkte/portalfraesmaschinen/fs15',
 		enSlug: 'products/gantry-machines/fs15',
@@ -362,7 +404,6 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'seo' }
 		]
 	},
-
 	fs20: {
 		deSlug: 'produkte/portalfraesmaschinen/fs20',
 		enSlug: 'products/gantry-machines/fs20',
@@ -382,7 +423,6 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'seo' }
 		]
 	},
-
 	hybrid: {
 		deSlug: 'produkte/portalfraesmaschinen/hybrid',
 		enSlug: 'products/gantry-machines/hybrid',
@@ -405,7 +445,7 @@ const pagesConfig: Record<string, PageContent> = {
 	},
 	instock: {
 		deSlug: 'produkte/portalfraesmaschinen/vorratsmaschinen',
-		enSlug: 'products/gantry-machines/instock',
+		enSlug: 'products/gantry-machines/instock-machines',
 		cmsTypeKey: 'instockPage',
 		cmsApiSlug: 'instock-page',
 		sections: [
@@ -413,7 +453,7 @@ const pagesConfig: Record<string, PageContent> = {
 				sectionKey: 'heroDualImage'
 			},
 			{
-				sectionKey: 'collectionTypeCards'
+				sectionKey: 'collectionTypeComponents'
 			},
 			{ sectionKey: 'contactForm' },
 			{
@@ -421,7 +461,17 @@ const pagesConfig: Record<string, PageContent> = {
 			}
 		]
 	},
-
+	instockMachinesDetails: {
+		deSlug: 'produkte/portalfraesmaschinen/vorratsmaschinen/{id}',
+		enSlug: 'products/gantry-machines/instock-machines/{id}',
+		cmsTypeKey: 'instockPageDetails',
+		cmsApiSlug: 'instock-machines-details-page',
+		sections: [
+			{
+				sectionKey: 'usedMachineDetails'
+			}
+		]
+	},
 	industries: {
 		deSlug: 'branchen',
 		enSlug: 'industries',
@@ -437,7 +487,6 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'seo' }
 		]
 	},
-
 	aboutUs: {
 		deSlug: 'unternehmen/ueber-uns',
 		enSlug: 'company/about-us',
@@ -456,10 +505,18 @@ const pagesConfig: Record<string, PageContent> = {
 			{
 				sectionKey: 'defaultCardsTwo'
 			},
+			{
+				sectionKey: 'defaultContentOne'
+			},
+			{
+				sectionKey: 'pageHeader'
+			},
+			{
+				sectionKey: 'defaultContent'
+			},
 			{ sectionKey: 'seo' }
 		]
 	},
-
 	usedMachines: {
 		deSlug: 'produkte/gebrauchtmaschinen',
 		enSlug: 'products/used-machines',
@@ -476,7 +533,6 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'seo' }
 		]
 	},
-
 	usedMachinesDetails: {
 		deSlug: 'produkte/gebrauchtmaschinen/{slug}/{id}',
 		enSlug: 'products/used-machines/{slug}/{id}',
@@ -488,7 +544,6 @@ const pagesConfig: Record<string, PageContent> = {
 			}
 		]
 	},
-
 	cncMills: {
 		deSlug: 'produkte/gebrauchtmaschinen/cnc-fraesen',
 		enSlug: 'products/used-machines/cnc-mills',
@@ -499,17 +554,16 @@ const pagesConfig: Record<string, PageContent> = {
 				sectionKey: 'heroDualImage'
 			},
 			{
-				sectionKey: 'collectionTypeCards'
+				sectionKey: 'collectionTypeComponents'
 			},
 			{
 				sectionKey: 'seo'
 			}
 		]
 	},
-
 	modelConstructionMachines: {
 		deSlug: 'produkte/gebrauchtmaschinen/modellbaumaschinen',
-		enSlug: 'produkte/gebrauchtmaschinen/model-construction-machines',
+		enSlug: 'products/used-machines/model-construction-machines',
 		cmsTypeKey: 'modelConstructionMachinesPage',
 		cmsApiSlug: 'model-construction-machines-page',
 		sections: [
@@ -517,7 +571,7 @@ const pagesConfig: Record<string, PageContent> = {
 				sectionKey: 'heroDualImage'
 			},
 			{
-				sectionKey: 'defaultCards'
+				sectionKey: 'exploreMore'
 			},
 			{
 				sectionKey: 'seo'
@@ -527,10 +581,9 @@ const pagesConfig: Record<string, PageContent> = {
 			}
 		]
 	},
-
 	woodworkingMachines: {
 		deSlug: 'produkte/gebrauchtmaschinen/modellbaumaschinen',
-		enSlug: 'produkte/gebrauchtmaschinen/model-construction-machines',
+		enSlug: 'products/used-machines/model-construction-machines',
 		cmsTypeKey: 'modelConstructionMachinesPage',
 		cmsApiSlug: 'model-construction-machines-page',
 		sections: [
@@ -538,7 +591,7 @@ const pagesConfig: Record<string, PageContent> = {
 				sectionKey: 'heroDualImage'
 			},
 			{
-				sectionKey: 'defaultCards'
+				sectionKey: 'exploreMore'
 			},
 			{
 				sectionKey: 'seo'
@@ -548,18 +601,17 @@ const pagesConfig: Record<string, PageContent> = {
 			}
 		]
 	},
-
 	drillingMachines: {
 		deSlug: 'produkte/gebrauchtmaschinen/modellbaumaschinen/bohrmaschinen',
-		enSlug: 'produkte/gebrauchtmaschinen/model-construction-machines/drilling-machines',
+		enSlug: 'products/used-machines/model-construction-machines/drilling-machines',
 		cmsTypeKey: 'drillingMachinesPage',
 		cmsApiSlug: 'drilling-machines-page',
 		sections: [
 			{
-				sectionKey: 'heroDualImage'
+				sectionKey: 'pageHeader'
 			},
 			{
-				sectionKey: 'collectionTypeCards'
+				sectionKey: 'collectionTypeComponents'
 			},
 			{
 				sectionKey: 'seo'
@@ -569,18 +621,17 @@ const pagesConfig: Record<string, PageContent> = {
 			}
 		]
 	},
-
 	grindingMachines: {
 		deSlug: 'produkte/gebrauchtmaschinen/modellbaumaschinen/schleifmaschinen',
-		enSlug: 'produkte/gebrauchtmaschinen/model-construction-machines/grinding-machines',
+		enSlug: 'products/used-machines/model-construction-machines/grinding-machines',
 		cmsTypeKey: 'grindingMachinesPage',
 		cmsApiSlug: 'grinding-machines-page',
 		sections: [
 			{
-				sectionKey: 'heroDualImage'
+				sectionKey: 'pageHeader'
 			},
 			{
-				sectionKey: 'collectionTypeCards'
+				sectionKey: 'collectionTypeComponents'
 			},
 			{
 				sectionKey: 'seo'
@@ -590,18 +641,17 @@ const pagesConfig: Record<string, PageContent> = {
 			}
 		]
 	},
-
 	lathes: {
 		deSlug: 'produkte/gebrauchtmaschinen/modellbaumaschinen/drehmaschinen',
-		enSlug: 'produkte/gebrauchtmaschinen/model-construction-machines/lathes',
+		enSlug: 'products/used-machines/model-construction-machines/lathes',
 		cmsTypeKey: 'lathesPage',
 		cmsApiSlug: 'lathes-page',
 		sections: [
 			{
-				sectionKey: 'heroDualImage'
+				sectionKey: 'pageHeader'
 			},
 			{
-				sectionKey: 'collectionTypeCards'
+				sectionKey: 'collectionTypeComponents'
 			},
 			{
 				sectionKey: 'seo'
@@ -611,18 +661,17 @@ const pagesConfig: Record<string, PageContent> = {
 			}
 		]
 	},
-
 	millingMachines: {
-		deSlug: 'produkte/gebrauchtmaschinen/modellbaumaschinen/fräsmaschinen',
-		enSlug: 'produkte/gebrauchtmaschinen/model-construction-machines/milling-machines',
+		deSlug: 'produkte/gebrauchtmaschinen/modellbaumaschinen/fraesmaschinen',
+		enSlug: 'products/used-machines/model-construction-machines/milling-machines',
 		cmsTypeKey: 'millingMachinesPage',
 		cmsApiSlug: 'milling-machines-page',
 		sections: [
 			{
-				sectionKey: 'heroDualImage'
+				sectionKey: 'pageHeader'
 			},
 			{
-				sectionKey: 'collectionTypeCards'
+				sectionKey: 'collectionTypeComponents'
 			},
 			{
 				sectionKey: 'seo'
@@ -632,18 +681,17 @@ const pagesConfig: Record<string, PageContent> = {
 			}
 		]
 	},
-
 	saws: {
 		deSlug: 'produkte/gebrauchtmaschinen/modellbaumaschinen/saegen',
-		enSlug: 'produkte/gebrauchtmaschinen/model-construction-machines/saw-machines',
+		enSlug: 'products/used-machines/model-construction-machines/saw-machines',
 		cmsTypeKey: 'sawsPage',
 		cmsApiSlug: 'saws-page',
 		sections: [
 			{
-				sectionKey: 'heroDualImage'
+				sectionKey: 'pageHeader'
 			},
 			{
-				sectionKey: 'collectionTypeCards'
+				sectionKey: 'collectionTypeComponents'
 			},
 			{
 				sectionKey: 'seo'
@@ -653,7 +701,6 @@ const pagesConfig: Record<string, PageContent> = {
 			}
 		]
 	},
-
 	machineMaintenance: {
 		deSlug: 'dienstleistungen/maschinenerhaltung',
 		enSlug: 'services/machine-maintenance',
@@ -664,8 +711,8 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'heroTextImage' },
 			{ sectionKey: 'uspList' },
 			{ sectionKey: 'pageHeader' },
-			{ sectionKey: 'uspListOne' },
 			{ sectionKey: 'history' },
+			{ sectionKey: 'defaultContentThree' },
 			{ sectionKey: 'pageHeaderTwo' },
 			{ sectionKey: 'defaultContent' },
 			{ sectionKey: 'pageHeaderThree' },
@@ -676,7 +723,6 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'seo' }
 		]
 	},
-
 	machineModernization: {
 		deSlug: 'dienstleistungen/maschinenmodernisierung',
 		enSlug: 'services/machine-modernization',
@@ -694,7 +740,6 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'seo' }
 		]
 	},
-
 	machineMarketing: {
 		deSlug: 'dienstleistungen/maschinenvermarktung',
 		enSlug: 'services/machine-marketing',
@@ -714,7 +759,6 @@ const pagesConfig: Record<string, PageContent> = {
 			{ sectionKey: 'seo' }
 		]
 	},
-
 	news: {
 		deSlug: 'unternehmen/news',
 		enSlug: 'company/news',
@@ -724,22 +768,25 @@ const pagesConfig: Record<string, PageContent> = {
 			{
 				sectionKey: 'heroCarousel'
 			},
-			{
-				sectionKey: 'pageHeader'
-			},
-			{
-				sectionKey: 'collectionTypeCards'
-			},
+
 			{
 				sectionKey: 'pageHeaderTwo'
 			},
 			{
-				sectionKey: 'collectionTypeCardsTwo'
+				sectionKey: 'collectionTypeComponentsOne'
+			},
+			{
+				sectionKey: 'pageHeader'
+			},
+			{
+				sectionKey: 'collectionTypeComponents'
+			},
+			{
+				sectionKey: 'collectionTypeComponentsTwo'
 			},
 			{ sectionKey: 'seo' }
 		]
 	},
-
 	career: {
 		deSlug: 'unternehmen/karriere',
 		enSlug: 'company/career',
@@ -750,7 +797,13 @@ const pagesConfig: Record<string, PageContent> = {
 				sectionKey: 'heroCarousel'
 			},
 			{
-				sectionKey: 'collectionTypeCards'
+				sectionKey: 'pageHeader'
+			},
+			{
+				sectionKey: 'collectionTypeComponents'
+			},
+			{
+				sectionKey: 'pageHeaderTwo'
 			},
 			{
 				sectionKey: 'contactForm'

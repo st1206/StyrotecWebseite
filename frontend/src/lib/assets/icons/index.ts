@@ -16,7 +16,9 @@ import {
 	List,
 	LoaderCircle,
 	Mail,
+	MapPin,
 	Menu,
+	Phone,
 	Play,
 	Plus,
 	Search,
@@ -86,5 +88,7 @@ export const Icons = {
 	calendar: Calendar,
 	list: List,
 	table: Table,
-	settings: Settings
+	settings: Settings,
+	phone: Phone,
+	pin: MapPin
 };

@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_page_components_spacers",
+  "info": {
+    "displayName": "spacer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "height": {
+      "type": "enumeration",
+      "enum": [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl"
+      ],
+      "default": "md",
+      "required": true
+    },
+    "isDarkMode": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "withSeparatorLine": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}

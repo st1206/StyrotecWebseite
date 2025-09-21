@@ -4,6 +4,7 @@
 	import { locale } from 'svelte-i18n';
 	import CMSSection from '$lib/components/cms-section.svelte';
 	import { type PageData } from './$types';
+	import ContactPopover from '$lib/components/contact-popover.svelte';
 
 	let props = $props<{ data: PageData }>();
 
@@ -43,6 +44,13 @@
 				contactForm={props.data.pageContent.contactFormBuilder}
 			/>
 		{/each}
+		{#if props.data.pageContent.cmsData.contactForm}
+			<ContactPopover
+				name={props.data.pageContent.cmsData.contactForm.employee.name}
+				position={props.data.pageContent.cmsData.contactForm.employee.position}
+				picture={props.data.pageContent.cmsData.contactForm.employee.contactPicture}
+			/>
+		{/if}
 	{:else}
 		<p>Page not found</p>
 	{/if}

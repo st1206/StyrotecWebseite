@@ -1,11 +1,11 @@
 import { BACKEND_API_TOKEN } from '$env/static/private';
 import { PUBLIC_BACKEND_URL } from '$env/static/public';
-import type { AttributesOf } from '$lib/cmsTypes/types';
+import type { AttributesOf } from '$lib/types/cmsTypes/types';
 import { error } from '@sveltejs/kit';
 
 // Simple in-memory cache for CMS data (5 minute TTL)
 const cmsCache = new Map<string, { data: any; timestamp: number }>();
-const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
+const CACHE_TTL = import.meta.env.VERCEL_ENV === 'production' ? 5 * 60 * 1000 : 0; // 5 minutes
 
 export function getRequestHeaders(): Record<string, string> {
 	return {
@@ -77,7 +77,6 @@ export const loadCMSData = async <T>(
 ): Promise<AttributesOf<T>> => {
 	const config = { ...DEFAULT_RETRY_CONFIG, ...retryConfig };
 	const url = `${PUBLIC_BACKEND_URL}/api/${apiSlug}?${apiParams || 'populate=*'}&locale=${lang}`;
-
 	// Check cache first
 	const cacheKey = `${apiSlug}:${lang}:${apiParams || 'populate=*'}`;
 	const cached = cmsCache.get(cacheKey);

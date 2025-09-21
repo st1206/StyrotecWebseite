@@ -15,26 +15,30 @@ const populateBySection: Record<string, PopulateRule> = {
 	defaultContent: [
 		'defaultContent.tables.tableColumns.tableRows',
 		'defaultContent.accordions.accordionItems.image',
-		'defaultContent.images',
-		'defaultContent.image'
+		'defaultContent.imageCards.image',
+		'defaultContent.image',
+		'defaultContent.spacer'
 	],
 	defaultContentOne: [
 		'defaultContentOne.tables.tableColumns.tableRows',
 		'defaultContentOne.accordions.accordionItems.image',
-		'defaultContentOne.images',
-		'defaultContentOne.image'
+		'defaultContentOne.imageCards.image',
+		'defaultContentOne.image',
+		'defaultContent.spacer'
 	],
 	defaultContentTwo: [
 		'defaultContentTwo.tables.tableColumns.tableRows',
 		'defaultContentTwo.accordions.accordionItems.image',
-		'defaultContentTwo.images',
-		'defaultContentTwo.image'
+		'defaultContentTwo.imageCards.image',
+		'defaultContentTwo.image',
+		'defaultContent.spacer'
 	],
 	defaultContentThree: [
 		'defaultContentThree.tables.tableColumns.tableRows',
 		'defaultContentThree.accordions.accordionItems.image',
-		'defaultContentThree.images',
-		'defaultContentThree.image'
+		'defaultContentThree.imageCards.image',
+		'defaultContentThree.image',
+		'defaultContent.spacer'
 	],
 	pageHeader: ['pageHeader'],
 	pageHeaderTwo: ['pageHeaderTwo'],
@@ -44,11 +48,17 @@ const populateBySection: Record<string, PopulateRule> = {
 	history: ['history.historyEntries'],
 	defaultCards: ['defaultCards.cards.thumbnail', 'defaultCards.cards.redirectButtons'],
 	defaultCardsTwo: ['defaultCardsTwo.cards.thumbnail', 'defaultCardsTwo.cards.redirectButtons'],
-	collectionTypeCards: ['collectionTypeCards'],
-	collectionTypeCardsTwo: ['collectionTypeCardsTwo'],
-	collectionTypeCardsThree: ['collectionTypeCardsThree'],
+	collectionTypeComponents: ['collectionTypeComponents'],
+	collectionTypeComponentsOne: ['collectionTypeComponentsOne'],
+	collectionTypeComponentsTwo: ['collectionTypeComponentsTwo'],
+	collectionTypeComponentsThree: ['collectionTypeComponentsThree'],
 	contactForm: ['contactForm.employee.contactPicture'],
-	seo: ['seo']
+	seo: ['seo'],
+	spacer: ['spacer'],
+	spacerOne: ['spacer'],
+	spacerTwo: ['spacer'],
+	spacerThree: ['spacer'],
+	spacerFour: ['spacer']
 };
 
 export function buildPopulateQuery(sectionKeys: string[]): string {

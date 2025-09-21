@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "instock_machines_details_pages",
+  "info": {
+    "singularName": "instock-machines-details-page",
+    "pluralName": "instock-machines-details-pages",
+    "displayName": "Vorratsmaschinen-Details Seite"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "componentKey": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    }
+  }
+}

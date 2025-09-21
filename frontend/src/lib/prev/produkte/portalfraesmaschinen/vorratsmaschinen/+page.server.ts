@@ -1,7 +1,7 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
-import type { ApiVorratsmaschineVorratsmaschine } from '$lib/cmsTypes/contentTypes';
-import type { AttributesOf } from '$lib/cmsTypes/types';
+import type { ApiVorratsmaschineVorratsmaschine } from '$lib/types/cmsTypes/contentTypes';
+import type { AttributesOf } from '$lib/types/cmsTypes/types';
 import { PUBLIC_BACKEND_URL } from '$env/static/public';
 import { getRequestHeaders } from '$lib/server/utils';
 import { LANG_KEY } from '$lib/i18n';
