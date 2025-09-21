@@ -1,15 +1,13 @@
-import { error, type Actions } from '@sveltejs/kit';
+import { error } from '@sveltejs/kit';
 import type { AttributesOf } from '$lib/types/cmsTypes/types';
 import { pages, type CMSTypeMap, type Lang, type SlugKey } from '$lib/config/pages';
 import { loadCMSData, CMSFetchError } from '$lib/server/utils';
 import { contactFormSchema } from '$lib/models/contact-form-schema';
 import { zod } from 'sveltekit-superforms/adapters';
-import { fail, message, superValidate } from 'sveltekit-superforms';
-import { EMAIL_ADRESS, EMAIL_HOST, EMAIL_PASSWORD, VERCEL_ENV } from '$env/static/private';
-import { getContactFormTemplate, getContactFormText } from '$lib/server/email';
-import nodemailer from 'nodemailer';
+import { superValidate } from 'sveltekit-superforms';
+import { VERCEL_ENV } from '$env/static/private';
 
-export const prerender = VERCEL_ENV === 'development' ? false : true;
+export const prerender = VERCEL_ENV !== 'production' ? false : true;
 
 export async function entries() {
 	const routes = [];

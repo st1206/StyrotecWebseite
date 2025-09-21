@@ -6,6 +6,7 @@
 	import { PUBLIC_BACKEND_URL } from '$env/static/public';
 	import type { ImageAsset } from '$lib/types/cmsTypes/image-type';
 	import { page } from '$app/state';
+	import { browser } from '$app/environment';
 
 	type Props = {
 		name: string;
@@ -21,8 +22,13 @@
 		imageError = true;
 	}
 
-	const contactFormUrl = $derived(`${page.url.pathname}${page.url.search}#contact-form`);
+	let contactFormUrl = $state(`${page.url.pathname}#contact-form`);
 
+	$effect(() => {
+		if (browser) {
+			contactFormUrl = `${page.url.pathname}${page.url.search}#contact-form`;
+		}
+	});
 	let open = $state(false);
 </script>
 
