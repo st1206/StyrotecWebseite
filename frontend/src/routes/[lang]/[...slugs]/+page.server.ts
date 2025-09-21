@@ -11,7 +11,7 @@ export const prerender = VERCEL_ENV !== 'production' ? false : true;
 
 export async function entries() {
 	const routes = [];
-	const languages: Lang[] = ['de', 'en']; // Only prerender German pages for testing
+	const languages: Lang[] = ['de']; // Only prerender German pages for testing
 
 	// Generate routes for German pages only
 	for (const [pageKey, pageConfig] of Object.entries(pages)) {
