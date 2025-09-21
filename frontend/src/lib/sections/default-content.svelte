@@ -260,7 +260,7 @@
 					'prose prose-neutral lg:prose-lg max-w-5xl text-justify'
 				)}
 			>
-				{#if description.includes('<')}
+				{#if (description || '').includes('<')}
 					{@html description}
 				{:else}
 					<p>{description}</p>

@@ -19,7 +19,6 @@
 	import * as Breadcrumb from '$lib/components/ui/breadcrumb';
 	import * as Accordion from '$lib/components/ui/accordion';
 	import { languages } from '$lib/i18n';
-	import { tick } from 'svelte';
 
 	let data: {
 		contactForm: any;
@@ -281,7 +280,7 @@
 							<Table.Root>
 								<Table.Body>
 									{#each tableRows as row}
-										{#if !row.value.includes('null')}
+										{#if !(row.value || '').includes('null')}
 											<Table.Row
 												class="bg-foreground/5 hover:bg-foreground/10 border-foreground/20"
 											>

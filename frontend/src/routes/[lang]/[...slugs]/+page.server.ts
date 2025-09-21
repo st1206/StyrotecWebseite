@@ -20,7 +20,7 @@ export async function entries() {
 			const slug = pageConfig[slugKey];
 
 			// Skip dynamic detail pages (they contain {slug} or {id})
-			if (!slug.includes('{')) {
+			if (!(slug || '').includes('{')) {
 				routes.push({
 					lang,
 					slugs: slug

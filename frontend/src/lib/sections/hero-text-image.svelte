@@ -41,7 +41,7 @@
 		<div
 			class="prose prose-sm prose-neutral md:prose-base xl:prose-lg text-justif max-w-none text-center lg:text-start"
 		>
-			{#if content.includes('<')}
+			{#if (content || '').includes('<')}
 				{@html content}
 			{:else}
 				<p>{content}</p>

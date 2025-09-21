@@ -131,7 +131,7 @@
 					{#if keyphrase}
 						<div class="absolute inset-y-0 z-20 flex items-center pl-8">
 							<h1 class="font-sans text-4xl font-bold text-white drop-shadow-md lg:text-5xl">
-								{#if keyphrase.includes('<')}
+								{#if (keyphrase || '').includes('<')}
 									{@html keyphrase}
 								{:else}
 									{keyphrase}
@@ -172,7 +172,7 @@
 			{#if keyphrase}
 				<div class="absolute inset-y-0 z-20 flex items-center pl-8">
 					<h1 class="text-foreground font-sans text-4xl font-bold drop-shadow-md lg:text-5xl">
-						{#if keyphrase.includes('<')}
+						{#if (keyphrase || '').includes('<')}
 							{@html keyphrase}
 						{:else}
 							{keyphrase}
