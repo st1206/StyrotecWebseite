@@ -35,6 +35,7 @@
 		description: string;
 		isDarkMode: boolean;
 		sortOrder?: number;
+		anchor: string;
 	};
 
 	type ContentTable = {
@@ -241,8 +242,10 @@
 	{@const title = safe.getString('sectionTitle', 'Untitled Section')}
 	{@const description = safe.getString('description')}
 	{@const isDarkMode = safe.getBoolean('isDarkMode', false)}
+	{@const anchor = safe.getString('anchor')}
 
 	<div
+		id={anchor}
 		class={cn(isDarkMode ? 'py-16' : 'lg:pt-15 pb-16 pt-28', 'flex flex-col items-center gap-2')}
 	>
 		<h3

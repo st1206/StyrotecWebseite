@@ -300,6 +300,7 @@ export interface PartialComponentsContentHeader extends Struct.ComponentSchema {
     displayName: 'contentHeader';
   };
   attributes: {
+    anchor: Schema.Attribute.String;
     description: Schema.Attribute.Text & Schema.Attribute.Required;
     isDarkMode: Schema.Attribute.Boolean &
       Schema.Attribute.Required &
@@ -505,6 +506,9 @@ export interface PartialComponentsProductDataSheet
     manufacturer: Schema.Attribute.String & Schema.Attribute.Required;
     modelType: Schema.Attribute.String & Schema.Attribute.Required;
     name: Schema.Attribute.String & Schema.Attribute.Required;
+    priority: Schema.Attribute.Enumeration<['low', 'medium', 'high']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'medium'>;
     weight: Schema.Attribute.String & Schema.Attribute.Required;
     yearOfManufacture: Schema.Attribute.BigInteger & Schema.Attribute.Required;
   };

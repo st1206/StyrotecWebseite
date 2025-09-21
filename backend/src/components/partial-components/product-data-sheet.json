@@ -58,6 +58,16 @@
     "internalId": {
       "type": "string",
       "required": true
+    },
+    "priority": {
+      "type": "enumeration",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "default": "medium",
+      "required": true
     }
   }
 }

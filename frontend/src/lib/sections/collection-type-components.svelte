@@ -43,17 +43,27 @@
 			.map((entry: any) => {
 				if (!entry) return null;
 				const entrySafe = new SafeData(entry);
-				const productDataSheet = entrySafe.getObject<{ name?: string }>('productDataSheet');
+				const productDataSheet = entrySafe.getObject<{
+					name?: string;
+					priority?: 'low' | 'medium' | 'high';
+				}>('productDataSheet');
 				const title = entrySafe.getString('title');
 				const slug = entrySafe.getString('slug');
+				const updatedAt =
+					entrySafe.getString('updatedAt') || entrySafe.getString('updated_at') || '';
+
 				if (!productDataSheet && !title) return null;
 				const cardTitle = productDataSheet?.name || title || 'Untitled Item';
+				const priority = productDataSheet?.priority;
 				const pictures = entrySafe.getArray<any>('pictures', []);
 				const thumbnail = pictures[0] || null;
 				if (!slug) return null;
+
 				return {
 					title: cardTitle,
 					thumbnail,
+					priority,
+					updatedAt,
 					redirectButtons: [
 						{
 							label: $_('button.learnMore', { default: 'Learn More' }),
@@ -63,7 +73,30 @@
 					]
 				};
 			})
-			.filter((card) => card !== null);
+			.filter((card) => card !== null)
+			.sort((a, b) => {
+				// Define priority order (high = 2, medium = 1, low = 0)
+				const priorityOrder = { high: 2, medium: 1, low: 0 };
+				const aPriority = priorityOrder[a.priority as keyof typeof priorityOrder] ?? 0;
+				const bPriority = priorityOrder[b.priority as keyof typeof priorityOrder] ?? 0;
+
+				// First sort by priority (descending - high to low)
+				if (aPriority !== bPriority) {
+					return bPriority - aPriority;
+				}
+
+				// Second sort by updatedAt (descending - newest first)
+				const aDate = new Date(a.updatedAt).getTime();
+				const bDate = new Date(b.updatedAt).getTime();
+
+				// Handle invalid dates
+				if (isNaN(aDate) && isNaN(bDate)) return 0;
+				if (isNaN(aDate)) return 1; // Put invalid dates at the end
+				if (isNaN(bDate)) return -1;
+
+				return bDate - aDate;
+			});
+
 		return { cards: validCards };
 	});
 
