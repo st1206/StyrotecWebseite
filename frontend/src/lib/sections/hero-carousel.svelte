@@ -6,6 +6,7 @@
 	import { Icons } from '$lib/assets/icons';
 	import { SafeData } from '$lib/utils/validation';
 	import { getOptimizedImageUrl, getImageAltText, handleImageError } from '$lib/utils/image';
+	import { _ } from 'svelte-i18n';
 
 	let data: { keyphrase?: string; images?: ImageAsset[]; carouselSpeed?: number } = $props();
 
@@ -194,14 +195,14 @@
 						d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 002-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
 					/>
 				</svg>
-				<p class="text-muted-foreground text-lg">No carousel images available</p>
+				<p class="text-muted-foreground text-lg">{$_('empty.noContent')}</p>
 				{#if images.length > 0}
 					<p class="text-muted-foreground mt-2 text-sm">
 						{images.length} image(s) provided but none could be loaded
 					</p>
 				{:else}
 					<p class="text-muted-foreground mt-2 text-sm">
-						No images were provided for this carousel
+						{$_('empty.noItems')}
 					</p>
 				{/if}
 			</div>

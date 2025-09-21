@@ -7,6 +7,8 @@
 	import type { ImageAsset } from '$lib/types/cmsTypes/image-type';
 	import { SafeData } from '$lib/utils/validation';
 	import { getOptimizedImageUrl, getImageAltText } from '$lib/utils/image';
+	import { _ } from 'svelte-i18n';
+	import { Icons } from '$lib/assets/icons';
 
 	let data: {
 		sectionTitle?: string;
@@ -187,6 +189,13 @@
 					</div>
 				</Card.Root>
 			</a>
+		{:else}
+			<div class="col-span-full flex flex-col items-center justify-center py-12 text-center">
+				<Icons.bag class="h-12 w-12 text-muted-foreground mb-4" />
+				<h3 class="text-lg font-medium text-foreground mb-2">
+					{$_('empty.noItems')}
+				</h3>
+			</div>
 		{/each}
 	</div>
 </section>

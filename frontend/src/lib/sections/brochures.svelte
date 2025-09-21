@@ -2,13 +2,12 @@
 	import { PUBLIC_BACKEND_URL } from '$env/static/public';
 	import { Icons } from '$lib/assets/icons';
 	import type { ImageAsset } from '$lib/types/cmsTypes/image-type';
-	import { Button } from '$lib/components/ui/button';
-	import { cn } from '$lib/utils';
 	import { _ } from 'svelte-i18n';
 	import { SafeData } from '$lib/utils/validation';
 	import { handleImageError, optimizeImageUrl } from '$lib/utils/image';
+	import { getDownloadUrl } from '$lib/utils';
 
-	let data: { brochures?: { title: string; thumbnail: ImageAsset; file: any }[] } = $props();
+	let data: { brochures?: { title: string; thumbnail: ImageAsset | null; file: any }[] } = $props();
 
 	const safe = new SafeData(data);
 	const rawBrochures = safe.getArray<any>('brochures', []);
@@ -56,12 +55,6 @@
 			formats.large?.url || formats.medium?.url || formats.small?.url || thumbnail.url;
 
 		return optimizeImageUrl(largeUrl, PUBLIC_BACKEND_URL);
-	}
-
-	function getDownloadUrl(file: any): string {
-		if (!file?.url) return '#';
-
-		return !PUBLIC_BACKEND_URL.includes('https') ? `${PUBLIC_BACKEND_URL}${file.url}` : file.url;
 	}
 </script>
 

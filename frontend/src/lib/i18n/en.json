@@ -589,5 +589,17 @@
 		"lösung": "Our Solutions",
 		"links": "Maschines",
 		"rechts": "Additional equipment"
+	},
+	"empty": {
+		"noItems": "Currently no items available",
+		"noResults": "No results found",
+		"noContent": "No content available",
+		"noMachines": "Currently no machines available",
+		"noBrochures": "Currently no brochures available",
+		"noDownloads": "Currently no downloads available",
+		"noFairs": "Currently no fairs available",
+		"noNews": "Currently no news available",
+		"noEmployees": "Currently no employees available",
+		"noTestimonials": "Currently no testimonials available"
 	}
 }

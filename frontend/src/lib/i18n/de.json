@@ -591,5 +591,17 @@
 		"lösung": "Unsere Lösungen",
 		"links": "Maschinen",
 		"rechts": "Zusätzliches"
+	},
+	"empty": {
+		"noItems": "Derzeit keine Einträge vorhanden",
+		"noResults": "Keine Ergebnisse gefunden",
+		"noContent": "Kein Inhalt verfügbar",
+		"noMachines": "Derzeit keine Maschinen verfügbar",
+		"noBrochures": "Derzeit keine Broschüren verfügbar",
+		"noDownloads": "Derzeit keine Downloads verfügbar",
+		"noFairs": "Derzeit keine Messen verfügbar",
+		"noNews": "Derzeit keine Neuigkeiten verfügbar",
+		"noEmployees": "Derzeit keine Mitarbeiter verfügbar",
+		"noTestimonials": "Derzeit keine Referenzen verfügbar"
 	}
 }

@@ -4,6 +4,8 @@
 	import { SvelteMap } from 'svelte/reactivity';
 	import { innerWidth } from 'svelte/reactivity/window';
 	import { SafeData } from '$lib/utils/validation';
+	import { _ } from 'svelte-i18n';
+	import { Icons } from '$lib/assets/icons';
 
 	interface HistoryEntry {
 		title?: string;
@@ -169,6 +171,13 @@
 					<div class="col-span-4"></div>
 				</div>
 			{/if} -->
+		{:else}
+			<div class="col-span-full flex flex-col items-center justify-center py-12 text-center">
+				<Icons.time class="h-12 w-12 text-muted-foreground mb-4" />
+				<h3 class="text-lg font-medium text-foreground mb-2">
+					{$_('empty.noItems')}
+				</h3>
+			</div>
 		{/each}
 	</div>
 </section>

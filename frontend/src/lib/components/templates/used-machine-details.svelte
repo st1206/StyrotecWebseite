@@ -180,6 +180,13 @@
 							class="h-full w-full object-contain object-center"
 						/>
 					</GalleryImage>
+				{:else}
+					<div
+						class="flex flex-col items-center justify-center py-12 text-center size-[600px] md:size-[800px] bg-muted rounded-lg"
+					>
+						<Icons.image class="h-16 w-16 text-muted-foreground mb-4" />
+						<p class="text-muted-foreground">{$_('empty.noContent')}</p>
+					</div>
 				{/each}
 			</LightboxGallery>
 		</div>
@@ -205,6 +212,13 @@
 							/>
 						</span>
 					</button>
+				{:else}
+					<div
+						class="col-span-5 flex flex-col items-center justify-center py-8 text-center bg-muted rounded-lg"
+					>
+						<Icons.image class="h-8 w-8 text-muted-foreground mb-2" />
+						<p class="text-sm text-muted-foreground">{$_('empty.noContent')}</p>
+					</div>
 				{/each}
 			</div>
 		</div>
@@ -226,6 +240,8 @@
 								<Breadcrumb.Link href={crumb.href}>{crumb.label}</Breadcrumb.Link>
 							{/if}
 						</Breadcrumb.Item>
+					{:else}
+						<!-- Breadcrumbs empty state is typically not needed as there's always at least a home link -->
 					{/each}
 				</Breadcrumb.List>
 			</Breadcrumb.Root>
@@ -277,6 +293,15 @@
 												<Table.Cell class="font-medium">{row?.value}</Table.Cell>
 											</Table.Row>
 										{/if}
+									{:else}
+										<Table.Row>
+											<Table.Cell colspan={2} class="text-center py-8">
+												<div class="flex flex-col items-center justify-center">
+													<Icons.table class="h-8 w-8 text-muted-foreground mb-2" />
+													<span class="text-muted-foreground">{$_('empty.noItems')}</span>
+												</div>
+											</Table.Cell>
+										</Table.Row>
 									{/each}
 								</Table.Body>
 							</Table.Root>
@@ -302,6 +327,15 @@
 											</Table.Cell>
 											<Table.Cell class="font-medium">{row.value}</Table.Cell>
 										</Table.Row>
+									{:else}
+										<Table.Row>
+											<Table.Cell colspan={2} class="text-center py-8">
+												<div class="flex flex-col items-center justify-center">
+													<Icons.table class="h-8 w-8 text-muted-foreground mb-2" />
+													<span class="text-muted-foreground">{$_('empty.noItems')}</span>
+												</div>
+											</Table.Cell>
+										</Table.Row>
 									{/each}
 								</Table.Body>
 							</Table.Root>
@@ -323,6 +357,15 @@
 							</Table.Cell>
 							<Table.Cell class="p-2 font-medium">{row.value}</Table.Cell>
 						</Table.Row>
+					{:else}
+						<Table.Row>
+							<Table.Cell colspan={2} class="text-center py-8">
+								<div class="flex flex-col items-center justify-center">
+									<Icons.table class="h-8 w-8 text-muted-foreground mb-2" />
+									<span class="text-muted-foreground">{$_('empty.noItems')}</span>
+								</div>
+							</Table.Cell>
+						</Table.Row>
 					{/each}
 				</Table.Body>
 			</Table.Root>
@@ -335,6 +378,15 @@
 								{row.label}
 							</Table.Cell>
 							<Table.Cell class="p-2 font-medium">{row.value}</Table.Cell>
+						</Table.Row>
+					{:else}
+						<Table.Row>
+							<Table.Cell colspan={2} class="text-center py-8">
+								<div class="flex flex-col items-center justify-center">
+									<Icons.table class="h-8 w-8 text-muted-foreground mb-2" />
+									<span class="text-muted-foreground">{$_('empty.noItems')}</span>
+								</div>
+							</Table.Cell>
 						</Table.Row>
 					{/each}
 				</Table.Body>
@@ -366,6 +418,13 @@
 					alt={image.alternativeText || 'Product image'}
 					class="w-full rounded-lg object-cover"
 				/>
+			</div>
+		{:else}
+			<div
+				class="col-span-2 flex flex-col items-center justify-center py-12 text-center bg-muted rounded-lg"
+			>
+				<Icons.image class="h-12 w-12 text-muted-foreground mb-4" />
+				<p class="text-muted-foreground">{$_('empty.noContent')}</p>
 			</div>
 		{/each}
 	</div>

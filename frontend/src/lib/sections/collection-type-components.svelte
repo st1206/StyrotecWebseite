@@ -6,6 +6,10 @@
 	import Fairs from './fairs.svelte';
 	import { SafeData } from '$lib/utils/validation';
 	import Downloads from './downloads.svelte';
+	import JobAds from './job-ads.svelte';
+	import type { StrapiRichTextNode } from '$lib/utils';
+	import { Icons } from '$lib/assets/icons';
+	import type { ImageAsset } from '$lib/types/cmsTypes/image-type';
 
 	let data: any = $props();
 
@@ -109,7 +113,7 @@
 				if (!file) return null;
 				return {
 					title: entrySafe.getString('title'),
-					thumbnail: entrySafe.getObject('thumbnail'),
+					thumbnail: entrySafe.getObject<ImageAsset>('thumbnail'),
 					file
 				};
 			})
@@ -127,12 +131,12 @@
 				return {
 					name: entrySafe.getString('name', 'Unnamed Event'),
 					description: entrySafe.getString('description'),
-					content: entrySafe.getArray('content'),
 					city: entrySafe.getString('city'),
+					content: entrySafe.getArray<StrapiRichTextNode>('content'),
 					startDate,
 					endDate: entrySafe.getString('endDate'),
 					externalLink: entrySafe.getString('externalLink'),
-					logo: entrySafe.getObject('logo')
+					logo: entrySafe.getObject<ImageAsset>('logo')
 				};
 			})
 			.filter((entry) => entry !== null);
@@ -147,7 +151,6 @@
 				const entrySafe = new SafeData(entry);
 				const file = entrySafe.getObject<{ url: string }>('file');
 
-				// We only need an entry with a title and a file URL
 				if (!entrySafe.getString('title') || !file?.url) {
 					return null;
 				}
@@ -164,6 +167,33 @@
 		return validDownloads.sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0));
 	});
 
+	const jobAds = $derived.by(() => {
+		const validJobAds = dataEntries
+			.map((entry: any) => {
+				if (!entry) return null;
+
+				const entrySafe = new SafeData(entry);
+				const file = entrySafe.getObject<{ url: string }>('file');
+				const content = entrySafe.getArray<StrapiRichTextNode>('content');
+
+				// We only need an entry with a title and a file URL
+				if (!entrySafe.getString('title') || !file?.url || !content) {
+					return null;
+				}
+
+				return {
+					title: entrySafe.getString('title'),
+					description: entrySafe.getString('description'),
+					sortOrder: entrySafe.getNumber('sortOrder'),
+					content,
+					file
+				};
+			})
+			.filter((entry) => entry !== null);
+
+		return validJobAds.sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0));
+	});
+
 	const hasValidData = $derived.by(() => {
 		switch (dataType) {
 			case 'brochures':
@@ -172,6 +202,8 @@
 				return fairs.length > 0;
 			case 'downloads':
 				return downloads.length > 0;
+			case 'jobAds':
+				return jobAds.length > 0;
 			default:
 				return defaultCards.cards.length > 0;
 		}
@@ -184,7 +216,14 @@
 	});
 </script>
 
-{#if hasError}
+{#if dataEntries.length <= 1}
+	<div class="col-span-full flex flex-col items-center justify-center py-12 text-center">
+		<Icons.time class="text-muted-foreground mb-4 h-12 w-12" />
+		<h3 class="text-foreground mb-2 text-lg font-medium">
+			{$_('empty.noItems')}
+		</h3>
+	</div>
+{:else if hasError}
 	<!-- Error state (Unchanged) -->
 	<div class="py-16 text-center">
 		<div
@@ -240,11 +279,13 @@
 	</div>
 	<!-- --- TEMPLATE MODIFICATION --- -->
 {:else if dataType === 'brochures'}
-	<Brochures brochures={brochures as any} />
+	<Brochures {brochures} />
 {:else if dataType === 'fairs'}
-	<Fairs fairs={fairs as any} />
+	<Fairs {fairs} />
 {:else if dataType === 'downloads'}
 	<Downloads {downloads} />
+{:else if dataType === 'jobAds'}
+	<JobAds {jobAds} />
 {:else}
 	<DefaultCards {...defaultCards} />
 {/if}

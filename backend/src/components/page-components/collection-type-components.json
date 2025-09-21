@@ -16,7 +16,8 @@
         "defaultCards",
         "brochures",
         "fairs",
-        "downloads"
+        "downloads",
+        "jobAds"
       ],
       "default": "defaultCards",
       "required": true

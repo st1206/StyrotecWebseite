@@ -21,7 +21,7 @@
 			startDate?: string;
 			endDate?: string;
 			externalLink?: string;
-			logo?: ImageAsset;
+			logo?: ImageAsset | null;
 		} | null)[];
 	} = $props();
 

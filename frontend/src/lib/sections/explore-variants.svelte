@@ -6,6 +6,8 @@
 	import { getImageAltText, getOptimizedImageUrl } from '$lib/utils/image';
 	import { SafeData } from '$lib/utils/validation';
 	import { innerWidth } from 'svelte/reactivity/window';
+	import { _ } from 'svelte-i18n';
+	import { Icons } from '$lib/assets/icons';
 
 	let data: {
 		sectionTitle?: string;
@@ -96,9 +98,19 @@
 															<span>{line.label}</span>
 															<span>{line.value}</span>
 														</div>
+													{:else}
+														<div class="flex items-center justify-center py-4 text-muted-foreground">
+															<Icons.bag class="h-6 w-6 mr-2" />
+															<span class="text-sm">{$_('empty.noItems')}</span>
+														</div>
 													{/each}
 												</Accordion.Content>
 											</Accordion.Item>
+										{:else}
+											<div class="flex items-center justify-center py-8 text-muted-foreground">
+												<Icons.bag class="h-8 w-8 mr-3" />
+												<span>{$_('empty.noItems')}</span>
+											</div>
 										{/each}
 									</Accordion.Root>
 								</div>
@@ -107,6 +119,13 @@
 					</div>
 				</div>
 			</Card.Root>
+		{:else}
+			<div class="col-span-full flex flex-col items-center justify-center py-12 text-center">
+				<Icons.bag class="h-12 w-12 text-muted-foreground mb-4" />
+				<h3 class="text-lg font-medium text-foreground mb-2">
+					{$_('empty.noItems')}
+				</h3>
+			</div>
 		{/each}
 	</div>
 </section>

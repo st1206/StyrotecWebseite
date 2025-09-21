@@ -7,6 +7,7 @@ import { locale } from 'svelte-i18n';
 import { get } from 'svelte/store';
 import { error } from '@sveltejs/kit';
 import { innerWidth } from 'svelte/reactivity/window';
+import { PUBLIC_BACKEND_URL } from '$env/static/public';
 
 export function handleAccordionViewport(
 	variantIndex: number,
@@ -170,4 +171,10 @@ function resolveRichTextNode(node: StrapiRichTextNode) {
 	}
 
 	return html;
+}
+
+export function getDownloadUrl(file: any): string {
+	if (!file?.url) return '#';
+
+	return !PUBLIC_BACKEND_URL.includes('https') ? `${PUBLIC_BACKEND_URL}${file.url}` : file.url;
 }

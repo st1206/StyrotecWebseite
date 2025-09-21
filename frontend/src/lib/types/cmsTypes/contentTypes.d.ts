@@ -2179,12 +2179,12 @@ export interface ApiInstockPageInstockPage extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiJobOfferJobOffer extends Struct.CollectionTypeSchema {
-  collectionName: 'job_offers';
+export interface ApiJobAdJobAd extends Struct.CollectionTypeSchema {
+  collectionName: 'job_ads';
   info: {
     displayName: 'Stellenausschreibung';
-    pluralName: 'job-offers';
-    singularName: 'job-offer';
+    pluralName: 'job-ads';
+    singularName: 'job-ad';
   };
   options: {
     draftAndPublish: true;
@@ -2208,7 +2208,7 @@ export interface ApiJobOfferJobOffer extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::job-offer.job-offer'
+      'api::job-ad.job-ad'
     >;
     publishedAt: Schema.Attribute.DateTime;
     Stelle: Schema.Attribute.String &
@@ -4888,7 +4888,7 @@ declare module '@strapi/strapi' {
       'api::hybrid-page.hybrid-page': ApiHybridPageHybridPage;
       'api::industries-page.industries-page': ApiIndustriesPageIndustriesPage;
       'api::instock-page.instock-page': ApiInstockPageInstockPage;
-      'api::job-offer.job-offer': ApiJobOfferJobOffer;
+      'api::job-ad.job-ad': ApiJobAdJobAd;
       'api::lathe.lathe': ApiLatheLathe;
       'api::lathes-page.lathes-page': ApiLathesPageLathesPage;
       'api::legal-notice-page.legal-notice-page': ApiLegalNoticePageLegalNoticePage;

@@ -700,7 +700,7 @@ export interface ApiCareerCareer extends Struct.SingleTypeSchema {
   collectionName: 'careers';
   info: {
     description: '';
-    displayName: 'Karriere';
+    displayName: 'Karriere Seite';
     pluralName: 'careers';
     singularName: 'career';
   };
@@ -2531,13 +2531,13 @@ export interface ApiInstockPageInstockPage extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiJobOfferJobOffer extends Struct.CollectionTypeSchema {
-  collectionName: 'job_offers';
+export interface ApiJobAdJobAd extends Struct.CollectionTypeSchema {
+  collectionName: 'job_ads';
   info: {
     description: '';
     displayName: 'Stellenausschreibungen';
-    pluralName: 'job-offers';
-    singularName: 'job-offer';
+    pluralName: 'job-ads';
+    singularName: 'job-ad';
   };
   options: {
     draftAndPublish: true;
@@ -2548,6 +2548,13 @@ export interface ApiJobOfferJobOffer extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
+    content: Schema.Attribute.Blocks &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2565,10 +2572,7 @@ export interface ApiJobOfferJobOffer extends Struct.CollectionTypeSchema {
         };
       }>;
     locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::job-offer.job-offer'
-    >;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::job-ad.job-ad'>;
     publishedAt: Schema.Attribute.DateTime;
     sortOrder: Schema.Attribute.Integer &
       Schema.Attribute.Required &
@@ -5604,7 +5608,7 @@ declare module '@strapi/strapi' {
       'api::instock-machine.instock-machine': ApiInstockMachineInstockMachine;
       'api::instock-machines-details-page.instock-machines-details-page': ApiInstockMachinesDetailsPageInstockMachinesDetailsPage;
       'api::instock-page.instock-page': ApiInstockPageInstockPage;
-      'api::job-offer.job-offer': ApiJobOfferJobOffer;
+      'api::job-ad.job-ad': ApiJobAdJobAd;
       'api::lathe.lathe': ApiLatheLathe;
       'api::lathes-page.lathes-page': ApiLathesPageLathesPage;
       'api::legal-notice-page.legal-notice-page': ApiLegalNoticePageLegalNoticePage;
