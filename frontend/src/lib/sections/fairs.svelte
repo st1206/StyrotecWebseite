@@ -140,7 +140,7 @@
 									{/if}
 								</div>
 								<div class="col-span-2 mt-2">
-									<Button class="w-max" href="href={item.externalLink}">
+									<Button class="w-max" href={item.externalLink}>
 										<span class="skew-x-[15deg]">
 											{$_('button.learnMore')}
 										</span>
