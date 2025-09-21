@@ -48,7 +48,7 @@
 						<span class="text-primary mt-1 flex-shrink-0">&#x2713;</span>
 						<div class="flex-1">
 							<p class="break-words sm:break-normal">
-								{#if item.name.includes('<')}
+								{#if (item.name || '').includes('<')}
 									{@html item.name}
 								{:else}
 									{item.name}
@@ -58,7 +58,7 @@
 								<div
 									class="prose prose-sm prose-neutral text-secondary/80 mt-2 max-w-none font-normal"
 								>
-									{#if item.content.includes('<')}
+									{#if (item.content || '').includes('<')}
 										{@html item.content}
 									{:else}
 										<p>{item.content}</p>

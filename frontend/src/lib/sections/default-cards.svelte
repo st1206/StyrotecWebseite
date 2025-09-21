@@ -102,7 +102,7 @@
 							isDarkMode ? 'text-secondary' : 'text-foreground'
 						)}
 					>
-						{#if description.includes('<')}
+						{#if (description || '').includes('<')}
 							{@html description}
 						{:else}
 							<p>{description}</p>
@@ -176,7 +176,7 @@
 										class="bg-foreground/90 absolute bottom-0 flex w-full flex-wrap items-center justify-between gap-x-2 p-2 px-4"
 									>
 										<h4 class="text-secondary font-sans text-2xl font-bold lg:text-2xl">
-											{#if card.title.includes('<')}
+											{#if (card.title || '').includes('<')}
 												{@html card.title}
 											{:else}
 												{card.title}
@@ -201,7 +201,7 @@
 							<div class="flex flex-grow flex-col justify-between p-6 md:p-10">
 								<div>
 									<h3 class="font-sans text-lg font-bold sm:text-3xl xl:text-4xl">
-										{#if card.title.includes('<')}
+										{#if (card.title || '').includes('<')}
 											{@html card.title}
 										{:else}
 											{card.title}
