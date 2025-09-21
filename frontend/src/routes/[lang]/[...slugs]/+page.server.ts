@@ -5,15 +5,15 @@ import { loadCMSData, CMSFetchError } from '$lib/server/utils';
 import { contactFormSchema } from '$lib/models/contact-form-schema';
 import { zod } from 'sveltekit-superforms/adapters';
 import { fail, message, superValidate } from 'sveltekit-superforms';
-import { EMAIL_ADRESS, EMAIL_HOST, EMAIL_PASSWORD } from '$env/static/private';
+import { EMAIL_ADRESS, EMAIL_HOST, EMAIL_PASSWORD, VERCEL_ENV } from '$env/static/private';
 import { getContactFormTemplate, getContactFormText } from '$lib/server/email';
 import nodemailer from 'nodemailer';
 
-export const prerender = false;
+export const prerender = VERCEL_ENV === 'development' ? false : true;
 
 export async function entries() {
 	const routes = [];
-	const languages: Lang[] = ['de']; // Only prerender German pages for testing
+	const languages: Lang[] = ['de', 'en']; // Only prerender German pages for testing
 
 	// Generate routes for German pages only
 	for (const [pageKey, pageConfig] of Object.entries(pages)) {
