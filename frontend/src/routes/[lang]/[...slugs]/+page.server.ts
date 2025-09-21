@@ -266,57 +266,57 @@ export const load = async <L extends Lang>({ params }: { params: { lang: L; slug
 	};
 };
 
-export const actions: Actions = {
-	default: async ({ request }) => {
-		const form = await superValidate(request, zod(contactFormSchema));
+// export const actions: Actions = {
+// 	default: async ({ request }) => {
+// 		const form = await superValidate(request, zod(contactFormSchema));
 
-		if (!form.valid) {
-			return fail(400, {
-				form
-			});
-		}
+// 		if (!form.valid) {
+// 			return fail(400, {
+// 				form
+// 			});
+// 		}
 
-		const transportData = {
-			host: EMAIL_HOST,
-			port: 587,
-			secure: false, // A new SMTP connection is created for every message
-			auth: {
-				user: EMAIL_ADRESS,
-				pass: EMAIL_PASSWORD
-			}
-		};
+// 		const transportData = {
+// 			host: EMAIL_HOST,
+// 			port: 587,
+// 			secure: false, // A new SMTP connection is created for every message
+// 			auth: {
+// 				user: EMAIL_ADRESS,
+// 				pass: EMAIL_PASSWORD
+// 			}
+// 		};
 
-		const transporter = nodemailer.createTransport(transportData);
+// 		const transporter = nodemailer.createTransport(transportData);
 
-		const mailOptions = {
-			from: EMAIL_ADRESS,
-			to: form.data.mailToContactPerson,
-			subject: 'Kontaktanfrage',
-			text: getContactFormText(form.data),
-			html: getContactFormTemplate(form.data),
-			replyTo: form.data.email
-		};
+// 		const mailOptions = {
+// 			from: EMAIL_ADRESS,
+// 			to: form.data.mailToContactPerson,
+// 			subject: 'Kontaktanfrage',
+// 			text: getContactFormText(form.data),
+// 			html: getContactFormTemplate(form.data),
+// 			replyTo: form.data.email
+// 		};
 
-		try {
-			await transporter.verify();
-			console.log('Server is ready to take messages');
-		} catch (err) {
-			console.error('Verification failed', err);
-			return message(form, 'SMTP server not reachable', {
-				status: 403
-			});
-		}
+// 		try {
+// 			await transporter.verify();
+// 			console.log('Server is ready to take messages');
+// 		} catch (err) {
+// 			console.error('Verification failed', err);
+// 			return message(form, 'SMTP server not reachable', {
+// 				status: 403
+// 			});
+// 		}
 
-		try {
-			const info = await transporter.sendMail(mailOptions);
+// 		try {
+// 			const info = await transporter.sendMail(mailOptions);
 
-			console.log('Message sent: %s', info.messageId);
-			return message(form, 'success');
-		} catch (err: unknown) {
-			console.error('Error while sending mail', err);
-			return message(form, err, {
-				status: 403
-			});
-		}
-	}
-};
+// 			console.log('Message sent: %s', info.messageId);
+// 			return message(form, 'success');
+// 		} catch (err: unknown) {
+// 			console.error('Error while sending mail', err);
+// 			return message(form, err, {
+// 				status: 403
+// 			});
+// 		}
+// 	}
+// };

@@ -21,19 +21,30 @@ function getCachedPageKey(slug: string, slugKey: SlugKey): string | null {
 
 export const handle: Handle = async ({ event, resolve }) => {
 	const { pathname } = event.url;
+
+	// Skip redirect logic for API routes
+	if (pathname.startsWith('/api/')) {
+		return resolve(event, {
+			filterSerializedResponseHeaders(name) {
+				return name === 'content-range';
+			}
+		});
+	}
+
 	const segments = pathname.split('/').filter(Boolean);
+
 	/* ───────────── Step1: prepend language prefix if missing ───────────── */
 	if (!/\/(?:de|en)(?:\/|$)/.test(pathname)) {
 		const acceptLang = event.request.headers.get('accept-language') ?? '';
 		const browserLang = acceptLang.split(',')[0];
 		const matched = languages.find((l) => browserLang.startsWith(l.code.split('-')[0]));
-		const target = matched?.code ?? DEFAULT_LOCALE; // e.g. “de-DE”
-		const prefix = target.split('-')[0] as Lang; // “de” | “en”
+		const target = matched?.code ?? DEFAULT_LOCALE; // e.g. "de-DE"
+		const prefix = target.split('-')[0] as Lang; // "de" | "en"
 
 		redirect(307, `/${prefix}${pathname}`); // ⟵ EARLY EXIT
 	}
 
-	/* ───────────── Step2: redirect “/de” → “/de/start” etc. ───────────── */
+	/* ───────────── Step2: redirect "/de" → "/de/start" etc. ───────────── */
 	const lang = !segments.some((segment) => segment.startsWith('.')) ? (segments[0] as Lang) : 'en';
 
 	const incomingSlug =
