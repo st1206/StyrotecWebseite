@@ -3,11 +3,12 @@
 	import * as Card from '$lib/components/ui/card';
 	import type { ImageAsset } from '$lib/types/cmsTypes/image-type';
 	import { handleAccordionViewport } from '$lib/utils';
-	import { getImageAltText, getOptimizedImageUrl } from '$lib/utils/image';
 	import { SafeData } from '$lib/utils/validation';
 	import { innerWidth } from 'svelte/reactivity/window';
 	import { _ } from 'svelte-i18n';
 	import { Icons } from '$lib/assets/icons';
+	import { ScrollArea } from '$lib/components/ui/scroll-area';
+	import { getImageAltText, getOptimizedImageUrl } from '$lib/utils/image';
 
 	let data: {
 		sectionTitle?: string;
@@ -76,44 +77,46 @@
 
 						<div>
 							<Card.Content>
-								<div
-									bind:this={scrollableDivs[i]}
-									class="w-full overflow-y-auto pr-2"
-									style="height: {scrollAreaHeight}"
-								>
-									<Accordion.Root
-										type="single"
-										class="flex w-full flex-col gap-4"
-										onValueChange={(value) =>
-											value && handleAccordionViewport(i, value, scrollableDivs, 'nearest')}
-									>
-										{#each variant.accordionItems as item, j}
-											<Accordion.Item value={`item-${i}-${j}`} data-value={`item-${i}-${j}`}>
-												<Accordion.Trigger class="text-secondary font-sans font-medium">
-													{item.title}
-												</Accordion.Trigger>
-												<Accordion.Content class="bg-secondary/5 text-secondary">
-													{#each item.accordionItemLines as line, k}
-														<div class="flex justify-between">
-															<span>{line.label}</span>
-															<span>{line.value}</span>
-														</div>
-													{:else}
-														<div class="flex items-center justify-center py-4 text-muted-foreground">
-															<Icons.bag class="h-6 w-6 mr-2" />
-															<span class="text-sm">{$_('empty.noItems')}</span>
-														</div>
-													{/each}
-												</Accordion.Content>
-											</Accordion.Item>
-										{:else}
-											<div class="flex items-center justify-center py-8 text-muted-foreground">
-												<Icons.bag class="h-8 w-8 mr-3" />
-												<span>{$_('empty.noItems')}</span>
-											</div>
-										{/each}
-									</Accordion.Root>
-								</div>
+								<ScrollArea class="w-full" style="height: {scrollAreaHeight}">
+									<div bind:this={scrollableDivs[i]} class="h-full w-full">
+										<div class="pr-4">
+											<Accordion.Root
+												type="single"
+												class="flex w-full flex-col gap-4"
+												onValueChange={(value) =>
+													value && handleAccordionViewport(i, value, scrollableDivs, 'nearest', 160)}
+											>
+												{#each variant.accordionItems as item, j}
+													<Accordion.Item value={`item-${i}-${j}`} data-value={`item-${i}-${j}`}>
+														<Accordion.Trigger class="text-secondary font-sans font-medium">
+															{item.title}
+														</Accordion.Trigger>
+														<Accordion.Content class="bg-secondary/5 text-secondary">
+															{#each item.accordionItemLines as line, k}
+																<div class="flex justify-between">
+																	<span>{line.label}</span>
+																	<span>{line.value}</span>
+																</div>
+															{:else}
+																<div
+																	class="flex items-center justify-center py-4 text-muted-foreground"
+																>
+																	<Icons.bag class="h-6 w-6 mr-2" />
+																	<span class="text-sm">{$_('empty.noItems')}</span>
+																</div>
+															{/each}
+														</Accordion.Content>
+													</Accordion.Item>
+												{:else}
+													<div class="flex items-center justify-center py-8 text-muted-foreground">
+														<Icons.bag class="h-8 w-8 mr-3" />
+														<span>{$_('empty.noItems')}</span>
+													</div>
+												{/each}
+											</Accordion.Root>
+										</div>
+									</div>
+								</ScrollArea>
 							</Card.Content>
 						</div>
 					</div>

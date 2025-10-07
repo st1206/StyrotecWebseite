@@ -13,7 +13,8 @@ export function handleAccordionViewport(
 	variantIndex: number,
 	itemValue: string,
 	scrollableDivs: (HTMLDivElement | null)[],
-	block?: ScrollLogicalPosition | undefined
+	block?: ScrollLogicalPosition | undefined,
+	delay?: number
 ) {
 	if ((innerWidth?.current ?? 0) < 1440) return;
 
@@ -35,7 +36,7 @@ export function handleAccordionViewport(
 				block: block || 'center'
 			});
 		}
-	}, 160);
+	}, delay ?? 250);
 }
 
 export function cn(...inputs: ClassValue[]) {
@@ -82,15 +83,15 @@ export function getRedirectLink(slug: string): string {
 // STRAPI RICH TEXT
 export type StrapiRichTextNode = {
 	type:
-		| 'text'
-		| 'heading'
-		| 'paragraph'
-		| 'list'
-		| 'list-item'
-		| 'link'
-		| 'quote'
-		| 'code'
-		| 'image';
+	| 'text'
+	| 'heading'
+	| 'paragraph'
+	| 'list'
+	| 'list-item'
+	| 'link'
+	| 'quote'
+	| 'code'
+	| 'image';
 	level?: 1 | 2 | 3 | 4 | 5 | 6;
 	format?: 'unordered' | 'ordered';
 	text?: string;
