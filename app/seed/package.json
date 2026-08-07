@@ -1,0 +1,21 @@
+{
+  "name": "seed",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "seed": "tsx src/index.ts",
+    "schema": "tsx src/schema/apply.ts",
+    "types": "tsx src/schema/generate-types.ts",
+    "snapshot": "tsx src/schema/snapshot.ts"
+  },
+  "dependencies": {
+    "@directus/sdk": "^18.0.0",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "@types/node": "^22.5.0"
+  }
+}

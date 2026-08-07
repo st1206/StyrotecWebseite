@@ -1,0 +1,70 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  directus:
+    # 11.5+ ships the Visual Editor module (click-to-edit in the admin app)
+    image: directus/directus:11
+    ports:
+      - "${DIRECTUS_PORT}:8055"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./cms/uploads:/directus/uploads
+      - ./cms/extensions:/directus/extensions
+      - ./cms/snapshots:/directus/snapshots
+    environment:
+      KEY: ${DIRECTUS_KEY}
+      SECRET: ${DIRECTUS_SECRET}
+      ADMIN_EMAIL: ${DIRECTUS_ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${DIRECTUS_ADMIN_PASSWORD}
+      PUBLIC_URL: ${DIRECTUS_PUBLIC_URL}
+      DB_CLIENT: pg
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_DATABASE: ${POSTGRES_DB}
+      DB_USER: ${POSTGRES_USER}
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
+      CORS_ENABLED: "true"
+      CORS_ORIGIN: "http://localhost:${WEB_PORT}"
+      # Allow the admin app to embed the website (Live Preview + Visual Editor)
+      CONTENT_SECURITY_POLICY_DIRECTIVES__FRAME_SRC: "'self',http://localhost:${WEB_PORT}"
+      WEBSOCKETS_ENABLED: "true"
+      CACHE_ENABLED: "false"
+      EXTENSIONS_AUTO_RELOAD: "true"
+      # Available to Flows (Meilisearch sync — optional `--profile search`)
+      MEILI_URL: ${MEILI_URL:-http://meilisearch:7700}
+      MEILI_MASTER_KEY: ${MEILI_MASTER_KEY}
+      FLOWS_ENV_ALLOW_LIST: "MEILI_URL,MEILI_MASTER_KEY,MEILI_INDEX"
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8055/server/health"]
+      interval: 5s
+      timeout: 3s
+      retries: 40
+
+  meilisearch:
+    image: getmeili/meilisearch:v1.10
+    profiles: ["search"]
+    ports:
+      - "${MEILI_PORT}:7700"
+    environment:
+      MEILI_MASTER_KEY: ${MEILI_MASTER_KEY}
+      MEILI_ENV: development
+    volumes:
+      - meili_data:/meili_data
+
+volumes:
+  postgres_data:
+  meili_data:

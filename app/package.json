@@ -1,0 +1,22 @@
+{
+  "name": "styrotec-directus-app",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "up": "docker compose up -d",
+    "down": "docker compose down",
+    "logs": "docker compose logs -f directus",
+    "reset": "docker compose down -v && docker compose up -d",
+    "schema": "pnpm --filter seed run schema",
+    "seed": "pnpm --filter seed run seed",
+    "dev": "pnpm --filter web run dev",
+    "types": "pnpm --filter seed run types",
+    "snapshot": "pnpm --filter seed run snapshot",
+    "bootstrap": "pnpm install && pnpm up && pnpm schema && pnpm seed && pnpm types"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "packageManager": "pnpm@9.12.0"
+}

@@ -1,0 +1,96 @@
+{
+  "flow": {
+    "name": "Sync cnc_mills → Meilisearch",
+    "icon": "search",
+    "color": "#F6A313",
+    "description": "Upserts published cnc_mills rows into Meilisearch on create/update; removes on delete. Duplicate this flow for each additional machine collection.",
+    "status": "active",
+    "trigger": "event",
+    "accountability": "all",
+    "options": {
+      "type": "action",
+      "scope": [
+        "items.create",
+        "items.update",
+        "items.delete"
+      ],
+      "collections": ["cnc_mills"]
+    }
+  },
+  "operations": [
+    {
+      "name": "Read full record",
+      "key": "read_record",
+      "type": "item-read",
+      "position_x": 19,
+      "position_y": 1,
+      "options": {
+        "collection": "cnc_mills",
+        "key": "{{ $trigger.keys ?? [$trigger.key] }}",
+        "query": {
+          "fields": ["*", "translations.*", "pictures.directus_files_id"]
+        }
+      },
+      "resolve": "check_published"
+    },
+    {
+      "name": "Skip unpublished",
+      "key": "check_published",
+      "type": "condition",
+      "position_x": 37,
+      "position_y": 1,
+      "options": {
+        "filter": {
+          "read_record": {
+            "status": { "_eq": "published" }
+          }
+        }
+      },
+      "resolve": "build_payload",
+      "reject": "delete_from_index"
+    },
+    {
+      "name": "Build Meilisearch documents",
+      "key": "build_payload",
+      "type": "exec",
+      "position_x": 55,
+      "position_y": 1,
+      "options": {
+        "code": "module.exports = async function({ read_record }) {\n  const rows = Array.isArray(read_record) ? read_record : [read_record];\n  const docs = rows.flatMap((r) =>\n    (r.translations ?? []).map((t) => ({\n      objectID: `cnc_mills:${r.id}:${t.languages_code}`,\n      collection: 'cnc_mills',\n      lang: t.languages_code,\n      id: r.id,\n      slug: t.slug,\n      name: t.name,\n      designation: t.designation,\n      manufacturer: t.manufacturer,\n      location: r.location,\n      available: r.available,\n      condition_key: r.condition_key,\n      year_of_manufacture: r.year_of_manufacture,\n      image_id: r.pictures?.[0]?.directus_files_id ?? null,\n    })),\n  );\n  return { docs };\n}"
+      },
+      "resolve": "push_to_meili"
+    },
+    {
+      "name": "Push to Meilisearch",
+      "key": "push_to_meili",
+      "type": "request",
+      "position_x": 73,
+      "position_y": 1,
+      "options": {
+        "method": "POST",
+        "url": "{{$env.MEILI_URL ?? 'http://meilisearch:7700'}}/indexes/{{$env.MEILI_INDEX ?? 'machines'}}/documents",
+        "headers": [
+          { "header": "Authorization", "value": "Bearer {{$env.MEILI_MASTER_KEY}}" },
+          { "header": "Content-Type", "value": "application/json" }
+        ],
+        "body": "{{build_payload.docs}}"
+      }
+    },
+    {
+      "name": "Delete from index",
+      "key": "delete_from_index",
+      "type": "request",
+      "position_x": 55,
+      "position_y": 19,
+      "options": {
+        "method": "POST",
+        "url": "{{$env.MEILI_URL ?? 'http://meilisearch:7700'}}/indexes/{{$env.MEILI_INDEX ?? 'machines'}}/documents/delete-batch",
+        "headers": [
+          { "header": "Authorization", "value": "Bearer {{$env.MEILI_MASTER_KEY}}" },
+          { "header": "Content-Type", "value": "application/json" }
+        ],
+        "body": "{{ ($trigger.keys ?? [$trigger.key]).flatMap((k) => ['cnc_mills:' + k + ':de-DE', 'cnc_mills:' + k + ':en-US']) }}"
+      }
+    }
+  ]
+}
